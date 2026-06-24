@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XAUUSD 黄金交易中心 · Gold Trading Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+:root{
+  --gold:#C9A84C;--gold-lt:#E8C96D;--gold-dk:#8A6B28;
+  --bear:#E05252;--bull:#4CAF7C;--neut:#7B8EA6;
+  --bg:#0B0D12;--bg2:#111420;--bg3:#181C28;--bg4:#1E2235;
+  --border:#252A3A;--text:#C8D0E0;--dim:#606880;--white:#EEF2FF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.7;min-height:100vh}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{padding:64px 24px 48px;text-align:center;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at top,rgba(201,168,76,.08),transparent 60%)}
+.hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,7vw,60px);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero .sub{font-size:15px;color:var(--dim);max-width:560px;margin:14px auto 0;line-height:1.8}
+.ticker{display:inline-flex;align-items:baseline;gap:14px;margin-top:28px;padding:14px 26px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;font-family:'IBM Plex Mono',monospace}
+.ticker .sym{font-size:12px;letter-spacing:2px;color:var(--dim)}
+.ticker .px{font-size:30px;font-weight:600;color:var(--gold-lt);letter-spacing:-1px}
+.ticker .chg{font-size:13px;color:var(--bear)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;padding:48px 0}
+@media(max-width:760px){.grid{grid-template-columns:1fr;padding:32px 0}.hero{padding:44px 20px 36px}}
+.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:30px 32px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.tile:hover{border-color:var(--gold-dk);transform:translateY(-2px)}
+.tile .bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
+.tile.main .bar{background:linear-gradient(90deg,var(--gold-lt),var(--gold),transparent)}
+.tile .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:14px}
+.tile .ico{font-size:30px;margin-bottom:14px}
+.tile h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.2}
+.tile.main h2{font-size:30px}
+.tile p{font-size:13px;color:var(--text);line-height:1.75;flex:1}
+.tile .meta{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:4px 10px;border-radius:2px;text-transform:uppercase}
+.chip.bear{background:rgba(224,82,82,.15);color:var(--bear);border:1px solid rgba(224,82,82,.25)}
+.chip.bull{background:rgba(76,175,124,.15);color:var(--bull);border:1px solid rgba(76,175,124,.25)}
+.chip.gold{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
+.tile .go{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-lt);margin-top:6px;font-weight:600}
+.tile:hover .go{color:var(--gold-lt)}
+.tile.main{grid-row:span 2}
+
+.feats{list-style:none;margin:14px 0 0;padding:0}
+.feats li{font-size:12.5px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid rgba(37,42,58,.5)}
+.feats li:last-child{border-bottom:none}
+.feats li::before{content:'▸';color:var(--gold);font-size:10px;padding-top:2px}
+
+footer{border-top:1px solid var(--border);padding:28px 24px 40px;text-align:center}
+footer .disc{font-size:11px;color:var(--dim);max-width:680px;margin:0 auto;line-height:1.8}
+footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);margin-bottom:12px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="topstrip"></div>
+
+<section class="hero">
+  <div class="eyebrow">◆ XAUUSD · Gold Spot · Trading Intelligence</div>
+  <h1>黄金交易<em>中心</em></h1>
+  <div class="sub">每日深度盘面分析 + 完整策略与形态手册。技术结构、关键价位、基本面驱动、操作场景与风险纪律，一站集成。</div>
+  <div class="ticker">
+    <span class="sym">XAU/USD</span>
+    <span class="px">$4,106</span>
+    <span class="chg">▼ 0.83%</span>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="grid">
+
+    <!-- MAIN: Daily Analysis -->
+    <a class="tile main" href="daily.html">
+      <div class="bar"></div>
+      <div class="tag">★ 主功能 · 每日更新</div>
+      <div class="ico">📊</div>
+      <h2>每日深度分析</h2>
+      <p>2026年6月24日最新盘面。多周期技术结构、关键支撑阻力层级、技术指标读数、基本面驱动因素、今日操作场景与 PCE 前夕风险预案。</p>
+      <div class="meta">
+        <span class="chip bear">短线强烈看空</span>
+        <span class="chip gold">⚠ 明日核心PCE</span>
+        <span class="chip bull">长线结构牛市</span>
+      </div>
+      <ul class="feats">
+        <li>价格快照 · 昨日对比 · 52周分位</li>
+        <li>月线 → M5 六周期趋势结构</li>
+        <li>R4→S4 完整支撑阻力层级表</li>
+        <li>FED / DXY / PCE / 地缘 驱动解析</li>
+        <li>多空双场景 + 三大时段操作节奏</li>
+      </ul>
+      <div class="go">进入每日分析 →</div>
+    </a>
+
+    <!-- Strategy Handbook -->
+    <a class="tile" href="strategy.html">
+      <div class="bar"></div>
+      <div class="tag">参考手册</div>
+      <div class="ico">📖</div>
+      <h2>策略与形态手册</h2>
+      <p>9 种形态识别图鉴、4 套交易策略框架、K 线进场信号与交易心法。交互式查阅进场 / 止损 / 目标规则。</p>
+      <div class="meta">
+        <span class="chip gold">9 形态</span>
+        <span class="chip gold">4 策略</span>
+        <span class="chip gold">心法规则</span>
+      </div>
+      <div class="go">打开手册 →</div>
+    </a>
+
+    <!-- Quick reference / discipline -->
+    <a class="tile" href="strategy.html">
+      <div class="bar"></div>
+      <div class="tag">交易纪律</div>
+      <div class="ico">🧠</div>
+      <h2>每日开盘流程</h2>
+      <p>看新闻日历 → 画关键价位 → 写今日剧本 → 等待信号 → 盘后复盘。纪律 &gt; 技术 &gt; 预测。</p>
+      <div class="go">查看心法 →</div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="upd">Last updated · 2026-06-24 · GMT+8</div>
+  <div class="disc">
+    <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com。交易前请进行独立尽职调查。
+  </div>
+</footer>
+
+<div class="topstrip"></div>
+</body>
+</html>

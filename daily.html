@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XAUUSD 每日深度分析 — 2026年6月24日</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+:root{
+  --gold:#C9A84C;--gold-lt:#E8C96D;--gold-dk:#8A6B28;
+  --bear:#E05252;--bull:#4CAF7C;--neut:#7B8EA6;
+  --bg:#0B0D12;--bg2:#111420;--bg3:#181C28;--bg4:#1E2235;
+  --border:#252A3A;--text:#C8D0E0;--dim:#606880;--white:#EEF2FF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:28px 48px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hl-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
+header h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
+header h1 em{color:var(--gold);font-style:normal}
+.hdate{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
+.hprice{text-align:right}
+.hprice-num{font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:600;color:var(--gold-lt);letter-spacing:-2px}
+.hprice-chg{font-family:'IBM Plex Mono',monospace;font-size:13px;margin-top:4px}
+.hprice-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:3px}
+.biasbar{background:var(--bg3);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.biaslabel{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-right:6px}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1.5px;padding:4px 12px;border-radius:2px;text-transform:uppercase}
+.badge.bear{background:rgba(224,82,82,.15);color:var(--bear);border:1px solid rgba(224,82,82,.25)}
+.badge.bull{background:rgba(76,175,124,.15);color:var(--bull);border:1px solid rgba(76,175,124,.25)}
+.badge.neut{background:rgba(123,142,166,.15);color:var(--neut);border:1px solid rgba(123,142,166,.25)}
+.badge.caut{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
+main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.full{grid-column:1/-1}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:22px 24px}
+.card-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card-eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
+.card h2{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:16px}
+.card p{font-size:12.5px;color:var(--text);line-height:1.75}
+.card p+p{margin-top:10px}
+/* snap */
+.snap-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:18px}
+.snap-cell{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:12px 14px}
+.snap-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:6px}
+.snap-val{font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:var(--white)}
+.snap-val.g{color:var(--gold-lt)}.snap-val.b{color:var(--bull)}.snap-val.r{color:var(--bear)}.snap-val.n{color:var(--neut)}
+/* scale */
+.scale-wrap{margin:4px 0 6px}
+.scale-labels{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-bottom:5px}
+.scale-track{height:6px;background:var(--bg4);border-radius:3px;position:relative}
+.scale-fill{height:100%;background:linear-gradient(90deg,var(--bull),var(--gold));border-radius:3px}
+.scale-pin{position:absolute;top:-5px;width:2px;height:16px;background:#fff;border-radius:1px}
+.scale-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:7px}
+/* tf table */
+.tf-table{width:100%;border-collapse:collapse}
+.tf-table th{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:6px 10px;border-bottom:1px solid var(--border)}
+.tf-table td{padding:9px 10px;border-bottom:1px solid rgba(37,42,58,.6);font-size:12px;vertical-align:middle}
+.tf-table tr:last-child td{border-bottom:none}
+.tf-table tr:hover td{background:var(--bg3)}
+.tf{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--gold)}
+.sig{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600}
+.sig.sell{color:var(--bear)}.sig.buy{color:var(--bull)}.sig.neut{color:var(--neut)}
+.sig-bar-wrap{width:80px;height:4px;background:var(--bg4);border-radius:2px;display:inline-block;vertical-align:middle;margin-left:6px}
+.sig-bar{height:100%;border-radius:2px}
+.sig-bar.sell{background:var(--bear)}.sig-bar.buy{background:var(--bull)}.sig-bar.neut{background:var(--neut)}
+/* ind table */
+.ind-table{width:100%;border-collapse:collapse}
+.ind-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:5px 8px;border-bottom:1px solid var(--border)}
+.ind-table td{padding:8px 8px;border-bottom:1px solid rgba(37,42,58,.5);font-size:12px}
+.ind-table tr:last-child td{border-bottom:none}
+.ind-name{color:var(--dim);font-size:11.5px}
+.ind-val{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--white)}
+.ind-sig{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600}
+.ind-sig.sell{color:var(--bear)}.ind-sig.buy{color:var(--bull)}.ind-sig.neut{color:var(--neut)}
+.ind-note{font-size:10.5px;color:var(--dim)}
+/* lvl table */
+.lvl-table{width:100%;border-collapse:collapse}
+.lvl-table th{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:5px 8px;border-bottom:1px solid var(--border)}
+.lvl-table td{padding:9px 8px;border-bottom:1px solid rgba(37,42,58,.5);font-size:12px}
+.lvl-table tr:last-child td{border-bottom:none}
+.lvl-type{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;padding:2px 7px;border-radius:2px;display:inline-block}
+.lvl-type.R{background:rgba(224,82,82,.15);color:var(--bear)}
+.lvl-type.S{background:rgba(76,175,124,.15);color:var(--bull)}
+.lvl-type.P{background:rgba(201,168,76,.15);color:var(--gold)}
+.lvl-type.K{background:rgba(123,142,166,.15);color:var(--neut)}
+.lvl-price{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--white)}
+.lvl-strength{display:flex;gap:2px;align-items:center}
+.str-dot{width:6px;height:6px;border-radius:50%}
+.str-dot.r{background:var(--bear)}.str-dot.g{background:var(--bull)}.str-dot.y{background:var(--gold)}.str-dot.off{background:var(--bg4)}
+.dist-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim)}
+/* session */
+.sess-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sess-card{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:14px 16px}
+.sess-name{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.sess-name.a{color:#8BBFE8}.sess-name.l{color:#E8C96D}.sess-name.n{color:#E88B8B}
+.sess-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-bottom:8px}
+.sess-info{font-size:12px;color:var(--text);line-height:1.6}
+.sess-setup{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--gold)}
+/* scenario */
+.scen{background:var(--bg3);border-left:3px solid;border-radius:0 3px 3px 0;padding:14px 18px;margin-bottom:12px}
+.scen.bull{border-color:var(--bull)}.scen.bear{border-color:var(--bear)}.scen.warn{border-color:var(--gold)}
+.scen h4{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.scen.bull h4{color:var(--bull)}.scen.bear h4{color:var(--bear)}.scen.warn h4{color:var(--gold)}
+.scen p{font-size:12px;line-height:1.7;color:var(--text)}
+.scen-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.scen-item{background:var(--bg4);border-radius:3px;padding:8px 10px}
+.scen-item-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
+.scen-item-val{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600}
+/* event */
+.event-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.event-item:last-child{border-bottom:none}
+.event-date{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--gold);min-width:52px;padding-top:2px;line-height:1.4}
+.event-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;padding:2px 6px;border-radius:2px;min-width:34px;text-align:center;margin-top:3px;line-height:1.4}
+.event-badge.h{background:rgba(224,82,82,.2);color:var(--bear)}.event-badge.m{background:rgba(201,168,76,.2);color:var(--gold)}.event-badge.l{background:rgba(76,175,124,.2);color:var(--bull)}
+.event-body{flex:1}
+.event-name{font-size:12.5px;font-weight:500;color:var(--white)}
+.event-note{font-size:11px;color:var(--dim);margin-top:3px;line-height:1.5}
+/* factor */
+.factor-item{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.factor-item:last-child{border-bottom:none}
+.factor-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;color:var(--gold);min-width:36px;padding-top:2px;letter-spacing:1px}
+.factor-body{flex:1;font-size:12.5px;line-height:1.7}
+.factor-body strong{color:var(--white)}
+.factor-sign{font-family:'IBM Plex Mono',monospace;font-size:9px;padding:1px 5px;border-radius:2px;margin-left:4px}
+.factor-sign.neg{background:rgba(224,82,82,.15);color:var(--bear)}.factor-sign.pos{background:rgba(76,175,124,.15);color:var(--bull)}.factor-sign.neut{background:rgba(123,142,166,.15);color:var(--neut)}
+/* inst */
+.inst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.inst-card{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:12px 14px}
+.inst-name{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.inst-target{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;color:var(--gold-lt)}
+.inst-label{font-size:10px;color:var(--dim);margin-top:3px}
+/* risk */
+.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.risk-card{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:12px 14px}
+.risk-title{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.risk-list{list-style:none}
+.risk-list li{padding:4px 0;font-size:12px;display:flex;align-items:flex-start;gap:8px;color:var(--text);border-bottom:1px solid rgba(37,42,58,.4)}
+.risk-list li:last-child{border-bottom:none}
+.risk-list li::before{content:'▸';color:var(--gold);font-size:9px;padding-top:3px;flex-shrink:0}
+/* vs yesterday */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vs-card{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:10px 14px}
+.vs-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.vs-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(37,42,58,.4);font-size:11.5px}
+.vs-row:last-child{border-bottom:none}
+.vs-key{color:var(--dim)}
+.vs-val{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--white)}
+.vs-chg{font-family:'IBM Plex Mono',monospace;font-size:10px}
+.vs-chg.up{color:var(--bull)}.vs-chg.dn{color:var(--bear)}.vs-chg.eq{color:var(--neut)}
+.disclaimer{grid-column:1/-1;font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;line-height:1.8}
+@media(max-width:760px){main{grid-template-columns:1fr;padding:18px 16px 48px}header{padding:18px 16px 14px}header h1{font-size:26px}.hprice-num{font-size:28px}.biasbar{padding:10px 16px}.snap-grid{grid-template-columns:repeat(3,1fr)}.inst-grid{grid-template-columns:repeat(2,1fr)}.sess-grid{grid-template-columns:1fr}.scen-row{grid-template-columns:1fr}.risk-grid{grid-template-columns:1fr}.vs-grid{grid-template-columns:1fr}.full{grid-column:1}}
+</style>
+</head>
+<body>
+<div class="topstrip"></div>
+
+<nav style="background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace">
+  <a href="index.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">← 首页</a>
+  <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:var(--gold-lt);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(201,168,76,.4);background:rgba(201,168,76,.12)">📊 每日分析</a>
+  <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">📖 策略手册</a>
+</nav>
+
+<header>
+  <div>
+    <div class="hl-tag">XAUUSD · 黄金现货 · 每日深度分析报告</div>
+    <h1>XAU/<em>USD</em></h1>
+    <div class="hdate">2026年6月24日（星期三）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 今日最新数据</div>
+  </div>
+  <div class="hprice">
+    <div class="hprice-num">$4,106.41</div>
+    <div class="hprice-chg" style="color:var(--bear)">▼ $34.40 &nbsp;(−0.83%) 较昨收</div>
+    <div class="hprice-sub">今日开盘 $4,191.43 &nbsp;·&nbsp; 区间 $4,090.99 – $4,198.26</div>
+  </div>
+</header>
+
+<div class="biasbar">
+  <span class="biaslabel">综合偏向</span>
+  <span class="badge bear">短线：强烈看空</span>
+  <span class="badge bear">日线：空头主导</span>
+  <span class="badge neut">中线：区间震荡</span>
+  <span class="badge bull">长线：结构牛市</span>
+  <span class="badge caut">⚠ 明日高波动：核心PCE + GDP + 初请失业金</span>
+</div>
+
+<main>
+
+<!-- ══ 价格快照 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">价格快照 · 2026年6月24日</div>
+  <div class="snap-grid">
+    <div class="snap-cell"><div class="snap-label">当前价格</div><div class="snap-val g">$4,106</div></div>
+    <div class="snap-cell"><div class="snap-label">今日开盘</div><div class="snap-val">$4,191</div></div>
+    <div class="snap-cell"><div class="snap-label">今日区间</div><div class="snap-val">$4,091–$4,198</div></div>
+    <div class="snap-cell"><div class="snap-label">历史最高 (2026/1/29)</div><div class="snap-val r">$5,602</div></div>
+    <div class="snap-cell"><div class="snap-label">距ATH跌幅</div><div class="snap-val r">−26.7%</div></div>
+    <div class="snap-cell"><div class="snap-label">年度涨幅</div><div class="snap-val b">+23.6%</div></div>
+  </div>
+  <div class="scale-wrap">
+    <div class="scale-labels">
+      <span>52周低 $3,247</span>
+      <span style="color:var(--gold)">现价 $4,106 — 区间下半段 / 加速下行中</span>
+      <span>ATH $5,602</span>
+    </div>
+    <div class="scale-track">
+      <div class="scale-fill" style="width:36.9%"></div>
+      <div class="scale-pin" style="left:36.9%"></div>
+    </div>
+    <div class="scale-caption">价格跌至52周区间36.9%分位 — 较昨日$4,128进一步走低，日内下跌超$100幅度</div>
+  </div>
+</div>
+
+<!-- ══ 昨日 vs 今日 ══ -->
+<div class="card">
+  <div class="card-eyebrow">日间对比</div>
+  <h2>昨日 vs 今日变化</h2>
+  <div class="vs-grid">
+    <div class="vs-card">
+      <div class="vs-label">价格变化</div>
+      <div class="vs-row"><span class="vs-key">收盘价</span><span class="vs-val">$4,128 → <span style="color:var(--bear)">$4,106</span></span><span class="vs-chg dn">−$22</span></div>
+      <div class="vs-row"><span class="vs-key">日内低点</span><span class="vs-val">$4,140 → <span style="color:var(--bear)">$4,091</span></span><span class="vs-chg dn">−$49</span></div>
+      <div class="vs-row"><span class="vs-key">日内高点</span><span class="vs-val">$4,160 → <span style="color:var(--bear)">$4,198</span></span><span class="vs-chg up">+$38</span></div>
+      <div class="vs-row"><span class="vs-key">日内振幅</span><span class="vs-val">$20 → $107</span><span class="vs-chg dn">扩大↑</span></div>
+    </div>
+    <div class="vs-card">
+      <div class="vs-label">结构变化</div>
+      <div class="vs-row"><span class="vs-key">RSI(14)</span><span class="vs-val">~41 → <span style="color:var(--bear)">35.9</span></span><span class="vs-chg dn">走弱</span></div>
+      <div class="vs-row"><span class="vs-key">MACD</span><span class="vs-val">+1.62 → −111.8</span><span class="vs-chg dn">转空</span></div>
+      <div class="vs-row"><span class="vs-key">日线信号</span><span class="vs-val">强烈卖出</span><span class="vs-chg eq">持续</span></div>
+      <div class="vs-row"><span class="vs-key">$4,090支撑</span><span class="vs-val">已测试</span><span class="vs-chg dn">危险</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 多周期结构 ══ -->
+<div class="card">
+  <div class="card-eyebrow">多周期技术结构</div>
+  <h2>趋势与结构分析</h2>
+  <table class="tf-table">
+    <thead><tr><th>周期</th><th>结构</th><th>信号</th></tr></thead>
+    <tbody>
+      <tr><td class="tf">月线</td><td>长期上升趋势自2022年完整，价格仍高于52周低34%</td><td><span class="sig buy">BUY</span><div class="sig-bar-wrap"><div class="sig-bar buy" style="width:65%"></div></div></td></tr>
+      <tr><td class="tf">周线</td><td>低于布林中轨 / 看空信号确认 / MACD转负</td><td><span class="sig sell">STRONG SELL</span><div class="sig-bar-wrap"><div class="sig-bar sell" style="width:80%"></div></div></td></tr>
+      <tr><td class="tf">日线</td><td>价格大幅低于EMA200 ($4,462) / SMA200 ($4,462) / 所有均线空头排列</td><td><span class="sig sell">STRONG SELL</span><div class="sig-bar-wrap"><div class="sig-bar sell" style="width:85%"></div></div></td></tr>
+      <tr><td class="tf">H4</td><td>摆动：看多 / 内部：看空 CHoCH已确认 / 价格跌破$4,140关键位</td><td><span class="sig sell">BEARISH</span><div class="sig-bar-wrap"><div class="sig-bar sell" style="width:60%"></div></div></td></tr>
+      <tr><td class="tf">M15</td><td>摆动：看空 / 内部：看多 iBOS（待确认）</td><td><span class="sig neut">MIXED</span><div class="sig-bar-wrap"><div class="sig-bar neut" style="width:50%"></div></div></td></tr>
+      <tr><td class="tf">M5</td><td>在$4,091–$4,114区间内超卖后小幅反弹</td><td><span class="sig neut">超卖反弹</span><div class="sig-bar-wrap"><div class="sig-bar neut" style="width:40%"></div></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ 技术指标 ══ -->
+<div class="card">
+  <div class="card-eyebrow">技术指标</div>
+  <h2>关键指标读数</h2>
+  <table class="ind-table">
+    <thead><tr><th>指标</th><th>读数</th><th>信号</th><th>解读</th></tr></thead>
+    <tbody>
+      <tr><td class="ind-name">RSI (14)</td><td class="ind-val">35.94</td><td><span class="ind-sig neut">中性偏空</span></td><td class="ind-note">接近超卖区（30），但未触发反弹信号；空头动能仍强</td></tr>
+      <tr><td class="ind-name">MACD (12/26/9)</td><td class="ind-val">−111.83</td><td><span class="ind-sig buy">直方图收窄</span></td><td class="ind-note">昨日+1.62今日−111.83急转空；但空头动能可能衰竭</td></tr>
+      <tr><td class="ind-name">Williams %R (14)</td><td class="ind-val">−68.35</td><td><span class="ind-sig buy">超卖区域</span></td><td class="ind-note">接近超卖临界，短线技术反弹压力增大</td></tr>
+      <tr><td class="ind-name">SMA5</td><td class="ind-val">$4,219</td><td><span class="ind-sig sell">SELL</span></td><td class="ind-note">价格大幅低于5日均线 — 空头强势</td></tr>
+      <tr><td class="ind-name">SMA20</td><td class="ind-val">$4,427</td><td><span class="ind-sig sell">SELL</span></td><td class="ind-note">VWAP与SMA20均在价格之上，空头主导</td></tr>
+      <tr><td class="ind-name">SMA50</td><td class="ind-val">$4,589</td><td><span class="ind-sig sell">SELL</span></td><td class="ind-note">远高于现价，修正幅度深</td></tr>
+      <tr><td class="ind-name">EMA10</td><td class="ind-val">$4,305</td><td><span class="ind-sig sell">SELL</span></td><td class="ind-note">所有短中期均线均在价格上方 — 全线空头排列</td></tr>
+      <tr><td class="ind-name">EMA20</td><td class="ind-val">$4,400</td><td><span class="ind-sig sell">SELL</span></td><td class="ind-note">EMA20压制 $4,400，构成中期天花板</td></tr>
+      <tr><td class="ind-name">SMA200 (日)</td><td class="ind-val">$4,463</td><td><span class="ind-sig sell">强阻力</span></td><td class="ind-note">长期均线高挂，现价距离超$350，结构性偏空</td></tr>
+      <tr><td class="ind-name">Volume节点</td><td class="ind-val">$4,320–$4,340</td><td><span class="ind-sig sell">强阻力</span></td><td class="ind-note">高量节点在$4,320–$4,340，构成主要头顶阻力</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ 支撑阻力 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">关键价位图</div>
+  <h2>支撑 &amp; 阻力完整层级</h2>
+  <table class="lvl-table">
+    <thead><tr><th>类型</th><th>价位区间</th><th>强度</th><th>距现价</th><th>形成原因</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="lvl-type R">R4</span></td>
+        <td class="lvl-price">$4,400 – $4,463</td>
+        <td><div class="lvl-strength"><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">+$294~$357</td>
+        <td>EMA20 $4,400 / SMA200 $4,463 / EMA50 $4,545 均线集群 — 多重阻力叠加</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type R">R3</span></td>
+        <td class="lvl-price">$4,305 – $4,340</td>
+        <td><div class="lvl-strength"><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">+$199~$234</td>
+        <td>EMA10 $4,305 / Volume高量节点 $4,320–$4,340 / 历史颈线区</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type R">R2</span></td>
+        <td class="lvl-price">$4,195 – $4,210</td>
+        <td><div class="lvl-strength"><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div></div></td>
+        <td class="dist-tag">+$89~$104</td>
+        <td>⭐ 今日高点 $4,198 在此止步 / 供应OB / CHoCH确认区 / 多次拒绝</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type R">R1</span></td>
+        <td class="lvl-price">$4,134 – $4,140</td>
+        <td><div class="lvl-strength"><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot r"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">+$28~$34</td>
+        <td>LiteFinance 止损位 $4,134.78 / 昨日支撑转阻力 / 短线反弹上限</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type P">当前</span></td>
+        <td class="lvl-price">$4,091 – $4,115</td>
+        <td><div class="lvl-strength"><div class="str-dot y"></div><div class="str-dot y"></div><div class="str-dot off"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">此处</td>
+        <td>当前价格盘整区 / 今日低点 $4,090.99 / RSI接近超卖 / 多空胶着</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type K">买入观察</span></td>
+        <td class="lvl-price">$4,059 – $4,075</td>
+        <td><div class="lvl-strength"><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">−$31~$47</td>
+        <td>⭐ LiteFinance 主要目标 / H2 Buy OB需求区 / 空头主要TP位</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type S">S1</span></td>
+        <td class="lvl-price">$4,023 – $4,040</td>
+        <td><div class="lvl-strength"><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">−$66~$83</td>
+        <td>H4弱内部低点 / TradingView分析师目标位 / 次要结构支撑</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type S">S2</span></td>
+        <td class="lvl-price">$4,005 – $4,006</td>
+        <td><div class="lvl-strength"><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">−$100</td>
+        <td>LiteFinance 级联目标 / 接近心理整数关口</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type S">S3</span></td>
+        <td class="lvl-price">$4,000</td>
+        <td><div class="lvl-strength"><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot g"></div></div></td>
+        <td class="dist-tag">−$106</td>
+        <td>⭐ 心理整数关口 / 结构性关键支撑 / 跌破则转强烈看空</td>
+      </tr>
+      <tr>
+        <td><span class="lvl-type S">S4</span></td>
+        <td class="lvl-price">$3,951 – $3,894</td>
+        <td><div class="lvl-strength"><div class="str-dot g"></div><div class="str-dot g"></div><div class="str-dot off"></div><div class="str-dot off"></div><div class="str-dot off"></div></div></td>
+        <td class="dist-tag">−$155~$212</td>
+        <td>LiteFinance 深度支撑序列 / 短线看空极端目标</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══ 基本面 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">基本面分析</div>
+  <h2>今日驱动因素深度解析</h2>
+  <div class="factor-item">
+    <span class="factor-tag">FED</span>
+    <div class="factor-body">
+      <strong>Fed鹰派升温 — 12月加息概率达87%</strong><span class="factor-sign neg">强利空</span><br>
+      Fed主席Warsh 6月会议维持鹰派立场，市场定价12月加息概率升至87%，为本轮修正的核心驱动力。美元指数（DXY）突破100整数关口，创近一年新高。ETF出现创纪录流出（$8.1亿），机构减仓压力显著。美银与德银均已将9月加息纳入基准情景。
+    </div>
+  </div>
+  <div class="factor-item">
+    <span class="factor-tag">GEO</span>
+    <div class="factor-body">
+      <strong>美伊和平协议MOU签署 — 避险溢价消退</strong><span class="factor-sign neg">利空</span><br>
+      美伊双方在瑞士日内瓦签署谅解备忘录（MOU），达成60天内和平路线图共识。伊朗上周输出逾3,000万桶原油，霍尔木兹海峡通行恢复正常，科威特与阿联酋已找到替代出口路线。和平预期导致油价下跌2%，同步压低黄金避险溢价。但MOU尚未转化为正式协议，任何破裂风险仍可触发急涨。
+    </div>
+  </div>
+  <div class="factor-item">
+    <span class="factor-tag">DXY</span>
+    <div class="factor-body">
+      <strong>美元指数突破100 — 黄金双重压制</strong><span class="factor-sign neg">强利空</span><br>
+      DXY突破100整数关口，创一年新高。黄金与美元负相关，美元走强直接压制金价。世界黄金协会(WGC) 6月22日周报指出，DXY突破100可能是"结构性突破"或"假突破"，并识别四个可能暴露其为假突破的催化剂：软PCE数据、日本央行干预、伊朗原油复产规模化以及非美经济增长改善。
+    </div>
+  </div>
+  <div class="factor-item">
+    <span class="factor-tag">PCE</span>
+    <div class="factor-body">
+      <strong>明日核心PCE（6月25日）— 本周决定性催化剂</strong><span class="factor-sign neut">待观察</span><br>
+      明日同时公布：核心PCE价格指数（5月）+ Q1 GDP修正值 + 初请失业金人数。PCE若低于预期 → 加息预期降温 → 空单止盈 → 短线急涨。PCE若高于预期 → 加息确认 → 美元走强 → 金价加速下行至$3,951乃至更低。市场当前可能在PCE前提前减仓/平仓，造成今日异常波动。
+    </div>
+  </div>
+  <div class="factor-item">
+    <span class="factor-tag">全球</span>
+    <div class="factor-body">
+      <strong>全球股市恐慌性下跌 — 异常避险逻辑</strong><span class="factor-sign neut">双向影响</span><br>
+      今日韩国股市暴跌10%，纳斯达克下跌近2%，全球科技股遭抛售。在传统逻辑下，股市崩盘应推高黄金；但今日金价仍下跌，原因是美元在风险规避情绪下走强，资金流向美元而非黄金。这表明当前黄金更像"风险资产"而非传统避险资产，与Fed加息压力高度挂钩。
+    </div>
+  </div>
+  <div class="factor-item">
+    <span class="factor-tag">CBUY</span>
+    <div class="factor-body">
+      <strong>央行持续购金 — 长期结构性支撑</strong><span class="factor-sign pos">长线利多</span><br>
+      中国人民银行黄金储备截至2026年5月约2,322吨，持续增持。WGC数据：Q1 2026全球黄金实物需求1,231吨（同比+2%），金条需求季环比+20%、同比+50%。年内机构目标价：Goldman Sachs $5,400、Morgan Stanley $5,700、UBS $6,200。长期结构牛市未改，当前属于修正浪。
+    </div>
+  </div>
+</div>
+
+<!-- ══ 场景 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">交易场景规划</div>
+  <h2>今日操作场景（PCE前夕）</h2>
+
+  <div class="scen bear">
+    <h4>🔴 主场景（优先）：延续空头至$4,060目标</h4>
+    <p><strong>触发：</strong>价格无法收复 $4,134（LiteFinance 止损位）/ 反弹于 $4,114–$4,134 遭拒 / 美元维持强势<br>
+    <strong>路径：</strong>$4,114 以下维持空头 → 目标1: $4,059–$4,075（H2 OB） → 目标2: $4,023 → 目标3: $4,005–$4,000<br>
+    <strong>逻辑：</strong>价格已跌破昨日支撑区，H4内部结构确认空头。今日开盘 $4,191 → 低点 $4,091，日内已有$100下行。市场在PCE前释放风险，空头惯性持续。</p>
+    <div class="scen-row">
+      <div class="scen-item"><div class="scen-item-label">空单入场区</div><div class="scen-item-val" style="color:var(--bear)">$4,114 – $4,134</div></div>
+      <div class="scen-item"><div class="scen-item-label">止损参考</div><div class="scen-item-val" style="color:var(--bear)">$4,145 以上</div></div>
+      <div class="scen-item"><div class="scen-item-label">TP1 / TP2 / TP3</div><div class="scen-item-val" style="color:var(--neut)">$4,060 / $4,023 / $4,000</div></div>
+    </div>
+  </div>
+
+  <div class="scen bull">
+    <h4>🟢 次场景：超卖技术反弹（PCE前轧空）</h4>
+    <p><strong>触发：</strong>RSI在35以下形成背离 / 价格于 $4,091 以上站稳并出现连续两根阳线 / Williams %R 超卖后回升 / 韩国/纳斯达克事件带来的恐慌平息<br>
+    <strong>路径：</strong>$4,091–$4,100 区间做多（轻仓）→ TP1: $4,134 → TP2: $4,155–$4,170<br>
+    <strong>注意：</strong>这是短线技术反弹，非趋势交易。TP1获利后立即减仓，勿持仓过PCE。</p>
+    <div class="scen-row">
+      <div class="scen-item"><div class="scen-item-label">多单入场区</div><div class="scen-item-val" style="color:var(--bull)">$4,091 – $4,100</div></div>
+      <div class="scen-item"><div class="scen-item-label">止损参考</div><div class="scen-item-val" style="color:var(--bull)">$4,080 以下</div></div>
+      <div class="scen-item"><div class="scen-item-label">TP1 / TP2</div><div class="scen-item-val" style="color:var(--neut)">$4,134 / $4,155</div></div>
+    </div>
+  </div>
+
+  <div class="scen warn">
+    <h4>⚠ 无效化条件 &amp; PCE预案</h4>
+    <p>
+    • 若价格日线收盘突破并站稳 <strong>$4,210+</strong>，空头场景失效，转为观望。<br>
+    • 若 <strong>$4,000</strong> 被日线确认跌破，结构性加速看空，放弃所有多单。<br>
+    • <strong>明日PCE前预案：</strong>今晚美盘收盘前（约凌晨3:00 GMT+8），建议将所有仓位减至25%以下或清仓，等待PCE后方向确认再建仓。<br>
+    • <strong>PCE低于预期情景：</strong>$4,155–$4,210 空头陷阱风险，不追空。等待回落至 $4,091–$4,100 再评估。<br>
+    • 今日全球股市恐慌带来的非典型波动（金价反常下跌），警惕快速反向。
+    </p>
+  </div>
+</div>
+
+<!-- ══ 时段 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">盘中时段策略（GMT+8）</div>
+  <h2>三大时段操作节奏</h2>
+  <div class="sess-grid">
+    <div class="sess-card">
+      <div class="sess-name a">亚洲时段</div>
+      <div class="sess-time">07:00 – 15:00 (GMT+8)</div>
+      <div class="sess-info">
+        今日已进入尾段。价格在 <strong>$4,091–$4,115</strong> 低位震荡。若未能收复 $4,134，延续弱势格局。观察是否出现超卖反弹迹象（RSI &lt; 33 + 阳线）。
+      </div>
+      <div class="sess-setup">⟶ 策略：低位谨慎多 / 等待确认 | 小仓位</div>
+    </div>
+    <div class="sess-card">
+      <div class="sess-name l">伦敦时段</div>
+      <div class="sess-time">15:00 – 21:00 (GMT+8)</div>
+      <div class="sess-info">
+        今日关键时段。欧洲开盘流动性注入。若反弹至 <strong>$4,134–$4,155</strong> 供应区遭空头压制，确认空头延续，可顺势做空至 $4,059。关注欧洲PMI或其他欧盟数据带来的交叉影响。
+      </div>
+      <div class="sess-setup">⟶ 策略：供应区反弹做空 | 高优先</div>
+    </div>
+    <div class="sess-card">
+      <div class="sess-name n">纽约时段</div>
+      <div class="sess-time">21:00 – 次日03:00 (GMT+8)</div>
+      <div class="sess-info">
+        <strong>PCE前夕</strong>。美盘主要情绪：减仓/平仓等待明日数据。预计成交量偏低，波动可能收窄。<strong>建议：凌晨3点前清仓</strong>，不持仓过PCE发布。
+      </div>
+      <div class="sess-setup">⟶ 策略：减仓锁利 / 清仓等待PCE | 低优先</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 日历 ══ -->
+<div class="card">
+  <div class="card-eyebrow">宏观日历</div>
+  <h2>本周剩余关键事件</h2>
+  <div class="event-item">
+    <span class="event-date">6月24日<br>今日</span>
+    <span class="event-badge m">中</span>
+    <div class="event-body">
+      <div class="event-name">无重大数据（消化期）</div>
+      <div class="event-note">市场聚焦于明日三连弹，今日以仓位调整为主。关注美联储官员讲话</div>
+    </div>
+  </div>
+  <div class="event-item">
+    <span class="event-date">6月25日<br>明日 ⚠</span>
+    <span class="event-badge h">极高</span>
+    <div class="event-body">
+      <div class="event-name">核心PCE（5月）+ Q1 GDP修正 + 初请失业金</div>
+      <div class="event-note">本周最重磅三连弹。PCE低于预期→急涨；高于预期→跌破$4,000风险。预计今晚前清仓等待</div>
+    </div>
+  </div>
+  <div class="event-item">
+    <span class="event-date">6月26日<br>周五</span>
+    <span class="event-badge m">中</span>
+    <div class="event-body">
+      <div class="event-name">密歇根大学通胀预期（6月终值）</div>
+      <div class="event-note">消费者通胀预期确认版本。偏高则强化加息预期</div>
+    </div>
+  </div>
+  <div class="event-item">
+    <span class="event-date">持续</span>
+    <span class="event-badge h">高</span>
+    <div class="event-body">
+      <div class="event-name">美伊和平MOU谈判进展</div>
+      <div class="event-note">MOU已签但谈判未完成。任何破裂 → 急涨$50–$100 / 达成正式协议 → 进一步施压黄金</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 机构目标 ══ -->
+<div class="card">
+  <div class="card-eyebrow">机构共识</div>
+  <h2>年末目标 &amp; 关键阈值</h2>
+  <div class="inst-grid">
+    <div class="inst-card"><div class="inst-name">Goldman Sachs</div><div class="inst-target">$5,400</div><div class="inst-label">2026年末目标</div></div>
+    <div class="inst-card"><div class="inst-name">Morgan Stanley</div><div class="inst-target">$5,700</div><div class="inst-label">2026年末目标</div></div>
+    <div class="inst-card"><div class="inst-name">UBS</div><div class="inst-target">$6,200</div><div class="inst-label">最乐观目标</div></div>
+    <div class="inst-card"><div class="inst-name">熊市共识</div><div class="inst-target">$3,816</div><div class="inst-label">Fed持续加息情景</div></div>
+    <div class="inst-card"><div class="inst-name">RoboForex 逆转线</div><div class="inst-target">$4,750</div><div class="inst-label">收复此价转看多</div></div>
+    <div class="inst-card"><div class="inst-name">关键危险线</div><div class="inst-target">$4,000</div><div class="inst-label">跌破转结构性空头</div></div>
+  </div>
+  <p style="margin-top:14px;font-size:11.5px;color:var(--dim);line-height:1.7">
+    长期结构牛市自2022年起完整，周线/月线仍指向上方。中期修正仍在进行中，直至价格收复$4,750以上方可认定修正结束。短线方面，市场已充分定价9月加息，若PCE超预期偏软，存在快速反弹至$4,313–$4,400的机会窗口。
+  </p>
+</div>
+
+<!-- ══ 风险管理 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">风险管理纪律</div>
+  <h2>今日 + PCE前夕特别操作规则</h2>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-title">今日入场原则</div>
+      <ul class="risk-list">
+        <li>PCE前夕以<strong>防守为主</strong>，勿重仓建立新方向</li>
+        <li>空单：只在 $4,114–$4,134 供应区反弹时入场，需蜡烛确认</li>
+        <li>多单：只在 $4,091–$4,100 超卖区，RSI&lt;33 + 阳线确认时轻仓</li>
+        <li>禁止追涨杀跌 / 禁止在区间中部盲目入场</li>
+        <li>数据发布前30分钟内不开新仓</li>
+      </ul>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">PCE前夕特别规则</div>
+      <ul class="risk-list">
+        <li>美盘收盘前（凌晨03:00 GMT+8）<strong>强制清仓或减仓至25%以下</strong></li>
+        <li>持仓过PCE = 赌博，不符合计划交易原则</li>
+        <li>PCE后等待<strong>15分钟</strong>让波动沉淀，再评估方向入场</li>
+        <li>PCE低于预期：关注 $4,155–$4,210 是否被突破，确认后追多</li>
+        <li>PCE高于预期：等待 $4,000 测试，确认跌破后轻仓追空</li>
+      </ul>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">仓位与止损</div>
+      <ul class="risk-list">
+        <li>今日最大仓位：平时的 <strong>50%</strong>（PCE前夕高不确定性）</li>
+        <li>单笔风险不超过账户净值 <strong>1%</strong></li>
+        <li>最低盈亏比要求 <strong>1:2</strong>（今日建议仅接受1:3以上机会）</li>
+        <li>连续止损2次 → 停止当日操作，等待PCE后重新评估</li>
+      </ul>
+    </div>
+    <div class="risk-card">
+      <div class="risk-title">心理纪律</div>
+      <ul class="risk-list">
+        <li>今日市场异常（股灾+金价同跌），不代表规律；不过度解读</li>
+        <li>韩国股市-10%/纳指-2% 引发的恐慌情绪 → 等待平息，不追单</li>
+        <li>持有亏损仓位至PCE是最大风险 → 执行纪律清仓</li>
+        <li>明日PCE是重置机会，今日保住本金比赚钱更重要</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>免责声明：</strong>本报告仅供参考，不构成投资建议。XAUUSD交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com、USAGOLD、FOREX.com，截至2026年6月24日。交易前请进行独立尽职调查。
+</div>
+
+</main>
+<div class="topstrip"></div>
+</body>
+</html>

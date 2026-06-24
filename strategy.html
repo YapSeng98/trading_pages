@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>黄金交易策略手册 · XAUUSD</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#060E18;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
+    button{font-family:inherit}
+    ::-webkit-scrollbar{width:6px;height:6px}
+    ::-webkit-scrollbar-track{background:#0B1824}
+    ::-webkit-scrollbar-thumb{background:#1A3252;border-radius:3px}
+  </style>
+</head>
+<body>
+  <nav style="background:#0B1824;border-bottom:1px solid #172E46;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
+    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#4A6E88;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #172E46">← 首页</a>
+    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#4A6E88;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #172E46">📊 每日分析</a>
+    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#F2C94C;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(201,162,39,.4);background:rgba(201,162,39,.12)">📖 策略手册</a>
+  </nav>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    /* ── Design tokens ─────────────────────────────── */
+    const G="#C9A227",GL="#F2C94C",GR="#10B981",RD="#EF4444",BL="#60A5FA",PU="#A78BFA";
+    const TX="#C8E4F5",MT="#4A6E88",BG="#060E18",SF="#0B1824",CD="#0F1E2C",BD="#172E46";
+
+    /* ── SVG helpers ───────────────────────────────── */
+    function Chart({ children, h=100 }){
+      return (
+        <svg viewBox={`0 0 180 ${h}`} style={{width:"100%",display:"block"}}>
+          <rect width={180} height={h} fill="#030C16" rx="6"/>
+          {[.25,.5,.75].map(f=>{const y=Math.round(h*f);return(
+            <line key={f} x1={0} y1={y} x2={180} y2={y} stroke="#10202E" strokeWidth="0.7" strokeDasharray="4,4"/>
+          )})}
+          {children}
+        </svg>
+      );
+    }
+    const PL=({pts,c=G,w=2.5})=>(
+      <polyline points={pts} fill="none" stroke={c} strokeWidth={w} strokeLinejoin="round" strokeLinecap="round"/>
+    );
+    const HL=({y,c,d="6,3",l,o=.88})=>(
+      <g>
+        <line x1={0} y1={y} x2={180} y2={y} stroke={c} strokeWidth={1.3} strokeDasharray={d} opacity={o}/>
+        {l&&<text x={3} y={y-2} fill={c} fontSize={6.5} fontFamily="monospace" opacity={o}>{l}</text>}
+      </g>
+    );
+    const TL=({x1,y1,x2,y2,c,d=""})=>(
+      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={c} strokeWidth={1.3} strokeDasharray={d} opacity={0.85}/>
+    );
+    const Mk=({x,y,c})=>(
+      <g>
+        <circle cx={x} cy={y} r={7} fill={c} opacity={0.2}/>
+        <circle cx={x} cy={y} r={3.5} fill={c}/>
+      </g>
+    );
+    const Ar=({x,y,up,c})=>{
+      const p=up
+        ?`${x},${y-9} ${x-5},${y} ${x+5},${y}`
+        :`${x},${y+9} ${x-5},${y} ${x+5},${y}`;
+      return <polygon points={p} fill={c}/>;
+    };
+    const Lx=({x,y,t,c=G})=>(
+      <text x={x} y={y} fill={c} fontSize={6.5} fontFamily="monospace">{t}</text>
+    );
+
+    /* ── 9 Pattern SVGs ────────────────────────────── */
+    const PSVG={
+      dbl_top:()=>(
+        <Chart>
+          <HL y={50} c={RD} l="颈线"/><HL y={14} c={RD} d="3,5" l="SL" o={.45}/><HL y={87} c={GR} d="3,5" l="TP" o={.45}/>
+          <PL pts="5,82 32,14 58,50 84,14 110,50 135,77 162,93"/>
+          <Mk x={122} y={56} c={RD}/><Ar x={122} y={63} c={RD}/>
+        </Chart>
+      ),
+      dbl_bot:()=>(
+        <Chart>
+          <HL y={50} c={GR} l="颈线"/><HL y={86} c={RD} d="3,5" l="SL" o={.45}/><HL y={13} c={GR} d="3,5" l="TP" o={.45}/>
+          <PL pts="5,18 32,86 58,50 84,86 110,50 135,22 162,6"/>
+          <Mk x={122} y={44} c={GR}/><Ar x={122} y={37} up c={GR}/>
+        </Chart>
+      ),
+      hs_top:()=>(
+        <Chart>
+          <HL y={65} c={RD} l="颈线"/><HL y={9} c={RD} d="3,5" l="SL" o={.4}/><HL y={89} c={GR} d="3,5" l="TP" o={.4}/>
+          <PL pts="5,82 22,42 38,65 58,8 78,65 98,42 115,65 140,86 163,94"/>
+          <Lx x={16} y={38} t="左肩"/><Lx x={52} y={14} t="头部"/><Lx x={92} y={38} t="右肩"/>
+          <Mk x={128} y={72} c={RD}/><Ar x={128} y={79} c={RD}/>
+        </Chart>
+      ),
+      hs_bot:()=>(
+        <Chart>
+          <HL y={35} c={GR} l="颈线"/><HL y={91} c={RD} d="3,5" l="SL" o={.4}/><HL y={9} c={GR} d="3,5" l="TP" o={.4}/>
+          <PL pts="5,18 22,58 38,35 58,92 78,35 98,58 115,35 140,14 163,6"/>
+          <Lx x={16} y={72} t="左肩"/><Lx x={50} y={97} t="头部"/><Lx x={92} y={72} t="右肩"/>
+          <Mk x={128} y={28} c={GR}/><Ar x={128} y={21} up c={GR}/>
+        </Chart>
+      ),
+      asc_tri:()=>(
+        <Chart>
+          <HL y={18} c={RD} l="阻力"/>
+          <TL x1={5} y1={88} x2={140} y2={18} c={GR}/>
+          <PL pts="5,88 30,18 48,55 68,18 82,40 100,18 112,28 124,18 148,6"/>
+          <HL y={3} c={GR} d="3,5" l="TP" o={.4}/>
+          <Mk x={150} y={9} c={GR}/><Ar x={150} y={15} up c={GR}/>
+        </Chart>
+      ),
+      desc_tri:()=>(
+        <Chart>
+          <HL y={82} c={GR} l="支撑"/>
+          <TL x1={5} y1={12} x2={140} y2={82} c={RD}/>
+          <PL pts="5,12 30,82 48,45 68,82 82,60 100,82 112,72 124,82 148,94"/>
+          <HL y={97} c={RD} d="3,5" l="TP" o={.4}/>
+          <Mk x={150} y={91} c={RD}/><Ar x={150} y={86} c={RD}/>
+        </Chart>
+      ),
+      bull_flag:()=>(
+        <Chart>
+          <TL x1={50} y1={16} x2={108} y2={36} c={MT} d="4,3"/>
+          <TL x1={50} y1={30} x2={108} y2={50} c={MT} d="4,3"/>
+          <HL y={5} c={GR} d="3,5" l="TP" o={.45}/>
+          <PL pts="5,94 50,16"/>
+          <PL pts="50,16 64,30 76,22 90,36 102,28 108,44"/>
+          <PL pts="108,44 132,16 158,5" c={GR}/>
+          <Lx x={12} y={72} t="旗杆"/><Lx x={64} y={58} t="旗面" c={MT}/>
+          <Mk x={120} y={26} c={GR}/><Ar x={120} y={20} up c={GR}/>
+        </Chart>
+      ),
+      fall_wedge:()=>(
+        <Chart>
+          <TL x1={5} y1={22} x2={118} y2={58} c={RD} d="5,3"/>
+          <TL x1={5} y1={42} x2={118} y2={70} c={GR} d="5,3"/>
+          <HL y={10} c={GR} d="3,5" l="TP" o={.45}/>
+          <PL pts="5,22 28,58 48,38 72,65 92,50 115,68"/>
+          <PL pts="115,68 140,38 162,10" c={GR}/>
+          <Mk x={128} y={46} c={GR}/><Ar x={128} y={40} up c={GR}/>
+        </Chart>
+      ),
+      rise_wedge:()=>(
+        <Chart>
+          <TL x1={5} y1={78} x2={118} y2={30} c={RD} d="5,3"/>
+          <TL x1={5} y1={92} x2={118} y2={40} c={GR} d="5,3"/>
+          <HL y={90} c={RD} d="3,5" l="TP" o={.45}/>
+          <PL pts="5,90 28,44 48,72 72,36 92,58 115,32"/>
+          <PL pts="115,32 135,62 158,90" c={RD}/>
+          <Mk x={125} y={56} c={RD}/><Ar x={125} y={63} c={RD}/>
+        </Chart>
+      ),
+    };
+
+    /* ── Data ──────────────────────────────────────── */
+    const PATS=[
+      {k:"dbl_top",zh:"双顶  M形",en:"Double Top",sig:"bearish",star:4,
+       desc:"两次冲击相同高点后回落，形成 M 形结构。颈线跌破是做空确认信号。",
+       entry:"颈线跌破后反弹受阻时做空（保守者等收线确认）",
+       sl:"第二峰顶上方 10–15 美元",tp:"颈线下方等距投射（峰到颈线高度）",
+       tip:"两峰间隔越长越可信；第二峰成交量通常低于第一峰"},
+      {k:"dbl_bot",zh:"双底  W形",en:"Double Bottom",sig:"bullish",star:4,
+       desc:"两次触及相同低点后反弹，形成 W 形结构。颈线突破是做多确认信号。",
+       entry:"颈线突破后回踩站稳时做多",
+       sl:"第二谷底下方 10–15 美元",tp:"颈线上方等距投射（颈线到谷底高度）",
+       tip:"第二谷底出现锤形 K 线 + 成交量放大为强信号"},
+      {k:"hs_top",zh:"头肩顶",en:"Head & Shoulders",sig:"bearish",star:5,
+       desc:"左肩 → 头部（最高点）→ 右肩，颈线跌破确认大级别反转，可靠度最高的顶部形态。",
+       entry:"颈线跌破后回踩受阻做空；保守者等日线收盘确认",
+       sl:"右肩顶部上方",tp:"头顶到颈线高度，从跌破颈线处向下投射",
+       tip:"右肩低于左肩是弱势信号；三段成交量递减为理想形态"},
+      {k:"hs_bot",zh:"头肩底  反头肩",en:"Inverse H&S",sig:"bullish",star:5,
+       desc:"头肩顶的镜像，头部在最低点。颈线突破确认底部反转，最可靠做多信号之一。",
+       entry:"颈线突破后站稳 / 回踩颈线支撑时做多",
+       sl:"右肩低点下方",tp:"头部最低点到颈线高度，从突破处向上投射",
+       tip:"头部出现锤形 / 吞没 K 线 + 放量为强确认"},
+      {k:"asc_tri",zh:"上升三角形",en:"Ascending Triangle",sig:"bullish",star:4,
+       desc:"水平阻力 + 上升支撑线，多方力量逐步积累，蓄势向上突破。低点越来越高是关键特征。",
+       entry:"放量突破水平阻力后，回踩阻力变支撑时做多",
+       sl:"最近上升低点下方",tp:"三角形最宽处高度，从突破点向上投射",
+       tip:"越靠近收口处突破力度越强；突破必须有量"},
+      {k:"desc_tri",zh:"下降三角形",en:"Descending Triangle",sig:"bearish",star:4,
+       desc:"水平支撑 + 下降阻力线，空方主导，高点越来越低，蓄势向下突破。",
+       entry:"放量跌破水平支撑后，反弹支撑变阻力时做空",
+       sl:"最近下降高点上方",tp:"三角形最宽处高度，从跌破点向下投射",
+       tip:"黄金回调阶段常见此形态；突破时成交量必须配合"},
+      {k:"bull_flag",zh:"牛旗",en:"Bull Flag",sig:"bullish",star:4,
+       desc:"强劲上涨形成旗杆，价格进入平行下倾通道（旗面）蓄势，突破旗面上轨继续上涨。",
+       entry:"突破旗面上轨放量确认，回踩站稳做多",
+       sl:"旗面下轨下方",tp:"旗杆高度，从突破点向上投射",
+       tip:"旗面回调不超过旗杆 50%；旗面内成交量萎缩正常，突破时放量确认"},
+      {k:"fall_wedge",zh:"下降楔形",en:"Falling Wedge",sig:"bullish",star:4,
+       desc:"两条向下收口趋势线，价格震荡下行但幅度收窄，多方力量积聚，向上突破看多反转。",
+       entry:"向上突破上轨后，回踩上轨变支撑时做多",
+       sl:"楔形最低点下方",tp:"楔形最宽处高度，从突破点向上投射",
+       tip:"下降趋势末段出现更可靠；突破时成交量应明显放大"},
+      {k:"rise_wedge",zh:"上升楔形",en:"Rising Wedge",sig:"bearish",star:4,
+       desc:"两条向上收口趋势线，价格震荡上行但幅度收窄，空方力量积聚，向下突破看空反转。",
+       entry:"向下跌破下轨后，反弹下轨变阻力时做空",
+       sl:"楔形最高点上方",tp:"楔形最宽处高度，从跌破点向下投射",
+       tip:"黄金反弹阶段常见；成交量逐渐萎缩是力量枯竭的信号"},
+    ];
+
+    const STRATS=[
+      {name:"趋势跟踪",en:"Trend Following",ic:"📈",c:GR,
+       when:"4H 均线方向一致，价格在 EMA20/50 上方或下方明确运行",
+       rules:["EMA20 > EMA50 只做多；EMA20 < EMA50 只做空，不逆势","价格回踩 EMA20 不破 = 顺势进场机会","均线纠缠交叉期间停用，切换区间震荡策略","成交量配合趋势方向为强确认，背离需谨慎"],
+       entry:"4H EMA20 回踩站稳 + 确认 K 线（锤形 / 看涨吞没）",sl:"EMA50 外侧 5–10 美元",
+       tp:"盈亏比 1:2，目标前高 / 前低",best:"趋势明确的单边行情，如黄金单边上涨 / 下跌段"},
+      {name:"突破回踩",en:"Breakout Pullback",ic:"💥",c:BL,
+       when:"价格突破关键横盘区间、阻力位或支撑位之后",
+       rules:["等突破收线确认，不追第一根突破 K 线","等回踩到突破位，确认支撑 / 阻力角色转换","回踩时成交量萎缩 = 正常；放量 = 警惕假突破","出现反转 K 线确认信号后再入场，不盲目进"],
+       entry:"回踩至突破位 + 出现方向确认 K 线",sl:"突破前整理区低 / 高点",
+       tp:"突破区间高度等距投射，至少 1:2",best:"重要价位首次突破后的第一次回踩机会"},
+      {name:"区间震荡",en:"Range Trading",ic:"↔",c:PU,
+       when:"价格在清晰水平区间内来回震荡，无明确趋势",
+       rules:["靠近阻力区顶部找做空机会，靠近支撑区底部找做多","等待反转 K 线出现（针脚 / 十字星 / 吞没）才入场","区间中间地带不进场，没有清晰的止损依据","出现放量突破区间 = 立刻离场，趋势已经改变"],
+       entry:"价格触及区间边界 + 反转 K 线",sl:"区间边界外 5–10 美元",
+       tp:"区间对面边界附近，不贪",best:"FOMC 前后横盘整理、黄金无方向震荡阶段"},
+      {name:"回调进场",en:"Trend Pullback",ic:"🔄",c:G,
+       when:"大趋势明确，出现 30–50% 幅度的健康回调后",
+       rules:["以日线 / 4H 大级别趋势方向为前提，不逆势","等回调到斐波那契 50%–61.8% 或关键支撑 / 阻力","回调时成交量萎缩 = 正常；反转 K 线 = 进场信号","不在价格破位（跌破关键结构）时反向博弈"],
+       entry:"回调到斐波 50%–61.8% 区域 + 底 / 顶部确认 K 线",sl:"回调极值点（最低 / 高点）外侧",
+       tp:"前高 / 前低延伸，至少 1:1.5 盈亏比",best:"趋势行情中途补仓，或错过第一波后的入场时机"},
+    ];
+
+    const SIGS={
+      bull:[
+        {n:"锤形  Hammer",d:"长下影线，小实体在上方，低点被强力拒绝。出现在支撑位有效，下影线越长越有力。"},
+        {n:"看涨吞没  Bullish Engulfing",d:"大阳线完全吞没前一根阴线，多方全面接管。K 线越大、越靠近支撑越有效。"},
+        {n:"晨星  Morning Star",d:"大阴 → 小 K（犹豫）→ 大阳，三 K 线底部反转组合，出现在日线支撑位可信度极高。"},
+        {n:"看涨孕线  Bullish Harami",d:"小阳线完全在大阴线实体内，下跌动能减弱，需等下一根 K 线确认才进。"},
+      ],
+      bear:[
+        {n:"流星  Shooting Star",d:"长上影线，小实体在下方，高点被强力拒绝。出现在阻力位有效，上影线越长越有力。"},
+        {n:"看跌吞没  Bearish Engulfing",d:"大阴线完全吞没前一根阳线，空方全面接管。越靠近关键阻力位越可信。"},
+        {n:"黄昏星  Evening Star",d:"大阳 → 小 K（犹豫）→ 大阴，三 K 线顶部反转组合，出现在日线阻力位可信度极高。"},
+        {n:"乌云盖顶  Dark Cloud Cover",d:"阴线开盘高于阳线最高点，收盘深入阳线实体 50% 以上的顶部信号。"},
+      ],
+    };
+
+    const RULES=[
+      {e:"📋",t:"没有剧本不开仓",b:"每天开盘前写\"价格到 X 我做 Y 止损 Z\"。没剧本 = 没纪律 = 亏钱。"},
+      {e:"⏸",t:"空仓也是一种仓位",b:"没有符合条件的信号就不交易。强迫交易是新手最大亏损来源，市场明天还在。"},
+      {e:"🔒",t:"止损只能往盈利方向移",b:"挂好止损后只能向锁利润方向移，绝不因亏损扩大而向后挪。一挪就没底线。"},
+      {e:"❌",t:"连亏 2 单立刻停手",b:"触发当日亏损上限立刻停手。情绪化交易必然加速亏损，报复性翻本是爆仓最快路。"},
+      {e:"📊",t:"用 R 衡量，不用金额",b:"亏\"1R\"赚\"2R\"，比每天盯账户金额更客观，不被数字左右心态和决策。"},
+      {e:"🏆",t:"守纪律的亏损是好交易",b:"按计划做的亏损单 = 执行正确。违纪的赚钱单 = 危险坏习惯，长期必亏。"},
+      {e:"🚫",t:"绝不扛单补仓",b:"方向错了就认，加仓摊平是爆仓第一杀手。每笔限亏 1–2%，先保住本金。"},
+      {e:"🔍",t:"盘后必复盘",b:"每笔截图记录进出场原因和情绪，问\"如果重来我会照样做吗\"。胜率从复盘里提升。"},
+    ];
+
+    /* ── Main App ──────────────────────────────────── */
+    function GoldGuide(){
+      const [tab,setTab]=useState("pat");
+      const [sel,setSel]=useState(null);
+      const [filt,setFilt]=useState("all");
+
+      const tabs=[
+        {id:"pat",l:"📊  形态图鉴"},
+        {id:"str",l:"🎯  交易策略"},
+        {id:"sig",l:"🕯  进场信号"},
+        {id:"rul",l:"🧠  心法规则"},
+      ];
+      const filtPats=filt==="all"?PATS:PATS.filter(p=>p.sig===filt);
+
+      const pill=(c)=>({fontSize:10,fontWeight:700,fontFamily:"monospace",padding:"2px 7px",
+        borderRadius:4,background:`${c}18`,color:c,border:`1px solid ${c}30`,whiteSpace:"nowrap"});
+      const rowBox=(c)=>({display:"flex",gap:8,alignItems:"flex-start",padding:"5px 8px",
+        borderRadius:6,background:`${c}0A`,marginBottom:4});
+      const card={background:CD,border:`1px solid ${BD}`,borderRadius:12,overflow:"hidden"};
+
+      return (
+        <div style={{background:BG,minHeight:"100vh",color:TX,fontFamily:"'Inter','PingFang SC','Microsoft YaHei',sans-serif"}}>
+
+          {/* Header */}
+          <div style={{background:"linear-gradient(160deg,#060E18 0%,#0D1E30 100%)",borderBottom:`1px solid ${BD}`,padding:"18px 16px 13px"}}>
+            <div style={{maxWidth:960,margin:"0 auto"}}>
+              <div style={{fontSize:9,letterSpacing:3,color:MT,fontFamily:"monospace",textTransform:"uppercase",marginBottom:3}}>
+                ◆ XAUUSD · Strategy &amp; Pattern Reference
+              </div>
+              <h1 style={{margin:"0 0 3px",fontSize:"clamp(18px,4vw,26px)",fontWeight:800,
+                background:`linear-gradient(90deg,${GL} 0%,${G} 60%,#9A6D10 100%)`,
+                WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
+                黄金完整策略 + 形态分析手册
+              </h1>
+              <p style={{margin:0,fontSize:12,color:MT}}>
+                9 种形态识别 · 4 套策略框架 · K 线确认信号 · 交易心法与每日流程
+              </p>
+            </div>
+          </div>
+
+          {/* Tab bar */}
+          <div style={{background:SF,borderBottom:`1px solid ${BD}`,overflowX:"auto"}}>
+            <div style={{maxWidth:960,margin:"0 auto",display:"flex",padding:"0 12px"}}>
+              {tabs.map(t=>(
+                <button key={t.id} onClick={()=>{setTab(t.id);setSel(null);}}
+                  style={{padding:"11px 16px",fontSize:12.5,fontWeight:600,border:"none",
+                    background:"none",cursor:"pointer",
+                    borderBottom:tab===t.id?`2px solid ${G}`:"2px solid transparent",
+                    color:tab===t.id?GL:MT,transition:"all .2s",whiteSpace:"nowrap"}}>
+                  {t.l}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div style={{maxWidth:960,margin:"0 auto",padding:"18px 14px 60px"}}>
+
+            {/* ── PATTERNS ── */}
+            {tab==="pat"&&(
+              <div>
+                <div style={{display:"flex",gap:8,marginBottom:16,flexWrap:"wrap",alignItems:"center"}}>
+                  <span style={{fontSize:12,color:MT}}>筛选：</span>
+                  {[["all","全部 (9)"],["bullish","看多形态"],["bearish","看空形态"]].map(([v,l])=>(
+                    <button key={v} onClick={()=>{setFilt(v);setSel(null);}}
+                      style={{padding:"5px 14px",fontSize:11,fontWeight:600,cursor:"pointer",
+                        border:`1px solid ${filt===v?G:BD}`,
+                        background:filt===v?`${G}18`:"transparent",
+                        color:filt===v?GL:MT,borderRadius:20}}>{l}</button>
+                  ))}
+                  <span style={{fontSize:11,color:MT,marginLeft:"auto"}}>点击卡片 → 查看进场 / 止损 / 目标规则</span>
+                </div>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(248px,1fr))",gap:13}}>
+                  {filtPats.map(p=>{
+                    const Fn=PSVG[p.k];
+                    const open=sel===p.k;
+                    const bull=p.sig==="bullish";
+                    return(
+                      <div key={p.k} onClick={()=>setSel(open?null:p.k)}
+                        style={{...card,cursor:"pointer",
+                          border:`1px solid ${open?(bull?GR:RD):BD}`,
+                          transform:open?"scale(1.015)":"scale(1)",
+                          transition:"border-color .2s,transform .2s"}}>
+                        <div style={{padding:"8px 8px 2px",borderBottom:`1px solid ${BD}`}}>
+                          {Fn&&<Fn/>}
+                        </div>
+                        <div style={{padding:"10px 12px"}}>
+                          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}}>
+                            <span style={{fontSize:13.5,fontWeight:700}}>{p.zh}</span>
+                            <span style={{fontSize:10,fontWeight:700,padding:"2px 8px",borderRadius:12,
+                              background:bull?`${GR}20`:`${RD}20`,color:bull?GR:RD}}>{bull?"看多":"看空"}</span>
+                          </div>
+                          <div style={{fontSize:10.5,color:MT,fontFamily:"monospace",marginBottom:7}}>{p.en}</div>
+                          <div style={{display:"flex",gap:2,alignItems:"center"}}>
+                            {[1,2,3,4,5].map(s=>(
+                              <div key={s} style={{width:14,height:4,borderRadius:2,background:s<=p.star?G:`${G}22`}}/>
+                            ))}
+                            <span style={{fontSize:10,color:MT,marginLeft:4}}>可靠度</span>
+                          </div>
+                        </div>
+                        {open&&(
+                          <div style={{padding:"0 12px 12px",borderTop:`1px solid ${BD}`}}>
+                            <p style={{fontSize:11.5,color:TX,lineHeight:1.75,margin:"10px 0 10px"}}>{p.desc}</p>
+                            {[["进场",p.entry,bull?GR:RD],["止损",p.sl,RD],["目标",p.tp,GR],["提示",p.tip,G]].map(([l,v,c])=>(
+                              <div key={l} style={rowBox(c)}>
+                                <span style={pill(c)}>{l}</span>
+                                <span style={{fontSize:11.5,color:TX,lineHeight:1.65,flex:1}}>{v}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* ── STRATEGIES ── */}
+            {tab==="str"&&(
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(380px,1fr))",gap:16}}>
+                {STRATS.map((s,i)=>(
+                  <div key={i} style={{...card,cursor:"default"}}>
+                    <div style={{height:3,background:`linear-gradient(90deg,${s.c},${s.c}44)`}}/>
+                    <div style={{padding:"16px 18px"}}>
+                      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
+                        <div style={{width:40,height:40,borderRadius:10,background:`${s.c}18`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,flexShrink:0}}>{s.ic}</div>
+                        <div>
+                          <div style={{fontSize:16,fontWeight:700}}>{s.name}</div>
+                          <div style={{fontSize:10.5,color:MT,fontFamily:"monospace"}}>{s.en}</div>
+                        </div>
+                      </div>
+                      <div style={{fontSize:12,color:TX,padding:"7px 10px",background:`${s.c}0D`,borderLeft:`3px solid ${s.c}`,borderRadius:"0 6px 6px 0",marginBottom:12,lineHeight:1.65}}>
+                        <b style={{color:s.c}}>适用时机：</b>{s.when}
+                      </div>
+                      <div style={{marginBottom:12}}>
+                        <div style={{fontSize:10.5,fontWeight:700,color:s.c,letterSpacing:1,marginBottom:6,textTransform:"uppercase"}}>执行规则</div>
+                        {s.rules.map((r,j)=>(
+                          <div key={j} style={{display:"flex",gap:8,marginBottom:5,alignItems:"flex-start"}}>
+                            <div style={{width:16,height:16,borderRadius:"50%",background:`${s.c}1A`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:s.c,fontWeight:700,flexShrink:0,marginTop:1}}>{j+1}</div>
+                            <span style={{fontSize:12,lineHeight:1.65,color:TX}}>{r}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{marginBottom:10}}>
+                        {[["进场",s.entry,s.c],["止损",s.sl,RD],["目标",s.tp,GR]].map(([l,v,c])=>(
+                          <div key={l} style={rowBox(c)}>
+                            <span style={pill(c)}>{l}</span>
+                            <span style={{fontSize:11.5,lineHeight:1.55,color:TX,flex:1}}>{v}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{padding:"6px 10px",borderRadius:6,background:`${G}0A`,border:`1px solid ${G}1A`}}>
+                        <span style={{fontSize:10.5,fontWeight:700,color:G}}>最佳场景：</span>
+                        <span style={{fontSize:11.5,color:MT}}> {s.best}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* ── SIGNALS ── */}
+            {tab==="sig"&&(
+              <div>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(310px,1fr))",gap:14,marginBottom:16}}>
+                  {[["看多 K 线信号",SIGS.bull,GR],["看空 K 线信号",SIGS.bear,RD]].map(([title,items,c])=>(
+                    <div key={title} style={{...card,cursor:"default"}}>
+                      <div style={{padding:"10px 14px",borderBottom:`1px solid ${BD}`,background:`${c}0C`}}>
+                        <span style={{fontSize:14,fontWeight:700,color:c}}>🕯 {title}</span>
+                      </div>
+                      <div style={{padding:"8px 12px"}}>
+                        {items.map((it,i)=>(
+                          <div key={i} style={{padding:"9px 0",borderBottom:i<items.length-1?`1px solid ${BD}`:"none"}}>
+                            <div style={{fontSize:13,fontWeight:600,marginBottom:3}}>{it.n}</div>
+                            <div style={{fontSize:11.5,color:MT,lineHeight:1.68}}>{it.d}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{...card,cursor:"default"}}>
+                  <div style={{padding:"11px 16px",borderBottom:`1px solid ${BD}`,background:`${G}0A`}}>
+                    <span style={{fontSize:14,fontWeight:700,color:GL}}>⏰ 最佳进场时机（GMT+8）</span>
+                  </div>
+                  <div style={{padding:"12px 14px"}}>
+                    {[
+                      ["避开","08:00–15:00","亚洲盘","量小多假信号，新手尽量观望或只做区间","#555"],
+                      ["观察","15:00–17:00","伦敦开盘","方向开始确立，等第一波冲击完成后再看机会","#7A7A30"],
+                      ["最佳","20:30–24:00","欧美重叠","流动性最好，主力大行情高概率在这段出现",GR],
+                      ["危险","数据前后15分","高影响事件","NFP / CPI / FOMC 期间不进场，等方向明确后再动",RD],
+                      ["延续","00:00–03:00","纽约盘","延续欧美盘方向，流动性逐渐下降，注意滑点",BL],
+                    ].map(([tag,time,session,desc,tc])=>(
+                      <div key={session} style={{display:"flex",gap:10,marginBottom:9,alignItems:"flex-start",padding:"7px 9px",borderRadius:7,background:`${tc}0A`}}>
+                        <span style={{fontSize:10,fontWeight:700,color:tc,border:`1px solid ${tc}40`,padding:"2px 6px",borderRadius:4,whiteSpace:"nowrap",fontFamily:"monospace",marginTop:1,minWidth:36,textAlign:"center"}}>{tag}</span>
+                        <div>
+                          <div style={{fontSize:12,fontWeight:600}}>
+                            <span style={{fontFamily:"monospace",color:G}}>{time}</span>
+                            <span style={{color:MT,marginLeft:6,fontSize:11}}>{session}</span>
+                          </div>
+                          <div style={{fontSize:11.5,color:MT,marginTop:2,lineHeight:1.55}}>{desc}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{margin:"0 14px 14px",padding:"10px 14px",background:`${G}0A`,borderRadius:8,border:`1px solid ${G}22`}}>
+                    <div style={{fontSize:12,fontWeight:700,color:GL,marginBottom:5}}>进场前三问（快速自检）</div>
+                    {["① 价格在关键支撑 / 阻力位附近？（不在中间无人区）","② 有 K 线确认信号？（不靠感觉预测）","③ 盈亏比 ≥ 1:1.5？止损位清晰合理？"].map((q,i)=>(
+                      <div key={i} style={{fontSize:12,color:TX,lineHeight:1.75}}>{q}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ── RULES ── */}
+            {tab==="rul"&&(
+              <div>
+                <div style={{background:`${G}0F`,border:`1px solid ${G}28`,borderRadius:12,padding:"14px 16px",marginBottom:16}}>
+                  <div style={{fontSize:14,fontWeight:700,color:GL,marginBottom:5}}>核心信念</div>
+                  <div style={{fontSize:13,color:TX,lineHeight:1.85}}>
+                    交易亏钱 99% 不是因为不会看图，而是因为<b style={{color:G}}> 没有纪律</b>。
+                    方向判断对了但不会止损 = 亏钱；判断错了但纪律到位 = 只亏小钱。
+                    <b style={{color:GL}}> 纪律 &gt; 技术 &gt; 预测。</b>
+                  </div>
+                </div>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:11,marginBottom:16}}>
+                  {RULES.map((r,i)=>(
+                    <div key={i} style={{...card,cursor:"default",display:"flex",gap:12,alignItems:"flex-start",padding:"13px 15px"}}>
+                      <div style={{width:38,height:38,borderRadius:10,background:`${G}14`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>{r.e}</div>
+                      <div>
+                        <div style={{fontSize:13,fontWeight:700,marginBottom:3}}>{r.t}</div>
+                        <div style={{fontSize:12,color:MT,lineHeight:1.68}}>{r.b}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{...card,cursor:"default"}}>
+                  <div style={{padding:"11px 16px",borderBottom:`1px solid ${BD}`,background:`${G}0A`}}>
+                    <span style={{fontSize:14,fontWeight:700,color:GL}}>📋 每日五步开盘流程</span>
+                  </div>
+                  <div style={{padding:"14px 16px"}}>
+                    {[
+                      ["01","看新闻日历","打开 Forex Factory，标出今天所有红色高影响事件。数据公布前后 15 分钟内不进场。"],
+                      ["02","画关键价位","在日线 + 4H 图标出今日支撑 / 阻力、昨日高低点、当日开盘价，不画线不进场。"],
+                      ["03","写今日剧本","定方向（多 / 空 / 观望）并写下条件：\"价格到 X，出现 Y 信号，做 Z，止损 W\"。"],
+                      ["04","等待信号来","不主动找机会，让市场来到你的计划位置，等确认信号才动手，没信号就空仓。"],
+                      ["05","盘后复盘","截图每笔进出场，记录执行情况和情绪，填入复盘表更新胜率 / 盈亏比统计。"],
+                    ].map(([n,t,d])=>(
+                      <div key={n} style={{display:"flex",gap:12,marginBottom:11,alignItems:"flex-start"}}>
+                        <div style={{width:30,height:30,borderRadius:8,background:`${G}1A`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:800,color:G,fontFamily:"monospace",flexShrink:0}}>{n}</div>
+                        <div>
+                          <div style={{fontSize:13,fontWeight:700,marginBottom:2}}>{t}</div>
+                          <div style={{fontSize:12,color:MT,lineHeight:1.6}}>{d}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{margin:"0 14px 14px",padding:"10px 14px",background:`${G}0A`,borderRadius:8,border:`1px solid ${G}22`,textAlign:"center"}}>
+                    <span style={{fontSize:12.5,color:GL,fontWeight:600,fontStyle:"italic"}}>
+                      "位置不对就空仓 · 盈亏比不够就放过 · 守纪律比看对方向更重要"
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<GoldGuide/>);
+  </script>
+</body>
+</html>
