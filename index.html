@@ -62,14 +62,24 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 <body>
 <div class="topstrip"></div>
 
+<!-- Live ticker tape (TradingView) -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+  </script>
+</div>
+
 <section class="hero">
   <div class="eyebrow">◆ XAUUSD · Gold Spot · Trading Intelligence</div>
   <h1>黄金交易<em>中心</em></h1>
   <div class="sub">每日深度盘面分析 + 完整策略与形态手册。技术结构、关键价位、基本面驱动、操作场景与风险纪律，一站集成。</div>
-  <div class="ticker">
-    <span class="sym">XAU/USD</span>
-    <span class="px">$4,074</span>
-    <span class="chg">▼ 0.95% · 两周新低</span>
+  <!-- Live single quote (TradingView) -->
+  <div class="tradingview-widget-container" style="max-width:420px;margin:28px auto 0">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"en"}
+    </script>
   </div>
 </section>
 
@@ -121,7 +131,7 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
       <h2>市场快讯</h2>
       <p>最新黄金消息聚合：美联储加息预期、核心 PCE、美伊地缘、机构目标价。附明日关键价位与来源链接。</p>
       <div class="meta">
-        <span class="chip bear">两周新低 $4,067</span>
+        <span class="chip bear">现价 <!--LIVEPRICE-->$4,074<!--/LIVEPRICE--></span>
         <span class="chip gold">⚠ 明日 PCE</span>
       </div>
       <div class="go">查看快讯 →</div>
@@ -130,8 +140,18 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
   </div>
 </div>
 
+<div class="wrap">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:0 0 14px;display:flex;align-items:center;gap:10px">实时图表 · Live Chart<span style="flex:1;height:1px;background:var(--border)"></span></div>
+  <div class="tradingview-widget-container" style="height:480px;width:100%;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-bottom:40px">
+    <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+    </script>
+  </div>
+</div>
+
 <footer>
-  <div class="upd">Last updated · 2026-06-24 · GMT+8</div>
+  <div class="upd">文字内容快照 · 2026-06-24 · 图表与报价为实时 TradingView 数据</div>
   <div class="disc">
     <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com。交易前请进行独立尽职调查。
   </div>

@@ -186,6 +186,17 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 
 <main>
 
+<!-- ══ 实时图表 ══ -->
+<div class="card full">
+  <div class="card-eyebrow">实时图表 · Live Chart (TradingView)</div>
+  <div class="tradingview-widget-container" style="height:440px;width:100%;border-radius:3px;overflow:hidden">
+    <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+    </script>
+  </div>
+</div>
+
 <!-- ══ 价格快照 ══ -->
 <div class="card full">
   <div class="card-eyebrow">价格快照 · 2026年6月24日</div>
