@@ -9,19 +9,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#060E18;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
+    body{background:#F5F6F8;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
     button{font-family:inherit}
     ::-webkit-scrollbar{width:6px;height:6px}
-    ::-webkit-scrollbar-track{background:#0B1824}
-    ::-webkit-scrollbar-thumb{background:#1A3252;border-radius:3px}
+    ::-webkit-scrollbar-track{background:#E5E7EB}
+    ::-webkit-scrollbar-thumb{background:#C7CDD6;border-radius:3px}
   </style>
 </head>
 <body>
-  <nav style="background:#0B1824;border-bottom:1px solid #172E46;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
-    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#4A6E88;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #172E46">← 首页</a>
-    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#4A6E88;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #172E46">📊 每日分析</a>
-    <a href="news.html" style="font-size:11px;letter-spacing:1px;color:#4A6E88;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #172E46">📰 市场快讯</a>
-    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#F2C94C;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(201,162,39,.4);background:rgba(201,162,39,.12)">📖 策略手册</a>
+  <nav style="background:#FFFFFF;border-bottom:1px solid #E2E5EB;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
+    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">← 首页</a>
+    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">📊 每日分析</a>
+    <a href="news.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">📰 市场快讯</a>
+    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#9A6D10;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(184,134,11,.4);background:rgba(184,134,11,.10)">📖 策略手册</a>
   </nav>
   <div id="root"></div>
 
@@ -29,16 +29,16 @@
     const { useState } = React;
 
     /* ── Design tokens ─────────────────────────────── */
-    const G="#C9A227",GL="#F2C94C",GR="#10B981",RD="#EF4444",BL="#60A5FA",PU="#A78BFA";
-    const TX="#C8E4F5",MT="#4A6E88",BG="#060E18",SF="#0B1824",CD="#0F1E2C",BD="#172E46";
+    const G="#B8860B",GL="#9A6D10",GR="#15803D",RD="#DC2626",BL="#2563EB",PU="#7C3AED";
+    const TX="#374151",MT="#6B7280",BG="#F5F6F8",SF="#FFFFFF",CD="#FFFFFF",BD="#E2E5EB";
 
     /* ── SVG helpers ───────────────────────────────── */
     function Chart({ children, h=100 }){
       return (
         <svg viewBox={`0 0 180 ${h}`} style={{width:"100%",display:"block"}}>
-          <rect width={180} height={h} fill="#030C16" rx="6"/>
+          <rect width={180} height={h} fill="#F8FAFC" stroke="#E5E7EB" strokeWidth="1" rx="6"/>
           {[.25,.5,.75].map(f=>{const y=Math.round(h*f);return(
-            <line key={f} x1={0} y1={y} x2={180} y2={y} stroke="#10202E" strokeWidth="0.7" strokeDasharray="4,4"/>
+            <line key={f} x1={0} y1={y} x2={180} y2={y} stroke="#E5E7EB" strokeWidth="0.7" strokeDasharray="4,4"/>
           )})}
           {children}
         </svg>
@@ -278,7 +278,7 @@
         <div style={{background:BG,minHeight:"100vh",color:TX,fontFamily:"'Inter','PingFang SC','Microsoft YaHei',sans-serif"}}>
 
           {/* Header */}
-          <div style={{background:"linear-gradient(160deg,#060E18 0%,#0D1E30 100%)",borderBottom:`1px solid ${BD}`,padding:"18px 16px 13px"}}>
+          <div style={{background:"linear-gradient(160deg,#FFFFFF 0%,#F3F4F6 100%)",borderBottom:`1px solid ${BD}`,padding:"18px 16px 13px"}}>
             <div style={{maxWidth:960,margin:"0 auto"}}>
               <div style={{fontSize:9,letterSpacing:3,color:MT,fontFamily:"monospace",textTransform:"uppercase",marginBottom:3}}>
                 ◆ XAUUSD · Strategy &amp; Pattern Reference

@@ -7,10 +7,10 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
 :root{
-  --gold:#C9A84C;--gold-lt:#E8C96D;--gold-dk:#8A6B28;
-  --bear:#E05252;--bull:#4CAF7C;--neut:#7B8EA6;
-  --bg:#0B0D12;--bg2:#111420;--bg3:#181C28;--bg4:#1E2235;
-  --border:#252A3A;--text:#C8D0E0;--dim:#606880;--white:#EEF2FF;
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;
+  --bear:#DC2626;--bull:#15803D;--neut:#64748B;
+  --bg:#F5F6F8;--bg2:#FFFFFF;--bg3:#F3F4F6;--bg4:#E5E7EB;
+  --border:#E2E5EB;--text:#374151;--dim:#6B7280;--white:#111827;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.7;min-height:100vh}
@@ -31,8 +31,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 /* grid */
 .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;padding:48px 0}
 @media(max-width:760px){.grid{grid-template-columns:1fr;padding:32px 0}.hero{padding:44px 20px 36px}}
-.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:30px 32px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
-.tile:hover{border-color:var(--gold-dk);transform:translateY(-2px)}
+.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:30px 32px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.tile:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,24,40,.10)}
 .tile .bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
 .tile.main .bar{background:linear-gradient(90deg,var(--gold-lt),var(--gold),transparent)}
 .tile .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:14px}
@@ -66,7 +66,7 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
   </script>
 </div>
 
@@ -78,7 +78,7 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
   <div class="tradingview-widget-container" style="max-width:420px;margin:28px auto 0">
     <div class="tradingview-widget-container__widget"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"en"}
+    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"light","locale":"en"}
     </script>
   </div>
 </section>
@@ -145,7 +145,7 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
   <div class="tradingview-widget-container" style="height:480px;width:100%;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-bottom:40px">
     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"light","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
     </script>
   </div>
 </div>

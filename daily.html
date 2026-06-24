@@ -7,10 +7,10 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
 :root{
-  --gold:#C9A84C;--gold-lt:#E8C96D;--gold-dk:#8A6B28;
-  --bear:#E05252;--bull:#4CAF7C;--neut:#7B8EA6;
-  --bg:#0B0D12;--bg2:#111420;--bg3:#181C28;--bg4:#1E2235;
-  --border:#252A3A;--text:#C8D0E0;--dim:#606880;--white:#EEF2FF;
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;
+  --bear:#DC2626;--bull:#15803D;--neut:#64748B;
+  --bg:#F5F6F8;--bg2:#FFFFFF;--bg3:#F3F4F6;--bg4:#E5E7EB;
+  --border:#E2E5EB;--text:#374151;--dim:#6B7280;--white:#111827;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
@@ -33,7 +33,7 @@ header h1 em{color:var(--gold);font-style:normal}
 .badge.caut{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
 main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .full{grid-column:1/-1}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:22px 24px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:22px 24px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
 .card-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .card-eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
 .card h2{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:16px}
@@ -50,7 +50,7 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 .scale-labels{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-bottom:5px}
 .scale-track{height:6px;background:var(--bg4);border-radius:3px;position:relative}
 .scale-fill{height:100%;background:linear-gradient(90deg,var(--bull),var(--gold));border-radius:3px}
-.scale-pin{position:absolute;top:-5px;width:2px;height:16px;background:#fff;border-radius:1px}
+.scale-pin{position:absolute;top:-5px;width:2px;height:16px;background:var(--white);border-radius:1px}
 .scale-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:7px}
 /* tf table */
 .tf-table{width:100%;border-collapse:collapse}
@@ -93,7 +93,7 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 .sess-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .sess-card{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:14px 16px}
 .sess-name{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.sess-name.a{color:#8BBFE8}.sess-name.l{color:#E8C96D}.sess-name.n{color:#E88B8B}
+.sess-name.a{color:#2563EB}.sess-name.l{color:#B8860B}.sess-name.n{color:#DC2626}
 .sess-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-bottom:8px}
 .sess-info{font-size:12px;color:var(--text);line-height:1.6}
 .sess-setup{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--gold)}
@@ -192,7 +192,7 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
   <div class="tradingview-widget-container" style="height:440px;width:100%;border-radius:3px;overflow:hidden">
     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"light","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
     </script>
   </div>
 </div>
