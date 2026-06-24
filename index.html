@@ -29,7 +29,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .ticker .chg{font-size:13px;color:var(--bear)}
 
 /* grid */
-.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;padding:48px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:48px 0}
 @media(max-width:760px){.grid{grid-template-columns:1fr;padding:32px 0}.hero{padding:44px 20px 36px}}
 .tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:30px 32px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06)}
 .tile:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,24,40,.10)}
@@ -47,10 +47,19 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .chip.gold{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
 .tile .go{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-lt);margin-top:6px;font-weight:600}
 .tile:hover .go{color:var(--gold-lt)}
-.tile.main{grid-row:span 3}
+/* main = full-width banner with live price */
+.tile.main{grid-column:1/-1;flex-direction:row;gap:40px;align-items:stretch;padding:32px 36px}
+.main-left{flex:1;display:flex;flex-direction:column}
+.main-left p{flex:1}
+.main-right{width:330px;flex-shrink:0;border-left:1px solid var(--border);padding-left:36px;display:flex;flex-direction:column;justify-content:center}
+.mp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:6px}
+.mp-num{font-family:'IBM Plex Mono',monospace;font-size:46px;font-weight:600;color:var(--gold-lt);letter-spacing:-2px;line-height:1}
+.mp-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:8px}
+.mp-dot{color:var(--bull)}
+@media(max-width:760px){.tile.main{flex-direction:column;gap:0}.main-right{width:auto;border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:22px;margin-top:18px}.mp-num{font-size:40px}}
 
 .feats{list-style:none;margin:14px 0 0;padding:0}
-.feats li{font-size:12.5px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid rgba(37,42,58,.5)}
+.feats li{font-size:12.5px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid var(--border)}
 .feats li:last-child{border-bottom:none}
 .feats li::before{content:'▸';color:var(--gold);font-size:10px;padding-top:2px}
 
@@ -89,23 +98,30 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
     <!-- MAIN: Daily Analysis -->
     <a class="tile main" href="daily.html">
       <div class="bar"></div>
-      <div class="tag">★ 主功能 · 每日更新</div>
-      <div class="ico">📊</div>
-      <h2>每日深度分析</h2>
-      <p>2026年6月24日最新盘面。多周期技术结构、关键支撑阻力层级、技术指标读数、基本面驱动因素、今日操作场景与 PCE 前夕风险预案。</p>
-      <div class="meta">
-        <span class="chip bear">短线强烈看空</span>
-        <span class="chip gold">⚠ 明日核心PCE</span>
-        <span class="chip bull">长线结构牛市</span>
+      <div class="main-left">
+        <div class="tag">★ 主功能 · 每日更新</div>
+        <div class="ico">📊</div>
+        <h2>每日深度分析</h2>
+        <p>多周期技术结构、关键支撑阻力层级、技术指标读数、基本面驱动因素、今日操作场景与重大数据前风险预案 —— 每日自动刷新。</p>
+        <ul class="feats">
+          <li>价格快照 · 昨日对比 · 52周分位</li>
+          <li>月线 → M5 六周期趋势结构</li>
+          <li>R4→S4 完整支撑阻力层级表</li>
+          <li>FED / DXY / PCE / 地缘 驱动解析</li>
+          <li>多空双场景 + 三大时段操作节奏</li>
+        </ul>
+        <div class="go">进入每日分析 →</div>
       </div>
-      <ul class="feats">
-        <li>价格快照 · 昨日对比 · 52周分位</li>
-        <li>月线 → M5 六周期趋势结构</li>
-        <li>R4→S4 完整支撑阻力层级表</li>
-        <li>FED / DXY / PCE / 地缘 驱动解析</li>
-        <li>多空双场景 + 三大时段操作节奏</li>
-      </ul>
-      <div class="go">进入每日分析 →</div>
+      <div class="main-right">
+        <div class="mp-label">XAU/USD · 实时金价</div>
+        <div class="mp-num js-live-price">—</div>
+        <div class="mp-time"><span class="mp-dot">●</span> 更新于 <span class="js-live-time">载入中…</span></div>
+        <div class="meta" style="margin-top:20px">
+          <span class="chip bear">短线看空</span>
+          <span class="chip gold">⚠ PCE 临近</span>
+          <span class="chip bull">长线结构牛</span>
+        </div>
+      </div>
     </a>
 
     <!-- Strategy Handbook -->
