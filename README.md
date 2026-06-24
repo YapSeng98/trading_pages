@@ -9,7 +9,10 @@
 | [`index.html`](index.html) | 首页 · 导航中心 |
 | [`daily.html`](daily.html) | **每日深度分析**（主功能，每日更新）— 技术结构、支撑阻力、基本面、操作场景、风险预案 |
 | [`news.html`](news.html) | 市场快讯 — 最新黄金消息聚合、明日关键价位、来源链接 |
+| [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |
 | [`strategy.html`](strategy.html) | 策略与形态手册 — 9 形态图鉴、4 套策略、K 线信号、交易心法 |
+
+**实时金价**：所有带价格的页面通过浏览器端 fetch（`api.gold-api.com`，免费无密钥，CORS 开放）实时刷新，每 60 秒更新一次。首页与每日页另含 TradingView 实时图表/报价组件。
 
 ## 本地预览
 

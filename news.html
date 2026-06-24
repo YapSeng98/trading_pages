@@ -65,6 +65,7 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
   <a href="index.html">← 首页</a>
   <a href="daily.html">📊 每日分析</a>
   <a href="news.html" class="on">📰 市场快讯</a>
+  <a href="risk.html">🗓 风险与计划</a>
   <a href="strategy.html">📖 策略手册</a>
 </nav>
 
@@ -75,9 +76,9 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
     <div class="hdate">2026年6月24日（星期三）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 来源：CNBC / Markets.com / LiteFinance / Trading Economics</div>
   </div>
   <div class="hprice">
-    <div class="hprice-num"><!--LIVEPRICE-->$4,074<!--/LIVEPRICE--></div>
-    <div class="hprice-chg">实时金价 · 自1月ATH $5,589 回落</div>
-    <div class="hprice-sub">自动更新于 <!--LIVEUPDATED-->2026-06-24 13:30 UTC<!--/LIVEUPDATED--> · 来源 gold-api.com</div>
+    <div class="hprice-num js-live-price"><!--LIVEPRICE-->$4,074<!--/LIVEPRICE--></div>
+    <div class="hprice-chg">🟢 实时金价 · 自1月ATH $5,589 回落</div>
+    <div class="hprice-sub">更新于 <span class="js-live-time"><!--LIVEUPDATED-->2026-06-24 13:30 UTC<!--/LIVEUPDATED--></span> · 来源 gold-api.com</div>
   </div>
 </header>
 
@@ -173,5 +174,22 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 
 </main>
 <div class="topstrip"></div>
+
+<script>
+(function(){
+  function fmt(p){return '$'+Math.round(p).toLocaleString('en-US');}
+  function upd(){
+    fetch('https://api.gold-api.com/price/XAU',{cache:'no-store'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.price)return;
+        document.querySelectorAll('.js-live-price').forEach(function(el){el.textContent=fmt(d.price);});
+        var t=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Singapore',hour12:false});
+        document.querySelectorAll('.js-live-time').forEach(function(el){el.textContent=t+' (SGT)';});
+      }).catch(function(){});
+  }
+  upd(); setInterval(upd,60000);
+})();
+</script>
 </body>
 </html>

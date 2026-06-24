@@ -47,7 +47,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .chip.gold{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
 .tile .go{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-lt);margin-top:6px;font-weight:600}
 .tile:hover .go{color:var(--gold-lt)}
-.tile.main{grid-row:span 2}
+.tile.main{grid-row:span 3}
 
 .feats{list-style:none;margin:14px 0 0;padding:0}
 .feats li{font-size:12.5px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid rgba(37,42,58,.5)}
@@ -131,10 +131,24 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
       <h2>市场快讯</h2>
       <p>最新黄金消息聚合：美联储加息预期、核心 PCE、美伊地缘、机构目标价。附明日关键价位与来源链接。</p>
       <div class="meta">
-        <span class="chip bear">现价 <!--LIVEPRICE-->$4,074<!--/LIVEPRICE--></span>
+        <span class="chip bear">现价 <span class="js-live-price"><!--LIVEPRICE-->$4,074<!--/LIVEPRICE--></span></span>
         <span class="chip gold">⚠ 明日 PCE</span>
       </div>
       <div class="go">查看快讯 →</div>
+    </a>
+
+    <!-- Future risk & plan -->
+    <a class="tile" href="risk.html">
+      <div class="bar"></div>
+      <div class="tag">前瞻 · 经济日历</div>
+      <div class="ico">🗓</div>
+      <h2>未来风险与计划</h2>
+      <p>ForexFactory 高影响事件日历（PCE / NFP / CPI / FOMC）、三大前瞻情景、分阶段交易计划与重大数据期风险铁律。</p>
+      <div class="meta">
+        <span class="chip gold">PCE 6/25</span>
+        <span class="chip bear">FOMC 7/29</span>
+      </div>
+      <div class="go">查看风险计划 →</div>
     </a>
 
   </div>
@@ -158,5 +172,22 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 </footer>
 
 <div class="topstrip"></div>
+
+<script>
+(function(){
+  function fmt(p){return '$'+Math.round(p).toLocaleString('en-US');}
+  function upd(){
+    fetch('https://api.gold-api.com/price/XAU',{cache:'no-store'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.price)return;
+        document.querySelectorAll('.js-live-price').forEach(function(el){el.textContent=fmt(d.price);});
+        var t=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Singapore',hour12:false});
+        document.querySelectorAll('.js-live-time').forEach(function(el){el.textContent=t+' (SGT)';});
+      }).catch(function(){});
+  }
+  upd(); setInterval(upd,60000);
+})();
+</script>
 </body>
 </html>

@@ -159,6 +159,7 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
   <a href="index.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">← 首页</a>
   <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:var(--gold-lt);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(201,168,76,.4);background:rgba(201,168,76,.12)">📊 每日分析</a>
   <a href="news.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">📰 市场快讯</a>
+  <a href="risk.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">🗓 风险与计划</a>
   <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)">📖 策略手册</a>
 </nav>
 
@@ -169,9 +170,9 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
     <div class="hdate">2026年6月24日（星期三）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 今日最新数据</div>
   </div>
   <div class="hprice">
-    <div class="hprice-num">$4,106.41</div>
-    <div class="hprice-chg" style="color:var(--bear)">▼ $34.40 &nbsp;(−0.83%) 较昨收</div>
-    <div class="hprice-sub">今日开盘 $4,191.43 &nbsp;·&nbsp; 区间 $4,090.99 – $4,198.26</div>
+    <div class="hprice-num js-live-price">$4,106</div>
+    <div class="hprice-chg" style="color:var(--bear)">▼ 分析基准 $4,106 · 区间 $4,091–$4,198 (6/24)</div>
+    <div class="hprice-sub">🟢 实时金价 · 更新于 <span class="js-live-time">载入中…</span> · gold-api.com</div>
   </div>
 </header>
 
@@ -591,5 +592,22 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 
 </main>
 <div class="topstrip"></div>
+
+<script>
+(function(){
+  function fmt(p){return '$'+Math.round(p).toLocaleString('en-US');}
+  function upd(){
+    fetch('https://api.gold-api.com/price/XAU',{cache:'no-store'})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.price)return;
+        document.querySelectorAll('.js-live-price').forEach(function(el){el.textContent=fmt(d.price);});
+        var t=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Singapore',hour12:false});
+        document.querySelectorAll('.js-live-time').forEach(function(el){el.textContent=t+' (SGT)';});
+      }).catch(function(){});
+  }
+  upd(); setInterval(upd,60000);
+})();
+</script>
 </body>
 </html>
