@@ -5,71 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trading Stock · 交易中心 Trading Hub</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;--amber:#F59E0B;
   --bear:#DC2626;--bull:#15803D;--neut:#64748B;
-  --bg:#F5F6F8;--bg2:#FFFFFF;--bg3:#F3F4F6;--bg4:#E5E7EB;
-  --border:#E2E5EB;--text:#374151;--dim:#6B7280;--white:#111827;
+  --bg:#FAFAF9;--bg2:#FFFFFF;--bg3:#F4F4F2;--bg4:#E7E5E4;
+  --border:#E7E5E4;--border-2:#D6D3D1;--text:#44403C;--dim:#78716C;--ink:#1C1917;
+  --r-lg:20px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(28,25,23,.04),0 2px 8px rgba(28,25,23,.04);
+  --shadow-md:0 2px 4px rgba(28,25,23,.04),0 12px 32px rgba(28,25,23,.08);
+  --shadow-gold:0 4px 24px rgba(184,134,11,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.7;min-height:100vh}
-.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased}
 
-/* hero */
-.hero{padding:64px 24px 48px;text-align:center;border-bottom:1px solid var(--border);background:radial-gradient(ellipse at top,rgba(201,168,76,.08),transparent 60%)}
-.hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,7vw,60px);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero .sub{font-size:15px;color:var(--dim);max-width:560px;margin:14px auto 0;line-height:1.8}
-.ticker{display:inline-flex;align-items:baseline;gap:14px;margin-top:28px;padding:14px 26px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;font-family:'IBM Plex Mono',monospace}
-.ticker .sym{font-size:12px;letter-spacing:2px;color:var(--dim)}
-.ticker .px{font-size:30px;font-weight:600;color:var(--gold-lt);letter-spacing:-1px}
-.ticker .chg{font-size:13px;color:var(--bear)}
+/* ── ambient background mesh ── */
+.mesh{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.10),transparent 65%);filter:blur(40px)}
+.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:640px;height:520px;background:radial-gradient(ellipse,rgba(184,134,11,.07),transparent 65%);filter:blur(44px)}
 
-/* grid */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:48px 0}
-@media(max-width:760px){.grid{grid-template-columns:1fr;padding:32px 0}.hero{padding:44px 20px 36px}}
-.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:30px 32px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06)}
-.tile:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,24,40,.10)}
-.tile .bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)}
-.tile.main .bar{background:linear-gradient(90deg,var(--gold-lt),var(--gold),transparent)}
-.tile .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:14px}
-.tile .ico{font-size:30px;margin-bottom:14px}
-.tile h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.2}
-.tile.main h2{font-size:30px}
-.tile p{font-size:13px;color:var(--text);line-height:1.75;flex:1}
-.tile .meta{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
-.chip{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:4px 10px;border-radius:2px;text-transform:uppercase}
-.chip.bear{background:rgba(224,82,82,.15);color:var(--bear);border:1px solid rgba(224,82,82,.25)}
-.chip.bull{background:rgba(76,175,124,.15);color:var(--bull);border:1px solid rgba(76,175,124,.25)}
-.chip.gold{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
-.tile .go{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold-lt);margin-top:6px;font-weight:600}
-.tile:hover .go{color:var(--gold-lt)}
-/* main = full-width banner with live price */
-.tile.main{grid-column:1/-1;flex-direction:row;gap:40px;align-items:stretch;padding:32px 36px}
+/* ── top accent ── */
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
+@keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
+
+/* ── sticky glass nav ── */
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(250,250,249,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,229,228,.9)}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ── hero ── */
+.hero{padding:76px 24px 40px;text-align:center;position:relative}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3.5px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:22px;padding:7px 16px;border:1px solid rgba(184,134,11,.25);border-radius:999px;background:rgba(184,134,11,.06)}
+.hero .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bull);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+.hero h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(38px,7vw,64px);font-weight:700;color:var(--ink);line-height:1.04;letter-spacing:-2.5px;margin-bottom:14px}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold) 0%,var(--amber) 55%,var(--gold-dk) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:15.5px;color:var(--dim);max-width:580px;margin:0 auto;line-height:1.85}
+@media(max-width:760px){.hero{padding:48px 20px 32px}}
+
+/* ── bento grid ── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:40px 0 8px}
+@media(max-width:760px){.grid{grid-template-columns:1fr;padding:28px 0 4px}}
+.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px 32px;text-decoration:none;color:inherit;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,border-color .25s}
+.tile:hover{border-color:rgba(184,134,11,.45);transform:translateY(-4px);box-shadow:var(--shadow-md),var(--shadow-gold)}
+.tile::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px 180px at 85% -10%,rgba(232,201,109,.10),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tile:hover::after{opacity:1}
+.tile .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.tile .tag::before{content:'';width:16px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
+.tile .ico{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:16px;background:linear-gradient(135deg,rgba(232,201,109,.16),rgba(184,134,11,.07));border:1px solid rgba(184,134,11,.18);border-radius:var(--r-md)}
+.tile h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:23px;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.25;letter-spacing:-.5px}
+.tile p{font-size:13px;color:var(--text);line-height:1.8;flex:1}
+.tile .meta{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 4px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.6px;padding:5px 12px;border-radius:999px}
+.chip.bear{background:rgba(220,38,38,.08);color:var(--bear);border:1px solid rgba(220,38,38,.20)}
+.chip.bull{background:rgba(21,128,61,.08);color:var(--bull);border:1px solid rgba(21,128,61,.20)}
+.chip.gold{background:rgba(184,134,11,.08);color:var(--gold);border:1px solid rgba(184,134,11,.22)}
+.tile .go{display:inline-flex;align-items:center;gap:7px;font-family:'Space Grotesk',monospace;font-size:13px;color:var(--gold-lt);margin-top:12px;font-weight:600}
+.tile .go .arr{transition:transform .22s}
+.tile:hover .go .arr{transform:translateX(5px)}
+
+/* ── main tile: full width, live price panel ── */
+.tile.main{grid-column:1/-1;flex-direction:row;gap:44px;align-items:stretch;padding:36px 40px;background:linear-gradient(135deg,#FFFFFF 55%,#FDF9F0 100%)}
 .main-left{flex:1;display:flex;flex-direction:column}
 .main-left p{flex:1}
-.main-right{width:330px;flex-shrink:0;border-left:1px solid var(--border);padding-left:36px;display:flex;flex-direction:column;justify-content:center}
-.mp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:6px}
-.mp-num{font-family:'IBM Plex Mono',monospace;font-size:46px;font-weight:600;color:var(--gold-lt);letter-spacing:-2px;line-height:1}
-.mp-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:8px}
-.mp-dot{color:var(--bull)}
-@media(max-width:760px){.tile.main{flex-direction:column;gap:0}.main-right{width:auto;border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:22px;margin-top:18px}.mp-num{font-size:40px}}
+.main-right{width:340px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-md);padding:26px 28px;box-shadow:var(--shadow-sm)}
+.mp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:8px}
+.mp-num{font-family:'Space Grotesk',monospace;font-size:50px;font-weight:700;letter-spacing:-2.5px;line-height:1;font-variant-numeric:tabular-nums;background:linear-gradient(120deg,var(--gold-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mp-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:10px;display:flex;align-items:center;gap:6px}
+.mp-dot{color:var(--bull);animation:pulse 2s ease-in-out infinite}
+@media(max-width:860px){.tile.main{flex-direction:column;gap:22px;padding:28px 26px}.main-right{width:auto}.mp-num{font-size:42px}}
 
-.feats{list-style:none;margin:14px 0 0;padding:0}
-.feats li{font-size:12.5px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid var(--border)}
-.feats li:last-child{border-bottom:none}
-.feats li::before{content:'▸';color:var(--gold);font-size:10px;padding-top:2px}
+.feats{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+.feats li{font-size:12.5px;color:var(--text);padding:6px 0;display:flex;gap:9px;align-items:flex-start}
+.feats li::before{content:'✓';flex-shrink:0;width:17px;height:17px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gold-lt);background:rgba(184,134,11,.10);border-radius:50%;margin-top:3px}
+@media(max-width:600px){.feats{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--border);padding:28px 24px 40px;text-align:center}
-footer .disc{font-size:11px;color:var(--dim);max-width:680px;margin:0 auto;line-height:1.8}
-footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);margin-bottom:12px;text-transform:uppercase}
+/* ── section label ── */
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:36px 0 16px;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-2),transparent)}
+
+/* ── chart card ── */
+.chart-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:48px;background:var(--bg2)}
+
+/* ── footer ── */
+footer{border-top:1px solid var(--border);padding:36px 24px 48px;text-align:center;background:linear-gradient(180deg,transparent,rgba(232,201,109,.05))}
+footer .upd{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);margin-bottom:16px;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(184,134,11,.22);border-radius:999px;background:rgba(184,134,11,.05)}
+footer .disc{font-size:11px;color:var(--dim);max-width:680px;margin:0 auto;line-height:1.85}
+footer .disc strong{color:var(--text)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div class="mesh"></div>
 <div class="topstrip"></div>
+
+<!-- sticky glass nav -->
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="daily.html">📊 每日分析</a>
+  <a class="nl" href="news.html">📰 快讯</a>
+  <a class="nl" href="risk.html">🗓 风险计划</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
+</nav>
 
 <!-- Live ticker tape (TradingView) -->
 <div class="tradingview-widget-container">
@@ -80,11 +125,11 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 </div>
 
 <section class="hero">
-  <div class="eyebrow">◆ XAUUSD · Gold Spot · Trading Intelligence</div>
+  <div class="eyebrow">XAUUSD · Gold Spot · Trading Intelligence</div>
   <h1>黄金交易<em>中心</em></h1>
   <div class="sub">每日深度盘面分析 + 完整策略与形态手册。技术结构、关键价位、基本面驱动、操作场景与风险纪律，一站集成。</div>
   <!-- Live single quote (TradingView) -->
-  <div class="tradingview-widget-container" style="max-width:420px;margin:28px auto 0">
+  <div class="tradingview-widget-container" style="max-width:420px;margin:26px auto 0">
     <div class="tradingview-widget-container__widget"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
     {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"light","locale":"en"}
@@ -97,7 +142,6 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 
     <!-- MAIN: Daily Analysis -->
     <a class="tile main" href="daily.html">
-      <div class="bar"></div>
       <div class="main-left">
         <div class="tag">★ 主功能 · 每日更新</div>
         <div class="ico">📊</div>
@@ -110,7 +154,7 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
           <li>FED / DXY / PCE / 地缘 驱动解析</li>
           <li>多空双场景 + 三大时段操作节奏</li>
         </ul>
-        <div class="go">进入每日分析 →</div>
+        <div class="go">进入每日分析 <span class="arr">→</span></div>
       </div>
       <div class="main-right">
         <div class="mp-label">XAU/USD · 实时金价</div>
@@ -126,7 +170,6 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
 
     <!-- Strategy Handbook -->
     <a class="tile" href="strategy.html">
-      <div class="bar"></div>
       <div class="tag">参考手册</div>
       <div class="ico">📖</div>
       <h2>策略与形态手册</h2>
@@ -136,12 +179,11 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
         <span class="chip gold">4 策略</span>
         <span class="chip gold">心法规则</span>
       </div>
-      <div class="go">打开手册 →</div>
+      <div class="go">打开手册 <span class="arr">→</span></div>
     </a>
 
     <!-- Latest market news -->
     <a class="tile" href="news.html">
-      <div class="bar"></div>
       <div class="tag">实时更新 · Live</div>
       <div class="ico">📰</div>
       <h2>市场快讯</h2>
@@ -150,12 +192,11 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
         <span class="chip bull">现价 <span class="js-live-price"><!--LIVEPRICE-->$4,026<!--/LIVEPRICE--></span></span>
         <span class="chip gold">月末盘前$4,026 · 亚洲07:00约1小时 · DXY 101.33 · Warsh 7/1（明日）· NFP 7/2（2天后，共识114K↓）· 9月加息~70%</span>
       </div>
-      <div class="go">查看快讯 →</div>
+      <div class="go">查看快讯 <span class="arr">→</span></div>
     </a>
 
     <!-- Future risk & plan -->
     <a class="tile" href="risk.html">
-      <div class="bar"></div>
       <div class="tag">前瞻 · 经济日历</div>
       <div class="ico">🗓</div>
       <h2>未来风险与计划</h2>
@@ -164,12 +205,11 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
         <span class="chip gold">月末亚洲盘中 09:00 SGT · DXY 101.33 · 9月加息~70%</span>
         <span class="chip bear">Warsh 7/1（明日）· NFP 7/2（2天后，共识114K↓）</span>
       </div>
-      <div class="go">查看风险计划 →</div>
+      <div class="go">查看风险计划 <span class="arr">→</span></div>
     </a>
 
     <!-- Stock picks: US/SG/MY -->
     <a class="tile" href="stocks.html">
-      <div class="bar"></div>
       <div class="tag">股票 · 三大市场</div>
       <div class="ico">📈</div>
       <h2>股票精选</h2>
@@ -179,19 +219,21 @@ footer .upd{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:
         <span class="chip gold">💰 股息股</span>
         <span class="chip gold">🇺🇸 🇸🇬 🇲🇾</span>
       </div>
-      <div class="go">查看选股 →</div>
+      <div class="go">查看选股 <span class="arr">→</span></div>
     </a>
 
   </div>
 </div>
 
 <div class="wrap">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:0 0 14px;display:flex;align-items:center;gap:10px">实时图表 · Live Chart<span style="flex:1;height:1px;background:var(--border)"></span></div>
-  <div class="tradingview-widget-container" style="height:480px;width:100%;border:1px solid var(--border);border-radius:5px;overflow:hidden;margin-bottom:40px">
-    <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-    {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"light","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
-    </script>
+  <div class="sec-label">实时图表 · Live Chart</div>
+  <div class="chart-card" style="height:480px">
+    <div class="tradingview-widget-container" style="height:100%;width:100%">
+      <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+      {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"light","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+      </script>
+    </div>
   </div>
 </div>
 
