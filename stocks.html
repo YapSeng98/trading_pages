@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股票精选 · 美/新/马 成长与股息股 — 2026年7月</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+:root{
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;
+  --bear:#DC2626;--bull:#15803D;--neut:#64748B;
+  --bg:#F5F6F8;--bg2:#FFFFFF;--bg3:#F3F4F6;--bg4:#E5E7EB;
+  --border:#E2E5EB;--text:#374151;--dim:#6B7280;--white:#111827;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
+nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace}
+nav a{font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)}
+nav a.on{color:var(--gold-lt);border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.12)}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:28px 48px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hl-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
+header h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
+header h1 em{color:var(--gold);font-style:normal}
+.hdate{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
+main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
+.tldr{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 22px;margin-bottom:30px}
+.tldr .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
+.tldr p{font-size:13.5px;color:var(--text);line-height:1.8}
+.tldr strong{color:var(--white)}
+.mkt{margin-bottom:44px}
+.mkt-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.mkt-head .flag{font-size:26px}
+.mkt-head h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white)}
+.mkt-head .idx{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto;text-align:right}
+.mkt-note{font-size:12.5px;color:var(--dim);margin-bottom:16px;line-height:1.7}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){main{padding:18px 16px 48px}header{padding:18px 16px 14px}nav{padding:10px 16px}header h1{font-size:26px}.two-col{grid-template-columns:1fr}}
+.col{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:20px 22px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.col-head{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.col.growth .col-head{color:var(--bull)}
+.col.divi .col-head{color:var(--gold-lt)}
+.stock{padding:13px 0;border-bottom:1px dashed var(--border)}
+.stock:last-child{border-bottom:none;padding-bottom:0}
+.stock-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.tk{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.5px;padding:2px 8px;border-radius:2px;background:rgba(201,168,76,.13);color:var(--gold-lt);border:1px solid rgba(201,168,76,.25)}
+.stock-top .nm{font-size:13.5px;font-weight:700;color:var(--white)}
+.stock-top .metric{font-family:'IBM Plex Mono',monospace;font-size:11px;margin-left:auto;font-weight:600}
+.metric.g{color:var(--bull)}.metric.y{color:var(--gold-lt)}
+.stock p{font-size:12px;color:var(--text);line-height:1.7}
+.stock p strong{color:var(--white)}
+.risk-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1px;padding:2px 7px;border-radius:2px;margin-left:6px;text-transform:uppercase}
+.risk-tag.hi{background:rgba(224,82,82,.12);color:var(--bear);border:1px solid rgba(224,82,82,.22)}
+.risk-tag.md{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.22)}
+.risk-tag.lo{background:rgba(76,175,124,.12);color:var(--bull);border:1px solid rgba(76,175,124,.22)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);align-items:center}
+.howto{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:34px}
+.howto .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
+.howto ul{list-style:none;padding:0}
+.howto li{font-size:12px;padding:3px 0;display:flex;gap:8px}
+.howto li::before{content:'▸';color:var(--gold);flex-shrink:0}
+.srcs{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.srcs a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;padding:3px 9px;border:1px solid rgba(201,168,76,.25);border-radius:2px}
+.srcs a:hover{background:rgba(201,168,76,.1)}
+.disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;margin-top:36px;line-height:1.8}
+.upd-stamp{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div class="topstrip"></div>
+
+<nav>
+  <a href="index.html">← 首页</a>
+  <a href="daily.html">📊 每日分析</a>
+  <a href="news.html">📰 市场快讯</a>
+  <a href="risk.html">🗓 风险与计划</a>
+  <a href="strategy.html">📖 策略手册</a>
+  <a href="stocks.html" class="on">📈 股票精选</a>
+</nav>
+
+<header>
+  <div>
+    <div class="hl-tag">Stocks · US / SG / MY · Growth vs Dividend</div>
+    <h1>股票<em>精选</em></h1>
+    <div class="hdate">2026年7月4日（星期六）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类</div>
+  </div>
+</header>
+
+<!-- Live ticker tape: three market indices -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {"symbols":[{"proName":"SP:SPX","title":"S&P 500"},{"proName":"NASDAQ:NDX","title":"Nasdaq 100"},{"proName":"OANDA:SG30SGD","title":"新加坡 STI 代理"},{"proName":"FTSEMYX:FBMKLCI","title":"马来西亚 KLCI"},{"proName":"FX_IDC:USDMYR","title":"USD/MYR"},{"proName":"FX_IDC:USDSGD","title":"USD/SGD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
+  </script>
+</div>
+
+<main>
+
+  <div class="tldr">
+    <div class="lab">◆ 一句话概要</div>
+    <p><strong>2026年选股主线：AI基建资本开支周期（美/马受益） + 高利率环境下的防御性股息（新/马银行与REITs）。</strong>美国：AI芯片与软件仍是成长主战场，但估值波动剧烈（PLTR年内一度回撤40%），股息贵族提供防御；新加坡：银行股息5%+、S-REITs收益率5–7%，无股息预扣税优势明显；马来西亚：KLCI年增约8%，数据中心建设潮（YTL Power 柔佛1,000MW）带动成长股，银行与电信提供4–6%股息。</p>
+  </div>
+
+  <div class="legend">
+    <span>风险标签：</span>
+    <span class="risk-tag lo">低风险</span>
+    <span class="risk-tag md">中风险</span>
+    <span class="risk-tag hi">高风险</span>
+    <span style="margin-left:auto">· 收益率与增速为截至2026年7月初的近似值</span>
+  </div>
+
+  <!-- ═══════════ US MARKET ═══════════ -->
+  <div class="mkt">
+    <div class="mkt-head">
+      <span class="flag">🇺🇸</span>
+      <h2>美国市场 · US</h2>
+      <div class="idx">S&P 500 / NASDAQ<br>AI资本开支周期仍是主线</div>
+    </div>
+    <div class="mkt-note">2026年美股主线仍是AI基建：芯片（训练+推理）、存储、超大规模云厂商与AI软件。但估值波动加大——分散在AI产业链各层比押注单一公司更稳。股息侧，股息贵族/王者提供跨周期防御。</div>
+    <div class="two-col">
+
+      <div class="col growth">
+        <div class="col-head">🚀 成长股 · GROWTH</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">NVDA</span><span class="nm">Nvidia 英伟达</span><span class="risk-tag md">中风险</span><span class="metric g">AI芯片 80–90% 份额</span></div>
+          <p>AI训练芯片绝对龙头（H100/Blackwell架构），估值相对盈利增速仍算合理。2026上半年横盘整理后，机构仍视为AI周期核心持仓。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">AVGO</span><span class="nm">Broadcom 博通</span><span class="risk-tag md">中风险</span><span class="metric g">AI营收 +106%</span></div>
+          <p>定制AI芯片（ASIC）+网络设备双引擎，最近季度营收+29%，AI半导体年化营收2027年可望达$1,000亿。超大规模云厂商自研芯片首选伙伴。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">MSFT</span><span class="nm">Microsoft 微软</span><span class="risk-tag lo">低风险</span><span class="metric g">云+AI 平台层</span></div>
+          <p>Azure + Copilot 生态是AI"平台层"最稳的敞口，现金流深厚，兼具成长与防御属性，适合作为AI仓位的压舱石。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">PLTR</span><span class="nm">Palantir</span><span class="risk-tag hi">高风险</span><span class="metric g">2026营收指引 +61%</span></div>
+          <p>AI软件层明星，2026营收指引$71.8亿（+61%）。但估值极端（曾达67倍市销率），年内自高点回撤近40%——只适合小仓位高波动配置。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SNDK</span><span class="nm">SanDisk 闪迪</span><span class="risk-tag hi">高风险</span><span class="metric g">年涨 ~465%</span></div>
+          <p>2026年AI行情最强主线是数据中心存储/内存，SanDisk年内涨约465%领跑。动能极强但追高风险大，等回调分批。</p>
+        </div>
+
+      </div>
+
+      <div class="col divi">
+        <div class="col-head">💰 股息股 · DIVIDEND</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">ABBV</span><span class="nm">AbbVie 艾伯维</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~3.3%</span></div>
+          <p>连续<strong>53年</strong>提高股息的制药巨头，免疫学+肿瘤管线扎实，股息王者中的成长型代表。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">CVX</span><span class="nm">Chevron 雪佛龙</span><span class="risk-tag lo">低风险</span><span class="metric y">~38年连续加息</span></div>
+          <p>能源巨头中股息纪录最好之一，油价高位时现金流充沛，通胀环境天然对冲。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">O</span><span class="nm">Realty Income</span><span class="risk-tag md">中风险</span><span class="metric y">月配息 REIT</span></div>
+          <p>"月度股息公司"，商业地产净租赁REIT，每月派息、连续30年+提高股息。利率见顶回落时弹性最大。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">MO</span><span class="nm">Altria 奥驰亚</span><span class="risk-tag md">中风险</span><span class="metric y">股息率 ~6%</span></div>
+          <p>本榜最高收益率，派息率约82%仍可持续。烟草行业萎缩是长期风险，适合纯收息仓位。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">MPWR</span><span class="nm">Monolithic Power</span><span class="risk-tag md">中风险</span><span class="metric y">股息增速 16%+/年</span></div>
+          <p>"股息成长"型代表：起始收益率低但5年股息复合增速16%+，电源管理芯片受益AI服务器功耗暴涨，成长+股息双引擎。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SG MARKET ═══════════ -->
+  <div class="mkt">
+    <div class="mkt-head">
+      <span class="flag">🇸🇬</span>
+      <h2>新加坡市场 · SG</h2>
+      <div class="idx">STI · 无资本利得税 / 无股息预扣税<br>全球最友好的收息市场之一</div>
+    </div>
+    <div class="mkt-note">新加坡对本地投资者<strong>无资本利得税、本地股息无预扣税</strong>，天然适合收息组合。三大类：银行（5–6%）、S-REITs（5–7%）、REIT ETF（~5.5%）。成长侧以金融科技平台与工程集团为主。</div>
+    <div class="two-col">
+
+      <div class="col growth">
+        <div class="col-head">🚀 成长股 · GROWTH</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:AIY</span><span class="nm">iFAST</span><span class="risk-tag hi">高风险</span><span class="metric g">Q1营收 +45%</span></div>
+          <p>数字财富管理平台，2026 Q1营收S$1.545亿（+45%）、净利+47%。香港eMPF养老金平台合约是最大增长引擎，2026全年营收预估S$5.9亿。高成长高波动。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:S63</span><span class="nm">ST Engineering 新科工程</span><span class="risk-tag lo">低风险</span><span class="metric g">Q1营收 +11%</span></div>
+          <p>国防+商用航空双引擎，Q1商用航空营收大增15%至S$13.2亿。全球国防开支上行周期直接受益，订单簿深厚，兼具成长与稳定派息。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:S68</span><span class="nm">SGX 新加坡交易所</span><span class="risk-tag lo">低风险</span><span class="metric g">FY26 营收 +6–8%</span></div>
+          <p>交易所本身：衍生品+数据业务驱动，FY2026指引6–8%有机增长，且承诺每季股息持续增至FY2028。稳健成长+股息双属性。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:AJBU</span><span class="nm">Keppel DC REIT</span><span class="risk-tag md">中风险</span><span class="metric g">数据中心纯敞口</span></div>
+          <p>新加坡首只纯数据中心REIT，物业横跨新/欧/亚太。AI与云计算推动超大规模租户需求——以REIT形式吃AI基建红利的独特标的。</p>
+        </div>
+
+      </div>
+
+      <div class="col divi">
+        <div class="col-head">💰 股息股 · DIVIDEND</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:D05</span><span class="nm">DBS 星展银行</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5.2%</span></div>
+          <p>新加坡最大银行，FY2025全年股息S$3.06/股。资本雄厚、派息政策透明，收息组合核心持仓。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:O39</span><span class="nm">OCBC 华侨银行</span><span class="risk-tag lo">低风险</span><span class="metric y">S$25亿回馈计划</span></div>
+          <p>2025净利S$74.2亿，宣布两年内以特别股息+回购向股东返还S$25亿。估值低于DBS，股东回报计划明确。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:A17U</span><span class="nm">CapitaLand Ascendas REIT</span><span class="risk-tag md">中风险</span><span class="metric y">收益率 7%+</span></div>
+          <p>工业/商业园区旗舰REIT，收益率超7%。利率回落周期REIT估值修复弹性大，龙头质地优先。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:N2IU</span><span class="nm">Mapletree Industrial Trust</span><span class="risk-tag md">中风险</span><span class="metric y">工业+数据中心</span></div>
+          <p>工业REIT中数据中心占比高（北美+新加坡），股息与AI基建趋势兼得，2026年机构首选REIT之一。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">SGX:CLR</span><span class="nm">Lion-Phillip S-REIT ETF</span><span class="risk-tag lo">低风险</span><span class="metric y">收益率 ~5.5%</span></div>
+          <p>一篮子20+只S-REITs，季度派息，指示收益率约5.5%。不想选个股的话，这是新加坡收息最省心的工具。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ MY MARKET ═══════════ -->
+  <div class="mkt">
+    <div class="mkt-head">
+      <span class="flag">🇲🇾</span>
+      <h2>马来西亚市场 · MY</h2>
+      <div class="idx">FBM KLCI · 年增约8%<br>数据中心建设潮 + 高股息银行电信</div>
+    </div>
+    <div class="mkt-note">2026年大马两条主线：<strong>①数据中心/AI基建潮</strong>——柔佛成为区域数据中心枢纽，带动电力、建材、半导体封测；<strong>②防御性收息</strong>——银行（~5%）、电信（4–4.6%）、公用事业。KLCI年增约8.35%背景下，收息+成长双策略并行。</div>
+    <div class="two-col">
+
+      <div class="col growth">
+        <div class="col-head">🚀 成长股 · GROWTH</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:6742</span><span class="nm">YTL Power 杨忠礼电力</span><span class="risk-tag md">中风险</span><span class="metric g">TP RM5.08–5.63 (BUY)</span></div>
+          <p>大马数据中心故事核心标的：柔佛Kulai绿色数据中心园区从500MW扩至<strong>1,000MW</strong>，300MW已签约，每15个月新增100MW。MBSB/HLIB双双维持买入。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:0166</span><span class="nm">Inari Amertron</span><span class="risk-tag md">中风险</span><span class="metric g">AI服务器 RF 组件</span></div>
+          <p>大马半导体封测龙头之一，RF射频组件直接受益AI服务器需求。2026全球半导体市场预估增长25%+逼近$1万亿，大马封测链复苏首选。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:5005</span><span class="nm">Unisem</span><span class="risk-tag hi">高风险</span><span class="metric g">先进封装需求↑</span></div>
+          <p>先进芯片封装+后段服务，订单与数据中心建设直接挂钩。弹性大于Inari但波动也更大。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:3794</span><span class="nm">Malayan Cement 马来亚水泥</span><span class="risk-tag md">中风险</span><span class="metric g">半岛水泥产能 65%</span></div>
+          <p>YTL集团旗下，垄断半岛约65%水泥产能——数据中心与工业地产建设潮的"卖铲人"。35种定制预拌混凝土产品差异化竞争。</p>
+        </div>
+
+      </div>
+
+      <div class="col divi">
+        <div class="col-head">💰 股息股 · DIVIDEND</div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:1155</span><span class="nm">Maybank 马来亚银行</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5%</span></div>
+          <p>大马最大银行，长期股息率5%上下，派息记录稳定。KLCI防御性收息的第一选择。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:1023</span><span class="nm">CIMB 联昌国际</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5%</span></div>
+          <p>区域银行集团（马/印尼/泰/新），估值低于Maybank，股息率相当。东盟经济增长的间接敞口。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:6947</span><span class="nm">CelcomDigi</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~4.55%</span></div>
+          <p>大马最大电信运营商（Celcom+Digi合并后），FY2025营收RM129.6亿、净利RM15.1亿。合并协同效应持续释放，现金流稳定。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:6012</span><span class="nm">Maxis 明讯</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~4.34%</span></div>
+          <p>电信双雄之二，网络质量领先，派息率适中留有加息空间。与CelcomDigi二选一即可。</p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-top"><span class="tk">KLSE:5347</span><span class="nm">Tenaga Nasional 国家能源</span><span class="risk-tag md">中风险</span><span class="metric y">公用事业+DC电力</span></div>
+          <p>大马国家电网，稳定股息之余是数据中心用电暴涨的间接受益者——收息与成长主题罕见重叠的标的。</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ HOW TO USE ═══════════ -->
+  <div class="howto">
+    <div class="lab">◆ 组合思路参考</div>
+    <ul>
+      <li><strong>收息为主（防御）：</strong>SG银行+S-REIT ETF打底（5–6%），MY银行电信辅助（4–5%），US股息贵族对冲汇率——目标组合收益率 4.5–5.5%</li>
+      <li><strong>成长为主（进攻）：</strong>US AI产业链分层持有（芯片/存储/平台/软件各一），MY数据中心链（YTLPower+MCEMENT）做区域卫星仓</li>
+      <li><strong>平衡型：</strong>60%股息核心 + 40%成长卫星；成长仓单一标的不超过总仓位8%，PLTR/SNDK类高波动标的不超过3%</li>
+      <li><strong>汇率注意：</strong>美股有USD敞口；SGD对MYR长期强势——马币投资者持有SG资产天然享有汇率顺风</li>
+      <li><strong>再平衡：</strong>每季度检视一次，个股涨超目标区间50%即部分止盈调回配置比例</li>
+    </ul>
+  </div>
+
+  <div class="sec-eyebrow" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:0 0 14px;display:flex;align-items:center;gap:10px">数据来源 · Sources<span style="flex:1;height:1px;background:var(--border)"></span></div>
+  <div class="srcs">
+    <a href="https://seekingalpha.com/article/4919153-top-25-high-growth-dividend-stocks-for-july-2026" target="_blank">Seeking Alpha ↗</a>
+    <a href="https://www.forbes.com/sites/investor-hub/article/best-dividend-stocks-buy-july-2026/" target="_blank">Forbes ↗</a>
+    <a href="https://www.fool.com/investing/stock-market/market-sectors/information-technology/ai-stocks/" target="_blank">Motley Fool ↗</a>
+    <a href="https://thekopinotes.com/articles/s-reits/top-dividend-stocks-singapore-2026/" target="_blank">The Kopi Notes ↗</a>
+    <a href="https://thesmartinvestor.com.sg/ifast-vs-sgx-which-growth-stock-could-deliver-better-returns-in-2026/" target="_blank">Smart Investor SG ↗</a>
+    <a href="https://growbeansprout.com/singapore-blue-chip-stocks" target="_blank">Beansprout ↗</a>
+    <a href="https://www.klsescreener.com/v2/news/view/1653169/2026-the-sectors-to-watch" target="_blank">KLSE Screener ↗</a>
+    <a href="https://www.businesstoday.com.my/2026/04/03/analysts-upbeat-on-ytl-powers-data-centre-expansion-plans/" target="_blank">Business Today MY ↗</a>
+    <a href="https://theedgemalaysia.com/node/788202" target="_blank">The Edge MY ↗</a>
+    <a href="https://www.stashaway.my/r/top-dividend-stocks-malaysia" target="_blank">StashAway MY ↗</a>
+  </div>
+
+  <div class="disclaimer">
+    <div class="upd-stamp">⟳ 内容更新 · 2026-07-04 · 每周一自动深度刷新 · 价格与收益率为近似参考值</div>
+    <strong>免责声明：</strong>本页内容仅供参考，不构成投资建议。股票投资具有风险，价格可波动导致本金损失。收益率、增长率与目标价来自公开研报与媒体报道，可能已过时或不准确。投资前请自行尽职调查并咨询持牌顾问。海外投资另有汇率与税务风险。
+  </div>
+
+</main>
+
+<div class="topstrip"></div>
+</body>
+</html>
