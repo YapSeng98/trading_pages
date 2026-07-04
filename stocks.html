@@ -5,92 +5,174 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>股票精选 · 美/新/马 成长与股息股 — 2026年7月</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;
-  --bear:#DC2626;--bull:#15803D;--neut:#64748B;
-  --bg:#F5F6F8;--bg2:#FFFFFF;--bg3:#F3F4F6;--bg4:#E5E7EB;
-  --border:#E2E5EB;--text:#374151;--dim:#6B7280;--white:#111827;
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;--amber:#F59E0B;
+  --bear:#DC2626;--bull:#15803D;--blue:#2563EB;--neut:#64748B;
+  --bg:#FAFAF9;--bg2:#FFFFFF;--bg3:#F4F4F2;--bg4:#E7E5E4;
+  --border:#E7E5E4;--border-2:#D6D3D1;--text:#44403C;--dim:#78716C;--ink:#1C1917;
+  --r-lg:20px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(28,25,23,.04),0 2px 8px rgba(28,25,23,.04);
+  --shadow-md:0 2px 4px rgba(28,25,23,.04),0 12px 32px rgba(28,25,23,.08);
+  --shadow-gold:0 4px 24px rgba(184,134,11,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
-.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace}
-nav a{font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)}
-nav a.on{color:var(--gold-lt);border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.12)}
-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:28px 48px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.hl-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
-header h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
-header h1 em{color:var(--gold);font-style:normal}
-.hdate{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);margin-top:6px}
-main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
-.tldr{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 22px;margin-bottom:30px}
-.tldr .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
-.tldr p{font-size:13.5px;color:var(--text);line-height:1.8}
-.tldr strong{color:var(--white)}
-.mkt{margin-bottom:44px}
-.mkt-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-.mkt-head .flag{font-size:26px}
-.mkt-head h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ambient mesh */
+.mesh{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.10),transparent 65%);filter:blur(40px)}
+.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:640px;height:520px;background:radial-gradient(ellipse,rgba(184,134,11,.07),transparent 65%);filter:blur(44px)}
+
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
+@keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
+
+/* glass nav */
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(250,250,249,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,229,228,.9)}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
+
+/* header */
+header{padding:52px 24px 30px;text-align:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3.5px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:18px;padding:7px 16px;border:1px solid rgba(184,134,11,.25);border-radius:999px;background:rgba(184,134,11,.06)}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bull);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+header h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(32px,6vw,52px);font-weight:700;color:var(--ink);line-height:1.05;letter-spacing:-2px;margin-bottom:10px}
+header h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold) 0%,var(--amber) 55%,var(--gold-dk) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hdate{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim)}
+
+main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
+@media(max-width:760px){main{padding:16px 14px 48px}header{padding:36px 16px 22px}}
+
+/* tldr */
+.tldr{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.tldr::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--amber),var(--gold-dk))}
+.tldr .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:9px}
+.tldr p{font-size:13.5px;color:var(--text);line-height:1.85}
+.tldr strong{color:var(--ink)}
+
+/* legend */
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);align-items:center}
+.risk-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1px;padding:3px 10px;border-radius:999px;text-transform:uppercase;font-weight:600}
+.risk-tag.hi{background:rgba(220,38,38,.09);color:var(--bear);border:1px solid rgba(220,38,38,.20)}
+.risk-tag.md{background:rgba(184,134,11,.09);color:var(--gold);border:1px solid rgba(184,134,11,.20)}
+.risk-tag.lo{background:rgba(21,128,61,.09);color:var(--bull);border:1px solid rgba(21,128,61,.20)}
+
+/* section label */
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:38px 0 16px;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-2),transparent)}
+
+/* chart cards */
+.chart-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);background:var(--bg2);margin-bottom:8px}
+.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:700px){.mini-row{grid-template-columns:1fr}}
+.mini-card{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--bg2);box-shadow:var(--shadow-sm)}
+.mini-card .cap{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);padding:10px 14px 0}
+
+/* market section */
+.mkt{margin-bottom:52px}
+.mkt-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.mkt-head .flag{font-size:27px}
+.mkt-head h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.6px}
 .mkt-head .idx{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto;text-align:right}
-.mkt-note{font-size:12.5px;color:var(--dim);margin-bottom:16px;line-height:1.7}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:820px){main{padding:18px 16px 48px}header{padding:18px 16px 14px}nav{padding:10px 16px}header h1{font-size:26px}.two-col{grid-template-columns:1fr}}
-.col{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:20px 22px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
-.col-head{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.mkt-note{font-size:12.5px;color:var(--dim);margin-bottom:16px;line-height:1.75}
+.mkt-note strong{color:var(--text)}
+
+/* analysis dashboard */
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+@media(max-width:760px){.dash{grid-template-columns:1fr}}
+.dash-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;box-shadow:var(--shadow-sm)}
+.dash-card .dk{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.dash-card.bullc .dk{color:var(--bull)}
+.dash-card.bearc .dk{color:var(--bear)}
+.dash-card.catc .dk{color:var(--gold-lt)}
+.dash-card p{font-size:11.5px;color:var(--text);line-height:1.7}
+
+/* two-col picks */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.two-col{grid-template-columns:1fr}}
+.col{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;box-shadow:var(--shadow-sm)}
+.col-head{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding-bottom:13px;border-bottom:1px solid var(--border);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .col.growth .col-head{color:var(--bull)}
 .col.divi .col-head{color:var(--gold-lt)}
-.stock{padding:13px 0;border-bottom:1px dashed var(--border)}
-.stock:last-child{border-bottom:none;padding-bottom:0}
-.stock-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-.tk{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.5px;padding:2px 8px;border-radius:2px;background:rgba(201,168,76,.13);color:var(--gold-lt);border:1px solid rgba(201,168,76,.25)}
-.stock-top .nm{font-size:13.5px;font-weight:700;color:var(--white)}
+.stock{padding:14px 0;border-bottom:1px dashed var(--border)}
+.stock:last-child{border-bottom:none;padding-bottom:2px}
+.stock-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:5px}
+.tk{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.5px;padding:3px 10px;border-radius:999px;background:rgba(184,134,11,.10);color:var(--gold-lt);border:1px solid rgba(184,134,11,.22)}
+.stock-top .nm{font-size:13.5px;font-weight:700;color:var(--ink)}
 .stock-top .metric{font-family:'IBM Plex Mono',monospace;font-size:11px;margin-left:auto;font-weight:600}
 .metric.g{color:var(--bull)}.metric.y{color:var(--gold-lt)}
 .stock p{font-size:12px;color:var(--text);line-height:1.7}
-.stock p strong{color:var(--white)}
-.risk-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1px;padding:2px 7px;border-radius:2px;margin-left:6px;text-transform:uppercase}
-.risk-tag.hi{background:rgba(224,82,82,.12);color:var(--bear);border:1px solid rgba(224,82,82,.22)}
-.risk-tag.md{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.22)}
-.risk-tag.lo{background:rgba(76,175,124,.12);color:var(--bull);border:1px solid rgba(76,175,124,.22)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);align-items:center}
-.howto{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:34px}
-.howto .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
+.stock p strong{color:var(--ink)}
+/* score meter */
+.score{display:flex;align-items:center;gap:10px;margin-top:9px}
+.score-k{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);flex-shrink:0}
+.score-track{flex:1;height:6px;background:var(--bg4);border-radius:999px;overflow:hidden}
+.score-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--amber))}
+.score-v{font-family:'Space Grotesk',monospace;font-size:12px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;min-width:22px;text-align:right}
+
+/* allocation bars */
+.alloc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 26px;box-shadow:var(--shadow-sm);margin-bottom:22px}
+.alloc-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:18px;font-size:11px;color:var(--text)}
+.alloc-legend .li{display:flex;align-items:center;gap:7px}
+.alloc-legend .sw{width:11px;height:11px;border-radius:3px}
+.sw.divi{background:var(--gold)}.sw.grow{background:var(--bull)}.sw.cash{background:var(--blue)}
+.alloc-row{margin-bottom:16px}
+.alloc-row:last-child{margin-bottom:0}
+.alloc-name{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.alloc-name span{font-weight:400;color:var(--dim);font-size:11px}
+.alloc-bar{display:flex;gap:2px;height:22px;border-radius:6px;overflow:hidden}
+.alloc-bar .seg{border-radius:3px}
+.seg.divi{background:var(--gold)}.seg.grow{background:var(--bull)}.seg.cash{background:var(--blue)}
+.alloc-vals{display:flex;gap:2px;margin-top:5px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--dim)}
+.alloc-vals span{overflow:hidden;white-space:nowrap}
+
+/* howto */
+.howto{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:34px}
+.howto .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px}
 .howto ul{list-style:none;padding:0}
-.howto li{font-size:12px;padding:3px 0;display:flex;gap:8px}
+.howto li{font-size:12px;padding:4px 0;display:flex;gap:9px}
 .howto li::before{content:'▸';color:var(--gold);flex-shrink:0}
+.howto li strong{color:var(--ink)}
+
 .srcs{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-.srcs a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;padding:3px 9px;border:1px solid rgba(201,168,76,.25);border-radius:2px}
-.srcs a:hover{background:rgba(201,168,76,.1)}
-.disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;margin-top:36px;line-height:1.8}
-.upd-stamp{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px}
+.srcs a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;padding:4px 11px;border:1px solid rgba(184,134,11,.25);border-radius:999px;transition:background .18s}
+.srcs a:hover{background:rgba(184,134,11,.08)}
+.disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:18px;margin-top:38px;line-height:1.85}
+.upd-stamp{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:12px;padding:7px 16px;border:1px solid rgba(184,134,11,.22);border-radius:999px;background:rgba(184,134,11,.05)}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div class="mesh"></div>
 <div class="topstrip"></div>
 
-<nav>
-  <a href="index.html">← 首页</a>
-  <a href="daily.html">📊 每日分析</a>
-  <a href="news.html">📰 市场快讯</a>
-  <a href="risk.html">🗓 风险与计划</a>
-  <a href="strategy.html">📖 策略手册</a>
-  <a href="stocks.html" class="on">📈 股票精选</a>
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="daily.html">📊 每日分析</a>
+  <a class="nl" href="news.html">📰 快讯</a>
+  <a class="nl" href="risk.html">🗓 风险计划</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl on" href="stocks.html">📈 股票</a>
 </nav>
 
 <header>
-  <div>
-    <div class="hl-tag">Stocks · US / SG / MY · Growth vs Dividend</div>
-    <h1>股票<em>精选</em></h1>
-    <div class="hdate">2026年7月4日（星期六）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类</div>
-  </div>
+  <div class="eyebrow">Stocks · US / SG / MY · Growth vs Dividend · AI-Curated</div>
+  <h1>股票<em>精选</em></h1>
+  <div class="hdate">2026年7月4日（星期六）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类 · 每周一自动深度刷新</div>
 </header>
 
 <!-- Live ticker tape: three market indices -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"proName":"SP:SPX","title":"S&P 500"},{"proName":"NASDAQ:NDX","title":"Nasdaq 100"},{"proName":"OANDA:SG30SGD","title":"新加坡 STI 代理"},{"proName":"FTSEMYX:FBMKLCI","title":"马来西亚 KLCI"},{"proName":"FX_IDC:USDMYR","title":"USD/MYR"},{"proName":"FX_IDC:USDSGD","title":"USD/SGD"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
+  {"symbols":[{"proName":"SP:SPX","title":"S&P 500"},{"proName":"NASDAQ:NDX","title":"Nasdaq 100"},{"proName":"FTSEMYX:FBMKLCI","title":"马来西亚 KLCI"},{"proName":"FX_IDC:USDMYR","title":"USD/MYR"},{"proName":"FX_IDC:USDSGD","title":"USD/SGD"},{"proName":"NASDAQ:NVDA","title":"Nvidia"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
   </script>
 </div>
 
@@ -106,17 +188,36 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
     <span class="risk-tag lo">低风险</span>
     <span class="risk-tag md">中风险</span>
     <span class="risk-tag hi">高风险</span>
-    <span style="margin-left:auto">· 收益率与增速为截至2026年7月初的近似值</span>
+    <span style="margin-left:auto">· 综合评分为编辑评估（0–100）· 收益率与增速为近似值</span>
+  </div>
+
+  <!-- ═══════════ LIVE MARKET OVERVIEW CHART ═══════════ -->
+  <div class="sec-label">实时市场概览 · Live Market Overview</div>
+  <div class="chart-card">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+      {"colorTheme":"light","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🇺🇸 美国","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"}]},{"title":"🇸🇬 新加坡","symbols":[{"s":"SGX:D05","d":"DBS 星展"},{"s":"SGX:O39","d":"OCBC 华侨"},{"s":"SGX:AIY","d":"iFAST"},{"s":"SGX:S63","d":"ST Engineering"},{"s":"SGX:S68","d":"SGX 新交所"},{"s":"SGX:A17U","d":"CapitaLand Ascendas"},{"s":"SGX:AJBU","d":"Keppel DC REIT"}]},{"title":"🇲🇾 马来西亚","symbols":[{"s":"MYX:YTLPOWR","d":"YTL Power"},{"s":"MYX:INARI","d":"Inari Amertron"},{"s":"MYX:UNISEM","d":"Unisem"},{"s":"MYX:MCEMENT","d":"Malayan Cement"},{"s":"MYX:MAYBANK","d":"Maybank"},{"s":"MYX:CIMB","d":"CIMB"},{"s":"MYX:CDB","d":"CelcomDigi"},{"s":"MYX:TENAGA","d":"Tenaga Nasional"}]}]}
+      </script>
+    </div>
   </div>
 
   <!-- ═══════════ US MARKET ═══════════ -->
   <div class="mkt">
+    <div class="sec-label">Market 01 · United States</div>
     <div class="mkt-head">
       <span class="flag">🇺🇸</span>
       <h2>美国市场 · US</h2>
       <div class="idx">S&P 500 / NASDAQ<br>AI资本开支周期仍是主线</div>
     </div>
     <div class="mkt-note">2026年美股主线仍是AI基建：芯片（训练+推理）、存储、超大规模云厂商与AI软件。但估值波动加大——分散在AI产业链各层比押注单一公司更稳。股息侧，股息贵族/王者提供跨周期防御。</div>
+
+    <div class="dash">
+      <div class="dash-card bullc"><div class="dk">▲ 多头逻辑</div><p>AI资本开支超级周期未完：2026全球半导体市场预估+25%逼近$1万亿；数据中心存储/内存缺货，SanDisk等年内涨数倍；云厂商Capex指引持续上修。</p></div>
+      <div class="dash-card bearc"><div class="dk">▼ 空头风险</div><p>估值极端化（PLTR曾达67倍市销率、年内回撤40%）；Fed处于加息周期，9月加息概率~70%压制成长股估值；AI盈利兑现不及预期的回调风险。</p></div>
+      <div class="dash-card catc"><div class="dk">◆ 关键催化</div><p>7–8月Q2财报季（Nvidia/Broadcom指引最关键）；9月FOMC利率决议；NFP/CPI/PCE每月数据决定利率路径与成长股风格切换。</p></div>
+    </div>
+
     <div class="two-col">
 
       <div class="col growth">
@@ -125,26 +226,31 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">NVDA</span><span class="nm">Nvidia 英伟达</span><span class="risk-tag md">中风险</span><span class="metric g">AI芯片 80–90% 份额</span></div>
           <p>AI训练芯片绝对龙头（H100/Blackwell架构），估值相对盈利增速仍算合理。2026上半年横盘整理后，机构仍视为AI周期核心持仓。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:88%"></div></div><span class="score-v">88</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">AVGO</span><span class="nm">Broadcom 博通</span><span class="risk-tag md">中风险</span><span class="metric g">AI营收 +106%</span></div>
           <p>定制AI芯片（ASIC）+网络设备双引擎，最近季度营收+29%，AI半导体年化营收2027年可望达$1,000亿。超大规模云厂商自研芯片首选伙伴。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:86%"></div></div><span class="score-v">86</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">MSFT</span><span class="nm">Microsoft 微软</span><span class="risk-tag lo">低风险</span><span class="metric g">云+AI 平台层</span></div>
           <p>Azure + Copilot 生态是AI"平台层"最稳的敞口，现金流深厚，兼具成长与防御属性，适合作为AI仓位的压舱石。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:84%"></div></div><span class="score-v">84</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">PLTR</span><span class="nm">Palantir</span><span class="risk-tag hi">高风险</span><span class="metric g">2026营收指引 +61%</span></div>
           <p>AI软件层明星，2026营收指引$71.8亿（+61%）。但估值极端（曾达67倍市销率），年内自高点回撤近40%——只适合小仓位高波动配置。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:70%"></div></div><span class="score-v">70</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SNDK</span><span class="nm">SanDisk 闪迪</span><span class="risk-tag hi">高风险</span><span class="metric g">年涨 ~465%</span></div>
           <p>2026年AI行情最强主线是数据中心存储/内存，SanDisk年内涨约465%领跑。动能极强但追高风险大，等回调分批。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:65%"></div></div><span class="score-v">65</span></div>
         </div>
 
       </div>
@@ -155,40 +261,72 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">ABBV</span><span class="nm">AbbVie 艾伯维</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~3.3%</span></div>
           <p>连续<strong>53年</strong>提高股息的制药巨头，免疫学+肿瘤管线扎实，股息王者中的成长型代表。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:87%"></div></div><span class="score-v">87</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">CVX</span><span class="nm">Chevron 雪佛龙</span><span class="risk-tag lo">低风险</span><span class="metric y">~38年连续加息</span></div>
           <p>能源巨头中股息纪录最好之一，油价高位时现金流充沛，通胀环境天然对冲。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:82%"></div></div><span class="score-v">82</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">O</span><span class="nm">Realty Income</span><span class="risk-tag md">中风险</span><span class="metric y">月配息 REIT</span></div>
           <p>"月度股息公司"，商业地产净租赁REIT，每月派息、连续30年+提高股息。利率见顶回落时弹性最大。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-v">78</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">MO</span><span class="nm">Altria 奥驰亚</span><span class="risk-tag md">中风险</span><span class="metric y">股息率 ~6%</span></div>
           <p>本榜最高收益率，派息率约82%仍可持续。烟草行业萎缩是长期风险，适合纯收息仓位。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:72%"></div></div><span class="score-v">72</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">MPWR</span><span class="nm">Monolithic Power</span><span class="risk-tag md">中风险</span><span class="metric y">股息增速 16%+/年</span></div>
           <p>"股息成长"型代表：起始收益率低但5年股息复合增速16%+，电源管理芯片受益AI服务器功耗暴涨，成长+股息双引擎。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:80%"></div></div><span class="score-v">80</span></div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="mini-row">
+      <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"NASDAQ:NVDA","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
+      </div>
+      <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"NYSE:ABBV","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ═══════════ SG MARKET ═══════════ -->
   <div class="mkt">
+    <div class="sec-label">Market 02 · Singapore</div>
     <div class="mkt-head">
       <span class="flag">🇸🇬</span>
       <h2>新加坡市场 · SG</h2>
       <div class="idx">STI · 无资本利得税 / 无股息预扣税<br>全球最友好的收息市场之一</div>
     </div>
     <div class="mkt-note">新加坡对本地投资者<strong>无资本利得税、本地股息无预扣税</strong>，天然适合收息组合。三大类：银行（5–6%）、S-REITs（5–7%）、REIT ETF（~5.5%）。成长侧以金融科技平台与工程集团为主。</div>
+
+    <div class="dash">
+      <div class="dash-card bullc"><div class="dk">▲ 多头逻辑</div><p>利率见顶预期下REITs估值修复空间大；银行资本回报计划明确（OCBC两年S$25亿）；iFAST香港eMPF等结构性增长引擎与利率周期脱钩。</p></div>
+      <div class="dash-card bearc"><div class="dk">▼ 空头风险</div><p>若Fed维持鹰派更久，REIT融资成本与分派承压；银行净息差随降息收窄；STI整体弹性低于美股，牛市跑输风险。</p></div>
+      <div class="dash-card catc"><div class="dk">◆ 关键催化</div><p>Fed利率路径（9月FOMC）；银行与REIT半年报（7–8月）；MAS政策声明；数据中心需求外溢（Keppel DC受益）。</p></div>
+    </div>
+
     <div class="two-col">
 
       <div class="col growth">
@@ -197,21 +335,25 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:AIY</span><span class="nm">iFAST</span><span class="risk-tag hi">高风险</span><span class="metric g">Q1营收 +45%</span></div>
           <p>数字财富管理平台，2026 Q1营收S$1.545亿（+45%）、净利+47%。香港eMPF养老金平台合约是最大增长引擎，2026全年营收预估S$5.9亿。高成长高波动。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:82%"></div></div><span class="score-v">82</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:S63</span><span class="nm">ST Engineering 新科工程</span><span class="risk-tag lo">低风险</span><span class="metric g">Q1营收 +11%</span></div>
           <p>国防+商用航空双引擎，Q1商用航空营收大增15%至S$13.2亿。全球国防开支上行周期直接受益，订单簿深厚，兼具成长与稳定派息。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:85%"></div></div><span class="score-v">85</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:S68</span><span class="nm">SGX 新加坡交易所</span><span class="risk-tag lo">低风险</span><span class="metric g">FY26 营收 +6–8%</span></div>
           <p>交易所本身：衍生品+数据业务驱动，FY2026指引6–8%有机增长，且承诺每季股息持续增至FY2028。稳健成长+股息双属性。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:80%"></div></div><span class="score-v">80</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:AJBU</span><span class="nm">Keppel DC REIT</span><span class="risk-tag md">中风险</span><span class="metric g">数据中心纯敞口</span></div>
           <p>新加坡首只纯数据中心REIT，物业横跨新/欧/亚太。AI与云计算推动超大规模租户需求——以REIT形式吃AI基建红利的独特标的。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-v">78</span></div>
         </div>
 
       </div>
@@ -222,40 +364,72 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:D05</span><span class="nm">DBS 星展银行</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5.2%</span></div>
           <p>新加坡最大银行，FY2025全年股息S$3.06/股。资本雄厚、派息政策透明，收息组合核心持仓。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:88%"></div></div><span class="score-v">88</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:O39</span><span class="nm">OCBC 华侨银行</span><span class="risk-tag lo">低风险</span><span class="metric y">S$25亿回馈计划</span></div>
           <p>2025净利S$74.2亿，宣布两年内以特别股息+回购向股东返还S$25亿。估值低于DBS，股东回报计划明确。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:84%"></div></div><span class="score-v">84</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:A17U</span><span class="nm">CapitaLand Ascendas REIT</span><span class="risk-tag md">中风险</span><span class="metric y">收益率 7%+</span></div>
           <p>工业/商业园区旗舰REIT，收益率超7%。利率回落周期REIT估值修复弹性大，龙头质地优先。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:79%"></div></div><span class="score-v">79</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:N2IU</span><span class="nm">Mapletree Industrial Trust</span><span class="risk-tag md">中风险</span><span class="metric y">工业+数据中心</span></div>
           <p>工业REIT中数据中心占比高（北美+新加坡），股息与AI基建趋势兼得，2026年机构首选REIT之一。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:77%"></div></div><span class="score-v">77</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">SGX:CLR</span><span class="nm">Lion-Phillip S-REIT ETF</span><span class="risk-tag lo">低风险</span><span class="metric y">收益率 ~5.5%</span></div>
           <p>一篮子20+只S-REITs，季度派息，指示收益率约5.5%。不想选个股的话，这是新加坡收息最省心的工具。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:81%"></div></div><span class="score-v">81</span></div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="mini-row">
+      <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"SGX:AIY","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
+      </div>
+      <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"SGX:D05","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ═══════════ MY MARKET ═══════════ -->
   <div class="mkt">
+    <div class="sec-label">Market 03 · Malaysia</div>
     <div class="mkt-head">
       <span class="flag">🇲🇾</span>
       <h2>马来西亚市场 · MY</h2>
       <div class="idx">FBM KLCI · 年增约8%<br>数据中心建设潮 + 高股息银行电信</div>
     </div>
     <div class="mkt-note">2026年大马两条主线：<strong>①数据中心/AI基建潮</strong>——柔佛成为区域数据中心枢纽，带动电力、建材、半导体封测；<strong>②防御性收息</strong>——银行（~5%）、电信（4–4.6%）、公用事业。KLCI年增约8.35%背景下，收息+成长双策略并行。</div>
+
+    <div class="dash">
+      <div class="dash-card bullc"><div class="dk">▲ 多头逻辑</div><p>柔佛数据中心投资潮持续（YTL Power Kulai 1,000MW、每15个月+100MW）；全球半导体2026年+25%带动大马封测链复苏；建材（水泥）作为"卖铲人"确定性高。</p></div>
+      <div class="dash-card bearc"><div class="dk">▼ 空头风险</div><p>美国AI芯片出口管制若扩大至东南亚数据中心，柔佛故事受挫；马币汇率波动；封测环节竞争激烈、利润率弹性大。</p></div>
+      <div class="dash-card catc"><div class="dk">◆ 关键催化</div><p>YTL Power数据中心新签约公告；大马Q2财报季（8月）；国行OPR利率决议；区域数据中心订单与外资流向。</p></div>
+    </div>
+
     <div class="two-col">
 
       <div class="col growth">
@@ -264,21 +438,25 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:6742</span><span class="nm">YTL Power 杨忠礼电力</span><span class="risk-tag md">中风险</span><span class="metric g">TP RM5.08–5.63 (BUY)</span></div>
           <p>大马数据中心故事核心标的：柔佛Kulai绿色数据中心园区从500MW扩至<strong>1,000MW</strong>，300MW已签约，每15个月新增100MW。MBSB/HLIB双双维持买入。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:85%"></div></div><span class="score-v">85</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:0166</span><span class="nm">Inari Amertron</span><span class="risk-tag md">中风险</span><span class="metric g">AI服务器 RF 组件</span></div>
           <p>大马半导体封测龙头之一，RF射频组件直接受益AI服务器需求。2026全球半导体市场预估增长25%+逼近$1万亿，大马封测链复苏首选。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-v">78</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:5005</span><span class="nm">Unisem</span><span class="risk-tag hi">高风险</span><span class="metric g">先进封装需求↑</span></div>
           <p>先进芯片封装+后段服务，订单与数据中心建设直接挂钩。弹性大于Inari但波动也更大。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:70%"></div></div><span class="score-v">70</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:3794</span><span class="nm">Malayan Cement 马来亚水泥</span><span class="risk-tag md">中风险</span><span class="metric g">半岛水泥产能 65%</span></div>
           <p>YTL集团旗下，垄断半岛约65%水泥产能——数据中心与工业地产建设潮的"卖铲人"。35种定制预拌混凝土产品差异化竞争。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:76%"></div></div><span class="score-v">76</span></div>
         </div>
 
       </div>
@@ -289,33 +467,96 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:1155</span><span class="nm">Maybank 马来亚银行</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5%</span></div>
           <p>大马最大银行，长期股息率5%上下，派息记录稳定。KLCI防御性收息的第一选择。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:86%"></div></div><span class="score-v">86</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:1023</span><span class="nm">CIMB 联昌国际</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~5%</span></div>
           <p>区域银行集团（马/印尼/泰/新），估值低于Maybank，股息率相当。东盟经济增长的间接敞口。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:82%"></div></div><span class="score-v">82</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:6947</span><span class="nm">CelcomDigi</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~4.55%</span></div>
           <p>大马最大电信运营商（Celcom+Digi合并后），FY2025营收RM129.6亿、净利RM15.1亿。合并协同效应持续释放，现金流稳定。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:80%"></div></div><span class="score-v">80</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:6012</span><span class="nm">Maxis 明讯</span><span class="risk-tag lo">低风险</span><span class="metric y">股息率 ~4.34%</span></div>
           <p>电信双雄之二，网络质量领先，派息率适中留有加息空间。与CelcomDigi二选一即可。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:76%"></div></div><span class="score-v">76</span></div>
         </div>
 
         <div class="stock">
           <div class="stock-top"><span class="tk">KLSE:5347</span><span class="nm">Tenaga Nasional 国家能源</span><span class="risk-tag md">中风险</span><span class="metric y">公用事业+DC电力</span></div>
           <p>大马国家电网，稳定股息之余是数据中心用电暴涨的间接受益者——收息与成长主题罕见重叠的标的。</p>
+          <div class="score"><span class="score-k">综合评分</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-v">78</span></div>
         </div>
 
       </div>
     </div>
+
+    <div class="mini-row">
+      <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"MYX:YTLPOWR","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
+      </div>
+      <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {"symbol":"MYX:MAYBANK","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
+          </script>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ═══════════ HOW TO USE ═══════════ -->
+  <!-- ═══════════ PORTFOLIO ALLOCATION ═══════════ -->
+  <div class="sec-label">组合配置参考 · Portfolio Allocation</div>
+  <div class="alloc">
+    <div class="alloc-legend">
+      <div class="li"><span class="sw divi"></span>股息核心（防御）</div>
+      <div class="li"><span class="sw grow"></span>成长卫星（进攻）</div>
+      <div class="li"><span class="sw cash"></span>现金 / 流动性</div>
+    </div>
+
+    <div class="alloc-row">
+      <div class="alloc-name">🛡 防御型 <span>· 收息为主 · 目标组合收益率 4.5–5.5%</span></div>
+      <div class="alloc-bar">
+        <div class="seg divi" style="flex:70" title="股息核心 70%"></div>
+        <div class="seg grow" style="flex:20" title="成长卫星 20%"></div>
+        <div class="seg cash" style="flex:10" title="现金 10%"></div>
+      </div>
+      <div class="alloc-vals"><span style="flex:70">股息 70%</span><span style="flex:20">成长 20%</span><span style="flex:10">现金 10%</span></div>
+    </div>
+
+    <div class="alloc-row">
+      <div class="alloc-name">⚖ 平衡型 <span>· 60/40 思路 · 攻守兼备</span></div>
+      <div class="alloc-bar">
+        <div class="seg divi" style="flex:55" title="股息核心 55%"></div>
+        <div class="seg grow" style="flex:35" title="成长卫星 35%"></div>
+        <div class="seg cash" style="flex:10" title="现金 10%"></div>
+      </div>
+      <div class="alloc-vals"><span style="flex:55">股息 55%</span><span style="flex:35">成长 35%</span><span style="flex:10">现金 10%</span></div>
+    </div>
+
+    <div class="alloc-row">
+      <div class="alloc-name">🚀 进攻型 <span>· AI产业链分层持有 · 高波动容忍</span></div>
+      <div class="alloc-bar">
+        <div class="seg divi" style="flex:30" title="股息核心 30%"></div>
+        <div class="seg grow" style="flex:60" title="成长卫星 60%"></div>
+        <div class="seg cash" style="flex:10" title="现金 10%"></div>
+      </div>
+      <div class="alloc-vals"><span style="flex:30">股息 30%</span><span style="flex:60">成长 60%</span><span style="flex:10">现金 10%</span></div>
+    </div>
+  </div>
+
   <div class="howto">
     <div class="lab">◆ 组合思路参考</div>
     <ul>
@@ -327,7 +568,7 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
     </ul>
   </div>
 
-  <div class="sec-eyebrow" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:0 0 14px;display:flex;align-items:center;gap:10px">数据来源 · Sources<span style="flex:1;height:1px;background:var(--border)"></span></div>
+  <div class="sec-label">数据来源 · Sources</div>
   <div class="srcs">
     <a href="https://seekingalpha.com/article/4919153-top-25-high-growth-dividend-stocks-for-july-2026" target="_blank">Seeking Alpha ↗</a>
     <a href="https://www.forbes.com/sites/investor-hub/article/best-dividend-stocks-buy-july-2026/" target="_blank">Forbes ↗</a>
@@ -342,8 +583,8 @@ main{max-width:1080px;margin:0 auto;padding:28px 48px 64px}
   </div>
 
   <div class="disclaimer">
-    <div class="upd-stamp">⟳ 内容更新 · 2026-07-04 · 每周一自动深度刷新 · 价格与收益率为近似参考值</div>
-    <strong>免责声明：</strong>本页内容仅供参考，不构成投资建议。股票投资具有风险，价格可波动导致本金损失。收益率、增长率与目标价来自公开研报与媒体报道，可能已过时或不准确。投资前请自行尽职调查并咨询持牌顾问。海外投资另有汇率与税务风险。
+    <div><span class="upd-stamp">⟳ 内容更新 · 2026-07-04 · 每周一自动深度刷新 · 价格与收益率为近似参考值</span></div>
+    <strong>免责声明：</strong>本页内容仅供参考，不构成投资建议。股票投资具有风险，价格可波动导致本金损失。综合评分为编辑主观评估，收益率、增长率与目标价来自公开研报与媒体报道，可能已过时或不准确。投资前请自行尽职调查并咨询持牌顾问。海外投资另有汇率与税务风险。
   </div>
 
 </main>
