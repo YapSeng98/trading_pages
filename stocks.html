@@ -74,6 +74,19 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .mini-card{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--bg2);box-shadow:var(--shadow-sm)}
 .mini-card .cap{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);padding:10px 14px 0}
 
+/* quote board (agent-updated, for SGX/KLSE where TradingView embeds are unsupported) */
+.qb{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--shadow-sm);margin-top:14px}
+.qb-head{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk);display:flex;align-items:center;gap:8px;margin-bottom:13px;flex-wrap:wrap}
+.q-asof{margin-left:auto;color:var(--dim);letter-spacing:.5px;text-transform:none}
+.qb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:700px){.qb-grid{grid-template-columns:repeat(2,1fr)}}
+.q-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);padding:11px 13px}
+.q-tk{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:var(--gold-lt);letter-spacing:.5px}
+.q-nm{font-size:10.5px;color:var(--dim);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-px{font-family:'Space Grotesk',monospace;font-size:16.5px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2}
+.q-chg{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;margin-top:2px}
+.q-chg.up{color:var(--bull)}.q-chg.down{color:var(--bear)}.q-chg.flat{color:var(--neut)}
+
 /* market section */
 .mkt{margin-bottom:52px}
 .mkt-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
@@ -191,16 +204,17 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <span style="margin-left:auto">· 综合评分为编辑评估（0–100）· 收益率与增速为近似值</span>
   </div>
 
-  <!-- ═══════════ LIVE MARKET OVERVIEW CHART ═══════════ -->
-  <div class="sec-label">实时市场概览 · Live Market Overview</div>
+  <!-- ═══════════ LIVE MARKET OVERVIEW CHART (US only — SGX/KLSE not licensed for embeds; see quote boards below) ═══════════ -->
+  <div class="sec-label">美股实时概览 · US Live Overview</div>
   <div class="chart-card">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-      {"colorTheme":"light","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🇺🇸 美国","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"}]},{"title":"🇸🇬 新加坡","symbols":[{"s":"SGX:D05","d":"DBS 星展"},{"s":"SGX:O39","d":"OCBC 华侨"},{"s":"SGX:AIY","d":"iFAST"},{"s":"SGX:S63","d":"ST Engineering"},{"s":"SGX:S68","d":"SGX 新交所"},{"s":"SGX:A17U","d":"CapitaLand Ascendas"},{"s":"SGX:AJBU","d":"Keppel DC REIT"}]},{"title":"🇲🇾 马来西亚","symbols":[{"s":"MYX:YTLPOWR","d":"YTL Power"},{"s":"MYX:INARI","d":"Inari Amertron"},{"s":"MYX:UNISEM","d":"Unisem"},{"s":"MYX:MCEMENT","d":"Malayan Cement"},{"s":"MYX:MAYBANK","d":"Maybank"},{"s":"MYX:CIMB","d":"CIMB"},{"s":"MYX:CDB","d":"CelcomDigi"},{"s":"MYX:TENAGA","d":"Tenaga Nasional"}]}]}
+      {"colorTheme":"light","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🚀 成长股","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NASDAQ:SNDK","d":"SanDisk"}]},{"title":"💰 股息股","symbols":[{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"},{"s":"NASDAQ:MPWR","d":"Monolithic Power"}]}]}
       </script>
     </div>
   </div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:8px">ℹ 新加坡（SGX）与马来西亚（KLSE）行情数据不支持第三方图表嵌入 — 采用下方「实时行情板」，由定时任务自动更新，并附 KLSE Screener / SGX 官方链接。</div>
 
   <!-- ═══════════ US MARKET ═══════════ -->
   <div class="mkt">
@@ -394,22 +408,18 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       </div>
     </div>
 
-    <div class="mini-row">
-      <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"SGX:AIY","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
-          </script>
-        </div>
-      </div>
-      <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"SGX:D05","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
-          </script>
-        </div>
+    <div class="qb">
+      <div class="qb-head">📡 SG 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-sg-time">待更新</span> · <a href="https://www.sgx.com/securities/securities-prices" target="_blank" style="color:var(--gold)">SGX 官方 ↗</a></span></div>
+      <div class="qb-grid">
+        <div class="q-card" data-symbol="SGX:D05"><div class="q-tk">D05</div><div class="q-nm">DBS 星展银行</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:O39"><div class="q-tk">O39</div><div class="q-nm">OCBC 华侨银行</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:AIY"><div class="q-tk">AIY</div><div class="q-nm">iFAST</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:S63"><div class="q-tk">S63</div><div class="q-nm">ST Engineering</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:S68"><div class="q-tk">S68</div><div class="q-nm">SGX 新交所</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:A17U"><div class="q-tk">A17U</div><div class="q-nm">CapLand Ascendas</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:N2IU"><div class="q-tk">N2IU</div><div class="q-nm">Mapletree Ind.</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:AJBU"><div class="q-tk">AJBU</div><div class="q-nm">Keppel DC REIT</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="SGX:CLR"><div class="q-tk">CLR</div><div class="q-nm">Lion-Phillip S-REIT</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
       </div>
     </div>
   </div>
@@ -497,22 +507,18 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       </div>
     </div>
 
-    <div class="mini-row">
-      <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"MYX:YTLPOWR","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
-          </script>
-        </div>
-      </div>
-      <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"MYX:MAYBANK","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
-          </script>
-        </div>
+    <div class="qb">
+      <div class="qb-head">📡 MY 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-my-time">待更新</span> · <a href="https://www.klsescreener.com/v2/" target="_blank" style="color:var(--gold)">KLSE Screener ↗</a></span></div>
+      <div class="qb-grid">
+        <div class="q-card" data-symbol="KLSE:YTLPOWR"><div class="q-tk">6742</div><div class="q-nm">YTL Power</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:INARI"><div class="q-tk">0166</div><div class="q-nm">Inari Amertron</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:UNISEM"><div class="q-tk">5005</div><div class="q-nm">Unisem</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:MCEMENT"><div class="q-tk">3794</div><div class="q-nm">Malayan Cement</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:MAYBANK"><div class="q-tk">1155</div><div class="q-nm">Maybank</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:CIMB"><div class="q-tk">1023</div><div class="q-nm">CIMB</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:CDB"><div class="q-tk">6947</div><div class="q-nm">CelcomDigi</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:MAXIS"><div class="q-tk">6012</div><div class="q-nm">Maxis</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
+        <div class="q-card" data-symbol="KLSE:TENAGA"><div class="q-tk">5347</div><div class="q-nm">Tenaga Nasional</div><div class="q-px">—</div><div class="q-chg flat">—</div></div>
       </div>
     </div>
   </div>
