@@ -9,21 +9,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:#F5F6F8;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
+    body{background:#0A0A0F;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
     button{font-family:inherit}
     ::-webkit-scrollbar{width:6px;height:6px}
-    ::-webkit-scrollbar-track{background:#E5E7EB}
-    ::-webkit-scrollbar-thumb{background:#C7CDD6;border-radius:3px}
+    ::-webkit-scrollbar-track{background:#282833}
+    ::-webkit-scrollbar-thumb{background:#3A3A45;border-radius:3px}
   </style>
 </head>
 <body>
-  <nav style="background:#FFFFFF;border-bottom:1px solid #E2E5EB;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
-    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">← 首页</a>
-    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">📊 每日分析</a>
-    <a href="news.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">📰 市场快讯</a>
-    <a href="risk.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">🗓 风险与计划</a>
-    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#9A6D10;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(184,134,11,.4);background:rgba(184,134,11,.10)">📖 策略手册</a>
-    <a href="stocks.html" style="font-size:11px;letter-spacing:1px;color:#6B7280;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #E2E5EB">📈 股票精选</a>
+  <nav style="background:#15151C;border-bottom:1px solid #282833;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
+    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">← 首页</a>
+    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📊 每日分析</a>
+    <a href="news.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📰 市场快讯</a>
+    <a href="risk.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">🗓 风险与计划</a>
+    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#E6BE55;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(184,134,11,.4);background:rgba(184,134,11,.10)">📖 策略手册</a>
+    <a href="stocks.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📈 股票精选</a>
   </nav>
   <div id="root"></div>
 
@@ -31,16 +31,16 @@
     const { useState } = React;
 
     /* ── Design tokens ─────────────────────────────── */
-    const G="#B8860B",GL="#9A6D10",GR="#15803D",RD="#DC2626",BL="#2563EB",PU="#7C3AED";
-    const TX="#374151",MT="#6B7280",BG="#F5F6F8",SF="#FFFFFF",CD="#FFFFFF",BD="#E2E5EB";
+    const G="#D4A72C",GL="#E6BE55",GR="#34D399",RD="#F87171",BL="#60A5FA",PU="#A78BFA";
+    const TX="#C9C4BD",MT="#8A857E",BG="#0A0A0F",SF="#15151C",CD="#15151C",BD="#282833";
 
     /* ── SVG helpers ───────────────────────────────── */
     function Chart({ children, h=100 }){
       return (
         <svg viewBox={`0 0 180 ${h}`} style={{width:"100%",display:"block"}}>
-          <rect width={180} height={h} fill="#F8FAFC" stroke="#E5E7EB" strokeWidth="1" rx="6"/>
+          <rect width={180} height={h} fill="#15151C" stroke="#282833" strokeWidth="1" rx="6"/>
           {[.25,.5,.75].map(f=>{const y=Math.round(h*f);return(
-            <line key={f} x1={0} y1={y} x2={180} y2={y} stroke="#E5E7EB" strokeWidth="0.7" strokeDasharray="4,4"/>
+            <line key={f} x1={0} y1={y} x2={180} y2={y} stroke="#282833" strokeWidth="0.7" strokeDasharray="4,4"/>
           )})}
           {children}
         </svg>
@@ -280,13 +280,13 @@
         <div style={{background:BG,minHeight:"100vh",color:TX,fontFamily:"'Inter','PingFang SC','Microsoft YaHei',sans-serif"}}>
 
           {/* Header */}
-          <div style={{background:"linear-gradient(160deg,#FFFFFF 0%,#F3F4F6 100%)",borderBottom:`1px solid ${BD}`,padding:"18px 16px 13px"}}>
+          <div style={{background:"linear-gradient(160deg,#15151C 0%,#1E1E27 100%)",borderBottom:`1px solid ${BD}`,padding:"18px 16px 13px"}}>
             <div style={{maxWidth:960,margin:"0 auto"}}>
               <div style={{fontSize:9,letterSpacing:3,color:MT,fontFamily:"monospace",textTransform:"uppercase",marginBottom:3}}>
                 ◆ XAUUSD · Strategy &amp; Pattern Reference
               </div>
               <h1 style={{margin:"0 0 3px",fontSize:"clamp(18px,4vw,26px)",fontWeight:800,
-                background:`linear-gradient(90deg,${GL} 0%,${G} 60%,#9A6D10 100%)`,
+                background:`linear-gradient(90deg,${GL} 0%,${G} 60%,#E6BE55 100%)`,
                 WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
                 黄金完整策略 + 形态分析手册
               </h1>

@@ -7,14 +7,14 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;--amber:#F59E0B;
-  --bear:#DC2626;--bull:#15803D;--neut:#64748B;
-  --bg:#FAFAF9;--bg2:#FFFFFF;--bg3:#F4F4F2;--bg4:#E7E5E4;
-  --border:#E7E5E4;--border-2:#D6D3D1;--text:#44403C;--dim:#78716C;--ink:#1C1917;
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
+  --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--neut:#94A3B8;
+  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
   --r-lg:20px;--r-md:14px;--r-sm:10px;
-  --shadow-sm:0 1px 2px rgba(28,25,23,.04),0 2px 8px rgba(28,25,23,.04);
-  --shadow-md:0 2px 4px rgba(28,25,23,.04),0 12px 32px rgba(28,25,23,.08);
-  --shadow-gold:0 4px 24px rgba(184,134,11,.16);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.5);
+  --shadow-gold:0 6px 30px rgba(212,167,44,.22);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -30,7 +30,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 @keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
 
 /* ── sticky glass nav ── */
-.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(250,250,249,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,229,228,.9)}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
 .navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
 .navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
@@ -71,7 +71,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .tile:hover .go .arr{transform:translateX(5px)}
 
 /* ── main tile: full width, live price panel ── */
-.tile.main{grid-column:1/-1;flex-direction:row;gap:44px;align-items:stretch;padding:36px 40px;background:linear-gradient(135deg,#FFFFFF 55%,#FDF9F0 100%)}
+.tile.main{grid-column:1/-1;flex-direction:row;gap:44px;align-items:stretch;padding:36px 40px;background:linear-gradient(135deg,#16161D 55%,#191510 100%)}
 .main-left{flex:1;display:flex;flex-direction:column}
 .main-left p{flex:1}
 .main-right{width:340px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-md);padding:26px 28px;box-shadow:var(--shadow-sm)}
@@ -120,7 +120,7 @@ footer .disc strong{color:var(--text)}
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
+  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
   </script>
 </div>
 
@@ -132,7 +132,7 @@ footer .disc strong{color:var(--text)}
   <div class="tradingview-widget-container" style="max-width:420px;margin:26px auto 0">
     <div class="tradingview-widget-container__widget"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"light","locale":"en"}
+    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"en"}
     </script>
   </div>
 </section>
@@ -231,7 +231,7 @@ footer .disc strong{color:var(--text)}
     <div class="tradingview-widget-container" style="height:100%;width:100%">
       <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-      {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"light","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
+      {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
       </script>
     </div>
   </div>
