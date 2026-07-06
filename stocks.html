@@ -7,14 +7,14 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
-  --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--neut:#94A3B8;
-  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
-  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --gold:#B8860B;--gold-lt:#9A6D10;--gold-dk:#8A6B28;--amber:#F59E0B;
+  --bear:#DC2626;--bull:#15803D;--blue:#2563EB;--neut:#64748B;
+  --bg:#FAFAF9;--bg2:#FFFFFF;--bg3:#F4F4F2;--bg4:#E7E5E4;
+  --border:#E7E5E4;--border-2:#D6D3D1;--text:#44403C;--dim:#78716C;--ink:#1C1917;
   --r-lg:20px;--r-md:14px;--r-sm:10px;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
-  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.5);
-  --shadow-gold:0 6px 30px rgba(212,167,44,.22);
+  --shadow-sm:0 1px 2px rgba(28,25,23,.04),0 2px 8px rgba(28,25,23,.04);
+  --shadow-md:0 2px 4px rgba(28,25,23,.04),0 12px 32px rgba(28,25,23,.08);
+  --shadow-gold:0 4px 24px rgba(184,134,11,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -22,15 +22,14 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 
 /* ambient mesh */
 .mesh{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,178,62,.16),transparent 65%);filter:blur(50px)}
-.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:680px;height:560px;background:radial-gradient(ellipse,rgba(96,165,250,.10),transparent 65%);filter:blur(54px)}
-body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 75%)}
+.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.10),transparent 65%);filter:blur(40px)}
+.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:640px;height:520px;background:radial-gradient(ellipse,rgba(184,134,11,.07),transparent 65%);filter:blur(44px)}
 
 .topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
 @keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
 
 /* glass nav */
-.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(250,250,249,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,229,228,.9)}
 .navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
 .navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
 .navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
@@ -241,7 +240,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"proName":"OANDA:XAUUSD","title":"黄金 Gold"},{"proName":"NASDAQ:NVDA","title":"Nvidia"},{"proName":"FX_IDC:USDSGD","title":"USD/SGD"},{"proName":"FX_IDC:USDMYR","title":"USD/MYR"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+  {"symbols":[{"proName":"SP:SPX","title":"S&P 500"},{"proName":"NASDAQ:NDX","title":"Nasdaq 100"},{"proName":"FTSEMYX:FBMKLCI","title":"马来西亚 KLCI"},{"proName":"FX_IDC:USDMYR","title":"USD/MYR"},{"proName":"FX_IDC:USDSGD","title":"USD/SGD"},{"proName":"NASDAQ:NVDA","title":"Nvidia"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"light","locale":"en"}
   </script>
 </div>
 
@@ -277,7 +276,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-      {"colorTheme":"dark","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🚀 成长股","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NASDAQ:SNDK","d":"SanDisk"}]},{"title":"💰 股息股","symbols":[{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"},{"s":"NASDAQ:MPWR","d":"Monolithic Power"}]}]}
+      {"colorTheme":"light","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🚀 成长股","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NASDAQ:SNDK","d":"SanDisk"}]},{"title":"💰 股息股","symbols":[{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"},{"s":"NASDAQ:MPWR","d":"Monolithic Power"}]}]}
       </script>
     </div>
   </div>
@@ -424,7 +423,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"NASDAQ:NVDA","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
+          {"symbol":"NASDAQ:NVDA","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
           </script>
         </div>
       </div>
@@ -432,7 +431,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
           <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-          {"symbol":"NYSE:ABBV","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
+          {"symbol":"NYSE:ABBV","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"light","isTransparent":true,"autosize":false}
           </script>
         </div>
       </div>
