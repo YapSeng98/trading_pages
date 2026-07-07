@@ -175,7 +175,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .mcmp .mb .v{font-family:'Space Grotesk',monospace;font-size:11px;font-weight:700;color:var(--text);width:46px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
 /* radar */
 .radar-wrap{display:flex;flex-direction:column;align-items:center}
-#radarSvg,#radarSvg2{width:100%;max-width:440px;height:auto;display:block}
+.radar-svg{width:100%;max-width:440px;height:auto;display:block}
+.viz3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:6px}
+@media(max-width:900px){.viz3{grid-template-columns:1fr}}
 .radar-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text)}
 .rl-item{display:flex;align-items:center;gap:7px}
 .rl-sw{width:11px;height:11px;border-radius:3px;display:inline-block}
@@ -384,68 +386,73 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <div class="viz-legend"><span class="li">评分条 = 平均综合评分 / 100</span><span class="li">股息条 = 平均股息率 / 7%</span><span class="li">新加坡综合最强（评分+股息双高）</span></div>
   </div>
 
-  <!-- Multi-factor radar (self-rendering SVG; agent edits RADAR.series[].vals only) -->
-  <div class="viz" style="margin-bottom:8px">
-    <div class="viz-title">🎯 Top Pick 多维雷达 · Multi-Factor Radar</div>
-    <div class="viz-sub">NVDA vs DBS vs YTL Power · 六维度评分 0–10（越大越优）</div>
-    <div class="radar-wrap">
-      <svg id="radarSvg" viewBox="0 0 440 360" role="img" aria-label="三只Top Pick的六维度雷达对比"></svg>
-      <div class="radar-legend" id="radarLegend"></div>
+  <!-- Per-country radars: each market, 成长代表 vs 股息代表 (same 6 axes, same colors) -->
+  <div class="sec-label" style="margin-top:26px">各国 成长 vs 股息 雷达 · Growth vs Dividend by Country</div>
+  <div class="viz3">
+    <div class="viz">
+      <div class="viz-title">🇺🇸 美国 · 成长 vs 股息</div>
+      <div class="viz-sub">NVDA (成长) vs ABBV (股息)</div>
+      <div class="radar-wrap"><svg class="radar-svg" id="radarUS" viewBox="0 0 440 360" role="img" aria-label="美国成长vs股息雷达"></svg><div class="radar-legend" id="legUS"></div></div>
     </div>
-    <div class="radar-foot">维度：成长性 · 估值吸引力 · 股息 · 盈利质量 · 价格动能 · 安全边际　|　⟳ 随定时任务每3小时更新（动能随行情，其余随基本面）</div>
+    <div class="viz">
+      <div class="viz-title">🇸🇬 新加坡 · 成长 vs 股息</div>
+      <div class="viz-sub">iFAST (成长) vs DBS (股息)</div>
+      <div class="radar-wrap"><svg class="radar-svg" id="radarSG" viewBox="0 0 440 360" role="img" aria-label="新加坡成长vs股息雷达"></svg><div class="radar-legend" id="legSG"></div></div>
+    </div>
+    <div class="viz">
+      <div class="viz-title">🇲🇾 马来西亚 · 成长 vs 股息</div>
+      <div class="viz-sub">YTL Power (成长) vs Maybank (股息)</div>
+      <div class="radar-wrap"><svg class="radar-svg" id="radarMY" viewBox="0 0 440 360" role="img" aria-label="马来西亚成长vs股息雷达"></svg><div class="radar-legend" id="legMY"></div></div>
+    </div>
   </div>
+  <div class="radar-foot" style="margin-bottom:8px">六维度：成长性 · 估值吸引力 · 股息 · 盈利质量 · 价格动能 · 安全边际（0–10，越大越优）　|　每国自成一组，蓝=成长代表 金=股息代表　|　⟳ 动能随行情每3小时更新</div>
   <script>
-  (function(){
-    /* ══ RADAR DATA — the scheduled agent edits the vals arrays (0–10) only ══ */
-    var RADAR={
-      axes:["成长性","估值","股息","盈利质量","动能","安全边际"],
-      max:10,
-      series:[
-        {name:"NVDA 英伟达", color:"#60A5FA", vals:[9,7,2,9,7,6]},
-        {name:"DBS 星展",    color:"#D4A72C", vals:[6,7,9,9,6,8]},
-        {name:"YTL Power",   color:"#34D399", vals:[8,6,4,6,8,5]}
-      ]
-    };
-    /* ══════════════════════════════════════════════════════════════════════ */
-    var svg=document.getElementById('radarSvg'); if(!svg) return;
-    var NS='http://www.w3.org/2000/svg';
-    var cx=220, cy=178, R=118, N=RADAR.axes.length, max=RADAR.max;
+  function drawRadar(svgId, legId, axes, series, max){
+    var svg=document.getElementById(svgId); if(!svg) return;
+    var NS='http://www.w3.org/2000/svg', N=axes.length, cx=220, cy=178, R=118;
     function pt(i,v){var a=-Math.PI/2 + i*2*Math.PI/N; return [cx+(v/max)*R*Math.cos(a), cy+(v/max)*R*Math.sin(a)];}
     function mk(t,at){var e=document.createElementNS(NS,t); for(var k in at) e.setAttribute(k,at[k]); return e;}
-    // grid rings (5 levels)
     for(var g=1; g<=5; g++){
       var lv=max*g/5, pts='';
       for(var i=0;i<N;i++){var p=pt(i,lv); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
-      svg.appendChild(mk('polygon',{points:pts.trim(),fill:g%2? 'rgba(255,255,255,.015)':'none',stroke:'#2B2B36','stroke-width':1}));
+      svg.appendChild(mk('polygon',{points:pts.trim(),fill:g%2?'rgba(255,255,255,.015)':'none',stroke:'#2B2B36','stroke-width':1}));
     }
-    // spokes + axis labels
     for(var i=0;i<N;i++){
       var p=pt(i,max);
       svg.appendChild(mk('line',{x1:cx,y1:cy,x2:p[0].toFixed(1),y2:p[1].toFixed(1),stroke:'#2B2B36','stroke-width':1}));
-      var lp=pt(i,max*1.17), t=mk('text',{x:lp[0].toFixed(1),y:lp[1].toFixed(1),fill:'#C9C4BD','font-size':'12.5','font-family':"'Noto Sans SC',sans-serif",'font-weight':'500','text-anchor':'middle','dominant-baseline':'middle'});
-      t.textContent=RADAR.axes[i]; svg.appendChild(t);
+      var lp=pt(i,max*1.17), t=mk('text',{x:lp[0].toFixed(1),y:lp[1].toFixed(1),fill:'#C9C4BD','font-size':'13','font-family':"'Noto Sans SC',sans-serif",'font-weight':'500','text-anchor':'middle','dominant-baseline':'middle'});
+      t.textContent=axes[i]; svg.appendChild(t);
     }
-    // scale ticks on top spoke (2,4,6,8,10)
     for(var s=1;s<=5;s++){
       var v=max*s/5, tp=pt(0,v);
       var tk=mk('text',{x:(tp[0]+7).toFixed(1),y:tp[1].toFixed(1),fill:'#6E6961','font-size':'8','font-family':"'IBM Plex Mono',monospace",'dominant-baseline':'middle'});
       tk.textContent=v; svg.appendChild(tk);
     }
-    // series polygons + markers
-    RADAR.series.forEach(function(se){
+    series.forEach(function(se){
       var pts='';
       for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
       svg.appendChild(mk('polygon',{points:pts.trim(),fill:se.color,'fill-opacity':'0.13',stroke:se.color,'stroke-width':'2.2','stroke-linejoin':'round'}));
       for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); svg.appendChild(mk('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:'3.4',fill:se.color,stroke:'#15151C','stroke-width':'1.5'}));}
     });
-    // legend
-    var lg=document.getElementById('radarLegend');
-    RADAR.series.forEach(function(se){
-      var d=document.createElement('span'); d.className='rl-item';
-      d.innerHTML='<span class="rl-sw" style="background:'+se.color+'"></span>'+se.name;
-      lg.appendChild(d);
-    });
-  })();
+    var lg=document.getElementById(legId);
+    if(lg){ series.forEach(function(se){ var d=document.createElement('span'); d.className='rl-item'; d.innerHTML='<span class="rl-sw" style="background:'+se.color+'"></span>'+se.name; lg.appendChild(d); }); }
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var AX=["成长性","估值","股息","盈利质量","动能","安全边际"];
+    /* ══ RADAR DATA — agent edits vals arrays (0–10) only; 动能 (index 4) updates every 3h ══ */
+    drawRadar('radarUS','legUS',AX,[
+      {name:"NVDA 成长", color:"#60A5FA", vals:[9,7,2,9,7,6]},
+      {name:"ABBV 股息", color:"#D4A72C", vals:[6,6,7,8,6,8]}
+    ],10);
+    drawRadar('radarSG','legSG',AX,[
+      {name:"iFAST 成长", color:"#60A5FA", vals:[9,5,3,7,6,5]},
+      {name:"DBS 股息",   color:"#D4A72C", vals:[6,7,8,9,6,8]}
+    ],10);
+    drawRadar('radarMY','legMY',AX,[
+      {name:"YTL 成长",     color:"#60A5FA", vals:[8,6,4,6,8,5]},
+      {name:"Maybank 股息", color:"#D4A72C", vals:[5,8,9,7,6,7]}
+    ],10);
+  });
   </script>
 
   <!-- Daily movers (SG + MY) — auto-rendered from the quote boards below (no agent edits needed) -->
@@ -484,62 +491,6 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     }
     render('SGX:','moversSG'); render('KLSE:','moversMY');
   });
-  </script>
-
-  <!-- SG vs MY radar (DBS vs Maybank) -->
-  <div class="viz" style="margin-bottom:8px">
-    <div class="viz-title">🎯 SG vs MY 银行对决 · Bank Face-off</div>
-    <div class="viz-sub">DBS 星展 (SG) vs Maybank 马来亚银行 (MY) · 六维度 0–10</div>
-    <div class="radar-wrap">
-      <svg id="radarSvg2" viewBox="0 0 440 360" role="img" aria-label="DBS与Maybank六维度雷达对比"></svg>
-      <div class="radar-legend" id="radarLegend2"></div>
-    </div>
-    <div class="radar-foot">同为区域龙头银行：DBS 盈利质量/成长占优，Maybank 估值更低、股息更高（6.1% vs ~3.8%）　|　⟳ 随基本面每周深度刷新</div>
-  </div>
-  <script>
-  (function(){
-    var RADAR2={
-      axes:["成长性","估值","股息","盈利质量","动能","安全边际"],
-      max:10,
-      series:[
-        {name:"DBS 星展 (SG)",    color:"#D4A72C", vals:[6,7,8,9,6,8]},
-        {name:"Maybank 马银 (MY)", color:"#34D399", vals:[5,8,9,7,6,7]}
-      ]
-    };
-    var svg=document.getElementById('radarSvg2'); if(!svg) return;
-    var NS='http://www.w3.org/2000/svg';
-    var cx=220, cy=178, R=118, N=RADAR2.axes.length, max=RADAR2.max;
-    function pt(i,v){var a=-Math.PI/2 + i*2*Math.PI/N; return [cx+(v/max)*R*Math.cos(a), cy+(v/max)*R*Math.sin(a)];}
-    function mk(t,at){var e=document.createElementNS(NS,t); for(var k in at) e.setAttribute(k,at[k]); return e;}
-    for(var g=1; g<=5; g++){
-      var lv=max*g/5, pts='';
-      for(var i=0;i<N;i++){var p=pt(i,lv); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
-      svg.appendChild(mk('polygon',{points:pts.trim(),fill:g%2?'rgba(255,255,255,.015)':'none',stroke:'#2B2B36','stroke-width':1}));
-    }
-    for(var i=0;i<N;i++){
-      var p=pt(i,max);
-      svg.appendChild(mk('line',{x1:cx,y1:cy,x2:p[0].toFixed(1),y2:p[1].toFixed(1),stroke:'#2B2B36','stroke-width':1}));
-      var lp=pt(i,max*1.17), t=mk('text',{x:lp[0].toFixed(1),y:lp[1].toFixed(1),fill:'#C9C4BD','font-size':'12.5','font-family':"'Noto Sans SC',sans-serif",'font-weight':'500','text-anchor':'middle','dominant-baseline':'middle'});
-      t.textContent=RADAR2.axes[i]; svg.appendChild(t);
-    }
-    for(var s=1;s<=5;s++){
-      var v=max*s/5, tp=pt(0,v);
-      var tk=mk('text',{x:(tp[0]+7).toFixed(1),y:tp[1].toFixed(1),fill:'#6E6961','font-size':'8','font-family':"'IBM Plex Mono',monospace",'dominant-baseline':'middle'});
-      tk.textContent=v; svg.appendChild(tk);
-    }
-    RADAR2.series.forEach(function(se){
-      var pts='';
-      for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
-      svg.appendChild(mk('polygon',{points:pts.trim(),fill:se.color,'fill-opacity':'0.13',stroke:se.color,'stroke-width':'2.2','stroke-linejoin':'round'}));
-      for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); svg.appendChild(mk('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:'3.4',fill:se.color,stroke:'#15151C','stroke-width':'1.5'}));}
-    });
-    var lg=document.getElementById('radarLegend2');
-    RADAR2.series.forEach(function(se){
-      var d=document.createElement('span'); d.className='rl-item';
-      d.innerHTML='<span class="rl-sw" style="background:'+se.color+'"></span>'+se.name;
-      lg.appendChild(d);
-    });
-  })();
   </script>
 
   <!-- ═══════════ LIVE MARKET OVERVIEW CHART (US only — SGX/KLSE not licensed for embeds; see quote boards below) ═══════════ -->
