@@ -92,6 +92,23 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 
 /* ── chart card ── */
 .chart-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:48px;background:var(--bg2)}
+/* ── market pulse ── */
+.pulse{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 28px;box-shadow:var(--shadow-sm);margin-bottom:40px;position:relative;overflow:hidden}
+.pulse::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--amber),transparent)}
+.pulse-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:18px;letter-spacing:-.4px}
+.pulse-time{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:400;color:var(--dim);margin-left:auto;letter-spacing:.5px}
+.pulse-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:640px){.pulse-stats{grid-template-columns:repeat(2,1fr)}}
+.ps{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px}
+.ps .pk{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.ps .pv{font-family:'Space Grotesk',monospace;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.5px;line-height:1.1;font-variant-numeric:tabular-nums}
+.ps .pd{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.5}
+.pulse-notes .pn-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px}
+.pulse-notes ul{list-style:none;padding:0;margin:0}
+.pulse-notes li{font-size:12.5px;color:var(--text);line-height:1.7;padding:7px 0;display:flex;gap:9px;border-bottom:1px solid var(--border)}
+.pulse-notes li:last-child{border-bottom:none}
+.pulse-notes li::before{content:'▸';color:var(--gold);flex-shrink:0}
+.pulse-notes li strong{color:var(--ink)}
 
 /* ── footer ── */
 footer{border-top:1px solid var(--border);padding:36px 24px 48px;text-align:center;background:linear-gradient(180deg,transparent,rgba(232,201,109,.05))}
@@ -226,6 +243,24 @@ footer .disc strong{color:var(--text)}
 </div>
 
 <div class="wrap">
+  <div class="pulse">
+    <div class="pulse-head">市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-07-07 · 每 3 小时自动更新</span></div>
+    <div class="pulse-stats">
+      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">纽约盘 · 关注 $4,140 支撑</div></div>
+      <div class="ps"><div class="pk">美元指数 DXY</div><div class="pv" id="pulse-dxy">101.3</div><div class="pd">年内高位区间</div></div>
+      <div class="ps"><div class="pk">9月加息概率</div><div class="pv" id="pulse-fed">~50%</div><div class="pd">CME FedWatch</div></div>
+      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">FOMC 纪要</div><div class="pd" id="pulse-event-d">7/8（明日）</div></div>
+    </div>
+    <div class="pulse-notes">
+      <div class="pn-title">◆ 今日观察 · Market Analysis</div>
+      <ul id="pulse-list">
+        <li><strong>黄金</strong>：6月NFP仅57K大幅低于预期，加息预期降温，金价获$4,140上方支撑；本周关注 FOMC 纪要（7/8）与 CPI（7/14）指引。</li>
+        <li><strong>美股</strong>：AI 资本开支周期延续，芯片与存储板块领涨；估值偏高，等 7 月中 Q2 财报（Nvidia/Broadcom 指引最关键）验证。</li>
+        <li><strong>亚洲</strong>：新加坡银行股息稳健（DBS ~5%），大马数据中心概念（YTL Power 柔佛 1,000MW）持续获资金关注。</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="sec-label">实时图表 · Live Chart</div>
   <div class="chart-card" style="height:480px">
     <div class="tradingview-widget-container" style="height:100%;width:100%">

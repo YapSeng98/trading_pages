@@ -178,6 +178,14 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .radar-svg{width:100%;max-width:440px;height:auto;display:block}
 .viz3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:6px}
 @media(max-width:900px){.viz3{grid-template-columns:1fr}}
+/* country tabs */
+.ctabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 26px}
+.ctab{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:13px;font-weight:600;color:var(--dim);background:var(--bg2);border:1px solid var(--border);padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .18s}
+.ctab:hover{color:var(--ink);border-color:var(--border-2)}
+.ctab.on{color:#15151C;background:linear-gradient(120deg,var(--gold),var(--amber));border-color:transparent;box-shadow:var(--shadow-gold)}
+.tabpane{display:none}
+.tabpane.active{display:block;animation:fadein .28s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .radar-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text)}
 .rl-item{display:flex;align-items:center;gap:7px}
 .rl-sw{width:11px;height:11px;border-radius:3px;display:inline-block}
@@ -311,6 +319,15 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <span style="margin-left:auto">· 综合评分为编辑评估（0–100）· 收益率与增速为近似值</span>
   </div>
 
+  <!-- ═══════════ COUNTRY TABS ═══════════ -->
+  <div class="ctabs">
+    <button class="ctab on" id="ctab-overview">🌏 概览 Overview</button>
+    <button class="ctab" id="ctab-us">🇺🇸 美国 US</button>
+    <button class="ctab" id="ctab-sg">🇸🇬 新加坡 SG</button>
+    <button class="ctab" id="ctab-my">🇲🇾 马来西亚 MY</button>
+  </div>
+
+  <div id="tab-overview" class="tabpane active">
   <!-- ═══════════ STATS STRIP ═══════════ -->
   <div class="stats">
     <div class="stat"><div class="sk">追踪标的 · Coverage</div><div class="sv"><em>28</em></div><div class="sd">美 10 · 新 9 · 马 9</div></div>
@@ -493,6 +510,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   });
   </script>
 
+  </div><!-- /tab-overview -->
+
+  <div id="tab-us" class="tabpane">
   <!-- ═══════════ LIVE MARKET OVERVIEW CHART (US only — SGX/KLSE not licensed for embeds; see quote boards below) ═══════════ -->
   <div class="sec-label">美股实时概览 · US Live Overview</div>
   <div class="chart-card">
@@ -661,6 +681,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
   </div>
 
+  </div><!-- /tab-us -->
+
+  <div id="tab-sg" class="tabpane">
   <!-- ═══════════ SG MARKET ═══════════ -->
   <div class="mkt">
     <div class="sec-label">Market 02 · Singapore</div>
@@ -852,6 +875,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
   </div>
 
+  </div><!-- /tab-sg -->
+
+  <div id="tab-my" class="tabpane">
   <!-- ═══════════ MY MARKET ═══════════ -->
   <div class="mkt">
     <div class="sec-label">Market 03 · Malaysia</div>
@@ -1043,7 +1069,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
   </div>
 
-  <!-- ═══════════ PORTFOLIO ALLOCATION ═══════════ -->
+  </div><!-- /tab-my -->
+
+  <!-- ═══════════ PORTFOLIO ALLOCATION (always visible) ═══════════ -->
   <div class="sec-label">组合配置参考 · Portfolio Allocation</div>
   <div class="alloc">
     <div class="alloc-legend">
@@ -1114,6 +1142,28 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   </div>
 
 </main>
+
+<script>
+(function(){
+  var tabs=['overview','us','sg','my'];
+  function show(id){
+    if(tabs.indexOf(id)<0) id='overview';
+    tabs.forEach(function(t){
+      var pane=document.getElementById('tab-'+t); if(pane) pane.classList.toggle('active', t===id);
+      var btn=document.getElementById('ctab-'+t); if(btn) btn.classList.toggle('on', t===id);
+    });
+  }
+  function current(){ return (location.hash||'').replace('#',''); }
+  window.addEventListener('hashchange', function(){ show(current()); });
+  document.addEventListener('DOMContentLoaded', function(){
+    tabs.forEach(function(t){
+      var btn=document.getElementById('ctab-'+t);
+      if(btn) btn.addEventListener('click', function(){ location.hash=t; show(t); window.scrollTo({top:0,behavior:'smooth'}); });
+    });
+    show(current()||'overview');
+  });
+})();
+</script>
 
 <div class="topstrip"></div>
 </body>
