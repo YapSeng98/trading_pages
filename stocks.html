@@ -173,6 +173,13 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .mcmp .mb .t{flex:1;height:11px;background:var(--bg3);border-radius:4px;overflow:hidden}
 .mcmp .mb .f{height:100%;border-radius:4px}
 .mcmp .mb .v{font-family:'Space Grotesk',monospace;font-size:11px;font-weight:700;color:var(--text);width:46px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+/* radar */
+.radar-wrap{display:flex;flex-direction:column;align-items:center}
+#radarSvg{width:100%;max-width:440px;height:auto;display:block}
+.radar-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text)}
+.rl-item{display:flex;align-items:center;gap:7px}
+.rl-sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+.radar-foot{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);text-align:center;margin-top:10px;line-height:1.7}
 
 /* market section */
 .mkt{margin-bottom:52px}
@@ -365,6 +372,70 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
     <div class="viz-legend"><span class="li">评分条 = 平均综合评分 / 100</span><span class="li">股息条 = 平均股息率 / 7%</span><span class="li">新加坡综合最强（评分+股息双高）</span></div>
   </div>
+
+  <!-- Multi-factor radar (self-rendering SVG; agent edits RADAR.series[].vals only) -->
+  <div class="viz" style="margin-bottom:8px">
+    <div class="viz-title">🎯 Top Pick 多维雷达 · Multi-Factor Radar</div>
+    <div class="viz-sub">NVDA vs DBS vs YTL Power · 六维度评分 0–10（越大越优）</div>
+    <div class="radar-wrap">
+      <svg id="radarSvg" viewBox="0 0 440 360" role="img" aria-label="三只Top Pick的六维度雷达对比"></svg>
+      <div class="radar-legend" id="radarLegend"></div>
+    </div>
+    <div class="radar-foot">维度：成长性 · 估值吸引力 · 股息 · 盈利质量 · 价格动能 · 安全边际　|　⟳ 随定时任务每3小时更新（动能随行情，其余随基本面）</div>
+  </div>
+  <script>
+  (function(){
+    /* ══ RADAR DATA — the scheduled agent edits the vals arrays (0–10) only ══ */
+    var RADAR={
+      axes:["成长性","估值","股息","盈利质量","动能","安全边际"],
+      max:10,
+      series:[
+        {name:"NVDA 英伟达", color:"#60A5FA", vals:[9,7,2,9,7,6]},
+        {name:"DBS 星展",    color:"#D4A72C", vals:[6,7,9,9,6,8]},
+        {name:"YTL Power",   color:"#34D399", vals:[8,6,4,6,8,5]}
+      ]
+    };
+    /* ══════════════════════════════════════════════════════════════════════ */
+    var svg=document.getElementById('radarSvg'); if(!svg) return;
+    var NS='http://www.w3.org/2000/svg';
+    var cx=220, cy=178, R=118, N=RADAR.axes.length, max=RADAR.max;
+    function pt(i,v){var a=-Math.PI/2 + i*2*Math.PI/N; return [cx+(v/max)*R*Math.cos(a), cy+(v/max)*R*Math.sin(a)];}
+    function mk(t,at){var e=document.createElementNS(NS,t); for(var k in at) e.setAttribute(k,at[k]); return e;}
+    // grid rings (5 levels)
+    for(var g=1; g<=5; g++){
+      var lv=max*g/5, pts='';
+      for(var i=0;i<N;i++){var p=pt(i,lv); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
+      svg.appendChild(mk('polygon',{points:pts.trim(),fill:g%2? 'rgba(255,255,255,.015)':'none',stroke:'#2B2B36','stroke-width':1}));
+    }
+    // spokes + axis labels
+    for(var i=0;i<N;i++){
+      var p=pt(i,max);
+      svg.appendChild(mk('line',{x1:cx,y1:cy,x2:p[0].toFixed(1),y2:p[1].toFixed(1),stroke:'#2B2B36','stroke-width':1}));
+      var lp=pt(i,max*1.17), t=mk('text',{x:lp[0].toFixed(1),y:lp[1].toFixed(1),fill:'#C9C4BD','font-size':'12.5','font-family':"'Noto Sans SC',sans-serif",'font-weight':'500','text-anchor':'middle','dominant-baseline':'middle'});
+      t.textContent=RADAR.axes[i]; svg.appendChild(t);
+    }
+    // scale ticks on top spoke (2,4,6,8,10)
+    for(var s=1;s<=5;s++){
+      var v=max*s/5, tp=pt(0,v);
+      var tk=mk('text',{x:(tp[0]+7).toFixed(1),y:tp[1].toFixed(1),fill:'#6E6961','font-size':'8','font-family':"'IBM Plex Mono',monospace",'dominant-baseline':'middle'});
+      tk.textContent=v; svg.appendChild(tk);
+    }
+    // series polygons + markers
+    RADAR.series.forEach(function(se){
+      var pts='';
+      for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); pts+=p[0].toFixed(1)+','+p[1].toFixed(1)+' ';}
+      svg.appendChild(mk('polygon',{points:pts.trim(),fill:se.color,'fill-opacity':'0.13',stroke:se.color,'stroke-width':'2.2','stroke-linejoin':'round'}));
+      for(var i=0;i<N;i++){var p=pt(i,se.vals[i]); svg.appendChild(mk('circle',{cx:p[0].toFixed(1),cy:p[1].toFixed(1),r:'3.4',fill:se.color,stroke:'#15151C','stroke-width':'1.5'}));}
+    });
+    // legend
+    var lg=document.getElementById('radarLegend');
+    RADAR.series.forEach(function(se){
+      var d=document.createElement('span'); d.className='rl-item';
+      d.innerHTML='<span class="rl-sw" style="background:'+se.color+'"></span>'+se.name;
+      lg.appendChild(d);
+    });
+  })();
+  </script>
 
   <!-- ═══════════ LIVE MARKET OVERVIEW CHART (US only — SGX/KLSE not licensed for embeds; see quote boards below) ═══════════ -->
   <div class="sec-label">美股实时概览 · US Live Overview</div>
