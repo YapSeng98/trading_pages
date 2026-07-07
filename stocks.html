@@ -448,34 +448,43 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   })();
   </script>
 
-  <!-- Daily movers (SG + MY) — built from quote-board % changes, updates every 3h -->
+  <!-- Daily movers (SG + MY) — auto-rendered from the quote boards below (no agent edits needed) -->
   <div class="viz-grid">
     <div class="viz">
       <div class="viz-title">🇸🇬 SG 今日涨跌 · Daily Movers</div>
-      <div class="viz-sub">By % Change · bar scaled to panel max</div>
-      <div class="mv-row"><span class="mv-name">Mapletree Ind.</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:46%"></div></div><span class="mv-val up">+0.78%</span></div>
-      <div class="mv-row"><span class="mv-name">OCBC 华侨</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:40%"></div></div><span class="mv-val up">+0.68%</span></div>
-      <div class="mv-row"><span class="mv-name">iFAST</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:39%"></div></div><span class="mv-val up">+0.67%</span></div>
-      <div class="mv-row"><span class="mv-name">DBS 星展</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:30%"></div></div><span class="mv-val up">+0.50%</span></div>
-      <div class="mv-row"><span class="mv-name">CapLand Asc.</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:24%"></div></div><span class="mv-val up">+0.40%</span></div>
-      <div class="mv-row"><span class="mv-name">ST Engineering</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:5%"></div></div><span class="mv-val up">+0.09%</span></div>
-      <div class="mv-row"><span class="mv-name">Keppel DC</span><div class="mv-bar"><div class="mv-center"></div></div><span class="mv-val flat">0.00%</span></div>
-      <div class="mv-row"><span class="mv-name">SGX 新交所</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill down" style="right:50%;width:15%"></div></div><span class="mv-val down">-0.25%</span></div>
+      <div class="viz-sub">By % Change · auto from quote board</div>
+      <div id="moversSG"></div>
     </div>
     <div class="viz">
       <div class="viz-title">🇲🇾 MY 今日涨跌 · Daily Movers</div>
-      <div class="viz-sub">By % Change · bar scaled to panel max</div>
-      <div class="mv-row"><span class="mv-name">CelcomDigi</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:46%"></div></div><span class="mv-val up">+4.00%</span></div>
-      <div class="mv-row"><span class="mv-name">CIMB</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:23%"></div></div><span class="mv-val up">+2.00%</span></div>
-      <div class="mv-row"><span class="mv-name">Malayan Cement</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:15%"></div></div><span class="mv-val up">+1.30%</span></div>
-      <div class="mv-row"><span class="mv-name">YTL Power</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:8%"></div></div><span class="mv-val up">+0.70%</span></div>
-      <div class="mv-row"><span class="mv-name">Maybank</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill up" style="left:50%;width:7%"></div></div><span class="mv-val up">+0.60%</span></div>
-      <div class="mv-row"><span class="mv-name">Maxis</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill down" style="right:50%;width:4%"></div></div><span class="mv-val down">-0.30%</span></div>
-      <div class="mv-row"><span class="mv-name">Inari Amertron</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill down" style="right:50%;width:6%"></div></div><span class="mv-val down">-0.50%</span></div>
-      <div class="mv-row"><span class="mv-name">Tenaga</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill down" style="right:50%;width:6%"></div></div><span class="mv-val down">-0.56%</span></div>
-      <div class="mv-row"><span class="mv-name">Unisem</span><div class="mv-bar"><div class="mv-center"></div><div class="mv-fill down" style="right:50%;width:15%"></div></div><span class="mv-val down">-1.30%</span></div>
+      <div class="viz-sub">By % Change · auto from quote board</div>
+      <div id="moversMY"></div>
     </div>
   </div>
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    function esc(s){return (s||'').replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+    function render(prefix,elId){
+      var host=document.getElementById(elId); if(!host) return;
+      var rows=[].slice.call(document.querySelectorAll('.q-card[data-symbol^="'+prefix+'"]')).map(function(c){
+        var nm=(c.querySelector('.q-nm')||{}).textContent||'';
+        var raw=((c.querySelector('.q-chg')||{}).textContent||'').replace('%','').replace('+','').trim();
+        var v=parseFloat(raw); return {nm:nm, v:isNaN(v)?null:v};
+      }).filter(function(r){return r.nm && r.v!==null;});
+      if(!rows.length){ host.innerHTML='<div style="font-family:monospace;font-size:10px;color:var(--dim)">待行情更新…</div>'; return; }
+      rows.sort(function(a,b){return b.v-a.v;});
+      var maxAbs=Math.max.apply(null,rows.map(function(r){return Math.abs(r.v);}).concat([0.01]));
+      host.innerHTML=rows.map(function(r){
+        var cls=r.v>0?'up':(r.v<0?'down':'flat');
+        var w=Math.round(Math.abs(r.v)/maxAbs*46);
+        var fill=r.v>0?'<div class="mv-fill up" style="left:50%;width:'+w+'%"></div>':(r.v<0?'<div class="mv-fill down" style="right:50%;width:'+w+'%"></div>':'');
+        var lbl=(r.v>0?'+':'')+r.v.toFixed(2)+'%';
+        return '<div class="mv-row"><span class="mv-name">'+esc(r.nm)+'</span><div class="mv-bar"><div class="mv-center"></div>'+fill+'</div><span class="mv-val '+cls+'">'+lbl+'</span></div>';
+      }).join('');
+    }
+    render('SGX:','moversSG'); render('KLSE:','moversMY');
+  });
+  </script>
 
   <!-- SG vs MY radar (DBS vs Maybank) -->
   <div class="viz" style="margin-bottom:8px">

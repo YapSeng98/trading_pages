@@ -8,22 +8,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
     *{box-sizing:border-box;margin:0;padding:0}
     body{background:#0A0A0F;font-family:'Inter','PingFang SC','Microsoft YaHei',sans-serif}
     button{font-family:inherit}
     ::-webkit-scrollbar{width:6px;height:6px}
     ::-webkit-scrollbar-track{background:#282833}
     ::-webkit-scrollbar-thumb{background:#3A3A45;border-radius:3px}
+    .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
+    .navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#F6F5F3;text-decoration:none;letter-spacing:-.3px;margin-right:auto}
+    .navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,#D4A72C);box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+    .navbar a.nl{font-size:12.5px;color:#8A857E;text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+    .navbar a.nl:hover{color:#F6F5F3;background:#1E1E27}
+    .navbar a.nl.on{color:#E6BE55;background:rgba(184,134,11,.10)}
+    @media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
   </style>
 </head>
 <body>
-  <nav style="background:#15151C;border-bottom:1px solid #282833;padding:10px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:monospace">
-    <a href="index.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">← 首页</a>
-    <a href="daily.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📊 每日分析</a>
-    <a href="news.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📰 市场快讯</a>
-    <a href="risk.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">🗓 风险与计划</a>
-    <a href="strategy.html" style="font-size:11px;letter-spacing:1px;color:#E6BE55;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid rgba(184,134,11,.4);background:rgba(184,134,11,.10)">📖 策略手册</a>
-    <a href="stocks.html" style="font-size:11px;letter-spacing:1px;color:#8A857E;text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid #282833">📈 股票精选</a>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+    <a class="nl" href="daily.html">📊 每日分析</a>
+    <a class="nl" href="news.html">📰 快讯</a>
+    <a class="nl" href="risk.html">🗓 风险计划</a>
+    <a class="nl on" href="strategy.html">📖 策略</a>
+    <a class="nl" href="stocks.html">📈 股票</a>
   </nav>
   <div id="root"></div>
 

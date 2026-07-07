@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>市场快讯 · XAUUSD 最新消息 — 2026年7月7日</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;
   --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
@@ -15,9 +15,13 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
 .topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace}
-nav a{font-size:11px;letter-spacing:1px;color:var(--dim);text-decoration:none;padding:5px 12px;border-radius:3px;border:1px solid var(--border)}
-nav a.on{color:var(--gold-lt);border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.12)}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+.navbar a.nl:hover{color:var(--white);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
 header{background:var(--bg2);border-bottom:1px solid var(--border);padding:28px 48px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .hl-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
 header h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
@@ -61,13 +65,13 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 <body>
 <div class="topstrip"></div>
 
-<nav>
-  <a href="index.html">← 首页</a>
-  <a href="daily.html">📊 每日分析</a>
-  <a href="news.html" class="on">📰 市场快讯</a>
-  <a href="risk.html">🗓 风险与计划</a>
-  <a href="strategy.html">📖 策略手册</a>
-  <a href="stocks.html">📈 股票精选</a>
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="daily.html">📊 每日分析</a>
+  <a class="nl on" href="news.html">📰 快讯</a>
+  <a class="nl" href="risk.html">🗓 风险计划</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
 </nav>
 
 <header>
