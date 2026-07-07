@@ -293,7 +293,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 <header>
   <div class="eyebrow">Stocks · US / SG / MY · Growth vs Dividend · AI-Curated</div>
   <h1>股票<em>精选</em></h1>
-  <div class="hdate">2026年7月6日（星期一）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类 · 每周一自动深度刷新</div>
+  <div class="hdate">2026年7月8日（星期三）&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类 · 每周一自动深度刷新</div>
 </header>
 
 <!-- Live ticker tape: three market indices -->
@@ -459,14 +459,14 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     /* ══ RADAR DATA — agent edits vals arrays (0–10) only; 动能 (index 4) updates every 3h ══ */
     drawRadar('radarUS','legUS',AX,[
       {name:"NVDA 成长", color:"#60A5FA", vals:[9,7,2,9,7,6]},
-      {name:"ABBV 股息", color:"#D4A72C", vals:[6,6,7,8,8,8]}
+      {name:"ABBV 股息", color:"#D4A72C", vals:[6,6,7,8,7,8]}
     ],10);
     drawRadar('radarSG','legSG',AX,[
       {name:"iFAST 成长", color:"#60A5FA", vals:[9,5,3,7,6,5]},
       {name:"DBS 股息",   color:"#D4A72C", vals:[6,7,8,9,8,8]}
     ],10);
     drawRadar('radarMY','legMY',AX,[
-      {name:"YTL 成长",     color:"#60A5FA", vals:[8,6,4,6,6,5]},
+      {name:"YTL 成长",     color:"#60A5FA", vals:[8,6,4,6,5,5]},
       {name:"Maybank 股息", color:"#D4A72C", vals:[5,8,9,7,6,7]}
     ],10);
   });
@@ -860,7 +860,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
 
     <div class="qb">
-      <div class="qb-head">📡 SG 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-sg-time">2026-07-07 21:03 SGT</span> · <a href="https://www.sgx.com/securities/securities-prices" target="_blank" style="color:var(--gold)">SGX 官方 ↗</a></span></div>
+      <div class="qb-head">📡 SG 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-sg-time">2026-07-08 03:08 SGT</span> · <a href="https://www.sgx.com/securities/securities-prices" target="_blank" style="color:var(--gold)">SGX 官方 ↗</a></span></div>
       <div class="qb-grid">
         <div class="q-card" data-symbol="SGX:D05"><div class="q-tk">D05</div><div class="q-nm">DBS 星展银行</div><div class="q-px">S$66.91</div><div class="q-chg flat">0.00%</div></div>
         <div class="q-card" data-symbol="SGX:O39"><div class="q-tk">O39</div><div class="q-nm">OCBC 华侨银行</div><div class="q-px">S$25.36</div><div class="q-chg up">+0.20%</div></div>
@@ -1054,16 +1054,16 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
 
     <div class="qb">
-      <div class="qb-head">📡 MY 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-my-time">2026-07-07 21:03 SGT</span> · <a href="https://www.klsescreener.com/v2/" target="_blank" style="color:var(--gold)">KLSE Screener ↗</a></span></div>
+      <div class="qb-head">📡 MY 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-my-time">2026-07-08 03:08 SGT</span> · <a href="https://www.klsescreener.com/v2/" target="_blank" style="color:var(--gold)">KLSE Screener ↗</a></span></div>
       <div class="qb-grid">
-        <div class="q-card" data-symbol="KLSE:YTLPOWR"><div class="q-tk">6742</div><div class="q-nm">YTL Power</div><div class="q-px">RM4.40</div><div class="q-chg down">-0.22%</div></div>
+        <div class="q-card" data-symbol="KLSE:YTLPOWR"><div class="q-tk">6742</div><div class="q-nm">YTL Power</div><div class="q-px">RM4.31</div><div class="q-chg down">-0.69%</div></div>
         <div class="q-card" data-symbol="KLSE:INARI"><div class="q-tk">0166</div><div class="q-nm">Inari Amertron</div><div class="q-px">RM2.21</div><div class="q-chg down">-0.50%</div></div>
         <div class="q-card" data-symbol="KLSE:UNISEM"><div class="q-tk">5005</div><div class="q-nm">Unisem</div><div class="q-px">RM4.67</div><div class="q-chg down">-1.30%</div></div>
         <div class="q-card" data-symbol="KLSE:MCEMENT"><div class="q-tk">3794</div><div class="q-nm">Malayan Cement</div><div class="q-px">RM6.26</div><div class="q-chg up">+1.30%</div></div>
         <div class="q-card" data-symbol="KLSE:MAYBANK"><div class="q-tk">1155</div><div class="q-nm">Maybank</div><div class="q-px">RM10.92</div><div class="q-chg down">-0.18%</div></div>
-        <div class="q-card" data-symbol="KLSE:CIMB"><div class="q-tk">1023</div><div class="q-nm">CIMB</div><div class="q-px">RM7.60</div><div class="q-chg up">+2.00%</div></div>
+        <div class="q-card" data-symbol="KLSE:CIMB"><div class="q-tk">1023</div><div class="q-nm">CIMB</div><div class="q-px">RM7.60</div><div class="q-chg down">-0.13%</div></div>
         <div class="q-card" data-symbol="KLSE:CDB"><div class="q-tk">6947</div><div class="q-nm">CelcomDigi</div><div class="q-px">RM2.67</div><div class="q-chg down">-0.37%</div></div>
-        <div class="q-card" data-symbol="KLSE:MAXIS"><div class="q-tk">6012</div><div class="q-nm">Maxis</div><div class="q-px">RM3.47</div><div class="q-chg down">-0.30%</div></div>
+        <div class="q-card" data-symbol="KLSE:MAXIS"><div class="q-tk">6012</div><div class="q-nm">Maxis</div><div class="q-px">RM3.49</div><div class="q-chg up">+0.58%</div></div>
         <div class="q-card" data-symbol="KLSE:TENAGA"><div class="q-tk">5347</div><div class="q-nm">Tenaga Nasional</div><div class="q-px">RM14.30</div><div class="q-chg up">+0.42%</div></div>
       </div>
     </div>
