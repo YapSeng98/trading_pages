@@ -103,6 +103,11 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-seri
 .ps .pk{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
 .ps .pv{font-family:'Space Grotesk',monospace;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.5px;line-height:1.1;font-variant-numeric:tabular-nums}
 .ps .pd{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.5}
+.pulse-viz{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:700px){.pulse-viz{grid-template-columns:1fr}}
+.pv-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px}
+.pv-k{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;display:flex;justify-content:space-between}
+.pv-card svg{width:100%;height:auto;display:block}
 .pulse-notes .pn-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px}
 .pulse-notes ul{list-style:none;padding:0;margin:0}
 .pulse-notes li{font-size:12.5px;color:var(--text);line-height:1.7;padding:7px 0;display:flex;gap:9px;border-bottom:1px solid var(--border)}
@@ -251,6 +256,72 @@ footer .disc strong{color:var(--text)}
       <div class="ps"><div class="pk">9月加息概率</div><div class="pv" id="pulse-fed">~56%</div><div class="pd">CME FedWatch（密歇根通胀预期微升后小幅上调）</div></div>
       <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">FOMC 7月</div><div class="pd" id="pulse-event-d">7/28–29（10天后 · 利率决议+记者会）</div></div>
     </div>
+
+    <div class="pulse-viz">
+      <div class="pv-card">
+        <div class="pv-k"><span>黄金 7 日走势 · Gold 7-Day</span><span id="g7-range"></span></div>
+        <svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近7日收盘走势"></svg>
+      </div>
+      <div class="pv-card">
+        <div class="pv-k"><span>9月加息概率 · Fed Gauge</span></div>
+        <svg id="fedsvg" viewBox="0 0 170 96" role="img" aria-label="9月加息概率仪表"></svg>
+      </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      /* ══ GOLD7 — agent maintains: last 7 daily closes, oldest first ══ */
+      var GOLD7=[
+        {d:"7/13",v:4130},{d:"7/14",v:4002},{d:"7/15",v:4037},{d:"7/16",v:4061},
+        {d:"7/17",v:4050},{d:"7/18",v:4028},{d:"7/19",v:4017}
+      ];
+      /* ═══════════════════════════════════════════════════════════════ */
+      var NS='http://www.w3.org/2000/svg';
+      function mk(t,at,parent){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(parent)parent.appendChild(e);return e;}
+      var svg=document.getElementById('g7svg');
+      if(svg&&GOLD7.length>1){
+        var vs=GOLD7.map(function(p){return p.v;}),mn=Math.min.apply(null,vs),mx=Math.max.apply(null,vs),pad=(mx-mn)*0.15||10;
+        mn-=pad;mx+=pad;
+        var W=340,H=96,L=8,R=48,T=10,B=18;
+        function X(i){return L+i*(W-L-R)/(GOLD7.length-1);}
+        function Y(v){return T+(mx-v)*(H-T-B)/(mx-mn);}
+        var pts=GOLD7.map(function(p,i){return X(i).toFixed(1)+','+Y(p.v).toFixed(1);});
+        var defs=mk('defs',{},svg);
+        var gr=mk('linearGradient',{id:'g7g',x1:0,y1:0,x2:0,y2:1},defs);
+        mk('stop',{offset:'0%','stop-color':'#D4A72C','stop-opacity':'0.28'},gr);
+        mk('stop',{offset:'100%','stop-color':'#D4A72C','stop-opacity':'0'},gr);
+        mk('polygon',{points:pts.join(' ')+' '+X(GOLD7.length-1).toFixed(1)+','+(H-B)+' '+L+','+(H-B),fill:'url(#g7g)'},svg);
+        mk('polyline',{points:pts.join(' '),fill:'none',stroke:'#D4A72C','stroke-width':'2','stroke-linejoin':'round','stroke-linecap':'round'},svg);
+        GOLD7.forEach(function(p,i){
+          mk('circle',{cx:X(i).toFixed(1),cy:Y(p.v).toFixed(1),r:i===GOLD7.length-1?'3.5':'2',fill:'#D4A72C',stroke:'#15151C','stroke-width':'1'},svg);
+          var tx=mk('text',{x:X(i).toFixed(1),y:H-4,fill:'#8A857E','font-size':'8','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'},svg);
+          tx.textContent=p.d;
+        });
+        var last=GOLD7[GOLD7.length-1];
+        var lt=mk('text',{x:(X(GOLD7.length-1)+5).toFixed(1),y:(Y(last.v)+3).toFixed(1),fill:'#F6F5F3','font-size':'11','font-weight':'700','font-family':"'Space Grotesk',monospace"},svg);
+        lt.textContent='$'+last.v.toLocaleString();
+        var rng=document.getElementById('g7-range');
+        if(rng) rng.textContent='低 $'+Math.min.apply(null,vs).toLocaleString()+' · 高 $'+Math.max.apply(null,vs).toLocaleString();
+      }
+      // Fed gauge — harvests #pulse-fed text (e.g. "~56%"), no separate data to maintain
+      var fs=document.getElementById('fedsvg'), fedEl=document.getElementById('pulse-fed');
+      if(fs&&fedEl){
+        var pct=parseFloat((fedEl.textContent||'').replace(/[^0-9.]/g,''))||0;
+        var cx=85,cy=82,r=58;
+        function arcPt(p){var a=Math.PI*(1-p);return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
+        function arc(p0,p1,color,w){
+          var s=arcPt(p0),e=arcPt(p1);
+          mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 '+((p1-p0)>0.5?1:0)+' 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'round'},fs);
+        }
+        arc(0,1,'#2B2B36',10);
+        arc(0,Math.max(0.02,pct/100),'#D4A72C',10);
+        var vt=mk('text',{x:cx,y:cy-8,fill:'#F6F5F3','font-size':'22','font-weight':'700','font-family':"'Space Grotesk',monospace",'text-anchor':'middle'},fs);
+        vt.textContent=Math.round(pct)+'%';
+        var st=mk('text',{x:cx,y:cy+8,fill:'#8A857E','font-size':'8.5','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'},fs);
+        st.textContent=pct>=60?'偏鹰 HAWKISH':(pct>=40?'摇摆 SWING':'偏鸽 DOVISH');
+      }
+    });
+    </script>
+
     <div class="pulse-notes">
       <div class="pn-title">◆ 本周观察 · Market Analysis</div>
       <ul id="pulse-list">

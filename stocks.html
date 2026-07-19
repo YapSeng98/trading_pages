@@ -339,6 +339,37 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
   </div>
 
+  <!-- 52-week position comparison — auto-harvested from the 5 deep-dive cards -->
+  <div class="viz" style="margin-bottom:16px">
+    <div class="viz-title">📐 52周区间位置对比 · 52-Week Position</div>
+    <div class="viz-sub">5 Top Picks · 现价在 52 周区间的位置（自动取自深度解析卡）· &gt;70% 高位谨慎 · &lt;30% 低位关注</div>
+    <div id="w52Host"></div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var host=document.getElementById('w52Host'); if(!host) return;
+    var rows=[].slice.call(document.querySelectorAll('.deep')).map(function(card){
+      var nm=(card.querySelector('.deep-nm')||{}).textContent||'';
+      nm=nm.split('·').pop().trim();
+      var pin=card.querySelector('.range52 .pin');
+      var caps=card.querySelectorAll('.range52 .cap span');
+      if(!pin) return null;
+      var pos=parseFloat((pin.getAttribute('style')||'').replace(/[^0-9.]/g,''))||0;
+      var lo=caps[0]?caps[0].textContent:'',hi=caps[1]?caps[1].textContent:'';
+      return {nm:nm,pos:pos,lo:lo,hi:hi};
+    }).filter(Boolean);
+    rows.sort(function(a,b){return b.pos-a.pos;});
+    host.innerHTML=rows.map(function(r){
+      var col=r.pos>70?'var(--bear)':(r.pos<30?'var(--bull)':'var(--gold)');
+      return '<div class="vrow"><span class="vname" style="width:120px">'+r.nm+'</span>'+
+        '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;color:var(--dim);width:64px;text-align:right;flex-shrink:0">'+r.lo+'</span>'+
+        '<div class="vtrack" style="position:relative"><div class="vfill" style="width:'+r.pos+'%;background:linear-gradient(90deg,transparent -30%,'+col+')"></div></div>'+
+        '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;color:var(--dim);width:64px;flex-shrink:0">'+r.hi+'</span>'+
+        '<span class="vval">'+Math.round(r.pos)+'%</span></div>';
+    }).join('');
+  });
+  </script>
+
   <!-- ═══════════ DATA INSIGHTS (static AI viz) ═══════════ -->
   <div class="sec-label">数据透视 · Data Insights</div>
   <div class="viz-grid">

@@ -113,6 +113,77 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 
 <main>
 
+  <!-- ══ 风险图谱 · 自动渲染（情景概率取自下方情景卡 · 时间轴取自日历表）══ -->
+  <style>
+  .rviz{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px 22px;margin-bottom:26px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+  @media(max-width:760px){.rviz{grid-template-columns:1fr}}
+  .rviz h5{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin:0 0 12px}
+  .sb-row{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .sb-name{font-size:11.5px;color:var(--text);width:64px;flex-shrink:0}
+  .sb-track{flex:1;height:14px;background:var(--bg3);border-radius:5px;overflow:hidden}
+  .sb-fill{height:100%;border-radius:5px}
+  .sb-val{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;width:38px;text-align:right;flex-shrink:0;color:var(--white)}
+  #evtTimeline{width:100%;height:auto;display:block}
+  .rviz-note{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-top:8px}
+  </style>
+  <div class="rviz">
+    <div>
+      <h5>◆ 前瞻情景概率 · Scenario Odds</h5>
+      <div id="scenBars"></div>
+      <div class="rviz-note">自动取自下方情景卡</div>
+    </div>
+    <div>
+      <h5>◆ 事件时间轴 · Event Timeline</h5>
+      <svg id="evtTimeline" viewBox="0 0 560 92" role="img" aria-label="未来高影响事件时间轴"></svg>
+      <div class="rviz-note">红=高影响 金=中影响 · 灰=已公布 · 取自日历表前7项</div>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    // Scenario bars — harvest .scen cards (class + .scen-prob %)
+    var host=document.getElementById('scenBars');
+    if(host){
+      var rows=[].slice.call(document.querySelectorAll('.scen')).map(function(s){
+        var m=((s.querySelector('.scen-prob')||{}).textContent||'').match(/([0-9]{1,3})\s*%/);
+        if(!m) return null;
+        var cls=/bull/.test(s.className)?'bull':(/bear/.test(s.className)?'bear':'range');
+        var name=(s.querySelector('.scen-title')||{}).textContent||cls;
+        return {n:name.trim().slice(0,5),p:parseInt(m[1],10),c:cls};
+      }).filter(Boolean);
+      host.innerHTML=rows.map(function(r){
+        var col=r.c==='bull'?'var(--bull)':(r.c==='bear'?'var(--bear)':'var(--neut)');
+        return '<div class="sb-row"><span class="sb-name">'+r.n+'</span><div class="sb-track"><div class="sb-fill" style="width:'+r.p+'%;background:linear-gradient(90deg,transparent -40%,'+col+')"></div></div><span class="sb-val">'+r.p+'%</span></div>';
+      }).join('');
+    }
+    // Event timeline — harvest .cal rows (date, event, impact class, done if ✓)
+    var svg=document.getElementById('evtTimeline');
+    if(svg){
+      var evts=[].slice.call(document.querySelectorAll('.cal tr')).map(function(tr){
+        var d=tr.querySelector('.cal-date'),e=tr.querySelector('.cal-event');
+        if(!d||!e) return null;
+        var imp=tr.querySelector('.imp.h')?'h':(tr.querySelector('.imp.m')?'m':'m');
+        var done=/[✓✔]/.test(tr.textContent);
+        return {d:d.textContent.trim().slice(0,9),e:e.textContent.trim().slice(0,10),imp:imp,done:done};
+      }).filter(Boolean).slice(0,7);
+      if(evts.length){
+        var NS='http://www.w3.org/2000/svg';
+        function mk(t,at){var el=document.createElementNS(NS,t);for(var k in at)el.setAttribute(k,at[k]);svg.appendChild(el);return el;}
+        var W=560,y=48,L=26,R=26,n=evts.length;
+        mk('line',{x1:L,y1:y,x2:W-R,y2:y,stroke:'#2B2B36','stroke-width':2});
+        evts.forEach(function(ev,i){
+          var x=n>1?L+i*(W-L-R)/(n-1):W/2;
+          var col=ev.done?'#5A564F':(ev.imp==='h'?'#F87171':'#D4A72C');
+          mk('circle',{cx:x,cy:y,r:ev.done?4:6,fill:col,stroke:'#15151C','stroke-width':'2'});
+          var dt=mk('text',{x:x,y:y-14,fill:ev.done?'#6E6961':'#C9C4BD','font-size':'9.5','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle','font-weight':ev.done?'400':'600'});
+          dt.textContent=ev.d;
+          var et=mk('text',{x:x,y:y+22,fill:ev.done?'#5A564F':'#8A857E','font-size':'9','font-family':"'Noto Sans SC',sans-serif",'text-anchor':'middle'});
+          et.textContent=ev.e;
+        });
+      }
+    }
+  });
+  </script>
+
   <!-- ══ 经济日历 ══ -->
   <div class="sec-eyebrow">高影响经济日历 · ForexFactory Calendar (GMT+8)</div>
   <div class="card">
