@@ -249,12 +249,12 @@ footer .disc strong{color:var(--text)}
 
 <div class="wrap">
   <div class="pulse">
-    <div class="pulse-head">市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-07-20 21:04 SGT · 每 3 小时自动更新</span></div>
+    <div class="pulse-head">市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-07-21 00:03 SGT · 每 3 小时自动更新</span></div>
     <div class="pulse-stats">
-      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">伦敦盘后段·纽约盘即将开市 · ~$4,021（~+0.2%）· 早盘$4,001低点已收复 · $4,020–$4,030近端阻力测试中</div></div>
+      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">纽约盘中段 · ~$4,019（~+0.1%）· $4,001低点已收复 · $4,020–$4,030阻力区；⚠ ADP就业数据今日公布 · FOMC 7/28–29（7天后）</div></div>
       <div class="ps"><div class="pk">美元指数 DXY</div><div class="pv" id="pulse-dxy">~100.8</div><div class="pd">美伊冲突风险持续，DXY略偏强维持~100.8；金价回稳显示买盘支撑</div></div>
       <div class="ps"><div class="pk">9月加息概率</div><div class="pv" id="pulse-fed">~53%</div><div class="pd">CME FedWatch（较昨日47%上修 · 美伊→油价→通胀预期 · ECB周四决议关注）</div></div>
-      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">FOMC 7月</div><div class="pd" id="pulse-event-d">7/28–29（8天后 · 利率决议+记者会）</div></div>
+      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">FOMC 7月</div><div class="pd" id="pulse-event-d">7/28–29（7天后 · 利率决议+记者会）</div></div>
     </div>
 
     <div class="pulse-viz">
@@ -271,8 +271,8 @@ footer .disc strong{color:var(--text)}
     document.addEventListener('DOMContentLoaded',function(){
       /* ══ GOLD7 — agent maintains: last 7 daily closes, oldest first ══ */
       var GOLD7=[
-        {d:"7/14",v:4002},{d:"7/15",v:4037},{d:"7/16",v:4061},{d:"7/17",v:4050},
-        {d:"7/18",v:4028},{d:"7/19",v:4017},{d:"7/20",v:4021}
+        {d:"7/15",v:4037},{d:"7/16",v:4061},{d:"7/17",v:4050},
+        {d:"7/18",v:4028},{d:"7/19",v:4017},{d:"7/20",v:4021},{d:"7/21",v:4019}
       ];
       /* ═══════════════════════════════════════════════════════════════ */
       var NS='http://www.w3.org/2000/svg';
@@ -325,9 +325,9 @@ footer .disc strong{color:var(--text)}
     <div class="pulse-notes">
       <div class="pn-title">◆ 本周观察 · Market Analysis</div>
       <ul id="pulse-list">
-        <li><strong>黄金</strong>：✓ CPI 3.5%（7/14）+ PPI 偏软（7/15）+ 密歇根（7/17）三重偏冷叙事稳固；早盘<strong>美伊冲突升级+油价走高→$4,001低点</strong>，伦敦盘买盘持续介入，21:04 SGT金价延续回稳至~<strong>$4,021</strong>（~+0.2%），$4,000关口守稳并小幅上行。RSI~47，MACD~-46，近端阻力<strong>$4,020–$4,030</strong>（已触及）；9月加息~53%（CME）；FOMC 7/28–29（<strong>8天后</strong>）是下一定价点。</li>
-        <li><strong>美股</strong>：NVDA近期较强，Q2财报季进行中，三重偏冷数据有利科技股估值；9月加息概率~53%，美伊冲突风险持续；纽约盘即将开市（21:30 SGT），本周关注ECB周四决议及美国PMI周五。</li>
-        <li><strong>亚洲</strong>：7/20亚洲盘已收盘，新加坡DBS报S$71.90（-0.08%，收盘价），OCBC S$28.38（+1.79%）。大马YTL Power RM4.30（+2.38%），Maybank RM10.98（+0.55%）。S-REITs关注DXY~100.8及ECB周四决议；FOMC 7/28–29前整体轻仓。</li>
+        <li><strong>黄金</strong>：✓ CPI 3.5%（7/14）+ PPI 偏软（7/15）+ 密歇根（7/17）三重偏冷叙事稳固；7/20早盘<strong>美伊冲突升级→$4,001低点</strong>后伦敦买盘介入，NY盘整理~<strong>$4,019</strong>（~+0.1%）。RSI~47，MACD~−46，近端阻力<strong>$4,020–$4,030</strong>；⚠ <strong>ADP就业数据今日（7/21）公布</strong>是最大催化剂：偏弱→降息预期↑→金价看$4,030；偏强→加息压力→金价承压$4,010–$4,015。FOMC 7/28–29（<strong>7天后</strong>）是下一定价点。</li>
+        <li><strong>美股</strong>：NVDA近期较强，Q2财报季进行中，三重偏冷数据有利科技股估值；9月加息概率~53%。⚠ <strong>ADP今日公布</strong>为本周首个重磅数据，结果将影响科技/成长股。本周另关注ECB决议（周四）及美国PMI（周五）。</li>
+        <li><strong>亚洲</strong>：7/21亚洲盘尚未开市（00:03 SGT），参考7/20收盘：新加坡DBS S$71.90（-0.08%），OCBC S$28.38（+1.79%）。大马YTL Power RM4.30（+2.38%），Maybank RM10.98（+0.55%）。今日ADP数据将影响开盘情绪；FOMC 7/28–29前整体轻仓。</li>
       </ul>
     </div>
   </div>
@@ -344,7 +344,7 @@ footer .disc strong{color:var(--text)}
 </div>
 
 <footer>
-  <div class="upd">⟳ 自动刷新 · 最后更新 2026-07-20 21:04 SGT · 图表报价实时</div>
+  <div class="upd">⟳ 自动刷新 · 最后更新 2026-07-21 00:03 SGT · 图表报价实时</div>
   <div class="disc">
     <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com。交易前请进行独立尽职调查。
   </div>
