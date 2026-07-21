@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潜力精选 · 低价高成长股 — 美/新/马</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
+  --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--neut:#94A3B8;
+  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --r-lg:20px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.5);
+  --shadow-gold:0 6px 30px rgba(212,167,44,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.mesh{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,178,62,.16),transparent 65%);filter:blur(50px)}
+.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:680px;height:560px;background:radial-gradient(ellipse,rgba(96,165,250,.10),transparent 65%);filter:blur(54px)}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
+@keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
+header{padding:52px 24px 30px;text-align:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3.5px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:18px;padding:7px 16px;border:1px solid rgba(184,134,11,.25);border-radius:999px;background:rgba(184,134,11,.06)}
+.eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bull);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+header h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(32px,6vw,52px);font-weight:700;color:var(--ink);line-height:1.05;letter-spacing:-2px;margin-bottom:10px}
+header h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold) 0%,var(--amber) 55%,var(--gold-dk) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hdate{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim)}
+main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
+@media(max-width:760px){main{padding:16px 14px 48px}header{padding:36px 16px 22px}}
+.tldr{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 26px;margin-bottom:22px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.tldr::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--amber),var(--gold-dk))}
+.tldr .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:9px}
+.tldr p{font-size:13.5px;color:var(--text);line-height:1.85}
+.tldr strong{color:var(--ink)}
+.warn{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.22);border-radius:var(--r-md);padding:14px 18px;margin-bottom:28px;font-size:12px;color:var(--text);line-height:1.75}
+.warn strong{color:var(--bear)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);align-items:center}
+.risk-tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:1px;padding:3px 10px;border-radius:999px;text-transform:uppercase;font-weight:600}
+.risk-tag.hi{background:rgba(220,38,38,.09);color:var(--bear);border:1px solid rgba(220,38,38,.20)}
+.risk-tag.md{background:rgba(184,134,11,.09);color:var(--gold);border:1px solid rgba(184,134,11,.20)}
+.risk-tag.lo{background:rgba(21,128,61,.09);color:var(--bull);border:1px solid rgba(21,128,61,.20)}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:38px 0 16px;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-2),transparent)}
+/* upside leaderboard */
+.viz{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;box-shadow:var(--shadow-sm);margin-bottom:8px}
+.viz-title{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;letter-spacing:-.3px}
+.viz-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.vrow{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.vrow:last-child{margin-bottom:0}
+.vflag{width:18px;flex-shrink:0;text-align:center;font-size:13px}
+.vname{font-size:11px;color:var(--text);width:120px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vtrack{flex:1;height:15px;background:var(--bg3);border-radius:5px;overflow:hidden}
+.vfill{height:100%;border-radius:5px}
+.vfill.us{background:linear-gradient(90deg,rgba(96,165,250,.4),var(--blue))}
+.vfill.sg{background:linear-gradient(90deg,rgba(212,167,44,.4),var(--gold))}
+.vfill.my{background:linear-gradient(90deg,rgba(52,211,153,.35),var(--bull))}
+.vval{font-family:'Space Grotesk',monospace;font-size:12px;font-weight:700;color:var(--ink);width:48px;text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}
+.viz-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:15px;padding-top:12px;border-top:1px dashed var(--border);font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--dim)}
+.viz-legend .li{display:flex;align-items:center;gap:6px}
+.viz-legend .sw{width:10px;height:10px;border-radius:3px}
+.sw.us{background:var(--blue)}.sw.sg{background:var(--gold)}.sw.my{background:var(--bull)}
+/* market section */
+.mkt-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.mkt-head .flag{font-size:24px}
+.mkt-head h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:21px;font-weight:700;color:var(--ink);letter-spacing:-.5px}
+.mkt-note{font-size:12px;color:var(--dim);margin-bottom:16px;line-height:1.7}
+.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px}
+@media(max-width:820px){.pick-grid{grid-template-columns:1fr}}
+/* pick card */
+.pick{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.pick::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--amber),transparent)}
+.pick-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.pick-id{flex:1;min-width:0}
+.tk{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.5px;padding:3px 10px;border-radius:999px;background:rgba(184,134,11,.10);color:var(--gold-lt);border:1px solid rgba(184,134,11,.22);display:inline-block;margin-bottom:6px}
+.pick-nm{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.pring{width:44px;height:44px;flex-shrink:0}
+.pring-num{font-family:'Space Grotesk',monospace;font-weight:700}
+.pick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.ps{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 10px}
+.ps .k{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.ps .v{font-family:'Space Grotesk',monospace;font-size:13px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.ps .v.up{color:var(--bull)}
+.pick h4{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk);margin:12px 0 6px}
+.pick h4:first-of-type{margin-top:0}
+.bb-list{list-style:none;padding:0;margin:0}
+.bb-list li{font-size:11.5px;line-height:1.65;padding:3px 0;display:flex;gap:7px;align-items:flex-start;color:var(--text)}
+.bb-list li::before{flex-shrink:0;font-weight:700;font-size:11px;margin-top:1px}
+.bb-list.str li::before{content:'✓';color:var(--bull)}
+.bb-list.risk li::before{content:'!';color:var(--bear)}
+.pick-foot{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:11px;border-top:1px dashed var(--border);flex-wrap:wrap}
+.pick-src{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--dim);margin-left:auto}
+.howto{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin:34px 0}
+.howto .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:10px}
+.howto ul{list-style:none;padding:0}
+.howto li{font-size:12px;padding:4px 0;display:flex;gap:9px}
+.howto li::before{content:'▸';color:var(--gold);flex-shrink:0}
+.howto li strong{color:var(--ink)}
+.srcs{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.srcs a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;padding:4px 11px;border:1px solid rgba(184,134,11,.25);border-radius:999px;transition:background .18s}
+.srcs a:hover{background:rgba(184,134,11,.08)}
+.disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:18px;margin-top:20px;line-height:1.85}
+.upd-stamp{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:12px;padding:7px 16px;border:1px solid rgba(184,134,11,.22);border-radius:999px;background:rgba(184,134,11,.05)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+<div class="topstrip"></div>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="daily.html">📊 每日分析</a>
+  <a class="nl" href="news.html">📰 快讯</a>
+  <a class="nl" href="risk.html">🗓 风险计划</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
+  <a class="nl on" href="potential.html">🚀 潜力精选</a>
+</nav>
+
+<header>
+  <div class="eyebrow">Low Price · High Growth Potential · US / SG / MY</div>
+  <h1>潜力<em>精选</em></h1>
+  <div class="hdate">2026年7月21日 · GMT+8 · 低价高成长个股 · 每个市场 4 只 · 个股独立分析（非组合式打分）</div>
+</header>
+
+<main>
+
+  <div class="tldr">
+    <div class="lab">◆ 一句话概要</div>
+    <p>本页聚焦<strong>股价相对较低、但具备明确成长催化剂</strong>的个股——不是"越便宜越好"，而是"价格尚未完全反映潜力"。美国侧重eVTOL/金融科技等高波动成长故事；新加坡聚焦半导体设备链（AI测试需求爆发后估值重估）与基建收息型小盘股；马来西亚锁定数据中心基建、太阳能EPC与半导体表面处理三大主题。<strong>每只股票独立分析</strong>——各自的目标价上涨空间、优势、风险、综合潜力评分（0–100，个股专属，非组合平均）。</p>
+  </div>
+
+  <div class="warn">⚠ <strong>高波动警示：</strong>本页多数标的属中小盘/成长股，波动率显著高于蓝筹股。部分标的（如AEM、Frontken）年内已大幅上涨、估值不便宜；部分（如JFIN）呈现深度价值但基本面转弱迹象。<strong>潜力 ≠ 保证</strong>——务必独立尽职调查，单一标的仓位建议控制在总仓位 5% 以内，尤其是标记「高风险」的个股。</div>
+
+  <div class="legend">
+    <span>风险标签：</span>
+    <span class="risk-tag lo">低风险</span>
+    <span class="risk-tag md">中风险</span>
+    <span class="risk-tag hi">高风险</span>
+    <span style="margin-left:auto">· 综合潜力评分为编辑主观评估（0–100，个股独立）· 目标价来自分析师共识/机构研报</span>
+  </div>
+
+  <!-- Upside potential leaderboard -->
+  <div class="viz" style="margin-bottom:34px">
+    <div class="viz-title">📐 目标价上涨空间排行 · Upside Potential</div>
+    <div class="viz-sub">12 Picks · Analyst Target Upside %</div>
+    <div class="vrow"><span class="vflag">🇺🇸</span><span class="vname">Joby Aviation</span><div class="vtrack"><div class="vfill us" style="width:100%"></div></div><span class="vval">+47%</span></div>
+    <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">AEM Holdings</span><div class="vtrack"><div class="vfill sg" style="width:89%"></div></div><span class="vval">+42%</span></div>
+    <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">UMS Integration</span><div class="vtrack"><div class="vfill sg" style="width:85%"></div></div><span class="vval">+40%</span></div>
+    <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">Solarvest</span><div class="vtrack"><div class="vfill my" style="width:49%"></div></div><span class="vval">+11–35%</span></div>
+    <div class="vrow"><span class="vflag">🇺🇸</span><span class="vname">SoFi Technologies</span><div class="vtrack"><div class="vfill us" style="width:45%"></div></div><span class="vval">+21%</span></div>
+    <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">Frontken</span><div class="vtrack"><div class="vfill my" style="width:15%"></div></div><span class="vval">+7%</span></div>
+    <div class="viz-legend"><span class="li"><span class="sw us"></span>美国</span><span class="li"><span class="sw sg"></span>新加坡</span><span class="li"><span class="sw my"></span>马来西亚</span><span class="li">· MN Holdings/ViTrox/TIGR/Nanofilm/OKP/JFIN 无明确一致目标价，以定性潜力叙事为主，未列入本排行（详见各自卡片）</span></div>
+  </div>
+
+  <!-- ═══════════ US MARKET ═══════════ -->
+  <div class="sec-label">Market 01 · United States</div>
+  <div class="mkt-head"><span class="flag">🇺🇸</span><h2>美国 · 低价高成长</h2></div>
+  <div class="mkt-note">主题：eVTOL载人航空（高风险高回报）、消费金融科技（估值修复）、跨境券商（亚洲扩张）。价格区间 $3–$20，波动率显著高于大盘。</div>
+  <div class="pick-grid">
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">NASDAQ:JOBY</span><div class="pick-nm">Joby Aviation</div></div>
+        <svg class="pring" data-score="72" viewBox="0 0 44 44" role="img" aria-label="潜力评分72"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">$7.47</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">$11.01</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+47%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>迪拜载人eVTOL商业化服务2026年内启动，中东/中亚/日本意向订单超$10亿</li>
+        <li>2025年已完成9,000+英里试飞，FAA适航认证若按期通过是股价重估关键节点</li>
+        <li>CEO称2026为"关键拐点年"，若认证顺利乐观情景看$15–18（接近52周高点）</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>年内已跌45%，尚无收入规模化，H1 2026现金消耗指引$3.4–3.7亿</li>
+        <li>毛利率仍为负（-30.1%），Archer Aviation等竞争对手同场竞争</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag hi">高风险</span><span class="pick-src">52周区间 $6.89–$20.95 · 市值 $73.5亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">NASDAQ:SOFI</span><div class="pick-nm">SoFi Technologies</div></div>
+        <svg class="pring" data-score="78" viewBox="0 0 44 44" role="img" aria-label="潜力评分78"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">$17.01</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">$20.58</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+21%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>数字银行全牌照+会员生态（借贷/投资/信用卡）持续交叉销售提升ARPU</li>
+        <li>7/29财报为关键节点，市场关注做空机构Muddy Waters质疑后的会计透明度</li>
+        <li>高盛维持中性但上调目标价至$21，反映基本面并未如做空报告所言恶化</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>年内已跌35%，做空机构指控若被坐实将进一步打击信任</li>
+        <li>P/E 38.66倍，对成长放缓或利率上行较敏感</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">52周区间 $14.92–$32.73 · 市值 $218亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">NASDAQ:TIGR</span><div class="pick-nm">UP Fintech（老虎证券）</div></div>
+        <svg class="pring" data-score="75" viewBox="0 0 44 44" role="img" aria-label="潜力评分75"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">~$5.17</div></div>
+        <div class="ps"><div class="k">摊薄EPS</div><div class="v">$0.21→$0.93</div></div>
+        <div class="ps"><div class="k">3年EPS增速</div><div class="v up">+343%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>新加坡为总部的跨境券商，客户资产持续从大中华区向东南亚/全球扩张</li>
+        <li>摊薄每股收益从2023年$0.21增至2025年$0.93，盈利质量明显改善</li>
+        <li>低价股中少见的"已实现盈利加速"案例，而非纯故事型成长股</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>中概股估值长期承压，地缘政治/中美监管摩擦是持续尾部风险</li>
+        <li>券商佣金业务受市场交易量周期影响大，波动性天然偏高</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">数据来源多平台估算，价格约值请以实时行情为准</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">NASDAQ:JFIN</span><div class="pick-nm">Jiayin Group（嘉银金科）</div></div>
+        <svg class="pring" data-score="52" viewBox="0 0 44 44" role="img" aria-label="潜力评分52"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">$3.01</div></div>
+        <div class="ps"><div class="k">P/E</div><div class="v">1.13x</div></div>
+        <div class="ps"><div class="k">股息率</div><div class="v up">26.6%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>P/E仅1.13倍、P/B 0.24倍——账面资产价值远超当前市值，深度价值特征明显</li>
+        <li>中国线上消费金融平台，管理层称正拓展印尼/墨西哥新市场分散地域风险</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>股价年内已跌约50%，过去一年跌约80%——趋势极弱，需警惕"价值陷阱"</li>
+        <li>26.6%股息率高度可疑，可能反映市场对派息可持续性的强烈质疑</li>
+        <li>近期管理层变动，透明度与治理风险需重点关注</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag hi">高风险 · 投机</span><span class="pick-src">52周区间 $2.70–$18.70 · 市值 $1.58亿</span></div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════ SG MARKET ═══════════ -->
+  <div class="sec-label">Market 02 · Singapore</div>
+  <div class="mkt-head"><span class="flag">🇸🇬</span><h2>新加坡 · 低价高成长</h2></div>
+  <div class="mkt-note">主题：AI驱动的半导体测试设备重估（2026年最强主线，部分已大涨需警惕追高）、纳米科技材料转亏为盈、基建收息型小盘股。价格区间 S$0.8–S$9.5。</div>
+  <div class="pick-grid">
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">SGX:AWX</span><div class="pick-nm">AEM Holdings</div></div>
+        <svg class="pring" data-score="68" viewBox="0 0 44 44" role="img" aria-label="潜力评分68"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">S$9.55</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">S$13.57</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+42%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>半导体测试设备商，1QFY2026盈利同比暴增329.4%，AI芯片测试复杂度结构性提升</li>
+        <li>新增关键客户贡献组件销售+26%，客户多元化降低单一大客户依赖风险</li>
+        <li>纳入iEdge Singapore Next 50指数，被动资金流入支撑</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>年初至今已暴涨455%（4个月内从$1.7涨至$8+），估值透支未来多年增长</li>
+        <li>P/E高达191倍，任何AI资本开支放缓的信号都可能引发剧烈回调</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag hi">高风险 · 追高需谨慎</span><span class="pick-src">52周区间 S$1.41–S$11.05 · 市值 S$30.5亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">SGX:558</span><div class="pick-nm">UMS Integration</div></div>
+        <svg class="pring" data-score="80" viewBox="0 0 44 44" role="img" aria-label="潜力评分80"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">S$2.57</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">S$3.59</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+40%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>半导体设备精密机械加工商，同样受益AI测试/制造设备需求，但估值明显低于AEM</li>
+        <li>半导体+航空航天双业务分散周期性风险，客户结构相对稳健</li>
+        <li>股价年内涨幅远小于AEM，"半导体链平替"叙事下补涨空间较大</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>近期股价回调-2.4%，短线动能转弱，需观察能否企稳</li>
+        <li>半导体设备行业景气度周期性强，客户资本开支决策具不确定性</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">半导体链"估值洼地"标的 · 数据源 Yahoo Finance</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">SGX:MZH</span><div class="pick-nm">Nanofilm Technologies</div></div>
+        <svg class="pring" data-score="70" viewBox="0 0 44 44" role="img" aria-label="潜力评分70"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">~S$1.38</div></div>
+        <div class="ps"><div class="k">近期动能</div><div class="v up">+7.7%</div></div>
+        <div class="ps"><div class="k">状态</div><div class="v" style="font-size:11px">转亏为盈</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>纳米材料涂层技术商，2026年4月单月涨166%，标志市场重新定价其盈利拐点</li>
+        <li>与AEM/UMS同属"AI+半导体精密制造"供应链概念，但股价基数低、弹性更大</li>
+        <li>技术壁垒较高（真空镀膜/纳米涂层专利），非纯组装型低门槛业务</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>历史上曾长期亏损，转亏为盈的可持续性仍需季度财报持续验证</li>
+        <li>股价波动剧烈（月内166%涨幅本身即高波动信号），追涨杀跌风险高</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">价格为近似值，多源数据存在差异，请以实时行情为准</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">SGX:5CF</span><div class="pick-nm">OKP Holdings</div></div>
+        <svg class="pring" data-score="76" viewBox="0 0 44 44" role="img" aria-label="潜力评分76"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">~S$0.80</div></div>
+        <div class="ps"><div class="k">5年盈利增速</div><div class="v up">+48.9%/年</div></div>
+        <div class="ps"><div class="k">市值</div><div class="v" style="font-size:11px">S$4.51亿</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>新加坡交通基建与土木工程商，过去5年盈利年化增速达48.9%，财务健康稳健</li>
+        <li>建筑/维护/投资物业租金三条业务线，现金流可预测性优于纯周期建筑股</li>
+        <li>本页12只标的中股价最低、波动率相对最小——风险调整后潜力突出</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>新加坡基建订单依赖政府招标周期，订单簿波动影响营收可预见性</li>
+        <li>低价股流动性通常较薄，买卖价差可能偏大</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag lo">低风险</span><span class="pick-src">本页唯一低风险评级 · 澳洲业务提供地域分散</span></div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════ MY MARKET ═══════════ -->
+  <div class="sec-label">Market 03 · Malaysia</div>
+  <div class="mkt-head"><span class="flag">🇲🇾</span><h2>马来西亚 · 低价高成长</h2></div>
+  <div class="mkt-note">主题：数据中心基建电力工程（柔佛数据中心潮直接受益）、半导体表面处理/检测（AI产能扩张）、太阳能EPC（LSS6大型招标计划）。价格区间 RM2.8–RM7.9。</div>
+  <div class="pick-grid">
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">KLSE:0245</span><div class="pick-nm">MN Holdings</div></div>
+        <svg class="pring" data-score="83" viewBox="0 0 44 44" role="img" aria-label="潜力评分83"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">RM2.82</div></div>
+        <div class="ps"><div class="k">FY26净利指引</div><div class="v up">近RM1亿</div></div>
+        <div class="ps"><div class="k">同比增速</div><div class="v up">+107%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>地下电缆/变电站工程商，直接受益大马数据中心建设潮，持续从国家能源（Tenaga）承接大单</li>
+        <li>分析师预期FY2026净利润从FY2025的RM4,822万翻倍至近RM1亿</li>
+        <li>本页四只马股中股价最低，若增长兑现估值重估空间最大</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>52周区间RM1.40–RM2.93，现价已接近区间高位，短线动能需消化</li>
+        <li>订单集中于数据中心/公用事业资本开支周期，若基建投资放缓将直接冲击</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">52周区间 RM1.40–RM2.93 · 市值 RM18.8亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">KLSE:0215</span><div class="pick-nm">Solarvest Holdings</div></div>
+        <svg class="pring" data-score="81" viewBox="0 0 44 44" role="img" aria-label="潜力评分81"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">RM3.18</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">RM3.52–4.31</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+11–35%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>太阳能EPCC龙头，LSS6大型太阳能招标计划2026年7–8月启动，预估创造RM800–900亿商机</li>
+        <li>「LSS6最大赢家」定位，Q4 FY2026每股收益RM2.55、营收RM2.687亿，同比大幅增长</li>
+        <li>Phillip Capital列为首选中小盘标的之一，机构关注度提升</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>Stochastic指标93.3显示技术面严重超买，短线获利了结压力大</li>
+        <li>太阳能EPC项目执行风险（工期延误、原材料成本）可能侵蚀利润率</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">52周区间 RM1.82–RM3.39 · 市值 RM30.6亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">KLSE:0128</span><div class="pick-nm">Frontken</div></div>
+        <svg class="pring" data-score="74" viewBox="0 0 44 44" role="img" aria-label="潜力评分74"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">RM4.98</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">RM5.32–5.35</div></div>
+        <div class="ps"><div class="k">上涨空间</div><div class="v up">+7%</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>半导体表面处理与精密清洗服务商，横跨马/新/印尼三地布局，AI芯片产能扩张直接受益</li>
+        <li>3年CAGR高达775%、5年CAGR 1348%，长期复合增长记录在KLSE中少见</li>
+        <li>分析师维持BUY评级并上调目标价（RM4.50→RM5.35），研究机构信心增强</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>P/E 54.83倍、P/B 7.78倍，估值已不便宜，Stochastic 94.3严重超买</li>
+        <li>近期目标价上调空间收窄至个位数百分比，短期赔率不如MN Holdings/Solarvest</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag md">中风险</span><span class="pick-src">52周区间 RM3.61–RM5.10 · 市值 RM90.7亿</span></div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-head">
+        <div class="pick-id"><span class="tk">KLSE:0097</span><div class="pick-nm">ViTrox</div></div>
+        <svg class="pring" data-score="61" viewBox="0 0 44 44" role="img" aria-label="潜力评分61"></svg>
+      </div>
+      <div class="pick-stats">
+        <div class="ps"><div class="k">现价</div><div class="v">RM7.88</div></div>
+        <div class="ps"><div class="k">目标价</div><div class="v">RM5.98–9.00</div></div>
+        <div class="ps"><div class="k">P/E</div><div class="v">93.2x</div></div>
+      </div>
+      <h4>潜力 · 催化剂</h4>
+      <ul class="bb-list str">
+        <li>机器视觉检测系统龙头，半导体行业2024–2026年获批投资约RM919亿的直接受益者</li>
+        <li>2026年营收预期从RM9.716亿上修至RM10.8亿，净利预期增速46%（高于行业35%）</li>
+        <li>大摩投行给出最高目标价RM9.00，反映机构对AI检测需求的乐观预期</li>
+      </ul>
+      <h4>风险</h4>
+      <ul class="bb-list risk">
+        <li>P/E高达93倍，市场评论直言"估值现在真的很高"；14家研究机构最低目标价仅RM4.62</li>
+        <li>公司董事近期出现减持，加上雇员公积金局大额交易，或反映内部人获利了结</li>
+        <li>本页12只标的中估值风险最突出，上涨空间已大部分反映在现价中</li>
+      </ul>
+      <div class="pick-foot"><span class="risk-tag hi">高风险 · 估值偏贵</span><span class="pick-src">52周区间 RM3.56–RM8.00 · 市值 RM149亿</span></div>
+    </div>
+
+  </div>
+
+  <div class="howto">
+    <div class="lab">◆ 如何使用本页</div>
+    <ul>
+      <li><strong>潜力评分不是买入信号：</strong>它综合了上涨空间、基本面质量与当前估值位置，分数越高不代表"现在就买"，只代表风险调整后的吸引力相对更优</li>
+      <li><strong>警惕"已经涨完"的标的：</strong>AEM、Frontken、ViTrox年内涨幅巨大，追高的赔率已经变差——若考虑介入，等待回调比追涨更稳健</li>
+      <li><strong>低价 ≠ 低风险：</strong>JFIN股价最低但风险最高（趋势极弱、股息可持续性存疑）；OKP Holdings股价同样很低但基本面稳健，两者性质完全不同</li>
+      <li><strong>仓位管理：</strong>本页标的合计仓位建议不超过总组合的15–20%，单一"高风险"标的不超过3%，作为主组合（见<a href="stocks.html" style="color:var(--gold)">股票精选</a>页）的进攻卫星仓，而非核心持仓</li>
+      <li><strong>定期复核：</strong>低价成长股基本面变化快，建议每季度重新核对目标价与最新财报是否仍支持原有逻辑</li>
+    </ul>
+  </div>
+
+  <div class="sec-label">数据来源 · Sources</div>
+  <div class="srcs">
+    <a href="https://www.forbes.com/sites/investor-hub/article/best-undervalued-stocks-buy-july-2026/" target="_blank">Forbes ↗</a>
+    <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance ↗</a>
+    <a href="https://247wallst.com/investing/2026/06/30/price-prediction-joby-aviations-high-risk-high-reward-path-to-30-upside/" target="_blank">24/7 Wall St ↗</a>
+    <a href="https://financialhorse.com/aem-holdings-soars-370-in-2026-will-i-buy-this-singapore-semiconductor-stock/" target="_blank">Financial Horse ↗</a>
+    <a href="https://drwealth.com/singapores-very-own-ai-stocks-aem-ums-frencken-micro-mechanics/" target="_blank">Dr Wealth ↗</a>
+    <a href="https://www.klsescreener.com/v2/" target="_blank">KLSE Screener ↗</a>
+    <a href="https://theedgemalaysia.com/node/788202" target="_blank">The Edge Malaysia ↗</a>
+    <a href="https://www.businesstoday.com.my/2026/05/07/stock-today-frontken-trades-tight-as-research-lifts-target-price-on-growth-visibility/" target="_blank">Business Today MY ↗</a>
+  </div>
+
+  <div class="disclaimer">
+    <div><span class="upd-stamp">⟳ 内容更新 · 2026-07-21 · 手动研究刷新（非定时任务自动维护）</span></div>
+    <strong>免责声明：</strong>本页内容仅供参考，不构成投资建议。低价成长股与小盘股波动率高、流动性可能不足，价格可能大幅波动导致本金重大损失。综合潜力评分为编辑主观评估，非量化模型输出。目标价、增长率与财务数据来自公开研报与媒体报道，可能已过时、不完整或不准确。投资前请自行尽职调查并咨询持牌顾问。海外投资另有汇率、税务与监管风险。
+  </div>
+
+</main>
+
+<div class="topstrip"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var NS='http://www.w3.org/2000/svg';
+  function mk(t,at,parent){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);parent.appendChild(e);return e;}
+  [].slice.call(document.querySelectorAll('.pring')).forEach(function(svg){
+    var score=parseFloat(svg.getAttribute('data-score'))||0;
+    var col=score>=78?'#34D399':(score>=65?'#D4A72C':'#F87171');
+    var cx=22,cy=22,r=17,C=2*Math.PI*r,len=score/100*C;
+    mk('circle',{cx:cx,cy:cy,r:r,fill:'none',stroke:'#282833','stroke-width':4},svg);
+    mk('circle',{cx:cx,cy:cy,r:r,fill:'none',stroke:col,'stroke-width':4,'stroke-linecap':'round','stroke-dasharray':len.toFixed(1)+' '+(C-len).toFixed(1),transform:'rotate(-90 '+cx+' '+cy+')'},svg);
+    var t=mk('text',{x:cx,y:cy+1,fill:'#F6F5F3','font-size':'13','class':'pring-num','text-anchor':'middle','dominant-baseline':'middle'},svg);
+    t.textContent=Math.round(score);
+  });
+});
+</script>
+</body>
+</html>
