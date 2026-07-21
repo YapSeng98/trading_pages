@@ -164,6 +164,12 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .viz-legend .li{display:flex;align-items:center;gap:6px}
 .viz-legend .sw{width:10px;height:10px;border-radius:3px}
 .sw.us{background:var(--blue)}.sw.sg{background:var(--gold)}.sw.my{background:var(--bull)}
+.donut-wrap{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+#riskDonut{width:130px;height:130px;flex-shrink:0}
+.donut-legend{display:flex;flex-direction:column;gap:9px}
+.donut-legend .dl{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text)}
+.donut-legend .sw{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.donut-legend .n{font-family:'Space Grotesk',monospace;font-weight:700;color:var(--ink);margin-left:auto;padding-left:14px}
 .mcmp{display:flex;flex-direction:column;gap:14px}
 .mcmp .mrow{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:center}
 .mcmp .ml{font-size:12.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px}
@@ -372,6 +378,44 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 
   <!-- ═══════════ DATA INSIGHTS (static AI viz) ═══════════ -->
   <div class="sec-label">数据透视 · Data Insights</div>
+
+  <!-- Risk mix donut — auto-computed by counting .risk-tag across all stock cards, zero maintenance -->
+  <div class="viz" style="margin-bottom:16px">
+    <div class="viz-title">⚖ 风险分布 · Risk Mix</div>
+    <div class="viz-sub">全部 28 只标的 · 自动统计（低/中/高风险标签数量）</div>
+    <div class="donut-wrap">
+      <svg id="riskDonut" viewBox="0 0 130 130" role="img" aria-label="风险分布环形图"></svg>
+      <div class="donut-legend" id="riskLegend"></div>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var svg=document.getElementById('riskDonut'), leg=document.getElementById('riskLegend');
+    if(!svg||!leg) return;
+    var defs=[{cls:'lo',label:'低风险',color:'#34D399'},{cls:'md',label:'中风险',color:'#D4A72C'},{cls:'hi',label:'高风险',color:'#F87171'}];
+    var counts=defs.map(function(d){return document.querySelectorAll('.stock .risk-tag.'+d.cls).length;});
+    var total=counts.reduce(function(a,b){return a+b;},0);
+    if(!total) return;
+    var NS='http://www.w3.org/2000/svg',cx=65,cy=65,r=50,C=2*Math.PI*r,off=0;
+    function mk(t,at){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);svg.appendChild(e);return e;}
+    mk('circle',{cx:cx,cy:cy,r:r,fill:'none',stroke:'#282833','stroke-width':16});
+    defs.forEach(function(d,i){
+      if(!counts[i]) return;
+      var frac=counts[i]/total, len=frac*C;
+      mk('circle',{cx:cx,cy:cy,r:r,fill:'none',stroke:d.color,'stroke-width':16,'stroke-dasharray':len.toFixed(1)+' '+(C-len).toFixed(1),'stroke-dashoffset':(-off).toFixed(1),transform:'rotate(-90 '+cx+' '+cy+')','stroke-linecap':counts.filter(function(c){return c>0;}).length>1?'butt':'round'});
+      off+=len;
+    });
+    var vt=mk('text',{x:cx,y:cy-3,fill:'#F6F5F3','font-size':'22','font-weight':'700','font-family':"'Space Grotesk',monospace",'text-anchor':'middle'});
+    vt.textContent=total;
+    var st=mk('text',{x:cx,y:cy+13,fill:'#8A857E','font-size':'8.5','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'});
+    st.textContent='标的 TOTAL';
+    leg.innerHTML=defs.map(function(d,i){
+      if(!counts[i]) return '';
+      return '<span class="dl"><span class="sw" style="background:'+d.color+'"></span>'+d.label+'<span class="n">'+counts[i]+'</span></span>';
+    }).join('');
+  });
+  </script>
+
   <div class="viz-grid">
 
     <!-- Score leaderboard -->

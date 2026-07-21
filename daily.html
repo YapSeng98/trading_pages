@@ -209,6 +209,10 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 .ladder-val{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;width:104px;text-align:right;flex-shrink:0;color:var(--white)}
 #rsiGauge{width:100%;max-width:230px;height:auto;display:block;margin:6px auto 0}
 .viz-note{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-top:10px;line-height:1.7}
+.ath-track{height:16px;background:var(--bg3);border-radius:6px;position:relative;overflow:hidden;margin-top:6px}
+.ath-fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--bear),var(--gold));border-radius:6px}
+.ath-cur{position:absolute;top:-4px;width:2px;height:24px;background:var(--white);border-radius:1px}
+.ath-labels{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-top:6px}
 </style>
 <div class="card full">
   <div class="card-eyebrow">结构图谱 · S/R LADDER + RSI（自动取自下方层级表与指标）</div>
@@ -221,6 +225,11 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
       <svg id="rsiGauge" viewBox="0 0 230 132" role="img" aria-label="RSI仪表"></svg>
       <div class="viz-note" style="text-align:center">RSI(14) · &lt;30 超卖 · 30–70 中性 · &gt;70 超买</div>
     </div>
+  </div>
+  <div style="margin-top:18px">
+    <div class="viz-note" style="margin-top:0;margin-bottom:2px">距历史最高（ATH）回撤 · 自动取自价格快照</div>
+    <div class="ath-track" id="athTrack" style="display:none"><div class="ath-fill" id="athFill"></div><div class="ath-cur" id="athCur"></div></div>
+    <div class="ath-labels" id="athLabels" style="display:none"></div>
   </div>
 </div>
 <script>
@@ -265,6 +274,25 @@ document.addEventListener('DOMContentLoaded',function(){
       var p=pt(t[1]);var tk=mk('text',{x:p[0].toFixed(1),y:(p[1]+(t[1]===0?14:(t[1]===1?14:-8))).toFixed(1),fill:'#6E6961','font-size':'8','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'});
       tk.textContent=t[0];
     });
+  }
+  // ATH drawdown gauge — harvest .snap-cell labeled 历史最高 (ATH $) and 距ATH跌幅 (%)
+  var cells=[].slice.call(document.querySelectorAll('.snap-cell'));
+  var athCell=cells.filter(function(c){return /历史最高/.test((c.querySelector('.snap-label')||{}).textContent||'');})[0];
+  var ddCell=cells.filter(function(c){return /距ATH跌幅/.test((c.querySelector('.snap-label')||{}).textContent||'');})[0];
+  if(athCell&&ddCell){
+    var athM=((athCell.querySelector('.snap-val')||{}).textContent||'').match(/\$([\d,]+)/);
+    var ddM=((ddCell.querySelector('.snap-val')||{}).textContent||'').match(/(-?[0-9]+(?:\.[0-9]+)?)\s*%/);
+    if(athM&&ddM){
+      var ath=parseFloat(athM[1].replace(/,/g,'')), dd=parseFloat(ddM[1]);
+      var curPct=Math.max(0,Math.min(100,100+dd));
+      var curPrice=Math.round(ath*curPct/100);
+      var track=document.getElementById('athTrack'),fill=document.getElementById('athFill'),cur=document.getElementById('athCur'),labels=document.getElementById('athLabels');
+      if(track&&fill&&cur&&labels){
+        track.style.display='block'; labels.style.display='flex';
+        fill.style.width=curPct+'%'; cur.style.left=curPct+'%';
+        labels.innerHTML='<span>现价 ~$'+curPrice.toLocaleString()+'（'+dd+'%）</span><span>ATH $'+ath.toLocaleString()+'</span>';
+      }
+    }
   }
 });
 </script>

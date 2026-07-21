@@ -60,6 +60,13 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 .lvl .v{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600}
 .lvl .v.r{color:var(--bear)}.lvl .v.g{color:var(--bull)}.lvl .v.gold{color:var(--gold-lt)}
 .disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;line-height:1.8}
+.sent-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:26px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.sent-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:12px}
+.sent-track{display:flex;height:16px;border-radius:5px;overflow:hidden;background:var(--bg3)}
+.sent-seg{height:100%}
+.sent-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text)}
+.sent-legend .li{display:flex;align-items:center;gap:6px}
+.sent-legend .sw{width:10px;height:10px;border-radius:3px}
 </style>
 </head>
 <body>
@@ -93,6 +100,36 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
     <div class="lab">◆ 一句话概要</div>
     <p>7/21（周二）06:04 SGT清晨·亚洲早盘前：✓ <strong>CPI 3.5%（7/14）+ PPI 偏软（7/15）+ 密歇根（7/17）→ 三重偏冷叙事稳固</strong>，7/20：早盘<strong>美伊冲突升级+油价走高→金价低至$4,001（-0.4%）</strong>，伦敦盘买盘回稳，NY盘~<strong>$4,010</strong>整理，清晨小幅回稳~<strong>$4,019</strong>，$4,000关口守稳。RSI<strong>~47</strong>，MACD<strong>~-46</strong>（收窄），9月加息概率<strong>~53%</strong>（CME FedWatch），DXY~100.8。今日（7/21）<strong>ADP就业数据</strong>将公布（07:00 SGT亚洲盘前后），是本周最近催化剂——偏弱利多，偏强压制；近端阻力<strong>$4,020–$4,030</strong>；<strong>FOMC 7/28–29（7天后）</strong>是下一中期方向定价关键。</p>
   </div>
+
+  <div class="sent-card">
+    <div class="sent-title">◆ 今日新闻情绪分布 · News Sentiment（自动统计下方头条标签）</div>
+    <div class="sent-track" id="sentTrack"></div>
+    <div class="sent-legend" id="sentLegend"></div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    var track=document.getElementById('sentTrack'), leg=document.getElementById('sentLegend');
+    if(!track||!leg) return;
+    var defs=[
+      {cls:'pos',label:'利多 Positive',color:'#34D399'},
+      {cls:'neg',label:'利空 Negative',color:'#F87171'},
+      {cls:'watch',label:'重点关注 Watch',color:'#D4A72C'},
+      {cls:'neut',label:'中性 Neutral',color:'#94A3B8'}
+    ];
+    var counts=defs.map(function(d){return document.querySelectorAll('.news-top .imp.'+d.cls).length;});
+    var total=counts.reduce(function(a,b){return a+b;},0);
+    if(!total) return;
+    track.innerHTML=defs.map(function(d,i){
+      if(!counts[i]) return '';
+      var w=(counts[i]/total*100).toFixed(1);
+      return '<div class="sent-seg" style="width:'+w+'%;background:'+d.color+'"></div>';
+    }).join('');
+    leg.innerHTML=defs.map(function(d,i){
+      if(!counts[i]) return '';
+      return '<span class="li"><span class="sw" style="background:'+d.color+'"></span>'+d.label+' × '+counts[i]+'</span>';
+    }).join('');
+  });
+  </script>
 
   <div class="sec-eyebrow">最新头条 · Latest Headlines</div>
   <div class="feed">
