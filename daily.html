@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var NS='http://www.w3.org/2000/svg',cx=115,cy=112,r=82;
     function mk(t,at){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);g.appendChild(e);return e;}
     function pt(p){var a=Math.PI*(1-p);return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
-    function arc(p0,p1,color,w){var s=pt(p0),e=pt(p1);mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 '+((p1-p0)>0.5?1:0)+' 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'butt'});}
+    function arc(p0,p1,color,w){var s=pt(p0),e=pt(p1);mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 0 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'butt'});}
     arc(0,0.3,'rgba(52,211,153,.35)',13); arc(0.3,0.7,'rgba(148,163,184,.25)',13); arc(0.7,1,'rgba(248,113,113,.35)',13);
     arc(Math.max(0,rsi/100-0.012),Math.min(1,rsi/100+0.012),'#F6F5F3',17);
     var vt=mk('text',{x:cx,y:cy-22,fill:'#F6F5F3','font-size':'30','font-weight':'700','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'});

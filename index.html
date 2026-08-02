@@ -343,7 +343,7 @@ footer .disc strong{color:var(--text)}
         function arcPt(p){var a=Math.PI*(1-p);return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
         function arc(p0,p1,color,w){
           var s=arcPt(p0),e=arcPt(p1);
-          mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 '+((p1-p0)>0.5?1:0)+' 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'round'},fs);
+          mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 0 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'round'},fs);
         }
         arc(0,1,'#2B2B36',10);
         arc(0,Math.max(0.02,pct/100),'#D4A72C',10);
