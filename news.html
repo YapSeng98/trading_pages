@@ -7,13 +7,22 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--violet:#9B8CF0;
   --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
   --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --glass:rgba(23,23,31,.6);--glass-brd:rgba(255,255,255,.075);
   --border:#282833;--text:#C9C4BD;--dim:#8A857E;--white:#F6F5F3;
+  --shadow-violet:0 6px 30px rgba(155,140,240,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);z-index:-1;pointer-events:none;width:900px;height:520px;background:radial-gradient(ellipse,rgba(212,167,44,.09),transparent 65%);filter:blur(46px)}
+.ai-tag{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);padding:4px 10px;border-radius:999px;background:rgba(155,140,240,.10);border:1px solid rgba(155,140,240,.28)}
+.ai-tag::before{content:'✦';font-size:10px}
+@keyframes borderspin{to{transform:rotate(1turn)}}
+.ai-frame{position:relative;isolation:isolate}
+.ai-frame::before{content:'';position:absolute;inset:-1px;z-index:-1;border-radius:inherit;padding:1px;background:conic-gradient(from 0turn,rgba(212,167,44,.5),rgba(155,140,240,.45),rgba(96,165,250,.35),rgba(212,167,44,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:borderspin 8s linear infinite;opacity:.5}
 .topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
 .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
@@ -32,7 +41,7 @@ header h1 em{color:var(--gold);font-style:normal}
 .hprice-chg{font-family:'IBM Plex Mono',monospace;font-size:13px;margin-top:4px;color:var(--bear)}
 .hprice-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:3px}
 main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
-.tldr{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 22px;margin-bottom:26px}
+.tldr{background:var(--glass);backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);border:1px solid var(--glass-brd);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 22px;margin-bottom:26px;box-shadow:var(--shadow-violet)}
 .tldr .lab{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
 .tldr p{font-size:13.5px;color:var(--text);line-height:1.8}
 .tldr strong{color:var(--white)}
@@ -60,7 +69,7 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 .lvl .v{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600}
 .lvl .v.r{color:var(--bear)}.lvl .v.g{color:var(--bull)}.lvl .v.gold{color:var(--gold-lt)}
 .disclaimer{font-size:10.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:16px;line-height:1.8}
-.sent-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:16px 20px;margin-bottom:26px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.sent-card{background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid var(--glass-brd);border-radius:6px;padding:16px 20px;margin-bottom:26px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
 .sent-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:12px}
 .sent-track{display:flex;height:16px;border-radius:5px;overflow:hidden;background:var(--bg3)}
 .sent-seg{height:100%}
@@ -98,7 +107,7 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 <main>
 
   <div class="tldr">
-    <div class="lab">◆ 一句话概要</div>
+    <div class="lab" style="display:flex;align-items:center;gap:8px"><span class="ai-tag">AI Synthesis</span>一句话概要</div>
     <p>8/2（周日）19:05 SGT周末盘后：✓ <strong>FOMC 7/29持稳（3.50–3.75%）但偏鹰前瞻</strong>，9月加息概率从~45%升至<strong>~63%</strong>，DXY升至<strong>~101.35</strong>，金价从高位$4,079回落至7/31收盘<strong>~$4,045</strong>。RSI<strong>~48</strong>（中性），MACD<strong>~-30</strong>（偏弱），本周末休市。下周（8/3–8/7）：无重大数据，区间整理$3,980–$4,050。<strong>CPI 8/12（10天后）</strong>是改变9月加息叙事的唯一即期催化剂——偏软则看多$4,059–$4,114，偏热则看空$3,951–$3,960；CPI前轻仓观望，等数据后顺势建仓。</p>
   </div>
 

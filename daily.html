@@ -7,13 +7,22 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
-  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--violet:#9B8CF0;
   --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
   --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --glass:rgba(23,23,31,.6);--glass-brd:rgba(255,255,255,.075);
   --border:#282833;--text:#C9C4BD;--dim:#8A857E;--white:#F6F5F3;
+  --shadow-violet:0 6px 30px rgba(155,140,240,.16);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:13px;line-height:1.7;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
+body::after{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);z-index:-1;pointer-events:none;width:900px;height:520px;background:radial-gradient(ellipse,rgba(212,167,44,.09),transparent 65%);filter:blur(46px)}
+.ai-tag{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);padding:4px 10px;border-radius:999px;background:rgba(155,140,240,.10);border:1px solid rgba(155,140,240,.28)}
+.ai-tag::before{content:'✦';font-size:10px}
+@keyframes borderspin{to{transform:rotate(1turn)}}
+.ai-frame{position:relative;isolation:isolate}
+.ai-frame::before{content:'';position:absolute;inset:-1px;z-index:-1;border-radius:inherit;padding:1px;background:conic-gradient(from 0turn,rgba(212,167,44,.5),rgba(155,140,240,.45),rgba(96,165,250,.35),rgba(212,167,44,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:borderspin 8s linear infinite;opacity:.5}
 .topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#8A6B28)}
 .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
@@ -215,8 +224,8 @@ main{max-width:1160px;margin:0 auto;padding:28px 48px 64px;display:grid;grid-tem
 .ath-cur{position:absolute;top:-4px;width:2px;height:24px;background:var(--white);border-radius:1px}
 .ath-labels{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-top:6px}
 </style>
-<div class="card full">
-  <div class="card-eyebrow">结构图谱 · S/R LADDER + RSI（自动取自下方层级表与指标）</div>
+<div class="card full ai-frame" style="background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:0 1px 3px rgba(16,24,40,.06),var(--shadow-violet)">
+  <div class="card-eyebrow"><span class="ai-tag" style="margin-right:8px">AI Synthesis</span>结构图谱 · S/R LADDER + RSI（自动取自下方层级表与指标）</div>
   <div class="viz-duo">
     <div>
       <div id="ladderHost"></div>
