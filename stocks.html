@@ -90,6 +90,10 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .q-spark{width:44px;height:16px;flex-shrink:0}
 .q-score{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:700}
 .q-risk{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--dim);margin-left:auto}
+.q-thesis{font-family:'Noto Sans SC',sans-serif;font-size:9.5px;color:var(--dim);line-height:1.45;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.q-card.us{padding-bottom:12px}
+.q-card .q-scorerow{display:flex;align-items:center;gap:7px;margin-top:2px}
+.q-card .q-scorerow .dot{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700}
 .q-chg.up{color:var(--bull)}.q-chg.down{color:var(--bear)}.q-chg.flat{color:var(--neut)}
 
 /* stats strip */
@@ -580,12 +584,19 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   document.addEventListener('DOMContentLoaded',function(){
     var NS='http://www.w3.org/2000/svg';
     function mk(t,at,parent){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);parent.appendChild(e);return e;}
-    // build ticker -> {score, riskLabel} lookup from the fully-analyzed pick cards
+    function excerpt(el,n){ if(!el) return ''; var t=(el.textContent||'').replace(/\s+/g,' ').trim(); return t.length>n? t.slice(0,n)+'…' : t; }
+    // build ticker -> {score, riskLabel, name, thesis} lookup from the fully-analyzed pick cards
     var lookup={};
     [].slice.call(document.querySelectorAll('.stock')).forEach(function(s){
-      var tk=s.querySelector('.tk'), sv=s.querySelector('.score-v'), rt=s.querySelector('.risk-tag');
+      var tk=s.querySelector('.tk'), sv=s.querySelector('.score-v'), rt=s.querySelector('.risk-tag'), nm=s.querySelector('.nm'), p=s.querySelector('p');
       if(!tk) return;
-      lookup[tk.textContent.trim()]={score:sv?parseFloat(sv.textContent):null, risk:rt?rt.textContent.trim():null, riskCls:rt?(/hi/.test(rt.className)?'hi':(/md/.test(rt.className)?'md':'lo')):null};
+      lookup[tk.textContent.trim()]={
+        score:sv?parseFloat(sv.textContent):null,
+        risk:rt?rt.textContent.trim():null,
+        riskCls:rt?(/hi/.test(rt.className)?'hi':(/md/.test(rt.className)?'md':'lo')):null,
+        name:nm?nm.textContent.trim():'',
+        thesis:excerpt(p,42)
+      };
     });
     [].slice.call(document.querySelectorAll('.q-card')).forEach(function(card){
       var sym=(card.getAttribute('data-symbol')||'').trim();
@@ -616,7 +627,26 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
         meta.appendChild(rk);
       }
       if(meta.children.length) card.appendChild(meta);
+      if(info&&info.thesis){
+        var th=document.createElement('div'); th.className='q-thesis'; th.textContent=info.thesis;
+        card.appendChild(th);
+      }
     });
+    // US speed-glance board — same visual language as SG/MY boards, built purely from
+    // the US .stock cards already on the page (no live price row: TradingView widget above covers that)
+    var usHost=document.getElementById('usBoard');
+    if(usHost){
+      var usTicks=[].slice.call(document.querySelectorAll('#tab-us .stock .tk')).map(function(t){return t.textContent.trim();});
+      usHost.innerHTML=usTicks.map(function(sym){
+        var info=lookup[sym]; if(!info) return '';
+        var scoreCol=info.score>=85?'#34D399':(info.score>=75?'#D4A72C':'#F87171');
+        return '<div class="q-card us"><div class="q-tk">'+sym+'</div><div class="q-nm">'+(info.name||'')+'</div>'
+          +'<div class="q-scorerow"><span class="dot" style="color:'+scoreCol+'">● '+Math.round(info.score||0)+'</span>'
+          +'<span class="q-risk" style="margin-left:auto">'+(info.risk||'')+'</span></div>'
+          +(info.thesis? '<div class="q-thesis">'+info.thesis+'</div>' : '')
+          +'</div>';
+      }).join('');
+    }
   });
   </script>
 
@@ -788,6 +818,11 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
           </script>
         </div>
       </div>
+    </div>
+
+    <div class="qb">
+      <div class="qb-head">🇺🇸 US 速览板 · 综合评分 / 风险 / 概要（自动生成，源自上方个股分析） <span class="q-asof">实时价格见上方图表 · <a href="https://www.nasdaq.com/market-activity/quotes" target="_blank" style="color:var(--gold)">Nasdaq 官方 ↗</a></span></div>
+      <div class="qb-grid" id="usBoard"></div>
     </div>
   </div>
 

@@ -13,7 +13,7 @@ A scheduled Claude Code session refreshes data every ~3 hours.
 | `news.html` | hdate, price chip (`<!--LIVEPRICE-->` markers), hprice-chg, TL;DR, 5 news items, key levels |
 | `risk.html` | hdate, calendar rows, scenario probabilities (`.scen-prob`), staged plan |
 | `index.html` | Main tile chips, news tile chip, risk tile chip, footer `.upd`, Market Pulse (`#pulse-dxy` / `#pulse-fed` / `#pulse-event` / `#pulse-event-d` / `#pulse-gold` / `#pulse-list` 3×`<li>`), GOLD7 array |
-| `stocks.html` | 18 q-cards (`.q-px` / `.q-chg`), per-country radar 动能 (index 4 only), timestamps `.js-sg-time` / `.js-my-time` |
+| `stocks.html` | 18 SG/MY q-cards (`.q-px` / `.q-chg`), per-country radar 动能 (index 4 only), timestamps `.js-sg-time` / `.js-my-time`. Do NOT touch `#usBoard` (🇺🇸 US 速览板) or any `.q-thesis` line — both are 100% JS-generated from `.stock`/`.score-v`/`.risk-tag`/`<p>` content that already exists elsewhere on the page; they update themselves automatically whenever that source content changes. |
 | **`potential.html`** | **`hdate` date line + `.upd-stamp` timestamp** (format: `⟳ 时间戳更新 · YYYY-MM-DD HH:MM SGT · 内容每周一深度研究刷新`) |
 
 ## Pages updated only at 09:00 SGT run
@@ -34,7 +34,12 @@ A scheduled Claude Code session refreshes data every ~3 hours.
 - **NEVER** change HTML structure / CSS / JS — text and data values only.
 - **NEVER** use Google Finance (blocked). Use Yahoo Finance (primary), klsescreener.com, or WebSearch.
 - Keep old values on API/fetch error — never blank a field.
-- GOLD7 array: first run of new SGT day → append yesterday's close + remove oldest; same-day → update last entry's `v` only.
+- **GOLD7 array (`index.html`, `var GOLD7=`) — this has broken before, follow exactly:**
+  1. Compute TODAY as `M/D` (no leading zeros) from the **real `TZ='Asia/Singapore' date` shell output this run** — NEVER from a date mentioned in a news article or search result.
+  2. If the array's LAST entry's `d` already equals TODAY, only update its `v`. Otherwise APPEND `{d:"TODAY", v:price}` using that real date string (even if several days were skipped since the last run — do not backfill/guess the gap, just add the one real new point).
+  3. Trim from the FRONT until exactly 7 entries remain.
+  4. Before saving: every `d` must be in ascending order and every date must be traceable to a real shell clock output from some past run — if you can't justify a date, drop that entry rather than guess.
+- **Weekday labels anywhere on the site** (e.g. "7/31（周四）", "8/4（周一）") must be computed from the real calendar, not assumed — a July 31 / Aug 4 mislabeling bug shipped once already (Aug 4 2026 is a Tuesday, not Monday; the real next Monday was Aug 3). When writing a date+weekday pair, double check the weekday against the actual computed date rather than pattern-matching nearby text.
 - Radar `drawRadar(...)` calls: update index-4 (动能) value only. Never touch render code.
 - Footer `.upd` exact format: `⟳ 自动刷新 · 最后更新 YYYY-MM-DD HH:MM SGT · 图表报价实时`
 - Commit message: `Auto-refresh YYYY-MM-DD HH:MM SGT: [one-line summary]`
