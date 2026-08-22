@@ -33,6 +33,7 @@ A scheduled Claude Code session refreshes data every ~3 hours.
 
 - **NEVER** change HTML structure / CSS / JS — text and data values only.
 - **NEVER** use Google Finance (blocked). Use Yahoo Finance (primary), klsescreener.com, or WebSearch.
+- **Yahoo Finance fetch method:** use the chart API, not the rendered quote page — `curl -s "https://query1.finance.yahoo.com/v8/finance/chart/TICKER?interval=1d&range=10d" -H "User-Agent: Mozilla/5.0"`. Compute price/% change from the **last two non-null entries in the response's `timestamp` / `indicators.quote[0].close` arrays** — never from `meta.previousClose` or `meta.regularMarketPrice`, which can reference a stale/inconsistent baseline (confirmed case: 0166.KL showed +10.36% via meta fields vs. the correct +1.66% from the close array).
 - Keep old values on API/fetch error — never blank a field.
 - **GOLD7 array (`index.html`, `var GOLD7=`) — this has broken before, follow exactly:**
   1. Compute TODAY as `M/D` (no leading zeros) from the **real `TZ='Asia/Singapore' date` shell output this run** — NEVER from a date mentioned in a news article or search result.
