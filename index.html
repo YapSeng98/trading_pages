@@ -202,7 +202,7 @@ footer .disc strong{color:var(--text)}
         <div class="mp-num js-live-price">—</div>
         <div class="mp-time"><span class="mp-dot">●</span> 更新于 <span class="js-live-time">载入中…</span></div>
         <div class="meta" style="margin-top:20px">
-          <span class="chip bull">两周+6.9% · 8/24（周一）18:10 SGT · 金价~$4,642 · 较周五收盘+0.87%</span>
+          <span class="chip bull">两周+7.1% · 8/24（周一）21:05 SGT · 金价~$4,650 · 较周五收盘+1.04%</span>
           <span class="chip gold">9月加息~28-30%（持平）· RSI~65偏高 · Jackson Hole 8/27–29（3天后）</span>
           <span class="chip bull">长线结构牛</span>
         </div>
@@ -230,8 +230,8 @@ footer .disc strong{color:var(--text)}
       <h2>市场快讯</h2>
       <p>最新黄金消息聚合：美联储加息预期、核心 PCE、美伊地缘、机构目标价。附明日关键价位与来源链接。</p>
       <div class="meta">
-        <span class="chip bull">现价 <span class="js-live-price"><!--LIVEPRICE-->$4,642<!--/LIVEPRICE--></span></span>
-        <span class="chip gold">两周+6.9% · CPI 7月3.4%偏冷 · DXY~99两月低位 · 9月加息~28-30% · Jackson Hole 8/27–29（3天后）</span>
+        <span class="chip bull">现价 <span class="js-live-price"><!--LIVEPRICE-->$4,650<!--/LIVEPRICE--></span></span>
+        <span class="chip gold">两周+7.1% · CPI 7月3.4%偏冷 · DXY~99两月低位 · 9月加息~28-30% · Jackson Hole 8/27–29（3天后）</span>
       </div>
       <div class="go">查看快讯 <span class="arr">→</span></div>
     </a>
@@ -243,8 +243,8 @@ footer .disc strong{color:var(--text)}
       <h2>未来风险与计划</h2>
       <p>ForexFactory 高影响事件日历（PCE / NFP / CPI / FOMC）、三大前瞻情景、分阶段交易计划与重大数据期风险铁律。</p>
       <div class="meta">
-        <span class="chip gold">8/24（周一）18:10 SGT · 两周+6.9% · DXY~99 · 9月加息~28-30%</span>
-        <span class="chip bull">金价~$4,642 · CPI偏冷+DXY两月低位 · Jackson Hole 8/27–29（3天后）</span>
+        <span class="chip gold">8/24（周一）21:05 SGT · 两周+7.1% · DXY~99 · 9月加息~28-30%</span>
+        <span class="chip bull">金价~$4,650 · CPI偏冷+DXY两月低位 · Jackson Hole 8/27–29（3天后）</span>
       </div>
       <div class="go">查看风险计划 <span class="arr">→</span></div>
     </a>
@@ -282,9 +282,9 @@ footer .disc strong{color:var(--text)}
 
 <div class="wrap">
   <div class="pulse ai-frame">
-    <div class="pulse-head"><span class="ai-tag">AI Synthesis</span>&ensp;市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-08-24 18:10 SGT · 每 3 小时自动更新</span></div>
+    <div class="pulse-head"><span class="ai-tag">AI Synthesis</span>&ensp;市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-08-24 21:05 SGT · 每 3 小时自动更新</span></div>
     <div class="pulse-stats">
-      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">两周+6.9% · ~$4,642 · 较周五收盘+0.87% · CPI 7月3.4%偏冷+DXY两月低位驱动 · DXY~99 · $4,424–$4,438关键支撑 · Jackson Hole 8/27–29（3天后）</div></div>
+      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">两周+7.1% · ~$4,650 · 较周五收盘+1.04% · CPI 7月3.4%偏冷+DXY两月低位驱动 · DXY~99 · $4,424–$4,438关键支撑 · Jackson Hole 8/27–29（3天后）</div></div>
       <div class="ps"><div class="pk">美元指数 DXY</div><div class="pv" id="pulse-dxy">~99</div><div class="pd">DXY从8/8~99.6持续走软至8/21~98.8两月新低，8/24仍处~99低位区间；CPI偏冷+就业零售数据疲软驱动美元走软；金价受益延续涨势</div></div>
       <div class="ps"><div class="pk">9月加息概率</div><div class="pv" id="pulse-fed">~28-30%</div><div class="pd">CME FedWatch~28-30% · 高盛称9月加息"极不可能"（零售疲软+就业放缓+通胀降温）· 按兵不动概率~67-69%</div></div>
       <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">Jackson Hole 8/28</div><div class="pd" id="pulse-event-d">8/27–29（3天后 · 沃什主席8/28首次演讲 · 9月16日FOMC前最后信号窗口 · 8/26 PCE通胀先行）</div></div>
@@ -305,7 +305,7 @@ footer .disc strong{color:var(--text)}
       /* ══ GOLD7 — agent maintains: last 7 daily closes, oldest first ══ */
       var GOLD7=[
         {d:"7/22",v:4008},{d:"7/23",v:4079},
-        {d:"8/2",v:4045},{d:"8/7",v:4241},{d:"8/8",v:4343},{d:"8/22",v:4602},{d:"8/24",v:4642}
+        {d:"8/2",v:4045},{d:"8/7",v:4241},{d:"8/8",v:4343},{d:"8/22",v:4602},{d:"8/24",v:4650}
       ];
       /* ═══════════════════════════════════════════════════════════════ */
       var NS='http://www.w3.org/2000/svg';
@@ -358,9 +358,9 @@ footer .disc strong{color:var(--text)}
     <div class="pulse-notes">
       <div class="pn-title">◆ 本周观察 · Market Analysis</div>
       <ul id="pulse-list">
-        <li><strong>黄金</strong>：8/24（周一）18:10 SGT：金价近两周<strong>+6.9%至~$4,642</strong>，较周五收盘（~$4,602）<strong>+0.87%</strong>。CPI 7月消费者物价指数<strong>3.4% YoY</strong>（前值3.5%，核心2.5%）8/12公布偏冷，DXY持续走软，8/24仍处~99两月低位区间；9月加息概率维持<strong>~28-30%</strong>（CME FedWatch，高盛称9月加息"极不可能"，零售疲软+就业放缓+通胀降温），按兵不动概率~67-69%。RSI~65偏高未至超买，需留意Jackson Hole前波动加剧风险。关键支撑<strong>$4,424–$4,438</strong>；本周三8/26 PCE通胀数据先行，<strong>Jackson Hole 8/27–29（3天后，沃什主席8/28首次演讲）</strong>是下一验证节点——鸽派看$4,650–$4,750，鹰派看$4,424–$4,438。</li>
+        <li><strong>黄金</strong>：8/24（周一）21:05 SGT：金价近两周<strong>+7.1%至~$4,650</strong>，较周五收盘（~$4,602）<strong>+1.04%</strong>。CPI 7月消费者物价指数<strong>3.4% YoY</strong>（前值3.5%，核心2.5%）8/12公布偏冷，DXY持续走软，8/24仍处~99两月低位区间；9月加息概率维持<strong>~28-30%</strong>（CME FedWatch，高盛称9月加息"极不可能"，零售疲软+就业放缓+通胀降温），按兵不动概率~67-69%。RSI~65偏高未至超买，需留意Jackson Hole前波动加剧风险。关键支撑<strong>$4,424–$4,438</strong>；本周三8/26 PCE通胀数据先行，<strong>Jackson Hole 8/27–29（3天后，沃什主席8/28首次演讲）</strong>是下一验证节点——鸽派看$4,650–$4,750，鹰派看$4,424–$4,438。</li>
         <li><strong>美股</strong>：NVDA估值持续受益于降息预期升温，科技股整体获CPI偏冷+DXY走软双重支撑。市场焦点转向本周三8/26 PCE数据与8/27–29 Jackson Hole前的Fed官员表态。</li>
-        <li><strong>亚洲</strong>：区域股市延续受金价大涨的避险情绪外溢支撑；新加坡银行股与大马数据中心概念股维持强势基本面。8/24（周一）区域股市开盘已消化DXY两月低位后的美元走软信号，金价两周+6.9%持续带动避险资金流入。</li>
+        <li><strong>亚洲</strong>：区域股市延续受金价大涨的避险情绪外溢支撑；新加坡银行股与大马数据中心概念股维持强势基本面。8/24（周一）区域股市开盘已消化DXY两月低位后的美元走软信号，金价两周+7.1%持续带动避险资金流入。</li>
       </ul>
     </div>
   </div>
@@ -377,7 +377,7 @@ footer .disc strong{color:var(--text)}
 </div>
 
 <footer>
-  <div class="upd">⟳ 自动刷新 · 最后更新 2026-08-24 18:10 SGT · 图表报价实时</div>
+  <div class="upd">⟳ 自动刷新 · 最后更新 2026-08-24 21:05 SGT · 图表报价实时</div>
   <div class="disc">
     <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com。交易前请进行独立尽职调查。
   </div>
