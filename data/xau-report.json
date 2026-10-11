@@ -1,0 +1,228 @@
+{
+ "createdAt": "2026-10-11T07:09:13.560Z",
+ "engine": "xau-mtf-1",
+ "source": "PAXGUSDT via Binance (gold-backed, tracks XAUUSD)",
+ "price": 4189.99,
+ "bias": "mixed",
+ "score": -2,
+ "votes": "W:- D:- 4H:+ 1H:+ 15M:+",
+ "marketOpen": false,
+ "headline": "Relief rally inside a bigger downtrend: 4H flipped bullish, Daily and Weekly still bearish",
+ "summary": "Gold bounced hard from the 4,084 two-month low and broke 4H structure (bullish CHoCH above 4,152), completing an inverse head and shoulders. But price is now pushing into the daily bearish FVG (4,194–4,252) while the Weekly and Daily trends are still down, so treat this as a counter-trend rally until a daily candle closes above 4,230.",
+ "context": {
+  "prevDayHigh": 4205.63,
+  "prevDayLow": 4146.23,
+  "prevWeekHigh": 4258.53,
+  "prevWeekLow": 4122.08
+ },
+ "setup": {
+  "entry": null,
+  "invalidation": "Short idea fails on a daily close above 4,230. Long idea fails on a 1H close below 4,170.",
+  "note": "Market is closed for the weekend. Reassess at Monday's open (about 6 AM Malaysia time) and watch for a gap.",
+  "rr": null,
+  "side": "none",
+  "state": "NO TRADE YET: the Daily (down) and 4H (up) disagree. Wait for one of the two triggers.",
+  "stop": null,
+  "tp1": null,
+  "tp2": null,
+  "trigger": "SHORT if price stalls inside 4,194–4,252 and the 1H prints a bearish CHoCH below 4,170 (target 4,150, then 4,111). LONG only after a daily close above 4,230, buying the first 1H pullback.",
+  "zoneBottom": null,
+  "zoneTop": null
+ },
+ "scenarios": [
+  {
+   "invalidation": "a daily close above 4,230",
+   "name": "Bearish (favoured by Weekly and Daily)",
+   "path": "the daily downtrend resumes toward the 4H FVG (4,149–4,177), then 4,111 and the 4,084 low. Below 4,084 the weekly FVG starts to give way and 4,000 comes into view.",
+   "trigger": "price stalls inside the daily bearish FVG (4,194–4,252) and the 1H breaks below the 4,170 higher low"
+  },
+  {
+   "invalidation": "a 1H close below 4,170",
+   "name": "Bullish (needs a daily reclaim)",
+   "path": "4,252 (flag target and FVG top), then 4,258.5 (previous week high). A confirmed daily CHoCH would open the 4,300s.",
+   "trigger": "the 1H bull flag breaks above 4,206 and a daily candle closes above 4,230"
+  }
+ ],
+ "analysis": [
+  {
+   "body": "The weekly trend is bearish. A BOS at 4,141 in June confirmed it, and every rally since the 5,600 February top has made a lower high (4,873, then 4,689). Price now sits in the lower 22% of the 3,945–4,873 weekly range, inside a weekly bullish FVG (4,113–4,308). That is where buyers stepped in at 4,084, so the weekly picture is bearish but at a level where bounces are normal.\n\nThe daily is also bearish: a BOS down at 4,122 on 7 October, with the 20, 50 and 200 EMAs stacked downward (4,228 / 4,280 / 4,315). Friday's rally broke a falling wedge upward but ran straight into the daily bearish FVG at 4,194–4,252. That FVG, the 20 EMA (4,228) and the daily internal high (4,230) form one resistance band.",
+   "title": "Big picture: Weekly and Daily"
+  },
+  {
+   "body": "The 4H flipped bullish on 9 October with a CHoCH above 4,152, completing an inverse head and shoulders with its head at 4,084. Its measured target (~4,184) has already been reached. Price is in the top 20% of the 4H range (4,111–4,206), which is premium: a poor place to start new longs. The 4H 200 EMA at 4,263 sits just above the daily FVG, so 4,230–4,263 is a heavy ceiling.",
+   "title": "Intermediate: 4H"
+  },
+  {
+   "body": "The 1H is bullish with a clean higher low at 4,170 and a bull flag forming under the 4,206 high, and the 15M has a bullish EMA stack. Short-term momentum favours one more push toward 4,206–4,252. The key line is 4,170: while it holds, dips are being bought; a 1H close below it would mean the relief rally is over and the daily downtrend is back in charge.",
+   "title": "Execution: 1H and 15M"
+  },
+  {
+   "body": "Weekly and Daily point down; 4H, 1H and 15M point up. The weighted score is −2 out of ±10, so the bias is mixed. This is a counter-trend rally into higher-timeframe supply: the daily bearish FVG, the 4H 200 EMA and the previous week high all sit between 4,194 and 4,263. The better-odds trade is a short from that zone once the lower timeframes turn back down. Longs only make sense after a daily close above 4,230 reclaims structure.",
+   "title": "How the timeframes fit together"
+  },
+  {
+   "body": "Spot gold rose about 0.9% on Friday, recovering from Wednesday's two-month low as the dollar eased and the 10-year Treasury yield fell for a second session. The bigger backdrop is still hawkish: the Fed hiked in September, and markets price roughly 18% odds of another hike in October and 82% by December, which tends to cap gold rallies. Middle East supply risk keeping oil high, plus steady central-bank buying, help cushion dips. The Fed meeting on 27–28 October is the next major catalyst.",
+   "title": "Macro backdrop"
+  },
+  {
+   "body": "Gold is closed until Monday's open (about 6 AM Malaysia time). PAXG has drifted between 4,186 and 4,190 over the weekend. Your broker's XAUUSD closed near 4,195, about $8 above PAXG, so adjust the levels here by roughly that amount on your MT5 chart. Watch for a Monday gap: a gap up into 4,206–4,230 would put price straight into the sell zone.",
+   "title": "Weekend note"
+  }
+ ],
+ "news": [
+  {
+   "note": "Spot +0.9% to $4,169 off a two-month low; weaker dollar and lower 10-year yield; CME FedWatch 18% October / 82% December hike odds.",
+   "title": "Gold rises on softer dollar, easing yields; Fed outlook in focus (9 Oct)",
+   "url": "https://www.zawya.com/en/business/gold-rises-on-softer-dollar-easing-yields-fed-outlook-in-focus-1586227"
+  },
+  {
+   "note": "September 25 bp hike with more tightening signalled; the 28 October FOMC is the key catalyst.",
+   "title": "Fed signals more hikes, keeping gold below $4,400 (22 Sep)",
+   "url": "https://www.cruxinvestor.com/posts/fed-signals-more-hikes-keeping-gold-below-4-400-into-october"
+  }
+ ],
+ "tfs": [
+  {
+   "ema": "below 20/50, far above 200",
+   "internal": "bearish",
+   "lastEvent": "BOS ▼ 4,141 · 15 Jun",
+   "note": "Lower highs since the 5,600 top (4,873 then 4,689). Price is in the lower half of the 3,945–4,873 range, sitting on a weekly bullish FVG (4,113–4,308) that buyers defended at 4,084.",
+   "patterns": [],
+   "rsi": 43.1,
+   "tf": "W",
+   "trend": "bearish",
+   "zone": "discount 22%"
+  },
+  {
+   "ema": "bearish stack (20 < 50 < 200)",
+   "internal": "bearish",
+   "lastEvent": "BOS ▼ 4,122 · 7 Oct",
+   "note": "Made a two-month low at 4,084, then Friday rallied to 4,206. Price is now inside the daily bearish FVG 4,194–4,252. A daily close above 4,230 is needed to flip the daily internal trend.",
+   "patterns": [
+    "Falling wedge (broke upward)"
+   ],
+   "rsi": 44.2,
+   "tf": "D",
+   "trend": "bearish",
+   "zone": "premium 59%"
+  },
+  {
+   "ema": "above 20/50, below 200 (4,263)",
+   "internal": "bullish",
+   "lastEvent": "CHoCH ▲ 4,152 · 9 Oct",
+   "note": "Structure flipped up on Friday. The inverse head and shoulders is confirmed and its ~4,184 target is already hit. The 4H stays bullish while 4,170 holds; the 4H 200 EMA at 4,263 is overhead.",
+   "patterns": [
+    "Inverse head and shoulders (confirmed)"
+   ],
+   "rsi": 58.7,
+   "tf": "4H",
+   "trend": "bullish",
+   "zone": "premium 80%"
+  },
+  {
+   "ema": "mixed",
+   "internal": "bullish",
+   "lastEvent": "CHoCH ▲ 4,150 · 9 Oct",
+   "note": "Higher low at 4,170 and a bull flag under the 4,206 high. A break above 4,200–4,206 points to the flag target near 4,252, the top of the daily FVG.",
+   "patterns": [
+    "Bull flag"
+   ],
+   "rsi": 63.1,
+   "tf": "1H",
+   "trend": "bullish",
+   "zone": "premium 84%"
+  },
+  {
+   "ema": "bullish stack",
+   "internal": "bullish",
+   "lastEvent": "CHoCH ▲ 4,196 · 9 Oct",
+   "note": "Short-term trend is up. The 4,180–4,183 higher lows are the first sign of trouble if they break.",
+   "patterns": [],
+   "rsi": 53.8,
+   "tf": "15M",
+   "trend": "bullish",
+   "zone": "premium 64%"
+  }
+ ],
+ "patterns": [
+  {
+   "bias": "bullish",
+   "invalid": 4084.14,
+   "name": "Inverse head and shoulders",
+   "note": "Head at the 4,084 low. The measured-move target is already reached, so most of this pattern's push is spent.",
+   "status": "confirmed: closed above the neckline on 9 Oct",
+   "target": 4183.95,
+   "tf": "4H"
+  },
+  {
+   "bias": "bullish",
+   "level": 4151.62,
+   "name": "Falling wedge",
+   "note": "The upper wedge line near 4,152 now acts as support. This needs a daily close above 4,230 to turn into a real trend change.",
+   "status": "broke out upward",
+   "tf": "D"
+  },
+  {
+   "bias": "bullish",
+   "invalid": 4170.17,
+   "level": 4199.87,
+   "name": "Bull flag",
+   "note": "The flag target lands right at the top of the daily bearish FVG, so expect sellers there.",
+   "status": "consolidating after the impulse",
+   "target": 4252.16,
+   "tf": "1H"
+  }
+ ],
+ "levels": [
+  {
+   "kind": "resistance",
+   "label": "Prev week high / D range top",
+   "price": 4258.53,
+   "tf": "D"
+  },
+  {
+   "bottom": 4193.72,
+   "kind": "fvg-bear",
+   "label": "Daily bearish FVG",
+   "tf": "D",
+   "top": 4252.16
+  },
+  {
+   "kind": "resistance",
+   "label": "Daily close above flips D",
+   "price": 4230.21,
+   "tf": "D"
+  },
+  {
+   "kind": "resistance",
+   "label": "Friday high",
+   "price": 4205.63,
+   "tf": "1H"
+  },
+  {
+   "kind": "support",
+   "label": "1H / 4H higher low",
+   "price": 4170.17,
+   "tf": "1H"
+  },
+  {
+   "bottom": 4149.26,
+   "kind": "fvg-bull",
+   "label": "4H bullish FVG",
+   "tf": "4H",
+   "top": 4177.11
+  },
+  {
+   "kind": "support",
+   "label": "4H swing low",
+   "price": 4111.28,
+   "tf": "4H"
+  },
+  {
+   "kind": "support",
+   "label": "Two-month low",
+   "price": 4084.14,
+   "tf": "D"
+  }
+ ]
+}

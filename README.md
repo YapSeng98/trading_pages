@@ -8,6 +8,7 @@
 |------|------|
 | [`index.html`](index.html) | 首页 · 导航中心 |
 | [`daily.html`](daily.html) | **每日深度分析**（主功能，每日更新）— 技术结构、支撑阻力、基本面、操作场景、风险预案 |
+| [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端实时计算 W / D / 4H / 1H / 15M 结构、区间、FVG 与形态；计划器给出入场方案、手数、盈亏比、开仓前检查与到价提醒（引擎见 `assets/`） |
 | [`news.html`](news.html) | 市场快讯 — 最新黄金消息聚合、明日关键价位、来源链接 |
 | [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |
 | [`strategy.html`](strategy.html) | 策略与形态手册 — 9 形态图鉴、4 套策略、K 线信号、交易心法 |
