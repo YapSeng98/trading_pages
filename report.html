@@ -54,7 +54,9 @@ button,input,textarea,select{font:inherit;color:inherit}
 .phead .sub{font-size:13.5px;color:var(--dim);margin-top:8px;max-width:640px;line-height:1.8}
 .phead-r{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 @media(max-width:760px){.phead{padding-top:26px}.phead-r{align-items:flex-start}}
-.stamp{font-family:var(--f-m);font-size:10.5px;color:var(--dim);letter-spacing:.3px}
+.stamp{font-size:11px;color:var(--dim)}
+.ldot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--neut);margin-right:7px;vertical-align:middle}
+.ldot.on{background:var(--bull);box-shadow:0 0 0 3px rgba(52,211,153,.18);animation:pulse 2s ease-in-out infinite}
 
 /* ── shared pieces ── */
 .k{font-family:var(--f-m);font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold-dk)}
@@ -446,7 +448,7 @@ footer .disc strong{color:var(--text)}
         </div>
         <button type="button" class="q" data-g="basis" aria-label="解释：报价基准">?</button>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="stamp" id="stamp">正在载入行情…</span><button class="btn sm ghost" type="button" id="refresh-now" title="立即重新计算">⟳ 刷新</button></div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="stamp"><i class="ldot" id="ldot"></i><span id="stamp">正在载入行情…</span></span><button class="btn sm ghost" type="button" id="refresh-now" title="立即重新计算">⟳ 刷新</button></div>
     </div>
   </header>
 
@@ -569,7 +571,8 @@ footer .disc strong{color:var(--text)}
         <div><span class="hn">1</span><span><b>先看最上面的结论。</b>它只回答一件事：现在能不能做、往哪边做。三个条件（方向、位置、信号）都打勾才算到位。</span></div>
         <div><span class="hn">2</span><span><b>在计划器里选一个方案。</b>入场、止损、目标会自动填好，图表上同时画出来。觉得不合适就直接改数字，或者点 ⌖ 在图上取价。</span></div>
         <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少，再按你自己的规则逐项检查。</span></div>
-        <div><span class="hn">4</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。打开「到价提醒」，价格到位时页面会通知你。</span></div>
+        <div><span class="hn">4</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。</span></div>
+        <div><span class="hn">5</span><span><b>打开「提醒我」。</b>价格到了你的入场、止损、目标，或者上面的结论变成「等信号 / 可以考虑」，页面会弹出提示并响一声。电脑上允许通知后，切到别的标签页也能收到。提醒只在这页开着的时候有效，手机上需要让这页留在屏幕上；人不在电脑前，建议在 MT5 手机 App 里对同样的价位设提醒。</span></div>
       </div>
       <div class="sub-h">名词解释</div>
       <div class="gl" id="gloss"></div>
@@ -646,7 +649,7 @@ footer .disc strong{color:var(--text)}
       <ul class="checks" id="checks"></ul>
       <details class="pass" id="chk-pass" hidden><summary id="chk-pass-s">已通过的项目</summary><ul class="checks" id="checks-ok"></ul></details>
 
-      <div class="alertrow"><div><div class="at">到价提醒</div><div class="ax" id="alert-x">价格到达入场、止损或目标时通知你（需保持本页打开）</div></div><button type="button" class="sw" role="switch" aria-checked="false" id="alert-sw" aria-label="到价提醒"></button></div>
+      <div class="alertrow"><div><div class="at">提醒我 <button type="button" class="btn sm ghost" id="alert-test" style="padding:4px 9px;margin-left:4px">试一下</button></div><div class="ax" id="alert-x">价格到达你的入场、止损、目标，或上面的结论变成「等信号 / 可以考虑」时提醒</div></div><button type="button" class="sw" role="switch" aria-checked="false" id="alert-sw" aria-label="提醒我"></button></div>
       <textarea class="pnote" id="in-note" placeholder="备注：要等什么信号、什么情况下放弃…"></textarea>
       <div class="actions">
         <button class="btn pri" type="button" id="copy">复制计划</button>
@@ -709,7 +712,7 @@ footer .disc strong{color:var(--text)}
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 1, contract: 100, lotStep: 0.01, spread: 0 },
     manual: LS.get("manual", {}), saved: LS.get("saved", []), armed: null, openLevel: null, daily: [], hadPlan: LS.get("plan", null) !== null,
-    events: [], alertOn: LS.get("alertOn", false), alerts: LS.get("alerts", []), fired: {}, prevShown: null, hasAi: false
+    events: [], alertOn: LS.get("alertOn", false), alerts: LS.get("alerts", []), fired: {}, prevShown: null, hasAi: false, vLevel: null, overLadder: false
   };
   if (CHART_TFS.indexOf(S.tf) < 0) S.tf = "4H";
 
@@ -815,13 +818,7 @@ footer .disc strong{color:var(--text)}
     var nx = S.events.filter(function (e) { return e.hi && e.ms > now; })[0];
     if (nx) chips.appendChild(h("span", { class: "chip neut", title: nx.name, text: "下个大数据 " + left(nx.ms - now) + "后" }));
 
-    // price, gauge, timeframe lights
-    var shown = sh(S.live), spotMode = S.basis === "spot" && S.offOk, pe = $("price");
-    $("price-k").textContent = spotMode ? "现价 · 现货金 ≈" : "现价 · PAXG";
-    pe.textContent = fmt(shown, 2);
-    if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
-    S.lastShown = shown;
-    $("price-sub").textContent = spotMode ? "PAXG " + fmt(S.live, 2) + "，和现货差 " + (S.off >= 0 ? "+" : "−") + Math.abs(S.off).toFixed(1) : "PAXG/USDT · Binance" + (S.basis === "spot" ? " · 现货校准暂不可用" : "");
+    // gauge and timeframe lights (the price itself is painted by paintLive)
     var sc = Math.max(-10, Math.min(10, num(ov.score) || 0));
     drawGauge(sc);
     $("g-word").textContent = P.scoreWord(sc) + " " + (sc > 0 ? "+" : sc < 0 ? "−" : "") + Math.abs(sc);
@@ -831,6 +828,18 @@ footer .disc strong{color:var(--text)}
       tfl.appendChild(h("div", { class: "tfc " + (v.v === 1 ? "bull" : v.v === -1 ? "bear" : ""), title: P.TF_ZH[v.tf] + (v.v === 1 ? " 向上" : v.v === -1 ? " 向下" : " 不明") + "，权重 " + v.w }, [h("div", { class: "n", text: P.TF_ZH[v.tf].replace(" ", "") }), h("div", { class: "a", text: v.v === 1 ? "▲" : v.v === -1 ? "▼" : "—" }), h("div", { class: "w", text: v.v === 1 ? "向上" : v.v === -1 ? "向下" : "不明" })]));
     });
 
+    $("closed").hidden = ov.marketOpen !== false;
+    S.vLevel = V.level; paintLive();
+  }
+  // The parts that move with every price tick: the number, and where it sits between support and resistance.
+  function paintLive() {
+    var E = S.E; if (!E) return;
+    var shown = sh(S.live), spotMode = S.basis === "spot" && S.offOk, pe = $("price");
+    $("price-k").textContent = spotMode ? "现价 · 现货金 ≈" : "现价 · PAXG";
+    pe.textContent = fmt(shown, 2);
+    if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
+    S.lastShown = shown;
+    $("price-sub").textContent = spotMode ? "PAXG " + fmt(S.live, 2) + "，和现货差 " + (S.off >= 0 ? "+" : "−") + Math.abs(S.off).toFixed(1) : "PAXG/USDT · Binance" + (S.basis === "spot" ? " · 现货校准暂不可用" : "");
     // where price sits between the nearest support and resistance
     var nr = P.nearest(E), vr = $("v-range"); vr.hidden = !(nr.sup && nr.res);
     if (nr.sup && nr.res) {
@@ -839,7 +848,6 @@ footer .disc strong{color:var(--text)}
       $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + "，比现价高 " + fmt(b - shown, 1) + " 美元";
       $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = "现价 " + fmt(shown, 1);
     }
-    $("closed").hidden = ov.marketOpen !== false;
   }
 
   // ---------- timeframe table ----------
@@ -1414,7 +1422,15 @@ footer .disc strong{color:var(--text)}
   }
 
   // ---------- price alerts (only while this page is open) ----------
-  function askNotify() { try { if ("Notification" in window && Notification.permission === "default") Notification.requestPermission(); } catch (e) {} }
+  var BASE_TITLE = document.title, PHONE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  function askNotify() { try { if (!PHONE && "Notification" in window && Notification.permission === "default") { var r = Notification.requestPermission(renderAlerts); if (r && r.then) r.then(renderAlerts); } } catch (e) {} }
+  // What an alert can actually do on this device, said plainly.
+  function notifyState() {
+    if (PHONE || !("Notification" in window)) return "手机浏览器不会弹系统通知：提醒只在本页内出现并响一声，需要让这页留在屏幕上。人不在时，建议在 MT5 App 里对同样的价位设提醒。";
+    if (Notification.permission === "granted") return "系统通知已允许：切到别的标签页或别的窗口也会弹出提醒，只要这页还开着。";
+    if (Notification.permission === "denied") return "浏览器屏蔽了通知：提醒只会在本页内弹出并响一声。可以点地址栏左边的图标，把「通知」改成允许。";
+    return "打开后浏览器会问是否允许通知，请点「允许」，这样切到别的标签页也能收到。";
+  }
   function addAlert(p, label) { S.alerts.unshift({ p: p, label: label || "自定价位", fired: false }); S.alerts = S.alerts.slice(0, 8); LS.set("alerts", S.alerts); askNotify(); renderAlerts(); toast("已设置提醒：" + fmt(p, 1)); }
   function renderAlerts() {
     var el = clear($("alerts"));
@@ -1422,13 +1438,13 @@ footer .disc strong{color:var(--text)}
       el.appendChild(h("span", { class: "al" + (a.fired ? " fired" : "") }, ["🔔 " + fmt(a.p, 1) + " " + a.label, h("button", { type: "button", "aria-label": "删除提醒", text: "×", onclick: function () { S.alerts.splice(i, 1); LS.set("alerts", S.alerts); renderAlerts(); } })]));
     });
     $("alert-sw").setAttribute("aria-checked", String(!!S.alertOn));
-    $("alert-x").textContent = S.alertOn ? "已开启：价格到达入场、止损或目标时会通知你（需保持本页打开）" : "价格到达入场、止损或目标时通知你（需保持本页打开）";
+    $("alert-x").textContent = (S.alertOn ? "已开启。" : "") + "价格到达你的入场、止损、目标，或上面的结论变成「等信号 / 可以考虑」时提醒。" + notifyState();
   }
   function fire(text) {
     toast(text);
     try { if ("Notification" in window && Notification.permission === "granted") new Notification("黄金到价提醒", { body: text }); } catch (e) {}
     try { var AC = window.AudioContext || window.webkitAudioContext, ac = new AC(), o = ac.createOscillator(), g = ac.createGain(); o.frequency.value = 880; g.gain.value = 0.06; o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime + 0.25); } catch (e) {}
-    var t0 = document.title, n = 0, iv = setInterval(function () { document.title = n++ % 2 ? t0 : "🔔 " + text; if (n > 9) { clearInterval(iv); document.title = t0; } }, 800);
+    var n = 0; clearInterval(fire.iv); fire.iv = setInterval(function () { document.title = n++ % 2 ? BASE_TITLE : "🔔 " + text; if (n > 9) { clearInterval(fire.iv); document.title = BASE_TITLE; } }, 800);
   }
   function checkAlerts() {
     var cur = sh(S.live), prev = S.prevShown; if (cur === null) return; S.prevShown = cur; if (prev === null || prev === cur) return;
@@ -1438,6 +1454,19 @@ footer .disc strong{color:var(--text)}
     if (dirty) { LS.set("alerts", S.alerts); renderAlerts(); }
   }
   function alertsLive() { return S.alertOn || S.alerts.some(function (a) { return !a.fired; }); }
+  // Tell the user when the answer at the top changes for the better, e.g. price walks into the entry zone.
+  function noteVerdict(was) {
+    if (!S.alertOn || was === null || S.vLevel === was) return;
+    var V = P.verdict(S.E, sh), buy = V.side === "long";
+    if (V.level === "ready") fire("价格进入" + (buy ? "买入" : "卖出") + "区：等 15 分钟信号再进");
+    else if (V.level === "go") fire("三个条件都到位了：可以考虑" + (buy ? "做多" : "做空"));
+  }
+  var vAt = 0;
+  function checkVerdict() {
+    if (!S.E || S.vLevel === null || Date.now() - vAt < 500) return; vAt = Date.now();
+    if (P.verdict(S.E, sh).level === S.vLevel) return;
+    var was = S.vLevel; renderVerdict(); renderCands(); noteVerdict(was);
+  }
 
   // ---------- tabs ----------
   function showTab(id) {
@@ -1448,8 +1477,43 @@ footer .disc strong{color:var(--text)}
 
   // ---------- data ----------
   function fetchSpot() { return fetch("https://api.gold-api.com/price/XAU", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { if (d && num(d.price) !== null && d.price > 0) S.spot = d.price; }).catch(function () {}); }
-  function fetchTick() { return fetch(XAU_API + "/api/v3/ticker/price?symbol=PAXGUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) S.live = p; }).catch(function () {}); }
-  function setStamp() { $("stamp").textContent = "更新于 " + sgt(S.lastRun, "s") + " SGT · 每 5 分钟自动刷新"; }
+  function livePrice(p) { S.live = p; if (S.E) S.E.price = p; }          // levels and the verdict are judged against the live price
+  function fetchTick() { return fetch(XAU_API + "/api/v3/ticker/price?symbol=PAXGUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) livePrice(p); }).catch(function () {}); }
+  function setStamp() {
+    var on = streamOn(); $("ldot").className = "ldot" + (on ? " on" : "");
+    $("stamp").textContent = (on ? "报价实时推送" : "报价每 30 秒更新") + " · 结构于 " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + " 重算，每 5 分钟一次";
+  }
+  function busyUi() { return !!S.armed || S.overLadder || $("chart").querySelector(".tip:not([hidden])") !== null; }
+
+  // ---------- live price stream ----------
+  // Binance pushes every trade and best bid/ask change, so the price is live to the second and alerts keep
+  // working when this tab is in the background (timers are throttled there, socket messages are not).
+  // The polling loop below stays as the fallback when the socket is down or silent.
+  var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
+  function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
+  function onPrice() {
+    checkAlerts(); checkVerdict();
+    if (document.visibilityState !== "visible" || paintT) return;
+    paintT = setTimeout(function () {                                           // repaint at most once a second
+      paintT = null; if (document.visibilityState !== "visible") return;
+      paintLive(); if (++slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
+    }, 1000);
+  }
+  function connectStream() {
+    if (!("WebSocket" in window) || WS) return;
+    var ws; try { ws = new WebSocket("wss://data-stream.binance.vision/stream?streams=paxgusdt@aggTrade/paxgusdt@bookTicker"); } catch (e) { return; }
+    WS = ws;
+    ws.onopen = function () { wsBack = 0; wsAt = Date.now(); setStamp(); };
+    ws.onmessage = function (m) {
+      var d; try { d = JSON.parse(m.data).data; } catch (e) { return; }
+      var p = d && d.p ? parseFloat(d.p) : d && d.b && d.a ? (parseFloat(d.b) + parseFloat(d.a)) / 2 : NaN;   // last trade, or the mid of the best quotes
+      if (!isFinite(p) || p <= 0) return;
+      wsAt = Date.now(); if (p === S.live || !S.E) return;
+      livePrice(p); onPrice();
+    };
+    ws.onerror = function () { try { ws.close(); } catch (e) {} };
+    ws.onclose = function () { if (WS === ws) WS = null; wsBack = Math.min(wsBack + 1, 6); setTimeout(connectStream, 3000 * wsBack); setStamp(); };
+  }
   function renderAll() { renderVerdict(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
   function refresh() {
     if (S.busy) return; S.busy = true; document.body.classList.add("refreshing");
@@ -1458,14 +1522,20 @@ footer .disc strong{color:var(--text)}
       var E = res[0]; if (!E || num(E.price) === null) throw new Error("Binance 行情接口没有返回数据");
       S.E = E; S.live = E.price; S.lastRun = Date.now(); calibrate();
       if (!S.hadPlan) { S.hadPlan = true; var C = P.candidates(E), c = C.aligned === "long" ? C.long : C.aligned === "short" ? C.short : null; if (c) { var k = shownCand(c); S.plan.side = k.side; S.plan.entry = k.entry; S.plan.stop = k.stop; S.plan.tp1 = k.tp1; S.plan.tp2 = k.tp2; syncInputs(); } }
-      $("err").hidden = true; S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp();
+      var was = S.vLevel;
+      $("err").hidden = true; S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp(); noteVerdict(was);
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");
     }).then(function () { S.busy = false; document.body.classList.remove("refreshing"); });
   }
   function tick() {
-    if (document.visibilityState !== "visible" || !S.E || S.busy) return;
-    Promise.all([fetchTick(), fetchSpot()]).then(function () { calibrate(); checkAlerts(); renderVerdict(); renderLevels(); if ($("chart").querySelector(".tip:not([hidden])") === null && !S.armed) drawChart(); });
+    if (!S.E || S.busy) return;
+    var vis = document.visibilityState === "visible";
+    if (!vis && !alertsLive()) return;                                        // hidden and nothing to watch for
+    Promise.all([streamOn() ? null : fetchTick(), vis ? fetchSpot() : null]).then(function () {
+      calibrate(); checkAlerts(); checkVerdict(); setStamp();
+      if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
+    });
   }
   function loop() { tick(); setTimeout(loop, alertsLive() ? 10000 : 30000); }
 
@@ -1502,6 +1572,8 @@ footer .disc strong{color:var(--text)}
   $("retry").addEventListener("click", refresh);
   $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); });
   $("alert-sw").addEventListener("click", function () { S.alertOn = !S.alertOn; LS.set("alertOn", S.alertOn); if (S.alertOn) { askNotify(); S.prevShown = sh(S.live); } renderAlerts(); });
+  $("alert-test").addEventListener("click", function () { askNotify(); fire("这是一条测试提醒：价格到位时就会这样通知你"); });
+  $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
   $("tbl").addEventListener("toggle", fillTable);
@@ -1512,8 +1584,12 @@ footer .disc strong{color:var(--text)}
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
   syncBasis(); syncInputs(); renderArm(); renderPlan(); renderSaved(); renderAlerts(); renderSessions(); showTab(S.tab);
   refresh(); loadContext(); loadSnapshot();
-  setTimeout(loop, 30000);
-  setInterval(function () { if (document.visibilityState === "visible") refresh(); }, 5 * 60000);
+  connectStream(); setTimeout(loop, 30000);
+  // Recompute the structure every 5 minutes, or every minute while price sits in the entry zone waiting for a signal.
+  setInterval(function () {
+    if (document.visibilityState !== "visible" && !S.alertOn) return;
+    if (Date.now() - S.lastRun >= (S.vLevel === "ready" ? 60000 : 5 * 60000) - 2000) refresh();
+  }, 30000);
   setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); }, 60000);
 })();
 </script>
