@@ -5,6 +5,8 @@ var XauPlan = (function () {
 
   var TF_ORDER = ["W", "D", "4H", "1H", "15M"];
   var TF_WEIGHT = { W: 3, D: 3, "4H": 2, "1H": 1, "15M": 1 };
+  var TF_ZH = { W: "周线", D: "日线", "4H": "4 小时", "1H": "1 小时", "15M": "15 分钟" };
+  var TF_S = { W: "周线", D: "日线", "4H": "4小时", "1H": "1小时", "15M": "15分钟" };   // compact form for labels
 
   var ZH = {
     trend: { bullish: "看多", bearish: "看空", unclear: "不明", mixed: "分歧" },
@@ -42,33 +44,34 @@ var XauPlan = (function () {
     var tol = Math.max(0.15 * ((H1 && H1.atr) || 8), 0.6);
     var win = opts.window || 3 * ((D && D.atr) || 80);
     var pts = [], zones = [];
-    function pt(p, label, tf, w) { p = num(p); if (p !== null && Math.abs(p - price) <= win) pts.push({ price: p, label: label, tf: tf, w: w }); }
+    // rank decides which name leads when several sources land on one price: structure first, midpoints last
+    function pt(p, label, tf, w, rank) { p = num(p); if (p !== null && Math.abs(p - price) <= win) pts.push({ price: p, label: label, tf: tf, w: w, rank: rank || 1 }); }
 
     var c = E.context || {};
-    pt(c.prevDayHigh, "前日高 PDH", "D", 3); pt(c.prevDayLow, "前日低 PDL", "D", 3);
-    pt(c.prevWeekHigh, "前周高 PWH", "W", 4); pt(c.prevWeekLow, "前周低 PWL", "W", 4);
+    pt(c.prevDayHigh, "昨日高点", "D", 3, 3); pt(c.prevDayLow, "昨日低点", "D", 3, 3);
+    pt(c.prevWeekHigh, "上周高点", "W", 4, 3); pt(c.prevWeekLow, "上周低点", "W", 4, 3);
 
     TF_ORDER.forEach(function (tf) {
       var t = tfOk(E, tf); if (!t || tf === "15M") return;
-      var w = TF_WEIGHT[tf];
-      if (t.range) { pt(t.range.top, tf + " 区间顶", tf, w); pt(t.range.bottom, tf + " 区间底", tf, w); if (tf === "D" || tf === "4H") pt(t.range.eq, tf + " 均衡 EQ", tf, 1); }
-      pt(t.swingHigh, tf + " 结构高点", tf, w); pt(t.swingLow, tf + " 结构低点", tf, w);
-      if (tf === "4H" || tf === "1H") { pt(t.intHigh, tf + " 内部高点", tf, 1); pt(t.intLow, tf + " 内部低点", tf, 1); }
-      if (t.lastEvent) pt(t.lastEvent.level, tf + " " + t.lastEvent.type + (t.lastEvent.dir === "bull" ? " ▲" : " ▼") + " 突破位", tf, 1);
-      if ((tf === "D" || tf === "4H") && t.ema) pt(t.ema.e200, tf + " EMA200", tf, 2);
-      ((t.liquidity || {}).equalHighs || []).forEach(function (p) { pt(p, tf + " 等高流动性 EQH", tf, 2); });
-      ((t.liquidity || {}).equalLows || []).forEach(function (p) { pt(p, tf + " 等低流动性 EQL", tf, 2); });
+      var w = TF_WEIGHT[tf], n = TF_S[tf];
+      if (t.range) { pt(t.range.top, n + "区间顶", tf, w, 2); pt(t.range.bottom, n + "区间底", tf, w, 2); if (tf === "D" || tf === "4H") pt(t.range.eq, n + "区间中点", tf, 1, 0); }
+      pt(t.swingHigh, n + "前高", tf, w, 3); pt(t.swingLow, n + "前低", tf, w, 3);
+      if (tf === "4H" || tf === "1H") { pt(t.intHigh, n + "近期小高点", tf, 1); pt(t.intLow, n + "近期小低点", tf, 1); }
+      if (t.lastEvent) pt(t.lastEvent.level, n + (t.lastEvent.dir === "bull" ? "向上" : "向下") + (t.lastEvent.type === "CHoCH" ? "转折" : "突破") + "位", tf, 1);
+      if ((tf === "D" || tf === "4H") && t.ema) pt(t.ema.e200, n + " 200 均线", tf, 2, 2);
+      ((t.liquidity || {}).equalHighs || []).forEach(function (p) { pt(p, n + "等高点（止损密集）", tf, 2, 2); });
+      ((t.liquidity || {}).equalLows || []).forEach(function (p) { pt(p, n + "等低点（止损密集）", tf, 2, 2); });
       (t.patterns || []).forEach(function (p) {
         var nm = ZH.pattern[p.name] || p.name, tg = num(p.target);
-        pt(p.level, tf + " " + nm + "关键位", tf, 2);
+        pt(p.level, n + nm + "关键位", tf, 2, 2);
         // a target already passed is no longer a level worth watching
-        if (tg !== null && ((p.bias === "bullish" && tg > price) || (p.bias === "bearish" && tg < price))) pt(tg, tf + " " + nm + "目标", tf, 1);
+        if (tg !== null && ((p.bias === "bullish" && tg > price) || (p.bias === "bearish" && tg < price))) pt(tg, n + nm + "目标", tf, 1);
       });
       (t.fvgs || []).forEach(function (g) {
         var top = num(g.top), bot = num(g.bottom); if (top === null || bot === null) return;
         if (bot - price > win || price - top > win) return;
         zones.push({ kind: "zone", top: top, bottom: bot, price: (top + bot) / 2, polarity: g.dir, tf: tf, tapped: !!g.tapped,
-          label: tf + (g.dir === "bull" ? " 看多 FVG" : " 看空 FVG"), strength: w, time: g.time,
+          label: TF_S[tf] + (g.dir === "bull" ? "看多缺口" : "看空缺口"), strength: w, time: g.time,
           side: price > top ? "sup" : price < bot ? "res" : "in" });
       });
     });
@@ -80,7 +83,7 @@ var XauPlan = (function () {
       else { cur = { items: [p], hi: p.price }; groups.push(cur); }
     });
     var merged = groups.map(function (g) {
-      var items = g.items.slice().sort(function (a, b) { return b.w - a.w; });
+      var items = g.items.slice().sort(function (a, b) { return (b.w - a.w) || (b.rank - a.rank); });
       var labels = [], tfs = [], strength = 0;
       items.forEach(function (it) { if (labels.indexOf(it.label) < 0) labels.push(it.label); if (tfs.indexOf(it.tf) < 0) tfs.push(it.tf); strength += it.w; });
       var p = items[0].price; // the heaviest source names the price
@@ -167,32 +170,115 @@ var XauPlan = (function () {
     var dir = plan.side === "short" ? -1 : 1, want = dir > 0 ? "bull" : "bear", out = [];
     var H1 = tfOk(E, "1H"), M15 = tfOk(E, "15M"), ov = (E && E.overall) || {};
     var al = ov.alignedDirection || "none";
-    out.push({ id: "htf", label: "大周期同向（D 与 4H 一致）", ok: al === "none" ? false : al === plan.side,
-      detail: al === "none" ? "D 与 4H 结构分歧：属于逆势或反弹交易" : al === plan.side ? "D 与 4H 均" + (dir > 0 ? "看多" : "看空") : "D 与 4H 均" + (dir > 0 ? "看空" : "看多") + "：与计划方向相反" });
+    var Dt = tfOk(E, "D"), mine = dir > 0 ? "bullish" : "bearish", withD = !!(Dt && Dt.trend === mine);
+    out.push({ id: "htf", label: "日线和 4 小时都支持", ok: al === "none" ? false : al === plan.side,
+      detail: al === "none" ? (withD ? "日线和你同向，但 4 小时还没转过来：等它转向会更稳" : "4 小时和你同向，但日线方向相反：这笔是逆着大方向抢" + (dir > 0 ? "反弹" : "回调")) : al === plan.side ? "日线和 4 小时都" + (dir > 0 ? "向上" : "向下") + "，和你的方向一致" : "日线和 4 小时都" + (dir > 0 ? "向下" : "向上") + "：和你的方向相反" });
     var e = num(rawEntry), zoneOk = null, zd = "需要入场价";
     if (H1 && H1.range && e !== null) {
       var pct = Math.round((e - H1.range.bottom) / (H1.range.top - H1.range.bottom) * 100);
       zoneOk = dir > 0 ? pct <= 50 : pct >= 50;
-      zd = (pct > 100 ? "入场在 1H 区间上方（溢价）" : pct < 0 ? "入场在 1H 区间下方（折价）" : "入场位于 1H 区间 " + pct + "%（" + (pct > 55 ? "溢价区" : pct < 45 ? "折价区" : "均衡区") + "）") + (zoneOk ? "" : dir > 0 ? "：做多宜在下半区" : "：做空宜在上半区");
+      zd = (pct > 100 ? "入场价在最近 1 小时区间的上方（偏贵）" : pct < 0 ? "入场价在最近 1 小时区间的下方（偏便宜）" : "入场价在最近 1 小时区间的 " + pct + "% 处（" + (pct > 55 ? "偏贵" : pct < 45 ? "偏便宜" : "中间") + "）") + (zoneOk ? "" : dir > 0 ? "：买入最好在下半部" : "：卖出最好在上半部");
     }
-    out.push({ id: "zone", label: dir > 0 ? "折价区做多" : "溢价区做空", ok: zoneOk, detail: zd });
+    out.push({ id: "zone", label: "入场位置划算", ok: zoneOk, detail: zd });
     var li = M15 && M15.lastInternal;
     var trig = li ? li.dir === want && li.barsAgo <= 8 : null;
-    out.push({ id: "trigger", label: "15M 触发信号", ok: trig,
-      detail: li ? "最近 15M 内部结构：" + li.type + (li.dir === "bull" ? " ▲" : " ▼") + " · " + li.barsAgo + " 根前" + (trig ? "" : "，等待同向 i-CHoCH") : "暂无数据" });
+    out.push({ id: "trigger", label: "已出现入场信号", ok: trig,
+      detail: li ? "15 分钟图最近一次转折是" + (li.dir === "bull" ? "向上" : "向下") + "（" + li.barsAgo + " 根 K 线前）" + (trig ? "" : "，还没有新的" + (dir > 0 ? "向上" : "向下") + "转折") : "暂无数据" });
     var best = sz ? Math.max(sz.r1 || 0, sz.r2 || 0) : 0;
-    out.push({ id: "rr", label: "盈亏比 ≥ 1:2", ok: sz && sz.dist ? (best > 0 ? best >= 2 : null) : null,
-      detail: best > 0 ? "最远目标 " + best.toFixed(1) + "R" : "需要止损与目标价" });
+    out.push({ id: "rr", label: "赚赔比至少 2:1", ok: sz && sz.dist ? (best > 0 ? best >= 2 : null) : null,
+      detail: best > 0 ? "最远目标能赚到亏损的 " + best.toFixed(1) + " 倍（" + best.toFixed(1) + "R）" : "需要止损与目标价" });
     var atrOk = null, ad = "需要入场价与止损价";
-    if (sz && sz.dist && H1 && H1.atr) { var m = sz.dist / H1.atr; atrOk = m >= 0.8 && m <= 5; ad = "止损距离 = " + m.toFixed(1) + "× 1H ATR（" + fmt(H1.atr, 1) + "）" + (m < 0.8 ? "：偏紧，易被扫" : m > 5 ? "：偏宽，手数会很小" : ""); }
-    out.push({ id: "stop", label: "止损距离合理", ok: atrOk, detail: ad });
+    if (sz && sz.dist && H1 && H1.atr) { var m = sz.dist / H1.atr; atrOk = m >= 0.8 && m <= 5; ad = "止损距离是 1 小时平均波幅的 " + m.toFixed(1) + " 倍" + (m < 0.8 ? "：太近，正常波动就可能扫掉" : m > 5 ? "：太远，手数会被压得很小" : "，合适"); }
+    out.push({ id: "stop", label: "止损不过近也不过远", ok: atrOk, detail: ad });
     var riskOk = null, rd = "需要账户余额与风险比例";
     if (sz && sz.actualPct !== null) {
-      if (sz.lots === 0) { riskOk = false; rd = "最小手数的风险 $" + fmt(sz.minLotRisk, 0) + " 已超过设定上限 $" + fmt(sz.riskUsd, 0) + "：开不了仓"; }
-      else { riskOk = sz.actualPct <= 1.0001; rd = "实际风险 " + sz.actualPct.toFixed(2) + "%（$" + fmt(sz.actualRisk, 0) + "）"; }
+      if (sz.lots === 0) { riskOk = false; rd = "最小手数就要亏 $" + fmt(sz.minLotRisk, 0) + "，超过你设的上限 $" + fmt(sz.riskUsd, 0) + "：这笔开不了"; }
+      else { riskOk = sz.actualPct <= 1.0001; rd = "止损时亏 $" + fmt(sz.actualRisk, 0) + "，是账户的 " + sz.actualPct.toFixed(2) + "%"; }
     }
-    out.push({ id: "risk", label: "单笔风险 ≤ 1%", ok: riskOk, detail: rd });
+    out.push({ id: "risk", label: "单笔亏损不超过 1%", ok: riskOk, detail: rd });
     return out;
+  }
+
+  // ---------- the one-line answer ----------
+  function scoreWord(sc) { sc = num(sc) || 0; return sc >= 7 ? "强烈看多" : sc >= 4 ? "看多" : sc >= 1 ? "略偏多" : sc === 0 ? "中性" : sc >= -3 ? "略偏空" : sc >= -6 ? "看空" : "强烈看空"; }
+  // "What do I do now?" in plain words, from the same facts the engine's own setup uses.
+  // level: go (all three conditions met) / ready (in the zone, no signal yet) / wait (right direction, wrong price) / none (no agreed direction).
+  function verdict(E, shift) {
+    shift = shift || function (p) { return p; };
+    var ov = (E && E.overall) || {}, al = ov.alignedDirection || "none", C = candidates(E), price = num(E && E.price);
+    var D = tfOk(E, "D"), H4 = tfOk(E, "4H"), H1 = tfOk(E, "1H");
+    var way = function (t) { return !t ? "不明" : t.trend === "bullish" ? "向上" : t.trend === "bearish" ? "向下" : "不明"; };
+    var zone = function (k) { return fmt(shift(k.zoneBottom), 0) + "–" + fmt(shift(k.zoneTop), 0); };
+    var c = al === "long" ? C.long : al === "short" ? C.short : null, buy = al === "long";
+    var v = { level: "none", side: al, cand: c, closed: ov.marketOpen === false, reasons: [], ideas: [], lines: [] };
+
+    v.reasons.push({ key: "dir", label: "方向", ok: al !== "none", text: al === "none" ? "日线" + way(D) + "、4 小时" + way(H4) + "，还不一致" : "日线和 4 小时都" + (buy ? "向上" : "向下") });
+    if (c) {
+      var gap = price > c.zoneTop ? price - c.zoneTop : price < c.zoneBottom ? c.zoneBottom - price : 0;
+      v.reasons.push({ key: "pos", label: "位置", ok: c.priceInZone, text: c.priceInZone ? "价格已在入场区 " + zone(c) : "还没到入场区 " + zone(c) + "，差 " + fmt(gap, 0) + " 美元" });
+      v.reasons.push({ key: "sig", label: "信号", ok: c.trigger15m, text: "15 分钟图" + (c.trigger15m ? "已出现" : "还没出现") + (buy ? "向上" : "向下") + "转折" });
+    } else {
+      v.reasons.push({ key: "pos", label: "位置", ok: null, text: "方向一致后才有顺势入场区" });
+      v.reasons.push({ key: "sig", label: "信号", ok: null, text: "暂时不用看入场信号" });
+    }
+
+    if (!c) {
+      var vs = votes(E), up = vs.filter(function (x) { return x.v === 1; }).map(function (x) { return TF_ZH[x.tf]; }), dn = vs.filter(function (x) { return x.v === -1; }).map(function (x) { return TF_ZH[x.tf]; });
+      var dDown = !!(D && D.trend === "bearish"), dUp = !!(D && D.trend === "bullish");
+      v.tag = "先观望"; v.title = "先观望，大小周期方向不一致";
+      v.text = (dn.length ? dn.join("、") + "向下" : "") + (dn.length && up.length ? "，" : "") + (up.length ? up.join("、") + "向上" : "") + "。" +
+        (dDown ? "这是下跌途中的反弹：现在追多是逆着大方向，做空又还没到好位置。" : dUp ? "这是上涨途中的回调：现在追空是逆着大方向，做多又还嫌早。" : "各周期方向混杂，没有明显优势。");
+      [C.short, C.long].forEach(function (k) {
+        if (!k) return; var sell = k.side === "short", withTrend = sell ? dDown : dUp;
+        v.ideas.push({ side: k.side, withTrend: withTrend, cand: k,
+          text: (sell ? "想做空：等价格反弹到 " : "想做多：等价格回落到 ") + zone(k) + "，并且 15 分钟图出现" + (sell ? "向下" : "向上") + "转折",
+          note: withTrend ? "顺着日线方向" : "逆着日线方向，只算抢" + (sell ? "回调" : "反弹") + "，仓位要小" });
+      });
+      v.ideas.sort(function (a, b) { return (b.withTrend ? 1 : 0) - (a.withTrend ? 1 : 0); });
+    } else if (c.state === "ready") {
+      v.level = "go"; v.tag = "可以考虑" + (buy ? "做多" : "做空"); v.title = "条件到位，可以考虑" + (buy ? "做多" : "做空");
+      v.text = "方向一致，价格在入场区 " + zone(c) + "，15 分钟图也给出了信号。先在计划器里确认手数和检查项，再下单。";
+    } else if (c.state === "inzone") {
+      v.level = "ready"; v.tag = "等信号"; v.title = "价格到了" + (buy ? "买入" : "卖出") + "区，等一个入场信号";
+      v.text = "日线和 4 小时都" + (buy ? "向上" : "向下") + "，价格已回到入场区 " + zone(c) + "。等 15 分钟图出现" + (buy ? "向上" : "向下") + "转折再进，不要提前。";
+    } else {
+      v.level = "wait"; v.tag = buy ? "等回调" : "等反弹"; v.title = buy ? "方向向上，等回调到入场区再买" : "方向向下，等反弹到入场区再卖";
+      v.text = "日线和 4 小时都" + (buy ? "向上" : "向下") + "，但现在的价格不划算。等价格" + (buy ? "回落" : "反弹") + "到 " + zone(c) + " 再找" + (buy ? "买点" : "卖点") + "，不要追。";
+    }
+
+    // the prices whose break would change the picture
+    var add = function (dir, p, text) { p = num(p); if (p !== null) v.lines.push({ dir: dir, price: p, text: text }); };
+    if (D && D.trend === "bearish") add("up", D.intHigh, "日线收盘站上这里，大方向开始转强");
+    if (D && D.trend === "bullish") add("down", D.intLow, "日线收盘跌破这里，大方向开始转弱");
+    if (H1 && H1.trend === "bullish") add("down", num(H1.swingLow) !== null ? H1.swingLow : H1.intLow, "1 小时收盘跌破这里，这一段上涨结束");
+    if (H1 && H1.trend === "bearish") add("up", num(H1.swingHigh) !== null ? H1.swingHigh : H1.intHigh, "1 小时收盘站上这里，这一段下跌结束");
+    return v;
+  }
+  // Nearest support and resistance worth naming: the closest level with some confluence on each side.
+  function nearest(E) {
+    var L = levels(E, { each: 12 }).points;
+    var pick = function (side) {
+      var list = L.filter(function (l) { return l.side === side; }); if (side === "res") list = list.slice().reverse();   // nearest first
+      return list.filter(function (l) { return l.strength >= 3; })[0] || list[0] || null;
+    };
+    return { res: pick("res"), sup: pick("sup") };
+  }
+  // The plan as one sentence. Returns parts so the page can bold the numbers: [{t: text, b: true?}]
+  function sentence(plan, sz) {
+    var e = num(plan.entry), st = num(plan.stop), t1 = num(plan.tp1), t2 = num(plan.tp2), P = [];
+    if (e === null || st === null || !sz || !sz.valid) return P;
+    var buy = plan.side !== "short", sized = sz.lots !== null && sz.lots > 0;
+    var b = function (x) { P.push({ t: x, b: true }); }, n = function (x) { P.push({ t: x }); };
+    n("在 "); b(fmt(e, 1)); n(buy ? " 买入" : " 卖出"); if (sized) { n(" "); b(sz.lots.toFixed(2) + " 手"); } n("。");
+    n("价格" + (buy ? "跌到 " : "涨到 ")); b(fmt(st, 1)); n(" 就止损");
+    if (sized) { n("，约亏 "); b("$" + fmt(sz.actualRisk, 0)); n("（账户的 " + sz.actualPct.toFixed(2) + "%）"); } else n("（距离 " + fmt(sz.dist, 1) + " 美元）");
+    n("。");
+    if (t1 !== null && sz.r1 !== null) {
+      n(buy ? "涨到 " : "跌到 "); b(fmt(t1, 1)); n(" 止盈"); if (sized && sz.pnl1 !== null) { n("，约赚 "); b("$" + fmt(sz.pnl1, 0)); } n("（" + sz.r1.toFixed(1) + "R）");
+      if (t2 !== null && sz.r2 !== null) { n("；到 "); b(fmt(t2, 1)); if (sized && sz.pnl2 !== null) { n(" 约赚 "); b("$" + fmt(sz.pnl2, 0)); } n("（" + sz.r2.toFixed(1) + "R）"); }
+      n("。");
+    }
+    return P;
   }
 
   // ---------- words ----------
@@ -237,6 +323,7 @@ var XauPlan = (function () {
     var sz = o.size || {}, p = o.plan, L = [];
     var side = p.side === "short" ? "做空" : "做多";
     L.push("XAUUSD " + side + "计划 · " + o.when);
+    var say = sentence(p, sz).map(function (x) { return x.t; }).join(""); if (say) L.push(say);
     var a = "入场 " + fmt(p.entry, 1) + " ｜止损 " + fmt(p.stop, 1) + (sz.dist ? "（" + fmt(sz.dist, 1) + " 美元）" : "");
     if (num(p.tp1) !== null) a += " ｜TP1 " + fmt(p.tp1, 1) + (sz.r1 ? "（" + sz.r1.toFixed(1) + "R）" : "");
     if (num(p.tp2) !== null) a += " ｜TP2 " + fmt(p.tp2, 1) + (sz.r2 ? "（" + sz.r2.toFixed(1) + "R）" : "");
@@ -249,8 +336,8 @@ var XauPlan = (function () {
     return L.join("\n");
   }
 
-  return { TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, ZH: ZH, num: num, fmt: fmt, levels: levels, candidate: candidate, candidates: candidates,
+  return { TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, levels: levels, candidate: candidate, candidates: candidates,
     size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText, patternText: patternText,
-    statusText: statusText, planText: planText };
+    statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;
