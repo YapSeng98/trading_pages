@@ -1,0 +1,40 @@
+# Keeps data/quotes.json and data/quotes.js current, so stocks.html shows fresh prices.
+# The cloud environment that runs the daily Claude refresh cannot reach Yahoo Finance; this runner can.
+name: Update stock quotes
+
+on:
+  schedule:
+    - cron: "20 0 * * 2-6"   # 08:20 SGT, Tue-Sat: after the US close, before the 09:00 daily refresh
+    - cron: "40 9 * * 1-5"   # 17:40 SGT, Mon-Fri: after the Singapore and Malaysia close
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/update_quotes.py", ".github/workflows/quotes.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: quotes
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch quotes
+        run: python3 scripts/update_quotes.py
+      - name: Commit if the data changed
+        run: |
+          if git diff --quiet -- data/quotes.json data/quotes.js; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "quotes-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/quotes.json data/quotes.js
+          git commit -m "Quotes $(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M SGT')"
+          git pull --rebase origin main
+          git push origin HEAD:main

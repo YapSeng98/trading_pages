@@ -307,6 +307,9 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="assets/stocks-live.css">
+<script src="data/quotes.js"></script>
+<script src="assets/stocks-live.js"></script>
 </head>
 <body>
 <div class="mesh"><div class="orb-violet"></div></div>
@@ -326,7 +329,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 <header>
   <div class="eyebrow">Stocks · US / SG / MY · Growth vs Dividend · AI-Curated</div>
   <h1>股票<em>精选</em></h1>
-  <div class="hdate">2026年10月11日（星期日）09:12 SGT&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类 · Yahoo行情源本轮仍被屏蔽（HTTP 000），18个报价卡、雷达动能、深度解析价格与52周区间均沿用前次数据，未更新（时间戳保持不变）</div>
+  <div class="hdate">2026年10月12日（星期一）01:07 SGT&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类</div>
 </header>
 
 <!-- Live ticker tape: three market indices -->
@@ -343,6 +346,8 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <div class="lab">◆ 一句话概要</div>
     <p><strong>2026年选股主线：AI基建资本开支周期（美/马受益） + 高利率环境下的防御性股息（新/马银行与REITs）。</strong>美国：AI芯片与软件仍是成长主战场，但估值波动剧烈（PLTR年内一度回撤40%），股息贵族提供防御；新加坡：银行股息5%+、S-REITs收益率5–7%，无股息预扣税优势明显；马来西亚：KLCI年增约8%，数据中心建设潮（YTL Power 柔佛1,000MW）带动成长股，银行与电信提供4–6%股息。</p>
   </div>
+
+  <div class="fresh" id="fresh"></div>
 
   <div class="legend">
     <span>风险标签：</span>
@@ -361,14 +366,17 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   </div>
 
   <div id="tab-overview" class="tabpane active">
+  <!-- review table: built by assets/stocks-live.js from the stock cards below and data/quotes.js -->
+  <div id="review"></div>
+
   <!-- ═══════════ STATS STRIP ═══════════ -->
   <div class="stats">
-    <div class="stat"><div class="sk">追踪标的 · Coverage</div><div class="sv"><em>28</em></div><div class="sd">美 10 · 新 9 · 马 9</div></div>
-    <div class="stat"><div class="sk">平均综合评分 · Avg Score</div><div class="sv"><em>79.9</em><span style="font-size:14px;color:var(--dim)">/100</span></div><div class="sd">最高 DBS · NVDA 88</div></div>
-    <div class="stat"><div class="sk">股息侧平均收益率</div><div class="sv"><em>~5.0%</em></div><div class="sd">SG REITs 5–7% · MY 银行电信 4–6%</div></div>
+    <div class="stat"><div class="sk">追踪标的 · Coverage</div><div class="sv"><em id="stCount">28</em></div><div class="sd" id="stCountD">美 10 · 新 9 · 马 9</div></div>
+    <div class="stat"><div class="sk">平均综合评分 · Avg Score</div><div class="sv"><em id="stAvg">79.9</em><span style="font-size:14px;color:var(--dim)">/100</span></div><div class="sd" id="stAvgD">最高 DBS · NVDA 88</div></div>
+    <div class="stat"><div class="sk">股息类平均股息率</div><div class="sv"><em id="stYield">~5.0%</em></div><div class="sd" id="stYieldD">SG REITs 5–7% · MY 银行电信 4–6%</div></div>
     <div class="stat"><div class="sk">风险分布 · Risk Mix</div>
-      <div class="riskbar"><span class="rl" style="flex:12"></span><span class="rm" style="flex:12"></span><span class="rh" style="flex:4"></span></div>
-      <div class="risk-vals"><span style="flex:12">低 12</span><span style="flex:12">中 12</span><span style="flex:4">高 4</span></div>
+      <div class="riskbar"><span class="rl" id="stRisk-lo" style="flex:12"></span><span class="rm" id="stRisk-md" style="flex:12"></span><span class="rh" id="stRisk-hi" style="flex:4"></span></div>
+      <div class="risk-vals"><span id="stRiskL-lo" style="flex:12">低 12</span><span id="stRiskL-md" style="flex:12">中 12</span><span id="stRiskL-hi" style="flex:4">高 4</span></div>
     </div>
   </div>
 
@@ -412,6 +420,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     <div class="viz">
       <div class="viz-title">🏆 综合评分排行 · Top 8</div>
       <div class="viz-sub">Composite Score Leaderboard · 0–100</div>
+      <div id="rankScore">
       <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">DBS 星展</span><div class="vtrack"><div class="vfill sg" style="width:88%"></div></div><span class="vval">88</span></div>
       <div class="vrow"><span class="vflag">🇺🇸</span><span class="vname">NVDA 英伟达</span><div class="vtrack"><div class="vfill us" style="width:88%"></div></div><span class="vval">88</span></div>
       <div class="vrow"><span class="vflag">🇺🇸</span><span class="vname">AbbVie</span><div class="vtrack"><div class="vfill us" style="width:87%"></div></div><span class="vval">87</span></div>
@@ -420,13 +429,15 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">ST Engineering</span><div class="vtrack"><div class="vfill sg" style="width:85%"></div></div><span class="vval">85</span></div>
       <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">YTL Power</span><div class="vtrack"><div class="vfill my" style="width:85%"></div></div><span class="vval">85</span></div>
       <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">OCBC 华侨</span><div class="vtrack"><div class="vfill sg" style="width:84%"></div></div><span class="vval">84</span></div>
+      </div>
       <div class="viz-legend"><span class="li"><span class="sw us"></span>美国</span><span class="li"><span class="sw sg"></span>新加坡</span><span class="li"><span class="sw my"></span>马来西亚</span></div>
     </div>
 
     <!-- Dividend yield ranking -->
     <div class="viz">
       <div class="viz-title">💰 高股息收益率排行</div>
-      <div class="viz-sub">Top Dividend Yields · % (bar scaled to 7%)</div>
+      <div class="viz-sub">近 12 个月实际派息 ÷ 现价 · 前 8 名</div>
+      <div id="rankYield">
       <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">CapLand Asc.</span><div class="vtrack"><div class="vfill amber" style="width:100%"></div></div><span class="vval">7.0%</span></div>
       <div class="vrow"><span class="vflag">🇺🇸</span><span class="vname">Altria</span><div class="vtrack"><div class="vfill amber" style="width:86%"></div></div><span class="vval">6.0%</span></div>
       <div class="vrow"><span class="vflag">🇸🇬</span><span class="vname">S-REIT ETF</span><div class="vtrack"><div class="vfill amber" style="width:79%"></div></div><span class="vval">5.5%</span></div>
@@ -435,37 +446,38 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">CIMB</span><div class="vtrack"><div class="vfill amber" style="width:71%"></div></div><span class="vval">5.0%</span></div>
       <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">CelcomDigi</span><div class="vtrack"><div class="vfill amber" style="width:65%"></div></div><span class="vval">4.6%</span></div>
       <div class="vrow"><span class="vflag">🇲🇾</span><span class="vname">Maxis</span><div class="vtrack"><div class="vfill amber" style="width:62%"></div></div><span class="vval">4.3%</span></div>
+      </div>
     </div>
   </div>
 
   <!-- Cross-market comparison -->
   <div class="viz" style="margin-bottom:8px">
     <div class="viz-title">🌏 三大市场对比 · Market Comparison</div>
-    <div class="viz-sub">Avg Composite Score & Avg Dividend Yield by Market</div>
+    <div class="viz-sub">各市场平均评分与平均股息率</div>
     <div class="mcmp">
       <div class="mrow">
         <div class="ml">🇺🇸 美国</div>
         <div class="mbars">
-          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" style="width:79%;background:linear-gradient(90deg,rgba(96,165,250,.4),var(--blue))"></div></div><span class="v">79.2</span></div>
-          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" style="width:57%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v">~4.0%</span></div>
+          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" id="mcUSsF" style="width:79%;background:linear-gradient(90deg,rgba(96,165,250,.4),var(--blue))"></div></div><span class="v" id="mcUSsV">79.2</span></div>
+          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" id="mcUSyF" style="width:57%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v" id="mcUSyV">~4.0%</span></div>
         </div>
       </div>
       <div class="mrow">
         <div class="ml">🇸🇬 新加坡</div>
         <div class="mbars">
-          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" style="width:82%;background:linear-gradient(90deg,rgba(212,167,44,.4),var(--gold))"></div></div><span class="v">81.6</span></div>
-          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" style="width:80%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v">~5.6%</span></div>
+          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" id="mcSGsF" style="width:82%;background:linear-gradient(90deg,rgba(212,167,44,.4),var(--gold))"></div></div><span class="v" id="mcSGsV">81.6</span></div>
+          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" id="mcSGyF" style="width:80%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v" id="mcSGyV">~5.6%</span></div>
         </div>
       </div>
       <div class="mrow">
         <div class="ml">🇲🇾 马来西亚</div>
         <div class="mbars">
-          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" style="width:79%;background:linear-gradient(90deg,rgba(52,211,153,.35),var(--bull))"></div></div><span class="v">79.0</span></div>
-          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" style="width:64%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v">~4.5%</span></div>
+          <div class="mb"><span class="k">评分</span><div class="t"><div class="f" id="mcMYsF" style="width:79%;background:linear-gradient(90deg,rgba(52,211,153,.35),var(--bull))"></div></div><span class="v" id="mcMYsV">79.0</span></div>
+          <div class="mb"><span class="k">股息</span><div class="t"><div class="f" id="mcMYyF" style="width:64%;background:linear-gradient(90deg,rgba(245,178,62,.4),var(--amber))"></div></div><span class="v" id="mcMYyV">~4.5%</span></div>
         </div>
       </div>
     </div>
-    <div class="viz-legend"><span class="li">评分条 = 平均综合评分 / 100</span><span class="li">股息条 = 平均股息率 / 7%</span><span class="li">新加坡综合最强（评分+股息双高）</span></div>
+    <div class="viz-legend"><span class="li">评分条 = 平均综合评分 / 100</span><span class="li">股息条 = 平均股息率 / 7%</span><span class="li">股息率取各市场股息类股票近 12 个月实际派息的平均</span></div>
   </div>
 
   <!-- Per-country radars: each market, 成长代表 vs 股息代表 (same 6 axes, same colors) -->
@@ -487,10 +499,12 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       <div class="radar-wrap"><svg class="radar-svg" id="radarMY" viewBox="0 0 440 360" role="img" aria-label="马来西亚成长vs股息雷达"></svg><div class="radar-legend" id="legMY"></div></div>
     </div>
   </div>
-  <div class="radar-foot" style="margin-bottom:8px">六维度：成长性 · 估值吸引力 · 股息 · 盈利质量 · 价格动能 · 安全边际（0–10，越大越优）　|　每国自成一组，蓝=成长代表 金=股息代表　|　⟳ 动能随行情每3小时更新</div>
+  <div class="radar-foot" style="margin-bottom:8px">六维度：成长性 · 估值吸引力 · 股息 · 盈利质量 · 价格动能 · 安全边际（0–10，越大越优）　|　每国自成一组，蓝=成长代表 金=股息代表　|　动能按近 1 个月和 3 个月涨跌幅自动计算</div>
   <script>
   function drawRadar(svgId, legId, axes, series, max){
     var svg=document.getElementById(svgId); if(!svg) return;
+    // 动能 (index 4) is computed from data/quotes.js when it is loaded; the typed number is the fallback
+    series.forEach(function(se){ if(se.tk&&window.stockMomentum){ se.vals=se.vals.slice(); se.vals[4]=window.stockMomentum(se.tk,se.vals[4]); } });
     var NS='http://www.w3.org/2000/svg', N=axes.length, cx=220, cy=178, R=118;
     function pt(i,v){var a=-Math.PI/2 + i*2*Math.PI/N; return [cx+(v/max)*R*Math.cos(a), cy+(v/max)*R*Math.sin(a)];}
     function mk(t,at){var e=document.createElementNS(NS,t); for(var k in at) e.setAttribute(k,at[k]); return e;}
@@ -521,18 +535,18 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   }
   document.addEventListener('DOMContentLoaded', function(){
     var AX=["成长性","估值","股息","盈利质量","动能","安全边际"];
-    /* ══ RADAR DATA — agent edits vals arrays (0–10) only; 动能 (index 4) updates every 3h ══ */
+    /* ══ RADAR DATA — vals arrays are 0–10; index 4 (动能) is replaced at draw time by a value computed from price data ══ */
     drawRadar('radarUS','legUS',AX,[
-      {name:"NVDA 成长", color:"#60A5FA", vals:[9,7,2,9,8,6]},
-      {name:"ABBV 股息", color:"#D4A72C", vals:[6,6,7,8,8,8]}
+      {name:"NVDA 成长", tk:"NVDA", color:"#60A5FA", vals:[9,7,2,9,8,6]},
+      {name:"ABBV 股息", tk:"ABBV", color:"#D4A72C", vals:[6,6,7,8,8,8]}
     ],10);
     drawRadar('radarSG','legSG',AX,[
-      {name:"iFAST 成长", color:"#60A5FA", vals:[9,5,3,7,5,5]},
-      {name:"DBS 股息",   color:"#D4A72C", vals:[6,7,8,9,8,8]}
+      {name:"iFAST 成长", tk:"SGX:AIY", color:"#60A5FA", vals:[9,5,3,7,5,5]},
+      {name:"DBS 股息", tk:"SGX:D05",   color:"#D4A72C", vals:[6,7,8,9,8,8]}
     ],10);
     drawRadar('radarMY','legMY',AX,[
-      {name:"YTL 成长",     color:"#60A5FA", vals:[8,6,4,6,8,5]},
-      {name:"Maybank 股息", color:"#D4A72C", vals:[5,8,9,7,5,7]}
+      {name:"YTL 成长", tk:"KLSE:6742",     color:"#60A5FA", vals:[8,6,4,6,8,5]},
+      {name:"Maybank 股息", tk:"KLSE:1155", color:"#D4A72C", vals:[5,8,9,7,5,7]}
     ],10);
   });
   </script>
@@ -540,13 +554,13 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   <!-- Daily movers (SG + MY) — auto-rendered from the quote boards below (no agent edits needed) -->
   <div class="viz-grid">
     <div class="viz">
-      <div class="viz-title">🇸🇬 SG 今日涨跌 · Daily Movers</div>
-      <div class="viz-sub">By % Change · auto from quote board</div>
+      <div class="viz-title">🇸🇬 新加坡 · 最近交易日涨跌</div>
+      <div class="viz-sub">按涨跌幅排序 · <span class="js-mv-date"></span></div>
       <div id="moversSG"></div>
     </div>
     <div class="viz">
-      <div class="viz-title">🇲🇾 MY 今日涨跌 · Daily Movers</div>
-      <div class="viz-sub">By % Change · auto from quote board</div>
+      <div class="viz-title">🇲🇾 马来西亚 · 最近交易日涨跌</div>
+      <div class="viz-sub">按涨跌幅排序 · <span class="js-mv-date"></span></div>
       <div id="moversMY"></div>
     </div>
   </div>
@@ -841,7 +855,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
 
     <div class="qb">
-      <div class="qb-head">🇺🇸 US 速览板 · 综合评分 / 风险 / 概要（自动生成，源自上方个股分析） <span class="q-asof">实时价格见上方图表 · <a href="https://www.nasdaq.com/market-activity/quotes" target="_blank" style="color:var(--gold)">Nasdaq 官方 ↗</a></span></div>
+      <div class="qb-head">🇺🇸 US 速览板 · 综合评分 / 风险 / 概要（自动生成，源自上方个股分析） <span class="q-asof">价格为最近收盘价，实时走势见上方图表 · <a href="https://www.nasdaq.com/market-activity/quotes" target="_blank" style="color:var(--gold)">Nasdaq 官方 ↗</a></span></div>
       <div class="qb-grid" id="usBoard"></div>
     </div>
   </div>
@@ -1025,7 +1039,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
 
     <div class="qb">
-      <div class="qb-head">📡 SG 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-sg-time">2026-09-29 00:10 SGT</span> · <a href="https://www.sgx.com/securities/securities-prices" target="_blank" style="color:var(--gold)">SGX 官方 ↗</a></span></div>
+      <div class="qb-head">📡 新加坡行情板 · 每个交易日收盘后更新 <span class="q-asof"><span class="js-sg-time">2026-09-29 00:10 SGT</span> · <a href="https://www.sgx.com/securities/securities-prices" target="_blank" style="color:var(--gold)">SGX 官方 ↗</a></span></div>
       <div class="qb-grid">
         <div class="q-card" data-symbol="SGX:D05"><div class="q-tk">D05</div><div class="q-nm">DBS 星展银行</div><div class="q-px">S$77.00</div><div class="q-chg up">+0.27%</div></div>
         <div class="q-card" data-symbol="SGX:O39"><div class="q-tk">O39</div><div class="q-nm">OCBC 华侨银行</div><div class="q-px">S$31.60</div><div class="q-chg up">+0.67%</div></div>
@@ -1219,17 +1233,17 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
     </div>
 
     <div class="qb">
-      <div class="qb-head">📡 MY 实时行情板 · 定时任务自动更新 <span class="q-asof">更新于 <span class="js-my-time">2026-09-29 00:10 SGT</span> · <a href="https://www.klsescreener.com/v2/" target="_blank" style="color:var(--gold)">KLSE Screener ↗</a></span></div>
+      <div class="qb-head">📡 马来西亚行情板 · 每个交易日收盘后更新 <span class="q-asof"><span class="js-my-time">2026-09-29 00:10 SGT</span> · <a href="https://www.klsescreener.com/v2/" target="_blank" style="color:var(--gold)">KLSE Screener ↗</a></span></div>
       <div class="qb-grid">
-        <div class="q-card" data-symbol="KLSE:YTLPOWR"><div class="q-tk">6742</div><div class="q-nm">YTL Power</div><div class="q-px">RM5.85</div><div class="q-chg down">-1.02%</div></div>
-        <div class="q-card" data-symbol="KLSE:INARI"><div class="q-tk">0166</div><div class="q-nm">Inari Amertron</div><div class="q-px">RM2.17</div><div class="q-chg up">+0.46%</div></div>
-        <div class="q-card" data-symbol="KLSE:UNISEM"><div class="q-tk">5005</div><div class="q-nm">Unisem</div><div class="q-px">RM4.57</div><div class="q-chg down">-0.87%</div></div>
-        <div class="q-card" data-symbol="KLSE:MCEMENT"><div class="q-tk">3794</div><div class="q-nm">Malayan Cement</div><div class="q-px">RM6.86</div><div class="q-chg up">+0.59%</div></div>
-        <div class="q-card" data-symbol="KLSE:MAYBANK"><div class="q-tk">1155</div><div class="q-nm">Maybank</div><div class="q-px">RM10.90</div><div class="q-chg up">+0.37%</div></div>
-        <div class="q-card" data-symbol="KLSE:CIMB"><div class="q-tk">1023</div><div class="q-nm">CIMB</div><div class="q-px">RM7.48</div><div class="q-chg down">-0.13%</div></div>
-        <div class="q-card" data-symbol="KLSE:CDB"><div class="q-tk">6947</div><div class="q-nm">CelcomDigi</div><div class="q-px">RM3.91</div><div class="q-chg up">+1.56%</div></div>
-        <div class="q-card" data-symbol="KLSE:MAXIS"><div class="q-tk">6012</div><div class="q-nm">Maxis</div><div class="q-px">RM3.66</div><div class="q-chg flat">0.00%</div></div>
-        <div class="q-card" data-symbol="KLSE:TENAGA"><div class="q-tk">5347</div><div class="q-nm">Tenaga Nasional</div><div class="q-px">RM14.34</div><div class="q-chg up">+0.28%</div></div>
+        <div class="q-card" data-symbol="KLSE:6742"><div class="q-tk">6742</div><div class="q-nm">YTL Power</div><div class="q-px">RM5.85</div><div class="q-chg down">-1.02%</div></div>
+        <div class="q-card" data-symbol="KLSE:0166"><div class="q-tk">0166</div><div class="q-nm">Inari Amertron</div><div class="q-px">RM2.17</div><div class="q-chg up">+0.46%</div></div>
+        <div class="q-card" data-symbol="KLSE:5005"><div class="q-tk">5005</div><div class="q-nm">Unisem</div><div class="q-px">RM4.57</div><div class="q-chg down">-0.87%</div></div>
+        <div class="q-card" data-symbol="KLSE:3794"><div class="q-tk">3794</div><div class="q-nm">Malayan Cement</div><div class="q-px">RM6.86</div><div class="q-chg up">+0.59%</div></div>
+        <div class="q-card" data-symbol="KLSE:1155"><div class="q-tk">1155</div><div class="q-nm">Maybank</div><div class="q-px">RM10.90</div><div class="q-chg up">+0.37%</div></div>
+        <div class="q-card" data-symbol="KLSE:1023"><div class="q-tk">1023</div><div class="q-nm">CIMB</div><div class="q-px">RM7.48</div><div class="q-chg down">-0.13%</div></div>
+        <div class="q-card" data-symbol="KLSE:6947"><div class="q-tk">6947</div><div class="q-nm">CelcomDigi</div><div class="q-px">RM3.91</div><div class="q-chg up">+1.56%</div></div>
+        <div class="q-card" data-symbol="KLSE:6012"><div class="q-tk">6012</div><div class="q-nm">Maxis</div><div class="q-px">RM3.66</div><div class="q-chg flat">0.00%</div></div>
+        <div class="q-card" data-symbol="KLSE:5347"><div class="q-tk">5347</div><div class="q-nm">Tenaga Nasional</div><div class="q-px">RM14.34</div><div class="q-chg up">+0.28%</div></div>
       </div>
     </div>
   </div>

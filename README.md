@@ -13,6 +13,8 @@
 | [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |
 | [`strategy.html`](strategy.html) | 策略与形态手册 — 9 形态图鉴、4 套策略、K 线信号、交易心法 |
 
+**股票行情**：`stocks.html` 的价格、涨跌、52 周区间和股息率来自 `data/quotes.json`，由 `scripts/update_quotes.py`（Yahoo Finance 日线）生成，GitHub Actions 工作流 `.github/workflows/quotes.yml` 每个交易日运行两次；页面由 `assets/stocks-live.js` 在浏览器里填入。手动更新：`python3 scripts/update_quotes.py`。
+
 **实时金价**：所有带价格的页面通过浏览器端 fetch（`api.gold-api.com`，免费无密钥，CORS 开放）实时刷新，每 60 秒更新一次。首页与每日页另含 TradingView 实时图表/报价组件。
 
 ## 本地预览

@@ -1,0 +1,81 @@
+/* Styles for the parts of stocks.html that assets/stocks-live.js builds from data/quotes.js:
+   the data-freshness bar, the review table, and the price line on each stock card. */
+
+/* ── data freshness ── */
+.fresh{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;padding:11px 16px;margin-bottom:18px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--bg2);font-size:12px;color:var(--text);line-height:1.6}
+.fresh .dot{width:8px;height:8px;border-radius:50%;background:var(--bull);box-shadow:0 0 0 3px rgba(52,211,153,.18);flex-shrink:0}
+.fresh.old{border-color:rgba(212,167,44,.4);background:rgba(212,167,44,.06)}
+.fresh.old .dot{background:var(--gold-lt);box-shadow:0 0 0 3px rgba(212,167,44,.2)}
+.fresh.none{border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.05)}
+.fresh.none .dot{background:var(--bear);box-shadow:0 0 0 3px rgba(248,113,113,.18)}
+.fresh b{color:var(--ink);font-weight:600}
+.fresh .sep{color:var(--bg4)}
+.fresh .when{margin-left:auto;color:var(--dim);font-size:11px}
+
+/* ── review section ── */
+.rv{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;box-shadow:var(--shadow-sm);margin-bottom:18px}
+.rv-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px 18px;flex-wrap:wrap;margin-bottom:6px}
+.rv h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:19px;font-weight:700;color:var(--ink);letter-spacing:-.4px}
+.rv h2 small{font-size:12px;font-weight:500;color:var(--dim);margin-left:8px}
+.rv-intro{font-size:12.5px;color:var(--dim);line-height:1.75;margin-bottom:16px;max-width:90ch}
+.rv-hi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.rv-hc{display:grid;gap:3px;text-align:left;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;cursor:pointer;transition:border-color .15s,transform .15s;color:inherit;font:inherit;min-width:0}
+.rv-hc:hover{border-color:rgba(184,134,11,.5);transform:translateY(-1px)}
+.rv-hc .hk{font-size:11px;color:var(--dim)}
+.rv-hc .hn{font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-hc .hv{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px}
+.rv-hc .hv.up{color:var(--bull)} .rv-hc .hv.down{color:var(--bear)} .rv-hc .hv.gold{color:var(--gold-lt)}
+.rv-bar{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin-bottom:12px}
+.rv-seg{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--border);border-radius:999px;background:var(--bg3)}
+.rv-seg button{border:0;background:transparent;color:var(--dim);font:600 12px/1 'Space Grotesk','Noto Sans SC',sans-serif;padding:8px 13px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.rv-seg button:hover{color:var(--ink)}
+.rv-seg button[aria-pressed="true"]{background:var(--bg2);color:var(--ink);box-shadow:0 0 0 1px var(--border-2) inset}
+.rv-prog{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim)}
+.rv-prog .track{width:90px;height:5px;border-radius:999px;background:var(--bg4);overflow:hidden}
+.rv-prog .track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--amber));border-radius:999px;transition:width .25s}
+.rv-prog button{border:1px solid var(--border);background:transparent;color:var(--dim);font-size:11px;padding:5px 10px;border-radius:999px;cursor:pointer}
+.rv-prog button:hover{color:var(--ink);border-color:var(--border-2)}
+.rv-wrap{overflow-x:auto;margin:0 -8px;padding:0 8px}
+.rv-t{width:100%;border-collapse:collapse;min-width:640px}
+.rv-t th{font-size:11.5px;font-weight:500;color:var(--dim);text-align:right;padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap;user-select:none}
+.rv-t th.l{text-align:left}
+.rv-t th button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:2px 0}
+.rv-t th button:hover{color:var(--ink)}
+.rv-t th[aria-sort] button{color:var(--gold-lt)}
+.rv-t td{padding:11px 10px;border-bottom:1px solid var(--border);text-align:right;vertical-align:middle;font-size:12.5px;white-space:nowrap}
+.rv-t tbody tr{cursor:pointer;transition:background .12s}
+.rv-t tbody tr:hover{background:rgba(255,255,255,.025)}
+.rv-t tbody tr:last-child td{border-bottom:0}
+.rv-t tbody tr.seen td{opacity:.55}
+.rv-t tbody tr.seen td.c-chk{opacity:1}
+.rv-t td.l{text-align:left;white-space:normal}
+.rv-t .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.rv-t .up{color:var(--bull)} .rv-t .down{color:var(--bear)} .rv-t .flat{color:var(--dim)}
+.rv-nm{display:flex;align-items:center;gap:9px;min-width:0}
+.rv-nm .fl{font-size:15px;flex-shrink:0}
+.rv-nm b{display:block;font-size:13px;font-weight:600;color:var(--ink);line-height:1.35}
+.rv-nm .sub{display:block;font-size:11px;color:var(--dim);line-height:1.4}
+.rv-nm .ty{display:inline-block;font-size:10px;font-weight:600;padding:1px 7px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.rv-nm .ty.growth{color:var(--bull);background:rgba(52,211,153,.10)} .rv-nm .ty.divi{color:var(--gold-lt);background:rgba(212,167,44,.12)}
+.rv-px b{display:block;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--ink)}
+.rv-pos{display:inline-flex;align-items:center;gap:8px}
+.rv-pos .t{position:relative;width:70px;height:5px;border-radius:999px;background:var(--bg4)}
+.rv-pos .t i{position:absolute;top:-3px;width:3px;height:11px;border-radius:2px;background:var(--gold-lt);transform:translateX(-50%)}
+.rv-pos .w{font-size:11px;color:var(--dim);width:30px;text-align:left}
+.rv-sc{display:inline-flex;align-items:center;justify-content:center;min-width:34px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;padding:3px 8px;border-radius:8px;background:var(--bg3);color:var(--ink)}
+.rv-sc.a{background:rgba(52,211,153,.14);color:var(--bull)} .rv-sc.b{background:rgba(212,167,44,.14);color:var(--gold-lt)} .rv-sc.c{background:rgba(248,113,113,.12);color:var(--bear)}
+.rv-chk{width:22px;height:22px;border-radius:50%;border:1px solid var(--border-2);background:var(--bg3);color:var(--bull);font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.rv-chk[aria-pressed="true"]{background:rgba(52,211,153,.16);border-color:rgba(52,211,153,.45)}
+.rv-note{font-size:11.5px;color:var(--dim);line-height:1.75;margin-top:14px}
+.rv-empty{padding:18px 10px;text-align:center;color:var(--dim);font-size:12.5px}
+@media(max-width:900px){.rv-hi{grid-template-columns:repeat(2,minmax(0,1fr))}.rv-t .c-ytd,.rv-t .c-risk{display:none}}
+@media(max-width:640px){.rv{padding:18px 14px}.rv-t{min-width:540px}.rv-t .c-m1,.rv-t .c-pos .t{display:none}.rv-t td,.rv-t th{padding:10px 6px}.rv-nm{min-width:150px}.rv-nm .fl{display:none}.rv-prog{margin-left:0;width:100%}.rv-note::before{content:"表格可以左右滑动。";color:var(--gold-dk)}}
+
+/* ── price line on each stock card, and on the US glance cards ── */
+.px-row{display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap;margin:2px 0 8px;font-size:11.5px;color:var(--dim)}
+.px-row b{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.2px}
+.px-row .pc{font-family:'IBM Plex Mono',monospace;font-weight:600}
+.px-row .pc.up{color:var(--bull)} .px-row .pc.down{color:var(--bear)} .px-row .pc.flat{color:var(--neut)}
+.stock.flash{animation:stockflash 1.6s ease}
+@keyframes stockflash{0%,60%{background:rgba(212,167,44,.12);box-shadow:0 0 0 8px rgba(212,167,44,.12);border-radius:8px}100%{background:transparent;box-shadow:none}}
+.deep-fresh{font-size:11px;color:var(--dim);margin-top:10px;line-height:1.6}
