@@ -1,5 +1,5 @@
 // Fills the home page's market summary from data files, so none of it is typed by hand and none of it goes stale:
-//   data/xau-state.json   the report page's engine, run on a server every hour (scripts/update_gold.js)
+//   data/xau-state.json   the report page's engine, run on a server by a timed job (scripts/update_gold.js)
 //   data/calendar.json    this week's US releases (scripts/update_calendar.py)
 // The live price comes from api.gold-api.com once a minute; today's change is measured from the previous close in
 // the state file. If a file cannot be read, the block says so instead of showing an old figure.
@@ -77,8 +77,10 @@
     var tfs = (st.timeframes || []).filter(function (t) { return !t.error; }), dirs = tfs.map(function (t) { return SHORT[t.tf] + (ARROW[t.trend] || "–"); }).join(" ");
     var big = tfs.slice(0, 3).map(function (t) { return t.name.replace(" ", "") + t.trend; }).join("、"), v = st.verdict || {}, go = v.level === "go";
     var dayHi = Math.max(td.high || price, price), dayLo = Math.min(td.low || price, price);
-    set("pulse-updated", "⟳ 数据 " + st.updated + " · 每小时自动更新 · 价格实时");
-    set("hub-upd", "⟳ 自动更新 · 数据文件 " + st.updated + " · 金价与图表实时");
+    // say plainly when the data file is old: the job that writes it runs on GitHub's timer, which can fall hours behind
+    var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 2;
+    set("pulse-updated", "⟳ 数据 " + st.updated + (old ? "（" + Math.round(ageH) + " 小时前，自动更新晚了）" : " · 自动更新") + " · 价格实时");
+    set("hub-upd", "⟳ 数据文件 " + st.updated + (old ? "，已是 " + Math.round(ageH) + " 小时前；方向和价位请以 4H 报告为准" : "") + " · 金价与图表实时");
     set("pulse-gold", (st.marketOpen ? "今日" : "上一交易日") + (chg === null ? "" : " " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "，区间 " + fmt(dayLo) + "–" + fmt(dayHi) + "。昨日收 " + fmt(pd.close) + "，区间 " + fmt(pd.low) + "–" + fmt(pd.high) + "。上周区间 " + fmt(pw.low) + "–" + fmt(pw.high) + "。");
     set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", (v.title || "") + "。" + ((st.watch || [])[0] ? "关注 " + fmt(st.watch[0].price) + "：" + st.watch[0].text + "。" : ""));
     set("pulse-tf", dirs); set("pulse-tf-d", "周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：" + big + "。");
