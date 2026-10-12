@@ -546,6 +546,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <span><i style="border-color:var(--m-bull);border-top-style:dashed"></i>下方支撑</span>
         <span><i class="box" style="background:var(--m-bear)"></i><i class="box" style="background:var(--m-bull)"></i>缺口</span>
         <span><i style="border-color:var(--m-blue)"></i>你的入场</span>
+        <span><i class="box" style="background:transparent;border:1px solid var(--dim)"></i>空心 = 还没收盘的 K 线（结论只看已收盘的）</span>
       </div>
       <div class="pickhint" id="pickhint" hidden></div>
       <div class="alerts" id="alerts" aria-label="到价提醒"></div>
@@ -708,9 +709,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="pop" id="pop" role="tooltip" hidden></div>
 
-<script src="assets/xau-feed.js"></script>
-<script src="assets/xau-engine.js"></script>
-<script src="assets/xau-plan.js"></script>
+<script src="assets/xau-feed.js?v=3"></script>
+<script src="assets/xau-engine.js?v=3"></script>
+<script src="assets/xau-plan.js?v=3"></script>
 <script>
 (function(){
   "use strict";
@@ -750,7 +751,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     set: function (k, v) { try { localStorage.setItem("xau4h." + k, JSON.stringify(v)); } catch (e) {} }
   };
   var S = {
-    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null,
+    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null, mins: [], tHi: null, tLo: null,
     tf: LS.get("tf", "4H"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: 100, lotStep: 0.01, spread: 0 },
@@ -758,6 +759,16 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     events: [], alertOn: LS.get("alertOn", false), alerts: LS.get("alerts", []), fired: {}, prevShown: null, hasAi: false, vLevel: null, overLadder: false
   };
   if (CHART_TFS.indexOf(S.tf) < 0) S.tf = "4H";
+  // A plan left over from the first version was made with token prices and rules the replay did not support.
+  // Move it to the saved list once, so the chart is not showing its lines next to a different answer.
+  if (LS.get("ver", 1) < 2) {
+    LS.set("ver", 2);
+    if (typeof S.plan.entry === "number" && typeof S.plan.stop === "number") {
+      S.saved.unshift({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, note: "旧版页面留下的方案" + (S.plan.note ? "：" + S.plan.note : ""), lots: null, when: "升级前", basis: "旧版（PAXG 报价、旧规则）", status: "已取消" });
+      S.saved = S.saved.slice(0, 20); LS.set("saved", S.saved);
+    }
+    S.plan = { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" }; LS.set("plan", S.plan);
+  }
 
   function $(id) { return document.getElementById(id); }
   function all(sel) { return [].slice.call(document.querySelectorAll(sel)); }
@@ -794,6 +805,20 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     if (marketOpen() && S.gapOk && num(S.raw) !== null) S.live = Math.round((S.raw + S.gap) * 100) / 100;
     else if (num(S.live) === null || !marketOpen()) S.live = S.feed ? S.feed.price : S.E.price;
     S.E.price = S.live;
+    if (num(S.live) !== null) { S.tHi = S.tHi === null ? S.live : Math.max(S.tHi, S.live); S.tLo = S.tLo === null ? S.live : Math.min(S.tLo, S.live); }
+  }
+  // The candle still forming on a timeframe: the finished quarter-hours inside it, then the finished minutes after
+  // those, then the live price. The engine never sees it (the answer is judged on closed candles only); it is drawn
+  // so the chart reaches "now".
+  function formingBar(tf) {
+    if (!S.feed || !marketOpen() || num(S.live) === null) return null;
+    var start = XauFeed.bucket(Date.now() / 1000, tf), K15 = S.feed.K["15M"] || [], o = null, hi = -Infinity, lo = Infinity, upto = start;
+    var take = function (op, h2, l2) { if (o === null) o = op; if (h2 > hi) hi = h2; if (l2 < lo) lo = l2; };
+    for (var i = 0; i < K15.length; i++) { var k = K15[i]; if (k[0] >= start * 1000) { take(k[1], k[2], k[3]); upto = (k[6] + 1) / 1000; } }
+    S.mins.forEach(function (m) { if (m[0] >= upto) take(m[1], m[2], m[3]); });
+    if (o === null) { var T = S.feed.K[tf] || [], lastC = T.length ? T[T.length - 1][4] : S.live; o = lastC; }   // nothing finished inside it yet: it opens where the last one closed
+    take(o, Math.max(o, S.live, S.tHi === null ? S.live : S.tHi), Math.min(o, S.live, S.tLo === null ? S.live : S.tLo));
+    return [start, o, hi, lo, S.live];
   }
   function r1(v) { return v === null ? null : Math.round(v * 10) / 10; }
 
@@ -966,8 +991,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     if (!t || t.error || !t.bars || t.bars.length < 5) { box.appendChild(h("p", { class: "note", text: "这个周期暂时没有 K 线数据。" })); CH = null; return; }
     var W = Math.max(300, Math.round(box.clientWidth)), H = W < 560 ? 320 : W < 800 ? 380 : 440;
     var L = 8, R = 68, T = 14, B = 26, plotW = W - L - R;
-    var n = Math.max(30, Math.min(t.bars.length, Math.floor(plotW / 7)));
-    var bars = t.bars.slice(-n).map(function (b) { return [b[0], sh(b[1]), sh(b[2]), sh(b[3]), sh(b[4])]; });
+    var fb = formingBar(S.tf), src = fb && fb[0] > t.bars[t.bars.length - 1][0] ? t.bars.concat([fb]) : t.bars, live = src !== t.bars;
+    var n = Math.max(30, Math.min(src.length, Math.floor(plotW / 7)));
+    var bars = src.slice(-n).map(function (b) { return [b[0], sh(b[1]), sh(b[2]), sh(b[3]), sh(b[4])]; });
     var lo = Infinity, hi = -Infinity; bars.forEach(function (b) { lo = Math.min(lo, b[3]); hi = Math.max(hi, b[2]); });
     var span0 = hi - lo, price = sh(S.live), extras = [price];
     FIELDS.forEach(function (k) { extras.push(num(S.plan[k])); });
@@ -1010,7 +1036,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     bars.forEach(function (b, i) {
       var up = b[4] >= b[1], col = up ? "var(--m-bull)" : "var(--m-bear)", cx = x(i), bw = Math.max(1.5, cw * 0.62);
       sv("line", { x1: cx, x2: cx, y1: y(b[2]), y2: y(b[3]), stroke: col, "stroke-width": 1 }, svg);
-      sv("rect", { x: cx - bw / 2, y: y(Math.max(b[1], b[4])), width: bw, height: Math.max(1, Math.abs(y(b[1]) - y(b[4]))), rx: bw > 4 ? 1 : 0, fill: col }, svg);
+      var open = live && i === bars.length - 1;                                  // the candle still forming is drawn hollow
+      sv("rect", { x: cx - bw / 2, y: y(Math.max(b[1], b[4])), width: bw, height: Math.max(1, Math.abs(y(b[1]) - y(b[4]))), rx: bw > 4 ? 1 : 0, fill: open ? "var(--bg2)" : col, stroke: col, "stroke-width": open ? 1.25 : 0 }, svg);
     });
 
     // plan: risk / reward wash, then lines
@@ -1072,7 +1099,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     sv("rect", { x: L, y: T, width: plotW, height: H - T - B, fill: "transparent" }, svg);
     box.appendChild(svg);
     tip = h("div", { class: "tip", hidden: true }); box.appendChild(tip);
-    CH = { bars: bars, n: n, i: n - 1 };
+    CH = { bars: bars, n: n, i: n - 1, live: live };
 
     function show(i, py) {
       i = Math.max(0, Math.min(n - 1, i)); CH.i = i;
@@ -1083,7 +1110,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       at.setAttribute("y", yy + 3.5); at.textContent = fmt(pr, 1); at.setAttribute("visibility", "visible");
       clear(tip); tip.hidden = false;
       var chg = (b[4] - b[1]) / b[1] * 100;
-      tip.appendChild(h("div", { class: "t", text: P.TF_ZH[S.tf] + " · " + sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + " SGT" }));
+      tip.appendChild(h("div", { class: "t", text: P.TF_ZH[S.tf] + " · " + sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + " SGT" + (live && i === n - 1 ? " · 还没收盘" : "") }));
       [["开盘", fmt(b[1], 2)], ["最高", fmt(b[2], 2)], ["最低", fmt(b[3], 2)], ["收盘", fmt(b[4], 2)], ["涨跌", (chg >= 0 ? "▲ +" : "▼ −") + Math.abs(chg).toFixed(2) + "%"]].forEach(function (r) {
         tip.appendChild(h("div", { class: "r" }, [h("span", { text: r[0] }), h("b", { text: r[1] })]));
       });
@@ -1112,7 +1139,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var d = $("tbl"), body = $("tbl-body"); if (!d.open || !CH) return;
     clear(body);
     var tb = h("tbody");
-    CH.bars.slice().reverse().forEach(function (b) { tb.appendChild(h("tr", null, [h("td", { text: sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") }), h("td", { text: fmt(b[1], 2) }), h("td", { text: fmt(b[2], 2) }), h("td", { text: fmt(b[3], 2) }), h("td", { text: fmt(b[4], 2) })])); });
+    CH.bars.slice().reverse().forEach(function (b, k) { tb.appendChild(h("tr", null, [h("td", { text: sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + (CH.live && k === 0 ? "（未收盘）" : "") }), h("td", { text: fmt(b[1], 2) }), h("td", { text: fmt(b[2], 2) }), h("td", { text: fmt(b[3], 2) }), h("td", { text: fmt(b[4], 2) })])); });
     body.appendChild(h("table", null, [h("thead", null, [h("tr", null, [h("th", { text: P.TF_ZH[S.tf] + " · SGT" }), h("th", { text: "开" }), h("th", { text: "高" }), h("th", { text: "低" }), h("th", { text: "收" })])]), tb]));
   }
 
@@ -1685,8 +1712,14 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error("行情接口没有返回数据");
       S.feed = feed; S.E = E; S.lastRun = Date.now(); S.lastQ = Math.floor((Date.now() - 25000) / 900000);
       calibrate(); setLive();
-      // no fresh spot quote from the price service: measure the gap against the last finished spot minute instead
-      if (feed.source === "spot" && marketOpen() && Date.now() - S.spotAt > 3 * 60000) XauFeed.lastMinute().then(function (m) { if (m && Date.now() - m.at < 3 * 60000 && num(S.raw) !== null) { S.spot = m.price; S.spotAt = Date.now(); calibrate(); paintLive(); } }).catch(function () {});
+      // the finished minutes since the last quarter-hour: they complete the candle that is still forming, and stand
+      // in for the price service when it has given no fresh quote
+      S.tHi = S.tLo = null; if (feed.source !== "spot") S.mins = [];
+      if (feed.source === "spot" && marketOpen()) XauFeed.minutes(20).then(function (rows) {
+        S.mins = rows; var m = rows[rows.length - 1];
+        if (m && Date.now() - S.spotAt > 3 * 60000 && Date.now() - (m[0] + 60) * 1000 < 3 * 60000 && num(S.raw) !== null) { S.spot = m[4]; S.spotAt = Date.now(); calibrate(); }
+        paintLive(); if (!busyUi()) drawChart();
+      }).catch(function () {});
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; syncInputs(); } }
       var was = S.vLevel;
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";

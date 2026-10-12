@@ -159,10 +159,11 @@ var XauFeed = (function () {
       return loadPaxg(nowMs, "spot");
     });
   }
-  // the last finished 1-minute spot bar: a second opinion on the live price
-  function lastMinute() { return duk("1MIN", 2, 8000).then(function (rows) { var r = rows[rows.length - 1]; return r ? { price: r[4], at: (r[0] + 60) * 1000 } : null; }); }
+  // the last n finished 1-minute spot bars, rows of [tSec, o, h, l, c]: for the candle still forming, and as a
+  // second opinion on the live price
+  function minutes(n) { return duk("1MIN", n || 20, 8000); }
 
-  return { load: load, lastMinute: lastMinute, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
+  return { load: load, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
     spotCandles: spotCandles, paxgCandles: paxgCandles, clean: clean, NEED: NEED, DUK: DUK, BIN: BIN, SPOT: SPOT };   // the pure parts, for scripts/update_gold.js
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauFeed;
