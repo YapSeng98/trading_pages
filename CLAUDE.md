@@ -1,8 +1,9 @@
 # Trading Pages — Auto-Refresh Instructions
 
 This repo is a static GitHub Pages trading site at https://yapseng98.github.io/trading_pages/.  
-A scheduled Claude Code session refreshes the written content once a day at 09:00 SGT.  
-Stock prices are not its job: a GitHub Actions workflow writes them to `data/quotes.json` (see "Stock market data").
+A scheduled Claude Code session refreshes the written content once a day at 10:10 SGT.  
+Numbers are not its job. GitHub Actions workflows write them to data files, and the refresh reads those files:
+stock prices in `data/quotes.json`, gold in `data/xau-state.json`, the economic calendar in `data/calendar.json`.
 
 ---
 
@@ -10,9 +11,9 @@ Stock prices are not its job: a GitHub Actions workflow writes them to `data/quo
 
 | File | What to update |
 |------|----------------|
-| `daily.html` | hdate chip, hprice-chg, bias bar, snapshot, S/R table, scenarios, session plan, calendar, multi-timeframe table |
+| `daily.html` | hdate chip, hprice-chg, bias bar, snapshot, S/R table, scenarios, session plan, calendar, multi-timeframe table. Every gold number comes from `data/xau-state.json` and every calendar row from `data/calendar.json`; see "Gold facts". |
 | `news.html` | hdate, price chip (`<!--LIVEPRICE-->` markers), hprice-chg, TL;DR, 5 news items, key levels |
-| `risk.html` | hdate, calendar rows, scenario probabilities (`.scen-prob`), staged plan |
+| `risk.html` | hdate, calendar rows (from `data/calendar.json`), scenario probabilities (`.scen-prob`), staged plan |
 | `index.html` | Main tile chips, news tile chip, risk tile chip, footer `.upd`, Market Pulse (`#pulse-dxy` / `#pulse-fed` / `#pulse-event` / `#pulse-event-d` / `#pulse-gold` / `#pulse-list` 3×`<li>`), GOLD7 array |
 | `stocks.html` | `hdate` date line only, exactly `YYYY年M月D日（星期X）HH:MM SGT&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类` with nothing appended (the page has its own data-freshness bar). Every market number on this page is filled in by the browser; see "Stock market data". Do NOT touch `#review`, `#fresh`, `#usBoard` or any `.q-thesis` / `.px-row` line: all are JS-generated. |
 | **`potential.html`** | **`hdate` date line + `.upd-stamp` timestamp** (format: `⟳ 时间戳更新 · YYYY-MM-DD HH:MM SGT · 内容每周一深度研究刷新`) |
@@ -27,18 +28,34 @@ Stock prices are not its job: a GitHub Actions workflow writes them to `data/quo
 - When writing or reviewing research text, read `data/quotes.json` for the facts and make the text agree with it: a card must not quote a price, yield or 52-week position that contradicts the data. Do not fetch Yahoo for these from the cloud session; it is blocked there.
 - To add or remove a stock, add or remove its `.stock` card (with its `.tk`); the script and the review table follow. A new SG/MY stock also needs a `.q-card` whose `data-symbol` equals that `.tk`.
 
+## Gold facts — written by a script, quoted by the refresh
+
+`.github/workflows/market.yml` runs two scripts at 09:40 SGT and every 4 hours:
+
+- `scripts/update_gold.js` runs the report page's own engine on real spot gold and writes `data/xau-state.json`: `price` (close of the last finished 15-minute candle, with `priceTime`), `today` (open, high, low and change since the previous close; the trading day rolls at 17:00 New York), `previousDay`, `thisWeek`, `previousWeek`, `verdict` (the same answer `report.html` shows), `plan` (only when the verdict is "go"), `watch` (the prices that would change the verdict), `timeframes` (per timeframe: `trend`, `since`, `rsi`, `atr`, EMAs, `range`, `lastBreak`, the price that would turn it), `resistance` and `support`.
+- `scripts/update_calendar.py` writes `data/calendar.json`: this week's US releases of medium or high impact, times already in Singapore time, with forecast and previous values.
+
+Rules for the refresh when it writes `daily.html` and `risk.html`:
+
+- Take every gold number from `data/xau-state.json`: the price, today's and yesterday's range, each timeframe's direction and RSI, the support and resistance levels. Do not take a price, level or indicator reading from a web search result. If the file's `updated` time is more than 6 hours old, say on the page that the figures are as of that time.
+- The direction call follows `verdict`. The site's trading rule is: trade only when the weekly, daily and 4-hour trends agree, enter when the 1-hour and 15-minute agree too, stop 3 x the 1-hour ATR, target 3R or a trailing stop. `data/xau-backtest.json` has the 16-year replay behind it. Do not write an entry plan that goes against `verdict`, and do not present tighter stops or "buy the dip in the zone" entries as the plan: the replay found no edge in them.
+- The two `.risk-list li` lines in `daily.html` keep their shape. When `plan` is present, write the matching side from it: `多头入场方案：现价 $X 附近顺势做多，止损$X，TP1: $X` (or `空头入场方案：…`). For a side with no plan, write `多头入场方案：暂无。<verdict 的一句话原因>` with no dollar figure before the reason, so the report page does not offer it as a preset.
+- Take calendar rows from `data/calendar.json` (dates, weekdays and times as given there). Use WebSearch for what the search is good at: why gold moved, what the releases showed, what the Fed said.
+
 ## Live page — never edited by the refresh
 
 `report.html` (4H 多周期报告与交易计划) computes everything in the visitor's browser, so it has no data values to refresh:
 
-- `assets/xau-engine.js` pulls PAXG/USDT candles from `data-api.binance.vision` and runs the multi-timeframe structure engine. It mirrors `engine.js` of the "XAU 4-Hour Report" artifact (engine id `xau-mtf-1`); if that engine changes, copy the analysis functions across and keep the cross-origin `XAU_API` fetch.
-- `assets/xau-plan.js` derives key levels, entry candidates, position size and the pre-trade checklist. It is pure and can be loaded in Node to test the maths.
-- At view time the page also reads `risk.html` (`table.cal` rows: `.cal-date`, `.cal-time` as `HH:MM SGT`, `.imp`, `.cal-event`, a `✓` marking finished events) and `daily.html` (the two `.risk-list li` lines `多头入场方案：…止损$X，TP1: $X，TP2: $X` and `空头入场方案：…`). Keep those class names and that line shape when refreshing those pages.
-- `data/xau-report.json` is a snapshot of the newest document in the `reports` collection of that artifact (https://claude.ai/artifact/SLbPQauRyYqyvv3RVU9vHS) without its `charts` field. To refresh it: read the document with the ArtifactData tool, drop `charts`, write the file, commit. The page folds the write-up away as "may be outdated" once it is over 12 hours old.
+- `assets/xau-feed.js` gets the candles: real spot XAU/USD from Dukascopy's chart feed (JSONP, not a documented API), with days cut at 17:00 New York like an MT5 broker chart and the weekend removed. If that feed does not answer it falls back to Binance PAXG/USDT moved onto the spot price and the page says so. The tick-by-tick price is the Binance PAXG stream calibrated against `api.gold-api.com`.
+- `assets/xau-engine.js` (engine id `xau-mtf-2`) reads the candles: structure trend per timeframe, gaps, patterns, and how many timeframes agree.
+- `assets/xau-plan.js` turns that into the verdict, the plan (stop 3 x 1H ATR, target 3R or trailing stop), position size and the checklist. It is pure and loads in Node.
+- `data/xau-backtest.json` holds the replay results shown in the page's "回放成绩" tab. `research/xau-replay/` has the tools that produce it and a README on how the rule was chosen. The page and the replay run the same engine and plan files: after changing either, run the replay again before trusting the numbers on the page.
+- At view time the page also reads `data/calendar.json` (falling back to `risk.html`'s `table.cal` rows: `.cal-date`, `.cal-time` as `HH:MM SGT`, `.imp`, `.cal-event`, a `✓` marking finished events) and `daily.html` (the two `.risk-list li` lines `多头入场方案：…` and `空头入场方案：…`). Keep those class names and that line shape when refreshing those pages.
+- `data/xau-report.json` is an old one-off snapshot of the "XAU 4-Hour Report" artifact (https://claude.ai/artifact/SLbPQauRyYqyvv3RVU9vHS). The page hides it once it is more than a day old.
 
-The refresh routine must NOT edit `report.html`, `assets/`, `data/`, `scripts/` or `.github/`. Every page's navbar links to `report.html`; keep that link.
+The refresh routine must NOT edit `report.html`, `assets/`, `data/`, `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html`; keep that link.
 
-## Weekly deep refresh — Monday 09:00 SGT only
+## Weekly deep refresh — Monday only
 
 `stocks.html` full content review, using `data/quotes.json` for every market fact: on each `.stock` card the `<p>` thesis, `.metric`, `.risk-tag`, `.score-v` and the matching `.score-fill` width; on the five `.deep` cards the text columns, market cap and P/E; on each market tab the bull / bear / catalyst cards and the AI synthesis; and the one-line summary. When that is done, set the second date in the footer `.upd-stamp` to today.  
 `potential.html` full stock research content (target prices, bull/bear lists, scores).
@@ -48,7 +65,7 @@ The refresh routine must NOT edit `report.html`, `assets/`, `data/`, `scripts/` 
 ## Critical rules
 
 - **NEVER** change HTML structure / CSS / JS — text and data values only.
-- **NEVER** use Google Finance (blocked). Use Yahoo Finance (primary), klsescreener.com, or WebSearch.
+- **NEVER** use Google Finance (blocked). For numbers, read the data files above; they are written from Yahoo Finance and the gold feed by scripts. Use WebSearch for news and context.
 - **Yahoo Finance fetch method** (this is what `scripts/update_quotes.py` does)**:** use the chart API, not the rendered quote page — `curl -s "https://query1.finance.yahoo.com/v8/finance/chart/TICKER?interval=1d&range=10d" -H "User-Agent: Mozilla/5.0"`. Compute price/% change from the **last two non-null entries in the response's `timestamp` / `indicators.quote[0].close` arrays** — never from `meta.previousClose` or `meta.regularMarketPrice`, which can reference a stale/inconsistent baseline (confirmed case: 0166.KL showed +10.36% via meta fields vs. the correct +1.66% from the close array).
 - Keep old values on API/fetch error — never blank a field.
 - **GOLD7 array (`index.html`, `var GOLD7=`) — this has broken before, follow exactly:**

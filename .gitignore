@@ -1,2 +1,4 @@
 .DS_Store
 .github/workflows/update-price.yml
+# 1-minute history and replay output: large, and can be downloaded again
+research/xau-replay/data/

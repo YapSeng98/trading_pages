@@ -4,7 +4,7 @@ name: Update stock quotes
 
 on:
   schedule:
-    - cron: "20 0 * * 2-6"   # 08:20 SGT, Tue-Sat: after the US close, before the 09:00 daily refresh
+    - cron: "20 0 * * 2-6"   # 08:20 SGT, Tue-Sat: after the US close, before the daily refresh
     - cron: "40 9 * * 1-5"   # 17:40 SGT, Mon-Fri: after the Singapore and Malaysia close
   workflow_dispatch:
   push:

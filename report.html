@@ -156,7 +156,7 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 .tfc.bull{border-color:rgba(52,211,153,.32);background:rgba(52,211,153,.07)} .tfc.bull .a{color:var(--bull)}
 .tfc.bear{border-color:rgba(248,113,113,.32);background:rgba(248,113,113,.07)} .tfc.bear .a{color:var(--bear)}
 .tfc .w{font-size:10.5px;color:var(--dim)}
-.tfg{display:grid;grid-template-columns:2fr 1fr 2fr;gap:6px;margin-top:6px;font-size:10.5px;color:var(--dim);text-align:center}
+.tfg{display:grid;grid-template-columns:3fr 2fr;gap:6px;margin-top:6px;font-size:10.5px;color:var(--dim);text-align:center}
 .tfg span{border-top:1px solid var(--border-2);padding-top:5px}
 .v-range{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding-top:20px;border-top:1px solid var(--border)}
 .vr-end{display:grid;gap:1px}
@@ -416,6 +416,40 @@ footer .disc strong{color:var(--text)}
 .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:#17130A;font:600 12.5px/1 var(--f-d);padding:11px 18px;border-radius:999px;box-shadow:var(--shadow-md);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:99}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.v-proof{font-size:12px;color:var(--dim);line-height:1.75;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.v-proof b{color:var(--text);font-weight:600}
+.v-proof button{border:0;background:none;color:var(--gold-lt);font:inherit;cursor:pointer;padding:0;margin-left:4px}
+.v-proof button:hover{text-decoration:underline}
+/* replay results */
+.pf-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:20px}
+.pf-t{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:13px 15px;min-width:0}
+.pf-t .k{font-size:11px;color:var(--dim)}
+.pf-t .v{font:700 21px/1.35 var(--f-d);color:var(--ink);letter-spacing:-.3px}
+.pf-t .v.up{color:var(--bull)} .pf-t .v.dn{color:var(--bear)}
+.pf-t .d{font-size:11px;color:var(--dim);line-height:1.55;margin-top:2px}
+table.pf{width:100%;border-collapse:collapse;min-width:620px}
+.pf th{font-size:11.5px;font-weight:500;color:var(--dim);text-align:right;padding:8px 9px;border-bottom:1px solid var(--border);white-space:nowrap}
+.pf th.l,.pf td.l{text-align:left}
+.pf td{padding:11px 9px;border-bottom:1px solid var(--border);font-size:12.5px;text-align:right;vertical-align:top;white-space:nowrap}
+.pf td.l{white-space:normal;min-width:190px;color:var(--text)}
+.pf td.l small{display:block;color:var(--dim);font-size:11px;line-height:1.5;margin-top:2px}
+.pf td.num{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+.pf tr:last-child td{border-bottom:0}
+.pf tr.hl td{background:rgba(184,134,11,.07)}
+.pf .up{color:var(--bull)} .pf .dn{color:var(--bear)}
+.pf-yr{display:grid;gap:5px;margin:4px 0 20px}
+.pf-yr .row{display:grid;grid-template-columns:40px minmax(0,1fr) 112px;gap:10px;align-items:center;font-size:12px}
+.pf-yr .y{color:var(--dim);font-family:var(--f-m)}
+.pf-yr .trk{position:relative;height:14px;border-radius:4px;background:var(--bg3)}
+.pf-yr .trk i{position:absolute;top:0;bottom:0;border-radius:4px}
+.pf-yr .trk i.up{background:var(--m-bull)} .pf-yr .trk i.dn{background:var(--m-bear)}
+.pf-yr .trk .z{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--border-2)}
+.pf-yr .val{font-family:var(--f-m);text-align:right;color:var(--text);white-space:nowrap}
+.pf-list{display:grid;gap:9px;margin:0 0 20px;padding:0;list-style:none}
+.pf-list li{position:relative;padding-left:18px;font-size:12.5px;line-height:1.75;color:var(--text)}
+.pf-list li::before{content:"";position:absolute;left:3px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.pf-list li b{color:var(--ink);font-weight:600}
+@media(max-width:700px){.pf-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -438,15 +472,12 @@ footer .disc strong{color:var(--text)}
   <header class="phead">
     <div>
       <h1>黄金 <em>4H 报告</em>与交易计划</h1>
-      <p class="sub">先看结论，再用三步做好一笔计划。行情和结论每 5 分钟自动更新。</p>
+      <p class="sub">先看结论，再用三步做好一笔计划。这页的规则都放回 2010 年以来的真实金价里重演过，成绩在「回放成绩」里。</p>
     </div>
     <div class="phead-r">
       <div style="display:flex;align-items:center;gap:6px">
-        <div class="seg" role="group" aria-label="报价基准">
-          <button type="button" data-basis="spot" aria-pressed="true">现货价 ≈</button>
-          <button type="button" data-basis="paxg" aria-pressed="false">PAXG 原始</button>
-        </div>
-        <button type="button" class="q" data-g="basis" aria-label="解释：报价基准">?</button>
+        <span class="chip neut" id="src">数据载入中</span>
+        <button type="button" class="q" data-g="basis" aria-label="解释：数据来源">?</button>
       </div>
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="stamp"><i class="ldot" id="ldot"></i><span id="stamp">正在载入行情…</span></span><button class="btn sm ghost" type="button" id="refresh-now" title="立即重新计算">⟳ 刷新</button></div>
     </div>
@@ -459,6 +490,7 @@ footer .disc strong{color:var(--text)}
     <button class="btn sm ghost" type="button" id="howto-x">知道了 ×</button>
   </div>
 
+  <div class="banner" id="feed-warn" hidden><span>⚠</span><div id="feed-warn-t"></div></div>
   <div class="banner err" id="err" hidden><span>⚠</span><div><b>行情加载失败。</b> <span id="err-t"></span> <button class="btn sm" type="button" id="retry">重试</button></div></div>
 
   <!-- the answer first -->
@@ -468,13 +500,14 @@ footer .disc strong{color:var(--text)}
       <h2 class="v-title" id="v-title"><span class="sk" style="min-width:60%"></span></h2>
       <p class="v-text" id="v-text"><span class="sk" style="min-width:90%"></span></p>
       <ul class="v-reasons" id="v-reasons"></ul>
-      <div id="v-ideas-wrap" hidden><div class="v-sub">如果想交易，等这两种情况之一</div><div class="v-ideas" id="v-ideas"></div></div>
+      <div id="v-ideas-wrap" hidden><div class="v-sub">这一笔怎么做</div><div class="v-ideas" id="v-ideas"></div></div>
+      <p class="v-proof" id="v-proof" hidden></p>
     </div>
     <div class="v-side">
       <div class="v-price">
         <div class="k" id="price-k">现价</div>
         <div class="num" id="price">—</div>
-        <div class="subl" id="price-sub">PAXG/USDT · Binance</div>
+        <div class="subl" id="price-sub">现货金 XAU/USD</div>
       </div>
       <div class="gauge">
         <svg id="gauge" viewBox="0 0 200 116" role="img" aria-label="多周期综合评分"></svg>
@@ -482,7 +515,7 @@ footer .disc strong{color:var(--text)}
       </div>
       <div>
         <div class="tfl" id="tfl"></div>
-        <div class="tfg"><span>大方向</span><span>中期</span><span>入场</span></div>
+        <div class="tfg"><span>大方向：三个都要同向</span><span>入场时机</span></div>
       </div>
       <div id="v-lines-wrap" hidden><div class="v-sub" style="margin-top:0">会改变局面的价位</div><div class="v-lines" id="v-lines"></div></div>
     </div>
@@ -511,7 +544,7 @@ footer .disc strong{color:var(--text)}
         <span><i style="border-color:var(--m-gold)"></i>现价</span>
         <span><i style="border-color:var(--m-bear);border-top-style:dashed"></i>上方阻力</span>
         <span><i style="border-color:var(--m-bull);border-top-style:dashed"></i>下方支撑</span>
-        <span><i class="box" style="background:var(--m-bear)"></i><i class="box" style="background:var(--m-bull)"></i>缺口（常用作入场区）</span>
+        <span><i class="box" style="background:var(--m-bear)"></i><i class="box" style="background:var(--m-bull)"></i>缺口</span>
         <span><i style="border-color:var(--m-blue)"></i>你的入场</span>
       </div>
       <div class="pickhint" id="pickhint" hidden></div>
@@ -523,6 +556,7 @@ footer .disc strong{color:var(--text)}
     <section class="card o3">
     <div class="tabs" role="tablist" aria-label="更多分析" id="dtabs">
       <button type="button" role="tab" data-tab="levels" aria-selected="true">关键价位</button>
+      <button type="button" role="tab" data-tab="proof" aria-selected="false">回放成绩</button>
       <button type="button" role="tab" data-tab="mtf" aria-selected="false">各周期明细</button>
       <button type="button" role="tab" data-tab="zones" aria-selected="false">缺口与形态</button>
       <button type="button" role="tab" data-tab="ai" aria-selected="false" id="tab-ai" hidden>文字解读</button>
@@ -535,8 +569,13 @@ footer .disc strong{color:var(--text)}
       <ul class="ladder" id="ladder"><li class="now"><span class="bar"></span><b>—</b><span class="lb">载入中…</span><span class="dist"></span></li></ul>
     </div>
 
+    <div class="panel" data-panel="proof" hidden>
+      <p class="p-intro">把这页的规则放回过去的真实金价里，一根 K 线一根 K 线地重演：当时会给出什么信号，照做的结果如何。点差和隔夜利息都算进去了。这是历史，不是保证。</p>
+      <div id="proof"><p class="note">正在读取回放结果…</p></div>
+    </div>
+
     <div class="panel live-data" data-panel="mtf" hidden>
-      <p class="p-intro">每个周期单独看一遍：方向怎么走、最近一次突破在哪、价格在区间里偏贵还是偏便宜。周线和日线决定大方向，1 小时和 15 分钟用来找入场。</p>
+      <p class="p-intro">每个周期单独看一遍：方向怎么走、最近一次突破在哪、价格在区间里偏贵还是偏便宜。周线、日线、4 小时决定能不能做，1 小时和 15 分钟决定什么时候进。</p>
       <div class="tablewrap">
         <table class="mx">
           <thead><tr><th>周期</th><th>方向<button type="button" class="q" data-g="structure" aria-label="解释：方向">?</button></th><th>最近一次突破<button type="button" class="q" data-g="bos" aria-label="解释：突破">?</button></th><th>在区间的位置<button type="button" class="q" data-g="zone" aria-label="解释：偏贵偏便宜">?</button></th><th>强弱<button type="button" class="q" data-g="rsi" aria-label="解释：RSI">?</button></th><th>均线<button type="button" class="q" data-g="ema" aria-label="解释：均线">?</button></th><th>形态与流动性<button type="button" class="q" data-g="liq" aria-label="解释：流动性">?</button></th></tr></thead>
@@ -547,7 +586,7 @@ footer .disc strong{color:var(--text)}
 
     <div class="panel live-data" data-panel="zones" hidden>
       <div class="two">
-        <div><div class="sub-h">缺口<button type="button" class="q" data-g="fvg" aria-label="解释：缺口">?</button></div><p class="p-intro">价格走得太急留下的空档。回到这里时常有反应，所以入场方案的入场区多半取自它们。</p><div class="zl" id="zones"></div></div>
+        <div><div class="sub-h">缺口<button type="button" class="q" data-g="fvg" aria-label="解释：缺口">?</button></div><p class="p-intro">价格走得太急留下的空档。常被当成入场区，但回放里它没有带来额外优势，这里只作参考。</p><div class="zl" id="zones"></div></div>
         <div><div class="sub-h">图表形态</div><p class="p-intro">程序在各周期上识别出的经典形态，给出关键位、目标和失效位，只作参考。</p><div id="patterns"></div></div>
       </div>
     </div>
@@ -568,11 +607,12 @@ footer .disc strong{color:var(--text)}
     <div class="panel" data-panel="help" hidden>
       <div class="sub-h">怎么用这一页</div>
       <div class="use">
-        <div><span class="hn">1</span><span><b>先看最上面的结论。</b>它只回答一件事：现在能不能做、往哪边做。三个条件（方向、位置、信号）都打勾才算到位。</span></div>
-        <div><span class="hn">2</span><span><b>在计划器里选一个方案。</b>入场、止损、目标会自动填好，图表上同时画出来。觉得不合适就直接改数字，或者点 ⌖ 在图上取价。</span></div>
-        <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少，再按你自己的规则逐项检查。</span></div>
-        <div><span class="hn">4</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。</span></div>
-        <div><span class="hn">5</span><span><b>打开「提醒我」。</b>价格到了你的入场、止损、目标，或者上面的结论变成「等信号 / 可以考虑」，页面会弹出提示并响一声。电脑上允许通知后，切到别的标签页也能收到。提醒只在这页开着的时候有效，手机上需要让这页留在屏幕上；人不在电脑前，建议在 MT5 手机 App 里对同样的价位设提醒。</span></div>
+        <div><span class="hn">1</span><span><b>先看最上面的结论。</b>它只回答一件事：现在能不能做、往哪边做。周线、日线、4 小时三个大周期同向，而且 1 小时和 15 分钟也转过来了，才算到位。其余时间的答案就是「先观望」。</span></div>
+        <div><span class="hn">2</span><span><b>在计划器里选一个方案。</b>入场、止损、目标会自动填好：按现价进，止损在 3 倍小时波幅之外，目标 3R，或者不设目标、用跟踪止损。这些数字来自回放，不建议把止损改近。</span></div>
+        <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少。回放里连亏十笔以上出现过，所以建议每笔只冒 0.5%。</span></div>
+        <div><span class="hn">4</span><span><b>持仓以后。</b>不要急着把止损挪到成本价，回放里这样做会少赚。每天看一次，把止损挪到「入场以来最好的价格」后面 2R 的位置，只往有利方向挪。上面的结论一旦变回「先观望」（4 小时方向反转），就离场。</span></div>
+        <div><span class="hn">5</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。「保存」后在「已保存」里记录结果，慢慢就能看到自己的真实胜率。</span></div>
+        <div><span class="hn">6</span><span><b>打开「提醒我」。</b>价格到了你的入场、止损、目标，或者上面的结论变了，页面会弹出提示并响一声。电脑上允许通知后，切到别的标签页也能收到。提醒只在这页开着的时候有效，手机上需要让这页留在屏幕上；人不在电脑前，建议在 MT5 手机 App 里对同样的价位设提醒。</span></div>
       </div>
       <div class="sub-h">名词解释</div>
       <div class="gl" id="gloss"></div>
@@ -591,7 +631,8 @@ footer .disc strong{color:var(--text)}
         </div>
         <div>
           <div class="sub-h">接下来的重要数据</div>
-          <div id="events"><p class="note">读取风险日历中…</p></div>
+          <div id="events"><p class="note">读取日历中…</p></div>
+          <p class="note" id="events-src" style="margin-top:8px"></p>
           <a class="btn sm" href="risk.html" style="margin-top:10px">完整日历与风险铁律 →</a>
         </div>
       </div>
@@ -604,8 +645,8 @@ footer .disc strong{color:var(--text)}
       <div class="card-head"><h2>交易计划 <small>三步完成</small></h2></div>
 
       <div class="step">
-        <div class="st-h"><span class="st-n">1</span><div><b>选一个入场方案</b><span class="d">点一下，价位自动填好。也可以跳过，自己输入</span></div></div>
-        <div class="cands live-data" id="cands"><p class="note">正在计算入场区…</p></div>
+        <div class="st-h"><span class="st-n">1</span><div><b>选一个方案</b><span class="d">按回放里有优势的规则算好的价位。也可以跳过，自己输入</span></div></div>
+        <div class="cands live-data" id="cands"><p class="note">正在计算…</p></div>
       </div>
 
       <div class="step">
@@ -622,9 +663,9 @@ footer .disc strong{color:var(--text)}
         </div>
         <details class="adv"><summary>快捷设置止损和目标</summary>
           <div class="helpers" id="helpers">
-            <div class="hr"><span class="hk">入场</span><button type="button" data-h="e-now">用现价</button><button type="button" data-h="e-zone">用入场区中点</button></div>
-            <div class="hr"><span class="hk">止损</span><button type="button" data-h="s-struct">放在结构外</button><button type="button" data-h="s-1">1 倍波幅</button><button type="button" data-h="s-1.5">1.5 倍</button><button type="button" data-h="s-2">2 倍</button><button type="button" class="q" data-g="atr" aria-label="解释：平均波幅">?</button></div>
-            <div class="hr"><span class="hk">目标</span><button type="button" data-h="t-level">下一个关键位</button><button type="button" data-h="t-2">目标 1 = 2R</button><button type="button" data-h="t-3">目标 2 = 3R</button><button type="button" class="q" data-g="r" aria-label="解释：R">?</button></div>
+            <div class="hr"><span class="hk">入场</span><button type="button" data-h="e-now">用现价</button></div>
+            <div class="hr"><span class="hk">止损</span><button type="button" data-h="s-3">3 倍波幅（回放用的）</button><button type="button" data-h="s-2">2 倍</button><button type="button" data-h="s-4">4 倍</button><button type="button" class="q" data-g="atr" aria-label="解释：平均波幅">?</button></div>
+            <div class="hr"><span class="hk">目标</span><button type="button" data-h="t-3">3R（回放用的）</button><button type="button" data-h="t-2">2R</button><button type="button" data-h="t-level">下一个关键位</button><button type="button" data-h="t-none">不设，用跟踪止损</button><button type="button" class="q" data-g="trail" aria-label="解释：跟踪止损">?</button></div>
           </div>
         </details>
       </div>
@@ -633,7 +674,7 @@ footer .disc strong{color:var(--text)}
         <div class="st-h"><span class="st-n">3</span><div><b>填账户，得到手数</b><span class="d">只保存在你的浏览器里，不会上传</span></div></div>
         <div class="fields" style="margin-top:0">
           <div class="f"><label for="in-bal">账户余额</label><div class="inp"><input id="in-bal" type="number" inputmode="decimal" step="100" min="0" placeholder="例如 5000"><span class="unit">USD</span></div></div>
-          <div class="f"><div class="lab"><label for="in-risk">这笔最多亏</label><span class="quick" id="riskq"><button type="button" data-r="0.5">0.5</button><button type="button" data-r="1">1</button><button type="button" data-r="2">2</button></span></div><div class="inp"><input id="in-risk" type="number" inputmode="decimal" step="0.1" min="0" placeholder="1"><span class="unit">%</span></div></div>
+          <div class="f"><div class="lab"><label for="in-risk">这笔最多亏</label><span class="quick" id="riskq"><button type="button" data-r="0.25">0.25</button><button type="button" data-r="0.5">0.5</button><button type="button" data-r="1">1</button></span></div><div class="inp"><input id="in-risk" type="number" inputmode="decimal" step="0.05" min="0" placeholder="0.5"><span class="unit">%</span></div></div>
         </div>
         <details class="adv"><summary>合约设置（多数 MT5 平台不用改）</summary>
           <div class="fields">
@@ -649,8 +690,8 @@ footer .disc strong{color:var(--text)}
       <ul class="checks" id="checks"></ul>
       <details class="pass" id="chk-pass" hidden><summary id="chk-pass-s">已通过的项目</summary><ul class="checks" id="checks-ok"></ul></details>
 
-      <div class="alertrow"><div><div class="at">提醒我 <button type="button" class="btn sm ghost" id="alert-test" style="padding:4px 9px;margin-left:4px">试一下</button></div><div class="ax" id="alert-x">价格到达你的入场、止损、目标，或上面的结论变成「等信号 / 可以考虑」时提醒</div></div><button type="button" class="sw" role="switch" aria-checked="false" id="alert-sw" aria-label="提醒我"></button></div>
-      <textarea class="pnote" id="in-note" placeholder="备注：要等什么信号、什么情况下放弃…"></textarea>
+      <div class="alertrow"><div><div class="at">提醒我 <button type="button" class="btn sm ghost" id="alert-test" style="padding:4px 9px;margin-left:4px">试一下</button></div><div class="ax" id="alert-x">价格到达你的入场、止损、目标，或上面的结论改变时提醒</div></div><button type="button" class="sw" role="switch" aria-checked="false" id="alert-sw" aria-label="提醒我"></button></div>
+      <textarea class="pnote" id="in-note" placeholder="备注：为什么做这笔、什么情况下离场…"></textarea>
       <div class="actions">
         <button class="btn pri" type="button" id="copy">复制计划</button>
         <button class="btn" type="button" id="save">保存</button>
@@ -662,11 +703,12 @@ footer .disc strong{color:var(--text)}
 </main>
 
 <footer>
-  <div class="disc"><strong>说明：</strong>K 线来自 Binance 的 PAXG/USDT（有实物黄金支持的代币，通常和现货金差几美元）。「现货价 ≈」模式用当前差值把所有价位整体平移，历史价位和你的平台仍可能有几美元出入，下单前以 MT5 的实际报价为准。结论、价位和形态都是程序按固定规则算出来的，不是预测。手数按 1 手 = 100 盎司、账户货币 USD 计算。<strong>本页不构成投资建议</strong>，黄金交易风险很高，可能亏掉本金。</div>
+  <div class="disc"><strong>说明：</strong>K 线是现货金（XAU/USD）的买价，来自 Dukascopy 的公开图表数据，按纽约 17:00 换日，和多数 MT5 平台的日线一致。这不是官方接口，连不上时页面会改用 PAXG 代币行情并在上方提示，那时价位可能差几美元。各家平台报价略有出入，下单前以 MT5 的实际报价为准。结论和价位是程序按固定规则算出来的，不是预测；「回放成绩」是历史结果，不代表以后。手数按 1 手 = 100 盎司、账户货币 USD 计算。<strong>本页不构成投资建议</strong>，黄金交易风险很高，可能亏掉本金。</div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="pop" id="pop" role="tooltip" hidden></div>
 
+<script src="assets/xau-feed.js"></script>
 <script src="assets/xau-engine.js"></script>
 <script src="assets/xau-plan.js"></script>
 <script>
@@ -690,13 +732,14 @@ footer .disc strong{color:var(--text)}
   var GLOSS = {
     score: ["综合评分", "把五个周期的方向加权相加：周线、日线各 3 分，4 小时 2 分，1 小时和 15 分钟各 1 分。向上记正、向下记负，范围 −10 到 +10。越靠两端，各周期方向越一致。"],
     structure: ["方向（结构）", "价格不断创出更高的高点和低点，就是向上；不断创出更低的高点和低点，就是向下。本页每个周期的方向都按这条规则判断。"],
-    bos: ["突破：BOS 与 CHoCH", "BOS 是顺着原方向又破了一个前高或前低，说明趋势延续。CHoCH 是第一次朝反方向突破，是可能转向的第一个信号；15 分钟图上的小转折常用来当入场信号。"],
-    fvg: ["缺口（FVG）", "价格走得太急，三根 K 线中间留下一段没有成交重叠的空档。价格回到这里时常有反应，所以常被用来当入场区。"],
-    zone: ["偏贵区和偏便宜区", "把最近一段行情从低点到高点当成一个区间：上半部算偏贵（溢价），下半部算偏便宜（折价）。原则是买在偏便宜、卖在偏贵。"],
-    atr: ["平均波幅（ATR）", "最近每根 K 线平均波动多少美元。止损如果比它近很多，正常的波动就可能把你扫出去。"],
-    r: ["R：风险倍数", "把止损距离当成 1R。目标 2R 的意思是：赚到的会是可能亏掉的 2 倍。赚赔比有 2:1，胜率只要超过三分之一就不亏。"],
+    bos: ["突破：BOS 与 CHoCH", "BOS 是顺着原方向又破了一个前高或前低，说明趋势延续。CHoCH 是第一次朝反方向突破，是可能转向的第一个信号。本页每个周期的「方向」就是这样翻转的。"],
+    fvg: ["缺口（FVG）", "价格走得太急，三根 K 线中间留下一段没有成交重叠的空档。价格回到这里时常有反应，常被用来当入场区；回放里它没有带来额外优势，这里只作参考。"],
+    zone: ["偏贵区和偏便宜区", "把最近一段行情从低点到高点当成一个区间：上半部算偏贵（溢价），下半部算偏便宜（折价）。常见的说法是买在偏便宜、卖在偏贵；但在黄金的回放里，顺势时在偏贵的一半进场反而更好，所以这页不把它当入场条件。"],
+    atr: ["平均波幅（ATR）", "最近每根 K 线平均波动多少美元。止损如果比它近很多，正常的波动就可能把你扫出去。回放里，止损放在 3 倍 1 小时波幅之外才显出优势，1.5 倍以内没有。"],
+    r: ["R：风险倍数", "把止损距离当成 1R。目标 2R 的意思是：赚到的会是可能亏掉的 2 倍。赚赔比有 2:1，胜率只要超过三分之一就不亏。这套规则的胜率只有四成左右，靠的是赢的单子走得远。"],
+    trail: ["跟踪止损", "价格朝你的方向走了以后，把止损跟着往有利方向挪，但绝不往回挪。这页的做法：止损保持在「入场以来最好的价格」后面 2R 的位置，每天挪一次就够。走得越远，锁住的利润越多。"],
     lots: ["手数怎么算", "黄金 1 手通常是 100 盎司：价格每动 1 美元，1 手赚或亏 100 美元，0.01 手就是 1 美元。手数 = 愿意亏的钱 ÷（止损距离 × 100）。"],
-    basis: ["现货价 ≈ 和 PAXG", "K 线来自 PAXG（有实物黄金支持的代币），它和现货金通常差几美元。「现货价 ≈」会把所有价位整体平移这个差值，更接近你在 MT5 上看到的数字。"],
+    basis: ["数据从哪来", "K 线是现货金（XAU/USD），来自 Dukascopy 的公开图表数据，按纽约 17:00 换日，和多数 MT5 平台的日线一致。跳动的现价用 Binance 上 PAXG 代币的成交推送，再按它和现货的实时差值校准。现货数据连不上时，整页会改用 PAXG 行情并在上方提示：那时价位可能和你的平台差几美元。"],
     rsi: ["强弱（RSI）", "0 到 100 的动能读数。70 以上偏热，30 以下偏冷，50 上下代表多空大致均衡。"],
     ema: ["均线（EMA）", "最近 20、50、200 根 K 线的平均价。价格和三条线从上到下依次排开叫多头排列，反过来叫空头排列。"],
     liq: ["流动性：等高和等低", "几个高点或低点几乎一样高，那里通常堆着很多止损单。价格常常先去扫一下那里，再反向走。"]
@@ -707,10 +750,10 @@ footer .disc strong{color:var(--text)}
     set: function (k, v) { try { localStorage.setItem("xau4h." + k, JSON.stringify(v)); } catch (e) {} }
   };
   var S = {
-    E: null, live: null, spot: null, off: 0, offOk: false, busy: false, lastRun: 0, lastShown: null,
-    tf: LS.get("tf", "4H"), basis: LS.get("basis", "spot"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
+    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null,
+    tf: LS.get("tf", "4H"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
-    acct: LS.get("acct", null) || { balance: null, riskPct: 1, contract: 100, lotStep: 0.01, spread: 0 },
+    acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: 100, lotStep: 0.01, spread: 0 },
     manual: LS.get("manual", {}), saved: LS.get("saved", []), armed: null, openLevel: null, daily: [], hadPlan: LS.get("plan", null) !== null,
     events: [], alertOn: LS.get("alertOn", false), alerts: LS.get("alerts", []), fired: {}, prevShown: null, hasAi: false, vLevel: null, overLadder: false
   };
@@ -734,16 +777,23 @@ footer .disc strong{color:var(--text)}
   function mark(ok) { return h("span", { class: "ck " + (ok === true ? "ok" : ok === false ? "no" : "na"), text: ok === true ? "✓" : ok === false ? "✕" : "–", "aria-label": ok === true ? "满足" : ok === false ? "不满足" : "暂不适用" }); }
 
   // ---------- price basis ----------
-  function offNow() { return S.basis === "spot" && S.offOk ? S.off : 0; }
-  function sh(p) { p = num(p); return p === null ? null : p + offNow(); }      // raw PAXG -> shown
-  function unsh(p) { p = num(p); return p === null ? null : p - offNow(); }    // shown -> raw PAXG
-  function basisName() { return S.basis === "spot" && S.offOk ? "现货价校准（PAXG " + (S.off >= 0 ? "+" : "−") + Math.abs(S.off).toFixed(1) + "）" : "PAXG 原始报价"; }
+  // Everything the engine returns is already a spot price. Only the tick stream is PAXG: each tick is moved onto
+  // spot by the gap between the two (S.gap), which is measured again whenever a fresh spot quote arrives.
+  function sh(p) { return num(p); }
+  function unsh(p) { return num(p); }
+  function marketOpen() { return !XauFeed.closed(Date.now() / 1000); }
+  function basisName() { return S.feed && S.feed.source === "paxg" ? "PAXG 代币行情校准到现货（备用数据源）" : "现货金 XAU/USD，Dukascopy 买价，纽约 17:00 换日"; }
   function calibrate() {
-    if (num(S.spot) === null || num(S.live) === null) return;
-    var o = Math.round((S.spot - S.live) * 10) / 10;
-    if (Math.abs(o) > 60) { S.offOk = false; return; }                         // a gap this large means a bad quote, not a basis
-    if (!S.offOk || Math.abs(o - S.off) >= 0.3) S.off = o;
-    S.offOk = true;
+    if (num(S.spot) === null || num(S.raw) === null || !marketOpen() || Date.now() - S.spotAt > 3 * 60000) return;
+    var g = S.spot - S.raw; if (Math.abs(g) > 80) return;                       // a gap this large means a bad quote, not a basis
+    S.gap = Math.round(g * 100) / 100; S.gapOk = true; setLive();
+  }
+  // The live price: a calibrated tick while the market is open, else the close of the last finished candle.
+  function setLive() {
+    if (!S.E) return;
+    if (marketOpen() && S.gapOk && num(S.raw) !== null) S.live = Math.round((S.raw + S.gap) * 100) / 100;
+    else if (num(S.live) === null || !marketOpen()) S.live = S.feed ? S.feed.price : S.E.price;
+    S.E.price = S.live;
   }
   function r1(v) { return v === null ? null : Math.round(v * 10) / 10; }
 
@@ -794,24 +844,29 @@ footer .disc strong{color:var(--text)}
     sv("text", { x: 186, y: 113, "text-anchor": "middle" }, svg).textContent = "多";
     svg.setAttribute("aria-label", "综合评分 " + sc + "，范围 −10 到 +10：" + P.scoreWord(sc));
   }
+  function sysPlanNow(trail) { var R = P.regime(S.E); return R.dir ? P.systemPlan(S.E, R.dir, { trail: !!trail }) : null; }
+  function toPlan() { var r = $("plan").getBoundingClientRect(); if (r.top > window.innerHeight - 200 || r.top < 0) $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); }
   function renderVerdict() {
-    var E = S.E, ov = E.overall || {}, V = P.verdict(E, sh), box = $("verdict");
+    var E = S.E, ov = E.overall || {}, V = P.verdict(E), box = $("verdict"), nw = newsCheck();
     box.className = "verdict live-data " + V.level;
     $("v-tag").textContent = (V.closed ? "休市中 · " : "") + V.tag;
     $("v-title").textContent = V.title; $("v-text").textContent = V.text;
-    var rs = clear($("v-reasons"));
-    V.reasons.forEach(function (r) { rs.appendChild(h("li", null, [h("div", { class: "rl" }, [mark(r.ok), r.label]), h("div", { class: "rt", text: r.text })])); });
+    var rs = clear($("v-reasons")), reasons = V.reasons.slice();
+    reasons.push(V.closed ? { label: "时机", ok: false, text: "黄金休市中，开盘后再看" } : nw ? { label: "时机", ok: nw.ok, text: nw.detail } : { label: "时机", ok: null, text: "没读到日历：进场前自己看一眼有没有大数据" });
+    reasons.forEach(function (r) { rs.appendChild(h("li", null, [h("div", { class: "rl" }, [mark(r.ok), r.label]), h("div", { class: "rt", text: r.text })])); });
 
-    var iw = $("v-ideas-wrap"), il = clear($("v-ideas")), ideas = V.ideas.slice();
-    if (V.cand) ideas.push({ side: V.cand.side, cand: V.cand, text: (V.cand.side === "long" ? "买入区 " : "卖出区 ") + fmt(sh(V.cand.zoneBottom), 0) + "–" + fmt(sh(V.cand.zoneTop), 0) + " · 止损 " + fmt(sh(V.cand.stop), 0) + (V.cand.tp1 !== null ? " · 目标 " + fmt(sh(V.cand.tp1), 0) : ""), note: "顺着日线和 4 小时的方向" });
-    iw.hidden = !ideas.length; iw.querySelector(".v-sub").textContent = V.cand ? "这次的入场方案" : "如果想交易，等这两种情况之一";
-    ideas.forEach(function (it) {
-      var sell = it.side === "short";
-      il.appendChild(h("div", { class: "v-idea" }, [h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? "▼ 做空" : "▲ 做多" }), h("div", { class: "tx" }, [it.text, h("small", { text: it.note })]),
-        h("button", { type: "button", class: "btn sm", text: "填进计划 →", onclick: function () { loadCandidate(shownCand(it.cand), sell ? "做空方案" : "做多方案"); var r = $("plan").getBoundingClientRect(); if (r.top > window.innerHeight - 200 || r.top < 0) $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); } })]));
-    });
+    var iw = $("v-ideas-wrap"), il = clear($("v-ideas")), k = V.plan; iw.hidden = !k;
+    if (k) {
+      var sell = k.side === "short";
+      iw.querySelector(".v-sub").textContent = V.level === "go" ? "这一笔怎么做" : "小周期转回来以后，这一笔会是这样（价位到时会变）";
+      il.appendChild(h("div", { class: "v-idea" }, [h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? "▼ 做空" : "▲ 做多" }),
+        h("div", { class: "tx" }, [(sell ? "现价卖出 " : "现价买入 ") + fmt(k.entry, 1) + " · 止损 " + fmt(k.stop, 1) + " · 目标 " + fmt(k.tp1, 1) + "（3R）",
+          h("small", { text: "止损离入场 " + fmt(k.dist, 0) + " 美元，是 3 倍小时波幅。也可以不设目标：每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + " 美元" })]),
+        h("button", { type: "button", class: "btn sm", text: "填进计划 →", onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "目标 3R 方案"); toPlan(); } })]));
+    }
     var lw = $("v-lines-wrap"), ll = clear($("v-lines")); lw.hidden = !V.lines.length;
-    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(sh(l.price), 1) }), h("span", { text: l.text })])); });
+    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", { text: l.text })])); });
+    renderProofLine(V);
 
     var chips = clear($("v-chips")), now = Date.now(), ss = sessionState(now);
     if (ov.marketOpen !== false && ss.open.length) chips.appendChild(h("span", { class: "chip gold", text: ss.open.join(" + ") + (ss.overlap ? " 重叠" : "") }));
@@ -828,18 +883,18 @@ footer .disc strong{color:var(--text)}
       tfl.appendChild(h("div", { class: "tfc " + (v.v === 1 ? "bull" : v.v === -1 ? "bear" : ""), title: P.TF_ZH[v.tf] + (v.v === 1 ? " 向上" : v.v === -1 ? " 向下" : " 不明") + "，权重 " + v.w }, [h("div", { class: "n", text: P.TF_ZH[v.tf].replace(" ", "") }), h("div", { class: "a", text: v.v === 1 ? "▲" : v.v === -1 ? "▼" : "—" }), h("div", { class: "w", text: v.v === 1 ? "向上" : v.v === -1 ? "向下" : "不明" })]));
     });
 
-    $("closed").hidden = ov.marketOpen !== false;
+    $("closed").hidden = !V.closed;
     S.vLevel = V.level; paintLive();
   }
   // The parts that move with every price tick: the number, and where it sits between support and resistance.
   function paintLive() {
     var E = S.E; if (!E) return;
-    var shown = sh(S.live), spotMode = S.basis === "spot" && S.offOk, pe = $("price");
-    $("price-k").textContent = spotMode ? "现价 · 现货金 ≈" : "现价 · PAXG";
+    var shown = sh(S.live), pe = $("price"), open = marketOpen(), paxg = S.feed && S.feed.source === "paxg";
+    $("price-k").textContent = open ? "现价 · 现货金" : "收盘价 · 现货金";
     pe.textContent = fmt(shown, 2);
     if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
     S.lastShown = shown;
-    $("price-sub").textContent = spotMode ? "PAXG " + fmt(S.live, 2) + "，和现货差 " + (S.off >= 0 ? "+" : "−") + Math.abs(S.off).toFixed(1) : "PAXG/USDT · Binance" + (S.basis === "spot" ? " · 现货校准暂不可用" : "");
+    $("price-sub").textContent = !open ? "休市中，周一约 06:00 SGT 开盘" : S.gapOk && num(S.raw) !== null ? "实时推送，已按现货校准" + (paxg ? "（备用数据源）" : "") : "最近一根 15 分钟 K 线的收盘价，实时报价连接中";
     // where price sits between the nearest support and resistance
     var nr = P.nearest(E), vr = $("v-range"); vr.hidden = !(nr.sup && nr.res);
     if (nr.sup && nr.res) {
@@ -1142,31 +1197,28 @@ footer .disc strong{color:var(--text)}
     replan(); toast("已填好：" + label);
   }
   function shownCand(c) { return { side: c.side, entry: r1(sh(c.entry)), stop: r1(sh(c.stop)), tp1: r1(sh(c.tp1)), tp2: r1(sh(c.tp2)) }; }
-  function isSel(c) { return S.plan.side === c.side && num(S.plan.entry) !== null && Math.abs(S.plan.entry - c.entry) < 0.06 && num(S.plan.stop) !== null && Math.abs(S.plan.stop - c.stop) < 0.06; }
+  function isSel(c) { return S.plan.side === c.side && num(S.plan.entry) !== null && Math.abs(S.plan.entry - c.entry) < 0.06 && num(S.plan.stop) !== null && Math.abs(S.plan.stop - c.stop) < 0.06 && (num(S.plan.tp1) === null) === (num(c.tp1) === null); }
   function renderCands() {
-    var el = clear($("cands")), E = S.E, C = P.candidates(E), D = E.tfs.D, dTrend = D && !D.error ? D.trend : null;
-    var card = function (k, side, tagline, line, sub, rr, label) {
+    var el = clear($("cands")), E = S.E, R = P.regime(E);
+    var card = function (k, side, tagline, line, sub, rr, label, live) {
       var btn = h("button", { type: "button", class: "cand" + (isSel(k) ? " sel" : ""), "aria-pressed": String(isSel(k)), title: "把这个方案填进计划" }, [
         h("span", { class: "cs " + side, text: side === "long" ? "▲ 做多" : "▼ 做空" }),
         h("span", null, [h("div", { class: "ct", text: line }), h("div", { class: "cd", text: tagline + (sub ? " · " + sub : "") })]),
-        h("span", { class: "cr" }, [rr === null ? "—" : rr.toFixed(1) + "R", h("small", { text: "赚赔比" })])
+        h("span", { class: "cr" }, [rr === null ? "跟踪" : rr.toFixed(1) + "R", h("small", { text: rr === null ? "不设目标" : "赚赔比" })])
       ]);
-      btn.addEventListener("click", function () { loadCandidate(k, label); });
+      btn.addEventListener("click", function () { loadCandidate(live ? live() || k : k, label); });
       el.appendChild(btn);
     };
-    [C.long, C.short].forEach(function (c) {
-      if (!c) return;
-      var buy = c.side === "long", k = shownCand(c), withTrend = (buy && dTrend === "bullish") || (!buy && dTrend === "bearish");
-      var tagline = c.aligned ? "当前建议 · 顺势" : withTrend ? "顺着日线方向" : "逆着日线方向";
-      var st = c.state === "ready" ? "条件已到位" : c.state === "inzone" ? "价格已到，等 15 分钟信号" : "价格还没到";
-      card(k, c.side, tagline, "到 " + fmt(sh(c.zoneBottom), 0) + "–" + fmt(sh(c.zoneTop), 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), st + (c.stopAtr < 0.8 ? " · 止损偏近" : ""), c.rr1, buy ? "做多方案" : "做空方案");
+    if (R.dir) [false, true].forEach(function (trail) {
+      var k = P.systemPlan(E, R.dir, { trail: trail }); if (!k) return; var buy = R.dir > 0;
+      card(k, k.side, R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
+        "止损 " + fmt(k.dist, 0) + " 美元 = 3 倍小时波幅", trail ? null : P.SYS.targetR, trail ? "跟踪止损方案" : "目标 3R 方案", function () { return sysPlanNow(trail); });
     });
+    else el.appendChild(h("p", { class: "note", text: "周线、日线、4 小时还不一致。回放里这时进场没有优势，所以这里不给方案；可以直接在第 2 步输入价位做练习。" }));
     S.daily.forEach(function (d) {
-      var adj = S.basis === "spot" ? 0 : -S.off, buy = d.side === "long";                 // the daily page quotes spot prices
-      var k = { side: d.side, entry: r1(d.entry + adj), stop: r1(d.stop + adj), tp1: d.tp1 === null ? null : r1(d.tp1 + adj), tp2: d.tp2 === null ? null : r1(d.tp2 + adj) };
-      card(k, d.side, "来自每日分析", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
+      var buy = d.side === "long", k = { side: d.side, entry: r1(d.entry), stop: r1(d.stop), tp1: d.tp1 === null ? null : r1(d.tp1), tp2: d.tp2 === null ? null : r1(d.tp2) };
+      card(k, d.side, "来自每日分析，没有回放过", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
     });
-    if (!el.firstChild) el.appendChild(h("p", { class: "note", text: "暂时算不出入场区，可以直接在第 2 步输入价位。" }));
   }
   function currentSize() { return P.size({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, balance: S.acct.balance, riskPct: S.acct.riskPct, contract: S.acct.contract, lotStep: S.acct.lotStep, spread: S.acct.spread }); }
   // Auto version of the "stay clear of big data" rule, when the risk calendar gives exact SGT times.
@@ -1178,20 +1230,19 @@ footer .disc strong{color:var(--text)}
     return { id: "news", label: "避开重大数据", ok: true, detail: next ? "下一个大数据是 " + next.name + "（" + next.date + " " + next.time.split(" ")[0] + " SGT），还有 " + left(next.ms - now) : "日历上暂时没有带时间的大数据" };
   }
   function manualList() { return newsCheck() ? [STREAK] : [NEWS_MANUAL, STREAK]; }
-  function currentChecks(sz) { var ck = S.E ? P.checks(S.E, S.plan, sz, unsh(S.plan.entry)) : [], nw = newsCheck(); if (nw) ck.push(nw); return ck; }
+  function currentChecks(sz) { var ck = S.E ? P.checks(S.E, S.plan, sz) : [], nw = newsCheck(); if (nw) ck.push(nw); return ck; }
   function helper(k) {
     var E = S.E; if (!E) return; var H1 = E.tfs["1H"], dir = S.plan.side === "short" ? -1 : 1, e = num(S.plan.entry), st = num(S.plan.stop);
-    var c = P.candidate(E, dir), set = function (f, v) { S.plan[f] = r1(v); };
-    if (k === "e-now") set("entry", sh(S.live));
-    else if (k === "e-zone") { if (!c) return; set("entry", sh(c.entry)); }
-    else if (k === "s-struct") { if (!c) return; if (e === null) set("entry", sh(c.entry)); set("stop", sh(c.stop)); }
+    var set = function (f, v) { S.plan[f] = r1(v); };
+    if (k === "e-now") set("entry", S.live);
     else if (k.slice(0, 2) === "s-") { if (e === null || !H1 || !H1.atr) { toast("先填入场价"); return; } set("stop", e - dir * parseFloat(k.slice(2)) * H1.atr); }
-    else if (k === "t-2" || k === "t-3") { if (e === null || st === null) { toast("先填入场价和止损价"); return; } set(k === "t-2" ? "tp1" : "tp2", e + dir * parseFloat(k.slice(2)) * Math.abs(e - st)); }
+    else if (k === "t-none") { S.plan.tp1 = null; S.plan.tp2 = null; }
+    else if (k === "t-2" || k === "t-3") { if (e === null || st === null) { toast("先填入场价和止损价"); return; } set("tp1", e + dir * parseFloat(k.slice(2)) * Math.abs(e - st)); S.plan.tp2 = null; }
     else if (k === "t-level") {
       if (e === null) { toast("先填入场价"); return; }
-      var minD = st === null ? 0 : Math.abs(e - st);                              // skip levels closer than 1R
-      var pts = P.levels(E, { each: 12 }).points.map(function (l) { return sh(l.price); }).filter(function (p) { return (p - e) * dir >= Math.max(minD, 1); }).sort(function (a, b) { return (a - b) * dir; });
-      if (!pts.length) { toast("这个方向上没有更远的关键位"); return; }
+      var minD = st === null ? 0 : 2 * Math.abs(e - st);                          // nothing closer than 2R
+      var pts = P.levels(E, { each: 12 }).points.map(function (l) { return l.price; }).filter(function (p) { return (p - e) * dir >= Math.max(minD, 1); }).sort(function (a, b) { return (a - b) * dir; });
+      if (!pts.length) { toast("这个方向上 2R 以外没有关键位"); return; }
       set("tp1", pts[0]); S.plan.tp2 = pts.length > 1 ? r1(pts[1]) : null;
     }
     replan();
@@ -1216,7 +1267,7 @@ footer .disc strong{color:var(--text)}
       if (sz.errors.length) tk.appendChild(h("div", { class: "perr", text: sz.errors.join("；") }));
       var say = P.sentence(S.plan, sz);
       if (say.length) { var p = h("p", { class: "tk-say" }); say.forEach(function (x) { p.appendChild(x.b ? h("b", { text: x.t }) : document.createTextNode(x.t)); }); tk.appendChild(p); }
-      if (sz.lots === 0) tk.appendChild(h("div", { class: "perr", text: "按你设的亏损上限，连最小手数都开不了：" + S.acct.lotStep + " 手止损就要亏 $" + fmt(sz.minLotRisk, 0) + "。可以把止损收近一点、提高比例，或者放弃这笔。" }));
+      if (sz.lots === 0) tk.appendChild(h("div", { class: "perr", text: "按你设的亏损上限，连最小手数都开不了：" + S.acct.lotStep + " 手止损就要亏 $" + fmt(sz.minLotRisk, 0) + "。不要为了凑手数把止损收近；这笔先放掉。" }));
       if (sz.valid) {
         var nums = h("div", { class: "tk-nums" }), cell = function (k, v, d) { nums.appendChild(h("div", null, [h("div", { class: "tk", text: k }), h("div", { class: "tv", text: v }), h("div", { class: "td", text: d })])); };
         cell("止损时亏", sz.lots ? "$" + fmt(sz.actualRisk, 0) : "$" + fmt(sz.dist, 1), sz.lots ? "账户的 " + sz.actualPct.toFixed(2) + "%" : "每盎司，止损距离");
@@ -1235,6 +1286,7 @@ footer .disc strong{color:var(--text)}
         if (H1 && H1.atr) meta.push("止损距离 " + fmt(sz.dist, 1) + " 美元，是 1 小时平均波幅的 " + (sz.dist / H1.atr).toFixed(1) + " 倍");
         if (sz.breakeven !== null) meta.push("胜率超过 " + sz.breakeven.toFixed(0) + "% 就不亏");
         if (meta.length) foot.appendChild(h("div", { class: "tk-meta", text: meta.join(" · ") }));
+        foot.appendChild(h("div", { class: "tk-meta", text: exitRule(sz) }));
         tk.appendChild(foot);
       }
     }
@@ -1248,7 +1300,7 @@ footer .disc strong{color:var(--text)}
     sum.className = "chk-sum " + cls;
     sum.appendChild(ring(has ? okN : 0, total, cls === "ok" ? "var(--m-bull)" : cls === "bad" ? "var(--m-bear)" : "var(--m-gold)"));
     sum.appendChild(h("div", null, [h("b", { text: !has ? "开仓前检查" : bad.length ? "有 " + bad.length + " 项没通过" : unsure ? "还有 " + unsure + " 项要你确认" : "全部通过，可以按计划执行" }),
-      h("span", { text: !has ? "填好价位后，这里按你自己的规则逐项检查" : bad.length ? bad.map(function (c) { return c.label; }).join("、") : unsure ? "看一下下面的项目，确认后点一下" : "方向、位置、信号、风险都符合你的规则" })]));
+      h("span", { text: !has ? "填好价位后，这里按回放里有优势的规则逐项检查" : bad.length ? bad.map(function (c) { return c.label; }).join("、") : unsure ? "看一下下面的项目，确认后点一下" : "方向、止损、风险都符合回放里的规则" })]));
     var ul = clear($("checks")), okList = clear($("checks-ok"));
     var row = function (c) { return h("li", null, [mark(c.ok), h("div", null, [h("div", { class: "cl", text: c.label }), h("div", { class: "cx", text: c.detail })])]); };
     if (has) {
@@ -1264,9 +1316,14 @@ footer .disc strong{color:var(--text)}
     good.forEach(function (c) { okList.appendChild(row(c)); });
     $("chk-pass").hidden = !has || !good.length; $("chk-pass-s").textContent = "已通过的 " + good.length + " 项";
   }
+  // How to manage the trade once it is on, in one line. The trailing distance is 2R.
+  function exitRule(sz) {
+    var hasT = num(S.plan.tp1) !== null || num(S.plan.tp2) !== null;
+    return "持仓后：" + (hasT ? "到目标止盈；" : "") + "每天把止损挪到最好价格后面 " + fmt(2 * sz.dist, 0) + " 美元，只往有利方向挪；结论变回「先观望」就离场。别提前挪到成本价";
+  }
   function planAsText() {
     var sz = currentSize(), ck = currentChecks(sz).concat(manualList().map(function (m) { return { label: m.label, ok: !!S.manual[m.id] }; }));
-    return P.planText({ plan: S.plan, size: sz, when: sgt(Date.now(), "full"), votes: S.E ? S.E.overall.votes : "", score: S.E ? S.E.overall.score : "", checks: ck, basis: basisName() });
+    return P.planText({ plan: S.plan, size: sz, when: sgt(Date.now(), "full"), votes: S.E ? S.E.overall.votes : "", score: S.E ? S.E.overall.score : "", checks: ck, basis: basisName(), exit: sz.dist ? exitRule(sz).replace("持仓后：", "") : "" });
   }
   function copyText(t) {
     var done = function () { toast("计划已复制"); };
@@ -1302,8 +1359,21 @@ footer .disc strong{color:var(--text)}
   // ---------- hub context: risk calendar + daily plan ----------
   function txt(el) { return el ? el.textContent.replace(/\s+/g, " ").trim() : ""; }
   function getDoc(url) { return fetch(url, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); }).then(function (t) { return new DOMParser().parseFromString(t, "text/html"); }); }
-  function loadContext() {
-    getDoc("risk.html").then(function (doc) {
+  function showEvents(rowsAll, srcNote) {
+    var now = Date.now();
+    S.events = rowsAll.filter(function (e) { return e.ms !== null; }).sort(function (a, b) { return a.ms - b.ms; });
+    var rows = rowsAll.filter(function (e) { return !e.done && (e.ms === null || e.ms > now - 3 * 3600000); }).slice(0, 6);   // upcoming, and anything in the last 3 hours
+    var el = clear($("events")); $("events-src").textContent = srcNote;
+    if (!rows.length) { el.appendChild(h("p", { class: "note", text: "本周剩下的时间里，日历上没有会明显影响金价的美国数据。" })); }
+    rows.forEach(function (e) {
+      var cd = !e.timed ? "" : e.ms > now ? "还有 " + left(e.ms - now) : "已公布";
+      el.appendChild(h("div", { class: "ev" }, [h("div", null, [h("div", { class: "when", text: e.date }), h("div", { class: "time", text: e.time })]), h("div", null, [e.imp ? h("span", { class: "chip " + (e.hi ? "bear" : "gold"), text: "影响 " + e.imp }) : null, cd ? h("span", { class: "chip neut", style: "margin-left:6px", text: cd }) : null, h("div", { class: "name", style: "margin-top:5px", text: e.name }), e.extra ? h("div", { class: "note", style: "margin-top:2px", text: e.extra }) : null])]));
+    });
+    renderSessions(); renderPlan(); if (S.E) renderVerdict();
+  }
+  // Fallback: the calendar table the daily refresh writes on the risk page.
+  function eventsFromRisk() {
+    return getDoc("risk.html").then(function (doc) {
       var now = Date.now(), np = parts(now);
       var rowsAll = [].slice.call(doc.querySelectorAll("table.cal tbody tr")).map(function (tr) {
         var date = txt(tr.querySelector(".cal-date")), time = txt(tr.querySelector(".cal-time")), name = txt(tr.querySelector(".cal-event")), imp = tr.querySelector(".imp");
@@ -1311,16 +1381,27 @@ footer .disc strong{color:var(--text)}
         if (m) { var y = +np.year, mo = +m[1]; if (mo < +np.month - 6) y += 1; ms = Date.UTC(y, mo - 1, +m[2], t ? +t[1] : 0, t ? +t[2] : 0) - 8 * 3600000; }
         return { date: date.replace(/[✓✔▲△⚠️]/g, "").trim(), time: time, name: name.replace(/^[✓★\s]+/, ""), imp: imp ? txt(imp) : "", hi: !!(imp && /\bh\b/.test(imp.className)), ms: ms, timed: !!(m && t), done: date.indexOf("✓") >= 0 || name.indexOf("✓") === 0 };
       }).filter(function (e) { return e.date; });
-      S.events = rowsAll.filter(function (e) { return e.ms !== null; }).sort(function (a, b) { return a.ms - b.ms; });
-      // upcoming = not ticked off and not already more than a day behind us
-      var rows = rowsAll.filter(function (e) { return !e.done && (e.ms === null || e.ms > now - 86400000); }).slice(0, 5);
-      var el = clear($("events")); if (!rows.length) throw new Error("no rows");
-      rows.forEach(function (e) {
-        var cd = e.ms !== null && e.ms > now ? "还有 " + left(e.ms - now) : "";
-        el.appendChild(h("div", { class: "ev" }, [h("div", null, [h("div", { class: "when", text: e.date }), h("div", { class: "time", text: e.time })]), h("div", null, [e.imp ? h("span", { class: "chip " + (e.hi ? "bear" : "gold"), text: "影响 " + e.imp }) : null, cd ? h("span", { class: "chip neut", style: "margin-left:6px", text: cd }) : null, h("div", { class: "name", style: "margin-top:5px", text: e.name })])]));
+      if (!rowsAll.length) throw new Error("no rows");
+      showEvents(rowsAll, "自动日历暂时读不到，这里取自风险计划页（每天更新一次）");
+    });
+  }
+  function loadContext() {
+    // 1. the calendar file a scheduled job refreshes several times a day; 2. the risk page's table
+    fetch("data/calendar.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (cal) {
+      var up = Date.parse(String(cal.updated || "").replace(" SGT", ":00+08:00").replace(" ", "T")), last = 0;
+      (cal.events || []).forEach(function (e) { last = Math.max(last, e.ms); });
+      if (!cal.events || !cal.events.length || !(Date.now() - up < 3 * 86400000) || Date.now() - last > 4 * 86400000) throw new Error("stale");
+      var by = {}, rows = [];
+      cal.events.forEach(function (e) {                                           // one row per release time: CPI m/m, y/y and core land together
+        var key = e.ms + "|" + e.impact, g = by[key];
+        if (!g) { g = by[key] = { date: e.date + "（" + e.weekday + "）", time: e.allDay ? "全天" : e.time + " SGT", names: [], imp: e.impact === "high" ? "高" : e.impact === "medium" ? "中" : "假日", hi: e.impact === "high", ms: e.ms, timed: !e.allDay, done: false, fc: [] }; rows.push(g); }
+        g.names.push(e.zh || e.title); if (e.forecast) g.fc.push((e.zh || e.title) + " 预期 " + e.forecast + (e.previous ? "（前值 " + e.previous + "）" : ""));
       });
-      renderSessions(); renderPlan(); if (S.E) renderVerdict();
-    }).catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: "这里读不到风险日历，请直接打开风险计划页。" })); });
+      rows.forEach(function (g) { g.name = g.names.slice(0, 3).join("、") + (g.names.length > 3 ? " 等 " + g.names.length + " 项" : ""); g.extra = g.fc.slice(0, 2).join("；"); });
+      showEvents(rows, "本周美国数据，每天自动更新几次 · 上次 " + cal.updated);
+    }).catch(function () {
+      eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: "这里读不到日历，请直接打开风险计划页。" })); });
+    });
 
     getDoc("daily.html").then(function (doc) {
       var items = [].slice.call(doc.querySelectorAll(".risk-list li")).map(txt).filter(function (t) { return t.indexOf("入场方案") >= 0; }).slice(0, 2);
@@ -1336,7 +1417,7 @@ footer .disc strong{color:var(--text)}
         S.daily.push({ side: side, entry: entry, stop: stop, tp1: tp1, tp2: tp2, rr: tp1 === null ? null : Math.abs(tp1 - entry) / Math.abs(entry - stop) });
       });
       var hd = txt(doc.querySelector(".hdate")).split("·")[0];
-      el.appendChild(h("p", { class: "note" }, ["摘自每日分析" + (hd ? "（" + hd.trim() + "）" : "") + "，价位是现货报价。这两条也在计划器第 1 步里，可以一键填入。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })]));
+      el.appendChild(h("p", { class: "note" }, ["摘自每日分析" + (hd ? "（" + hd.trim() + "）" : "") + "。这是每天写一次的文字方案，没有做过回放，和上面的结论不一定一致；它们也在计划器第 1 步里。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })]));
       if (S.E) renderCands();
     }).catch(function () { clear($("dplans")).appendChild(h("p", { class: "note" }, ["这里读不到每日方案，", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })])); });
   }
@@ -1373,6 +1454,7 @@ footer .disc strong{color:var(--text)}
         d2.appendChild(ul); inner.appendChild(d2);
       }
       if (stale) body.appendChild(h("details", null, [h("summary", { text: "这期解读已超过 12 小时，展开查看" }), inner])); else body.appendChild(inner);
+      if (!isFinite(ms) || Date.now() - ms > 24 * 3600 * 1000) return;                 // an old write-up would contradict the live answer: leave the tab hidden
       S.hasAi = true; $("tab-ai").hidden = false; if (LS.get("tab", "levels") === "ai") showTab("ai");
     }).catch(function () {});
   }
@@ -1438,7 +1520,7 @@ footer .disc strong{color:var(--text)}
       el.appendChild(h("span", { class: "al" + (a.fired ? " fired" : "") }, ["🔔 " + fmt(a.p, 1) + " " + a.label, h("button", { type: "button", "aria-label": "删除提醒", text: "×", onclick: function () { S.alerts.splice(i, 1); LS.set("alerts", S.alerts); renderAlerts(); } })]));
     });
     $("alert-sw").setAttribute("aria-checked", String(!!S.alertOn));
-    $("alert-x").textContent = (S.alertOn ? "已开启。" : "") + "价格到达你的入场、止损、目标，或上面的结论变成「等信号 / 可以考虑」时提醒。" + notifyState();
+    $("alert-x").textContent = (S.alertOn ? "已开启。" : "") + "价格到达你的入场、止损、目标，或上面的结论改变时提醒。" + notifyState();
   }
   function fire(text) {
     toast(text);
@@ -1457,15 +1539,88 @@ footer .disc strong{color:var(--text)}
   // Tell the user when the answer at the top changes for the better, e.g. price walks into the entry zone.
   function noteVerdict(was) {
     if (!S.alertOn || was === null || S.vLevel === was) return;
-    var V = P.verdict(S.E, sh), buy = V.side === "long";
-    if (V.level === "ready") fire("价格进入" + (buy ? "买入" : "卖出") + "区：等 15 分钟信号再进");
-    else if (V.level === "go") fire("三个条件都到位了：可以考虑" + (buy ? "做多" : "做空"));
+    var V = P.verdict(S.E), buy = V.side === "long";
+    if (V.level === "go") fire("五个周期都" + (buy ? "向上" : "向下") + "了：可以考虑顺势" + (buy ? "做多" : "做空"));
+    else if (V.level === "ready" && was === "none") fire("周线、日线、4 小时同向" + (buy ? "向上" : "向下") + "了：等小周期转回来");
+    else if (V.level === "ready" && was === "go") fire("小周期转向了：没进场的先等，已持仓的按止损和跟踪规则走");
+    else if (V.level === "none") fire("三个大周期不再同向：有持仓按规则离场");
   }
   var vAt = 0;
   function checkVerdict() {
     if (!S.E || S.vLevel === null || Date.now() - vAt < 500) return; vAt = Date.now();
-    if (P.verdict(S.E, sh).level === S.vLevel) return;
+    if (P.verdict(S.E).level === S.vLevel) return;
     var was = S.vLevel; renderVerdict(); renderCands(); noteVerdict(was);
+  }
+
+  // ---------- replay results (data/xau-backtest.json, written by research/xau-replay) ----------
+  function sgn(v, d) { d = d === undefined ? 2 : d; var t = Math.abs(v).toFixed(d); return (+t === 0 ? "" : v > 0 ? "+" : "−") + t; }
+  function loadProof() {
+    fetch("data/xau-backtest.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+      if (!d || !d.rules || !d.rules[d.main]) throw new Error("empty");
+      S.proof = d; renderProof(); if (S.E) renderVerdict();
+    }).catch(function () { clear($("proof")).appendChild(h("p", { class: "note", text: "回放结果文件暂时读不到。" })); });
+  }
+  function renderProofLine(V) {
+    var el = clear($("v-proof")), d = S.proof; el.hidden = !d; if (!d) return;
+    var span = d.from.slice(0, 4) + "–" + d.to.slice(0, 4), m = d.rules[d.main], o = d.rules.old, w = d.rules.early, ag = d.rules.against, parts;
+    if (V.level === "go") parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), "这种信号一共 " + m.n + " 笔，" + Math.round(m.win) + "% 赚钱，平均每笔 " + sgn(m.avgR) + "R。最长连亏过 " + m.streak + " 笔，利润主要来自少数走得很远的单子。"];
+    else if (V.level === "ready" && w) parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), "大方向对、但不等小周期转回来就进，平均每笔 " + sgn(w.avgR) + "R；等五个周期都同向再进是 " + sgn(m.avgR) + "R。"];
+    else parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), (o ? "不管周线、只看日线和 4 小时就找入场点（这页以前的做法），" + fmt(o.n, 0) + " 笔平均每笔 " + sgn(o.avgR) + "R，等于白忙。" : "") + (ag ? "逆着三个大周期做，平均每笔 " + sgn(ag.avgR) + "R。" : "")];
+    parts.forEach(function (p) { el.appendChild(typeof p === "string" ? document.createTextNode(p) : p); });
+    el.appendChild(h("button", { type: "button", text: "看回放成绩 →", onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
+  }
+  function renderProof() {
+    var d = S.proof, el = clear($("proof")), m = d.rules[d.main];
+    var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
+    tile("多久出一次信号", "每年约 " + Math.round(m.perYear) + " 笔", "", String(d.years) + " 年里一共 " + m.n + " 笔");
+    tile("赚钱的单子", Math.round(m.win) + "%", "", "十笔里大约亏 " + Math.round((100 - m.win) / 10) + " 笔");
+    tile("平均每笔", sgn(m.avgR) + "R", m.avgR >= 0 ? "up" : "dn", "扣掉点差和隔夜利息后。R = 这笔的止损金额");
+    tile("最难熬的时候", "连亏 " + m.streak + " 笔", "dn", "账户最深回撤 " + m.maxDD.toFixed(0) + "R");
+    el.appendChild(h("div", { class: "sub-h", text: "这页现在的规则：" + m.name })); el.appendChild(tiles);
+    var risk = 0.5, yr = m.rPerYear * risk, dd = m.maxDD * risk, bad = m.years.filter(function (y) { return y.r < 0; }).length;
+    el.appendChild(h("p", { class: "p-intro", text: "换成钱来说：如果每笔只冒账户的 " + risk + "%，回放里平均一年大约 " + sgn(yr, 1) + "%，途中最深回撤约 " + dd.toFixed(0) + "%。" + m.years.length + " 年里有 " + bad + " 年是亏的。这不是一台印钞机，是一个略占上风、需要耐心的顺势做法。" }));
+
+    el.appendChild(h("div", { class: "sub-h", text: "一年一年看（单位 R，每条是这一年的合计）" }));
+    var mx = 1; m.years.forEach(function (y) { mx = Math.max(mx, Math.abs(y.r)); });
+    var yr2 = h("div", { class: "pf-yr", role: "img", "aria-label": "每年合计盈亏，单位 R" });
+    m.years.forEach(function (y) {
+      var w = Math.abs(y.r) / mx * 50, bar = h("i", { class: y.r >= 0 ? "up" : "dn" }); bar.style.left = (y.r >= 0 ? 50 : 50 - w) + "%"; bar.style.width = Math.max(0.5, w) + "%";
+      var z = h("span", { class: "z" }); z.style.left = "50%";
+      yr2.appendChild(h("div", { class: "row" }, [h("span", { class: "y", text: String(y.y) }), h("div", { class: "trk" }, [bar, z]), h("span", { class: "val", text: sgn(y.r, 1) + "R · " + y.n + " 笔" })]));
+    });
+    el.appendChild(yr2);
+
+    if (m.segments) {
+      el.appendChild(h("div", { class: "sub-h", text: "分三段看：规则是看着中间那段定的，前后两段是事后验证" }));
+      var sb = h("tbody");
+      m.segments.forEach(function (g) {
+        if (!g.n) return;
+        sb.appendChild(h("tr", null, [h("td", { class: "l", text: g.label }), h("td", { class: "num", text: String(g.n) }), h("td", { class: "num", text: Math.round(g.win) + "%" }), h("td", { class: "num " + (g.lo > 0 ? "up" : ""), text: sgn(g.avgR) + "R" }),
+          h("td", { class: "num", text: sgn(g.lo) + " 到 " + sgn(g.hi) }), h("td", { class: "num", text: sgn(g.rPerYear, 1) + "R" }), h("td", { class: "num", text: g.maxDD.toFixed(0) + "R" })]));
+      });
+      el.appendChild(h("div", { class: "tablewrap", style: "margin-bottom:20px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "时期" }), h("th", { text: "笔数" }), h("th", { text: "赚钱比例" }), h("th", { text: "平均每笔" }), h("th", { text: "可信范围（95%）" }), h("th", { text: "平均每年" }), h("th", { text: "最深回撤" })])]), sb])]));
+    }
+    el.appendChild(h("div", { class: "sub-h", text: "和别的做法比一比（同一段历史、同样的成本）" }));
+    var tb = h("tbody");
+    d.order.forEach(function (id) {
+      var r = d.rules[id]; if (!r) return;
+      tb.appendChild(h("tr", { class: id === d.main ? "hl" : "" }, [h("td", { class: "l" }, [r.name, r.note ? h("small", { text: r.note }) : null]), h("td", { class: "num", text: String(r.n) }), h("td", { class: "num", text: Math.round(r.win) + "%" }),
+        h("td", { class: "num " + (r.avgR >= 0.05 ? "up" : r.avgR <= -0.05 ? "dn" : ""), text: sgn(r.avgR) + "R" }), h("td", { class: "num", text: sgn(r.rPerYear, 1) + "R" }), h("td", { class: "num", text: r.maxDD.toFixed(0) + "R" }), h("td", { class: "num", text: String(r.streak) })]));
+    });
+    el.appendChild(h("div", { class: "tablewrap" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "做法" }), h("th", { text: "笔数" }), h("th", { text: "赚钱比例" }), h("th", { text: "平均每笔" }), h("th", { text: "平均每年" }), h("th", { text: "最深回撤" }), h("th", { text: "最长连亏" })])]), tb])]));
+
+    var list = function (title, items) {
+      if (!items || !items.length) return;
+      el.appendChild(h("div", { class: "sub-h", style: "margin-top:22px", text: title }));
+      var ul = h("ul", { class: "pf-list" }); items.forEach(function (it) { ul.appendChild(h("li", null, [h("b", { text: it.b }), it.t])); }); el.appendChild(ul);
+    };
+    var cav = (d.caveats || []).slice(), H1 = S.E && S.E.tfs["1H"];
+    if (H1 && H1.atr) {                                                          // what the smallest position risks at today's volatility
+      var one = P.SYS.stopAtr * H1.atr * (num(S.acct.contract) || 100) * (num(S.acct.lotStep) || 0.01);
+      cav.push({ b: "账户太小会做不了。", t: "按现在的波动，最小的 " + (num(S.acct.lotStep) || 0.01) + " 手止损一次约亏 $" + fmt(one, 0) + "。要让它只占账户的 0.5%，账户需要 $" + fmt(Math.ceil(one / 0.005 / 100) * 100, 0) + " 左右；账户更小的话，要么每笔风险偏高，要么找合约更小的品种。" });
+    }
+    list("回放说明了什么", d.findings); list("要小心的地方", cav);
+    el.appendChild(h("p", { class: "note", text: "数据：" + d.source + " 区间 " + d.from + " 至 " + d.to + "。成本：" + d.costs + " 回放于 " + d.updated + "，方法和脚本在仓库的 research/xau-replay/。" }));
   }
 
   // ---------- tabs ----------
@@ -1476,12 +1631,20 @@ footer .disc strong{color:var(--text)}
   }
 
   // ---------- data ----------
-  function fetchSpot() { return fetch("https://api.gold-api.com/price/XAU", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { if (d && num(d.price) !== null && d.price > 0) S.spot = d.price; }).catch(function () {}); }
-  function livePrice(p) { S.live = p; if (S.E) S.E.price = p; }          // levels and the verdict are judged against the live price
-  function fetchTick() { return fetch(XAU_API + "/api/v3/ticker/price?symbol=PAXGUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) livePrice(p); }).catch(function () {}); }
+  function fetchSpot() {
+    return fetch("https://api.gold-api.com/price/XAU", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+      var at = d && Date.parse(d.updatedAt);
+      if (d && num(d.price) !== null && d.price > 0 && (!isFinite(at) || Date.now() - at < 3 * 60000)) { S.spot = d.price; S.spotAt = Date.now(); }   // a quote older than 3 minutes is not used
+    }).catch(function () {});
+  }
+  // A PAXG tick: kept raw, shown after the gap to spot is added. While gold is shut the ticks are ignored.
+  function livePrice(p) { S.raw = p; setLive(); }
+  function fetchTick() { return fetch("https://data-api.binance.vision/api/v3/ticker/price?symbol=PAXGUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) livePrice(p); }).catch(function () {}); }
   function setStamp() {
     var on = streamOn(); $("ldot").className = "ldot" + (on ? " on" : "");
-    $("stamp").textContent = (on ? "报价实时推送" : "报价每 30 秒更新") + " · 结构于 " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + " 重算，每 5 分钟一次";
+    $("stamp").textContent = (on ? "报价实时推送" : "报价每 30 秒更新") + " · K 线于 " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + " 更新，每 15 分钟收线后重算";
+    var src = $("src"), px = S.feed && S.feed.source === "paxg";
+    src.className = "chip " + (px ? "gold" : "neut"); src.textContent = !S.feed ? "数据载入中" : px ? "备用数据：PAXG 代币" : "数据：现货金 XAU/USD";
   }
   function busyUi() { return !!S.armed || S.overLadder || $("chart").querySelector(".tip:not([hidden])") !== null; }
 
@@ -1508,7 +1671,7 @@ footer .disc strong{color:var(--text)}
       var d; try { d = JSON.parse(m.data).data; } catch (e) { return; }
       var p = d && d.p ? parseFloat(d.p) : d && d.b && d.a ? (parseFloat(d.b) + parseFloat(d.a)) / 2 : NaN;   // last trade, or the mid of the best quotes
       if (!isFinite(p) || p <= 0) return;
-      wsAt = Date.now(); if (p === S.live || !S.E) return;
+      wsAt = Date.now(); if (p === S.raw || !S.E) return;
       livePrice(p); onPrice();
     };
     ws.onerror = function () { try { ws.close(); } catch (e) {} };
@@ -1518,12 +1681,17 @@ footer .disc strong{color:var(--text)}
   function refresh() {
     if (S.busy) return; S.busy = true; document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });
-    Promise.all([runXauEngine(), fetchSpot()]).then(function (res) {
-      var E = res[0]; if (!E || num(E.price) === null) throw new Error("Binance 行情接口没有返回数据");
-      S.E = E; S.live = E.price; S.lastRun = Date.now(); calibrate();
-      if (!S.hadPlan) { S.hadPlan = true; var C = P.candidates(E), c = C.aligned === "long" ? C.long : C.aligned === "short" ? C.short : null; if (c) { var k = shownCand(c); S.plan.side = k.side; S.plan.entry = k.entry; S.plan.stop = k.stop; S.plan.tp1 = k.tp1; S.plan.tp2 = k.tp2; syncInputs(); } }
+    Promise.all([XauFeed.load(), fetchSpot(), num(S.raw) === null ? fetchTick() : null]).then(function (res) {
+      var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error("行情接口没有返回数据");
+      S.feed = feed; S.E = E; S.lastRun = Date.now(); S.lastQ = Math.floor((Date.now() - 25000) / 900000);
+      calibrate(); setLive();
+      // no fresh spot quote from the price service: measure the gap against the last finished spot minute instead
+      if (feed.source === "spot" && marketOpen() && Date.now() - S.spotAt > 3 * 60000) XauFeed.lastMinute().then(function (m) { if (m && Date.now() - m.at < 3 * 60000 && num(S.raw) !== null) { S.spot = m.price; S.spotAt = Date.now(); calibrate(); paintLive(); } }).catch(function () {});
+      if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; syncInputs(); } }
       var was = S.vLevel;
-      $("err").hidden = true; S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp(); noteVerdict(was);
+      $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
+      S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp(); noteVerdict(was);
+      if (S.proof) renderProof();
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");
     }).then(function () { S.busy = false; document.body.classList.remove("refreshing"); });
@@ -1532,7 +1700,7 @@ footer .disc strong{color:var(--text)}
     if (!S.E || S.busy) return;
     var vis = document.visibilityState === "visible";
     if (!vis && !alertsLive()) return;                                        // hidden and nothing to watch for
-    Promise.all([streamOn() ? null : fetchTick(), vis ? fetchSpot() : null]).then(function () {
+    Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
       calibrate(); checkAlerts(); checkVerdict(); setStamp();
       if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
@@ -1540,16 +1708,6 @@ footer .disc strong{color:var(--text)}
   function loop() { tick(); setTimeout(loop, alertsLive() ? 10000 : 30000); }
 
   // ---------- wiring ----------
-  function syncBasis() { all("[data-basis]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-basis") === S.basis)); }); }
-  all("[data-basis]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var nb = b.getAttribute("data-basis"); if (nb === S.basis) return;
-      var before = offNow(); S.basis = nb; LS.set("basis", nb); var d = offNow() - before;
-      FIELDS.forEach(function (f) { if (num(S.plan[f]) !== null) S.plan[f] = Math.round((S.plan[f] + d) * 10) / 10; });   // keep the plan on the same candles
-      S.alerts.forEach(function (a) { a.p = Math.round((a.p + d) * 10) / 10; }); LS.set("alerts", S.alerts); S.prevShown = null; S.fired = {}; S.lastShown = null;
-      persistPlan(); syncBasis(); syncInputs(); renderAlerts(); if (S.E) renderAll();
-    });
-  });
   all("[data-cmode]").forEach(function (b) { b.addEventListener("click", function () { S.cmode = b.getAttribute("data-cmode"); LS.set("cmode", S.cmode); renderTfTabs(); drawChart(); }); });
   all("[data-side]").forEach(function (b) { b.addEventListener("click", function () { S.plan.side = b.getAttribute("data-side"); replan(); }); });
   all("[data-pick]").forEach(function (b) { b.addEventListener("click", function () { var f = b.getAttribute("data-pick"); S.armed = S.armed === f ? null : f; renderArm(); if (S.armed) { var r = $("chart").getBoundingClientRect(); if (r.bottom < 120 || r.top > window.innerHeight - 120) $("chart").scrollIntoView({ behavior: "smooth", block: "center" }); } }); });
@@ -1570,7 +1728,7 @@ footer .disc strong{color:var(--text)}
   });
   $("reset").addEventListener("click", function () { S.plan = { side: S.plan.side, entry: null, stop: null, tp1: null, tp2: null, note: "" }; S.manual = { _d: TODAY }; LS.set("manual", S.manual); replan(); });
   $("retry").addEventListener("click", refresh);
-  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); });
+  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); });
   $("alert-sw").addEventListener("click", function () { S.alertOn = !S.alertOn; LS.set("alertOn", S.alertOn); if (S.alertOn) { askNotify(); S.prevShown = sh(S.live); } renderAlerts(); });
   $("alert-test").addEventListener("click", function () { askNotify(); fire("这是一条测试提醒：价格到位时就会这样通知你"); });
   $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
@@ -1582,14 +1740,16 @@ footer .disc strong{color:var(--text)}
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
-  syncBasis(); syncInputs(); renderArm(); renderPlan(); renderSaved(); renderAlerts(); renderSessions(); showTab(S.tab);
-  refresh(); loadContext(); loadSnapshot();
+  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderAlerts(); renderSessions(); showTab(S.tab);
+  refresh(); loadContext(); loadSnapshot(); loadProof();
   connectStream(); setTimeout(loop, 30000);
-  // Recompute the structure every 5 minutes, or every minute while price sits in the entry zone waiting for a signal.
+  // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour (the feed
+  // needs a few seconds to publish the candle), and at least every 5 minutes in case one was missed.
   setInterval(function () {
     if (document.visibilityState !== "visible" && !S.alertOn) return;
-    if (Date.now() - S.lastRun >= (S.vLevel === "ready" ? 60000 : 5 * 60000) - 2000) refresh();
-  }, 30000);
+    var q = Math.floor((Date.now() - 25000) / 900000);
+    if (q !== S.lastQ || Date.now() - S.lastRun >= 5 * 60000 - 2000) refresh();
+  }, 20000);
   setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); }, 60000);
 })();
 </script>

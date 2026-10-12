@@ -1,9 +1,13 @@
-// XAU multi-timeframe engine v1 (engine id "xau-mtf-1"). Same analysis code as engine.js of the
-// "XAU 4-Hour Report" artifact, so report.html and the stored reports agree; only the data fetch differs:
-// here it calls https://data-api.binance.vision cross-origin (public, no key, CORS open) and in parallel.
-// PAXGUSDT is a gold-backed token that tracks XAUUSD within a few dollars.
-// Usage:  <script src="assets/xau-engine.js">  then  await runXauEngine()
-var XAU_API = "https://data-api.binance.vision";
+// XAU multi-timeframe engine v2 (engine id "xau-mtf-2").
+// Analysis code (structure, gaps, patterns) is the engine of the "XAU 4-Hour Report" artifact. What changed in v2:
+//   - it no longer fetches anything: candles come from assets/xau-feed.js (real spot gold, broker-time days,
+//     weekend already removed), so the weekend filter that used to live here is gone;
+//   - each timeframe reports when its current trend began (`since`);
+//   - the overall block reports how many timeframes agree (`agree3` W+D+4H, `agree4` +1H, `agree5` +15M).
+// The 2019-2026 replay on real spot prices (research/xau-replay/) found no edge in the old "daily + 4H, price in
+// a gap, 15M trigger" signal; the edge that did show up needs the weekly, daily and 4-hour trends to agree.
+// Usage:  <script src="assets/xau-feed.js">, <script src="assets/xau-engine.js">  then
+//         XauFeed.load().then(function (feed) { var E = runXauEngine(feed); })
 var XAU_TFS = [
   { tf: "W",   iv: "1w",  limit: 300, swing: 3, internal: 2, pat: 2, win: 60,  bars: 0  },
   { tf: "D",   iv: "1d",  limit: 600, swing: 5, internal: 2, pat: 3, win: 90,  bars: 60 },
@@ -15,12 +19,6 @@ var XAU_WEIGHTS = { W: 3, D: 3, "4H": 2, "1H": 1, "15M": 1 };
 
 function xr(v, d) { if (v === null || v === undefined || !isFinite(v)) return null; var m = Math.pow(10, d === undefined ? 2 : d); return Math.round(v * m) / m; }
 function xIso(ms) { return new Date(ms).toISOString().slice(0, 16) + "Z"; }
-
-// Gold is closed from about Fri 21:00 to Sun 22:00 UTC; PAXG keeps trading, so drop those candles intraday.
-function xWeekend(ms) {
-  var d = new Date(ms), wd = d.getUTCDay(), h = d.getUTCHours();
-  return wd === 6 || (wd === 5 && h >= 21) || (wd === 0 && h < 22);
-}
 
 function xEma(a, n) { var k = 2 / (n + 1), e = null, o = []; for (var i = 0; i < a.length; i++) { e = e === null ? a[i] : a[i] * k + e * (1 - k); o.push(e); } return o; }
 function xAtr(h, l, c, n) {
@@ -230,9 +228,8 @@ function xPatterns(B, atr, cfg) {
 
 function xAnalyzeTf(cfg, raw, nowMs) {
   var rows = raw.filter(function (k) { return k[6] < nowMs; });
-  if (cfg.iv !== "1w") rows = rows.filter(function (k) { return cfg.iv === "1d" ? [0, 6].indexOf(new Date(k[0]).getUTCDay()) < 0 : !xWeekend(k[0]); });
-  var B = { t: [], o: [], h: [], l: [], c: [] };
-  rows.forEach(function (k) { B.t.push(k[0]); B.o.push(+k[1]); B.h.push(+k[2]); B.l.push(+k[3]); B.c.push(+k[4]); });
+  var B = { t: [], o: [], h: [], l: [], c: [], x: [] };
+  rows.forEach(function (k) { B.t.push(k[0]); B.o.push(+k[1]); B.h.push(+k[2]); B.l.push(+k[3]); B.c.push(+k[4]); B.x.push(k[6] + 1); });
   var n = B.c.length; if (n < 60) return { tf: cfg.tf, error: "not enough data (" + n + " bars)" };
   var last = n - 1, close = B.c[last], atr = xAtr(B.h, B.l, B.c, 14), a = atr[last], rsi = xRsi(B.c, 14);
   var e20 = xEma(B.c, 20)[last], e50 = xEma(B.c, 50)[last], e200 = n >= 200 ? xEma(B.c, 200)[last] : null;
@@ -240,6 +237,12 @@ function xAnalyzeTf(cfg, raw, nowMs) {
   var S = xStructure(B, cfg.swing), I = xStructure(B, cfg.internal);
   function ev(e) { return e ? { type: e.type, dir: e.dir, level: xr(e.level), time: xIso(B.t[e.i]), barsAgo: last - e.i } : null; }
   var evs = S.events, ievs = I.events;
+  var since = null;
+  if (S.trend !== 0 && evs.length) {
+    var want = S.trend === 1 ? "bull" : "bear", j = evs.length - 1;
+    while (j > 0 && evs[j - 1].dir === want) j--;
+    since = B.x[evs[j].i];
+  }
   var rng = null;
   if (S.rTop !== null && S.rTop > S.rBot) {
     var pct = (close - S.rBot) / (S.rTop - S.rBot) * 100;
@@ -263,7 +266,7 @@ function xAnalyzeTf(cfg, raw, nowMs) {
   var res = {
     tf: cfg.tf, close: xr(close), barTime: xIso(B.t[last]), atr: xr(a), rsi: xr(rsi[last], 1),
     ema: { e20: xr(e20), e50: xr(e50), e200: xr(e200), stack: stack },
-    trend: S.trend === 1 ? "bullish" : S.trend === -1 ? "bearish" : "unclear",
+    trend: S.trend === 1 ? "bullish" : S.trend === -1 ? "bearish" : "unclear", since: since,
     internal: I.trend === 1 ? "bullish" : I.trend === -1 ? "bearish" : "unclear",
     lastEvent: ev(evs[evs.length - 1]), prevEvent: ev(evs[evs.length - 2]), lastInternal: ev(ievs[ievs.length - 1]),
     swings: S.swings.slice(-6).map(function (p) { return { kind: p.kind, price: xr(p.p), time: xIso(B.t[p.i]) }; }),
@@ -300,29 +303,29 @@ function xOverall(T, price, nowMs) {
     setup = { side: side, zoneTop: zTop, zoneBottom: zBot, zoneSource: zSrc, entry: entry, stop: stop, tp1: tp1, tp2: tp2, rr1: rr1,
       priceInZone: inZone, trigger15m: !!trig, state: inZone && trig ? "READY: in zone with a 15M trigger" : inZone ? "IN ZONE: wait for a 15M i-CHoCH" : "WAIT: let price come to the zone" };
   }
-  var d = new Date(nowMs), marketOpen = !xWeekend(nowMs);
-  return { score: score, maxScore: 10, bias: bias, votes: parts.join(" "), alignedDirection: dir > 0 ? "long" : dir < 0 ? "short" : "none", setup: setup, marketOpen: marketOpen };
+  // agreement of the structure trends, from the top down: W+D+4H, then +1H, then +15M
+  var tv = function (t) { return !t || t.error ? 0 : t.trend === "bullish" ? 1 : t.trend === "bearish" ? -1 : 0; };
+  var w = tv(T.W), dd = tv(T.D), h4 = tv(T["4H"]), h1 = tv(T["1H"]), m15 = tv(T["15M"]);
+  var a3 = w !== 0 && w === dd && dd === h4 ? w : 0, a4 = a3 !== 0 && h1 === a3 ? a3 : 0, a5 = a4 !== 0 && m15 === a4 ? a4 : 0;
+  var marketOpen = typeof XauFeed !== "undefined" ? !XauFeed.closed(nowMs / 1000) : true;
+  return { score: score, maxScore: 10, bias: bias, votes: parts.join(" "), alignedDirection: dir > 0 ? "long" : dir < 0 ? "short" : "none", setup: setup, marketOpen: marketOpen,
+           agree3: a3, agree4: a4, agree5: a5 };
 }
 
-async function runXauEngine() {
-  var nowMs = Date.now(), T = {}, price = null;
-  var raws = await Promise.all(XAU_TFS.map(function (cfg) {
-    return fetch(XAU_API + "/api/v3/klines?symbol=PAXGUSDT&interval=" + cfg.iv + "&limit=" + cfg.limit)
-      .then(function (r) { return r.ok ? r.json() : { error: "HTTP " + r.status }; })
-      .catch(function (e) { return { error: String((e && e.message) || e) }; });
-  }));
-  XAU_TFS.forEach(function (cfg, k) {
-    var raw = raws[k];
-    if (!Array.isArray(raw)) { T[cfg.tf] = { tf: cfg.tf, error: (raw && raw.error) || "bad response" }; return; }
-    if (cfg.iv === "15m" && raw.length) price = +raw[raw.length - 1][4];
-    T[cfg.tf] = xAnalyzeTf(cfg, raw, nowMs);
+// feed: what XauFeed.load() resolves to. Each timeframe sees its last (limit - 1) closed candles, as in the replay.
+function runXauEngine(feed, nowMs) {
+  nowMs = nowMs || Date.now();
+  var T = {}, K = (feed && feed.K) || {};
+  XAU_TFS.forEach(function (cfg) {
+    var raw = K[cfg.tf];
+    T[cfg.tf] = Array.isArray(raw) && raw.length ? xAnalyzeTf(cfg, raw.slice(-(cfg.limit - 1)), nowMs) : { tf: cfg.tf, error: "no data" };
   });
-  // previous day / week high-low for context
-  var D = T.D || {};
-  var ctx = {};
-  if (D.bars && D.bars.length) { var pd = D.bars[D.bars.length - 1]; ctx.prevDayHigh = pd[2]; ctx.prevDayLow = pd[3]; }
-  var wk = raws[0];
-  if (Array.isArray(wk) && wk.length >= 2) { var pw = wk[wk.length - 2]; ctx.prevWeekHigh = xr(+pw[2]); ctx.prevWeekLow = xr(+pw[3]); }
-  return { engine: "xau-mtf-1", symbol: "PAXGUSDT (gold-backed, tracks XAUUSD)", generatedAt: new Date(nowMs).toISOString(),
-           price: xr(price), context: ctx, overall: xOverall(T, price, nowMs), tfs: T };
+  var price = feed ? feed.price : null;
+  // yesterday's and last week's high / low: the last finished broker day and week
+  var ctx = {}, D = K.D || [], W = K.W || [];
+  if (D.length) { var pd = D[D.length - 1]; ctx.prevDayHigh = xr(pd[2]); ctx.prevDayLow = xr(pd[3]); ctx.prevDayTime = xIso(pd[0]); }
+  if (W.length) { var pw = W[W.length - 1]; ctx.prevWeekHigh = xr(pw[2]); ctx.prevWeekLow = xr(pw[3]); }
+  return { engine: "xau-mtf-2", source: feed ? feed.source : null, symbol: feed && feed.source === "spot" ? "XAU/USD spot" : "PAXGUSDT moved onto spot",
+           generatedAt: new Date(nowMs).toISOString(), price: xr(price), context: ctx, overall: xOverall(T, price, nowMs), tfs: T };
 }
+if (typeof module !== "undefined" && module.exports) module.exports = { XAU_TFS: XAU_TFS, XAU_WEIGHTS: XAU_WEIGHTS, xAnalyzeTf: xAnalyzeTf, xOverall: xOverall, runXauEngine: runXauEngine };

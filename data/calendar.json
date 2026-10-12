@@ -1,0 +1,150 @@
+{
+ "updated": "2026-10-12 11:43 SGT",
+ "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
+ "events": [
+  {
+   "ms": 1791802800000,
+   "date": "10月12日",
+   "weekday": "周一",
+   "time": "",
+   "allDay": true,
+   "impact": "holiday",
+   "title": "Bank Holiday",
+   "zh": "美国假日（银行休市）",
+   "forecast": "",
+   "previous": ""
+  },
+  {
+   "ms": 1791981000000,
+   "date": "10月14日",
+   "weekday": "周三",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "CPI m/m",
+   "zh": "CPI 月率",
+   "forecast": "0.6%",
+   "previous": "0.4%"
+  },
+  {
+   "ms": 1791981000000,
+   "date": "10月14日",
+   "weekday": "周三",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "CPI y/y",
+   "zh": "CPI 年率",
+   "forecast": "3.6%",
+   "previous": "3.4%"
+  },
+  {
+   "ms": 1791981000000,
+   "date": "10月14日",
+   "weekday": "周三",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Core CPI m/m",
+   "zh": "核心 CPI 月率",
+   "forecast": "0.2%",
+   "previous": "0.3%"
+  },
+  {
+   "ms": 1791981000000,
+   "date": "10月14日",
+   "weekday": "周三",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Core CPI y/y",
+   "zh": "核心 CPI 年率",
+   "forecast": "2.5%",
+   "previous": "2.4%"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Core PPI m/m",
+   "zh": "核心 PPI 月率",
+   "forecast": "0.3%",
+   "previous": "0.2%"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Core Retail Sales m/m",
+   "zh": "核心零售销售月率",
+   "forecast": "0.5%",
+   "previous": "1.4%"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "PPI m/m",
+   "zh": "PPI 月率",
+   "forecast": "0.5%",
+   "previous": "0.4%"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "medium",
+   "title": "Philly Fed Manufacturing Index",
+   "zh": "费城联储制造业指数",
+   "forecast": "26.5",
+   "previous": "37.8"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Retail Sales m/m",
+   "zh": "零售销售月率",
+   "forecast": "0.3%",
+   "previous": "1.2%"
+  },
+  {
+   "ms": 1792067400000,
+   "date": "10月15日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "medium",
+   "title": "Unemployment Claims",
+   "zh": "初请失业金人数",
+   "forecast": "195K",
+   "previous": "197K"
+  },
+  {
+   "ms": 1792121400000,
+   "date": "10月16日",
+   "weekday": "周五",
+   "time": "11:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Fed Chairman Warsh Speaks",
+   "zh": "美联储主席 Warsh 讲话",
+   "forecast": "",
+   "previous": ""
+  }
+ ]
+}

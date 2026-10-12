@@ -8,12 +8,14 @@
 |------|------|
 | [`index.html`](index.html) | 首页 · 导航中心 |
 | [`daily.html`](daily.html) | **每日深度分析**（主功能，每日更新）— 技术结构、支撑阻力、基本面、操作场景、风险预案 |
-| [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端实时计算 W / D / 4H / 1H / 15M 结构、区间、FVG 与形态；计划器给出入场方案、手数、盈亏比、开仓前检查与到价提醒（引擎见 `assets/`） |
+| [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端用现货金 K 线实时计算 W / D / 4H / 1H / 15M 的方向；五个周期同向才给出入场方案，并算好手数、检查项与到价提醒。规则的依据是 2010 年以来的真实金价回放，结果在页面的「回放成绩」里（引擎见 `assets/`，回放工具见 `research/xau-replay/`） |
 | [`news.html`](news.html) | 市场快讯 — 最新黄金消息聚合、明日关键价位、来源链接 |
 | [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |
 | [`strategy.html`](strategy.html) | 策略与形态手册 — 9 形态图鉴、4 套策略、K 线信号、交易心法 |
 
 **股票行情**：`stocks.html` 的价格、涨跌、52 周区间和股息率来自 `data/quotes.json`，由 `scripts/update_quotes.py`（Yahoo Finance 日线）生成，GitHub Actions 工作流 `.github/workflows/quotes.yml` 每个交易日运行两次；页面由 `assets/stocks-live.js` 在浏览器里填入。手动更新：`python3 scripts/update_quotes.py`。
+
+**黄金数据**：`report.html` 的 K 线是现货金 XAU/USD（Dukascopy 公开图表数据，按纽约 17:00 换日），连不上时改用 Binance 的 PAXG 并提示。`.github/workflows/market.yml` 每 4 小时用同一套引擎生成 `data/xau-state.json`（价位、各周期方向、结论）和 `data/calendar.json`（本周美国数据），每日刷新任务的数字都取自这两个文件。手动更新：`node scripts/update_gold.js`、`python3 scripts/update_calendar.py`。
 
 **实时金价**：所有带价格的页面通过浏览器端 fetch（`api.gold-api.com`，免费无密钥，CORS 开放）实时刷新，每 60 秒更新一次。首页与每日页另含 TradingView 实时图表/报价组件。
 
@@ -30,13 +32,9 @@
 
 网站文字内容由一个 Claude Code **云端定时任务**（CCR routine）自动刷新，无需手动操作。
 
-- **频率**：每 3 小时一次（SGT 00:00 / 03:00 / 06:00 / 09:00 / 12:00 / 15:00 / 18:00 / 21:00）
-- **Cron**：`0 1,4,7,10,13,16,19,22 * * *`（UTC）
-- **流程**：每次运行时云端 agent 会
-  1. `git checkout -B claude/auto-refresh origin/main` 同步到最新 main
-  2. 联网抓取实时金价（`api.gold-api.com`）、当日行情、财经日历、DXY、Fed 加息概率、RSI 等
-  3. 更新全部 4 个页面（`daily.html` / `news.html` / `risk.html` / `index.html`）的文字与数据
-  4. 提交并推送到 `main`
+- **频率**：每天一次，新加坡时间 10:10
+- **Cron**：`10 2 * * *`（UTC）
+- **流程**：云端 agent 读取仓库里的数据文件（`data/xau-state.json`、`data/calendar.json`、`data/quotes.json`）取得所有数字，联网搜索只用来了解行情背后的原因，然后更新 `daily.html` / `risk.html` / `stocks.html` / `potential.html` 的文字并推送到 `main`。周一另做一次股票研究内容的深度刷新。规则见 `CLAUDE.md`
 - **更新凭证**：首页页脚显示 `⟳ 自动刷新 · 最后更新 YYYY-MM-DD HH:MM SGT`，可据此确认上次刷新时间
 - **管理**：https://claude.ai/code/routines/trig_01LkvxUQJ5hfe3EJacyN5Zrf （查看运行记录、改时间、停用）
 
