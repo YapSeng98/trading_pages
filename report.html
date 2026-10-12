@@ -751,7 +751,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     set: function (k, v) { try { localStorage.setItem("xau4h." + k, JSON.stringify(v)); } catch (e) {} }
   };
   var S = {
-    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null, mins: [], tHi: null, tLo: null,
+    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null, rec: null, mins: [], tHi: null, tLo: null,
     tf: LS.get("tf", "4H"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: 100, lotStep: 0.01, spread: 0 },
@@ -1586,6 +1586,30 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       if (!d || !d.rules || !d.rules[d.main]) throw new Error("empty");
       S.proof = d; renderProof(); if (S.E) renderVerdict();
     }).catch(function () { clear($("proof")).appendChild(h("p", { class: "note", text: "回放结果文件暂时读不到。" })); });
+    fetch("data/xau-signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { if (d && d.summary) { S.rec = d; if (S.proof) renderProof(); } }).catch(function () {});
+  }
+  // The live record: what the rule has done since it went on the page, kept by an hourly job (scripts/xau_track.js).
+  function recordBlock(el) {
+    var r = S.rec; if (!r) return;
+    var z = r.summary, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
+    el.appendChild(h("div", { class: "sub-h", text: "上线以来的真实记录（从 " + r.since + " 起）" }));
+    el.appendChild(h("p", { class: "p-intro", text: "回放是事后算的。这里是规则上线之后，机器每小时照着规则记下的纸面交易：出现信号就按规则进场，一直跟到止损或目标，成本和回放一样。它才是这套规则真正的成绩单，时间越长越有说服力。" }));
+    var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
+    tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : "平均十来天才有一次");
+    tile("已经结束", z.closed + " 笔", "", z.closed ? "其中 " + z.wins + " 笔赚钱" : "还没有");
+    tile("合计", z.closed ? sgn(z.totalR, 1) + "R" : "—", z.totalR > 0 ? "up" : z.totalR < 0 ? "dn" : "", z.closed ? "平均每笔 " + sgn(z.avgR) + "R" : "等第一笔结束");
+    tile("进行中", open ? open.side : "没有", open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) : "现在没有纸面持仓");
+    el.appendChild(tiles);
+    if (sig.length) {
+      var tb = h("tbody"), word = { open: "进行中", target: "到目标", stop: "止损", skipped: "跳过" };
+      sig.slice().reverse().slice(0, 15).forEach(function (x) {
+        tb.appendChild(h("tr", null, [h("td", { class: "l", text: "#" + x.id + " · " + x.time.replace(" SGT", "") }), h("td", { class: "num " + (x.side === "做多" ? "up" : "dn"), text: x.side }), h("td", { class: "num", text: fmt(x.entry, 1) }), h("td", { class: "num", text: fmt(x.stop, 1) }), h("td", { class: "num", text: fmt(x.target, 1) }),
+          h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? "（" + x.why + "）" : "") }), h("td", { class: "num " + (x.R > 0 ? "up" : x.R < 0 ? "dn" : ""), text: typeof x.R === "number" ? sgn(x.R) + "R" : "—" })]));
+      });
+      el.appendChild(h("div", { class: "tablewrap", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
+    }
+    var ev = (r.events || []).slice(-4).reverse();
+    if (ev.length) el.appendChild(h("p", { class: "note", style: "margin-bottom:22px", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。每小时更新一次；它不知道你自己有没有下单。" }));
   }
   function renderProofLine(V) {
     var el = clear($("v-proof")), d = S.proof; el.hidden = !d; if (!d) return;
@@ -1598,12 +1622,13 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   }
   function renderProof() {
     var d = S.proof, el = clear($("proof")), m = d.rules[d.main];
+    recordBlock(el);
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
     tile("多久出一次信号", "每年约 " + Math.round(m.perYear) + " 笔", "", String(d.years) + " 年里一共 " + m.n + " 笔");
     tile("赚钱的单子", Math.round(m.win) + "%", "", "十笔里大约亏 " + Math.round((100 - m.win) / 10) + " 笔");
     tile("平均每笔", sgn(m.avgR) + "R", m.avgR >= 0 ? "up" : "dn", "扣掉点差和隔夜利息后。R = 这笔的止损金额");
     tile("最难熬的时候", "连亏 " + m.streak + " 笔", "dn", "账户最深回撤 " + m.maxDD.toFixed(0) + "R");
-    el.appendChild(h("div", { class: "sub-h", text: "这页现在的规则：" + m.name })); el.appendChild(tiles);
+    el.appendChild(h("div", { class: "sub-h", text: "回放：" + d.from.slice(0, 4) + " 年到 " + d.to.slice(0, 4) + " 年，同一条规则（" + m.name + "）" })); el.appendChild(tiles);
     var risk = 0.5, yr = m.rPerYear * risk, dd = m.maxDD * risk, bad = m.years.filter(function (y) { return y.r < 0; }).length;
     el.appendChild(h("p", { class: "p-intro", text: "换成钱来说：如果每笔只冒账户的 " + risk + "%，回放里平均一年大约 " + sgn(yr, 1) + "%，途中最深回撤约 " + dd.toFixed(0) + "%。" + m.years.length + " 年里有 " + bad + " 年是亏的。这不是一台印钞机，是一个略占上风、需要耐心的顺势做法。" }));
 

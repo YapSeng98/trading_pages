@@ -1,8 +1,10 @@
-# Keeps two data files current:
-#   data/calendar.json    this week's US economic releases (scripts/update_calendar.py)
-#   data/xau-state.json   what the report page's engine says about gold right now (scripts/update_gold.js)
-# report.html reads the calendar for its "stay clear of big data" check, the home page (assets/hub-live.js) fills
-# its market summary from both, and the daily Claude refresh reads both for its numbers: the cloud machine it runs on cannot reach any price or calendar service; this runner can.
+# Keeps three data files current:
+#   data/calendar.json     this week's US economic releases (scripts/update_calendar.py)
+#   data/xau-state.json    what the report page's engine says about gold right now (scripts/update_gold.js)
+#   data/xau-signals.json  the live record: every "go" signal as a paper trade, followed to its stop or target
+# report.html reads the calendar and the live record, the home page (assets/hub-live.js) fills its market summary
+# from the state and the calendar, and the daily Claude refresh reads them for its numbers: the cloud machine it
+# runs on cannot reach any price or calendar service; this runner can.
 name: Update market facts
 
 on:
@@ -13,7 +15,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["scripts/update_calendar.py", "scripts/update_gold.js", "assets/xau-*.js", ".github/workflows/market.yml"]
+    paths: ["scripts/update_calendar.py", "scripts/update_gold.js", "scripts/xau_track.js", "assets/xau-*.js", ".github/workflows/market.yml"]
 
 permissions:
   contents: write
@@ -38,7 +40,7 @@ jobs:
         run: node scripts/update_gold.js || echo "::warning::gold state not updated"
       - name: Commit if the data changed
         run: |
-          git add data/calendar.json data/xau-state.json 2>/dev/null || true
+          git add data/calendar.json data/xau-state.json data/xau-signals.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "No change."; exit 0; fi
           git config user.name "market-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

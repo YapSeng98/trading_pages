@@ -10,14 +10,24 @@
    turns that into the verdict. Candles are real spot XAU/USD from Dukascopy's chart feed; if that does not answer,
    Binance PAXG moved onto the spot price, exactly like the page's fallback.
 
+   It also keeps the live record, data/xau-signals.json: every "go" becomes a paper trade that is followed to its
+   stop or target (scripts/xau_track.js). The tracker also words the alerts worth sending (new signal, trade closed,
+   big trends lining up or splitting). They are printed in the job log and written to the file named by
+   XAU_ALERTS_FILE when that is set; nothing delivers them to a phone yet.
+
+   The files are rewritten only when something happened or the state file is close to an hour old, so the job can
+   be scheduled more often than hourly without a commit on every run.
+
    Runs in GitHub Actions (.github/workflows/market.yml); by hand:  node scripts/update_gold.js
-   On failure the old file is left as it is and the exit code is 1. */
+   On failure the old files are left as they are and the exit code is 1. */
 const fs = require("fs"), path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const F = require(path.join(ROOT, "assets/xau-feed.js"));
 global.XauFeed = F;                                             // the engine asks it whether the market is open
 const E = require(path.join(ROOT, "assets/xau-engine.js")), P = require(path.join(ROOT, "assets/xau-plan.js"));
-const OUT = path.join(ROOT, "data", "xau-state.json");
+const TR = require(path.join(__dirname, "xau_track.js"));
+const OUT = path.join(ROOT, "data", "xau-state.json"), LOG = path.join(ROOT, "data", "xau-signals.json");
+const readJson = f => { try { return JSON.parse(fs.readFileSync(f, "utf8")); } catch (e) { return null; } };
 const UA = { "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36", Referer: "https://yapseng98.github.io/trading_pages/report.html" };
 
 async function get(url, opts) {
@@ -36,7 +46,7 @@ async function duk(interval, limit) {
   return F.clean(JSON.parse(t.slice(t.indexOf("(") + 1, t.lastIndexOf(")"))));
 }
 async function spot(now) {
-  const h1 = await duk("1HOUR", F.NEED.h1), d1 = await duk("1DAY", F.NEED.d1), m15 = await duk("15MIN", F.NEED.m15);
+  const h1 = await duk("1HOUR", F.NEED.h1), d1 = await duk("1DAY", F.NEED.d1), m15 = await duk("15MIN", 1400);   // two weeks of quarter-hours: room to catch up after a gap
   if (h1.length < 2000 || m15.length < 200) throw new Error("spot feed: too little data");
   return F.spotCandles(h1, d1, m15, now);
 }
@@ -86,7 +96,18 @@ const WAY = { bullish: "向上", bearish: "向下", unclear: "不明" };
     support: LV.points.filter(l => l.side === "sup").map(l => ({ price: r1(l.price), what: l.labels.join("、"), strength: l.strength })),
     rules: "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
   };
+  // the live record: only on real spot candles, never on the fallback feed
+  let alerts = [], log = readJson(LOG), before = log ? JSON.stringify([log.signals, log.events, log.a3, log.a5, log.open]) : "";
+  if (feed.source === "spot") { const r = TR.track(feed.K, log, { E, F }); log = r.log; alerts = r.alerts; }
+  const happened = !!log && JSON.stringify([log.signals, log.events, log.a3, log.a5, log.open]) !== before;
+  if (log) state.record = Object.assign({ since: log.since }, log.summary);
+
+  // rewrite the files only when something happened, or the state on disk is getting old
+  const old = readJson(OUT), oldMs = old && old.updated ? Date.parse(old.updated.replace(" SGT", ":00+08:00").replace(" ", "T")) : 0;
+  if (!happened && !alerts.length && now - oldMs < 50 * 60000 && !process.env.XAU_FORCE) { console.log("Nothing new since " + old.updated + "; files left as they are."); return; }
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(state, null, 1) + "\n");
+  if (log) fs.writeFileSync(LOG, JSON.stringify(log, null, 1) + "\n");
+  if (alerts.length) { console.log("ALERTS:\n" + alerts.join("\n\n")); if (process.env.XAU_ALERTS_FILE) fs.writeFileSync(process.env.XAU_ALERTS_FILE, alerts.join("\n\n---\n\n") + "\n"); }
   console.log("Wrote data/xau-state.json at " + state.updated + " | " + feed.source + " | price " + state.price + " | " + state.verdict.tag + " | " + state.timeframes.map(t => t.tf + (t.trend || "?")).join(" "));
 })().catch(e => { console.error("update_gold failed, old file kept:", e.message); process.exit(1); });

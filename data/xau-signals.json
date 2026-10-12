@@ -1,0 +1,28 @@
+{
+ "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
+ "since": "2026-10-12 17:30 SGT",
+ "sinceMs": 1791797400000,
+ "lastChecked": 1791797400000,
+ "a3": 0,
+ "a5": 0,
+ "open": null,
+ "nextId": 1,
+ "signals": [],
+ "events": [
+  {
+   "ms": 1791797400000,
+   "time": "2026-10-12 17:30 SGT",
+   "type": "start",
+   "text": "开始记录"
+  }
+ ],
+ "summary": {
+  "signals": 0,
+  "taken": 0,
+  "closed": 0,
+  "wins": 0,
+  "totalR": 0,
+  "avgR": null,
+  "open": 0
+ }
+}
