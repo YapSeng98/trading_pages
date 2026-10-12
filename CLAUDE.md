@@ -30,7 +30,9 @@ stock prices in `data/quotes.json`, gold in `data/xau-state.json`, the economic 
 
 ## Gold facts — written by a script, quoted by the refresh
 
-`.github/workflows/market.yml` runs two scripts every hour from Monday to Friday (every 6 hours at the weekend), plus once at 09:40 SGT ahead of the daily refresh:
+`.github/workflows/market.yml` runs two scripts every 15 minutes from Monday to Friday (every 6 hours at the weekend), and whenever a push changes `data/refresh-request.txt`. GitHub's timer has proved unreliable for this repo, so the daily refresh asks for fresh files itself: it writes the time into `data/refresh-request.txt`, pushes, and waits for the `Market facts` commit before reading. That file is the one thing under `data/` the refresh may write.
+
+The scripts:
 
 - `scripts/update_gold.js` runs the report page's own engine on real spot gold and writes `data/xau-state.json`: `price` (close of the last finished 15-minute candle, with `priceTime`), `today` (open, high, low and change since the previous close; the trading day rolls at 17:00 New York), `previousDay`, `thisWeek`, `previousWeek`, `verdict` (the same answer `report.html` shows), `plan` (only when the verdict is "go"), `watch` (the prices that would change the verdict), `timeframes` (per timeframe: `trend`, `since`, `rsi`, `atr`, EMAs, `range`, `lastBreak`, the price that would turn it), `resistance` and `support`.
 - `scripts/update_calendar.py` writes `data/calendar.json`: this week's US releases of medium or high impact, times already in Singapore time, with forecast and previous values.
@@ -50,13 +52,14 @@ Rules for the refresh when it writes `daily.html` and `risk.html`:
 - `assets/xau-engine.js` (engine id `xau-mtf-2`) reads the candles: structure trend per timeframe, gaps, patterns, and how many timeframes agree.
 - `assets/xau-plan.js` turns that into the verdict, the plan (stop 3 x 1H ATR, target 3R or trailing stop), position size and the checklist. It is pure and loads in Node.
 - `data/xau-backtest.json` holds the replay results shown in the page's "回放成绩" tab. `research/xau-replay/` has the tools that produce it and a README on how the rule was chosen. The page and the replay run the same engine and plan files: after changing either, run the replay again before trusting the numbers on the page.
+- Phone alerts: when the tracker reports a new signal, a closed paper trade, or the big trends lining up or splitting, the job comments on the GitHub issue titled `XAU 信号提醒（自动）` and GitHub notifies the owner. Closing the issue switches them off.
 - `data/xau-signals.json` is the live record: an hourly job (`scripts/xau_track.js`) opens a paper trade at every "go" signal and follows it to its stop or target. It shows at the top of the 回放成绩 tab. The refresh may quote its `summary`.
 - At view time the page also reads `data/calendar.json` (falling back to `risk.html`'s `table.cal` rows: `.cal-date`, `.cal-time` as `HH:MM SGT`, `.imp`, `.cal-event`, a `✓` marking finished events) and `daily.html` (the two `.risk-list li` lines `多头入场方案：…` and `空头入场方案：…`). Keep those class names and that line shape when refreshing those pages.
 - `data/xau-report.json` is an old one-off snapshot of the "XAU 4-Hour Report" artifact (https://claude.ai/artifact/SLbPQauRyYqyvv3RVU9vHS). The page hides it once it is more than a day old.
 
 `journal.html` (盈亏日历) is the visitor's own profit and loss diary. Everything on it is typed in by the visitor and kept in their browser (localStorage key `pnl.v1`); the page has no data values to refresh.
 
-The refresh routine must NOT edit `report.html`, `journal.html`, `assets/`, `data/`, `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
+The refresh routine must NOT edit `report.html`, `journal.html`, `assets/`, `data/` (except `data/refresh-request.txt`), `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
 
 ## Weekly deep refresh — Monday only
 

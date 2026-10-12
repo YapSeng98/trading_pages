@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["scripts/update_quotes.py", ".github/workflows/quotes.yml"]
+    paths: ["scripts/update_quotes.py", ".github/workflows/quotes.yml", "data/refresh-request.txt"]   # the last one: the daily refresh asking for fresh data
 
 permissions:
   contents: write
