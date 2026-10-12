@@ -9,6 +9,7 @@
 | [`index.html`](index.html) | 首页 · 导航中心 |
 | [`daily.html`](daily.html) | **每日深度分析**（主功能，每日更新）— 技术结构、支撑阻力、基本面、操作场景、风险预案 |
 | [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端用现货金 K 线实时计算 W / D / 4H / 1H / 15M 的方向；五个周期同向才给出入场方案，并算好手数、检查项与到价提醒。规则的依据是 2010 年以来的真实金价回放，结果在页面的「回放成绩」里（引擎见 `assets/`，回放工具见 `research/xau-replay/`） |
+| [`journal.html`](journal.html) | **盈亏日历** — 自己记录每天的盈亏，月历、每周与全年合计、累计曲线；记录只存在浏览器本地，可导出备份 |
 | [`news.html`](news.html) | 市场快讯 — 最新黄金消息聚合、明日关键价位、来源链接 |
 | [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |
 | [`strategy.html`](strategy.html) | 策略与形态手册 — 9 形态图鉴、4 套策略、K 线信号、交易心法 |

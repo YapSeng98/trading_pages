@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盈亏日历 · Trading Hub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%23D4A72C'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
+  --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
+  /* chart marks: validated for colour-blind separation on --bg2 (text keeps the tokens above) */
+  --m-bull:#0ab074;--m-bear:#db2943;--m-gold:#c08a11;
+  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --r-lg:22px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
+  --shadow-gold:0 6px 30px rgba(212,167,44,.16);
+  --f-d:'Space Grotesk','Noto Sans SC',sans-serif;--f-m:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased;position:relative}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 900px 500px at 50% 0%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 900px 500px at 50% 0%,#000,transparent 75%)}
+button,input,textarea,select{font:inherit;color:inherit}
+[hidden]{display:none!important}
+.mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.10),transparent 65%);filter:blur(40px)}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28)}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto;white-space:nowrap;flex-shrink:0}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 60px;display:grid;gap:18px}
+@media(max-width:560px){.wrap{padding:0 16px 48px;gap:14px}}
+.phead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;padding:38px 0 4px}
+.phead h1{font-family:var(--f-d);font-size:clamp(28px,4.4vw,40px);font-weight:700;color:var(--ink);line-height:1.1;letter-spacing:-1.3px}
+.phead h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold) 0%,var(--amber) 55%,var(--gold-dk) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.phead .sub{font-size:13.5px;color:var(--dim);margin-top:8px;max-width:620px;line-height:1.8}
+@media(max-width:760px){.phead{padding-top:26px}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,0) 120px),var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;box-shadow:var(--shadow-sm);min-width:0}
+@media(max-width:560px){.card{padding:18px 14px;border-radius:18px}}
+.card h2{font-family:var(--f-d);font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.3px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card h2 small{font-family:var(--f-m);font-size:9.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dk)}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;margin-bottom:16px}
+.note{font-size:12px;color:var(--dim);line-height:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border-2);background:var(--bg3);color:var(--ink);font:600 12.5px/1 var(--f-d);padding:11px 16px;border-radius:999px;cursor:pointer;transition:border-color .15s,transform .15s;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:rgba(184,134,11,.5);transform:translateY(-1px)}
+.btn.pri{background:linear-gradient(135deg,#E8C96D,var(--gold));color:#17130A;border-color:transparent;box-shadow:var(--shadow-gold)}
+.btn.ghost{background:transparent;color:var(--dim)}
+.btn.sm{padding:7px 11px;font-size:11px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.up{color:var(--bull)} .dn{color:var(--bear)}
+
+/* ── the month at a glance ── */
+.sum{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:12px}
+.st{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;min-width:0}
+.st .k{font-size:11.5px;color:var(--dim)}
+.st .v{font:700 24px/1.3 var(--f-d);color:var(--ink);letter-spacing:-.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st.big .v{font-size:34px;letter-spacing:-1.2px}
+.st .v.up{color:var(--bull)} .st .v.dn{color:var(--bear)}
+.st .d{font-size:11.5px;color:var(--dim);line-height:1.6;margin-top:2px}
+@media(max-width:860px){.sum{grid-template-columns:repeat(2,minmax(0,1fr))}.st.big{grid-column:1/-1}}
+
+.main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:18px;align-items:start}
+@media(max-width:980px){.main{grid-template-columns:minmax(0,1fr)}}
+
+/* ── calendar ── */
+.monav{display:flex;align-items:center;gap:8px}
+.monav .m{font:700 17px/1 var(--f-d);color:var(--ink);min-width:118px;text-align:center}
+.monav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--bg3);cursor:pointer;color:var(--ink);font-size:15px}
+.monav button:hover{border-color:rgba(184,134,11,.5)}
+.dow,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dow{margin-bottom:6px}
+.dow span{font-size:11px;color:var(--dim);text-align:center}
+.day{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:2px;min-height:74px;padding:7px 8px;border-radius:12px;border:1px solid var(--border);background:var(--bg3);cursor:pointer;text-align:left;min-width:0;transition:border-color .12s,transform .12s}
+.day:hover{border-color:rgba(184,134,11,.5);transform:translateY(-1px)}
+.day.blank{visibility:hidden;pointer-events:none}
+.day .n{font:500 12px/1 var(--f-m);color:var(--dim)}
+.day .a{font:700 14px/1.2 var(--f-d);color:var(--ink);white-space:nowrap;letter-spacing:-.2px}
+.day .c{font-size:10px;color:var(--dim);line-height:1.2}
+.day.pos{background:rgba(10,176,116,var(--a,.14));border-color:rgba(10,176,116,.38)}
+.day.neg{background:rgba(219,41,67,var(--a,.14));border-color:rgba(219,41,67,.40)}
+.day.today .n{color:var(--gold-lt);font-weight:600}
+.day.today::after{content:'';position:absolute;top:7px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.day.sel{outline:2px solid var(--gold);outline-offset:1px}
+.day.fut{opacity:.55}
+@media(max-width:560px){.dow,.grid{gap:4px}.day{min-height:60px;padding:6px 5px;border-radius:10px}.day .a{font-size:11.5px}.day .c{display:none}.day .n{font-size:11px}}
+.weeks{display:flex;gap:6px 8px;flex-wrap:wrap;margin-top:14px}
+.wk{font:500 11px/1 var(--f-m);padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--text);white-space:nowrap}
+.wk b{font-weight:600}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--dim)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* ── one day ── */
+.dhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.dhead .dt{font:700 17px/1.2 var(--f-d);color:var(--ink)}
+.dhead .tot{font:700 17px/1.2 var(--f-d)}
+.recs{display:grid;gap:8px;margin-bottom:16px}
+.rec{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--bg3)}
+.rec .amt{font:700 15px/1.3 var(--f-d)}
+.rec .meta{font-size:11.5px;color:var(--dim);line-height:1.5;grid-column:1/-1}
+.rec .ops{display:flex;gap:6px}
+.rec .ops button{border:1px solid var(--border);background:transparent;color:var(--dim);font-size:11px;padding:4px 9px;border-radius:999px;cursor:pointer}
+.rec .ops button:hover{color:var(--ink);border-color:var(--border-2)}
+.form{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;border-top:1px solid var(--border);padding-top:16px}
+.form>*,.f1,.f2>div,details.more{min-width:0}
+.form .lab{font-size:12px;font-weight:600;color:var(--gold-dk)}
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sign button{border:1px solid var(--border);background:var(--bg3);border-radius:12px;padding:12px 8px;font:600 14px/1 var(--f-d);color:var(--dim);cursor:pointer}
+.sign button[aria-pressed="true"].w{background:rgba(10,176,116,.16);border-color:rgba(10,176,116,.5);color:var(--bull)}
+.sign button[aria-pressed="true"].l{background:rgba(219,41,67,.14);border-color:rgba(219,41,67,.5);color:var(--bear)}
+.inp{display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:#0F0F15;border-radius:12px;padding:0 12px;min-width:0}
+.inp:focus-within{border-color:rgba(184,134,11,.6)}
+.inp span{color:var(--dim);font-family:var(--f-m);font-size:13px}
+.inp input,.inp select{flex:1;min-width:0;border:0;background:transparent;padding:12px 0;font:600 16px/1.2 var(--f-m);color:var(--ink);outline:none}
+.inp select{font:500 13px/1.2 'Noto Sans SC',sans-serif;width:100%;text-overflow:ellipsis}
+.inp.t input{font:400 13px/1.3 'Noto Sans SC',sans-serif}
+.f2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.f2 label,.f1 label{display:block;font-size:11.5px;color:var(--dim);margin-bottom:4px}
+details.more summary{cursor:pointer;font-size:12px;color:var(--dim);padding:4px 0}
+details.more[open] summary{margin-bottom:10px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.err{font-size:12px;color:var(--bear)}
+
+/* ── year, running total, rules ── */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media(max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.mo{border:1px solid var(--border);background:var(--bg3);border-radius:10px;padding:8px 6px;text-align:center;cursor:pointer;min-width:0}
+.mo:hover{border-color:rgba(184,134,11,.5)}
+.mo .mn{font-size:11px;color:var(--dim)}
+.mo .mv{font:700 12.5px/1.4 var(--f-d);color:var(--ink);white-space:nowrap}
+.mo.pos{background:rgba(10,176,116,.13);border-color:rgba(10,176,116,.35)} .mo.neg{background:rgba(219,41,67,.13);border-color:rgba(219,41,67,.38)}
+.mo.cur{outline:2px solid var(--gold);outline-offset:1px}
+@media(max-width:560px){.months{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.chart svg text{font:400 10px var(--f-m);fill:var(--dim)}
+.tip{position:absolute;pointer-events:none;background:var(--bg4);border:1px solid var(--border-2);border-radius:8px;padding:6px 9px;font-size:11.5px;color:var(--ink);white-space:nowrap;z-index:3}
+.cmp{display:grid;gap:8px}
+.cmp .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--bg3);font-size:12.5px}
+.cmp .row b{font:700 15px/1.2 var(--f-d)}
+.set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:14px}
+@media(max-width:560px){.set{grid-template-columns:minmax(0,1fr)}}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--bg4);border:1px solid var(--border-2);color:var(--ink);font-size:13px;padding:10px 16px;border-radius:999px;opacity:0;transition:all .2s;z-index:60;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{max-width:1180px;margin:0 auto;padding:0 24px 40px}
+.disc{font-size:11.5px;color:var(--dim);line-height:1.8;border-top:1px solid var(--border);padding-top:18px}
+</style>
+</head>
+<body>
+<div class="mesh"></div>
+<div class="topstrip"></div>
+
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="daily.html">📊 每日分析</a>
+  <a class="nl" href="report.html">🧭 4H报告</a>
+  <a class="nl on" href="journal.html">📒 盈亏日历</a>
+  <a class="nl" href="news.html">📰 快讯</a>
+  <a class="nl" href="risk.html">🗓 风险计划</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
+  <a class="nl" href="potential.html">🚀 潜力精选</a>
+</nav>
+
+<main class="wrap">
+  <header class="phead">
+    <div>
+      <h1>盈亏<em>日历</em></h1>
+      <p class="sub">每天记一笔：今天赚了还是亏了、多少钱。一个月下来，哪些天在赚、哪些天在亏、合计多少，一眼就看得出来。</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn sm" type="button" id="today">回到今天</button>
+      <button class="btn sm" type="button" id="export">导出备份</button>
+      <label class="btn sm" style="cursor:pointer">导入备份<input type="file" id="import" accept="application/json,.json" hidden></label>
+    </div>
+  </header>
+
+  <section class="sum" id="sum" aria-label="本月小结"></section>
+
+  <div class="main">
+    <section class="card" aria-label="月历">
+      <div class="card-head">
+        <h2>月历 <small>Calendar</small></h2>
+        <div class="monav"><button type="button" id="prev" aria-label="上个月">‹</button><span class="m" id="mlabel"></span><button type="button" id="next" aria-label="下个月">›</button></div>
+      </div>
+      <div class="dow" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+      <div class="grid" id="grid"></div>
+      <div class="weeks" id="weeks" aria-label="每周合计"></div>
+      <div class="legend" aria-hidden="true"><span><i style="background:rgba(10,176,116,.4)"></i>赚钱的一天</span><span><i style="background:rgba(219,41,67,.4)"></i>亏钱的一天</span><span>颜色越深，金额越大</span><span><i style="background:var(--gold);border-radius:50%;width:7px;height:7px"></i>今天</span></div>
+    </section>
+
+    <section class="card" aria-label="这一天" id="daycard">
+      <div class="dhead"><span class="dt" id="dlabel"></span><span class="tot" id="dtotal"></span></div>
+      <div class="recs" id="recs"></div>
+      <form class="form" id="form" novalidate>
+        <div class="lab" id="flab">记一笔</div>
+        <div class="sign" role="group" aria-label="赚了还是亏了">
+          <button type="button" class="w" id="s-win" aria-pressed="true">▲ 赚了</button>
+          <button type="button" class="l" id="s-loss" aria-pressed="false">▼ 亏了</button>
+        </div>
+        <div class="f1"><label for="f-amt">金额（只填数字，不用写正负号）</label><div class="inp"><span id="cur1">$</span><input id="f-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 38.5" autocomplete="off"></div></div>
+        <details class="more" id="more"><summary>更多（可不填）：品种、手数、有没有按规则</summary>
+          <div class="f2">
+            <div><label for="f-sym">品种</label><div class="inp t"><input id="f-sym" type="text" maxlength="16" placeholder="XAUUSD"></div></div>
+            <div><label for="f-side">方向</label><div class="inp"><select id="f-side"><option value="">不填</option><option value="long">做多</option><option value="short">做空</option></select></div></div>
+            <div><label for="f-lots">手数</label><div class="inp"><input id="f-lots" type="number" inputmode="decimal" min="0" step="any" placeholder="0.01"></div></div>
+            <div><label for="f-risk">这笔原本最多打算亏</label><div class="inp"><span id="cur2">$</span><input id="f-risk" type="number" inputmode="decimal" min="0" step="any" placeholder="可算出几 R"></div></div>
+          </div>
+          <div class="f1" style="margin-top:8px"><label for="f-rule">这笔是按 4H 报告的规则做的吗？</label><div class="inp"><select id="f-rule"><option value="">不填</option><option value="yes">是，按规则</option><option value="no">不是，自己的判断</option></select></div></div>
+          <div class="f1" style="margin-top:8px"><label for="f-note">备注</label><div class="inp t"><input id="f-note" type="text" maxlength="140" placeholder="为什么做、哪里做得好或不好"></div></div>
+        </details>
+        <div class="err" id="ferr" role="alert" hidden></div>
+        <div class="acts"><button class="btn pri" type="submit" id="save">保存</button><button class="btn ghost" type="button" id="cancel" hidden>取消修改</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div class="two">
+    <section class="card" aria-label="全年">
+      <div class="card-head"><h2><span id="ylabel"></span> <small>Year</small></h2><span class="note" id="ytotal"></span></div>
+      <div class="months" id="months"></div>
+    </section>
+    <section class="card" aria-label="累计盈亏">
+      <div class="card-head"><h2>累计盈亏 <small>Running total</small></h2><span class="note" id="ctotal"></span></div>
+      <div class="chart" id="chart"></div>
+    </section>
+  </div>
+
+  <div class="two">
+    <section class="card" aria-label="按规则与不按规则">
+      <div class="card-head"><h2>按规则做，和不按规则做 <small>Rules</small></h2></div>
+      <div class="cmp" id="cmp"></div>
+    </section>
+    <section class="card" aria-label="设置与备份">
+      <div class="card-head"><h2>设置与备份 <small>Settings</small></h2></div>
+      <div class="set">
+        <div class="f1"><label for="s-cur">货币符号</label><div class="inp t"><input id="s-cur" type="text" maxlength="4" placeholder="$"></div></div>
+        <div class="f1"><label for="s-start">月初账户余额（填了就能看到百分比）</label><div class="inp"><span id="cur3">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填"></div></div>
+      </div>
+      <p class="note"><b style="color:var(--ink)">记录只存在这台设备的这个浏览器里</b>，不会上传到任何地方，换手机或清除浏览器数据就没了。隔一段时间点一次上面的「导出备份」，把文件存好；换设备时用「导入备份」读回来。</p>
+      <div class="acts" style="margin-top:12px"><button class="btn sm" type="button" id="csv">导出为表格（CSV）</button></div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="disc">这一页只是记账工具：数字是你自己填的，页面只做加总。它不连接你的交易平台，也不构成投资建议。</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+  var KEY = "pnl.v1", NS = "http://www.w3.org/2000/svg";
+  function $(id) { return document.getElementById(id); }
+  function h(tag, attrs, kids) {
+    var e = document.createElement(tag), k;
+    for (k in (attrs || {})) { var v = attrs[k]; if (v === null || v === undefined || v === false) continue; if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? "" : v); }
+    (kids || []).forEach(function (c) { if (c === null || c === undefined || c === false) return; e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return e;
+  }
+  function sv(name, attrs, parent) { var e = document.createElementNS(NS, name); for (var a in attrs) e.setAttribute(a, attrs[a]); if (parent) parent.appendChild(e); return e; }
+  function clear(e) { while (e.firstChild) e.removeChild(e.firstChild); return e; }
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("show"); }, 2000); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function ymd(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+  function num(v) { return typeof v === "number" && isFinite(v) ? v : null; }
+
+  // ---------- data: kept in this browser only ----------
+  function load() {
+    var d = null; try { d = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (!d || !Array.isArray(d.items)) d = { cur: "$", start: null, items: [] };
+    d.items = d.items.filter(function (x) { return x && /^\d{4}-\d{2}-\d{2}$/.test(x.d) && num(x.amt) !== null; });
+    if (typeof d.cur !== "string" || !d.cur) d.cur = "$";
+    return d;
+  }
+  var D = load(), now = new Date(), TODAY = ymd(now.getFullYear(), now.getMonth(), now.getDate());
+  var V = { y: now.getFullYear(), m: now.getMonth(), sel: TODAY, edit: null, sign: 1 }, REC = null;
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(D)); return true; } catch (e) { toast("保存失败：浏览器不允许存储"); return false; } }
+
+  // ---------- numbers ----------
+  function money(v, d) { var a = Math.abs(v); return a.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: d === undefined ? (a < 100 ? 2 : 0) : d }); }
+  function signed(v, d) { return (v > 0 ? "+" : v < 0 ? "−" : "") + D.cur + money(v, d); }
+  function short(v) { var a = Math.abs(v), t = a >= 10000 ? Math.round(a / 1000) + "k" : a >= 1000 ? (a / 1000).toFixed(1) + "k" : a >= 100 ? String(Math.round(a)) : String(Math.round(a * 10) / 10); return (v > 0 ? "+" : v < 0 ? "−" : "") + t; }
+  function cls(v) { return v > 0 ? "up" : v < 0 ? "dn" : ""; }
+  function byDay() { var m = {}; D.items.forEach(function (x) { var o = m[x.d] || (m[x.d] = { sum: 0, n: 0, items: [] }); o.sum += x.amt; o.n++; o.items.push(x); }); return m; }
+  function stats(days) {      // days: [{d, sum, n}]
+    var s = { sum: 0, n: 0, days: days.length, win: 0, loss: 0, best: null, worst: null, winSum: 0, lossSum: 0 };
+    days.forEach(function (x) { s.sum += x.sum; s.n += x.n; if (x.sum > 0) { s.win++; s.winSum += x.sum; } else if (x.sum < 0) { s.loss++; s.lossSum += x.sum; } if (!s.best || x.sum > s.best.sum) s.best = x; if (!s.worst || x.sum < s.worst.sum) s.worst = x; });
+    return s;
+  }
+  function daysIn(prefix) { var m = byDay(); return Object.keys(m).filter(function (k) { return k.indexOf(prefix) === 0; }).sort().map(function (k) { return { d: k, sum: m[k].sum, n: m[k].n }; }); }
+  function md(d) { return (+d.slice(5, 7)) + "月" + (+d.slice(8, 10)) + "日"; }
+  var WD = ["日", "一", "二", "三", "四", "五", "六"];
+  function weekday(d) { return "周" + WD[new Date(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)).getDay()]; }
+
+  // ---------- the month at a glance ----------
+  function renderSum() {
+    var el = clear($("sum")), pre = V.y + "-" + pad(V.m + 1), s = stats(daysIn(pre)), start = num(D.start);
+    var tile = function (big, k, v, c, d) { el.appendChild(h("div", { class: "st" + (big ? " big" : "") }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (c || ""), text: v }), h("div", { class: "d", text: d })])); };
+    var sys = "";
+    if (REC) { var done = (REC.signals || []).filter(function (x) { return typeof x.R === "number" && x.exitMs && new Date(x.exitMs + 8 * 3600000).toISOString().slice(0, 7) === pre; }), r = done.reduce(function (a, x) { return a + x.R; }, 0); sys = done.length ? " 同一个月，4H 报告的纸面记录是 " + done.length + " 笔、合计 " + (r >= 0 ? "+" : "−") + Math.abs(r).toFixed(1) + "R。" : ""; }
+    tile(true, V.y + " 年 " + (V.m + 1) + " 月合计", s.days ? signed(s.sum) : "还没有记录", cls(s.sum), s.days ? (start ? "相当于月初余额的 " + (s.sum >= 0 ? "+" : "−") + Math.abs(s.sum / start * 100).toFixed(1) + "%。" : "") + "一共记了 " + s.n + " 笔，分布在 " + s.days + " 天。" + sys : "点月历里的任意一天，记下那天赚了或亏了多少。" + sys);
+    tile(false, "赚钱的天 / 亏钱的天", s.days ? s.win + " / " + s.loss : "—", "", s.days ? "有记录的 " + s.days + " 天里，" + Math.round(s.win / s.days * 100) + "% 是赚的" : "有记录后显示");
+    tile(false, "最好和最差的一天", s.days ? signed(s.best.sum, 0) : "—", s.days ? cls(s.best.sum) : "", s.days ? md(s.best.d) + "最好；" + md(s.worst.d) + "最差 " + signed(s.worst.sum, 0) : "有记录后显示");
+    var aw = s.win ? s.winSum / s.win : 0, al = s.loss ? s.lossSum / s.loss : 0;
+    tile(false, "赚的天平均 / 亏的天平均", s.win || s.loss ? (s.win ? signed(aw, 0) : "—") + " / " + (s.loss ? signed(al, 0) : "—") : "—", "", s.win && s.loss ? "赚的时候是亏的时候的 " + (aw / Math.abs(al)).toFixed(1) + " 倍" + (aw < Math.abs(al) ? "：亏的那几天亏得比较重" : "") : "两种天都有了才能比");
+  }
+
+  // ---------- calendar ----------
+  function renderCal() {
+    $("mlabel").textContent = V.y + " 年 " + (V.m + 1) + " 月";
+    var grid = clear($("grid")), map = byDay(), first = (new Date(V.y, V.m, 1).getDay() + 6) % 7, n = new Date(V.y, V.m + 1, 0).getDate(), max = 0, d;
+    for (d = 1; d <= n; d++) { var o = map[ymd(V.y, V.m, d)]; if (o) max = Math.max(max, Math.abs(o.sum)); }
+    for (var b = 0; b < first; b++) grid.appendChild(h("div", { class: "day blank" }));
+    var weeks = [], wk = null;
+    for (d = 1; d <= n; d++) {
+      var key = ymd(V.y, V.m, d), x = map[key], col = (first + d - 1) % 7;
+      if (col === 0 || d === 1) { wk = { from: d, to: d, sum: 0, n: 0 }; weeks.push(wk); }
+      wk.to = d; if (x) { wk.sum += x.sum; wk.n += x.n; }
+      var c = "day" + (x ? (x.sum > 0 ? " pos" : x.sum < 0 ? " neg" : "") : "") + (key === TODAY ? " today" : "") + (key === V.sel ? " sel" : "") + (key > TODAY ? " fut" : "");
+      var btn = h("button", { type: "button", class: c, "data-d": key, "aria-pressed": String(key === V.sel),
+        "aria-label": md(key) + weekday(key) + (x ? "，" + (x.sum > 0 ? "净赚 " : x.sum < 0 ? "净亏 " : "持平 ") + D.cur + money(x.sum) + "，" + x.n + " 笔" : "，没有记录") },
+        [h("span", { class: "n", text: String(d) }), x ? h("span", { class: "a", text: short(x.sum) }) : null, x ? h("span", { class: "c", text: x.n + " 笔" }) : null]);
+      if (x && max > 0) btn.style.setProperty("--a", (0.12 + 0.36 * Math.abs(x.sum) / max).toFixed(2));
+      grid.appendChild(btn);
+    }
+    var wl = clear($("weeks"));
+    weeks.forEach(function (w) { if (!w.n) return; wl.appendChild(h("span", { class: "wk" }, [(V.m + 1) + "/" + w.from + (w.to > w.from ? "–" + w.to : "") + " 这周 ", h("b", { class: cls(w.sum), text: signed(w.sum, 0) })])); });
+  }
+
+  // ---------- one day ----------
+  function renderDay() {
+    var x = byDay()[V.sel], list = clear($("recs"));
+    $("dlabel").textContent = V.sel.slice(0, 4) + " 年 " + md(V.sel) + " " + weekday(V.sel) + (V.sel === TODAY ? " · 今天" : "");
+    var tot = $("dtotal"); tot.textContent = x ? signed(x.sum) : ""; tot.className = "tot " + (x ? cls(x.sum) : "");
+    if (!x) list.appendChild(h("p", { class: "note", text: "这一天还没有记录。在下面记一笔：选赚了还是亏了，填金额，保存。" }));
+    else x.items.forEach(function (it) {
+      var bits = [];
+      if (it.sym) bits.push(it.sym); if (it.side) bits.push(it.side === "long" ? "做多" : "做空"); if (num(it.lots) !== null) bits.push(it.lots + " 手");
+      if (num(it.risk) !== null && it.risk > 0) bits.push((it.amt / it.risk >= 0 ? "+" : "−") + Math.abs(it.amt / it.risk).toFixed(1) + "R");
+      if (it.rule === true) bits.push("按规则"); if (it.rule === false) bits.push("没按规则"); if (it.note) bits.push(it.note);
+      list.appendChild(h("div", { class: "rec" }, [h("span", { class: "amt " + cls(it.amt), text: signed(it.amt) }),
+        h("span", { class: "ops" }, [h("button", { type: "button", text: "改", onclick: function () { startEdit(it); } }), h("button", { type: "button", text: "删", onclick: function () { D.items = D.items.filter(function (y) { return y.id !== it.id; }); if (V.edit === it.id) resetForm(); save(); renderAll(); toast("已删除"); } })]),
+        bits.length ? h("span", { class: "meta", text: bits.join(" · ") }) : null]));
+    });
+    $("flab").textContent = V.edit ? "修改这一笔" : x ? "再记一笔" : "记一笔";
+  }
+  function setSign(s) { V.sign = s; $("s-win").setAttribute("aria-pressed", String(s > 0)); $("s-loss").setAttribute("aria-pressed", String(s < 0)); }
+  function resetForm() { V.edit = null; ["f-amt", "f-sym", "f-lots", "f-risk", "f-note"].forEach(function (id) { $(id).value = ""; }); $("f-side").value = ""; $("f-rule").value = ""; setSign(1); $("cancel").hidden = true; $("ferr").hidden = true; $("save").textContent = "保存"; }
+  function startEdit(it) {
+    V.edit = it.id; setSign(it.amt < 0 ? -1 : 1); $("f-amt").value = Math.abs(it.amt); $("f-sym").value = it.sym || ""; $("f-side").value = it.side || ""; $("f-lots").value = num(it.lots) === null ? "" : it.lots; $("f-risk").value = num(it.risk) === null ? "" : it.risk;
+    $("f-rule").value = it.rule === true ? "yes" : it.rule === false ? "no" : ""; $("f-note").value = it.note || ""; if (it.sym || it.side || num(it.lots) !== null || num(it.risk) !== null || it.rule !== null || it.note) $("more").open = true;
+    $("cancel").hidden = false; $("save").textContent = "保存修改"; renderDay(); $("f-amt").focus();
+  }
+  $("form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var amt = parseFloat($("f-amt").value), err = $("ferr");
+    if (!isFinite(amt) || amt < 0) { err.textContent = "请填金额（一个不小于 0 的数字）。"; err.hidden = false; $("f-amt").focus(); return; }
+    var f = function (id) { var v = parseFloat($(id).value); return isFinite(v) && v >= 0 ? v : null; }, r = $("f-rule").value;
+    var it = { id: V.edit || "r" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), d: V.sel, amt: Math.round(amt * V.sign * 100) / 100, sym: $("f-sym").value.trim(), side: $("f-side").value, lots: f("f-lots"), risk: f("f-risk"), rule: r === "yes" ? true : r === "no" ? false : null, note: $("f-note").value.trim() };
+    if (V.edit) D.items = D.items.map(function (y) { return y.id === V.edit ? it : y; }); else D.items.push(it);
+    if (!save()) return;
+    resetForm(); renderAll(); toast("已保存：" + md(it.d) + " " + signed(it.amt));
+  });
+
+  // ---------- year ----------
+  function renderYear() {
+    $("ylabel").textContent = V.y + " 年"; var el = clear($("months")), tot = 0, any = false;
+    for (var m = 0; m < 12; m++) (function (m) {
+      var s = stats(daysIn(V.y + "-" + pad(m + 1))); tot += s.sum; if (s.days) any = true;
+      el.appendChild(h("button", { type: "button", class: "mo" + (s.sum > 0 ? " pos" : s.sum < 0 ? " neg" : "") + (m === V.m ? " cur" : ""), "aria-label": (m + 1) + " 月" + (s.days ? " " + signed(s.sum, 0) : " 没有记录"), onclick: function () { V.m = m; renderAll(); } },
+        [h("div", { class: "mn", text: (m + 1) + " 月" }), h("div", { class: "mv " + cls(s.sum), text: s.days ? short(s.sum) : "—" })]));
+    })(m);
+    var t = $("ytotal"); t.textContent = any ? "全年合计 " + signed(tot, 0) : "这一年还没有记录"; t.className = "note " + (any ? cls(tot) : "");
+  }
+
+  // ---------- running total ----------
+  function renderCurve() {
+    var box = clear($("chart")), days = daysIn(""), cum = 0, pts = days.map(function (x) { cum += x.sum; return { d: x.d, v: cum, day: x.sum }; });
+    var ct = $("ctotal"); ct.textContent = pts.length ? "全部记录合计 " + signed(cum, 0) + "，共 " + pts.length + " 天" : ""; ct.className = "note " + cls(cum);
+    if (pts.length < 2) { box.appendChild(h("p", { class: "note", text: "记了两天以上，这里会画出一条累计曲线：往上走是在赚，往下走是在亏。" })); return; }
+    var W = 520, H = 190, L = 8, R = 62, T = 12, B = 22, vs = pts.map(function (p) { return p.v; }).concat([0]), lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs), padv = (hi - lo) * 0.1 || 1; lo -= padv; hi += padv;
+    var X = function (i) { return L + i * (W - L - R) / (pts.length - 1); }, Y = function (v) { return T + (hi - v) * (H - T - B) / (hi - lo); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "累计盈亏曲线，最新 " + signed(cum, 0) });
+    sv("line", { x1: L, x2: W - R, y1: Y(0), y2: Y(0), stroke: "var(--border)", "stroke-width": 1 }, svg);
+    sv("text", { x: W - R + 6, y: Y(0) + 3 }, svg).textContent = "0";
+    var col = cum >= 0 ? "var(--m-bull)" : "var(--m-bear)";
+    sv("polyline", { points: pts.map(function (p, i) { return X(i).toFixed(1) + "," + Y(p.v).toFixed(1); }).join(" "), fill: "none", stroke: col, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    var lastY = Y(cum); sv("circle", { cx: X(pts.length - 1), cy: lastY, r: 4, fill: col, stroke: "var(--bg2)", "stroke-width": 2 }, svg);
+    var lt = sv("text", { x: W - R + 6, y: Math.abs(lastY - Y(0)) < 12 ? lastY - 9 : lastY + 3, style: "fill:var(--ink);font-weight:600" }, svg); lt.textContent = short(cum);
+    sv("text", { x: L, y: H - 6 }, svg).textContent = pts[0].d.slice(5).replace("-", "/");
+    sv("text", { x: W - R, y: H - 6, "text-anchor": "end" }, svg).textContent = pts[pts.length - 1].d.slice(5).replace("-", "/");
+    var vl = sv("line", { y1: T, y2: H - B, stroke: "var(--dim)", "stroke-width": 1, visibility: "hidden" }, svg), dot = sv("circle", { r: 4, fill: "var(--ink)", visibility: "hidden" }, svg);
+    sv("rect", { x: L, y: T, width: W - L - R, height: H - T - B, fill: "transparent" }, svg);
+    box.appendChild(svg); var tip = h("div", { class: "tip", hidden: true }); box.appendChild(tip);
+    var show = function (ev) {
+      var r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width, i = Math.max(0, Math.min(pts.length - 1, Math.round((px - L) / ((W - L - R) / (pts.length - 1))))), p = pts[i];
+      vl.setAttribute("x1", X(i)); vl.setAttribute("x2", X(i)); vl.setAttribute("visibility", "visible"); dot.setAttribute("cx", X(i)); dot.setAttribute("cy", Y(p.v)); dot.setAttribute("visibility", "visible");
+      tip.hidden = false; tip.textContent = md(p.d) + "：当天 " + signed(p.day, 0) + "，累计 " + signed(p.v, 0);
+      var x = X(i) * r.width / W, w = tip.offsetWidth; tip.style.left = Math.max(0, Math.min(r.width - w, x - w / 2)) + "px"; tip.style.top = Math.max(0, Y(p.v) * r.height / H - 38) + "px";
+    };
+    svg.addEventListener("pointermove", show); svg.addEventListener("pointerdown", show);
+    svg.addEventListener("pointerleave", function () { vl.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); tip.hidden = true; });
+  }
+
+  // ---------- with the rules and without ----------
+  function renderCmp() {
+    var el = clear($("cmp")), g = { yes: [], no: [], na: [] };
+    D.items.forEach(function (x) { (x.rule === true ? g.yes : x.rule === false ? g.no : g.na).push(x); });
+    var row = function (name, list) { var s = list.reduce(function (a, x) { return a + x.amt; }, 0), w = list.filter(function (x) { return x.amt > 0; }).length; el.appendChild(h("div", { class: "row" }, [h("span", { text: name + "：" + list.length + " 笔" + (list.length ? "，" + w + " 笔赚钱" : "") }), h("b", { class: cls(s), text: list.length ? signed(s, 0) : "—" })])); };
+    if (!g.yes.length && !g.no.length) { el.appendChild(h("p", { class: "note", text: "记一笔的时候，在「更多」里选一下这笔是不是按 4H 报告的规则做的。攒上几十笔以后，这里会告诉你：守规则的单子和凭感觉的单子，哪一种真的在赚钱。" })); return; }
+    row("按规则做的", g.yes); row("没按规则做的", g.no); if (g.na.length) row("没有标注的", g.na);
+    el.appendChild(h("p", { class: "note", text: "笔数少的时候差别说明不了什么，至少看二三十笔。" }));
+  }
+
+  function renderAll() { ["cur1", "cur2", "cur3"].forEach(function (id) { $(id).textContent = D.cur; }); renderSum(); renderCal(); renderDay(); renderYear(); renderCurve(); renderCmp(); }
+
+  // ---------- wiring ----------
+  $("grid").addEventListener("click", function (ev) { var b = ev.target.closest ? ev.target.closest(".day[data-d]") : null; if (!b) return; V.sel = b.getAttribute("data-d"); resetForm(); renderCal(); renderDay(); if (window.innerWidth < 980) $("daycard").scrollIntoView({ behavior: "smooth", block: "start" }); });
+  $("prev").addEventListener("click", function () { V.m--; if (V.m < 0) { V.m = 11; V.y--; } renderAll(); });
+  $("next").addEventListener("click", function () { V.m++; if (V.m > 11) { V.m = 0; V.y++; } renderAll(); });
+  $("today").addEventListener("click", function () { V.y = now.getFullYear(); V.m = now.getMonth(); V.sel = TODAY; resetForm(); renderAll(); });
+  $("s-win").addEventListener("click", function () { setSign(1); }); $("s-loss").addEventListener("click", function () { setSign(-1); });
+  $("cancel").addEventListener("click", function () { resetForm(); renderDay(); });
+  $("s-cur").value = D.cur; $("s-start").value = num(D.start) === null ? "" : D.start;
+  $("s-cur").addEventListener("input", function () { D.cur = this.value.trim() || "$"; save(); renderAll(); });
+  $("s-start").addEventListener("input", function () { var v = parseFloat(this.value); D.start = isFinite(v) && v > 0 ? v : null; save(); renderSum(); });
+  function download(name, text, type) { var a = h("a", { href: URL.createObjectURL(new Blob([text], { type: type })), download: name }); document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+  $("export").addEventListener("click", function () { if (!D.items.length) { toast("还没有记录可以导出"); return; } download("盈亏日历备份-" + TODAY + ".json", JSON.stringify(D, null, 1), "application/json"); toast("已导出 " + D.items.length + " 笔，请把文件存好"); });
+  $("csv").addEventListener("click", function () {
+    if (!D.items.length) { toast("还没有记录可以导出"); return; }
+    var q = function (v) { v = v === null || v === undefined ? "" : String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+    var rows = [["date", "amount", "symbol", "side", "lots", "planned_risk", "R", "by_rules", "note"]].concat(D.items.slice().sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; }).map(function (x) { return [x.d, x.amt, x.sym, x.side, x.lots, x.risk, num(x.risk) && x.risk > 0 ? (x.amt / x.risk).toFixed(2) : "", x.rule === true ? "yes" : x.rule === false ? "no" : "", x.note]; }));
+    download("盈亏日历-" + TODAY + ".csv", "﻿" + rows.map(function (r) { return r.map(q).join(","); }).join("\n"), "text/csv");
+  });
+  $("import").addEventListener("change", function () {
+    var file = this.files && this.files[0], self = this; if (!file) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var d = JSON.parse(rd.result), have = {}, added = 0; if (!d || !Array.isArray(d.items)) throw new Error("bad");
+        D.items.forEach(function (x) { have[x.id] = 1; });
+        d.items.forEach(function (x) { if (x && /^\d{4}-\d{2}-\d{2}$/.test(x.d) && num(x.amt) !== null && x.id && !have[x.id]) { D.items.push({ id: String(x.id), d: x.d, amt: x.amt, sym: String(x.sym || "").slice(0, 16), side: x.side === "long" || x.side === "short" ? x.side : "", lots: num(x.lots), risk: num(x.risk), rule: x.rule === true ? true : x.rule === false ? false : null, note: String(x.note || "").slice(0, 140) }); added++; } });
+        if (!D.items.length && typeof d.cur === "string") D.cur = d.cur;
+        save(); renderAll(); toast(added ? "已读入 " + added + " 笔新记录" : "备份里的记录这里都已经有了");
+      } catch (e) { toast("这个文件读不了：需要本页导出的备份文件"); }
+      self.value = "";
+    };
+    rd.readAsText(file);
+  });
+  var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(renderCurve, 150); });
+  // the report page's paper record, for the "same month" comparison (optional)
+  fetch("data/xau-signals.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.signals) { REC = d; renderSum(); } }).catch(function () {});
+  resetForm(); renderAll();
+})();
+</script>
+</body>
+</html>

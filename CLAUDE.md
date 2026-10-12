@@ -50,10 +50,13 @@ Rules for the refresh when it writes `daily.html` and `risk.html`:
 - `assets/xau-engine.js` (engine id `xau-mtf-2`) reads the candles: structure trend per timeframe, gaps, patterns, and how many timeframes agree.
 - `assets/xau-plan.js` turns that into the verdict, the plan (stop 3 x 1H ATR, target 3R or trailing stop), position size and the checklist. It is pure and loads in Node.
 - `data/xau-backtest.json` holds the replay results shown in the page's "回放成绩" tab. `research/xau-replay/` has the tools that produce it and a README on how the rule was chosen. The page and the replay run the same engine and plan files: after changing either, run the replay again before trusting the numbers on the page.
+- `data/xau-signals.json` is the live record: an hourly job (`scripts/xau_track.js`) opens a paper trade at every "go" signal and follows it to its stop or target. It shows at the top of the 回放成绩 tab. The refresh may quote its `summary`.
 - At view time the page also reads `data/calendar.json` (falling back to `risk.html`'s `table.cal` rows: `.cal-date`, `.cal-time` as `HH:MM SGT`, `.imp`, `.cal-event`, a `✓` marking finished events) and `daily.html` (the two `.risk-list li` lines `多头入场方案：…` and `空头入场方案：…`). Keep those class names and that line shape when refreshing those pages.
 - `data/xau-report.json` is an old one-off snapshot of the "XAU 4-Hour Report" artifact (https://claude.ai/artifact/SLbPQauRyYqyvv3RVU9vHS). The page hides it once it is more than a day old.
 
-The refresh routine must NOT edit `report.html`, `assets/`, `data/`, `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html`; keep that link.
+`journal.html` (盈亏日历) is the visitor's own profit and loss diary. Everything on it is typed in by the visitor and kept in their browser (localStorage key `pnl.v1`); the page has no data values to refresh.
+
+The refresh routine must NOT edit `report.html`, `journal.html`, `assets/`, `data/`, `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
 
 ## Weekly deep refresh — Monday only
 
