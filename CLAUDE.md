@@ -12,9 +12,9 @@ stock prices in `data/quotes.json`, gold in `data/xau-state.json`, the economic 
 | File | What to update |
 |------|----------------|
 | `daily.html` | hdate chip, hprice-chg, bias bar, snapshot, S/R table, scenarios, session plan, calendar, multi-timeframe table. Every gold number comes from `data/xau-state.json` and every calendar row from `data/calendar.json`; see "Gold facts". |
-| `news.html` | hdate, price chip (`<!--LIVEPRICE-->` markers), hprice-chg, TL;DR, 5 news items, key levels |
+| `news.html` | hdate, price chip (`<!--LIVEPRICE-->` markers), hprice-chg, TL;DR, 5 news items (each dated, with its source link), key levels (`.lvls`: from `resistance` / `support` / `price` in `data/xau-state.json`) |
 | `risk.html` | hdate, calendar rows (from `data/calendar.json`), scenario probabilities (`.scen-prob`), staged plan |
-| `index.html` | Main tile chips, news tile chip, risk tile chip, footer `.upd`, Market Pulse (`#pulse-dxy` / `#pulse-fed` / `#pulse-event` / `#pulse-event-d` / `#pulse-gold` / `#pulse-list` 3×`<li>`), GOLD7 array |
+| `index.html` | Nothing. The tile chips, Market Pulse, 7-day chart, score dial and footer stamp are filled in the browser by `assets/hub-live.js` from `data/xau-state.json` and `data/calendar.json`. |
 | `stocks.html` | `hdate` date line only, exactly `YYYY年M月D日（星期X）HH:MM SGT&ensp;·&ensp;GMT+8 &ensp;·&ensp; 美国 / 新加坡 / 马来西亚 三大市场 · 成长股与股息股分类` with nothing appended (the page has its own data-freshness bar). Every market number on this page is filled in by the browser; see "Stock market data". Do NOT touch `#review`, `#fresh`, `#usBoard` or any `.q-thesis` / `.px-row` line: all are JS-generated. |
 | **`potential.html`** | **`hdate` date line + `.upd-stamp` timestamp** (format: `⟳ 时间戳更新 · YYYY-MM-DD HH:MM SGT · 内容每周一深度研究刷新`) |
 
@@ -30,7 +30,7 @@ stock prices in `data/quotes.json`, gold in `data/xau-state.json`, the economic 
 
 ## Gold facts — written by a script, quoted by the refresh
 
-`.github/workflows/market.yml` runs two scripts at 09:40 SGT and every 4 hours:
+`.github/workflows/market.yml` runs two scripts every hour from Monday to Friday (every 6 hours at the weekend), plus once at 09:40 SGT ahead of the daily refresh:
 
 - `scripts/update_gold.js` runs the report page's own engine on real spot gold and writes `data/xau-state.json`: `price` (close of the last finished 15-minute candle, with `priceTime`), `today` (open, high, low and change since the previous close; the trading day rolls at 17:00 New York), `previousDay`, `thisWeek`, `previousWeek`, `verdict` (the same answer `report.html` shows), `plan` (only when the verdict is "go"), `watch` (the prices that would change the verdict), `timeframes` (per timeframe: `trend`, `since`, `rsi`, `atr`, EMAs, `range`, `lastBreak`, the price that would turn it), `resistance` and `support`.
 - `scripts/update_calendar.py` writes `data/calendar.json`: this week's US releases of medium or high impact, times already in Singapore time, with forecast and previous values.
@@ -68,14 +68,8 @@ The refresh routine must NOT edit `report.html`, `assets/`, `data/`, `scripts/`,
 - **NEVER** use Google Finance (blocked). For numbers, read the data files above; they are written from Yahoo Finance and the gold feed by scripts. Use WebSearch for news and context.
 - **Yahoo Finance fetch method** (this is what `scripts/update_quotes.py` does)**:** use the chart API, not the rendered quote page — `curl -s "https://query1.finance.yahoo.com/v8/finance/chart/TICKER?interval=1d&range=10d" -H "User-Agent: Mozilla/5.0"`. Compute price/% change from the **last two non-null entries in the response's `timestamp` / `indicators.quote[0].close` arrays** — never from `meta.previousClose` or `meta.regularMarketPrice`, which can reference a stale/inconsistent baseline (confirmed case: 0166.KL showed +10.36% via meta fields vs. the correct +1.66% from the close array).
 - Keep old values on API/fetch error — never blank a field.
-- **GOLD7 array (`index.html`, `var GOLD7=`) — this has broken before, follow exactly:**
-  1. Compute TODAY as `M/D` (no leading zeros) from the **real `TZ='Asia/Singapore' date` shell output this run** — NEVER from a date mentioned in a news article or search result.
-  2. If the array's LAST entry's `d` already equals TODAY, only update its `v`. Otherwise APPEND `{d:"TODAY", v:price}` using that real date string (even if several days were skipped since the last run — do not backfill/guess the gap, just add the one real new point).
-  3. Trim from the FRONT until exactly 7 entries remain.
-  4. Before saving: every `d` must be in ascending order and every date must be traceable to a real shell clock output from some past run — if you can't justify a date, drop that entry rather than guess.
 - **Weekday labels anywhere on the site** (e.g. "7/31（周四）", "8/4（周一）") must be computed from the real calendar, not assumed — a July 31 / Aug 4 mislabeling bug shipped once already (Aug 4 2026 is a Tuesday, not Monday; the real next Monday was Aug 3). When writing a date+weekday pair, double check the weekday against the actual computed date rather than pattern-matching nearby text.
 - Radar `drawRadar(...)` calls: index 4 (动能) is computed in the browser from the quote data, so leave it. The other five values change only in the Monday deep refresh. Never touch render code.
-- Footer `.upd` exact format: `⟳ 自动刷新 · 最后更新 YYYY-MM-DD HH:MM SGT · 图表报价实时`
 - `stocks.html` footer `.upd-stamp` exact format: `⟳ 价格更新 · YYYY-MM-DD · 评分与研究文本上次深度刷新于 YYYY-MM-DD，待下次周一 · 价格与收益率为近似参考值`. The first date is overwritten in the browser from the quote data; leave it. The second is the last Monday deep refresh that actually rewrote scores and research text; move it forward only when that happened in this run.
 - Commit message: `Auto-refresh YYYY-MM-DD HH:MM SGT: [one-line summary]`
 - **ALWAYS** `git add daily.html news.html risk.html index.html stocks.html potential.html && git commit && git push origin main`

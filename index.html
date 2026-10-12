@@ -202,11 +202,7 @@ footer .disc strong{color:var(--text)}
         <div class="mp-label">XAU/USD · 实时金价</div>
         <div class="mp-num js-live-price">—</div>
         <div class="mp-time"><span class="mp-dot">●</span> 更新于 <span class="js-live-time">载入中…</span></div>
-        <div class="meta" style="margin-top:20px">
-          <span class="chip bear">9/29（周二）12:06 SGT · 金价~$4,117-4,120，亚洲盘午段延续整理，伦敦盘曾急跌破9/25周五收盘~$4,280及$4,247-4,260前支撑</span>
-          <span class="chip gold">Fed 9/15-16已加息25bp至3.75-4.00%（沃什主席） · DXY七至八周高位+中东局势紧张 · 10月再加息概率~70%</span>
-          <span class="chip gold">近1月-10.3%，中期结构承压重估</span>
-        </div>
+        <div class="meta" style="margin-top:20px" id="hub-main-chips"><span class="chip gold">载入中…</span></div>
       </div>
     </a>
 
@@ -245,8 +241,8 @@ footer .disc strong{color:var(--text)}
       <h2>市场快讯</h2>
       <p>最新黄金消息聚合：美联储加息预期、核心 PCE、美伊地缘、机构目标价。附明日关键价位与来源链接。</p>
       <div class="meta">
-        <span class="chip bear">现价 <span class="js-live-price"><!--LIVEPRICE-->$4,120<!--/LIVEPRICE--></span></span>
-        <span class="chip gold">周二亚洲盘午段整理，伦敦盘曾急跌破$4,247-4,260前支撑 · 近1月-10.3% · Fed 9/15-16加息25bp至3.75-4.00%（沃什主席） · DXY七至八周高位+中东局势紧张 · 10月再加息概率~70%</span>
+        <span class="chip bear">现价 <span class="js-live-price">—</span></span>
+        <span id="hub-news-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
       <div class="go">查看快讯 <span class="arr">→</span></div>
     </a>
@@ -258,8 +254,7 @@ footer .disc strong{color:var(--text)}
       <h2>未来风险与计划</h2>
       <p>ForexFactory 高影响事件日历（PCE / NFP / CPI / FOMC）、三大前瞻情景、分阶段交易计划与重大数据期风险铁律。</p>
       <div class="meta">
-        <span class="chip gold">9/29（周二）12:06 SGT · 近1月-10.3% · DXY七至八周高位+中东局势紧张 · 10月FOMC(10/27-28)再加息概率~70%</span>
-        <span class="chip bear">金价~$4,117-4,120，亚洲盘午段延续整理，$4,247-4,260前支撑仍未收复 · Fed已于9/15-16加息25bp至3.75-4.00%（沃什主席首秀）</span>
+        <span id="hub-risk-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
       <div class="go">查看风险计划 <span class="arr">→</span></div>
     </a>
@@ -297,85 +292,28 @@ footer .disc strong{color:var(--text)}
 
 <div class="wrap">
   <div class="pulse ai-frame">
-    <div class="pulse-head"><span class="ai-tag">AI Synthesis</span>&ensp;市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">⟳ 2026-09-29 12:06 SGT · 每 3 小时自动更新</span></div>
+    <div class="pulse-head"><span class="ai-tag">实时数据</span>&ensp;市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">载入中…</span></div>
     <div class="pulse-stats">
-      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">周一纽约盘收报~$4,117，周二亚洲盘午段延续窄幅整理于~$4,117-4,120，仍未收复9/25周五收盘~$4,280及$4,247-4,260前支撑（约-3.7%） · 近1月-10.3%，较8/28的$4,590明显承压 · 鹰派Fed前瞻+中东局势本周一再度紧张双重打压，本周焦点转向今晚CB消费者信心及本周JOLTS/ADP/GDP数据</div></div>
-      <div class="ps"><div class="pk">美元指数 DXY</div><div class="pv" id="pulse-dxy">七至八周高位</div><div class="pd">美联储9/15-16 FOMC会议25个基点加息至3.75%-4.00%（沃什主席任内首次），鹰派指引叠加美国经济数据偏强，美元指数延续多日连涨，维持七至八周高位，持续压制金价</div></div>
-      <div class="ps"><div class="pk">10月再加息概率</div><div class="pv" id="pulse-fed">~70%</div><div class="pd">CME FedWatch最新定价显示10/27-28 FOMC再加息25bp概率大幅跃升至约70%（此前约57%），鹰派论调本轮进一步强化 · 本周焦点数据：CB消费者信心指数、8月JOLTS职位空缺、9月ADP就业、Q2 GDP修正值</div></div>
-      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">9月非农(NFP) 10/2（周五）</div><div class="pd" id="pulse-event-d">今晚22:00 SGT CB消费者信心指数 · 明日8月JOLTS职位空缺 · 本周9月ADP就业、Q2 GDP修正值 · 下一数据点：9月NFP 10/2（周五）20:30 SGT · 10月FOMC 10/27-28（10月28日周三决议） · 核心PCE 10/30（周五）</div></div>
+      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">载入中…</div></div>
+      <div class="ps"><div class="pk">系统结论</div><div class="pv" id="pulse-verdict" style="font-size:18px">—</div><div class="pd" id="pulse-verdict-d">载入中…</div></div>
+      <div class="ps"><div class="pk">五个周期的方向</div><div class="pv" id="pulse-tf" style="font-size:15px">—</div><div class="pd" id="pulse-tf-d">载入中…</div></div>
+      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">—</div><div class="pd" id="pulse-event-d">载入中…</div></div>
     </div>
 
     <div class="pulse-viz">
       <div class="pv-card">
-        <div class="pv-k"><span>黄金 7 日走势 · Gold 7-Day</span><span id="g7-range"></span></div>
-        <svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近7日收盘走势"></svg>
+        <div class="pv-k"><span>黄金近 7 个交易日 · Gold 7-Day</span><span id="g7-range"></span></div>
+        <svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势"></svg>
       </div>
       <div class="pv-card">
-        <div class="pv-k"><span>9月加息概率 · Fed Gauge</span></div>
-        <svg id="fedsvg" viewBox="0 0 170 96" role="img" aria-label="9月加息概率仪表"></svg>
+        <div class="pv-k"><span>多周期评分 · Score</span></div>
+        <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分"></svg>
       </div>
     </div>
-    <script>
-    document.addEventListener('DOMContentLoaded',function(){
-      /* ══ GOLD7 — agent maintains: last 7 daily closes, oldest first ══ */
-      var GOLD7=[
-        {d:"8/25",v:4639},{d:"8/26",v:4620},{d:"8/27",v:4590},{d:"8/28",v:4590},{d:"9/27",v:4286},{d:"9/28",v:4150},{d:"9/29",v:4120}
-      ];
-      /* ═══════════════════════════════════════════════════════════════ */
-      var NS='http://www.w3.org/2000/svg';
-      function mk(t,at,parent){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(parent)parent.appendChild(e);return e;}
-      var svg=document.getElementById('g7svg');
-      if(svg&&GOLD7.length>1){
-        var vs=GOLD7.map(function(p){return p.v;}),mn=Math.min.apply(null,vs),mx=Math.max.apply(null,vs),pad=(mx-mn)*0.15||10;
-        mn-=pad;mx+=pad;
-        var W=340,H=96,L=8,R=48,T=10,B=18;
-        function X(i){return L+i*(W-L-R)/(GOLD7.length-1);}
-        function Y(v){return T+(mx-v)*(H-T-B)/(mx-mn);}
-        var pts=GOLD7.map(function(p,i){return X(i).toFixed(1)+','+Y(p.v).toFixed(1);});
-        var defs=mk('defs',{},svg);
-        var gr=mk('linearGradient',{id:'g7g',x1:0,y1:0,x2:0,y2:1},defs);
-        mk('stop',{offset:'0%','stop-color':'#D4A72C','stop-opacity':'0.28'},gr);
-        mk('stop',{offset:'100%','stop-color':'#D4A72C','stop-opacity':'0'},gr);
-        mk('polygon',{points:pts.join(' ')+' '+X(GOLD7.length-1).toFixed(1)+','+(H-B)+' '+L+','+(H-B),fill:'url(#g7g)'},svg);
-        mk('polyline',{points:pts.join(' '),fill:'none',stroke:'#D4A72C','stroke-width':'2','stroke-linejoin':'round','stroke-linecap':'round'},svg);
-        GOLD7.forEach(function(p,i){
-          mk('circle',{cx:X(i).toFixed(1),cy:Y(p.v).toFixed(1),r:i===GOLD7.length-1?'3.5':'2',fill:'#D4A72C',stroke:'#15151C','stroke-width':'1'},svg);
-          var tx=mk('text',{x:X(i).toFixed(1),y:H-4,fill:'#8A857E','font-size':'8','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'},svg);
-          tx.textContent=p.d;
-        });
-        var last=GOLD7[GOLD7.length-1];
-        var lt=mk('text',{x:(X(GOLD7.length-1)+5).toFixed(1),y:(Y(last.v)+3).toFixed(1),fill:'#F6F5F3','font-size':'11','font-weight':'700','font-family':"'Space Grotesk',monospace"},svg);
-        lt.textContent='$'+last.v.toLocaleString();
-        var rng=document.getElementById('g7-range');
-        if(rng) rng.textContent='低 $'+Math.min.apply(null,vs).toLocaleString()+' · 高 $'+Math.max.apply(null,vs).toLocaleString();
-      }
-      // Fed gauge — harvests #pulse-fed text (e.g. "~56%"), no separate data to maintain
-      var fs=document.getElementById('fedsvg'), fedEl=document.getElementById('pulse-fed');
-      if(fs&&fedEl){
-        var pct=parseFloat((fedEl.textContent||'').replace(/[^0-9.]/g,''))||0;
-        var cx=85,cy=82,r=58;
-        function arcPt(p){var a=Math.PI*(1-p);return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
-        function arc(p0,p1,color,w){
-          var s=arcPt(p0),e=arcPt(p1);
-          mk('path',{d:'M'+s[0].toFixed(1)+' '+s[1].toFixed(1)+' A'+r+' '+r+' 0 0 1 '+e[0].toFixed(1)+' '+e[1].toFixed(1),fill:'none',stroke:color,'stroke-width':w,'stroke-linecap':'round'},fs);
-        }
-        arc(0,1,'#2B2B36',10);
-        arc(0,Math.max(0.02,pct/100),'#D4A72C',10);
-        var vt=mk('text',{x:cx,y:cy-8,fill:'#F6F5F3','font-size':'22','font-weight':'700','font-family':"'Space Grotesk',monospace",'text-anchor':'middle'},fs);
-        vt.textContent=Math.round(pct)+'%';
-        var st=mk('text',{x:cx,y:cy+8,fill:'#8A857E','font-size':'8.5','font-family':"'IBM Plex Mono',monospace",'text-anchor':'middle'},fs);
-        st.textContent=pct>=60?'偏鹰 HAWKISH':(pct>=40?'摇摆 SWING':'偏鸽 DOVISH');
-      }
-    });
-    </script>
 
     <div class="pulse-notes">
-      <div class="pn-title">◆ 本周观察 · Market Analysis</div>
-      <ul id="pulse-list">
-        <li><strong>黄金</strong>：周一（9/28）金价早段亚盘一度反弹至~$4,318，但15:00 SGT伦敦盘开盘后卖压加速，<strong>跌破9/25周五收盘~$4,280及$4,247-4,260前支撑，纽约盘收报~$4,117</strong>（-3.8%）。周二（9/29）亚洲盘午段（12:06 SGT）延续窄幅整理于<strong>~$4,117-4,120</strong>，较周五收盘仍下跌约-3.7%，$4,247-4,260前支撑未收复。鹰派Fed前瞻叠加中东局势本周一再度紧张是本轮下探主因。美联储已于<strong>9/15-16 FOMC会议加息25个基点至3.75%-4.00%</strong>（沃什主席Kevin Warsh任内首次决议），鹰派指引暗示年内可能再加息一次。金价较8/28的~$4,590已下跌约-10.3%（近1月），中期结构继续承压。DXY延续连涨维持七至八周高位。市场对10/27-28 FOMC再加息的定价本轮大幅跃升至<strong>~70%</strong>（此前~57%）；今晚22:00 SGT CB消费者信心指数、明日8月JOLTS将率先公布，下一数据点为10/2 9月NFP、10/30核心PCE。（本轮gold-api/Yahoo Finance直连接口受限，金价延用09:06时段数值，未发现足以推翻该区间的新报价来源）</li>
-        <li><strong>美股</strong>：DXY维持多周高位叠加中东局势扰动，市场聚焦本周JOLTS、ADP及10/2非农数据窗口，"软着陆"叙事与鹰派Fed路径之间仍在拉锯。</li>
-        <li><strong>亚洲</strong>：SGX/KLSE本轮因网络直连接口受限，行情板价格沿用历史数值，具体请见股票页面标注；美元维持强势环境下亚洲/新兴市场股指承压偏中性。</li>
-      </ul>
+      <div class="pn-title">◆ 现在的情况 · Right Now</div>
+      <ul id="pulse-list"><li>载入中…</li></ul>
     </div>
   </div>
 
@@ -391,29 +329,14 @@ footer .disc strong{color:var(--text)}
 </div>
 
 <footer>
-  <div class="upd">⟳ 自动刷新 · 最后更新 2026-09-29 12:06 SGT · 图表报价实时</div>
+  <div class="upd" id="hub-upd">⟳ 自动更新 · 载入中…</div>
   <div class="disc">
-    <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Trading Economics、LiteFinance、TradingView、Investing.com。交易前请进行独立尽职调查。
+    <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Dukascopy（现货金 K 线）、gold-api.com（实时金价）、ForexFactory（经济日历）、Yahoo Finance（股票）、TradingView（图表）。交易前请进行独立尽职调查。
   </div>
 </footer>
 
 <div class="topstrip"></div>
 
-<script>
-(function(){
-  function fmt(p){return '$'+Math.round(p).toLocaleString('en-US');}
-  function upd(){
-    fetch('https://api.gold-api.com/price/XAU',{cache:'no-store'})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(!d||!d.price)return;
-        document.querySelectorAll('.js-live-price').forEach(function(el){el.textContent=fmt(d.price);});
-        var t=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Singapore',hour12:false});
-        document.querySelectorAll('.js-live-time').forEach(function(el){el.textContent=t+' (SGT)';});
-      }).catch(function(){});
-  }
-  upd(); setInterval(upd,60000);
-})();
-</script>
+<script src="assets/hub-live.js?v=1"></script>
 </body>
 </html>

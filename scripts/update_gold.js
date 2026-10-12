@@ -68,6 +68,7 @@ const WAY = { bullish: "向上", bearish: "向下", unclear: "不明" };
     price: r1(eng.price), priceTime: SGT(feed.priceAt), priceNote: "最近一根已收盘 15 分钟 K 线的收盘价",
     today: { open: today.length ? r1(today[0][1]) : null, high: r1(hi), low: r1(lo), changeFromPrevClose: prev ? r1(eng.price - prev[4]) : null, changePct: prev ? Math.round((eng.price / prev[4] - 1) * 10000) / 100 : null, note: "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）" },
     previousDay: prev ? { date: new Date(prev[6]).toISOString().slice(0, 10), open: r1(prev[1]), high: r1(prev[2]), low: r1(prev[3]), close: r1(prev[4]) } : null,
+    recentDays: D.slice(-7).map(k => { const d = new Date(k[6]); return { date: (d.getUTCMonth() + 1) + "/" + d.getUTCDate(), close: r1(k[4]) }; }),
     thisWeek: thisWeek.length ? { high: r1(Math.max(...thisWeek.map(k => k[2]))), low: r1(Math.min(...thisWeek.map(k => k[3]))) } : null,
     previousWeek: wk ? { open: r1(wk[1]), high: r1(wk[2]), low: r1(wk[3]), close: r1(wk[4]) } : null,
     verdict: { level: V.level, tag: (V.closed ? "休市中 · " : "") + V.tag, title: V.title, text: V.text, reasons: V.reasons.map(r => ({ label: r.label, ok: r.ok, text: r.text })) },

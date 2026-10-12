@@ -1,14 +1,15 @@
 # Keeps two data files current:
 #   data/calendar.json    this week's US economic releases (scripts/update_calendar.py)
 #   data/xau-state.json   what the report page's engine says about gold right now (scripts/update_gold.js)
-# report.html reads the calendar for its "stay clear of big data" check. The daily Claude refresh reads both for
-# its numbers: the cloud machine it runs on cannot reach any price or calendar service; this runner can.
+# report.html reads the calendar for its "stay clear of big data" check, the home page (assets/hub-live.js) fills
+# its market summary from both, and the daily Claude refresh reads both for its numbers: the cloud machine it runs on cannot reach any price or calendar service; this runner can.
 name: Update market facts
 
 on:
   schedule:
     - cron: "40 1 * * *"     # 09:40 SGT: fresh facts for the 10:10 daily refresh (GitHub often starts these late)
-    - cron: "17 5-23/4 * * *" # every 4 hours for the rest of the day
+    - cron: "17 * * * 1-5"   # every hour Monday to Friday (UTC), while gold trades
+    - cron: "17 */6 * * 0,6" # every 6 hours at the weekend
   workflow_dispatch:
   push:
     branches: [main]
