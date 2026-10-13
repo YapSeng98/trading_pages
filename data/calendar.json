@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-12 11:43 SGT",
+ "updated": "2026-10-13 08:56 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -83,7 +83,7 @@
    "impact": "high",
    "title": "Core Retail Sales m/m",
    "zh": "核心零售销售月率",
-   "forecast": "0.5%",
+   "forecast": "0.6%",
    "previous": "1.4%"
   },
   {
@@ -95,7 +95,7 @@
    "impact": "high",
    "title": "PPI m/m",
    "zh": "PPI 月率",
-   "forecast": "0.5%",
+   "forecast": "0.6%",
    "previous": "0.4%"
   },
   {
@@ -107,7 +107,7 @@
    "impact": "medium",
    "title": "Philly Fed Manufacturing Index",
    "zh": "费城联储制造业指数",
-   "forecast": "26.5",
+   "forecast": "28.2",
    "previous": "37.8"
   },
   {
@@ -131,7 +131,7 @@
    "impact": "medium",
    "title": "Unemployment Claims",
    "zh": "初请失业金人数",
-   "forecast": "195K",
+   "forecast": "199K",
    "previous": "197K"
   },
   {
