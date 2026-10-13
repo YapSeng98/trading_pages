@@ -40,6 +40,13 @@ var XauPlan = (function () {
     d = d === undefined ? 2 : d;
     return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
   }
+  // Dollars for a sentence: whole dollars from $100 up, cents below that (a $0.35 risk must not read as "$0").
+  function usd(v) {
+    v = num(v); if (v === null) return "—";
+    var a = Math.abs(v), cents = a < 100 && Math.round(a * 100) % 100 !== 0;
+    return (v < 0 ? "−" : "") + "$" + fmt(a, cents ? 2 : 0);
+  }
+  function agoTxt(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + " 分钟前"; var hr = Math.round(m / 60); return hr < 48 ? hr + " 小时前" : Math.round(hr / 24) + " 天前"; }
   function tfOk(E, tf) { var t = E && E.tfs && E.tfs[tf]; return t && !t.error ? t : null; }
 
   // ---------- key levels ----------
@@ -147,16 +154,21 @@ var XauPlan = (function () {
   function size(p) {
     var entry = num(p.entry), stop = num(p.stop), tp1 = num(p.tp1), tp2 = num(p.tp2);
     var bal = num(p.balance), pct = num(p.riskPct), contract = num(p.contract) || 100, step = num(p.lotStep) || 0.01, spread = num(p.spread) || 0;
-    var dir = p.side === "short" ? -1 : 1, errors = [];
-    var o = { valid: false, errors: errors, dir: dir, dist: null, distPct: null, riskUsd: null, perLot: null, lotsRaw: null, lots: null,
-      actualRisk: null, actualPct: null, r1: null, r2: null, pnl1: null, pnl2: null, minLotRisk: null, breakeven: null };
+    var dir = p.side === "short" ? -1 : 1, errors = [], issues = [];
+    var o = { valid: false, errors: errors, issues: issues, otherSideFits: false, same: false, dir: dir, dist: null, distPct: null, riskUsd: null, perLot: null, lotsRaw: null, lots: null,
+      actualRisk: null, actualPct: null, r1: null, r2: null, pnl1: null, pnl2: null, minLotRisk: null, minLotPct: null, breakeven: null };
     if (entry === null || stop === null) { errors.push("填写入场价与止损价"); return o; }
-    if (entry === stop) { errors.push("入场价与止损价不能相同"); return o; }
-    if ((entry - stop) * dir <= 0) errors.push(dir > 0 ? "做多：止损应低于入场价" : "做空：止损应高于入场价");
-    if (tp1 !== null && (tp1 - entry) * dir <= 0) errors.push(dir > 0 ? "做多：TP1 应高于入场价" : "做空：TP1 应低于入场价");
-    if (tp2 !== null && (tp2 - entry) * dir <= 0) errors.push(dir > 0 ? "做多：TP2 应高于入场价" : "做空：TP2 应低于入场价");
+    if (entry === stop) { o.same = true; errors.push("入场价与止损价不能相同"); return o; }
+    // issues: which price sits on the wrong side of the entry for this direction ("at": where it is now)
+    var want = dir > 0 ? "做多" : "做空", bad = function (f, v, name, need) { issues.push({ f: f, price: v, at: v > entry ? "above" : "below" }); errors.push(want + "：" + name + "要" + need + "入场价"); };
+    if ((entry - stop) * dir <= 0) bad("stop", stop, "止损", dir > 0 ? "低于" : "高于");
+    if (tp1 !== null && (tp1 - entry) * dir <= 0) bad("tp1", tp1, "目标 1 ", dir > 0 ? "高于" : "低于");
+    if (tp2 !== null && (tp2 - entry) * dir <= 0) bad("tp2", tp2, "目标 2 ", dir > 0 ? "高于" : "低于");
+    var fits = function (d) { return (entry - stop) * d > 0 && (tp1 === null || (tp1 - entry) * d > 0) && (tp2 === null || (tp2 - entry) * d > 0); };
+    o.otherSideFits = !!errors.length && fits(-dir);                            // the same prices make sense the other way round
     o.dist = Math.abs(entry - stop); o.distPct = o.dist / entry * 100;
     o.perLot = (o.dist + spread) * contract; o.minLotRisk = o.perLot * step;
+    if (bal !== null && bal > 0) o.minLotPct = o.minLotRisk / bal * 100;
     if (tp1 !== null) o.r1 = Math.abs(tp1 - entry) / o.dist;
     if (tp2 !== null) o.r2 = Math.abs(tp2 - entry) / o.dist;
     var best = Math.max(o.r1 || 0, o.r2 || 0); if (best > 0) o.breakeven = 1 / (1 + best) * 100;
@@ -170,6 +182,16 @@ var XauPlan = (function () {
     if (tp1 !== null) o.pnl1 = o.lots * Math.abs(tp1 - entry) * contract;
     if (tp2 !== null) o.pnl2 = o.lots * Math.abs(tp2 - entry) * contract;
     return o;
+  }
+  // The same plan pointed at `side`: a stop or target left on the wrong side of the entry is reflected across it,
+  // keeping its distance. Used when the direction is switched, so the prices follow instead of turning into errors.
+  function mirror(plan, side) {
+    var e = num(plan.entry), dir = side === "short" ? -1 : 1, out = { side: side, entry: plan.entry, stop: plan.stop, tp1: plan.tp1, tp2: plan.tp2 }, moved = [];
+    if (e === null) return { plan: out, changed: false, moved: moved };
+    var flip = function (v) { return Math.round((2 * e - v) * 10) / 10; }, st = num(plan.stop);
+    if (st !== null && (e - st) * dir < 0) { out.stop = flip(st); moved.push("stop"); }
+    ["tp1", "tp2"].forEach(function (k) { var t = num(plan[k]); if (t !== null && (t - e) * dir < 0) { out[k] = flip(t); moved.push(k); } });
+    return { plan: out, changed: moved.length > 0, moved: moved };
   }
 
   // ---------- where the timeframes stand ----------
@@ -218,8 +240,8 @@ var XauPlan = (function () {
       detail: !hasT ? "没设目标：按跟踪止损离场（止损跟在最好价格后面 2R）" : best > 0 ? "最远目标是 " + best.toFixed(1) + "R" + (best < 2 ? "：太近。回放里的利润主要来自少数走得很远的单子" : "") : "需要止损与目标价" });
     var riskOk = null, rd = "需要账户余额与风险比例";
     if (sz && sz.actualPct !== null) {
-      if (sz.lots === 0) { riskOk = false; rd = "最小手数就要亏 $" + fmt(sz.minLotRisk, 0) + "，超过你设的上限 $" + fmt(sz.riskUsd, 0) + "：这笔开不了，不要为了开单把止损缩近"; }
-      else { riskOk = sz.actualPct <= 1.0001; rd = "止损时亏 $" + fmt(sz.actualRisk, 0) + "，是账户的 " + sz.actualPct.toFixed(2) + "%" + (sz.actualPct > 0.55 && riskOk ? "。回放里最长连亏过 15 笔，0.5% 或更少更稳" : ""); }
+      if (sz.lots === 0) { riskOk = false; rd = "最小手数就要亏 " + usd(sz.minLotRisk) + "，超过你设的上限 " + usd(sz.riskUsd) + "：这笔开不了，不要为了开单把止损缩近"; }
+      else { riskOk = sz.actualPct <= 1.0001; rd = "止损时亏 " + usd(sz.actualRisk) + "，是账户的 " + sz.actualPct.toFixed(2) + "%" + (!riskOk ? "：超过 1%，连亏几笔账户就很伤" : sz.actualPct > 0.55 ? "。回放里最长连亏过 15 笔，0.5% 或更少更稳" : ""); }
     }
     out.push({ id: "risk", label: "单笔亏损不超过 1%", ok: riskOk, detail: rd });
     return out;
@@ -227,38 +249,92 @@ var XauPlan = (function () {
 
   // ---------- the one-line answer ----------
   function scoreWord(sc) { sc = num(sc) || 0; return sc >= 7 ? "强烈看多" : sc >= 4 ? "看多" : sc >= 1 ? "略偏多" : sc === 0 ? "中性" : sc >= -3 ? "略偏空" : sc >= -6 ? "看空" : "强烈看空"; }
+  // When all five timeframes lined up, and where price closed on that candle (null once it is older than the bars kept).
+  function signalInfo(E, R) {
+    if (!R.full || num(R.since5) === null) return null;
+    var M = tfOk(E, "15M"), bars = (M && M.bars) || [], px = null;
+    for (var i = bars.length - 1; i >= 0; i--) { var end = (bars[i][0] + 900) * 1000; if (end === R.since5) { px = num(bars[i][4]); break; } if (end < R.since5) break; }
+    return { at: R.since5, price: px, movedR: null };
+  }
+  // What it would take for the weekly, daily and 4-hour trends to all point `to`: the ones still to turn, the close
+  // each needs, and how far the furthest of those is from price. complete: the engine has a level for every one.
+  function pathTo(E, R, to, price) {
+    var need = ["W", "D", "4H"].filter(function (tf) { return R.dirs[tf] !== to; }), steps = [], far = 0;
+    need.forEach(function (tf) { var lv = flipLevel(E, tf, to); if (lv !== null) { steps.push({ tf: tf, price: lv }); if (price !== null) far = Math.max(far, Math.abs(lv - price)); } });
+    return { to: to, need: need, steps: steps, complete: need.length > 0 && steps.length === need.length, far: far };
+  }
   // "What do I do now?" in plain words.
   // level: go (all five timeframes agree) / ready (the big three agree, the small ones not yet) / none (the big three disagree).
-  function verdict(E) {
+  // next: the same answer as numbered steps: what to do now, what to wait for (alerts: prices worth an alarm), what
+  // the trade will look like (fill: offer to load it into the plan), and what to do with a trade already on.
+  function verdict(E, nowMs) {
+    nowMs = nowMs || Date.now();
     var R = regime(E), buy = R.dir > 0, way = buy ? "向上" : "向下", say = function (v) { return v > 0 ? "向上" : v < 0 ? "向下" : "不明"; };
-    var v = { level: "none", side: R.dir > 0 ? "long" : R.dir < 0 ? "short" : "none", regime: R, closed: !R.open, reasons: [], ideas: [], lines: [], plan: null, fresh: false };
+    var zh = function (tf) { return TF_ZH[tf]; }, cross = function (to) { return to > 0 ? "站上" : "跌破"; }, act = function (to) { return to > 0 ? "做多" : "做空"; };
+    var price = num(E && E.price), H1 = tfOk(E, "1H"), room = H1 && H1.atr ? SYS.stopAtr * H1.atr : null;
+    var v = { level: "none", side: R.dir > 0 ? "long" : R.dir < 0 ? "short" : "none", regime: R, closed: !R.open, reasons: [], ideas: [], lines: [], next: [], other: null, signal: null, plan: null, fresh: false };
     var big = "周线" + say(R.dirs.W) + "、日线" + say(R.dirs.D) + "、4 小时" + say(R.dirs["4H"]);
     v.reasons.push({ key: "dir", label: "大方向", ok: R.dir !== 0, text: R.dir ? "周线、日线、4 小时都" + way : big + "，还不一致" });
     v.reasons.push({ key: "small", label: "小周期", ok: R.dir ? R.full : null,
-      text: !R.dir ? "大方向一致后才看小周期" : R.full ? "1 小时和 15 分钟也" + way : R.lagging.map(function (tf) { return TF_ZH[tf]; }).join("、") + "还是" + say(-R.dir) + "，等它转回" + way });
-    var add = function (dir, p, text) { p = num(p); if (p !== null) v.lines.push({ dir: dir, price: p, text: text }); };
+      text: !R.dir ? "大方向一致后才看小周期" : R.full ? "1 小时和 15 分钟也" + way : R.lagging.map(zh).join("、") + "还是" + say(-R.dir) + "，等它转回" + way });
+    var add = function (dir, p, text) { p = num(p); if (p !== null) v.lines.push({ dir: dir, price: p, text: text, dist: price === null ? null : Math.abs(p - price) }); return p; };
+    var away = function (p) { return price === null ? "" : "比现价" + (p >= price ? "高 " : "低 ") + fmt(Math.abs(p - price), 1) + " 美元。"; };
+    var step = function (lead, text, more) { var s = { lead: lead, text: text }, k; for (k in (more || {})) s[k] = more[k]; v.next.push(s); };
+    var closes = function (list, to) { return list.map(function (g) { return zh(g.tf) + "收盘" + cross(to) + " " + fmt(g.price, 1); }); };
+    var andAlso = function (list) { return list.map(function (x, i) { return i ? "，以及" + (/^\d/.test(x) ? " " : "") + x : x; }).join(""); };
+    var waitWord = function (n) { return n === 1 ? "等这一步：" : n === 2 ? "等这两步：" : "等这几步："; };
+    var bells = function (list, to) { return list.map(function (g) { return { price: g.price, label: zh(g.tf) + "转" + say(to) + "的价位" }; }); };
 
     if (!R.dir) {
       v.tag = "先观望"; v.title = "先观望：大周期方向不一致";
-      v.text = big + "。回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。现在不用找入场点。";
-      // what would line them up: the odd one out turning to join the other two
-      if (R.lean) R.odd.forEach(function (tf) {
-        var lv = flipLevel(E, tf, R.lean);
-        add(R.lean > 0 ? "up" : "down", lv, TF_ZH[tf] + "收盘" + (R.lean > 0 ? "站上" : "跌破") + "这里，就三周期同向" + say(R.lean));
-      });
+      v.text = big + "。回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。";
+      step("现在：不下单", "不用找入场点，也不用一直盯着：结论每 15 分钟重算一次。");
+      // the two ways the three can line up; the one whose furthest level is nearer comes first
+      var up = pathTo(E, R, 1, price), dn = pathTo(E, R, -1, price), ways = [up, dn].filter(function (w) { return w.complete; }).sort(function (a, b) { return a.far - b.far; });
+      var first = ways[0];
+      if (first) {
+        first.steps.forEach(function (g) { add(first.to > 0 ? "up" : "down", g.price, zh(g.tf) + "收盘" + cross(first.to) + "这里" + (first.steps.length === 1 ? "，就三周期同向" + say(first.to) : "（要转" + say(first.to) + "得走 " + first.steps.length + " 步，这是其中一步）")); });
+        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。", { alerts: bells(first.steps, first.to) });
+        step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
+      } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
+      step("手上已经有单", "如果是按这页规则开的顺势单：三个大周期已经不再同向，规则是离场。");
+      var rest = first ? (first === up ? dn : up) : null;                         // the other way round, so the picture is complete
+      if (rest) v.other = "反过来要变成同向" + say(rest.to) + "，需要" + (rest.complete ? andAlso(closes(rest.steps, rest.to)) + (price !== null ? "（最远的离现价 " + fmt(rest.far, 0) + " 美元）。" : "。") : rest.need.map(zh).join("和") + "都转" + say(rest.to) + "，现在还没有明确的价位。");
     } else {
       v.plan = systemPlan(E, R.dir);
+      var out = flipLevel(E, "4H", -R.dir), k = v.plan;
       if (R.full) {
-        v.level = "go"; v.fresh = num(R.since5) !== null && Date.now() - R.since5 <= 2 * 3600000;
-        v.tag = "可以顺势" + (buy ? "做多" : "做空"); v.title = "五个周期都" + way + "，可以顺势" + (buy ? "做多" : "做空");
-        v.text = "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已持续一段时间，仍然有效，但不要追已经走远的行情。");
+        v.level = "go"; v.fresh = num(R.since5) !== null && nowMs - R.since5 <= 2 * 3600000;
+        v.tag = "可以顺势" + act(R.dir); v.title = "五个周期都" + way + "，可以顺势" + act(R.dir);
+        v.text = "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已持续一段时间，不要追已经走远的行情。");
+        // how old the signal is, and how far price has gone since: the replay entered on the candle that completed it
+        var sig = v.signal = signalInfo(E, R), note = "", late = false;
+        if (sig) {
+          note = "信号 " + agoTxt(nowMs - sig.at) + "出现" + (sig.price !== null ? "，当时 " + fmt(sig.price, 1) : "") + "。";
+          if (sig.price !== null && price !== null && room) {
+            var m = sig.movedR = (price - sig.price) * R.dir / room; late = m >= 1;
+            note += late ? "之后价格已经顺着走了 " + m.toFixed(1) + "R。回放只测过信号刚出现时进场，这么晚再进没有数据支持，等下一次更稳妥。"
+              : m >= 0.25 ? "之后价格顺着走了 " + m.toFixed(1) + "R，剩下的空间小了一些。"
+              : m <= -0.25 ? "现在的价格比当时" + (buy ? "低" : "高") + " " + fmt(Math.abs(price - sig.price), 1) + " 美元：进场价更好，但也说明价格在往回走。" : "价格和当时差不多。";
+          }
+        }
+        if (k) step(late ? "现在：信号已经走远，别追" : "现在：可以顺势" + act(R.dir), note + (late ? "还是想进的话：" : "") + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →", late: late });
+        step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 15 笔，所以不要加码。");
+        if (k) step("进场以后", "每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。别提前挪到成本价，回放里那样会少赚。");
+        step("什么时候离场", "到目标止盈" + (out !== null ? "；或者 4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) + "（三个大周期不再同向）" : "；或者这里的结论变回「先观望」") + "。");
       } else {
+        var lag = R.lagging.map(zh).join("和 ");
         v.level = "ready"; v.tag = buy ? "等小周期转多" : "等小周期转空"; v.title = "大方向" + way + "，等小周期转回来再" + (buy ? "买" : "卖");
-        v.text = "周线、日线、4 小时都" + way + "，但 " + R.lagging.map(function (tf) { return TF_ZH[tf]; }).join("和 ") + "还在" + (buy ? "回调" : "反弹") + "。等它重新转成" + way + "再进；提前接" + (buy ? "回调" : "反弹") + "在回放里没有优势。";
-        R.lagging.forEach(function (tf) { add(buy ? "up" : "down", flipLevel(E, tf, R.dir), TF_ZH[tf] + "收盘" + (buy ? "站上" : "跌破") + "这里，就转回" + way); });
+        v.text = "周线、日线、4 小时都" + way + "，但 " + lag + "还在" + (buy ? "回调" : "反弹") + "。等它重新转成" + way + "再进；提前接" + (buy ? "回调" : "反弹") + "在回放里没有优势。";
+        step("现在：先不进", "大方向对了，小周期还没转回来。可以先把计划准备好。");
+        var got = [];
+        R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
+        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。", { alerts: bells(got, R.dir) });
+        else step("等" + lag + "转回" + way, "页面每 15 分钟重算一次，转回来时这里的结论会变成「可以顺势" + act(R.dir) + "」。");
+        if (k) step("到时候这样做", "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。", { fill: "先填进计划看看 →" });
+        step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
       }
       // what ends it: the 4-hour trend turning against
-      var out = flipLevel(E, "4H", -R.dir);
       add(buy ? "down" : "up", out, "4 小时收盘" + (buy ? "跌破" : "站上") + "这里，三周期不再同向：有持仓就离场");
     }
     return v;
@@ -280,11 +356,11 @@ var XauPlan = (function () {
     var b = function (x) { P.push({ t: x, b: true }); }, n = function (x) { P.push({ t: x }); };
     n("在 "); b(fmt(e, 1)); n(buy ? " 买入" : " 卖出"); if (sized) { n(" "); b(sz.lots.toFixed(2) + " 手"); } n("。");
     n("价格" + (buy ? "跌到 " : "涨到 ")); b(fmt(st, 1)); n(" 就止损");
-    if (sized) { n("，约亏 "); b("$" + fmt(sz.actualRisk, 0)); n("（账户的 " + sz.actualPct.toFixed(2) + "%）"); } else n("（距离 " + fmt(sz.dist, 1) + " 美元）");
+    if (sized) { n("，约亏 "); b(usd(sz.actualRisk)); n("（账户的 " + sz.actualPct.toFixed(2) + "%）"); } else n("（距离 " + fmt(sz.dist, 1) + " 美元）");
     n("。");
     if (t1 !== null && sz.r1 !== null) {
-      n(buy ? "涨到 " : "跌到 "); b(fmt(t1, 1)); n(" 止盈"); if (sized && sz.pnl1 !== null) { n("，约赚 "); b("$" + fmt(sz.pnl1, 0)); } n("（" + sz.r1.toFixed(1) + "R）");
-      if (t2 !== null && sz.r2 !== null) { n("；到 "); b(fmt(t2, 1)); if (sized && sz.pnl2 !== null) { n(" 约赚 "); b("$" + fmt(sz.pnl2, 0)); } n("（" + sz.r2.toFixed(1) + "R）"); }
+      n(buy ? "涨到 " : "跌到 "); b(fmt(t1, 1)); n(" 止盈"); if (sized && sz.pnl1 !== null) { n("，约赚 "); b(usd(sz.pnl1)); } n("（" + sz.r1.toFixed(1) + "R）");
+      if (t2 !== null && sz.r2 !== null) { n("；到 "); b(fmt(t2, 1)); if (sized && sz.pnl2 !== null) { n(" 约赚 "); b(usd(sz.pnl2)); } n("（" + sz.r2.toFixed(1) + "R）"); }
       n("。");
     }
     return P;
@@ -337,7 +413,7 @@ var XauPlan = (function () {
     if (num(p.tp1) !== null) a += " ｜TP1 " + fmt(p.tp1, 1) + (sz.r1 ? "（" + sz.r1.toFixed(1) + "R）" : "");
     if (num(p.tp2) !== null) a += " ｜TP2 " + fmt(p.tp2, 1) + (sz.r2 ? "（" + sz.r2.toFixed(1) + "R）" : "");
     L.push(a);
-    if (sz.lots !== null && sz.lots !== undefined) L.push("手数 " + sz.lots + "（风险 $" + fmt(sz.actualRisk, 0) + " = " + sz.actualPct.toFixed(2) + "%）" + (sz.pnl1 !== null ? " · TP1 +$" + fmt(sz.pnl1, 0) : "") + (sz.pnl2 !== null ? " · TP2 +$" + fmt(sz.pnl2, 0) : ""));
+    if (sz.lots !== null && sz.lots !== undefined) L.push("手数 " + sz.lots + "（风险 " + usd(sz.actualRisk) + " = " + sz.actualPct.toFixed(2) + "%）" + (sz.pnl1 !== null ? " · TP1 +" + usd(sz.pnl1) : "") + (sz.pnl2 !== null ? " · TP2 +" + usd(sz.pnl2) : ""));
     if (o.votes) L.push("多周期：" + o.votes + "（综合 " + o.score + "）");
     if (o.checks && o.checks.length) L.push("检查：" + o.checks.map(function (c) { return (c.ok === true ? "✓" : c.ok === false ? "✗" : "？") + c.label; }).join("  "));
     if (p.note) L.push("备注：" + p.note);
@@ -346,7 +422,7 @@ var XauPlan = (function () {
     return L.join("\n");
   }
 
-  return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, levels: levels, candidate: candidate, candidates: candidates,
+  return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
     patternText: patternText, statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence };
 })();

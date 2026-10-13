@@ -104,6 +104,7 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 .howto b{color:var(--ink)}
 .howto .hs{display:inline-flex;align-items:center;gap:8px}
 .hn,.st-n{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:700 12px/1 var(--f-d);color:#17130A;background:linear-gradient(135deg,#E8C96D,var(--gold));flex-shrink:0}
+.st-n.done{background:var(--m-bull);color:#04130d} .st-n.bad{background:var(--m-bear);color:#fff} .st-n.na{background:var(--bg4);color:var(--dim)}
 .howto .btn{margin-left:auto}
 
 /* ── verdict: the answer first ── */
@@ -129,15 +130,28 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 .v-reasons .rt{font-size:12.5px;color:var(--text);line-height:1.55}
 @media(max-width:640px){.v-reasons{grid-template-columns:minmax(0,1fr);gap:8px}.v-reasons li{grid-template-columns:76px minmax(0,1fr);align-items:center;gap:10px;padding:10px 12px}}
 .v-sub{font-size:12px;font-weight:600;color:var(--gold-dk);margin:18px 0 8px}
-.v-ideas{display:grid;gap:8px}
-.v-idea{display:flex;gap:10px 12px;align-items:center;flex-wrap:wrap;padding:11px 13px;border-radius:var(--r-md);border:1px solid var(--border);background:rgba(255,255,255,.025)}
-.v-idea .tx{font-size:12.5px;line-height:1.6;color:var(--text);flex:1;min-width:200px}
-.v-idea .tx small{display:block;color:var(--dim);font-size:11px;margin-top:1px}
+/* what to do now: the answer as numbered steps, the first one is "now" */
+.v-next{list-style:none;display:grid;gap:8px;counter-reset:vn}
+.v-next li{counter-increment:vn;display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--border);background:rgba(255,255,255,.025)}
+.v-next li::before{content:counter(vn);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 12px/1 var(--f-d);background:var(--bg4);color:var(--text);align-self:start;margin-top:1px}
+.v-next li.now{border-color:rgba(148,163,184,.38);background:rgba(148,163,184,.07)}
+.v-next li.now::before{background:var(--ink);color:var(--bg2)}
+.verdict.go .v-next li.now{border-color:rgba(52,211,153,.42);background:rgba(52,211,153,.08)}
+.verdict.go .v-next li.now::before{background:var(--m-bull);color:#04130d}
+.verdict.ready .v-next li.now,.verdict .v-next li.now.hold{border-color:rgba(212,167,44,.45);background:rgba(212,167,44,.08)}
+.verdict.ready .v-next li.now::before,.verdict .v-next li.now.hold::before{background:var(--gold);color:#17130A}
+.v-next .nl{font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.45}
+.v-next .nt{font-size:12.5px;color:var(--text);line-height:1.7;margin-top:2px}
+.v-next .na{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.v-next .btn[disabled]{opacity:.65;cursor:default;transform:none;border-color:var(--border)}
+.v-other{font-size:12px;color:var(--dim);line-height:1.7;margin-top:10px}
+@media(max-width:640px){.v-next li{grid-template-columns:26px minmax(0,1fr)}.v-next .na{grid-column:2;justify-content:flex-start}}
 .v-lines{display:grid;gap:7px}
 .v-line{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:12.5px;color:var(--text);line-height:1.5}
 .v-line i{font-style:normal;font-size:11px;width:14px;text-align:center}
 .v-line.up i{color:var(--bull)} .v-line.down i{color:var(--bear)}
 .v-line b{font:600 13px/1.3 var(--f-m);color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.v-line small{display:block;font-size:11px;color:var(--dim);margin-top:1px}
 .v-side{display:grid;gap:20px;align-content:start}
 .v-price .num{font-family:var(--f-d);font-size:clamp(42px,5vw,54px);font-weight:700;letter-spacing:-2px;line-height:1.05;background:linear-gradient(120deg,var(--gold-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin:6px 0 4px;white-space:nowrap}
 .v-price .num.up{animation:fu .9s} .v-price .num.dn{animation:fd .9s}
@@ -203,7 +217,20 @@ details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .alerts .al button{border:0;background:transparent;color:var(--dim);cursor:pointer;font-size:13px;line-height:1;padding:0 4px}
 .alerts .al button:hover{color:var(--ink)}
 
-/* plan: three steps */
+#plan,[data-panel]{scroll-margin-top:64px}
+/* plan: where it stands against the answer above, then three steps */
+.pstate{display:grid;grid-template-columns:10px minmax(0,1fr);gap:11px;align-items:start;padding:11px 13px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--bg3);margin-bottom:16px}
+.pstate i{width:9px;height:9px;border-radius:50%;background:var(--neut);margin-top:6px}
+.pstate b{display:block;font-family:var(--f-d);font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.4}
+.pstate span{display:block;font-size:12px;color:var(--text);line-height:1.6;margin-top:1px}
+.pstate.go{border-color:rgba(52,211,153,.38);background:rgba(52,211,153,.07)} .pstate.go i{background:var(--bull)}
+.pstate.ready{border-color:rgba(212,167,44,.42);background:rgba(212,167,44,.07)} .pstate.ready i{background:var(--gold-lt)}
+.pstate.bad{border-color:rgba(248,113,113,.38);background:rgba(248,113,113,.06)} .pstate.bad i{background:var(--bear)}
+.prac{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--dim);line-height:1.6}
+.stale{display:flex;gap:8px 10px;align-items:center;flex-wrap:wrap;padding:9px 12px;border-radius:var(--r-sm);border:1px dashed rgba(212,167,44,.45);background:rgba(212,167,44,.06);font-size:12px;color:var(--text);line-height:1.55;margin-bottom:12px}
+.stale span{flex:1;min-width:180px}
+.side-x{font-size:11.5px;color:var(--dim);line-height:1.6;margin-top:8px}
+.side-x b{color:var(--text);font-weight:600}
 .step{padding-bottom:18px}
 .step + .step{border-top:1px solid var(--border);padding-top:18px}
 .st-h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
@@ -224,7 +251,7 @@ details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .side-seg button[aria-pressed="true"].long{background:rgba(52,211,153,.14);color:var(--bull);box-shadow:0 0 0 1px rgba(52,211,153,.35) inset}
 .side-seg button[aria-pressed="true"].short{background:rgba(248,113,113,.14);color:var(--bear);box-shadow:0 0 0 1px rgba(248,113,113,.35) inset}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.f{display:grid;gap:5px;min-width:0}
+.f{display:grid;gap:5px;min-width:0;align-content:start}
 .f>label,.f>.lab{font-size:11.5px;color:var(--dim);display:flex;justify-content:space-between;align-items:center;gap:6px}
 .f>label em,.f>.lab em{font-style:normal;color:var(--gold-dk);font-size:10.5px}
 .inp{display:flex;align-items:center;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);transition:border-color .15s,box-shadow .15s;overflow:hidden}
@@ -238,8 +265,13 @@ details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .inp .unit{font-family:var(--f-m);font-size:10px;color:var(--dim);padding:0 11px}
 .f.e .inp{border-left:3px solid var(--m-blue)} .f.s .inp{border-left:3px solid var(--m-bear)} .f.t .inp{border-left:3px solid var(--m-bull)}
 .f.flash .inp{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,167,44,.25)}
-.quick{display:flex;gap:5px}
-.quick button{border:1px solid var(--border);background:var(--bg3);color:var(--text);font:600 10px/1 var(--f-m);padding:5px 8px;border-radius:6px;cursor:pointer}
+/* one plain line under each box: how far it is from the entry, or what is wrong with it */
+.fh{font-size:10.5px;color:var(--dim);line-height:1.45;min-height:15px;overflow-wrap:anywhere}
+.fh.bad{color:var(--bear)} .fh.warn{color:var(--gold-lt)}
+.f.bad .inp{border-color:rgba(248,113,113,.6);box-shadow:0 0 0 3px rgba(248,113,113,.10)}
+.quick{display:flex;gap:5px;flex-wrap:wrap}
+.quick button{border:1px solid var(--border);background:var(--bg3);color:var(--text);font:600 10px/1 var(--f-m);padding:6px 9px;border-radius:6px;cursor:pointer}
+.quick button[aria-pressed="true"]{border-color:rgba(212,167,44,.6);color:var(--gold-lt);background:rgba(212,167,44,.10)}
 .quick button:hover{border-color:rgba(184,134,11,.45);color:var(--ink)}
 details.adv{margin-top:12px}
 .helpers{display:grid;gap:7px;margin-top:10px}
@@ -271,6 +303,19 @@ details.adv .fields{grid-template-columns:repeat(3,1fr)}
 .rrbar i:last-child{border-radius:0 5px 5px 0}
 .rrbar-l{display:flex;justify-content:space-between;font-size:10.5px;color:var(--dim);margin-top:5px}
 .tk-meta{font-size:11px;color:var(--dim);margin-top:8px;line-height:1.6}
+/* when the numbers cannot be used yet: say why in plain words and offer the fix as a button */
+.ticket.need{border-color:rgba(248,113,113,.4);background:rgba(248,113,113,.05)}
+.fix{padding:16px 18px}
+.fix + .tk-nums{border-top:1px dashed rgba(184,134,11,.32)}
+.fix .fx-t{font-family:var(--f-d);font-size:15px;font-weight:700;color:var(--ink);line-height:1.4}
+.fix p{font-size:12.5px;color:var(--text);line-height:1.75;margin-top:8px}
+.fix ul{list-style:none;display:grid;gap:5px;margin-top:8px}
+.fix li{font-size:12.5px;color:var(--text);line-height:1.65;padding-left:15px;position:relative}
+.fix li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--bear)}
+.fix.small li::before{background:var(--gold-lt)}
+.fix b{color:var(--ink);font-weight:600}
+.fix b.n{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+.fix .fa{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .perr{margin:0 18px 12px;font-size:12px;color:var(--bear);background:rgba(220,38,38,.07);border:1px solid rgba(220,38,38,.22);border-radius:var(--r-sm);padding:8px 12px;line-height:1.6}
 .chk-sum{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:12px 14px;border-radius:var(--r-md);margin-top:14px;border:1px solid var(--border);background:var(--bg3)}
 .chk-sum.ok{border-color:rgba(52,211,153,.38);background:rgba(52,211,153,.07)}
@@ -501,7 +546,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       <h2 class="v-title" id="v-title"><span class="sk" style="min-width:60%"></span></h2>
       <p class="v-text" id="v-text"><span class="sk" style="min-width:90%"></span></p>
       <ul class="v-reasons" id="v-reasons"></ul>
-      <div id="v-ideas-wrap" hidden><div class="v-sub">这一笔怎么做</div><div class="v-ideas" id="v-ideas"></div></div>
+      <div id="v-next-wrap" hidden><div class="v-sub">现在该做什么</div><ol class="v-next" id="v-next"></ol></div>
       <p class="v-proof" id="v-proof" hidden></p>
     </div>
     <div class="v-side">
@@ -518,7 +563,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <div class="tfl" id="tfl"></div>
         <div class="tfg"><span>大方向：三个都要同向</span><span>入场时机</span></div>
       </div>
-      <div id="v-lines-wrap" hidden><div class="v-sub" style="margin-top:0">会改变局面的价位</div><div class="v-lines" id="v-lines"></div></div>
+      <div id="v-lines-wrap" hidden><div class="v-sub" style="margin-top:0">会改变局面的价位</div><div class="v-lines" id="v-lines"></div><p class="v-other" id="v-other" hidden></p></div>
     </div>
     <div class="v-range" id="v-range" hidden>
       <div class="vr-end"><span class="k2">下方支撑</span><b id="vr-sup">—</b><span id="vr-sup-l"></span></div>
@@ -609,9 +654,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     <div class="panel" data-panel="help" hidden>
       <div class="sub-h">怎么用这一页</div>
       <div class="use">
-        <div><span class="hn">1</span><span><b>先看最上面的结论。</b>它只回答一件事：现在能不能做、往哪边做。周线、日线、4 小时三个大周期同向，而且 1 小时和 15 分钟也转过来了，才算到位。其余时间的答案就是「先观望」。</span></div>
-        <div><span class="hn">2</span><span><b>在计划器里选一个方案。</b>入场、止损、目标会自动填好：按现价进，止损在 3 倍小时波幅之外，目标 3R，或者不设目标、用跟踪止损。这些数字来自回放，不建议把止损改近。</span></div>
-        <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少。回放里连亏十笔以上出现过，所以建议每笔只冒 0.5%。</span></div>
+        <div><span class="hn">1</span><span><b>先看最上面的结论。</b>它只回答一件事：现在能不能做、往哪边做。周线、日线、4 小时三个大周期同向，而且 1 小时和 15 分钟也转过来了，才算到位。其余时间的答案就是「先观望」。结论下面的「现在该做什么」把它拆成几步：现在做什么、等哪个价位（可以点 🔔 设提醒）、到时候怎么做。</span></div>
+        <div><span class="hn">2</span><span><b>在计划器里选一个方案。</b>入场、止损、目标会自动填好：按现价进，止损在 3 倍小时波幅之外，目标 3R，或者不设目标、用跟踪止损。这些数字来自回放，不建议把止损改近。每个价位下面有一行小字，写着它离入场价多远；换方向时，止损和目标会自动翻到另一边。没有信号的时候，可以用「练习」按钮生成一个示例来熟悉。</span></div>
+        <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少。回放里连亏十笔以上出现过，所以建议每笔只冒 0.5%。如果账户太小，连最小手数都超过上限，页面会直接告诉你差多少、可以怎么办。</span></div>
         <div><span class="hn">4</span><span><b>持仓以后。</b>不要急着把止损挪到成本价，回放里这样做会少赚。每天看一次，把止损挪到「入场以来最好的价格」后面 2R 的位置，只往有利方向挪。上面的结论一旦变回「先观望」（4 小时方向反转），就离场。</span></div>
         <div><span class="hn">5</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。「保存」后在「已保存」里记录结果，慢慢就能看到自己的真实胜率。</span></div>
         <div><span class="hn">6</span><span><b>打开「提醒我」。</b>价格到了你的入场、止损、目标，或者上面的结论变了，页面会弹出提示并响一声。电脑上允许通知后，切到别的标签页也能收到。提醒只在这页开着的时候有效，手机上需要让这页留在屏幕上；人不在电脑前，建议在 MT5 手机 App 里对同样的价位设提醒。</span></div>
@@ -645,23 +690,26 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
     <section class="card o2" aria-label="交易计划" id="plan">
       <div class="card-head"><h2>交易计划 <small>三步完成</small></h2></div>
+      <div class="pstate" id="pstate" hidden><i></i><div><b id="pstate-t"></b><span id="pstate-x"></span></div></div>
 
       <div class="step">
-        <div class="st-h"><span class="st-n">1</span><div><b>选一个方案</b><span class="d">按回放里有优势的规则算好的价位。也可以跳过，自己输入</span></div></div>
+        <div class="st-h"><span class="st-n" id="st1">1</span><div><b>选一个方案</b><span class="d">按回放里有优势的规则算好的价位。也可以跳过，自己输入</span></div></div>
         <div class="cands live-data" id="cands"><p class="note">正在计算…</p></div>
       </div>
 
       <div class="step">
-        <div class="st-h"><span class="st-n">2</span><div><b>确认价位</b><span class="d">方向、入场、止损、目标。点 ⌖ 可以在图表上取价</span></div></div>
+        <div class="st-h"><span class="st-n" id="st2">2</span><div><b>确认价位</b><span class="d">方向、入场、止损、目标。点 ⌖ 可以在图表上取价</span></div></div>
+        <div class="stale" id="stale" hidden><span id="stale-t"></span><button type="button" class="btn sm" id="stale-new" hidden>换成现在的方案</button><button type="button" class="btn sm ghost" id="stale-clear">清空</button></div>
         <div class="seg side-seg" role="group" aria-label="方向">
           <button type="button" class="long" data-side="long" aria-pressed="true">▲ 做多（买入）</button>
           <button type="button" class="short" data-side="short" aria-pressed="false">▼ 做空（卖出）</button>
         </div>
+        <p class="side-x" id="side-x"></p>
         <div class="fields">
-          <div class="f e"><label for="in-entry">入场价</label><div class="inp"><input id="in-entry" type="number" inputmode="decimal" step="0.1" placeholder="—"><button type="button" class="pick" data-pick="entry" aria-pressed="false" title="在图表上点选">⌖</button></div></div>
-          <div class="f s"><label for="in-stop">止损价</label><div class="inp"><input id="in-stop" type="number" inputmode="decimal" step="0.1" placeholder="—"><button type="button" class="pick" data-pick="stop" aria-pressed="false" title="在图表上点选">⌖</button></div></div>
-          <div class="f t"><label for="in-tp1">目标 1</label><div class="inp"><input id="in-tp1" type="number" inputmode="decimal" step="0.1" placeholder="—"><button type="button" class="pick" data-pick="tp1" aria-pressed="false" title="在图表上点选">⌖</button></div></div>
-          <div class="f t"><label for="in-tp2">目标 2 <em>可不填</em></label><div class="inp"><input id="in-tp2" type="number" inputmode="decimal" step="0.1" placeholder="—"><button type="button" class="pick" data-pick="tp2" aria-pressed="false" title="在图表上点选">⌖</button></div></div>
+          <div class="f e"><label for="in-entry">入场价</label><div class="inp"><input id="in-entry" type="number" inputmode="decimal" step="0.1" placeholder="—" aria-describedby="fh-entry"><button type="button" class="pick" data-pick="entry" aria-pressed="false" title="在图表上点选">⌖</button></div><div class="fh" id="fh-entry"></div></div>
+          <div class="f s"><label for="in-stop">止损价</label><div class="inp"><input id="in-stop" type="number" inputmode="decimal" step="0.1" placeholder="—" aria-describedby="fh-stop"><button type="button" class="pick" data-pick="stop" aria-pressed="false" title="在图表上点选">⌖</button></div><div class="fh" id="fh-stop"></div></div>
+          <div class="f t"><label for="in-tp1">目标 1</label><div class="inp"><input id="in-tp1" type="number" inputmode="decimal" step="0.1" placeholder="—" aria-describedby="fh-tp1"><button type="button" class="pick" data-pick="tp1" aria-pressed="false" title="在图表上点选">⌖</button></div><div class="fh" id="fh-tp1"></div></div>
+          <div class="f t"><label for="in-tp2">目标 2 <em>可不填</em></label><div class="inp"><input id="in-tp2" type="number" inputmode="decimal" step="0.1" placeholder="—" aria-describedby="fh-tp2"><button type="button" class="pick" data-pick="tp2" aria-pressed="false" title="在图表上点选">⌖</button></div><div class="fh" id="fh-tp2"></div></div>
         </div>
         <details class="adv"><summary>快捷设置止损和目标</summary>
           <div class="helpers" id="helpers">
@@ -673,10 +721,10 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       </div>
 
       <div class="step">
-        <div class="st-h"><span class="st-n">3</span><div><b>填账户，得到手数</b><span class="d">只保存在你的浏览器里，不会上传</span></div></div>
+        <div class="st-h"><span class="st-n" id="st3">3</span><div><b>填账户，得到手数</b><span class="d">只保存在你的浏览器里，不会上传</span></div></div>
         <div class="fields" style="margin-top:0">
-          <div class="f"><label for="in-bal">账户余额</label><div class="inp"><input id="in-bal" type="number" inputmode="decimal" step="100" min="0" placeholder="例如 5000"><span class="unit">USD</span></div></div>
-          <div class="f"><div class="lab"><label for="in-risk">这笔最多亏</label><span class="quick" id="riskq"><button type="button" data-r="0.25">0.25</button><button type="button" data-r="0.5">0.5</button><button type="button" data-r="1">1</button></span></div><div class="inp"><input id="in-risk" type="number" inputmode="decimal" step="0.05" min="0" placeholder="0.5"><span class="unit">%</span></div></div>
+          <div class="f"><label for="in-bal">账户余额</label><div class="inp"><input id="in-bal" type="number" inputmode="decimal" step="100" min="0" placeholder="例如 5000" aria-describedby="fh-bal"><span class="unit">USD</span></div><div class="fh" id="fh-bal"></div></div>
+          <div class="f"><label for="in-risk">这笔最多亏</label><div class="inp"><input id="in-risk" type="number" inputmode="decimal" step="0.05" min="0" placeholder="0.5" aria-describedby="fh-risk"><span class="unit">% 账户</span></div><span class="quick" id="riskq" role="group" aria-label="常用比例"><button type="button" data-r="0.25">0.25%</button><button type="button" data-r="0.5">0.5%</button><button type="button" data-r="1">1%</button></span><div class="fh" id="fh-risk"></div></div>
         </div>
         <details class="adv"><summary>合约设置（多数 MT5 平台不用改）</summary>
           <div class="fields">
@@ -710,9 +758,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="pop" id="pop" role="tooltip" hidden></div>
 
-<script src="assets/xau-feed.js?v=3"></script>
-<script src="assets/xau-engine.js?v=3"></script>
-<script src="assets/xau-plan.js?v=3"></script>
+<script src="assets/xau-feed.js?v=4"></script>
+<script src="assets/xau-engine.js?v=4"></script>
+<script src="assets/xau-plan.js?v=4"></script>
 <script>
 (function(){
   "use strict";
@@ -752,7 +800,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     set: function (k, v) { try { localStorage.setItem("xau4h." + k, JSON.stringify(v)); } catch (e) {} }
   };
   var S = {
-    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, lastRun: 0, lastQ: 0, lastShown: null, proof: null, rec: null, mins: [], tHi: null, tLo: null,
+    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, late: false, lastRun: 0, lastTry: 0, lastQ: 0, lastShown: null, proof: null, rec: null, mins: [], tHi: null, tLo: null,
     tf: LS.get("tf", "4H"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: 100, lotStep: 0.01, spread: 0 },
@@ -881,17 +929,29 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     reasons.push(V.closed ? { label: "时机", ok: false, text: "黄金休市中，开盘后再看" } : nw ? { label: "时机", ok: nw.ok, text: nw.detail } : { label: "时机", ok: null, text: "没读到日历：进场前自己看一眼有没有大数据" });
     reasons.forEach(function (r) { rs.appendChild(h("li", null, [h("div", { class: "rl" }, [mark(r.ok), r.label]), h("div", { class: "rt", text: r.text })])); });
 
-    var iw = $("v-ideas-wrap"), il = clear($("v-ideas")), k = V.plan; iw.hidden = !k;
-    if (k) {
-      var sell = k.side === "short";
-      iw.querySelector(".v-sub").textContent = V.level === "go" ? "这一笔怎么做" : "小周期转回来以后，这一笔会是这样（价位到时会变）";
-      il.appendChild(h("div", { class: "v-idea" }, [h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? "▼ 做空" : "▲ 做多" }),
-        h("div", { class: "tx" }, [(sell ? "现价卖出 " : "现价买入 ") + fmt(k.entry, 1) + " · 止损 " + fmt(k.stop, 1) + " · 目标 " + fmt(k.tp1, 1) + "（3R）",
-          h("small", { text: "止损离入场 " + fmt(k.dist, 0) + " 美元，是 3 倍小时波幅。也可以不设目标：每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + " 美元" })]),
-        h("button", { type: "button", class: "btn sm", text: "填进计划 →", onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "目标 3R 方案"); toPlan(); } })]));
+    // what to do now, as steps: the first is the action, the rest is what to wait for and what follows
+    var steps = V.next.slice(), hold = false;
+    if (V.closed) { steps.unshift({ lead: "现在休市，什么都不用做", text: "周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。" }); hold = true; }
+    else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: "先等数据过去", text: nw.detail + "。数据前后价格乱跳，点差也会放大。" }); hold = true; }
+    else if (V.level === "go" && steps[0] && steps[0].late) hold = true;
+    S.late = V.level === "go" && !!(V.next[0] && V.next[0].late);
+    if (V.level === "none" && !V.closed && S.proof && steps[0]) {                // waiting is the normal state: say how rare a signal is
+      var mr = S.proof.rules[S.proof.main];
+      if (mr && mr.perYear > 0) steps[0] = { lead: steps[0].lead, text: steps[0].text + "这样等很平常：回放里平均 " + Math.round(365 / mr.perYear) + " 天才出一次信号。" };
     }
-    var lw = $("v-lines-wrap"), ll = clear($("v-lines")); lw.hidden = !V.lines.length;
-    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", { text: l.text })])); });
+    var ol = clear($("v-next")); $("v-next-wrap").hidden = !steps.length;
+    steps.forEach(function (st, i) {
+      var acts = [];
+      (st.alerts || []).forEach(function (a) {
+        var p = r1(a.price), on = S.alerts.some(function (x) { return !x.fired && Math.abs(x.p - p) < 0.05; });
+        acts.push(h("button", { type: "button", class: "btn sm", disabled: on, text: on ? "🔔 已设提醒 " + fmt(p, 1) : "🔔 到 " + fmt(p, 1) + " 提醒我", onclick: function () { addAlert(p, a.label); renderVerdict(); } }));
+      });
+      if (st.fill) acts.push(h("button", { type: "button", class: "btn sm", text: st.fill, onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "目标 3R 方案"); toPlan(); } }));
+      ol.appendChild(h("li", { class: i === 0 ? "now" + (hold ? " hold" : "") : "" }, [h("div", null, [h("div", { class: "nl", text: st.lead }), h("div", { class: "nt", text: st.text })]), acts.length ? h("div", { class: "na" }, acts) : null]));
+    });
+    $("v-other").hidden = !V.other; $("v-other").textContent = V.other || "";
+    var lw = $("v-lines-wrap"), ll = clear($("v-lines")); lw.hidden = !V.lines.length && !V.other;
+    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", null, [l.text, l.dist !== null ? h("small", { text: "离现价 " + fmt(l.dist, 1) + " 美元" }) : null])])); });
     renderProofLine(V);
 
     var chips = clear($("v-chips")), now = Date.now(), ss = sessionState(now);
@@ -1211,7 +1271,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   }
   function replan() { persistPlan(); syncInputs(); if (S.E) renderCands(); renderPlan(); drawChart(); }
   function setField(f, v) {
-    S.plan[f] = v; S.armed = null; replan(); renderArm();
+    S.plan[f] = v; S.armed = null; touched(); replan(); renderArm();
     var el = $("in-" + f).closest(".f"); el.classList.add("flash"); setTimeout(function () { el.classList.remove("flash"); }, 700);
   }
   function renderArm() {
@@ -1220,16 +1280,20 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     if (S.armed) hint.textContent = "正在选「" + FIELD_ZH[S.armed] + "」：在图表上点一个价位就填好了。再点一次 ⌖ 取消。";
     $("chart").classList.toggle("picking", !!S.armed);
   }
+  function touched() { S.plan.at = Date.now(); }                                // when the prices were last set: old ones are flagged
+  function hasPlan() { return num(S.plan.entry) !== null && num(S.plan.stop) !== null; }
+  function clearPlan() { S.plan = { side: S.plan.side, entry: null, stop: null, tp1: null, tp2: null, note: "", at: null }; S.manual = { _d: TODAY }; LS.set("manual", S.manual); replan(); }
   function loadCandidate(c, label) {
-    S.plan.side = c.side; S.plan.entry = c.entry; S.plan.stop = c.stop; S.plan.tp1 = c.tp1; S.plan.tp2 = c.tp2;
+    S.plan.side = c.side; S.plan.entry = c.entry; S.plan.stop = c.stop; S.plan.tp1 = c.tp1; S.plan.tp2 = c.tp2; touched();
     replan(); toast("已填好：" + label);
   }
   function shownCand(c) { return { side: c.side, entry: r1(sh(c.entry)), stop: r1(sh(c.stop)), tp1: r1(sh(c.tp1)), tp2: r1(sh(c.tp2)) }; }
   function isSel(c) { return S.plan.side === c.side && num(S.plan.entry) !== null && Math.abs(S.plan.entry - c.entry) < 0.06 && num(S.plan.stop) !== null && Math.abs(S.plan.stop - c.stop) < 0.06 && (num(S.plan.tp1) === null) === (num(c.tp1) === null); }
   function renderCands() {
-    var el = clear($("cands")), E = S.E, R = P.regime(E);
+    var el = clear($("cands")), E = S.E, R = P.regime(E), any = false, picked = false;
     var card = function (k, side, tagline, line, sub, rr, label, live) {
-      var btn = h("button", { type: "button", class: "cand" + (isSel(k) ? " sel" : ""), "aria-pressed": String(isSel(k)), title: "把这个方案填进计划" }, [
+      var on = isSel(k); any = true; if (on) picked = true;
+      var btn = h("button", { type: "button", class: "cand" + (on ? " sel" : ""), "aria-pressed": String(on), title: "把这个方案填进计划" }, [
         h("span", { class: "cs " + side, text: side === "long" ? "▲ 做多" : "▼ 做空" }),
         h("span", null, [h("div", { class: "ct", text: line }), h("div", { class: "cd", text: tagline + (sub ? " · " + sub : "") })]),
         h("span", { class: "cr" }, [rr === null ? "跟踪" : rr.toFixed(1) + "R", h("small", { text: rr === null ? "不设目标" : "赚赔比" })])
@@ -1239,14 +1303,23 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     };
     if (R.dir) [false, true].forEach(function (trail) {
       var k = P.systemPlan(E, R.dir, { trail: trail }); if (!k) return; var buy = R.dir > 0;
-      card(k, k.side, R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
+      card(k, k.side, R.full && S.late ? "信号已走远，这么晚进没有回放数据" : R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
         "止损 " + fmt(k.dist, 0) + " 美元 = 3 倍小时波幅", trail ? null : P.SYS.targetR, trail ? "跟踪止损方案" : "目标 3R 方案", function () { return sysPlanNow(trail); });
     });
-    else el.appendChild(h("p", { class: "note", text: "周线、日线、4 小时还不一致。回放里这时进场没有优势，所以这里不给方案；可以直接在第 2 步输入价位做练习。" }));
+    else {
+      el.appendChild(h("p", { class: "note", text: "现在没有信号，所以这里没有方案。周线、日线、4 小时同向以后，会自动出现按规则算好的价位。" }));
+      var H1 = E.tfs["1H"];
+      if (H1 && H1.atr && num(E.price) !== null) {                              // a worked example to learn the sizing on, clearly not a signal
+        var row = h("div", { class: "prac" }, [h("span", { text: "想先熟悉手数怎么算？按现价生成一个示例（不是信号）：" })]);
+        [1, -1].forEach(function (d) { row.appendChild(h("button", { type: "button", class: "btn sm ghost", text: d > 0 ? "▲ 练习做多" : "▼ 练习做空", onclick: function () { var k = P.systemPlan(S.E, d, {}); if (k) loadCandidate(k, "练习方案（不是信号）"); } })); });
+        el.appendChild(row);
+      }
+    }
     S.daily.forEach(function (d) {
       var buy = d.side === "long", k = { side: d.side, entry: r1(d.entry), stop: r1(d.stop), tp1: d.tp1 === null ? null : r1(d.tp1), tp2: d.tp2 === null ? null : r1(d.tp2) };
       card(k, d.side, "来自每日分析，没有回放过", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
     });
+    S.cardState = !any ? "na" : picked ? "done" : "";
   }
   function currentSize() { return P.size({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, balance: S.acct.balance, riskPct: S.acct.riskPct, contract: S.acct.contract, lotStep: S.acct.lotStep, spread: S.acct.spread }); }
   // Auto version of the "stay clear of big data" rule, when the risk calendar gives exact SGT times.
@@ -1273,7 +1346,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       if (!pts.length) { toast("这个方向上 2R 以外没有关键位"); return; }
       set("tp1", pts[0]); S.plan.tp2 = pts.length > 1 ? r1(pts[1]) : null;
     }
-    replan();
+    touched(); replan();
   }
   function ring(done, total, col) {
     var svg = sv("svg", { viewBox: "0 0 44 44", role: "img", "aria-label": "通过 " + done + " 项，共 " + total + " 项" }), c = 2 * Math.PI * 18;
@@ -1282,56 +1355,139 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     sv("text", { x: 22, y: 26, "text-anchor": "middle" }, svg).textContent = done + "/" + total;
     return svg;
   }
+  // One line at the top of the plan: how what is typed in compares with the answer at the top of the page.
+  function planState(sz) {
+    if (!S.E) return null;
+    var R = P.regime(S.E), dir = S.plan.side === "short" ? -1 : 1, way = R.dir > 0 ? "向上" : "向下", act = R.dir > 0 ? "做多" : "做空", mine = dir > 0 ? "做多" : "做空";
+    var gone = "这次信号出现已久，价格已经顺着走了一段。回放只测过信号刚出现时进场，等下一次更稳妥。";
+    if (!hasPlan()) return R.full && S.late ? ["ready", "信号已经走远", gone] : R.full ? ["go", "现在有信号", "点第 1 步里的方案，入场、止损、目标会自动填好。"]
+      : R.dir ? ["ready", "大方向" + way + "，还在等小周期", "可以先点第 1 步里的方案，把计划准备好，等信号出现再下单。"]
+      : ["none", "现在没有信号，不用做计划", "上面的结论是「先观望」。想熟悉手数怎么算，可以用第 1 步的练习按钮。"];
+    if (!sz.valid) return ["bad", "价位还没填对", "看下面的提示，点一下就能改好。"];
+    if (R.dir === dir) return R.full && S.late ? ["ready", "方向对，但信号已经走远", gone] : R.full ? ["go", "这笔和现在的信号同向", "五个周期都" + way + "。下面的检查都通过，就可以按计划执行。"]
+      : ["ready", "方向对了，时机还没到", "等小周期转回" + way + "、上面的结论变成「可以顺势" + act + "」再下单。"];
+    if (R.dir === -dir) return ["bad", "这笔是逆势", "周线、日线、4 小时都" + way + "，你填的是" + mine + "。回放里逆着三个大周期做是长期亏损。"];
+    return ["none", "这是练习，不是信号", "上面的结论是「先观望」。可以用它熟悉手数怎么算，不建议现在真的下单。"];
+  }
+  function setHint(id, text, cls) { var el = $("fh-" + id); el.textContent = text || ""; el.className = "fh" + (cls ? " " + cls : ""); $("in-" + id).closest(".f").classList.toggle("bad", cls === "bad"); }
+  // The line under each box: how far the price is from the entry, in dollars and in the units the rules use;
+  // or, when it is on the wrong side for the direction, what is wrong with it.
+  function renderHints() {
+    var e = num(S.plan.entry), st = num(S.plan.stop), sell = S.plan.side === "short", dir = sell ? -1 : 1, px = num(S.live), H1 = S.E && S.E.tfs["1H"], atr = H1 && H1.atr ? H1.atr : null;
+    var sx = clear($("side-x")); sx.appendChild(h("b", { text: sell ? "做空" : "做多" }));
+    sx.appendChild(document.createTextNode(sell ? "：先卖后买，价格跌了才赚钱。止损放在入场价上方，目标放在下方。" : "：先买后卖，价格涨了才赚钱。止损放在入场价下方，目标放在上方。"));
+    setHint("entry", e === null ? (px !== null ? "现价 " + fmt(px, 1) : "") : px === null ? "" : Math.abs(e - px) < 0.05 ? "就是现价" : "比现价" + (e > px ? "高 " : "低 ") + fmt(Math.abs(e - px), 1) + " 美元");
+    var same = e !== null && st === e, stBad = e !== null && st !== null && (e - st) * dir < 0;
+    setHint("stop", st === null ? (e !== null && atr ? "规则：离入场价 " + fmt(P.SYS.stopAtr * atr, 0) + " 美元（3 倍小时波幅）" : "") : e === null ? "" : same ? "不能和入场价一样" : stBad ? (sell ? "做空的止损要高于入场价" : "做多的止损要低于入场价")
+      : "离入场价 " + fmt(Math.abs(e - st), 1) + " 美元" + (atr ? " · " + (Math.abs(e - st) / atr).toFixed(1) + " 倍小时波幅" : ""), st !== null && (same || stBad) ? "bad" : "");
+    ["tp1", "tp2"].forEach(function (k) {
+      var t = num(S.plan[k]), bad = e !== null && t !== null && (t - e) * dir <= 0, okStop = e !== null && st !== null && !stBad && !same;
+      setHint(k, t === null ? (k === "tp1" ? "不填 = 用跟踪止损离场" : "") : e === null ? "" : bad ? (sell ? "做空的目标要低于入场价" : "做多的目标要高于入场价")
+        : "离入场价 " + fmt(Math.abs(t - e), 1) + " 美元" + (okStop ? " · 止损距离的 " + (Math.abs(t - e) / Math.abs(e - st)).toFixed(1) + " 倍" : ""), bad ? "bad" : "");
+    });
+    var bal = num(S.acct.balance), pct = num(S.acct.riskPct), cash = bal !== null && bal > 0 && pct !== null && pct > 0 ? bal * pct / 100 : null;
+    all("#riskq button").forEach(function (b) { b.setAttribute("aria-pressed", String(parseFloat(b.getAttribute("data-r")) === pct)); });
+    setHint("bal", bal === null || bal <= 0 ? "MT5 里显示的余额" : "");
+    setHint("risk", pct === null || pct <= 0 ? "建议 0.5%" : cash === null ? "填上余额就能算出金额" : "= 最多亏 " + P.usd(cash) + (pct > 1 ? " · 超过 1%，偏高" : pct < 0.1 ? " · 很小，常用 0.25%–1%" : ""), pct !== null && pct > 1 ? "bad" : pct !== null && pct > 0 && pct < 0.1 ? "warn" : "");
+  }
+  // Prices that do not fit the direction: say what is wrong in plain words and offer the repair as a button.
+  function fixPanel(sz) {
+    var sell = S.plan.side === "short", mine = sell ? "做空" : "做多", other = sell ? "做多" : "做空", box = h("div", { class: "fix" });
+    if (sz.same) {
+      box.appendChild(h("div", { class: "fx-t", text: "入场价和止损价不能一样" }));
+      box.appendChild(h("p", { text: "止损是「看错了就认输」的价位，要和入场价拉开距离。规则用的是 3 倍小时波幅。" }));
+      box.appendChild(h("div", { class: "fa" }, [h("button", { type: "button", class: "btn sm pri", text: "按 3 倍小时波幅设止损", onclick: function () { helper("s-3"); } })]));
+      return box;
+    }
+    box.appendChild(h("div", { class: "fx-t", text: "价位和方向对不上" }));
+    box.appendChild(h("p", null, ["你选的是", h("b", { text: mine }), "：价格" + (sell ? "下跌" : "上涨") + "才赚钱，所以止损要在入场价" + (sell ? "上方" : "下方") + "，目标要在入场价" + (sell ? "下方" : "上方") + "。现在填的是："]));
+    var ul = h("ul"), hasS = false, hasT = false;
+    sz.issues.forEach(function (it) { if (it.f === "stop") hasS = true; else hasT = true; ul.appendChild(h("li", null, [FIELD_ZH[it.f] + " ", h("b", { class: "n", text: fmt(it.price, 1) }), " 在入场价" + (it.at === "above" ? "上方" : "下方")])); });
+    box.appendChild(ul);
+    var fa = h("div", { class: "fa" });
+    if (sz.otherSideFits) fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: "改成" + other + "（价位不动）", onclick: function () { S.plan.side = sell ? "long" : "short"; touched(); replan(); toast("已改成" + other); } }));
+    fa.appendChild(h("button", { type: "button", class: "btn sm" + (sz.otherSideFits ? "" : " pri"), text: "保持" + mine + "，把" + (hasS && hasT ? "止损和目标" : hasS ? "止损" : "目标") + "翻到另一边",
+      onclick: function () { var m = P.mirror(S.plan, S.plan.side); S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); replan(); toast("已翻到另一边，距离不变"); } }));
+    fa.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "清空重填", onclick: clearPlan }));
+    box.appendChild(fa);
+    return box;
+  }
+  function pctTxt(v) { return (v >= 100 ? v.toFixed(0) : v >= 1 ? v.toFixed(1) : v.toFixed(2)) + "%"; }
+  // The account allows less than the smallest position costs: show it with their own numbers and say what can be done.
+  function smallPanel(sz) {
+    var bal = S.acct.balance, step = num(S.acct.lotStep) || 0.01, box = h("div", { class: "fix small" }), one = Math.round(sz.minLotRisk * 100) / 100;
+    box.appendChild(h("div", { class: "fx-t", text: "这笔开不了：最小手数也超过你的亏损上限" }));
+    box.appendChild(h("p", null, ["你最多肯亏 ", h("b", { class: "n", text: P.usd(sz.riskUsd) }), "（" + P.usd(bal) + " 的 " + S.acct.riskPct + "%）。可是最小的 " + step + " 手，到止损就要亏 ", h("b", { class: "n", text: P.usd(sz.minLotRisk) }), "，是账户的 " + pctTxt(sz.minLotPct) + "。"]));
+    var ul = h("ul"), fa = h("div", { class: "fa" });
+    if (sz.minLotPct <= 1) {
+      var up = +(Math.ceil(sz.minLotPct * 20 - 1e-9) / 20).toFixed(2);          // the next 0.05% that fits one minimum lot
+      ul.appendChild(h("li", { text: "把「这笔最多亏」调到 " + up + "%，就能开 " + step + " 手，仍在 1% 以内。" }));
+      fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: "改成 " + up + "%", onclick: function () { S.acct.riskPct = up; persistPlan(); syncInputs(); renderPlan(); } }));
+    } else {
+      ul.appendChild(h("li", { text: "要让 " + step + " 手只占账户的 1%，账户需要约 " + P.usd(Math.ceil(one * 10 - 1e-6) * 10) + "；只占 0.5% 需要约 " + P.usd(Math.ceil(one * 20 - 1e-6) * 10) + "。" }));
+      ul.appendChild(h("li", { text: "可以先用模拟账户照这页练习；或者用合约更小的账户（例如每手 1 盎司的美分账户），并在上面「合约设置」里把每手盎司改成你平台的数字。" }));
+    }
+    ul.appendChild(h("li", { text: "不要为了凑手数把止损收近：回放里近的止损没有优势。" }));
+    box.appendChild(ul); if (fa.firstChild) box.appendChild(fa);
+    return box;
+  }
   function renderPlan() {
-    var sz = currentSize(), tk = clear($("ticket")), E = S.E, H1 = E && E.tfs["1H"], has = num(S.plan.entry) !== null && num(S.plan.stop) !== null, sell = S.plan.side === "short";
-    tk.className = "ticket" + (has ? "" : " empty");
-    if (!has) tk.appendChild(h("p", { class: "note", text: "点第 1 步里的任意一个方案，或在第 2 步输入入场价和止损价。这里会告诉你该下多少手、会亏多少、能赚多少。" }));
+    var sz = currentSize(), tk = clear($("ticket")), E = S.E, H1 = E && E.tfs["1H"], has = hasPlan(), ok = has && sz.valid, sell = S.plan.side === "short";
+    // where this plan stands against the answer, the hint under each box, and a flag on prices left from another day
+    var ps = planState(sz), pe = $("pstate"); pe.hidden = !ps;
+    if (ps) { pe.className = "pstate " + ps[0]; $("pstate-t").textContent = ps[1]; $("pstate-x").textContent = ps[2]; }
+    renderHints();
+    var age = S.plan.at ? Date.now() - S.plan.at : null, old = has && (age === null || age > 12 * 3600000);
+    $("stale").hidden = !old;
+    if (old) { $("stale-t").textContent = "这组价位是" + (age === null ? "以前" : ago(S.plan.at)) + "填的，不是按现在的行情算的。"; $("stale-new").hidden = !(E && P.regime(E).dir); }
+    var stepMark = function (id, n, st) { var el = $(id); el.className = "st-n" + (st ? " " + st : ""); el.textContent = st === "done" ? "✓" : st === "bad" ? "!" : String(n); };
+    stepMark("st1", 1, S.cardState || ""); stepMark("st2", 2, ok ? "done" : has ? "bad" : ""); stepMark("st3", 3, ok && sz.lots > 0 ? "done" : ok && sz.lots === 0 ? "bad" : "");
+
+    tk.className = "ticket" + (!has ? " empty" : !sz.valid ? " need" : "");
+    if (!has) tk.appendChild(h("p", { class: "note", text: "点第 1 步里的方案，或在第 2 步输入入场价和止损价。这里会告诉你该下多少手、会亏多少、能赚多少。" }));
+    else if (!sz.valid) tk.appendChild(fixPanel(sz));
     else {
-      var top = h("div", { class: "tk-top" });
-      top.appendChild(h("span", { class: "v", text: sz.lots !== null ? sz.lots.toFixed(2) : "—" }));
-      top.appendChild(h("span", { class: "u" }, [sz.lots !== null ? "手" : sz.valid ? "填上账户余额就能算出手数" : "先改一下价位", sz.lots !== null ? h("button", { type: "button", class: "q", "data-g": "lots", "aria-label": "解释：手数", text: "?" }) : null]));
+      var dec = Math.max(2, Math.round(-Math.log(num(S.acct.lotStep) || 0.01) / Math.LN10)), top = h("div", { class: "tk-top" });
+      top.appendChild(h("span", { class: "v", text: sz.lots !== null ? sz.lots.toFixed(dec) : "—" }));
+      top.appendChild(h("span", { class: "u" }, [sz.lots !== null ? "手" : "填上账户余额就能算出手数", sz.lots !== null ? h("button", { type: "button", class: "q", "data-g": "lots", "aria-label": "解释：手数", text: "?" }) : null]));
       top.appendChild(h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? "▼ 做空" : "▲ 做多" }));
       tk.appendChild(top);
-      if (sz.errors.length) tk.appendChild(h("div", { class: "perr", text: sz.errors.join("；") }));
-      var say = P.sentence(S.plan, sz);
-      if (say.length) { var p = h("p", { class: "tk-say" }); say.forEach(function (x) { p.appendChild(x.b ? h("b", { text: x.t }) : document.createTextNode(x.t)); }); tk.appendChild(p); }
-      if (sz.lots === 0) tk.appendChild(h("div", { class: "perr", text: "按你设的亏损上限，连最小手数都开不了：" + S.acct.lotStep + " 手止损就要亏 $" + fmt(sz.minLotRisk, 0) + "。不要为了凑手数把止损收近；这笔先放掉。" }));
-      if (sz.valid) {
-        var nums = h("div", { class: "tk-nums" }), cell = function (k, v, d) { nums.appendChild(h("div", null, [h("div", { class: "tk", text: k }), h("div", { class: "tv", text: v }), h("div", { class: "td", text: d })])); };
-        cell("止损时亏", sz.lots ? "$" + fmt(sz.actualRisk, 0) : "$" + fmt(sz.dist, 1), sz.lots ? "账户的 " + sz.actualPct.toFixed(2) + "%" : "每盎司，止损距离");
-        cell("目标 1", sz.r1 === null ? "—" : sz.pnl1 !== null && sz.lots ? "+$" + fmt(sz.pnl1, 0) : sz.r1.toFixed(1) + "R", sz.r1 === null ? "未设置" : "赚赔比 " + sz.r1.toFixed(1));
-        cell("目标 2", sz.r2 === null ? "—" : sz.pnl2 !== null && sz.lots ? "+$" + fmt(sz.pnl2, 0) : sz.r2.toFixed(1) + "R", sz.r2 === null ? "未设置" : "赚赔比 " + sz.r2.toFixed(1));
-        tk.appendChild(nums);
-        var foot = h("div", { class: "tk-foot" });
-        if (sz.r1 || sz.r2) {
-          var a = sz.r1 || sz.r2, bx = sz.r1 && sz.r2 && sz.r2 > sz.r1 ? sz.r2 - sz.r1 : 0, bar = h("div", { class: "rrbar", role: "img", "aria-label": "亏 1 份，赚 " + (a + bx).toFixed(1) + " 份" });
-          var seg = function (c, w) { var i = h("i", { class: c }); i.style.flex = w + " 1 0"; bar.appendChild(i); };
-          seg("rk", 1); seg("rw", a); if (bx) seg("rw2", bx);
-          foot.appendChild(bar);
-          foot.appendChild(h("div", { class: "rrbar-l" }, [h("span", { text: "亏 1 份" }), h("span", { text: "赚 " + (a + bx).toFixed(1) + " 份" })]));
-        }
-        var meta = [];
-        if (H1 && H1.atr) meta.push("止损距离 " + fmt(sz.dist, 1) + " 美元，是 1 小时平均波幅的 " + (sz.dist / H1.atr).toFixed(1) + " 倍");
-        if (sz.breakeven !== null) meta.push("胜率超过 " + sz.breakeven.toFixed(0) + "% 就不亏");
-        if (meta.length) foot.appendChild(h("div", { class: "tk-meta", text: meta.join(" · ") }));
-        foot.appendChild(h("div", { class: "tk-meta", text: exitRule(sz) }));
-        tk.appendChild(foot);
+      if (sz.lots === 0) tk.appendChild(smallPanel(sz));
+      else { var say = P.sentence(S.plan, sz); if (say.length) { var p = h("p", { class: "tk-say" }); say.forEach(function (x) { p.appendChild(x.b ? h("b", { text: x.t }) : document.createTextNode(x.t)); }); tk.appendChild(p); } }
+      var nums = h("div", { class: "tk-nums" }), cell = function (k, v, d) { nums.appendChild(h("div", null, [h("div", { class: "tk", text: k }), h("div", { class: "tv", text: v }), h("div", { class: "td", text: d })])); };
+      cell("止损时亏", sz.lots ? P.usd(sz.actualRisk) : "$" + fmt(sz.dist, 1), sz.lots ? "账户的 " + sz.actualPct.toFixed(2) + "%" : "每盎司，止损距离");
+      cell("目标 1", sz.r1 === null ? "—" : sz.pnl1 !== null && sz.lots ? "+" + P.usd(sz.pnl1) : sz.r1.toFixed(1) + "R", sz.r1 === null ? "未设置" : "赚赔比 " + sz.r1.toFixed(1));
+      cell("目标 2", sz.r2 === null ? "—" : sz.pnl2 !== null && sz.lots ? "+" + P.usd(sz.pnl2) : sz.r2.toFixed(1) + "R", sz.r2 === null ? "未设置" : "赚赔比 " + sz.r2.toFixed(1));
+      tk.appendChild(nums);
+      var foot = h("div", { class: "tk-foot" });
+      if (sz.r1 || sz.r2) {
+        var a = sz.r1 || sz.r2, bx = sz.r1 && sz.r2 && sz.r2 > sz.r1 ? sz.r2 - sz.r1 : 0, bar = h("div", { class: "rrbar", role: "img", "aria-label": "亏 1 份，赚 " + (a + bx).toFixed(1) + " 份" });
+        var seg = function (c, w) { var i = h("i", { class: c }); i.style.flex = w + " 1 0"; bar.appendChild(i); };
+        seg("rk", 1); seg("rw", a); if (bx) seg("rw2", bx);
+        foot.appendChild(bar);
+        foot.appendChild(h("div", { class: "rrbar-l" }, [h("span", { text: "亏 1 份" }), h("span", { text: "赚 " + (a + bx).toFixed(1) + " 份" })]));
       }
+      var meta = [];
+      if (H1 && H1.atr) meta.push("止损距离 " + fmt(sz.dist, 1) + " 美元，是 1 小时平均波幅的 " + (sz.dist / H1.atr).toFixed(1) + " 倍");
+      if (sz.breakeven !== null) meta.push("胜率超过 " + sz.breakeven.toFixed(0) + "% 就不亏");
+      if (meta.length) foot.appendChild(h("div", { class: "tk-meta", text: meta.join(" · ") }));
+      foot.appendChild(h("div", { class: "tk-meta", text: exitRule(sz) }));
+      tk.appendChild(foot);
     }
 
-    // checklist: what is wrong first, what is fine folded away
+    // checklist: what is wrong first, what is fine folded away. It waits until the prices themselves make sense.
     var MAN = manualList(), ck = currentChecks(sz), bad = [], open = [], good = [];
     ck.forEach(function (c) { (c.ok === true ? good : c.ok === false ? bad : open).push(c); });
     var total = ck.length + MAN.length, okN = good.length + MAN.filter(function (m) { return S.manual[m.id]; }).length;
     var sum = clear($("chk-sum")), unsure = open.length + MAN.filter(function (m) { return !S.manual[m.id]; }).length;
-    var cls = !has ? "" : bad.length >= 3 ? "bad" : bad.length || unsure ? "warn" : "ok";
+    var cls = !ok ? "" : bad.length >= 3 ? "bad" : bad.length || unsure ? "warn" : "ok";
     sum.className = "chk-sum " + cls;
-    sum.appendChild(ring(has ? okN : 0, total, cls === "ok" ? "var(--m-bull)" : cls === "bad" ? "var(--m-bear)" : "var(--m-gold)"));
-    sum.appendChild(h("div", null, [h("b", { text: !has ? "开仓前检查" : bad.length ? "有 " + bad.length + " 项没通过" : unsure ? "还有 " + unsure + " 项要你确认" : "全部通过，可以按计划执行" }),
-      h("span", { text: !has ? "填好价位后，这里按回放里有优势的规则逐项检查" : bad.length ? bad.map(function (c) { return c.label; }).join("、") : unsure ? "看一下下面的项目，确认后点一下" : "方向、止损、风险都符合回放里的规则" })]));
+    sum.appendChild(ring(ok ? okN : 0, total, cls === "ok" ? "var(--m-bull)" : cls === "bad" ? "var(--m-bear)" : "var(--m-gold)"));
+    sum.appendChild(h("div", null, [h("b", { text: !ok ? "开仓前检查" : bad.length ? "有 " + bad.length + " 项没通过" : unsure ? "还有 " + unsure + " 项要你确认" : "全部通过，可以按计划执行" }),
+      h("span", { text: !has ? "填好价位后，这里按回放里有优势的规则逐项检查" : !ok ? "先把上面的价位改对，这里再逐项检查" : bad.length ? bad.map(function (c) { return c.label; }).join("、") : unsure ? "看一下下面的项目，确认后点一下" : "方向、止损、风险都符合回放里的规则" })]));
     var ul = clear($("checks")), okList = clear($("checks-ok"));
     var row = function (c) { return h("li", null, [mark(c.ok), h("div", null, [h("div", { class: "cl", text: c.label }), h("div", { class: "cx", text: c.detail })])]); };
-    if (has) {
+    if (ok) {
       bad.forEach(function (c) { ul.appendChild(row(c)); }); open.forEach(function (c) { ul.appendChild(row(c)); });
       MAN.forEach(function (m) {
         var on = !!S.manual[m.id], box = h("input", { type: "checkbox", id: "mc-" + m.id }); box.checked = on;
@@ -1340,9 +1496,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         li.addEventListener("click", function (ev) { if (ev.target.tagName !== "INPUT" && !ev.target.closest("label")) box.click(); });
         ul.appendChild(li);
       });
+      good.forEach(function (c) { okList.appendChild(row(c)); });
     }
-    good.forEach(function (c) { okList.appendChild(row(c)); });
-    $("chk-pass").hidden = !has || !good.length; $("chk-pass-s").textContent = "已通过的 " + good.length + " 项";
+    $("chk-pass").hidden = !ok || !good.length; $("chk-pass-s").textContent = "已通过的 " + good.length + " 项";
   }
   // How to manage the trade once it is on, in one line. The trailing distance is 2R.
   function exitRule(sz) {
@@ -1378,7 +1534,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         h("span", { class: "chip " + (p.side === "long" ? "bull" : "bear"), text: p.side === "long" ? "▲ 做多" : "▼ 做空" }),
         h("div", null, [h("div", { class: "sm1", text: "入场 " + fmt(p.entry, 1) + " · 止损 " + fmt(p.stop, 1) + (num(p.tp1) !== null ? " · 目标 " + fmt(p.tp1, 1) + (num(p.tp2) !== null ? " / " + fmt(p.tp2, 1) : "") : "") + (num(p.lots) !== null ? " · " + p.lots + " 手" : "") }), h("div", { class: "sm2", text: p.when + " · " + p.basis + (p.note ? " · " + p.note : "") })]),
         h("div", { class: "sa" }, [sel,
-          h("button", { type: "button", class: "btn sm", text: "载入", onclick: function () { S.plan = { side: p.side, entry: p.entry, stop: p.stop, tp1: p.tp1, tp2: p.tp2, note: p.note || "" }; replan(); $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); } }),
+          h("button", { type: "button", class: "btn sm", text: "载入", onclick: function () { S.plan = { side: p.side, entry: p.entry, stop: p.stop, tp1: p.tp1, tp2: p.tp2, note: p.note || "", at: Date.now() }; replan(); $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); } }),
           h("button", { type: "button", class: "btn sm ghost", text: "删除", onclick: function () { S.saved.splice(idx, 1); LS.set("saved", S.saved); renderSaved(); } })])
       ]));
     });
@@ -1732,7 +1888,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   }
   function renderAll() { renderVerdict(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
   function refresh() {
-    if (S.busy) return; S.busy = true; document.body.classList.add("refreshing");
+    if (S.busy) return; S.busy = true; S.lastTry = Date.now(); document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });
     Promise.all([XauFeed.load(), fetchSpot(), num(S.raw) === null ? fetchTick() : null]).then(function (res) {
       var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error("行情接口没有返回数据");
@@ -1746,7 +1902,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         if (m && Date.now() - S.spotAt > 3 * 60000 && Date.now() - (m[0] + 60) * 1000 < 3 * 60000 && num(S.raw) !== null) { S.spot = m[4]; S.spotAt = Date.now(); calibrate(); }
         paintLive(); if (!busyUi()) drawChart();
       }).catch(function () {});
-      if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; syncInputs(); } }
+      if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
       var was = S.vLevel;
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
       S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp(); noteVerdict(was);
@@ -1768,9 +1924,16 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
   // ---------- wiring ----------
   all("[data-cmode]").forEach(function (b) { b.addEventListener("click", function () { S.cmode = b.getAttribute("data-cmode"); LS.set("cmode", S.cmode); renderTfTabs(); drawChart(); }); });
-  all("[data-side]").forEach(function (b) { b.addEventListener("click", function () { S.plan.side = b.getAttribute("data-side"); replan(); }); });
+  // Switching direction turns a plan that was right for the old direction round, so the stop and targets follow
+  // instead of becoming errors. Prices that only make sense for the new direction are left as they are.
+  all("[data-side]").forEach(function (b) { b.addEventListener("click", function () {
+    var side = b.getAttribute("data-side"); if (side === S.plan.side) return;
+    var was = currentSize(), m = P.mirror(S.plan, side); S.plan.side = side;
+    if (was.valid && m.changed) { S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); toast("已换成" + (side === "short" ? "做空" : "做多") + "：止损和目标翻到了另一边，距离不变"); }
+    replan();
+  }); });
   all("[data-pick]").forEach(function (b) { b.addEventListener("click", function () { var f = b.getAttribute("data-pick"); S.armed = S.armed === f ? null : f; renderArm(); if (S.armed) { var r = $("chart").getBoundingClientRect(); if (r.bottom < 120 || r.top > window.innerHeight - 120) $("chart").scrollIntoView({ behavior: "smooth", block: "center" }); } }); });
-  FIELDS.forEach(function (f) { $("in-" + f).addEventListener("input", function () { var v = parseFloat(this.value); S.plan[f] = isFinite(v) ? v : null; persistPlan(); if (S.E) renderCands(); renderPlan(); drawChart(); }); });
+  FIELDS.forEach(function (f) { $("in-" + f).addEventListener("input", function () { var v = parseFloat(this.value); S.plan[f] = isFinite(v) ? v : null; touched(); persistPlan(); if (S.E) renderCands(); renderPlan(); drawChart(); }); });
   [["in-bal", "balance"], ["in-risk", "riskPct"], ["in-contract", "contract"], ["in-step", "lotStep"], ["in-spread", "spread"]].forEach(function (m) {
     $(m[0]).addEventListener("input", function () { var v = parseFloat(this.value); S.acct[m[1]] = isFinite(v) && v >= 0 ? v : null; persistPlan(); renderPlan(); });
   });
@@ -1785,7 +1948,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     S.saved.unshift({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, note: S.plan.note || "", lots: sz.lots, when: sgt(Date.now(), "full"), basis: basisName(), status: "计划中" });
     S.saved = S.saved.slice(0, 20); LS.set("saved", S.saved); renderSaved(); toast("已保存，在下方「已保存」里");
   });
-  $("reset").addEventListener("click", function () { S.plan = { side: S.plan.side, entry: null, stop: null, tp1: null, tp2: null, note: "" }; S.manual = { _d: TODAY }; LS.set("manual", S.manual); replan(); });
+  $("reset").addEventListener("click", clearPlan);
+  $("stale-clear").addEventListener("click", clearPlan);
+  $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "按现在的行情重算"); });
   $("retry").addEventListener("click", refresh);
   $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); });
   $("alert-sw").addEventListener("click", function () { S.alertOn = !S.alertOn; LS.set("alertOn", S.alertOn); if (S.alertOn) { askNotify(); S.prevShown = sh(S.live); } renderAlerts(); });
@@ -1802,12 +1967,17 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   syncInputs(); renderArm(); renderPlan(); renderSaved(); renderAlerts(); renderSessions(); showTab(S.tab);
   refresh(); loadContext(); loadSnapshot(); loadProof();
   connectStream(); setTimeout(loop, 30000);
-  // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour (the feed
-  // needs a few seconds to publish the candle), and at least every 5 minutes in case one was missed.
+  // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed
+  // needs a few seconds to publish the candle; if it is not there yet, look again a minute later, three times at
+  // most. Nothing is fetched in between, so an open tab asks the price feed for candles about 16 times an hour.
+  var qSeen = null, qTries = 0;
   setInterval(function () {
     if (document.visibilityState !== "visible" && !S.alertOn) return;
-    var q = Math.floor((Date.now() - 25000) / 900000);
-    if (q !== S.lastQ || Date.now() - S.lastRun >= 5 * 60000 - 2000) refresh();
+    var now = Date.now(), q = Math.floor((now - 25000) / 900000);
+    if (now - S.lastTry < 55000) return;
+    if (q !== qSeen) { qSeen = q; qTries = 0; if (q !== S.lastQ) { refresh(); return; } }
+    var K = S.feed && S.feed.K["15M"], have = K && K.length ? K[K.length - 1][6] + 1 : 0;
+    if (q !== S.lastQ || (marketOpen() && have < q * 900000)) { if (qTries < 3) { qTries++; refresh(); } }
   }, 20000);
   setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); }, 60000);
 })();

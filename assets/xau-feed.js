@@ -74,13 +74,14 @@ var XauFeed = (function () {
   function duk(interval, limit, timeout) {
     return new Promise(function (ok, no) {
       var cb = "__xauFeed" + (++seq), s = document.createElement("script"), done = false;
+      var drop = function () { try { delete window[cb]; } catch (e) { window[cb] = undefined; } if (s.parentNode) s.parentNode.removeChild(s); };
       var fin = function (err, data) {
         if (done) return; done = true; clearTimeout(timer);
-        try { delete window[cb]; } catch (e) { window[cb] = undefined; }
-        if (s.parentNode) s.parentNode.removeChild(s);
+        // an answer that arrives after the time limit still calls its callback: leave a stub for it and tidy up later
+        if (err === "no answer") { window[cb] = function () {}; setTimeout(drop, 120000); } else drop();
         if (err) no(new Error("spot feed: " + err)); else ok(clean(data));
       };
-      var timer = setTimeout(function () { window[cb] = function () {}; fin("no answer"); }, timeout || 15000);
+      var timer = setTimeout(function () { fin("no answer"); }, timeout || 15000);
       window[cb] = function (data) { fin(null, data); };
       s.onerror = function () { fin("refused"); };
       s.async = true; s.referrerPolicy = "origin";
@@ -152,9 +153,10 @@ var XauFeed = (function () {
   function load(opts) {
     opts = opts || {}; var nowMs = Date.now();
     if (opts.source === "paxg") return loadPaxg(nowMs, null);
-    if (spotFails >= 3 && nowMs - cache.failAt < 15 * 60000) return loadPaxg(nowMs, "spot");   // stop hammering a feed that is down
+    // a feed that keeps refusing is left alone: 15 minutes after three failures in a row, an hour after six
+    if (spotFails >= 3 && nowMs - cache.failAt < (spotFails >= 6 ? 60 : 15) * 60000) return loadPaxg(nowMs, "spot");
     return loadSpot(nowMs).then(function (f) { spotFails = 0; return f; }, function (e) {
-      spotFails++; cache.failAt = nowMs; cache.h1 = null;
+      spotFails++; cache.failAt = nowMs;                                           // the candles already held stay: the next try only asks for the newest ones
       if (opts.source === "spot") throw e;
       return loadPaxg(nowMs, "spot");
     });
