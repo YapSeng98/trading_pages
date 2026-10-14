@@ -1529,7 +1529,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     S.saved.forEach(function (p, idx) {
       var sel = h("select", { "aria-label": "状态" });
       ["计划中", "已入场", "已止盈", "已止损", "已取消"].forEach(function (s) { var o = h("option", { text: s }); if (s === p.status) o.selected = true; sel.appendChild(o); });
-      sel.addEventListener("change", function () { p.status = sel.value; LS.set("saved", S.saved); renderSaved(); });
+      sel.addEventListener("change", function () { p.status = sel.value; LS.set("saved", S.saved); renderSaved(); if (S.proof) renderProof(); });
       el.appendChild(h("div", { class: "sv" }, [
         h("span", { class: "chip " + (p.side === "long" ? "bull" : "bear"), text: p.side === "long" ? "▲ 做多" : "▼ 做空" }),
         h("div", null, [h("div", { class: "sm1", text: "入场 " + fmt(p.entry, 1) + " · 止损 " + fmt(p.stop, 1) + (num(p.tp1) !== null ? " · 目标 " + fmt(p.tp1, 1) + (num(p.tp2) !== null ? " / " + fmt(p.tp2, 1) : "") : "") + (num(p.lots) !== null ? " · " + p.lots + " 手" : "") }), h("div", { class: "sm2", text: p.when + " · " + p.basis + (p.note ? " · " + p.note : "") })]),
@@ -1745,12 +1745,42 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     }).catch(function () { clear($("proof")).appendChild(h("p", { class: "note", text: "回放结果文件暂时读不到。" })); });
     fetch("data/xau-signals.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { if (d && d.summary) { S.rec = d; if (S.proof) renderProof(); } }).catch(function () {});
   }
-  // The live record: what the rule has done since it went on the page, kept by an hourly job (scripts/xau_track.js).
+  // The visitor's own trades: the P&L calendar (journal.html keeps them in localStorage "pnl.v1"; same site, so this
+  // page can read them) and the plans saved here and marked as finished. Shown first, so they are not mistaken for the
+  // rule's automatic record below.
+  function ownBlock(el) {
+    var J = null; try { J = JSON.parse(localStorage.getItem("pnl.v1")); } catch (e) {}
+    var items = J && Array.isArray(J.items) ? J.items.filter(function (x) { return x && /^\d{4}-\d{2}-\d{2}$/.test(x.d) && num(x.amt) !== null; }) : [];
+    var cur = J && typeof J.cur === "string" && J.cur ? J.cur : "$", done = S.saved.filter(function (p) { return p.status === "已止盈" || p.status === "已止损"; });
+    var cash = function (v) { var a = Math.abs(v); return (v > 0 ? "+" : v < 0 ? "−" : "") + cur + a.toLocaleString("en-US", { maximumFractionDigits: a < 100 ? 2 : 0 }); };
+    var link = h("a", { href: "journal.html", style: "color:var(--gold-lt)", text: "打开盈亏日历 →" });
+    el.appendChild(h("div", { class: "sub-h", text: "你自己的交易（只存在这台设备的浏览器里）" }));
+    if (!items.length) {
+      el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, ["你还没有在「盈亏日历」里记过交易" + (done.length ? "（「已保存」里有 " + done.length + " 笔标成已结束的计划）" : "") + "。每做完一笔记一下金额，最好也填「原本最多打算亏多少」和「是不是按规则做的」，这里就会和规则的成绩放在一起比。 ", link]));
+      return;
+    }
+    items.sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
+    var sum = 0, win = 0, loss = 0, rs = [], byRule = 0, notRule = 0;
+    items.forEach(function (x) { sum += x.amt; if (x.amt > 0) win++; else if (x.amt < 0) loss++; if (num(x.risk) !== null && x.risk > 0) rs.push(x.amt / x.risk); if (x.rule === true) byRule++; else if (x.rule === false) notRule++; });
+    var n = items.length, md = function (d) { return (+d.slice(5, 7)) + "/" + (+d.slice(8, 10)); }, m = S.proof && S.proof.rules[S.proof.main];
+    var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
+    tile("记了几笔", n + " 笔", "", md(items[0].d) + (n > 1 ? " 到 " + md(items[n - 1].d) : "") + "，来自盈亏日历");
+    tile("赚 / 亏", win + " 赚 · " + loss + " 亏", "", n - win - loss ? (n - win - loss) + " 笔打平" : "规则回放里是三成赚、七成亏");
+    var avgR = rs.length ? rs.reduce(function (a, b) { return a + b; }, 0) / rs.length : null;
+    tile("合计", cash(sum), sum > 0 ? "up" : sum < 0 ? "dn" : "", avgR !== null ? rs.length + " 笔填了风险：平均每笔 " + sgn(avgR) + "R" + (m ? "（规则 " + sgn(m.avgR) + "R）" : "") : "填上「原本最多打算亏」就能换算成 R");
+    tile("按规则做的", byRule + " 笔", "", notRule || n - byRule - notRule ? (notRule ? notRule + " 笔不是" : "") + (notRule && n - byRule - notRule ? "，" : "") + (n - byRule - notRule ? (n - byRule - notRule) + " 笔没标记" : "") : "全部按规则");
+    el.appendChild(tiles);
+    // what a handful of trades can and cannot say: the rule loses about 7 trades in 10
+    var lose = m ? 1 - m.win / 100 : 0.69, say = n < 30 ? "只有 " + n + " 笔，还说明不了好坏。规则在回放里十笔亏七笔" + (n <= 6 ? "，头 " + n + " 笔全亏的机会也有 " + Math.round(Math.pow(lose, n) * 100) + "%" : "") + "；要攒到 30 笔以上，和回放的成绩比才有意义。" : "已经有 " + n + " 笔，可以和下面的回放成绩比一比了。";
+    if (S.rec && S.rec.summary && !S.rec.summary.signals) say += "另外，规则上线以来还没出过信号，所以这 " + n + " 笔都不是这页的信号单。";
+    el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, [say + (done.length ? "「已保存」里另有 " + done.length + " 笔标成已结束的计划。" : "") + " ", link]));
+  }
+  // The live record: what the rule has done since it went on the page, kept by the market job (scripts/xau_track.js).
   function recordBlock(el) {
     var r = S.rec; if (!r) return;
-    var z = r.summary, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
-    el.appendChild(h("div", { class: "sub-h", text: "上线以来的真实记录（从 " + r.since + " 起）" }));
-    el.appendChild(h("p", { class: "p-intro", text: "回放是事后算的。这里是规则上线之后，机器照着规则记下的纸面交易：出现信号就按规则进场（已有持仓时跳过），一直跟到止损或目标，成本和回放一样。每次运行都会把上次以来的每一根 15 分钟 K 线补看一遍，所以晚运行也不会漏。它才是这套规则真正的成绩单，时间越长越有说服力。" }));
+    var z = r.summary || {}, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
+    el.appendChild(h("div", { class: "sub-h", text: "规则的自动记录：机器按信号记的纸面交易，不是你的交易（从 " + r.since + " 起）" }));
+    el.appendChild(h("p", { class: "p-intro", text: "回放是事后算的。这里是规则上线之后，机器照着规则记下的纸面交易：出现信号就按规则进场（已有持仓时跳过），一直跟到止损或目标，成本和回放一样。每次运行都会把上次以来的每一根 15 分钟 K 线补看一遍，所以晚运行也不会漏。它才是这套规则真正的成绩单，时间越长越有说服力。" + (z.signals ? "" : "从 " + r.since.replace(" SGT", "") + " 到现在，五个周期一次也没有同时同向，所以这里还是 0。") }));
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
     var pd = S.proof, every = pd && pd.signals && pd.years ? Math.round(365.25 * pd.years / pd.signals) : null;
     tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : every ? "回放里平均 " + every + " 天出现一次，约三成会进场" : "还没有出现");
@@ -1780,7 +1810,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   }
   function renderProof() {
     var d = S.proof, el = clear($("proof")), m = d.rules[d.main];
-    recordBlock(el);
+    ownBlock(el); recordBlock(el);
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
     tile("多久做一笔", "每年约 " + Math.round(m.perYear) + " 笔", "", d.years + " 年里一共 " + m.n + " 笔");
     tile("赚钱的单子", Math.round(m.win) + "%", "", "十笔里大约亏 " + Math.round((100 - m.win) / 10) + " 笔");
@@ -1970,6 +2000,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
   $("tbl").addEventListener("toggle", fillTable);
+  window.addEventListener("storage", function (e) { if (e.key === "pnl.v1" && S.proof) renderProof(); });
   document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { closePop(); if (S.armed) { S.armed = null; renderArm(); } } });
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && Date.now() - S.lastRun > 5 * 60000) refresh(); });
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
