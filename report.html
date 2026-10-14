@@ -518,7 +518,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   <header class="phead">
     <div>
       <h1>黄金 <em>4H 报告</em>与交易计划</h1>
-      <p class="sub">先看结论，再用三步做好一笔计划。这页的规则都放回 2010 年以来的真实金价里重演过，成绩在「回放成绩」里。</p>
+      <p class="sub">先看结论，再用三步做好一笔计划。这页的规则都放回 2011 年以来的真实金价里重演过，成绩在「回放成绩」里。</p>
     </div>
     <div class="phead-r">
       <div style="display:flex;align-items:center;gap:6px">
@@ -937,7 +937,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     S.late = V.level === "go" && !!(V.next[0] && V.next[0].late);
     if (V.level === "none" && !V.closed && S.proof && steps[0]) {                // waiting is the normal state: say how rare a signal is
       var mr = S.proof.rules[S.proof.main];
-      if (mr && mr.perYear > 0) steps[0] = { lead: steps[0].lead, text: steps[0].text + "这样等很平常：回放里平均 " + Math.round(365 / mr.perYear) + " 天才出一次信号。" };
+      if (mr && mr.perYear > 0) steps[0] = { lead: steps[0].lead, text: steps[0].text + "这样等很平常：回放里平均 " + Math.round(365.25 / mr.perYear) + " 天才有一笔交易" + (mr.wait && mr.wait.max ? "，最长等过 " + mr.wait.max + " 天" : "") + "。" };
     }
     var ol = clear($("v-next")); $("v-next-wrap").hidden = !steps.length;
     steps.forEach(function (st, i) {
@@ -1750,9 +1750,10 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var r = S.rec; if (!r) return;
     var z = r.summary, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
     el.appendChild(h("div", { class: "sub-h", text: "上线以来的真实记录（从 " + r.since + " 起）" }));
-    el.appendChild(h("p", { class: "p-intro", text: "回放是事后算的。这里是规则上线之后，机器每小时照着规则记下的纸面交易：出现信号就按规则进场，一直跟到止损或目标，成本和回放一样。它才是这套规则真正的成绩单，时间越长越有说服力。" }));
+    el.appendChild(h("p", { class: "p-intro", text: "回放是事后算的。这里是规则上线之后，机器照着规则记下的纸面交易：出现信号就按规则进场（已有持仓时跳过），一直跟到止损或目标，成本和回放一样。每次运行都会把上次以来的每一根 15 分钟 K 线补看一遍，所以晚运行也不会漏。它才是这套规则真正的成绩单，时间越长越有说服力。" }));
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
-    tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : "平均十来天才有一次");
+    var pd = S.proof, every = pd && pd.signals && pd.years ? Math.round(365.25 * pd.years / pd.signals) : null;
+    tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : every ? "回放里平均 " + every + " 天出现一次，约三成会进场" : "还没有出现");
     tile("已经结束", z.closed + " 笔", "", z.closed ? "其中 " + z.wins + " 笔赚钱" : "还没有");
     tile("合计", z.closed ? sgn(z.totalR, 1) + "R" : "—", z.totalR > 0 ? "up" : z.totalR < 0 ? "dn" : "", z.closed ? "平均每笔 " + sgn(z.avgR) + "R" : "等第一笔结束");
     tile("进行中", open ? open.side : "没有", open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) : "现在没有纸面持仓");
@@ -1766,14 +1767,14 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       el.appendChild(h("div", { class: "tablewrap", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
     }
     var ev = (r.events || []).slice(-4).reverse();
-    if (ev.length) el.appendChild(h("p", { class: "note", style: "margin-bottom:22px", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。每小时更新一次；它不知道你自己有没有下单。" }));
+    if (ev.length) el.appendChild(h("p", { class: "note", style: "margin-bottom:22px", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。" + (num(r.lastChecked) !== null ? "已经检查到 " + sgt(r.lastChecked, "dt") + " SGT 收盘的 K 线；" : "") + "它不知道你自己有没有下单。" }));
   }
   function renderProofLine(V) {
     var el = clear($("v-proof")), d = S.proof; el.hidden = !d; if (!d) return;
-    var span = d.from.slice(0, 4) + "–" + d.to.slice(0, 4), m = d.rules[d.main], o = d.rules.old, w = d.rules.early, ag = d.rules.against, parts;
+    var span = d.from.slice(0, 4) + "–" + d.to.slice(0, 4), m = d.rules[d.main], o = d.rules.old, w = d.rules.early, ag = d.rules.against, parts, mine = "这页的规则 " + m.n + " 笔，平均每笔 " + sgn(m.avgR) + "R。";
     if (V.level === "go") parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), "这种信号一共 " + m.n + " 笔，" + Math.round(m.win) + "% 赚钱，平均每笔 " + sgn(m.avgR) + "R。最长连亏过 " + m.streak + " 笔，利润主要来自少数走得很远的单子。"];
-    else if (V.level === "ready" && w) parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), "大方向对、但不等小周期转回来就进，平均每笔 " + sgn(w.avgR) + "R；等五个周期都同向再进是 " + sgn(m.avgR) + "R。"];
-    else parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), (o ? "不管周线、只看日线和 4 小时就找入场点（这页以前的做法），" + fmt(o.n, 0) + " 笔平均每笔 " + sgn(o.avgR) + "R，等于白忙。" : "") + (ag ? "逆着三个大周期做，平均每笔 " + sgn(ag.avgR) + "R。" : "")];
+    else if (V.level === "ready" && w) parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), mine + "对照：大方向对了、但不等小周期转回来就进，" + fmt(w.n, 0) + " 笔平均每笔 " + sgn(w.avgR) + "R。"];
+    else parts = [h("b", { text: "回放（" + span + " 真实金价）：" }), mine + "对照：" + (o ? "不等三个大周期同向就找入场点（这页以前的做法），" + fmt(o.n, 0) + " 笔平均每笔 " + sgn(o.avgR) + "R；" : "") + (ag ? "逆着它们做，" + fmt(ag.n, 0) + " 笔平均每笔 " + sgn(ag.avgR) + "R。" : "") + "所以现在先等。"];
     parts.forEach(function (p) { el.appendChild(typeof p === "string" ? document.createTextNode(p) : p); });
     el.appendChild(h("button", { type: "button", text: "看回放成绩 →", onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
   }
@@ -1781,13 +1782,21 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var d = S.proof, el = clear($("proof")), m = d.rules[d.main];
     recordBlock(el);
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
-    tile("多久出一次信号", "每年约 " + Math.round(m.perYear) + " 笔", "", String(d.years) + " 年里一共 " + m.n + " 笔");
+    tile("多久做一笔", "每年约 " + Math.round(m.perYear) + " 笔", "", d.years + " 年里一共 " + m.n + " 笔");
     tile("赚钱的单子", Math.round(m.win) + "%", "", "十笔里大约亏 " + Math.round((100 - m.win) / 10) + " 笔");
     tile("平均每笔", sgn(m.avgR) + "R", m.avgR >= 0 ? "up" : "dn", "扣掉点差和隔夜利息后。R = 这笔的止损金额");
     tile("最难熬的时候", "连亏 " + m.streak + " 笔", "dn", "账户最深回撤 " + m.maxDD.toFixed(0) + "R");
-    el.appendChild(h("div", { class: "sub-h", text: "回放：" + d.from.slice(0, 4) + " 年到 " + d.to.slice(0, 4) + " 年，同一条规则（" + m.name + "）" })); el.appendChild(tiles);
-    var risk = 0.5, yr = m.rPerYear * risk, dd = m.maxDD * risk, bad = m.years.filter(function (y) { return y.r < 0; }).length;
-    el.appendChild(h("p", { class: "p-intro", text: "换成钱来说：如果每笔只冒账户的 " + risk + "%，回放里平均一年大约 " + sgn(yr, 1) + "%，途中最深回撤约 " + dd.toFixed(0) + "%。" + m.years.length + " 年里有 " + bad + " 年是亏的。这不是一台印钞机，是一个略占上风、需要耐心的顺势做法。" }));
+    var ym = function (iso) { return iso.slice(0, 4) + " 年 " + (+iso.slice(5, 7)) + " 月"; };
+    el.appendChild(h("div", { class: "sub-h", text: "回放：" + ym(d.from) + "到 " + ym(d.to) + "（" + d.years + " 年），同一条规则（" + m.name + "）" })); el.appendChild(tiles);
+    var risk = 0.5, yr = m.rPerYear * risk, dd = m.maxDD * risk, bad = m.years.filter(function (y) { return y.r < 0; }).length, part = d.partialYears && d.partialYears.length ? "（" + d.partialYears.join(" 和 ") + " 不满一年）" : "";
+    el.appendChild(h("p", { class: "p-intro", text: "换成钱来说：如果每笔只冒账户的 " + risk + "%，回放里平均一年大约 " + sgn(yr, 1) + "%，途中最深回撤约 " + dd.toFixed(0) + "%。下面 " + m.years.length + " 个年份里有 " + bad + " 个是亏的" + part + "。这不是一台印钞机，是一个略占上风、需要耐心的顺势做法。" }));
+    // how the headline numbers fit together, with the counts behind them, so each one can be checked
+    var why = [];
+    if (num(m.nWin) !== null) why.push({ b: "只有三成赚钱，平均却是正的。", t: m.n + " 笔里 " + m.nWin + " 笔赚，合计 " + sgn(m.sumWin, 1) + "R（平均每笔 " + sgn(m.avgWin) + "R）；" + m.nLoss + " 笔亏，合计 " + sgn(m.sumLoss, 1) + "R（平均每笔 " + sgn(m.avgLoss) + "R）。相抵 " + sgn(m.totalR, 1) + "R，除以 " + m.n + " 笔就是平均每笔 " + sgn(m.avgR) + "R。赚的那笔赚的是亏的那笔的近 3 倍，所以三成就够。" });
+    if (d.signals) why.push({ b: "信号比交易多。", t: "五个周期同向的信号一共出现 " + fmt(d.signals, 0) + " 次，只有 " + m.n + " 次变成交易：" + (d.signalsWhileOpen ? d.signalsWhileOpen + " 次出现时手上已有一笔（规则一次只做一笔）" : "") + (d.signalsShut ? "，" + d.signalsShut + " 次出现时正好休市" : "") + "。上面的「每年约 " + Math.round(m.perYear) + " 笔」说的是交易。" });
+    if (m.wait && m.wait.max) why.push({ b: "等待是常态。", t: "两笔交易之间，一半的时候不到 " + Math.round(m.wait.median) + " 天，十次里有一次要等 " + m.wait.p90 + " 天以上，最长等过 " + m.wait.max + " 天。" + (d.aligned ? "三个大周期同向的时间只占 " + d.aligned.big3 + "%，五个都同向只占 " + d.aligned.all5 + "%。" : "") });
+    if (d.dataFrom && d.dataFrom < d.from) why.push({ b: "为什么从 " + d.from.slice(0, 4) + " 年算起。", t: "价格数据从 " + ym(d.dataFrom) + "开始，但周线要先攒够 60 根 K 线才能判断方向，所以第一笔最早只能在 " + ym(d.from) + "。所有做法都从同一天算起，比较才公平。" });
+    if (why.length) { var wl = h("ul", { class: "pf-list", style: "margin-bottom:20px" }); why.forEach(function (it) { wl.appendChild(h("li", null, [h("b", { text: it.b }), it.t])); }); el.appendChild(wl); }
 
     el.appendChild(h("div", { class: "sub-h", text: "一年一年看（单位 R，每条是这一年的合计）" }));
     var mx = 1; m.years.forEach(function (y) { mx = Math.max(mx, Math.abs(y.r)); });
@@ -1795,9 +1804,11 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     m.years.forEach(function (y) {
       var w = Math.abs(y.r) / mx * 50, bar = h("i", { class: y.r >= 0 ? "up" : "dn" }); bar.style.left = (y.r >= 0 ? 50 : 50 - w) + "%"; bar.style.width = Math.max(0.5, w) + "%";
       var z = h("span", { class: "z" }); z.style.left = "50%";
-      yr2.appendChild(h("div", { class: "row" }, [h("span", { class: "y", text: String(y.y) }), h("div", { class: "trk" }, [bar, z]), h("span", { class: "val", text: sgn(y.r, 1) + "R · " + y.n + " 笔" })]));
+      yr2.appendChild(h("div", { class: "row" }, [h("span", { class: "y", text: String(y.y) + (d.partialYears && d.partialYears.indexOf(y.y) >= 0 ? "*" : "") }), h("div", { class: "trk" }, [bar, z]), h("span", { class: "val", text: sgn(y.r, 1) + "R · " + y.n + " 笔" })]));
     });
+    yr2.appendChild(h("div", { class: "row", style: "border-top:1px solid var(--border);padding-top:7px;margin-top:3px" }, [h("span", { class: "y", text: "合计" }), h("div"), h("span", { class: "val", style: "font-weight:600;color:var(--ink)", text: sgn(m.totalR, 1) + "R · " + m.n + " 笔" })]));
     el.appendChild(yr2);
+    if (d.partialYears && d.partialYears.length) el.appendChild(h("p", { class: "note", style: "margin:-6px 0 18px", text: "* 不满一年：" + d.partialYears.map(function (y) { return y === +d.from.slice(0, 4) ? y + " 年从 " + (+d.from.slice(5, 7)) + " 月算起" : y + " 年只到 " + (+d.to.slice(5, 7)) + " 月"; }).join("，") + "。" }));
 
     if (m.segments) {
       el.appendChild(h("div", { class: "sub-h", text: "分三段看：规则是看着中间那段定的，前后两段是事后验证" }));

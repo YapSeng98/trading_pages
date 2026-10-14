@@ -27,6 +27,13 @@ node --max-old-space-size=8000 report.js 2010 2026 full --write    # also rewrit
 
 Set `XAU_REPLAY_DATA` to keep the history somewhere else. Node 18 or later, Python 3.9 or later, no packages.
 
+The history starts in January 2010, but the weekly timeframe needs 60 finished candles before the engine can read it,
+so nothing that uses it can trade before 2011-02-20. `report.js` scores every rule from that day (the first state with
+a readable weekly trend) to the last state, so the per-year figures are divided by the years in which a trade was
+possible (15.6) and all rules cover the same period. Until 2026-10-14 the page divided by 16.5 years counted from
+2010-03-25, which made every per-year figure about 6% too small and labelled the results "2010-2026" above a yearly
+list that starts in 2011. Each year's total is rounded so the column adds up to the overall total printed with it.
+
 `track.js` (with `download_paxg.py`) compares the PAXG token, the page's first data source and now its fallback, with
 spot. That comparison is why the page moved to spot candles.
 
@@ -34,15 +41,15 @@ spot. That comparison is why the page moved to spot candles.
 
 - Looked at 2019-2023 and picked the rule: all five timeframes agree, stop 3 x the 1-hour ATR, target 3R (or a trailing stop).
 - Checked it on 2024-2026.
-- Only then downloaded 2010-2018 and ran the fixed rule on it once.
+- Only then downloaded 2010-2018 and ran the fixed rule on it once (scored from 2011-02-20, see above).
 
-`report.js` prints the three periods separately. The rule is positive in each, but only just in 2010-2018; most of the
+`report.js` prints the three periods separately. The rule is positive in each, but only just in 2011-2018; most of the
 profit comes from 2022-2025, when gold trended. Read the numbers with that in mind.
 
 ## What the replay cannot tell you
 
-- It enters within a minute of every signal for sixteen years and never closes early. A person will not.
+- It enters within a minute of every signal for fifteen years and never closes early. A person will not.
 - Slippage around data releases is only as bad as the 1-minute bars show.
 - Spread (1.5 bp of price) and financing (7.5% a year on longs) are estimates; brokers differ.
-- About fifty variants were looked at on 2019-2026 before the rule was fixed, so that period flatters it. The 2010-2018
+- About fifty variants were looked at on 2019-2026 before the rule was fixed, so that period flatters it. The 2011-2018
   figure is the cleaner one.
