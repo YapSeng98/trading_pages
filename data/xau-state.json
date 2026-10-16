@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-16 08:49 SGT",
+ "updated": "2026-10-16 10:11 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4154.2,
- "priceTime": "2026-10-16 08:45 SGT",
+ "price": 4152.9,
+ "priceTime": "2026-10-16 10:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4171,
   "high": 4172.4,
-  "low": 4151.6,
-  "changeFromPrevClose": -17,
-  "changePct": -0.41,
+  "low": 4147,
+  "changeFromPrevClose": -18.3,
+  "changePct": -0.44,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -143,22 +143,22 @@
    "name": "4 小时",
    "trend": "向上",
    "since": "2026-10-09 17:00 SGT",
-   "rsi": 55.2,
-   "atr": 29.06,
-   "ema20": 4149.1,
-   "ema50": 4158,
-   "ema200": 4238.2,
+   "rsi": 51.3,
+   "atr": 28.47,
+   "ema20": 4149.7,
+   "ema50": 4157.9,
+   "ema200": 4237.4,
    "emaOrder": "交错",
    "range": {
     "top": 4216.9,
     "bottom": 4065.6,
-    "positionPct": 70
+    "positionPct": 60
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4184.1,
-    "barsAgo": 27
+    "barsAgo": 28
    },
    "turnsUpAbove": 4200.2,
    "turnsDownBelow": 4073.3
@@ -168,22 +168,22 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-10-16 04:00 SGT",
-   "rsi": 53.5,
-   "atr": 13.4,
-   "ema20": 4152.3,
-   "ema50": 4148,
-   "ema200": 4159.6,
+   "rsi": 51.6,
+   "atr": 12.94,
+   "ema20": 4152.7,
+   "ema50": 4148.5,
+   "ema200": 4159.5,
    "emaOrder": "交错",
    "range": {
     "top": 4177.4,
     "bottom": 4143.5,
-    "positionPct": 36
+    "positionPct": 28
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4168.4,
-    "barsAgo": 3
+    "barsAgo": 5
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 4130.1
@@ -193,22 +193,22 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-10-16 03:45 SGT",
-   "rsi": 39.5,
-   "atr": 4.5,
-   "ema20": 4160.3,
-   "ema50": 4156.9,
-   "ema200": 4148.5,
+   "rsi": 42,
+   "atr": 5.16,
+   "ema20": 4157.5,
+   "ema50": 4156.2,
+   "ema200": 4148.7,
    "emaOrder": "交错",
    "range": {
     "top": 4177.4,
     "bottom": 4143.5,
-    "positionPct": 31
+    "positionPct": 28
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4168.4,
-    "barsAgo": 16
+    "barsAgo": 21
    },
    "turnsUpAbove": 4177.4,
    "turnsDownBelow": 4143.5
