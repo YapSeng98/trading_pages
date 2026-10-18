@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18 04:39 SGT",
+ "updated": "2026-10-18 10:11 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": false,
@@ -93,22 +93,22 @@
    "name": "周线",
    "trend": "向下",
    "since": "2026-06-28 08:00 SGT",
-   "rsi": 44.4,
-   "atr": 217.49,
-   "ema20": 4324.5,
-   "ema50": 4254.4,
-   "ema200": 3283.2,
+   "rsi": 43.5,
+   "atr": 212.21,
+   "ema20": 4309.3,
+   "ema50": 4250.9,
+   "ema200": 3292,
    "emaOrder": "交错",
    "range": {
     "top": 4889.3,
     "bottom": 3941.5,
-    "positionPct": 26
+    "positionPct": 24
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4098.3,
-    "barsAgo": 15
+    "barsAgo": 16
    },
    "turnsUpAbove": 4696.6,
    "turnsDownBelow": 3941.5
