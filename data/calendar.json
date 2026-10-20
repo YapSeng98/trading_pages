@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18 14:33 SGT",
+ "updated": "2026-10-20 18:22 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -23,7 +23,7 @@
    "impact": "medium",
    "title": "Flash Manufacturing PMI",
    "zh": "制造业 PMI 初值",
-   "forecast": "55.5",
+   "forecast": "55.4",
    "previous": "57.0"
   },
   {
@@ -35,7 +35,7 @@
    "impact": "medium",
    "title": "Flash Services PMI",
    "zh": "服务业 PMI 初值",
-   "forecast": "58.0",
+   "forecast": "57.8",
    "previous": "58.7"
   },
   {
