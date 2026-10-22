@@ -282,9 +282,7 @@ var XauPlan = (function () {
     var step = function (lead, text, more) { var s = { lead: lead, text: text }, k; for (k in (more || {})) s[k] = more[k]; v.next.push(s); };
     var closes = function (list, to) { return list.map(function (g) { return zh(g.tf) + "收盘" + cross(to) + " " + fmt(g.price, 1); }); };
     var andAlso = function (list) { return list.map(function (x, i) { return i ? "，以及" + (/^\d/.test(x) ? " " : "") + x : x; }).join(""); };
-    var mt5 = "人不在电脑前，可以在 MT5 App 对这个价位设到价提醒，响了再回来看是否收盘确认。";
     var waitWord = function (n) { return n === 1 ? "等这一步：" : n === 2 ? "等这两步：" : "等这几步："; };
-    var bells = function (list, to) { return list.map(function (g) { return { price: g.price, label: zh(g.tf) + "转" + say(to) + "的价位" }; }); };
 
     if (!R.dir) {
       v.tag = "先观望"; v.title = "先观望：大周期方向不一致";
@@ -295,7 +293,7 @@ var XauPlan = (function () {
       var first = ways[0];
       if (first) {
         first.steps.forEach(function (g) { add(first.to > 0 ? "up" : "down", g.price, zh(g.tf) + "收盘" + cross(first.to) + "这里" + (first.steps.length === 1 ? "，就三周期同向" + say(first.to) : "（要转" + say(first.to) + "得走 " + first.steps.length + " 步，这是其中一步）")); });
-        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。" + mt5, { alerts: bells(first.steps, first.to) });
+        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。");
         step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
       } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
       step("手上已经有单", "如果是按这页规则开的顺势单：三个大周期已经不再同向，规则是离场。");
@@ -330,7 +328,7 @@ var XauPlan = (function () {
         step("现在：先不进", "大方向对了，小周期还没转回来。可以先把计划准备好。");
         var got = [];
         R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
-        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。" + mt5, { alerts: bells(got, R.dir) });
+        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。");
         else step("等" + lag + "转回" + way, "页面每 15 分钟重算一次，转回来时这里的结论会变成「可以顺势" + act(R.dir) + "」。");
         if (k) step("到时候这样做", "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。", { fill: "先填进计划看看 →" });
         step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");

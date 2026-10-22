@@ -1,4 +1,4 @@
-# Keeps three data files current and sends the signal alerts:
+# Keeps three data files current:
 #   data/calendar.json     this week's US economic releases (scripts/update_calendar.py)
 #   data/xau-state.json    what the report page's engine says about gold right now (scripts/update_gold.js)
 #   data/xau-signals.json  the live record: every "go" signal as a paper trade, followed to its stop or target
@@ -6,9 +6,8 @@
 # from the state and the calendar, and the daily Claude refresh reads them for its numbers: the cloud machine it
 # runs on cannot reach any price or calendar service; this runner can.
 #
-# Alerts (a new signal, a paper trade closing, the big trends lining up or splitting) are posted as a comment on
-# the issue "XAU 信号提醒（自动）", which the owner asked for on 2026-10-13. GitHub mails every comment to the repo
-# owner and the GitHub phone app shows it as a notification. Closing that issue switches the alerts off.
+# There are no notifications: the owner asked on 2026-10-22 for the alert comments on the issue
+# "XAU 信号提醒（自动）" to be removed.
 #
 # Besides the timer, a push that touches data/refresh-request.txt starts a run: the daily refresh uses that to get
 # fresh facts just before it writes, so it does not depend on GitHub's timer being punctual.
@@ -26,7 +25,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: market
@@ -48,7 +46,6 @@ jobs:
         run: python3 scripts/update_calendar.py || echo "::warning::calendar not updated"
       - name: Gold state and live record
         env:
-          XAU_ALERTS_FILE: ${{ runner.temp }}/alerts.md
           XAU_FORCE: ${{ github.event_name == 'push' && '1' || '' }}
         run: node scripts/update_gold.js || echo "::warning::gold state not updated"
       - name: Commit if the data changed
@@ -63,21 +60,3 @@ jobs:
             sleep 5
           done
           exit 1
-      # After the push, so an alert is never sent for a record that was not saved (it would be sent again next run).
-      - name: Send alerts
-        env:
-          GH_TOKEN: ${{ github.token }}
-          TITLE: "XAU 信号提醒（自动）"
-        run: |
-          f="$RUNNER_TEMP/alerts.md"
-          n=$(gh issue list --repo "$GITHUB_REPOSITORY" --state all --limit 200 --json number,title,state --jq "[.[] | select(.title == \"$TITLE\")][0] | select(. != null) | \"\(.number) \(.state)\"")
-          if [ -z "$n" ]; then
-            # first run: open the issue. Its creation is the "alerts are on" message.
-            printf '%s\n\n%s\n\n%s\n' "@${GITHUB_REPOSITORY_OWNER} 提醒已开通。" "以后出现新信号、纸面交易结束、三个大周期转为同向或不再同向时，机器人会在这里留言，GitHub 会把每条留言发到你的邮箱和手机上的 GitHub App。规则与回放成绩：https://yapseng98.github.io/trading_pages/report.html" "不想再收到：把这个 issue 关闭（Close issue）就行，重新打开即恢复。" > "$RUNNER_TEMP/open.md"
-            gh issue create --repo "$GITHUB_REPOSITORY" --title "$TITLE" --body-file "$RUNNER_TEMP/open.md"
-            n=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json number,title,state --jq "[.[] | select(.title == \"$TITLE\")][0] | select(. != null) | \"\(.number) \(.state)\"")
-          fi
-          if [ ! -s "$f" ]; then echo "No alerts."; exit 0; fi
-          case "$n" in *CLOSED) echo "The alert issue is closed: alerts are switched off."; exit 0;; esac
-          { echo "@${GITHUB_REPOSITORY_OWNER}"; echo; cat "$f"; } > "$RUNNER_TEMP/comment.md"
-          gh issue comment "${n%% *}" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/comment.md"

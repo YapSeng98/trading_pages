@@ -8,7 +8,7 @@
 |------|------|
 | [`index.html`](index.html) | 首页 · 导航中心 |
 | [`daily.html`](daily.html) | **每日深度分析**（主功能，每日更新）— 技术结构、支撑阻力、基本面、操作场景、风险预案 |
-| [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端用现货金 K 线实时计算 W / D / 4H / 1H / 15M 的方向；五个周期同向才给出入场方案，并算好手数、检查项与到价提醒。页面的「成绩记录」只放真实记录：你自己在盈亏日历里记的交易，和规则上线以来的纸面交易（规则当初依据的 2011 年以来历史回放，保存在 `data/xau-backtest.json` 与 `research/xau-replay/`，页面不显示）（引擎见 `assets/`，回放工具见 `research/xau-replay/`） |
+| [`report.html`](report.html) | **4H 多周期报告与交易计划** — 浏览器端用现货金 K 线实时计算 W / D / 4H / 1H / 15M 的方向；五个周期同向才给出入场方案，并算好手数和检查项；入场后可以跟踪持仓。页面的「成绩记录」只放真实记录：你自己在盈亏日历里记的交易，和规则上线以来的纸面交易（规则当初依据的 2011 年以来历史回放，保存在 `data/xau-backtest.json` 与 `research/xau-replay/`，页面不显示）（引擎见 `assets/`，回放工具见 `research/xau-replay/`） |
 | [`journal.html`](journal.html) | **盈亏日历** — 自己记录每天的盈亏，月历、每周与全年合计、累计曲线；记录只存在浏览器本地，可导出备份 |
 | [`news.html`](news.html) | 市场快讯 — 最新黄金消息聚合、明日关键价位、来源链接 |
 | [`risk.html`](risk.html) | 未来风险与计划 — ForexFactory 经济日历、前瞻情景、分阶段交易计划、风险铁律 |

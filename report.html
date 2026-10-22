@@ -217,12 +217,6 @@ details.tbl table{width:100%;border-collapse:collapse;font-family:var(--f-m);fon
 details.tbl th,details.tbl td{padding:6px 10px;text-align:right;border-bottom:1px solid var(--border)}
 details.tbl th{position:sticky;top:0;background:var(--bg3);color:var(--dim);font-weight:500}
 details.tbl th:first-child,details.tbl td:first-child{text-align:left}
-.alerts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.alerts:empty{display:none}
-.alerts .al{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-m);font-size:10.5px;padding:5px 6px 5px 10px;border-radius:999px;background:var(--bg3);border:1px solid var(--border);color:var(--text)}
-.alerts .al.fired{opacity:.5;text-decoration:line-through}
-.alerts .al button{border:0;background:transparent;color:var(--dim);cursor:pointer;font-size:13px;line-height:1;padding:0 4px}
-.alerts .al button:hover{color:var(--ink)}
 
 #plan,#pos,[data-panel]{scroll-margin-top:64px}
 /* an open position: while one is on, managing it matters more than anything else on the page */
@@ -364,13 +358,6 @@ details.adv .fields{grid-template-columns:repeat(3,1fr)}
 .checks li.manual:hover{border-color:rgba(184,134,11,.4)}
 .checks li.manual input{position:absolute;opacity:0;pointer-events:none}
 details.pass{margin-top:8px}
-.alertrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding:10px 12px;border-radius:var(--r-sm);background:var(--bg3);border:1px solid var(--border)}
-.alertrow .at{font-size:12.5px;color:var(--ink);font-weight:500}
-.alertrow .ax{font-size:11px;color:var(--dim);line-height:1.5}
-.sw{position:relative;width:40px;height:22px;border-radius:999px;border:1px solid var(--border-2);background:var(--bg4);cursor:pointer;flex-shrink:0;transition:background .15s}
-.sw::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--dim);transition:transform .15s,background .15s}
-.sw[aria-checked="true"]{background:rgba(212,167,44,.3);border-color:rgba(212,167,44,.6)}
-.sw[aria-checked="true"]::after{transform:translateX(18px);background:var(--gold-lt)}
 textarea.pnote{width:100%;min-height:52px;resize:vertical;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:10px 12px;color:var(--ink);font-size:12.5px;line-height:1.6;outline:0;margin-top:12px}
 textarea.pnote:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,167,44,.14)}
 textarea.pnote::placeholder{color:#55524d}
@@ -627,7 +614,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <span><i class="box" style="background:transparent;border:1px solid var(--dim)"></i>空心 = 还没收盘的 K 线（结论只看已收盘的）</span>
       </div>
       <div class="pickhint" id="pickhint" hidden></div>
-      <div class="alerts" id="alerts" aria-label="到价提醒"></div>
       <details class="tbl" id="tbl"><summary>查看 K 线数据表</summary><div class="tw" id="tbl-body"></div></details>
     </section>
 
@@ -644,7 +630,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     </div>
 
     <div class="panel live-data" data-panel="levels">
-      <p class="p-intro">离现价最近的支撑和阻力。右边的小条越满，说明越多依据落在同一个价位，越值得留意。点一行可以把它填进计划，或者设一个到价提醒。</p>
+      <p class="p-intro">离现价最近的支撑和阻力。右边的小条越满，说明越多依据落在同一个价位，越值得留意。点一行可以把它填进计划。</p>
       <ul class="ladder" id="ladder"><li class="now"><span class="bar"></span><b>—</b><span class="lb">载入中…</span><span class="dist"></span></li></ul>
     </div>
 
@@ -691,7 +677,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <div><span class="hn">3</span><span><b>填账户余额和愿意亏的比例。</b>页面算出手数，并用一句话告诉你会亏多少、能赚多少。回放里连亏十笔以上出现过，所以建议每笔只冒 0.5%。如果账户太小，连最小手数都超过上限，页面会直接告诉你差多少、可以怎么办。</span></div>
         <div><span class="hn">4</span><span><b>持仓以后。</b>不要急着把止损挪到成本价，回放里这样做会少赚。每天看一次，把止损挪到「入场以来最好的价格」后面 2R 的位置，只往有利方向挪。上面的结论一旦变回「先观望」（4 小时方向反转），就离场。</span></div>
         <div><span class="hn">5</span><span><b>复制或保存。</b>「复制计划」得到一段文字，可以贴到笔记或 MT5 备注里。「保存」后在「已保存」里记录结果，慢慢就能看到自己的真实胜率。</span></div>
-        <div><span class="hn">6</span><span><b>打开「提醒我」。</b>价格到了你的入场、止损、目标，或者上面的结论变了，页面会弹出提示并响一声。电脑上允许通知后，切到别的标签页也能收到。提醒只在这页开着的时候有效，手机上需要让这页留在屏幕上；人不在电脑前，建议在 MT5 手机 App 里对同样的价位设提醒。</span></div>
       </div>
       <div class="sub-h">名词解释</div>
       <div class="gl" id="gloss"></div>
@@ -772,7 +757,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       <ul class="checks" id="checks"></ul>
       <details class="pass" id="chk-pass" hidden><summary id="chk-pass-s">已通过的项目</summary><ul class="checks" id="checks-ok"></ul></details>
 
-      <div class="alertrow"><div><div class="at">提醒我 <button type="button" class="btn sm ghost" id="alert-test" style="padding:4px 9px;margin-left:4px">试一下</button></div><div class="ax" id="alert-x">价格到达你的入场、止损、目标，或上面的结论改变时提醒</div></div><button type="button" class="sw" role="switch" aria-checked="false" id="alert-sw" aria-label="提醒我"></button></div>
       <textarea class="pnote" id="in-note" placeholder="备注：为什么做这笔、什么情况下离场…"></textarea>
       <div class="actions">
         <button class="btn pri" type="button" id="copy">复制计划</button>
@@ -838,7 +822,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: 100, lotStep: 0.01, spread: 0 },
     manual: LS.get("manual", {}), saved: LS.get("saved", []), armed: null, openLevel: null, daily: [], hadPlan: LS.get("plan", null) !== null,
-    events: [], alertOn: LS.get("alertOn", false), alerts: LS.get("alerts", []), fired: {}, prevShown: null, hasAi: false, vLevel: null, overLadder: false
+    events: [], hasAi: false, vLevel: null, overLadder: false
   };
   if (CHART_TFS.indexOf(S.tf) < 0) S.tf = "4H";
   // A plan left over from the first version was made with token prices and rules the replay did not support.
@@ -982,10 +966,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var ol = clear($("v-next")); $("v-next-wrap").hidden = !steps.length;
     steps.forEach(function (st, i) {
       var acts = [];
-      (st.alerts || []).forEach(function (a) {
-        var p = r1(a.price), on = S.alerts.some(function (x) { return !x.fired && Math.abs(x.p - p) < 0.05; });
-        acts.push(h("button", { type: "button", class: "btn sm", disabled: on, text: on ? "🔔 已设提醒 " + fmt(p, 1) : "🔔 到 " + fmt(p, 1) + " 提醒我", onclick: function () { addAlert(p, a.label); renderVerdict(); } }));
-      });
       if (st.fill) acts.push(h("button", { type: "button", class: "btn sm", text: st.fill, onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "目标 3R 方案"); toPlan(); } }));
       ol.appendChild(h("li", { class: i === 0 ? "now" + (hold ? " hold" : "") : "" }, [h("div", null, [h("div", { class: "nl", text: st.lead }), h("div", { class: "nt", text: st.text })]), acts.length ? h("div", { class: "na" }, acts) : null]));
     });
@@ -1292,7 +1272,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       if (S.openLevel === l.price) {
         var q = h("span", { class: "quick" });
         FIELDS.forEach(function (f) { q.appendChild(h("button", { type: "button", text: "设为" + FIELD_ZH[f], onclick: function (ev) { ev.stopPropagation(); S.openLevel = null; setField(f, Math.round(sh(l.price) * 10) / 10); renderLevels(); } })); });
-        q.appendChild(h("button", { type: "button", text: "🔔 到价提醒", onclick: function (ev) { ev.stopPropagation(); S.openLevel = null; addAlert(Math.round(sh(l.price) * 10) / 10, l.labels[0]); renderLevels(); } }));
         ul.appendChild(h("li", { class: "act" }, [q]));
       }
     });
@@ -1865,59 +1844,11 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     else if (st.next) head.appendChild(h("span", { class: "chip neut", text: st.next.zh + " " + left(st.next.ms - now) + "后开盘" }));
   }
 
-  // ---------- price alerts (only while this page is open) ----------
-  var BASE_TITLE = document.title, PHONE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  function askNotify() { try { if (!PHONE && "Notification" in window && Notification.permission === "default") { var r = Notification.requestPermission(renderAlerts); if (r && r.then) r.then(renderAlerts); } } catch (e) {} }
-  // What an alert can actually do on this device, said plainly.
-  function notifyState() {
-    if (PHONE || !("Notification" in window)) return "手机浏览器不会弹系统通知：提醒只在本页内出现并响一声，需要让这页留在屏幕上。人不在时，建议在 MT5 App 里对同样的价位设提醒。";
-    if (Notification.permission === "granted") return "系统通知已允许：切到别的标签页或别的窗口也会弹出提醒，只要这页还开着。";
-    if (Notification.permission === "denied") return "浏览器屏蔽了通知：提醒只会在本页内弹出并响一声。可以点地址栏左边的图标，把「通知」改成允许。";
-    return "打开后浏览器会问是否允许通知，请点「允许」，这样切到别的标签页也能收到。";
-  }
-  function addAlert(p, label) { S.alerts.unshift({ p: p, label: label || "自定价位", fired: false }); S.alerts = S.alerts.slice(0, 8); LS.set("alerts", S.alerts); askNotify(); renderAlerts(); toast("已设置提醒：" + fmt(p, 1)); }
-  function renderAlerts() {
-    var el = clear($("alerts"));
-    S.alerts.forEach(function (a, i) {
-      el.appendChild(h("span", { class: "al" + (a.fired ? " fired" : "") }, ["🔔 " + fmt(a.p, 1) + " " + a.label, h("button", { type: "button", "aria-label": "删除提醒", text: "×", onclick: function () { S.alerts.splice(i, 1); LS.set("alerts", S.alerts); renderAlerts(); } })]));
-    });
-    $("alert-sw").setAttribute("aria-checked", String(!!S.alertOn));
-    $("alert-x").textContent = (S.alertOn ? "已开启。" : "") + "价格到达你的入场、止损、目标，或上面的结论改变时提醒。" + notifyState();
-  }
-  function fire(text) {
-    toast(text);
-    try { if ("Notification" in window && Notification.permission === "granted") new Notification("黄金到价提醒", { body: text }); } catch (e) {}
-    try { var AC = window.AudioContext || window.webkitAudioContext, ac = new AC(), o = ac.createOscillator(), g = ac.createGain(); o.frequency.value = 880; g.gain.value = 0.06; o.connect(g); g.connect(ac.destination); o.start(); o.stop(ac.currentTime + 0.25); } catch (e) {}
-    var n = 0; clearInterval(fire.iv); fire.iv = setInterval(function () { document.title = n++ % 2 ? BASE_TITLE : "🔔 " + text; if (n > 9) { clearInterval(fire.iv); document.title = BASE_TITLE; } }, 800);
-  }
-  function checkAlerts() {
-    var cur = sh(S.live), prev = S.prevShown; if (cur === null) return; S.prevShown = cur; if (prev === null || prev === cur) return;
-    var crossed = function (p) { return (prev - p) * (cur - p) <= 0; }, dirty = false;
-    if (S.pos) [["stop", "止损"], ["tp1", "目标"]].forEach(function (x) {
-      var v = num(S.pos[x[0]]), key = "pos-" + x[0] + ":" + v;
-      if (v !== null && !S.fired[key] && crossed(v)) { S.fired[key] = true; fire("持仓到了" + x[1] + " " + fmt(v, 1) + "（现价 " + fmt(cur, 1) + "）：去 MT5 确认"); renderPos(); }
-    });
-    if (S.alertOn && !S.pos) FIELDS.forEach(function (f) { var v = num(S.plan[f]), key = f + ":" + v; if (v !== null && !S.fired[key] && crossed(v)) { S.fired[key] = true; fire("价格到了你的" + FIELD_ZH[f] + " " + fmt(v, 1) + "（现价 " + fmt(cur, 1) + "）"); } });
-    S.alerts.forEach(function (a) { if (!a.fired && crossed(a.p)) { a.fired = true; dirty = true; fire("价格到了 " + fmt(a.p, 1) + " " + a.label + "（现价 " + fmt(cur, 1) + "）"); } });
-    if (dirty) { LS.set("alerts", S.alerts); renderAlerts(); }
-  }
-  function alertsLive() { return S.alertOn || S.alerts.some(function (a) { return !a.fired; }); }
-  // Tell the user when the answer at the top changes for the better, e.g. price walks into the entry zone.
-  function noteVerdict(was) {
-    if (S.pos && S.pos.mode === "trail" && S.E && P.regime(S.E).dir !== (S.pos.side === "short" ? -1 : 1) && !S.pos.splitTold) { S.pos.splitTold = true; savePos(); fire("三个大周期不再同向：按跟踪止损的做法，这笔该离场了"); }
-    if (!S.alertOn || was === null || S.vLevel === was) return;
-    if (S.feed && S.feed.source === "paxg") return;                              // no trade alerts from unconfirmed backup data
-    var V = P.verdict(S.E), buy = V.side === "long";
-    if (V.level === "go") fire("五个周期都" + (buy ? "向上" : "向下") + "了：可以考虑顺势" + (buy ? "做多" : "做空"));
-    else if (V.level === "ready" && was === "none") fire("周线、日线、4 小时同向" + (buy ? "向上" : "向下") + "了：等小周期转回来");
-    else if (V.level === "ready" && was === "go") fire("小周期转向了：没进场的先等，已持仓的按止损和跟踪规则走");
-    else if (V.level === "none") fire("三个大周期不再同向：有持仓按规则离场");
-  }
   var vAt = 0;
   function checkVerdict() {
     if (!S.E || S.vLevel === null || Date.now() - vAt < 500) return; vAt = Date.now();
     if (P.verdict(S.E).level === S.vLevel) return;
-    var was = S.vLevel; renderVerdict(); renderCands(); noteVerdict(was);
+    renderVerdict(); renderCands();
   }
 
   // ---------- records: only what really happened ----------
@@ -2017,13 +1948,12 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   function busyUi() { return !!S.armed || S.overLadder || $("chart").querySelector(".tip:not([hidden])") !== null; }
 
   // ---------- live price stream ----------
-  // Binance pushes every trade and best bid/ask change, so the price is live to the second and alerts keep
-  // working when this tab is in the background (timers are throttled there, socket messages are not).
+  // Binance pushes every trade and best bid/ask change, so the price is live to the second.
   // The polling loop below stays as the fallback when the socket is down or silent.
   var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
   function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
   function onPrice() {
-    checkAlerts(); checkVerdict();
+    checkVerdict();
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
@@ -2062,9 +1992,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         paintLive(); if (!busyUi()) drawChart();
       }).catch(function () {});
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
-      var was = S.vLevel;
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
-      S.prevShown = S.prevShown === null ? sh(S.live) : S.prevShown; checkAlerts(); renderAll(); setStamp(); noteVerdict(was);
+      renderAll(); setStamp();
       renderProof();
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");
@@ -2073,13 +2002,13 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   function tick() {
     if (!S.E || S.busy) return;
     var vis = document.visibilityState === "visible";
-    if (!vis && !alertsLive()) return;                                        // hidden and nothing to watch for
+    if (!vis) return;
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
-      calibrate(); checkAlerts(); checkVerdict(); setStamp();
+      calibrate(); checkVerdict(); setStamp();
       if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
-  function loop() { tick(); setTimeout(loop, alertsLive() ? 10000 : 30000); }
+  function loop() { tick(); setTimeout(loop, 30000); }
 
   // ---------- wiring ----------
   all("[data-cmode]").forEach(function (b) { b.addEventListener("click", function () { S.cmode = b.getAttribute("data-cmode"); LS.set("cmode", S.cmode); renderTfTabs(); drawChart(); }); });
@@ -2113,8 +2042,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "按现在的行情重算"); });
   $("retry").addEventListener("click", refresh);
   $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); });
-  $("alert-sw").addEventListener("click", function () { S.alertOn = !S.alertOn; LS.set("alertOn", S.alertOn); if (S.alertOn) { askNotify(); S.prevShown = sh(S.live); } renderAlerts(); });
-  $("alert-test").addEventListener("click", function () { askNotify(); fire("这是一条测试提醒：价格到位时就会这样通知你"); });
   $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
@@ -2125,7 +2052,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
-  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderAlerts(); renderSessions(); renderProof(); renderPos(); showTab(S.tab);
+  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab);
   refresh(); loadContext(); loadSnapshot(); loadProof();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed
@@ -2133,7 +2060,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   // most. Nothing is fetched in between, so an open tab asks the price feed for candles about 16 times an hour.
   var qSeen = null, qTries = 0;
   setInterval(function () {
-    if (document.visibilityState !== "visible" && !S.alertOn) return;
+    if (document.visibilityState !== "visible") return;
     var now = Date.now(), q = Math.floor((now - 25000) / 900000);
     if (now - S.lastTry < 55000) return;
     if (q !== qSeen) { qSeen = q; qTries = 0; if (q !== S.lastQ) { refresh(); return; } }
