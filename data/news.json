@@ -1,11 +1,18 @@
 {
- "updated": "2026-10-22 21:58 SGT",
+ "updated": "2026-10-22 22:20 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "XAU/USD price outlook: Gold Spot/US Dollar pressing against 1 (100%) support arc",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZVBEY0dvWWdxci1zVUZGU25xVkhFeFpVNGw4ZXZaVmcxVlRiUXRMNWJhcXEwM19QNlJ1RElFMGJ1VVA5QnpqZ19jclJGMGhLeHZXWTdPeEIzd0NsaUd3LXUtTVB6bjZLXzZTVERIMFg2d2p4TFlCcFRQQXlOYkR3a0dGOExiNUxuUVp3X05MNXBaVlNBRjFkRnBVYnptRzZCT0p6SkwweklvcjJyRjBhLUhKUDZLNUVTUTkzejB2RGk?oc=5",
+   "ms": 1792676658000,
+   "time": "10/22 21:44"
+  },
   {
    "t": "Gold Hits 3-Month Low as Asian Tech Stocks Sink Again",
    "src": "BullionVault",
@@ -26,6 +33,13 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcnA0SHZwLV9FYUw2Y1lwcXcyTVdRbXJ5N2xiMDdnZmppMnROVzRwTjEyQlpDTjlzdFBqa1pENkVpckM0ZEN2VW1vMndWaVJybmxWdXJvM1IwejdkRUctY0V3TEVTMU5rRkpNZWx5MzhnaFdjRGtQeXIzNDBlbDlNNkZ3MXhfXzJNcWF2a05LbkxxUFhSM3FEVGRDemNjdzIyaV91RjBoa3JtczN5ME5JR05DQ3hQTFVDYkE?oc=5",
    "ms": 1792672869000,
    "time": "10/22 20:41"
+  },
+  {
+   "t": "Gold falls ₹1,000 per 10 grams, silver plunges to 10-month low",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNZ0NMTUJick5kbGZmWkk4U1ZUa1BXdGpjUXpQTjZxbDd6RlplOGh0bkd5NFczcnZQT3k0ZWtwbVFjV05wYkt0a3BJUTg4X2ZaSUtHR2hVNnU4V3p6eE9JT0t6dG10Z3B1cWlGcnNlWGVqOExrejNCZVNfXzhkN0NRay1YcnBfN1A3a2dlVnN6UXVLZVQzQXMyWlZhbUdfdXphTHY5THdfakdYZG1oMHBlRGJMWjBYUFFTaGo4bkZXTzZRelnSAcgBQVVfeXFMUHgwSW1ZMjc2M1RyRjdGZWg1aG9DVlozdnYzUXlQR200SnIxRVFudjdiYjBhUUl5WGt1ZTRQcHRqTkl1T25EV2pJQlFOWVo4U1FlV2dpSHVkUHJGN3hmV2tobEhSaFpQeEJoT18wekFZczVoRWQyd2FYOGUzakR5Q2paZUVYQkxiZ1hybzlqdlEtVGYwNVc3VTFjUklyTzVLMEJpN3BHTVZLc0pGLWs0emg4elgwWklvQ0VZRkVVeElSSG52blBNd2k?oc=5",
+   "ms": 1792671407000,
+   "time": "10/22 20:16"
   },
   {
    "t": "Gold slips below $4,100 as Middle East energy shock reinforces hawkish Fed outlook",
@@ -63,13 +77,6 @@
    "time": "10/22 11:34"
   },
   {
-   "t": "Wheaton Precious Metals Corp. (WPM) stock price, news, quote and history",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1FbXFpZlVsX2FqeVZnMUVOX2JXYnFRb21pRGNkU3ozTU0ycFB5M3VDRVRKRnAyYXQyYlFCTmdtbTd3RjJZQlJHUFhVWjRVNURf?oc=5",
-   "ms": 1792636270000,
-   "time": "10/22 10:31"
-  },
-  {
    "t": "Gold prices tick up slightly amid small moves in the dollar and an advance in oil",
    "src": "Investing.com India",
    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYmtLd3NVVW45NFd3dnpsT0FlX09ndk1KZGE3NWJ4TjdOTEpPX2p5MTZob040MzV4QWZyenJ5UmdPcWV2c3hod1lKN0x5QXFFR29Qa2xrSFFKelprd3JkWUhBcHVxa054bmRobGNTTnI5LWRIS2VaQXlvV3RiYzRLdGZyM2FkaEx2ZGFmNkZEa05fNUZpWkw3bS04ZlVGMTdmMXdaZEYzTG5nd2V5TFd1cEJ0djFqR0hyUTN4QkJBN3Vjd3Q3TjB4akRWVQ?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQUGxuTFo5VGp0TGhZcEozV0RBZ2JmQ0lGX2czWkhhdjViVEc1eENPWmR2RlpFVzdFRGUycWxBSklHZkxXRHN6bnZocDZuMDdTNGRnN2lQLWY3MEtVbktuNllWODNyMzNkWHlMV18xcjIyQ0RadHpaRzZNcldTbjU1T29FbURsSV9FVmc1VEZ5TzhlZXo1VjNRODMtVkdLR3E2UWhESEpRTVB6N0pGZHdLZGJNWUZzemlDUEM0?oc=5",
    "ms": 1792619305000,
    "time": "10/22 05:48"
-  },
-  {
-   "t": "‘The price of gold will reflect the pain elsewhere’ and gold equities are working as a leveraged play – BlackRock’s Hambro",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYzM0WDB6VWtJZTdsVWlOTW50dXViZDNQWGNxVVN0VE4xMEJvaWU3bUJsS2JkZGNncnFJQXQyYWVPRm9MTW5mcEw2VG1kSWZPMm1uLTFEeHo3cjh1enRxY1NITzNhbzhtSTBZMXBXWjBBWHhWWFhYeTVNNWljU2JlQTdrQlZsSnJuamhqX2p1V2RDU2hNR1BJWkhveFJUYTU1NFBjS1Q5VzhEVUdBS01LcTZXZC0?oc=5",
-   "ms": 1792608305000,
-   "time": "10/22 02:45"
   }
  ]
 }
