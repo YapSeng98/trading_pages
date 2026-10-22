@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-22 21:10 SGT",
+ "updated": "2026-10-22 21:48 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4087.9,
- "priceTime": "2026-10-22 21:00 SGT",
+ "price": 4059.8,
+ "priceTime": "2026-10-22 21:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4141.9,
   "high": 4145.6,
   "low": 4057.3,
-  "changeFromPrevClose": -52.9,
-  "changePct": -1.28,
+  "changeFromPrevClose": -81,
+  "changePct": -1.96,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -193,28 +193,38 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-22 03:00 SGT",
-   "rsi": 53.3,
-   "atr": 9.9,
-   "ema20": 4080.3,
-   "ema50": 4091.6,
-   "ema200": 4115.6,
-   "emaOrder": "交错",
+   "rsi": 37.5,
+   "atr": 10.57,
+   "ema20": 4077.7,
+   "ema50": 4089.2,
+   "ema200": 4114.2,
+   "emaOrder": "空头排列",
    "range": {
     "top": 4092.3,
     "bottom": 4057.3,
-    "positionPct": 87
+    "positionPct": 7
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 4079.7,
-    "barsAgo": 7
+    "barsAgo": 10
    },
    "turnsUpAbove": 4092.3,
-   "turnsDownBelow": null
+   "turnsDownBelow": 4057.3
   }
  ],
  "resistance": [
+  {
+   "price": 4065.6,
+   "what": "日线前低、日线区间底、日线双顶关键位、1小时向下突破位",
+   "strength": 9
+  },
+  {
+   "price": 4073.3,
+   "what": "上周低点、4小时前低",
+   "strength": 6
+  },
   {
    "price": 4098.3,
    "what": "周线向下转折位",
@@ -229,29 +239,9 @@
    "price": 4110.6,
    "what": "日线向下突破位",
    "strength": 1
-  },
-  {
-   "price": 4137.1,
-   "what": "4小时区间中点",
-   "strength": 1
-  },
-  {
-   "price": 4142,
-   "what": "昨日高点",
-   "strength": 3
   }
  ],
  "support": [
-  {
-   "price": 4073.3,
-   "what": "上周低点、4小时前低",
-   "strength": 6
-  },
-  {
-   "price": 4065.6,
-   "what": "日线前低、日线区间底、日线双顶关键位、1小时双顶目标、1小时向下突破位",
-   "strength": 10
-  },
   {
    "price": 4057.3,
    "what": "4小时区间底、1小时区间底",
@@ -266,6 +256,11 @@
    "price": 3941.5,
    "what": "周线前低、周线区间底",
    "strength": 6
+  },
+  {
+   "price": 3905.2,
+   "what": "日线双顶目标",
+   "strength": 1
   }
  ],
  "rules": "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
