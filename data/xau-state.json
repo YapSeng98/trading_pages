@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-22 14:24 SGT",
+ "updated": "2026-10-22 15:28 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4097.2,
- "priceTime": "2026-10-22 14:15 SGT",
+ "price": 4098.8,
+ "priceTime": "2026-10-22 15:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4141.9,
   "high": 4145.6,
   "low": 4066.6,
-  "changeFromPrevClose": -43.6,
-  "changePct": -1.05,
+  "changeFromPrevClose": -42,
+  "changePct": -1.02,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -168,22 +168,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-10-22 12:00 SGT",
-   "rsi": 34.3,
-   "atr": 14.99,
-   "ema20": 4115.8,
-   "ema50": 4125.1,
-   "ema200": 4145.8,
+   "rsi": 36.1,
+   "atr": 15.04,
+   "ema20": 4113.6,
+   "ema50": 4123.8,
+   "ema200": 4145.2,
    "emaOrder": "空头排列",
    "range": {
     "top": 4145.6,
     "bottom": 4066.6,
-    "positionPct": 29
+    "positionPct": 33
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4104.6,
-    "barsAgo": 2
+    "barsAgo": 3
    },
    "turnsUpAbove": 4145.6,
    "turnsDownBelow": null
@@ -193,33 +193,28 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-22 03:00 SGT",
-   "rsi": 45.3,
-   "atr": 8.24,
-   "ema20": 4098.7,
-   "ema50": 4111.2,
-   "ema200": 4125.6,
-   "emaOrder": "空头排列",
+   "rsi": 48.6,
+   "atr": 8.54,
+   "ema20": 4097,
+   "ema50": 4108.5,
+   "ema200": 4124.4,
+   "emaOrder": "交错",
    "range": {
     "top": 4123.8,
     "bottom": 4066.6,
-    "positionPct": 54
+    "positionPct": 56
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 4107.2,
-    "barsAgo": 11
+    "barsAgo": 15
    },
    "turnsUpAbove": 4123.8,
-   "turnsDownBelow": null
+   "turnsDownBelow": 4066.6
   }
  ],
  "resistance": [
-  {
-   "price": 4098.3,
-   "what": "周线向下转折位",
-   "strength": 1
-  },
   {
    "price": 4104.6,
    "what": "昨日低点、1小时双顶关键位、1小时向下转折位",
@@ -239,9 +234,19 @@
    "price": 4147.2,
    "what": "1小时等高点（止损密集）、1小时前高、1小时区间顶、1小时近期小高点",
    "strength": 5
+  },
+  {
+   "price": 4155.3,
+   "what": "4小时前高、4小时近期小高点",
+   "strength": 3
   }
  ],
  "support": [
+  {
+   "price": 4098.3,
+   "what": "周线向下转折位",
+   "strength": 1
+  },
   {
    "price": 4073.3,
    "what": "上周低点、4小时前低",
