@@ -282,6 +282,7 @@ var XauPlan = (function () {
     var step = function (lead, text, more) { var s = { lead: lead, text: text }, k; for (k in (more || {})) s[k] = more[k]; v.next.push(s); };
     var closes = function (list, to) { return list.map(function (g) { return zh(g.tf) + "收盘" + cross(to) + " " + fmt(g.price, 1); }); };
     var andAlso = function (list) { return list.map(function (x, i) { return i ? "，以及" + (/^\d/.test(x) ? " " : "") + x : x; }).join(""); };
+    var mt5 = "人不在电脑前，可以在 MT5 App 对这个价位设到价提醒，响了再回来看是否收盘确认。";
     var waitWord = function (n) { return n === 1 ? "等这一步：" : n === 2 ? "等这两步：" : "等这几步："; };
     var bells = function (list, to) { return list.map(function (g) { return { price: g.price, label: zh(g.tf) + "转" + say(to) + "的价位" }; }); };
 
@@ -294,7 +295,7 @@ var XauPlan = (function () {
       var first = ways[0];
       if (first) {
         first.steps.forEach(function (g) { add(first.to > 0 ? "up" : "down", g.price, zh(g.tf) + "收盘" + cross(first.to) + "这里" + (first.steps.length === 1 ? "，就三周期同向" + say(first.to) : "（要转" + say(first.to) + "得走 " + first.steps.length + " 步，这是其中一步）")); });
-        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。", { alerts: bells(first.steps, first.to) });
+        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。" + mt5, { alerts: bells(first.steps, first.to) });
         step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
       } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
       step("手上已经有单", "如果是按这页规则开的顺势单：三个大周期已经不再同向，规则是离场。");
@@ -329,7 +330,7 @@ var XauPlan = (function () {
         step("现在：先不进", "大方向对了，小周期还没转回来。可以先把计划准备好。");
         var got = [];
         R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
-        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。", { alerts: bells(got, R.dir) });
+        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。" + mt5, { alerts: bells(got, R.dir) });
         else step("等" + lag + "转回" + way, "页面每 15 分钟重算一次，转回来时这里的结论会变成「可以顺势" + act(R.dir) + "」。");
         if (k) step("到时候这样做", "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。", { fill: "先填进计划看看 →" });
         step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
@@ -338,6 +339,34 @@ var XauPlan = (function () {
       add(buy ? "down" : "up", out, "4 小时收盘" + (buy ? "跌破" : "站上") + "这里，三周期不再同向：有持仓就离场");
     }
     return v;
+  }
+  // ---------- managing a position that is on ----------
+  // pos: { side, entry, stop (now), initStop, tp1 (null = trailing), at (entry ms), stopAt (ms the stop was last set), mode "target" | "trail" }
+  // bars: candles that opened at or after the entry, oldest first, rows [openMs, o, h, l, c, …]. live: the price now.
+  // The trailing rule is the replay's: the stop moves once a day, at 00:00 UTC (08:00 SGT), to 2R behind the best
+  // price since entry, and only ever towards profit; with a trailing stop, the trade ends when the weekly, daily and
+  // 4-hour trends no longer all point its way. With a 3R target, stop and target stay where they are.
+  function manage(pos, bars, live, nowMs, regimeDir) {
+    var dir = pos.side === "short" ? -1 : 1, e = num(pos.entry), st0 = num(pos.initStop), st = num(pos.stop), tp = num(pos.tp1), px = num(live);
+    if (e === null || st === null || st0 === null || !(Math.abs(e - st0) > 0)) return null;
+    var R = Math.abs(e - st0), gap = SYS.trailR * R, better = function (a, b) { return dir > 0 ? Math.max(a, b) : Math.min(a, b); };
+    var best = e, day = Math.floor(pos.at / 86400000), trail = st0, stopHitAt = null, targetHitAt = null, since = num(pos.stopAt) || pos.at;
+    (bars || []).forEach(function (k) {
+      var d = Math.floor(k[0] / 86400000);
+      if (d > day) { trail = better(trail, best - dir * gap); day = d; }
+      best = better(best, dir > 0 ? k[2] : k[3]);
+      if (stopHitAt === null && k[0] >= since && (dir > 0 ? k[3] <= st : k[2] >= st)) stopHitAt = k[0];
+      if (targetHitAt === null && tp !== null && (dir > 0 ? k[2] >= tp : k[3] <= tp)) targetHitAt = k[0];
+    });
+    if (Math.floor(nowMs / 86400000) > day) trail = better(trail, best - dir * gap);
+    if (px !== null) best = better(best, px);                                   // today's best counts towards tomorrow's move
+    if (px !== null && (px - st) * dir <= 0 && stopHitAt === null) stopHitAt = nowMs;
+    if (px !== null && tp !== null && (px - tp) * dir >= 0 && targetHitAt === null) targetHitAt = nowMs;
+    var r1 = function (v) { return Math.round(v * 10) / 10; };
+    return { dir: dir, R: R, best: best, bestR: (best - e) * dir / R, trailStop: r1(trail), nextStop: r1(better(trail, best - dir * gap)), nextAt: (Math.floor(nowMs / 86400000) + 1) * 86400000,
+      pnlPts: px === null ? null : (px - e) * dir, pnlR: px === null ? null : (px - e) * dir / R, toStop: px === null ? null : (px - st) * dir, toTarget: px === null || tp === null ? null : (tp - px) * dir,
+      stopHitAt: stopHitAt, targetHitAt: targetHitAt, first: stopHitAt !== null && (targetHitAt === null || stopHitAt <= targetHitAt) ? "stop" : targetHitAt !== null ? "target" : null,
+      moveStop: pos.mode === "trail" && (trail - st) * dir > 0.05, split: regimeDir !== dir };
   }
   // Nearest support and resistance worth naming: the closest level with some confluence on each side.
   function nearest(E) {
@@ -422,7 +451,7 @@ var XauPlan = (function () {
     return L.join("\n");
   }
 
-  return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, levels: levels, candidate: candidate, candidates: candidates,
+  return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
     patternText: patternText, statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence };
 })();
