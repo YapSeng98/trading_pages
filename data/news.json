@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22 21:53 SGT",
+ "updated": "2026-10-22 21:58 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -28,20 +28,6 @@
    "time": "10/22 20:41"
   },
   {
-   "t": "US Initial Jobless Claims dropped to 194K last week",
-   "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/us-initial-jobless-claims-dropped-to-194k-last-week-202610221240",
-   "ms": 1792672802000,
-   "time": "10/22 20:40"
-  },
-  {
-   "t": "Gold sinks to over two-month low as higher-for-longer interest rate expectations weigh",
-   "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/gold-slips-below-4-100-as-middle-east-energy-shock-reinforces-hawkish-fed-outlook-202610221104",
-   "ms": 1792667082000,
-   "time": "10/22 19:04"
-  },
-  {
    "t": "Gold slips below $4,100 as Middle East energy shock reinforces hawkish Fed outlook",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUTZWNzctNWgwbFUyT2V3dWljbGRTT1ZxOEQ2NVVraFg2TEF0aExxRGtmR0hneHc1VThHaHJlcWlvNkJnVTNlR1Z4Z29zcmFscHZrX1NKMzkwNTA2ZC1JclJvTTQ0T2Q5RTN0MUJPejVYc3ppU2M0aE82Wm5EcVkzenU2NzU3S19ORGFjUG53bXVRcFJQZFFDa1phZEpLREtHTlpnVi1SaDlkVEl4VFJLRG0zT1hQMG9odFRwLTNvOGFJdw?oc=5",
@@ -58,30 +44,9 @@
   {
    "t": "Gold Price Forecast: XAU/USD tests key support at $4,070 amid high Oil prices",
    "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/gold-price-forecast-xau-usd-tests-key-support-at-4-070-amid-high-oil-prices-202610221002",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNeWRaU2piNzlNT3ZJUFFNaExZQjRiWk9tYXpvQ09WSkFydHViQlBLOWNGT0FhZHlKX19HZVRxekhJVVNZVTNaLTVTcG5MRlF5SndobVB4S2dDMUtUNWxUWFZnTi12ZHI1SGo2YWhWRjB3WUZmejZOTUJlOVNYbnNxV2dqNzAtUUE2NHpzdklPZjRVOGdaSERkSTJfU0lBaUlyVnhBNUdzSG9QYWRHaHR4N2FEZTRCVXhCbFE?oc=5",
    "ms": 1792663344000,
    "time": "10/22 18:02"
-  },
-  {
-   "t": "3 Gold forecasts at $4,100: A bullish Arc rejection, a bearish Fed setup and a festival tiebreaker",
-   "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/3-gold-forecasts-at-4-100-a-bullish-arc-rejection-a-bearish-fed-setup-and-a-festival-tiebreaker-202610220940",
-   "ms": 1792662013000,
-   "time": "10/22 17:40"
-  },
-  {
-   "t": "United States Dollar Index falls to near 101.50 due to Fed rate pause bets",
-   "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/united-states-dollar-index-falls-to-near-10150-due-to-fed-rate-pause-bets-202610220912",
-   "ms": 1792660340000,
-   "time": "10/22 17:12"
-  },
-  {
-   "t": "Gold: Range cap signals pullback risk – Societe Generale",
-   "src": "FXStreet",
-   "url": "https://www.fxstreet.com/news/gold-range-cap-signals-pullback-risk-societe-generale-202610220859",
-   "ms": 1792659596000,
-   "time": "10/22 16:59"
   },
   {
    "t": "Gold sticks to intraday bearish tone below $4,100 amid Fed hike bets",
@@ -98,6 +63,13 @@
    "time": "10/22 11:34"
   },
   {
+   "t": "Wheaton Precious Metals Corp. (WPM) stock price, news, quote and history",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1FbXFpZlVsX2FqeVZnMUVOX2JXYnFRb21pRGNkU3ozTU0ycFB5M3VDRVRKRnAyYXQyYlFCTmdtbTd3RjJZQlJHUFhVWjRVNURf?oc=5",
+   "ms": 1792636270000,
+   "time": "10/22 10:31"
+  },
+  {
    "t": "Gold prices tick up slightly amid small moves in the dollar and an advance in oil",
    "src": "Investing.com India",
    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQYmtLd3NVVW45NFd3dnpsT0FlX09ndk1KZGE3NWJ4TjdOTEpPX2p5MTZob040MzV4QWZyenJ5UmdPcWV2c3hod1lKN0x5QXFFR29Qa2xrSFFKelprd3JkWUhBcHVxa054bmRobGNTTnI5LWRIS2VaQXlvV3RiYzRLdGZyM2FkaEx2ZGFmNkZEa05fNUZpWkw3bS04ZlVGMTdmMXdaZEYzTG5nd2V5TFd1cEJ0djFqR0hyUTN4QkJBN3Vjd3Q3TjB4akRWVQ?oc=5",
@@ -110,6 +82,34 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQdmlhb3pLU0NQQTViS2RnajU0NGlTWENPYlpOWUtZS3JYUkI0TGNVTHlXckJhMDZZUHBRakRLVVlfWDZTSkxSVzNZaFB3Umw0Uk9oT29DZ1pBdTFjTHhOZGMtU2FUS0U5cVVTOEZGTWhsSkN1YkhpTk9JTExha214NHZ6LWdla3BYanhtUEc2TDhLbXlNb3gwU3VvekdMWnNmRnBjR2FIOXBPZVQzUjd3ZEV3NXVLakxxam9OYUR4N2laWFNuV2ozVQ?oc=5",
    "ms": 1792631056000,
    "time": "10/22 09:04"
+  },
+  {
+   "t": "Gold flatlines below $4,150 as traders assess Fed rate path amid Middle East risk",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQW9fNTNpRGgxR29EZF9QclAyUnBnUXI3WmZiMHk5aW1CVHVFQllSTl9POFBubVA1VWZtY050emZ1X2xTWFljLVlIMTAwZENmY1VzM3JTZlY1WFVLQ1dJaWxZU2VNRWFQZC16WERmclYyTUZkYTZMWWdvcG4xeWY4YUJTV2h5VFEzc3NJRFRSNVh1aXlsZ3NNSDVPSlBOWnFMZ3FwdS1JWi1MTXlMXzExRE5EcUNQU29rUWxIQkE3UXI?oc=5",
+   "ms": 1792624897000,
+   "time": "10/22 07:21"
+  },
+  {
+   "t": "ASX Preview: Australian Shares Set for Steady Open as Gold Rebounds; Vault Minerals Posts Lower September Quarter Gold Production, Sales",
+   "src": "Yahoo Finance Australia",
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNLTRocktiYlY4dVF6a0dUNUdBLWt0Y1k2V3B3bnA2a2Z0OFAyREpSYmsySEhQS1B5MnRHMXo3ekY3N0JrRm1Qc3N0WnlBWEd4ZEthOE13VWREcWxEZEpIdjIzYlM0bEdrTFZ1b0piSDhBa1ZSdVJMdzY2ZjFURTNqaFJEYXZWVHpkcWc?oc=5",
+   "ms": 1792624201000,
+   "time": "10/22 07:10"
+  },
+  {
+   "t": "Gold gains as Treasury yields stabilize, Nasdaq surges despite Fed tightening concerns - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQUGxuTFo5VGp0TGhZcEozV0RBZ2JmQ0lGX2czWkhhdjViVEc1eENPWmR2RlpFVzdFRGUycWxBSklHZkxXRHN6bnZocDZuMDdTNGRnN2lQLWY3MEtVbktuNllWODNyMzNkWHlMV18xcjIyQ0RadHpaRzZNcldTbjU1T29FbURsSV9FVmc1VEZ5TzhlZXo1VjNRODMtVkdLR3E2UWhESEpRTVB6N0pGZHdLZGJNWUZzemlDUEM0?oc=5",
+   "ms": 1792619305000,
+   "time": "10/22 05:48"
+  },
+  {
+   "t": "‘The price of gold will reflect the pain elsewhere’ and gold equities are working as a leveraged play – BlackRock’s Hambro",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYzM0WDB6VWtJZTdsVWlOTW50dXViZDNQWGNxVVN0VE4xMEJvaWU3bUJsS2JkZGNncnFJQXQyYWVPRm9MTW5mcEw2VG1kSWZPMm1uLTFEeHo3cjh1enRxY1NITzNhbzhtSTBZMXBXWjBBWHhWWFhYeTVNNWljU2JlQTdrQlZsSnJuamhqX2p1V2RDU2hNR1BJWkhveFJUYTU1NFBjS1Q5VzhEVUdBS01LcTZXZC0?oc=5",
+   "ms": 1792608305000,
+   "time": "10/22 02:45"
   }
  ]
 }
