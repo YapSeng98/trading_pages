@@ -7,7 +7,7 @@
 //   moved to where price is now. Multi-timeframe table: what each timeframe is now, when it differs from the text.
 // - Page furniture: section links, folding cards (remembered per browser), long header lines clamped, the
 //   TradingView chart loaded only when opened.
-// Prices come from assets/gold-bar.js ("goldbar:update" events), so the page makes no requests of its own.
+// Prices come from assets/gold-bar.js ("goldbar:update" events; it also fills the header price), so the page makes no requests of its own.
 (function () {
   "use strict";
   var css = "#since-note{min-width:0}" +
@@ -143,9 +143,6 @@
   }
   document.addEventListener("goldbar:update", function (e) {
     var dt = e.detail || {}, L = num(dt.price); if (L === null) return;
-    [].forEach.call(document.querySelectorAll(".js-live-price"), function (x) { x.textContent = "$" + fmt(L); });
-    var p = sgtParts(Date.now());
-    [].forEach.call(document.querySelectorAll(".js-live-time"), function (x) { x.textContent = p.hh + ":" + p.mm + " SGT" + (dt.live ? "" : "（服务器价格）"); });
     if (W.price !== null) { markLevels(L); note(dt.state, L, dt.live); }
   });
 

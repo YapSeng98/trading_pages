@@ -861,10 +861,23 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   function marketOpen() { return !XauFeed.closed(Date.now() / 1000); }
   function basisName() { return S.feed && S.feed.source === "paxg" ? "PAXG 代币行情校准到现货（备用数据源）" : "现货金 XAU/USD，Dukascopy 买价，纽约 17:00 换日"; }
   function calibrate() {
+    if (S.basisAt && Date.now() - S.basisAt < 20 * 60000) return;              // the minute-by-minute calibration below is better
     if (num(S.spot) === null || num(S.raw) === null || !marketOpen() || Date.now() - S.spotAt > 3 * 60000) return;
     var g = S.spot - S.raw; if (Math.abs(g) > 80) return;                       // a gap this large means a bad quote, not a basis
     S.gap = Math.round(g * 100) / 100; S.gapOk = true; setLive();
   }
+  // The gap between PAXG and spot, measured properly: the last ~20 finished one-minute closes of spot (Dukascopy, bid)
+  // matched minute by minute with PAXG's one-minute closes on Binance, and the middle value taken. api.gold-api.com
+  // moves only every 30 seconds and was found up to $2 off spot (2026-10-23), so it is only the fallback.
+  function minuteBasis(rows) {
+    if (!rows || rows.length < 5) return Promise.resolve(null);
+    return fetch(BIN1M, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (k) {
+      var px = {}, now = Date.now(); (k || []).forEach(function (x) { if (x[6] < now) px[Math.round(x[0] / 1000)] = parseFloat(x[4]); });
+      var d = rows.filter(function (r) { return isFinite(px[r[0]]); }).map(function (r) { return r[4] - px[r[0]]; }).sort(function (a, b) { return a - b; });
+      return d.length >= 5 ? { gap: d[Math.floor(d.length / 2)], n: d.length, spread: d[d.length - 1] - d[0] } : null;
+    }).catch(function () { return null; });
+  }
+  var BIN1M = "https://data-api.binance.vision/api/v3/klines?symbol=PAXGUSDT&interval=1m&limit=30";
   // The live price: a calibrated tick while the market is open, else the close of the last finished candle.
   function setLive() {
     if (!S.E) return;
@@ -1032,7 +1045,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     pe.textContent = fmt(shown, 2);
     if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
     S.lastShown = shown;
-    $("price-sub").textContent = !open ? "休市中，周一约 06:00 SGT 开盘" : S.gapOk && num(S.raw) !== null ? "实时推送，已按现货校准" + (paxg ? "（备用数据源）" : "") : "最近一根 15 分钟 K 线的收盘价，实时报价连接中";
+    $("price-sub").textContent = !open ? "休市中，周一约 06:00 SGT 开盘" : S.gapOk && num(S.raw) !== null ? "实时推送 · " + (S.basisAt && Date.now() - S.basisAt < 20 * 60000 ? "按现货 1 分钟 K 线校准（买价，和 MT5 图表同一种价）" : "按 gold-api 现货报价校准") + (paxg ? "（备用数据源）" : "") : "最近一根 15 分钟 K 线的收盘价，实时报价连接中";
     // where price sits between the nearest support and resistance
     var nr = P.nearest(E), vr = $("v-range"); vr.hidden = !(nr.sup && nr.res);
     if (nr.sup && nr.res) {
@@ -2002,6 +2015,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       S.tHi = S.tLo = null; if (feed.source !== "spot") S.mins = [];
       if (feed.source === "spot" && marketOpen()) XauFeed.minutes(20).then(function (rows) {
         S.mins = rows; var m = rows[rows.length - 1];
+        minuteBasis(rows).then(function (b) { if (!b || Math.abs(b.gap) > 80) return; S.gap = Math.round(b.gap * 100) / 100; S.gapOk = true; S.basisAt = Date.now(); S.basisN = b.n; setLive(); paintLive(); });
         if (m && Date.now() - S.spotAt > 3 * 60000 && Date.now() - (m[0] + 60) * 1000 < 3 * 60000 && num(S.raw) !== null) { S.spot = m[4]; S.spotAt = Date.now(); calibrate(); }
         paintLive(); if (!busyUi()) drawChart();
       }).catch(function () {});

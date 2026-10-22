@@ -28,7 +28,7 @@
   function num(v) { return typeof v === "number" && isFinite(v) ? v : null; }
   function fmt(v, d) { return v.toLocaleString("en-US", { minimumFractionDigits: d === undefined ? 1 : d, maximumFractionDigits: d === undefined ? 1 : d }); }
   function left(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + " 分钟"; var h = Math.floor(m / 60); return h < 48 ? h + " 小时 " + (m % 60) + " 分" : Math.floor(h / 24) + " 天"; }
-  var S = { state: null, cal: null, live: null };
+  var S = { state: null, cal: null, live: null, how: null };
   // When the candle now forming on that timeframe closes, in Singapore time. Candles are cut in broker time
   // (New York + 7 hours), like the report page and most MT5 brokers.
   function nextClose(hours) {
@@ -61,9 +61,16 @@
     if (ev) { $("gb-e").textContent = (ev.zh || ev.title) + (ev.impact === "high" ? " · 高影响" : ""); $("gb-ed").textContent = ev.date + "（" + ev.weekday + "）" + ev.time + " SGT · " + (ev.ms > now ? "还有 " + left(ev.ms - now) : "刚公布") + (ev.forecast ? " · 预期 " + ev.forecast : ""); }
     else { $("gb-e").textContent = "本周没有了"; $("gb-ed").textContent = "日历上本周剩下没有中高影响的美国数据"; }
     $("gb-foot").innerHTML = "";
-    $("gb-foot").appendChild(document.createTextNode("结论按 " + (s.updated || "").slice(5) + " 的数据（服务器每 3–4 小时用现货算一次）· 现价每 30 秒更新 · 下面的文字解读是每天 10:10 写的 · "));
+    var howTxt = S.how === "spot" ? "现价实时，按现货 1 分钟 K 线校准（买价）" : S.how === "closed" ? "休市中，现价是最后收盘价" : "现价每 30 秒更新（gold-api，可能差 1–2 美元）";
+    $("gb-foot").appendChild(document.createTextNode("结论按 " + (s.updated || "").slice(5) + " 的数据（服务器每 3–4 小时用现货算一次）· " + howTxt + " · 下面的文字解读是每天 10:10 写的 · "));
     var a = document.createElement("a"); a.href = "report.html"; a.textContent = "实时结论和交易计划看 4H 报告 →"; $("gb-foot").appendChild(a);
     // the page's own live marks (daily.html: what changed since the text was written) follow the same price
+    // the header price on the page, if it has one
+    if (px !== null) {
+      var d = new Date(Date.now() + 8 * 3600000), hm = ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2) + ":" + ("0" + d.getUTCSeconds()).slice(-2);
+      [].forEach.call(document.querySelectorAll(".js-live-price"), function (e) { e.textContent = "$" + fmt(px); });
+      [].forEach.call(document.querySelectorAll(".js-live-time"), function (e) { e.textContent = hm + " SGT" + (S.how === "spot" ? " · 按现货校准" : S.how === "closed" ? " · 休市" : num(S.live) !== null ? "" : "（服务器价格）"); });
+    }
     try { document.dispatchEvent(new CustomEvent("goldbar:update", { detail: { state: s, price: px, live: num(S.live) !== null } })); } catch (e) {}
   }
   function getJson(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
@@ -71,6 +78,9 @@
   Promise.all([getJson("data/xau-state.json").catch(function () { return null; }), getJson("data/calendar.json").catch(function () { return null; })]).then(function (r) {
     S.state = r[0]; S.cal = r[1];
     if (!S.state) { $("gb-v").textContent = "暂时读不到数据"; return; }
-    paint(); live(); setInterval(live, 30000); setInterval(paint, 60000);
+    paint(); setInterval(paint, 60000);
+    // the live price: assets/gold-live.js when the page loads it (PAXG ticks calibrated on spot minutes), else gold-api
+    if (window.GoldLive) GoldLive.on(function (p) { S.live = p.price; S.how = p.how; paint(); });
+    else { live(); setInterval(live, 30000); }
   });
 })();

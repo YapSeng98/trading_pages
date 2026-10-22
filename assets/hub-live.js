@@ -1,7 +1,8 @@
 // Fills the home page's market summary from data files, so none of it is typed by hand and none of it goes stale:
 //   data/xau-state.json   the report page's engine, run on a server by a timed job (scripts/update_gold.js)
 //   data/calendar.json    this week's US releases (scripts/update_calendar.py)
-// The live price comes from api.gold-api.com once a minute; today's change is measured from the previous close in
+// The live price comes from assets/gold-live.js (PAXG ticks calibrated on spot one-minute candles), or from
+// api.gold-api.com once a minute when that is missing; today's change is measured from the previous close in
 // the state file. If a file cannot be read, the block says so instead of showing an old figure.
 (function () {
   "use strict";
@@ -112,6 +113,19 @@
     }).catch(function () {});
   }
   function loadFiles() { return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; paint(); }); }
-  function start() { loadFiles().then(livePrice); setInterval(livePrice, 60000); setInterval(loadFiles, 15 * 60000); }
+  // With assets/gold-live.js on the page the price is live (PAXG ticks calibrated on spot minutes); the summary
+  // around it is repainted at most every 10 seconds.
+  var lastPaint = 0;
+  function fromGoldLive(p) {
+    S.live = p.price;
+    [].forEach.call(document.querySelectorAll(".js-live-price"), function (e) { e.textContent = "$" + fmt(p.price, 0); });
+    var t = new Date().toLocaleString("zh-CN", { timeZone: "Asia/Singapore", hour12: false });
+    [].forEach.call(document.querySelectorAll(".js-live-time"), function (e) { e.textContent = t + " (SGT)" + (p.how === "spot" ? " · 按现货校准" : p.how === "closed" ? " · 休市" : ""); });
+    if (Date.now() - lastPaint > 10000) { lastPaint = Date.now(); paint(); }
+  }
+  function start() {
+    loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } });
+    setInterval(loadFiles, 15 * 60000);
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
