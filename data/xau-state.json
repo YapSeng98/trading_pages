@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-23 02:02 SGT",
+ "updated": "2026-10-23 02:54 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4045.9,
- "priceTime": "2026-10-23 02:00 SGT",
+ "price": 4033.6,
+ "priceTime": "2026-10-23 02:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4141.9,
   "high": 4145.6,
-  "low": 4034.2,
-  "changeFromPrevClose": -94.9,
-  "changePct": -2.29,
+  "low": 4031.8,
+  "changeFromPrevClose": -107.2,
+  "changePct": -2.59,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -81,9 +81,9 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 4045.9,
-  "stop": 4098,
-  "target": 3889.6,
+  "entry": 4033.6,
+  "stop": 4085.7,
+  "target": 3877.3,
   "stopDistance": 52.1,
   "trailDistance": 104.2,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
@@ -91,7 +91,7 @@
  "watch": [
   {
    "price": 4155.3,
-   "text": "4 小时收盘站上这里，三周期不再同向：有持仓就离场"
+   "text": "4 小时收盘站上这里，三周期不再同向：用跟踪止损的持仓在这里离场"
   }
  ],
  "score": -10,
@@ -201,28 +201,33 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-22 03:00 SGT",
-   "rsi": 39.1,
-   "atr": 8.48,
-   "ema20": 4052.7,
-   "ema50": 4069.1,
-   "ema200": 4104,
+   "rsi": 31.8,
+   "atr": 8.33,
+   "ema20": 4048.2,
+   "ema50": 4065.2,
+   "ema200": 4102,
    "emaOrder": "空头排列",
    "range": {
-    "top": 4064.7,
-    "bottom": 4034.2,
-    "positionPct": 38
+    "top": 4048.2,
+    "bottom": 4031.8,
+    "positionPct": 11
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
-    "level": 4044.5,
-    "barsAgo": 5
+    "level": 4034.2,
+    "barsAgo": 0
    },
    "turnsUpAbove": 4091.6,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
+  {
+   "price": 4034.2,
+   "what": "4小时区间底、1小时区间底",
+   "strength": 3
+  },
   {
    "price": 4065.6,
    "what": "日线前低、日线区间底、日线双顶关键位、1小时向下突破位",
@@ -242,19 +247,9 @@
    "price": 4104.6,
    "what": "昨日低点、4小时双顶关键位、1小时双顶关键位、1小时区间顶、1小时近期小高点",
    "strength": 9
-  },
-  {
-   "price": 4110.6,
-   "what": "日线向下突破位",
-   "strength": 1
   }
  ],
  "support": [
-  {
-   "price": 4034.2,
-   "what": "4小时区间底、1小时区间底",
-   "strength": 3
-  },
   {
    "price": 3941.5,
    "what": "周线前低、周线区间底",

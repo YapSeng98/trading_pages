@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 02:02 SGT",
+ "updated": "2026-10-23 02:54 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold slides as safe-haven demand shifts to US Treasuries despite lower yields",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNR3R0a3pNU2ItV205c3pIcGlQQTA0VzRkVVh5VVpZV3pPanRCZ0FuNHhiZFdUeHpuNlE1RFBKbUtXSlYzemZPbTBWR2NVOHJnd0ppd05FbWdVNklDR2NHVi15OUpkNjBsTXg3eTdxN3hsZ3BlVnYwbEV3bDFnRXV6cmo2WVFzd2RLX0g3T3htYzNwVVRDMDl1X0d1eGV2OFZaeDJrMzBPLVlpTUlTclhZeDdHMHVpM3FKR0ZrYg?oc=5",
+   "ms": 1792694252000,
+   "time": "10/23 02:37"
+  },
+  {
    "t": "Gold plunges over 2% as Middle East energy shock fuels inflation worries",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUTZWNzctNWgwbFUyT2V3dWljbGRTT1ZxOEQ2NVVraFg2TEF0aExxRGtmR0hneHc1VThHaHJlcWlvNkJnVTNlR1Z4Z29zcmFscHZrX1NKMzkwNTA2ZC1JclJvTTQ0T2Q5RTN0MUJPejVYc3ppU2M0aE82Wm5EcVkzenU2NzU3S19ORGFjUG53bXVRcFJQZFFDa1phZEpLREtHTlpnVi1SaDlkVEl4VFJLRG0zT1hQMG9odFRwLTNvOGFJdw?oc=5",
    "ms": 1792685104000,
    "time": "10/23 00:05"
+  },
+  {
+   "t": "Gold and silver are not the best inflation hedges; investors should diversify into the commodity supercycle – Auspice Capital",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbW8xSTBQZHZKLUxPa2JDcG5oVkw2c3lUa0RiLXJXemhqdHZIRXYtLWFWQVVsUjRmTkFucl9DbS14T1F5dnk3VFZPcFdjZk54UGhkVi14dTRhUkFtYkUzUkpubzQ4VjlEVGlzNnJBcENDeVBDWklXWVFnZHBpTUZZeXJqaUFBQThiR2I5QXJyZ1RqOFZTMDZiRTJfQXVSV0N3dGZTeFRybVFHS1hPMGsySFY0NGRKc1JJeUE?oc=5",
+   "ms": 1792683031000,
+   "time": "10/22 23:30"
   },
   {
    "t": "London Gold Centre Launches Gold Price Calculator to Help Consumers Check the Value of Their Gold",
@@ -28,20 +42,6 @@
    "time": "10/22 22:00"
   },
   {
-   "t": "XAU/USD price outlook: Gold Spot/US Dollar pressing against 1 (100%) support arc",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZVBEY0dvWWdxci1zVUZGU25xVkhFeFpVNGw4ZXZaVmcxVlRiUXRMNWJhcXEwM19QNlJ1RElFMGJ1VVA5QnpqZ19jclJGMGhLeHZXWTdPeEIzd0NsaUd3LXUtTVB6bjZLXzZTVERIMFg2d2p4TFlCcFRQQXlOYkR3a0dGOExiNUxuUVp3X05MNXBaVlNBRjFkRnBVYnptRzZCT0p6SkwweklvcjJyRjBhLUhKUDZLNUVTUTkzejB2RGk?oc=5",
-   "ms": 1792676658000,
-   "time": "10/22 21:44"
-  },
-  {
-   "t": "Gold Hits 3-Month Low as Asian Tech Stocks Sink Again",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPS1hQWUVhV0k3Z2V4RWZiTFVla09haWszZnZUa1h1RjFsQU5JTDdKV0FSS2lRNzBxRHdjaEZpNVFPT3JKaXE1V3NaMlVKanl5NWZaNmYtZ0dPZEFYdVBXbEZGUUpHQUZKNEsydHpHd0VaZG9FZEw2Z0F0aUtfbTlQUHV3cTZaaDI4dkoyVVRFS1A?oc=5",
-   "ms": 1792675678000,
-   "time": "10/22 21:27"
-  },
-  {
    "t": "‘Gold is no silver bullet’ and isn’t hedging against equity drawdowns, but ‘debasement trade’ should continue – HSBC",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYVRiX2l0VmgzS2xKZzU5UV9Ec0xIRGs4ZmpzalI3REZpT1NsVk5ZQnZLSWxxdkhraEVtSHBab2lZQ0NVMkN0NXBRb3NqLW9CS1h0ZWM3eDJsOVkzVm5hSnZsMVBqMWExTXZSMjZFZndfdFlyX1o2SURfOTQ3aGFyd2NzU25DTC1oYmJwcEt0NkdxZkR3dVo2dklrZTdQcHhtZ2M3T01MNXYyR2JNbnhQaVRNMUpnZndBSk5MNw?oc=5",
@@ -54,13 +54,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1HSkpCeFgyU1oyUTMwMnc4ZU02NkhxRWp4MF9RT0ZQSjUzeTdXeU56aU10RFh6WTV5cUF5ZTREbUZQbVJ0SXlaV3RFVmplU0xxUW5IWkxQLUhWbVZES0NBUWR2SkVoVERrd1dlRXdn?oc=5",
    "ms": 1792673760000,
    "time": "10/22 20:56"
-  },
-  {
-   "t": "Gold prices under pressure as US weekly jobless claims fall to three-month low",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcnA0SHZwLV9FYUw2Y1lwcXcyTVdRbXJ5N2xiMDdnZmppMnROVzRwTjEyQlpDTjlzdFBqa1pENkVpckM0ZEN2VW1vMndWaVJybmxWdXJvM1IwejdkRUctY0V3TEVTMU5rRkpNZWx5MzhnaFdjRGtQeXIzNDBlbDlNNkZ3MXhfXzJNcWF2a05LbkxxUFhSM3FEVGRDemNjdzIyaV91RjBoa3JtczN5ME5JR05DQ3hQTFVDYkE?oc=5",
-   "ms": 1792672869000,
-   "time": "10/22 20:41"
   },
   {
    "t": "Gold prices struggling as U.S. weekly jobless claims fall to three-month low",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQQW9fNTNpRGgxR29EZF9QclAyUnBnUXI3WmZiMHk5aW1CVHVFQllSTl9POFBubVA1VWZtY050emZ1X2xTWFljLVlIMTAwZENmY1VzM3JTZlY1WFVLQ1dJaWxZU2VNRWFQZC16WERmclYyTUZkYTZMWWdvcG4xeWY4YUJTV2h5VFEzc3NJRFRSNVh1aXlsZ3NNSDVPSlBOWnFMZ3FwdS1JWi1MTXlMXzExRE5EcUNQU29rUWxIQkE3UXI?oc=5",
    "ms": 1792624897000,
    "time": "10/22 07:21"
+  },
+  {
+   "t": "Gold gains as Treasury yields stabilize, Nasdaq surges despite Fed tightening concerns - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQUGxuTFo5VGp0TGhZcEozV0RBZ2JmQ0lGX2czWkhhdjViVEc1eENPWmR2RlpFVzdFRGUycWxBSklHZkxXRHN6bnZocDZuMDdTNGRnN2lQLWY3MEtVbktuNllWODNyMzNkWHlMV18xcjIyQ0RadHpaRzZNcldTbjU1T29FbURsSV9FVmc1VEZ5TzhlZXo1VjNRODMtVkdLR3E2UWhESEpRTVB6N0pGZHdLZGJNWUZzemlDUEM0?oc=5",
+   "ms": 1792619305000,
+   "time": "10/22 05:48"
   }
  ]
 }
