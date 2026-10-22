@@ -293,7 +293,8 @@ var XauPlan = (function () {
       var first = ways[0];
       if (first) {
         first.steps.forEach(function (g) { add(first.to > 0 ? "up" : "down", g.price, zh(g.tf) + "收盘" + cross(first.to) + "这里" + (first.steps.length === 1 ? "，就三周期同向" + say(first.to) : "（要转" + say(first.to) + "得走 " + first.steps.length + " 步，这是其中一步）")); });
-        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (first.steps.length === 1 ? away(first.steps[0].price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。");
+        var g0 = first.steps[0], past = first.steps.length === 1 && price !== null && (g0.price - price) * first.to < 0;
+        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (past ? "现价已经" + (first.to < 0 ? "低于" : "高于") + "它 " + fmt(Math.abs(price - g0.price), 1) + " 美元，但要看 " + zh(g0.tf) + " K 线收盘：收盘时还在" + (first.to < 0 ? "下方" : "上方") + "才算。" : first.steps.length === 1 ? away(g0.price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。");
         step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
       } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
       step("手上已经有单", "如果是按这页规则开的顺势单：三个大周期已经不再同向，规则是离场。");

@@ -35,6 +35,7 @@ stock prices in `data/quotes.json`, gold in `data/xau-state.json`, the economic 
 The scripts:
 
 - `scripts/update_gold.js` runs the report page's own engine on real spot gold and writes `data/xau-state.json`: `price` (close of the last finished 15-minute candle, with `priceTime`), `today` (open, high, low and change since the previous close; the trading day rolls at 17:00 New York), `previousDay`, `thisWeek`, `previousWeek`, `verdict` (the same answer `report.html` shows), `plan` (only when the verdict is "go"), `watch` (the prices that would change the verdict), `timeframes` (per timeframe: `trend`, `since`, `rsi`, `atr`, EMAs, `range`, `lastBreak`, the price that would turn it), `resistance` and `support`.
+- `scripts/update_news.py` writes `data/news.json`: the latest gold headlines (FXStreet, Investing.com, Google News limited to market publishers), original language with links. news.html shows them under "实时头条" through `assets/news-live.js`. The refresh may use them as leads for its five news items, checking each with WebSearch.
 - `scripts/update_calendar.py` writes `data/calendar.json`: this week's US releases of medium or high impact, times already in Singapore time, with forecast and previous values.
 
 Rules for the refresh when it writes `daily.html` and `risk.html`:
@@ -45,6 +46,8 @@ Rules for the refresh when it writes `daily.html` and `risk.html`:
 - Take calendar rows from `data/calendar.json` (dates, weekdays and times as given there). Use WebSearch for what the search is good at: why gold moved, what the releases showed, what the Fed said.
 
 ## Live page — never edited by the refresh
+
+The daily, news and risk pages open with a live bar (`<div id="gold-bar">`, filled by `assets/gold-bar.js` from `data/xau-state.json`, `data/calendar.json` and the gold-api price): the current verdict, the price now, the level that would change the answer and the next US release. The refresh must leave that div and the `<div id="news-live">` on news.html empty and in place.
 
 `report.html` (4H 多周期报告与交易计划) computes everything in the visitor's browser, so it has no data values to refresh:
 

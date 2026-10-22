@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>市场快讯 · XAUUSD 最新消息 — 2026年9月29日</title>
+<title>市场快讯 · XAUUSD 最新消息 · Trading Hub</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
@@ -118,6 +118,7 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
 </header>
 
 <main>
+  <div id="gold-bar"></div>
 
   <div class="tldr">
     <div class="lab" style="display:flex;align-items:center;gap:8px"><span class="ai-tag">AI Synthesis</span>一句话概要</div>
@@ -154,7 +155,9 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
   });
   </script>
 
-  <div class="sec-eyebrow">最新头条 · Latest Headlines</div>
+  <div id="news-live"></div>
+
+  <div class="sec-eyebrow">今日要闻解读 · 每天 10:10 SGT 更新</div>
   <div class="feed">
     <div class="news">
       <div class="news-top">
@@ -243,5 +246,7 @@ main{max-width:1000px;margin:0 auto;padding:28px 48px 64px}
   upd(); setInterval(upd,60000);
 })();
 </script>
+<script src="assets/gold-bar.js?v=1" defer></script>
+<script src="assets/news-live.js?v=1" defer></script>
 </body>
 </html>
