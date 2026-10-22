@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   var host = document.getElementById("gold-bar"); if (!host) return;
-  var css = ".gbar{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:1px;background:var(--border,#282833);border:1px solid var(--border,#282833);border-radius:16px;overflow:hidden;margin:0 0 22px}" +
+  var css = "#gold-bar{grid-column:1/-1;min-width:0}.gbar{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:1px;background:var(--border,#282833);border:1px solid var(--border,#282833);border-radius:16px;overflow:hidden;margin:0 0 22px}" +
     ".gbar>div{background:var(--bg2,#15151C);padding:14px 16px;min-width:0}" +
     ".gbar .k{font-size:11px;color:var(--dim,#8A857E);margin-bottom:5px;letter-spacing:.3px}" +
     ".gbar .v{font:700 17px/1.3 'Space Grotesk','Noto Sans SC',sans-serif;color:var(--white,#F6F5F3)}" +
@@ -17,7 +17,7 @@
     ".gbar .up{color:var(--bull,#34D399)} .gbar .dn{color:var(--bear,#F87171)}" +
     ".gbar a{color:var(--gold-lt,#E6BE55);text-decoration:none;font-weight:600} .gbar a:hover{text-decoration:underline}" +
     ".gbar .foot{grid-column:1/-1;font-size:11px;color:var(--dim,#8A857E);padding:9px 16px}" +
-    "@media(max-width:860px){.gbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.gbar>div:first-child{grid-column:1/-1}}";
+    "@media(max-width:860px){.gbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.gbar>div:first-child,.gbar>div:nth-child(4){grid-column:1/-1}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   host.innerHTML = '<div class="gbar"><div><div class="k">现在的结论（规则）</div><div class="v" id="gb-v">读取中…</div><div class="d" id="gb-vd"></div></div>' +
     '<div><div class="k">现价 · 现货金</div><div class="v mono" id="gb-p">—</div><div class="d" id="gb-pd"></div></div>' +
@@ -62,6 +62,8 @@
     $("gb-foot").innerHTML = "";
     $("gb-foot").appendChild(document.createTextNode("结论按 " + (s.updated || "").slice(5) + " 的数据（服务器每 3–4 小时用现货算一次）· 现价每 30 秒更新 · 下面的文字解读是每天 10:10 写的 · "));
     var a = document.createElement("a"); a.href = "report.html"; a.textContent = "实时结论和交易计划看 4H 报告 →"; $("gb-foot").appendChild(a);
+    // the page's own live marks (daily.html: what changed since the text was written) follow the same price
+    try { document.dispatchEvent(new CustomEvent("goldbar:update", { detail: { state: s, price: px, live: num(S.live) !== null } })); } catch (e) {}
   }
   function getJson(u) { return fetch(u, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }); }
   function live() { return fetch("https://api.gold-api.com/price/XAU", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { if (d && num(d.price) !== null && d.price > 0) { S.live = d.price; paint(); } }).catch(function () {}); }

@@ -31,7 +31,7 @@ KEY = re.compile(r"\b(gold|xau|bullion|precious metals?|fed|fomc|powell|warsh|tr
                  r"payrolls?|nfp|cpi|pce|ppi|iran|hormuz|geopolitic\w*)\b", re.I)
 # retail price lists, crypto and single mining stocks are not what moves spot gold
 NOISE = re.compile(r"jewel|\b(24k|22k|18k|tola|carat|city-wise)\b|rates? today|price (in|today in) [A-Z]|bitcoin|crypto|ethereum|"
-                   r"\(tsx|\(asx|\bnse\b|\bbse\b|fund ?raising|lab-made", re.I)
+                   r"\(tsx|\(asx|\bnse\b|\bbse\b|fund ?raising|lab-made|stock price, news, quote|quote and history", re.I)
 # Google News brings every publisher; keep the market-news ones
 PUBLISHERS = ("Reuters", "Bloomberg", "Kitco", "FXStreet", "CNBC", "MarketWatch", "Investing.com", "Barron's", "Financial Times",
               "The Wall Street Journal", "BullionVault", "FX Empire", "Forex.com", "Yahoo Finance", "AP News", "Fortune", "Nasdaq")
