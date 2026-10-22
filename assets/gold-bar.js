@@ -43,7 +43,8 @@
     $("gb-v").innerHTML = ""; var tag = document.createElement("span"); tag.className = "tag " + lvl; tag.textContent = v.tag || "—"; $("gb-v").appendChild(tag);
     $("gb-v").appendChild(document.createTextNode((v.title || "").replace(/^先观望：/, "")));
     var tfs = (s.timeframes || []).map(function (t) { return (t.name || t.tf).replace(" ", "") + (t.trend === "向上" ? "↑" : t.trend === "向下" ? "↓" : "–"); }).join(" ");
-    $("gb-vd").textContent = tfs + (s.plan ? " · " + s.plan.side + "：入场 " + fmt(s.plan.entry) + "，止损 " + fmt(s.plan.stop) + "，目标 " + fmt(s.plan.target) : "");
+    // the server's plan is priced at its own run; the report page prices it at the live price
+    $("gb-vd").textContent = tfs + (s.plan ? " · 服务器 " + String(s.updated || "").slice(11, 16) + " 按当时价格算的方案：" + s.plan.side + " 入场 " + fmt(s.plan.entry) + "，止损 " + fmt(s.plan.stop) + "，目标 " + fmt(s.plan.target) + "（下单前看 4H 报告的实时价位）" : "");
     var px = num(S.live) !== null ? S.live : num(s.price), prev = num(s.price) !== null && s.today && num(s.today.changeFromPrevClose) !== null ? s.price - s.today.changeFromPrevClose : null;
     $("gb-p").textContent = px !== null ? fmt(px, 2) : "—";
     var ch = px !== null && prev !== null ? px - prev : null;

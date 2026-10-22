@@ -777,7 +777,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
 <script src="assets/xau-feed.js?v=5"></script>
 <script src="assets/xau-engine.js?v=5"></script>
-<script src="assets/xau-plan.js?v=6"></script>
+<script src="assets/xau-plan.js?v=7"></script>
 <script>
 (function(){
   "use strict";
@@ -955,6 +955,15 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     if (V.closed) { steps.unshift({ lead: "现在休市，什么都不用做", text: "周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。" }); hold = true; }
     else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: "先等数据过去", text: nw.detail + "。数据前后价格乱跳，点差也会放大。" }); hold = true; }
     else if (V.level === "go" && steps[0] && steps[0].late) hold = true;
+    // A trade opened on a Friday is held over the weekend: Monday can open beyond the stop. The replay held through
+    // weekends too, so this is already in its results; the page only says when the market shuts.
+    if (V.level === "go" && !V.closed) {
+      var nowS = Date.now() / 1000, off = XauFeed.serverOff(nowS), sd = new Date((nowS + off) * 1000);
+      if (sd.getUTCDay() === 5) {
+        var shut = Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()) - off * 1000 + 24 * 3600000;   // Friday 17:00 New York = 24:00 broker time
+        steps.splice(Math.min(2, steps.length), 0, { lead: "今天是周五", text: "黄金 " + left(shut - Date.now()) + "后（周六 " + sgt(shut, "t") + " SGT）收市，进场的单会带过周末。周一开盘可能跳空越过止损，亏得比 1R 多。回放里的单子也都带着周末，这个风险已经算在结果里；按计划的手数做，别加码。" });
+      }
+    }
     // On the backup feed (PAXG) the structure can differ from spot: say so, compare with the server's last spot answer,
     // and offer no one-click plan unless the two agree.
     if (backup) {
@@ -1547,7 +1556,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   // How to manage the trade once it is on, in one line. The trailing distance is 2R.
   function exitRule(sz) {
     var hasT = num(S.plan.tp1) !== null || num(S.plan.tp2) !== null;
-    return "持仓后：" + (hasT ? "到目标止盈；" : "") + "每天把止损挪到最好价格后面 " + fmt(2 * sz.dist, 0) + " 美元，只往有利方向挪；结论变回「先观望」就离场。别提前挪到成本价";
+    // the two ways out the replay tested, each on its own: fixed stop and target, or a daily trailing stop with the regime exit
+    return "持仓后：" + (hasT ? "止损和目标都不动，碰到哪个算哪个；大周期变了也不提前走（目标做法）" : "每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(2 * sz.dist, 0) + " 美元，只往有利方向挪；三个大周期不再同向（结论变回「先观望」）就离场（跟踪止损做法）") + "。别提前挪到成本价";
   }
   function planAsText() {
     var sz = currentSize(), ck = currentChecks(sz).concat(manualList().map(function (m) { return { label: m.label, ok: !!S.manual[m.id] }; }));
@@ -1899,13 +1909,14 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : "还没有出现");
     tile("已经结束", z.closed + " 笔", "", z.closed ? "其中 " + z.wins + " 笔赚钱" : "还没有");
     tile("合计", z.closed ? sgn(z.totalR, 1) + "R" : "—", z.totalR > 0 ? "up" : z.totalR < 0 ? "dn" : "", z.closed ? "平均每笔 " + sgn(z.avgR) + "R" : "等第一笔结束");
-    tile("进行中", open ? open.side : "没有", open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) : "现在没有纸面持仓");
+    var oR = openR(open);
+    tile("进行中", open ? open.side + (oR !== null ? " " + sgn(oR) + "R" : "") : "没有", oR !== null ? (oR > 0 ? "up" : oR < 0 ? "dn" : "") : open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) + (oR !== null ? " · 按现价 " + fmt(S.live, 1) + " 算" : "") : "现在没有纸面持仓");
     el.appendChild(tiles);
     if (sig.length) {
       var tb = h("tbody"), word = { open: "进行中", target: "到目标", stop: "止损", skipped: "跳过" };
       sig.slice().reverse().slice(0, 15).forEach(function (x) {
         tb.appendChild(h("tr", null, [h("td", { class: "l", text: "#" + x.id + " · " + x.time.replace(" SGT", "") }), h("td", { class: "num " + (x.side === "做多" ? "up" : "dn"), text: x.side }), h("td", { class: "num", text: fmt(x.entry, 1) }), h("td", { class: "num", text: fmt(x.stop, 1) }), h("td", { class: "num", text: fmt(x.target, 1) }),
-          h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? "（" + x.why + "）" : "") }), h("td", { class: "num " + (x.R > 0 ? "up" : x.R < 0 ? "dn" : ""), text: typeof x.R === "number" ? sgn(x.R) + "R" : "—" })]));
+          h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? "（" + x.why + "）" : "") }), (function () { var rr = typeof x.R === "number" ? x.R : openR(x); return h("td", { class: "num " + (rr > 0 ? "up" : rr < 0 ? "dn" : ""), text: rr === null ? "—" : sgn(rr) + "R" + (typeof x.R === "number" ? "" : "（现在）") }); })()]));
       });
       el.appendChild(h("div", { class: "tablewrap", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
     }
@@ -1917,10 +1928,13 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var el = clear($("v-proof")), r = S.rec; el.hidden = !r; if (!r) return;
     var z = r.summary || {};
     el.appendChild(h("b", { text: "规则上线以来（" + r.since.replace(" SGT", "") + " 起）：" }));
-    el.appendChild(document.createTextNode(z.signals ? "信号 " + z.signals + " 次，进场 " + z.taken + " 笔，已结束 " + z.closed + " 笔" + (z.closed ? "，合计 " + sgn(z.totalR, 1) + "R" : "") + "。" : "还没有出现过信号。"));
+    var op = (r.signals || []).filter(function (x) { return x.status === "open"; })[0], oR = openR(op);
+    el.appendChild(document.createTextNode(z.signals ? "信号 " + z.signals + " 次，进场 " + z.taken + " 笔，已结束 " + z.closed + " 笔" + (z.closed ? "，合计 " + sgn(z.totalR, 1) + "R" : "") + (op ? "；纸面持仓 #" + op.id + " " + op.side + "中" + (oR !== null ? "，现在 " + sgn(oR) + "R" : "") : "") + "。" : "还没有出现过信号。"));
     el.appendChild(h("button", { type: "button", text: "看成绩记录 →", onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
   }
   function renderProof() { var el = clear($("proof")); ownBlock(el); recordBlock(el); }
+  // where the rule's open paper trade stands at the live price, in R (its own risk, before costs)
+  function openR(x) { if (!x || x.status !== "open" || num(S.live) === null || !(x.risk > 0)) return null; return (S.live - x.entry) * (x.side === "做空" ? -1 : 1) / x.risk; }
 
   // ---------- tabs ----------
   function showTab(id) {
@@ -2067,7 +2081,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     var K = S.feed && S.feed.K["15M"], have = K && K.length ? K[K.length - 1][6] + 1 : 0;
     if (q !== S.lastQ || (marketOpen() && have < q * 900000)) { if (qTries < 3) { qTries++; refresh(); } }
   }, 20000);
-  setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); }, 60000);
+  setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); if (S.rec && S.tab === "proof") renderProof(); }, 60000);
 })();
 </script>
 </body>

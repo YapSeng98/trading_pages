@@ -297,7 +297,7 @@ var XauPlan = (function () {
         step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (past ? "现价已经" + (first.to < 0 ? "低于" : "高于") + "它 " + fmt(Math.abs(price - g0.price), 1) + " 美元，但要看 " + zh(g0.tf) + " K 线收盘：收盘时还在" + (first.to < 0 ? "下方" : "上方") + "才算。" : first.steps.length === 1 ? away(g0.price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。");
         step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
       } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
-      step("手上已经有单", "如果是按这页规则开的顺势单：三个大周期已经不再同向，规则是离场。");
+      step("手上已经有单", "按这页规则开的顺势单：用跟踪止损的，三个大周期已经不再同向，规则是离场；用目标 3R 的，止损和目标都不动，等价格碰到其中一个。");
       var rest = first ? (first === up ? dn : up) : null;                         // the other way round, so the picture is complete
       if (rest) v.other = "反过来要变成同向" + say(rest.to) + "，需要" + (rest.complete ? andAlso(closes(rest.steps, rest.to)) + (price !== null ? "（最远的离现价 " + fmt(rest.far, 0) + " 美元）。" : "。") : rest.need.map(zh).join("和") + "都转" + say(rest.to) + "，现在还没有明确的价位。");
     } else {
@@ -320,8 +320,9 @@ var XauPlan = (function () {
         }
         if (k) step(late ? "现在：信号已经走远，别追" : "现在：可以顺势" + act(R.dir), note + (late ? "还是想进的话：" : "") + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →", late: late });
         step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 15 笔，所以不要加码。");
-        if (k) step("进场以后", "每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。别提前挪到成本价，回放里那样会少赚。");
-        step("什么时候离场", "到目标止盈" + (out !== null ? "；或者 4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) + "（三个大周期不再同向）" : "；或者这里的结论变回「先观望」") + "。");
+        // the replay tested two ways out, each on its own: a fixed 3R target, or a daily trailing stop with the regime exit
+        if (k) step("进场前选好离场做法（二选一，进场后别换）", "目标 3R：止损 " + fmt(k.stop, 1) + "、目标 " + fmt(k.tp1, 1) + " 都不动。跟踪止损：不设目标，每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。两种都别提前挪到成本价，回放里那样会少赚。");
+        step("什么时候离场", "目标 3R：碰到止损或目标就结束，大周期变了也不提前走。跟踪止损：碰到挪过的止损就结束" + (out !== null ? "；或者 4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) + "（三个大周期不再同向）就离场" : "；或者三个大周期不再同向（这里变回「先观望」）就离场") + "。");
       } else {
         var lag = R.lagging.map(zh).join("和 ");
         v.level = "ready"; v.tag = buy ? "等小周期转多" : "等小周期转空"; v.title = "大方向" + way + "，等小周期转回来再" + (buy ? "买" : "卖");
@@ -335,7 +336,7 @@ var XauPlan = (function () {
         step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
       }
       // what ends it: the 4-hour trend turning against
-      add(buy ? "down" : "up", out, "4 小时收盘" + (buy ? "跌破" : "站上") + "这里，三周期不再同向：有持仓就离场");
+      add(buy ? "down" : "up", out, "4 小时收盘" + (buy ? "跌破" : "站上") + "这里，三周期不再同向：用跟踪止损的持仓在这里离场");
     }
     return v;
   }
