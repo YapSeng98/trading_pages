@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24 03:04 SGT",
+ "updated": "2026-10-24 06:18 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "Gold's $4,000 support breaks, but is the selloff overdone?",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPdHlwU2d3LVl4RlY3dTJCejZMQ1FJM1ctRjdfNzBwTFgwR3VScjZZOUZqOXhoVXlBVDRCd0JpVTVDZ1RPaGtTVEtzY0RHZXk1a21hamtmRFpKM092SnhGR1lCRU1zN0tOQmVPQTJfZnBmRmptbEFQWmNoSjRoNlFhUFAtWlVFXzdic05zVmI5ampCUQ?oc=5",
+   "ms": 1792787658000,
+   "time": "10/24 04:34"
+  },
+  {
+   "t": "Gold Breaks Below $4,000 as Oil Surge Fuels Fed Rate Fears",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTVc1d3pIcXZabFljWEZBMjdTZENVaU5yeDR4dllWSVNrTUFFY2tnWlpYaTdiVWh6MElPMkFpTUlCUjlRNFpDVVkxWFUwVk0yY3Ewa3hNR3dldHE4ZEdDYVR6Y3JHVWd3c3pDTWFGeFM3blVxTFlFY0ttWWw5bjNnbHdlSlRtUml6bzIxeG44TFA2Y3ZlSUtqSw?oc=5",
+   "ms": 1792785801000,
+   "time": "10/24 04:03"
+  },
+  {
    "t": "Gold falls below $4,000 as Oil surge deepens weekly rout ahead of Fed",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN0tTd1RPRXk1S19WZlNxVXNIY1h2bVgxVkNQZURoOTlKTzNEZ2ZDWTdsWHVfTEJfdkJsSWJJX0hfNU5OMl9XdE5iRDZWMDk2TEtIUlRGeW9Td0pSWlJ2cDljWS1FSk4yUFUycy1qUzJqaVZqRjcwSG1fV0d6MDZTdTVYMjNPV2ZXMzBOU1g5UGFIbVBQbXNobmluUWROVjM0VGx5VnZEM2M5TDFramtCdA?oc=5",
    "ms": 1792779542000,
    "time": "10/24 02:19"
+  },
+  {
+   "t": "Gold Stocks Could Rally 20% to 30% as Winter Seasonality Turns Bullish",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNa2hvRS1zajB6SkRtQzNZYlVqeWNiVzRaMGwybnAzbmwxOTZrNEZ2OGtRR21MZzBOQkxBeDVaRHhJMnc0eDIwazd6ZnRLZTlOcjlPTFBnSG9WZV8tWmZMWTNMemdHRkg3ZHBhYWw4WVZXbTBwVk05S1VvWlM0dFlxOEhzdkh3cEZOdktDVGxlWUtuNVc3dUwtcmxZMlZEZWU1LUlYb1pJVUp5Vml5cTVUc0xDbw?oc=5",
+   "ms": 1792775284000,
+   "time": "10/24 01:08"
   },
   {
    "t": "Gold eyes weekly loss of over 3% as Fed interest rate decision looms",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOQUpUbEtObkhna1NlSFEzQVB3WWZOV2U3ZHBMNHAwY1FQeXRSNXhaTkpUNzBoUTVSaHZCVjRhQjZTU0RvajkzU2I2SmdzSVBKVkJybW0xNnh4TnBmR2lGOTQxNGMtRmRmUEVNZW1mdWR1TmZHNk04SVVtdDk5Zk9GTUVQb2tYOURoU2ZHUFJZLURHN3ZkZUlKb3YyVlAtRTV1cWVNbkk4aXNHMWNGZjI2X2k2NXpNQTZOcXByLUxrQVppN3pnenc?oc=5",
    "ms": 1792750608000,
    "time": "10/23 18:16"
-  },
-  {
-   "t": "Gold holds above $4,000/three-month low as Fed hike bets and firm USD cap upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeXZUdHQxUjlmRkl1RXVmSDVZRnFwd0dFeTRxU3NaY0REVzdWampCTlVpZTZJTHhRNkZhZGhvRnpmbjN0OHlhaU5rN1ZaZ2NtUU1VY1UyZ3JyUWZ3cWZKUnU3Yl9fZXhxaXYxY19HTUI4R29HYndLOVhnTU9YcHNZZ01QdUoyTmktVThNY2ZQblhzdF93ZUYwaExFWS01aUpwWUFCQS03T09paGU2NDVta0FZVGo1Uy1VWS1QbXJ3?oc=5",
-   "ms": 1792745347000,
-   "time": "10/23 16:49"
-  },
-  {
-   "t": "Gold price analysis: XAU/USD tests critical 4,000 barrier",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPWmxneXNQNmQ4bjBoUTRNcWY5dkhtcjExVGljZkRlNXFlZHZUU3IzenhZUHo0TzJxNU9zU1lVLWIwV0hlWmg0VWx6X1h5UzMyWmdzYjIweUUzS3VSVldtdm9uU0ZHcDFldXZUWE52VUc2SXBnT2JqQWM3NVBESTQzeER6VE9heWxiUmp6TTM0SUM2VTlZbFZQNUYzTUhOX0hTZjNLLU1B?oc=5",
-   "ms": 1792745181000,
-   "time": "10/23 16:46"
-  },
-  {
-   "t": "Gold extends decline as higher Oil prices fuel inflation concerns",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPaEFnUmwtbEdtWWdUUkJjQmNRSFJLOWFlbGdzLXZQZnJjR25FWVc0NUhVQTBlZjI5eTRfSm44b2F6QnFOVk9Sdm0tQ0Zyejl1aGZlek5yNXI0MzJmeEF4NkxKZkh5QlpPY0RFTGo1VW5wYjZYZ3JPdjRtYnpZZ2dKUGlnbGpyQnZSck1qOFlDN2lObHAxY2pFUDhfU0EwRG1IbmktWTBDUlhwUmgtQkhRTW13?oc=5",
-   "ms": 1792732043000,
-   "time": "10/23 13:07"
   }
  ]
 }
