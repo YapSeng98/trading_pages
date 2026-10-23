@@ -64,6 +64,8 @@
     var howTxt = S.how === "spot" ? "现价实时，按现货 1 分钟 K 线校准（买价）" : S.how === "closed" ? "休市中，现价是最后收盘价" : "现价每 30 秒更新（gold-api，可能差 1–2 美元）";
     $("gb-foot").appendChild(document.createTextNode("结论按 " + (s.updated || "").slice(5) + " 的数据（服务器每 3–4 小时用现货算一次）· " + howTxt + " · 下面的文字解读是每天 10:10 写的 · "));
     var a = document.createElement("a"); a.href = "report.html"; a.textContent = "实时结论和交易计划看 4H 报告 →"; $("gb-foot").appendChild(a);
+    $("gb-foot").appendChild(document.createTextNode(" · "));
+    var q = document.createElement("a"); q.href = "report.html#ask"; q.textContent = "按现在的情况问 Claude →"; $("gb-foot").appendChild(q);
     // the page's own live marks (daily.html: what changed since the text was written) follow the same price
     // the header price on the page, if it has one
     if (px !== null) {

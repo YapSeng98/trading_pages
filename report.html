@@ -106,6 +106,18 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 .hn,.st-n{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:700 12px/1 var(--f-d);color:#17130A;background:linear-gradient(135deg,#E8C96D,var(--gold));flex-shrink:0}
 .st-n.done{background:var(--m-bull);color:#04130d} .st-n.bad{background:var(--m-bear);color:#fff} .st-n.na{background:var(--bg4);color:var(--dim)}
 .howto .btn{margin-left:auto}
+.ask{scroll-margin-top:80px}
+.ask-lede{font-size:13px;line-height:1.75;color:var(--text);margin:0 0 12px;max-width:78ch}
+.ask-qs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ask-qs button{background:var(--bg3);border:1px solid var(--border);color:var(--text);font:500 12.5px/1.3 var(--f-d);padding:8px 13px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s}
+.ask-qs button:hover,.ask-qs button.on{border-color:rgba(212,167,44,.55);color:var(--gold-lt)}
+.ask textarea{display:block;width:100%;min-height:78px;resize:vertical;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--ink);font:400 14px/1.6 var(--f-d);padding:10px 12px;box-sizing:border-box}
+.ask textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ask-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.ask-opt{display:flex;gap:7px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}
+.ask details{margin-top:14px}.ask summary{cursor:pointer;font-size:12.5px;color:var(--dim)}
+.ask pre{white-space:pre-wrap;word-break:break-word;font:400 11.5px/1.65 var(--f-m);color:var(--text);background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px;margin:8px 0 0;max-height:340px;overflow:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ── verdict: the answer first ── */
 .verdict{--ga:rgba(148,163,184,.5);--gb:rgba(155,140,240,.42);position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:26px 44px;padding:30px 32px 26px;border-radius:26px;background:linear-gradient(135deg,rgba(21,21,28,.9) 50%,rgba(26,22,17,.9) 100%);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border:1px solid var(--glass-brd);box-shadow:var(--shadow-md)}
@@ -590,6 +602,29 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   </section>
 
   <section class="card pos" id="pos" hidden aria-label="我的持仓"></section>
+
+  <section class="card ask" id="ask" aria-label="问 Claude">
+    <div class="card-head"><h2>问 Claude <small>Ask Claude</small></h2><span class="chip neut">用你自己的 Claude 账号</span></div>
+    <p class="ask-lede">按下按钮时，这一页此刻的数据会和你的问题一起交给 Claude：现价、规则的结论、五个周期和会让它们转向的价位、现在的方案、日历、最新头条、规则的纸面记录，以及你在跟踪的持仓。Claude 在新窗口回答，还能上网查最新消息。</p>
+    <div class="ask-qs" id="ask-qs">
+      <button type="button" data-q="现在能不能进场？如果能，按什么价位、怎么设止损？如果不能，要等什么？">现在能不能进场？</button>
+      <button type="button" data-q="我手上已经有一笔单（资料里有的话就按资料），现在该怎么管理：止损要不要动、什么时候离场？">我已有单，怎么管？</button>
+      <button type="button" data-q="把现在的结论用简单的话解释给我：为什么是这个结论，什么情况下会变？">解释现在的结论</button>
+      <button type="button" data-q="接下来的美国数据和最近的新闻，可能怎么影响金价？对现在的结论有什么风险？请上网查最新消息。">新闻和数据的影响</button>
+      <button type="button" data-q="如果现在进场并带过周末，主要风险是什么？手数该怎么控制？">持仓过周末的风险</button>
+    </div>
+    <label class="sr" for="ask-q">你的问题</label>
+    <textarea id="ask-q" rows="3" placeholder="也可以自己写，比如：如果价格先反弹到 4,060 再跌，我该怎么做？"></textarea>
+    <div class="ask-row">
+      <label class="ask-opt"><input type="checkbox" id="ask-me" checked> 带上我的账户余额和持仓（如果填过）</label>
+    </div>
+    <div class="ask-row">
+      <button type="button" class="btn pri" id="ask-go">问 Claude →</button>
+      <button type="button" class="btn sm" id="ask-copy">只复制，不打开</button>
+      <span class="note" id="ask-msg"></span>
+    </div>
+    <details id="ask-ctx"><summary>Claude 会看到的资料</summary><pre id="ask-pre"></pre></details>
+  </section>
 
   <div class="banner" id="closed" hidden><span>🌙</span><div><b>黄金周末休市。</b> 上面的结论和图表基于周五收盘；周一开盘（约 06:00 SGT）可能跳空，开盘后再确认一次。</div></div>
 
@@ -1949,6 +1984,77 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   // where the rule's open paper trade stands at the live price, in R (its own risk, before costs)
   function openR(x) { if (!x || x.status !== "open" || num(S.live) === null || !(x.risk > 0)) return null; return (S.live - x.entry) * (x.side === "做空" ? -1 : 1) / x.risk; }
 
+  // ---------- ask Claude ----------
+  // The question goes to claude.ai with this page's live state written out as plain facts, so the answer is about
+  // the situation now. Nothing leaves the page until the button is pressed; the visitor's own Claude account answers.
+  // claude.ai/new?q= fills in the message; the same text is also copied, in case the app opens without it.
+  function loadNews() { fetch("data/news.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.items) S.news = d.items; }).catch(function () {}); }
+  var EN_TF = { W: "Weekly", D: "Daily", "4H": "4-hour", "1H": "1-hour", "15M": "15-min" };
+  function f1(v) { return num(v) === null ? "—" : fmt(v, 1); }
+  function askContext(withMe) {
+    var E = S.E, L = [], now = Date.now();
+    if (!E) return "（行情还在载入，资料暂时不完整）";
+    var V = P.verdict(E), R = V.regime || P.regime(E), open = marketOpen(), K = S.feed && S.feed.K, D = K && K.D, prev = D && D.length ? D[D.length - 1][4] : null;
+    L.push("LIVE DATA from the trading page at " + sgt(now, "full") + " (" + (S.feed && S.feed.source === "paxg" ? "backup feed: PAXG token moved onto spot, may differ from spot" : "spot XAU/USD, broker-style candles, day starts 17:00 New York") + ")");
+    L.push("Market: " + (open ? "open" : "closed for the weekend (reopens Monday about 06:00 SGT)"));
+    L.push("Price (bid, live): " + f1(S.live) + (prev !== null && num(S.live) !== null ? " | previous day close " + f1(prev) + " (" + (S.live >= prev ? "+" : "") + fmt(S.live - prev, 1) + ", " + (S.live >= prev ? "+" : "") + fmt((S.live - prev) / prev * 100, 2) + "%)" : ""));
+    L.push("Rule's answer now: " + V.tag + " / " + V.title + " (level: " + V.level + ")");
+    if (V.signal) L.push("Signal: appeared " + sgt(V.signal.at) + " SGT at " + f1(V.signal.price) + (num(V.signal.movedR) !== null ? ", price has moved " + V.signal.movedR.toFixed(1) + "R in its favour since" : ""));
+    L.push("Timeframes (structure trend; weights W3 D3 4H2 1H1 15M1; score " + P.votes(E).reduce(function (a, v) { return a + (v.v || 0) * v.w; }, 0) + " of -10..+10):");
+    P.votes(E).forEach(function (v) {
+      var t = E.tfs[v.tf] || {}, flip = v.v ? P.flipLevel(E, v.tf, -v.v) : null, opp = v.v > 0 ? "bearish" : "bullish";
+      var against = !!(v.v && (t.internal === opp || (t.ema && t.ema.stack === opp && num(t.rsi) !== null && (v.v > 0 ? t.rsi < 50 : t.rsi > 50))));
+      L.push("- " + EN_TF[v.tf] + ": " + (v.v > 0 ? "UP" : v.v < 0 ? "DOWN" : "unclear") + (num(t.since) !== null ? " since " + sgt(t.since) : "") + ", RSI " + (num(t.rsi) !== null ? Math.round(t.rsi) : "—") + ", ATR " + f1(t.atr) +
+        (against ? ", but moving against it lately (" + (v.v > 0 ? "pullback" : "bounce") + ")" : "") + (flip !== null ? "; turns " + (v.v > 0 ? "down on a close below " : "up on a close above ") + f1(flip) : ""));
+    });
+    var k = R.dir ? P.systemPlan(E, R.dir) : null;
+    if (k) L.push("Plan at the live price: " + (k.side === "short" ? "SELL" : "BUY") + " " + f1(k.entry) + ", stop " + f1(k.stop) + " (" + fmt(k.dist, 1) + " away = 3x 1-hour ATR), target 3R " + f1(k.tp1) + "; trailing-stop alternative keeps the stop " + fmt(k.trailDist, 0) + " behind the best price" + (R.full ? "" : " (not valid yet: the small timeframes have not turned)"));
+    V.lines.forEach(function (l) { L.push("Level that changes the answer: " + f1(l.price) + " (" + l.text + ")"); });
+    var nr = P.nearest(E);
+    if (nr.sup || nr.res) L.push("Nearest support " + (nr.sup ? f1(nr.sup.price) + " (" + (nr.sup.labels || []).slice(0, 2).join(", ") + ")" : "—") + " | nearest resistance " + (nr.res ? f1(nr.res.price) + " (" + (nr.res.labels || []).slice(0, 2).join(", ") + ")" : "—"));
+    var ev = (S.events || []).filter(function (e) { return e.ms > now - 3600000; }).slice(0, 4);
+    L.push("US calendar ahead (SGT): " + (ev.length ? ev.map(function (e) { return e.date + " " + e.time + " " + e.name + " [" + (e.imp || "") + "]" + (e.extra ? " " + e.extra : ""); }).join(" ; ") : "nothing medium or high impact left this week"));
+    if (open) { var sd = new Date((now / 1000 + XauFeed.serverOff(now / 1000)) * 1000); if (sd.getUTCDay() === 5) L.push("It is Friday: gold shuts Saturday about 05:00 SGT, a trade opened now is held over the weekend."); }
+    var nw = (S.news || []).slice(0, 6);
+    if (nw.length) { L.push("Latest gold headlines:"); nw.forEach(function (x) { L.push("- " + x.t + " (" + x.src + ", " + ago(x.ms) + ")"); }); }
+    var r = S.rec;
+    if (r && r.summary) {
+      var op = (r.signals || []).filter(function (x) { return x.status === "open"; })[0], oR = openR(op);
+      L.push("Rule's paper record since " + r.since + ": signals " + r.summary.signals + ", closed " + r.summary.closed + (r.summary.closed ? ", total " + sgn(r.summary.totalR, 1) + "R" : "") + (op ? "; open " + (op.side === "做空" ? "short" : "long") + " #" + op.id + " from " + f1(op.entry) + ", stop " + f1(op.stop) + ", target " + f1(op.target) + (oR !== null ? ", now " + sgn(oR) + "R" : "") : ""));
+    }
+    if (withMe) {
+      var pm = posState(), p = S.pos;
+      if (p) L.push("MY POSITION (tracked on the page): " + (p.side === "short" ? "short" : "long") + (p.lots ? " " + p.lots + " lots" : "") + " from " + f1(p.entry) + " (" + sgt(p.at) + " SGT), stop now " + f1(p.stop) + " (first stop " + f1(p.initStop) + "), " + (p.mode === "trail" ? "trailing-stop method" : "fixed target " + f1(p.tp1)) + (pm && pm.pnlR !== null ? ", now " + sgn(pm.pnlR) + "R" : "") + (pm && pm.moveStop ? ", rule says move the stop to " + f1(pm.trailStop) + " today" : ""));
+      else L.push("MY POSITION: none tracked on the page.");
+      if (num(S.acct.balance) !== null) L.push("MY ACCOUNT: balance " + P.usd(S.acct.balance) + ", risk per trade " + S.acct.riskPct + "%, contract " + (S.acct.contract || 100) + " oz per lot, minimum lot " + (S.acct.lotStep || 0.01));
+    }
+    return L.join("\n");
+  }
+  function askPrompt(q, withMe) {
+    return "I trade XAUUSD (spot gold) on MT5 and live in Singapore. Answer in Simplified Chinese, plainly and briefly: the direct answer first, then the reasons, then the main risk. " +
+      "Use the live data below from my trading page; you may search the web for news after that time. " +
+      "My page's rule: trade only when the weekly, daily and 4-hour structure trends agree, enter when the 1-hour and 15-minute agree too; stop 3x the 1-hour ATR; " +
+      "exit either with a fixed 3R target (stop and target never move) or with a trailing stop (moved once a day at 08:00 SGT to 2R behind the best price, exit when the big three stop agreeing); risk 0.5% of the account per trade, never above 1%. " +
+      "A replay on 2011-2026 spot gold found an edge only when all five agree; buying dips, tight stops and trading against the big three lost money. If you disagree with the rule's answer, say why, but do not suggest entries that break it.\n\n" +
+      "MY QUESTION: " + q + "\n\n" + askContext(withMe);
+  }
+  function askNow(open) {
+    var q = $("ask-q").value.trim();
+    if (!q) { $("ask-msg").textContent = "先选一个问题，或者自己写一个。"; $("ask-q").focus(); return; }
+    var text = askPrompt(q, $("ask-me").checked), url = "https://claude.ai/new?q=" + encodeURIComponent(text);
+    $("ask-pre").textContent = text;
+    var copied = function (ok) { $("ask-msg").textContent = open ? (ok ? "已在新窗口打开 Claude，问题和资料已填好；如果没有填好，在输入框里粘贴即可（已复制）。" : "已在新窗口打开 Claude。如果问题没有填好，点「只复制」再粘贴。") : ok ? "已复制，到 Claude 里粘贴即可。" : "复制失败：打开下面的「Claude 会看到的资料」，手动复制。"; };
+    if (open) {
+      if (url.length > 12000) url = "https://claude.ai/new";                   // too long for a link: the copied text carries it
+      var a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+    }
+    try { navigator.clipboard.writeText(text).then(function () { copied(true); }, function () { copied(false); }); } catch (e) { copied(false); }
+  }
+  all("#ask-qs button").forEach(function (b) { b.addEventListener("click", function () { all("#ask-qs button").forEach(function (x) { x.classList.toggle("on", x === b); }); $("ask-q").value = b.getAttribute("data-q"); $("ask-msg").textContent = ""; if (!$("ask-ctx").open) return; $("ask-pre").textContent = askPrompt($("ask-q").value, $("ask-me").checked); }); });
+  $("ask-go").addEventListener("click", function () { askNow(true); });
+  $("ask-copy").addEventListener("click", function () { askNow(false); });
+  $("ask-ctx").addEventListener("toggle", function () { if ($("ask-ctx").open) $("ask-pre").textContent = askPrompt($("ask-q").value.trim() || "（还没写问题）", $("ask-me").checked); });
+
   // ---------- tabs ----------
   function showTab(id) {
     if (!document.querySelector('[data-panel="' + id + '"]') || (id === "ai" && !S.hasAi)) id = "levels"; else { S.tab = id; LS.set("tab", id); }
@@ -2023,6 +2129,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
       renderAll(); setStamp();
       renderProof();
+      if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");
     }).then(function () { S.busy = false; document.body.classList.remove("refreshing"); });
@@ -2069,7 +2176,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   $("stale-clear").addEventListener("click", clearPlan);
   $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "按现在的行情重算"); });
   $("retry").addEventListener("click", refresh);
-  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); });
+  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); });
   $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
@@ -2081,7 +2188,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
   syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab);
-  refresh(); loadContext(); loadSnapshot(); loadProof();
+  refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed
   // needs a few seconds to publish the candle; if it is not there yet, look again a minute later, three times at
