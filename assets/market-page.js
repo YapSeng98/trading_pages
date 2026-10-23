@@ -1223,7 +1223,7 @@
       });
       t.appendChild(opts);
       var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
-      snd.appendChild(document.createTextNode(soundOn() ? "🔊 网页提示音已开（电脑静音或勿扰模式时听不到）。" : "通知照常弹出。网页自带的提示音每次刷新后要点一下页面才响（浏览器的规定，网站绕不过）。想完全不用点也有声音：在电脑的通知设置里打开浏览器的通知声音（Mac：系统设置 → 通知 → Google Chrome → 播放通知声音）。"));
+      snd.appendChild(document.createTextNode(soundOn() ? "🔊 网页提示音已开（电脑静音或勿扰模式时听不到）。" : "通知照常弹出。网页提示音在按浏览器的刷新（F5）后要点一下页面才响：这是浏览器的规定。页面自己会更新，不用刷新；要重算就点上面的「⟳ 刷新」，提示音不会断。完全不想点：在电脑通知设置里打开浏览器的通知声音（Mac：系统设置 → 通知 → Google Chrome → 播放通知声音）。"));
       if (!soundOn()) snd.appendChild(h("button", { type: "button", class: "btn sm", text: "开启提示音", onclick: function () { ensureAudio(); setTimeout(function () { chime(); renderAlert(); }, 150); } }));
       t.appendChild(snd);
     }
@@ -1244,14 +1244,19 @@
   function ensureAudio() {
     try {
       if (!S.audio && (window.AudioContext || window.webkitAudioContext)) S.audio = new (window.AudioContext || window.webkitAudioContext)();
-      if (S.audio && S.audio.state === "suspended") S.audio.resume().then(function () { if ($("v-alert")) renderAlert(); }, function () {});
+      if (S.audio && S.audio.state === "suspended") S.audio.resume().then(function () { if ($("v-alert")) renderAlert(); soundChip(); }, function () {});
     } catch (e) {}
     return !!(S.audio && S.audio.state === "running");
   }
   function soundOn() { return !!(S.audio && S.audio.state === "running"); }
-  if (S.notify) setTimeout(function () { askPermission(); ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); }, 400); }, 0);
+  function soundChip() {
+    var c = $("snd-chip");
+    if (!c) { c = h("button", { type: "button", id: "snd-chip", class: "snd-chip", text: "🔇 点一下页面，开启提示音" }); document.body.appendChild(c); }
+    c.hidden = !(S.notify && NOTE_OK && !soundOn());
+  }
+  if (S.notify) setTimeout(function () { askPermission(); ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); soundChip(); }, 400); }, 0);
   document.addEventListener("click", function () { if (S.notify && NOTE_OK && Notification.permission === "default") askPermission(); }, { once: false, passive: true });
-  ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(renderAlert, 300); } }, { passive: true }); });
+  ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(function () { renderAlert(); soundChip(); }, 300); } }, { passive: true }); });
   function chime() {
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
     try { M.chime.notes.forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = M.chime.wave; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
@@ -1356,7 +1361,8 @@
   S.chgBig = !!LS.get("chgBig", false);
   (function () {
     var st = document.createElement("style");
-    st.textContent = ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
+    st.textContent = ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}" +
+      ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
       ".cg-now{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--text);margin-bottom:12px}.cg-now b{color:var(--ink)}.cg-now .btn{margin-left:auto}" +
       ".cg-list{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:0}" +
       ".cg{display:grid;grid-template-columns:96px 64px 112px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:9px 4px;border-top:1px solid var(--border);font-size:12.5px;color:var(--dim)}" +
