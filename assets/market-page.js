@@ -1204,7 +1204,7 @@
     var perm = Notification.permission, on = alertsOn(); el.className = "v-alert" + (on ? " on" : "");
     var t = h("div", { class: "t" });
     if (on) {
-      t.appendChild(h("b", { text: "🔔 提醒已开。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
+      t.appendChild(h("b", { text: "🔔 提醒已开，刷新或重开浏览器后也一直开着。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
       var opts = h("div", { class: "nopts" });
       [["signal", "新的做多 / 做空信号"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时转向"], ["small", "1 小时、15 分钟转向（一天可能好几次）"]].forEach(function (o) {
         var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
@@ -1213,7 +1213,7 @@
       });
       t.appendChild(opts);
       var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
-      snd.appendChild(document.createTextNode(soundOn() ? "🔊 提示音已开（电脑静音或勿扰模式时听不到）。" : "🔇 提示音还没开：浏览器规定页面打开后要先点一下才能出声。点右边按钮，或点页面任意地方。"));
+      snd.appendChild(document.createTextNode(soundOn() ? "🔊 网页提示音已开（电脑静音或勿扰模式时听不到）。" : "通知照常弹出。网页自带的提示音每次刷新后要点一下页面才响（浏览器的规定，网站绕不过）。想完全不用点也有声音：在电脑的通知设置里打开浏览器的通知声音（Mac：系统设置 → 通知 → Google Chrome → 播放通知声音）。"));
       if (!soundOn()) snd.appendChild(h("button", { type: "button", class: "btn sm", text: "开启提示音", onclick: function () { ensureAudio(); setTimeout(function () { chime(); renderAlert(); }, 150); } }));
       t.appendChild(snd);
     }
@@ -1241,6 +1241,7 @@
     return !!(S.audio && S.audio.state === "running");
   }
   function soundOn() { return !!(S.audio && S.audio.state === "running"); }
+  if (S.notify) setTimeout(function () { ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); }, 400); }, 0);
   ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(renderAlert, 300); } }, { passive: true }); });
   function chime() {
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
