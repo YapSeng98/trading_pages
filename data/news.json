@@ -1,11 +1,39 @@
 {
- "updated": "2026-10-23 22:57 SGT",
+ "updated": "2026-10-24 03:04 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold falls below $4,000 as Oil surge deepens weekly rout ahead of Fed",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN0tTd1RPRXk1S19WZlNxVXNIY1h2bVgxVkNQZURoOTlKTzNEZ2ZDWTdsWHVfTEJfdkJsSWJJX0hfNU5OMl9XdE5iRDZWMDk2TEtIUlRGeW9Td0pSWlJ2cDljWS1FSk4yUFUycy1qUzJqaVZqRjcwSG1fV0d6MDZTdTVYMjNPV2ZXMzBOU1g5UGFIbVBQbXNobmluUWROVjM0VGx5VnZEM2M5TDFramtCdA?oc=5",
+   "ms": 1792779542000,
+   "time": "10/24 02:19"
+  },
+  {
+   "t": "Gold eyes weekly loss of over 3% as Fed interest rate decision looms",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQTVjU1hSdWdxNkxCVWc1OWZyR1VTZE1WbGdiblo0UW01bG5vYU9Sanh5NG1zQnlsZG5aM2UzdjdqR0xjSHRHUEE3cF82UGd1em1jNkgzNmhIeW9pQUtaVDRzejl1NUtZUUZicUpXWlVKcEt3NXF3OHdUbXRLSG1ZaWdib21WQmhMOVpDMXdjV2VIN0FrN1JhRmVSVUNsVHdzWkE?oc=5",
+   "ms": 1792772210000,
+   "time": "10/24 00:16"
+  },
+  {
+   "t": "TSX falls at open as gold weakness, AI spending concerns weigh on sentiment",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMVdQeGdkbExKSzRuaEtUVWtoWXpEd2JERmhiWWNWUERKbFpRWWRIVVV0cXBBY2NlVnVseUpLOS01X2ZTeWhEQkVGVm5ZbGlYdWZad2txVFdxV2kxMzZBcHRBSjlqV3h4SVpmSGZZdGlHZzBKcG9STDhDdzdCZElVbTNQR0QyWHJvS1lzUVNmS29nZzBDeFFrQUpCVDR0Nmg0Z3FzNDlpZDd1Zw?oc=5",
+   "ms": 1792771748000,
+   "time": "10/24 00:09"
+  },
+  {
+   "t": "Gold Weekly Forecast: Inflation fears attract bears ahead of critical Fed meeting",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOY0JSQ2pFSE5ydUZiN1FCdFNTeHZEbER5cEtXWUFoSDN0RjRocGV6cUhnWk42OVdfRDlfMTBVSG1sZFpxWnpkdUo2YUZNTXlIYWFoU1BObnhWODRCeG9odk9KT0FjdGdjbWdaUWdIa05sU3pKaVNfbl9kd2ZCNW1zaHBueFNzazk5N1MycjlhNy1MaHY4MS10LThVM1g4cWFjWnY4ZU9aZm9xc2ZwejlCdTJJYWFuWVJpOUxpbm1TeUV4b2xyTFE?oc=5",
+   "ms": 1792767795000,
+   "time": "10/23 23:03"
+  },
   {
    "t": "Gold drops below $4,000 as ‘haven’ asset joins market sell-off",
    "src": "Financial Times",
@@ -21,25 +49,18 @@
    "time": "10/23 22:01"
   },
   {
-   "t": "Gold eyes weekly loss of over 3% as Fed interest rate decision looms",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQTVjU1hSdWdxNkxCVWc1OWZyR1VTZE1WbGdiblo0UW01bG5vYU9Sanh5NG1zQnlsZG5aM2UzdjdqR0xjSHRHUEE3cF82UGd1em1jNkgzNmhIeW9pQUtaVDRzejl1NUtZUUZicUpXWlVKcEt3NXF3OHdUbXRLSG1ZaWdib21WQmhMOVpDMXdjV2VIN0FrN1JhRmVSVUNsVHdzWkE?oc=5",
-   "ms": 1792763335000,
-   "time": "10/23 21:48"
-  },
-  {
    "t": "Current price of gold as of October 23, 2026",
    "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1xOFNycUgxTnVOaTg4cVpaUlhNZXJUOHFwTVdwbjk0UW5COXUwamZJaTJCZDhhNkRhc3BfdUxjWFdiTnozbDlUd3BxRmxCbFFOek1zaDVQZUstZ1pnbTJmcjY2bHBhVlkzRmUyNTJVYkxtTjQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBoRTI1THNqVk5qWGRlbXh6MWRld3NrQTJ4ZEJJZFRaaEYtMDNyYXFPVC1sWmcyMHhkTXY0dUdpLWxXMmR1MXRhdWgyRUY5Y0VtYU9udDJfNmd1Q2thREptT24weDM5QklxYlNaWVF3?oc=5",
    "ms": 1792762020000,
    "time": "10/23 21:27"
   },
   {
-   "t": "Gold slides to a 3-month low below $4,000: 3 analysts agree it's under pressure, and disagree on the floor",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYXBTSWFPSUYyR252aU5Va3hmMm5NbE5qUHBaY2RMLWk3WE81dzFVejlUc0F5bjU5WkJBc3hpZ3pCdTZyZzV0bHRNdEExRXlBRi1YNkR0S3pLMHRybm9OM19FS0EtcExXZmxQcVEtbm9OTDltbnVmYy11UndmeVdLak11NFRHM3NRc2JBbjVKTy1FN2djNWFWMzZLUTBqSVplRElVcmJ2Z25qMWR1a29QNUFDbmNiYVYxUURkc1JHSk5udl9DaXFFTENRTE5DYjlROWhtcHU0Nkp4Sk9IZUNWV0U3NA?oc=5",
-   "ms": 1792756909000,
-   "time": "10/23 20:01"
+   "t": "Gold Is Sliding Back Toward $4,000 as the Haven Trade Breaks",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQajFQcTVucWxRSk15QkVzU3ozMFpDZFFXVkhER0ZKeWZIRkhvNW5TZHRZY1RWUENBeGtMeElrazlVVTVCTXVOVUZnMWUzQzJTU2JjM2tqUDQxZG9uYUxvbUp3OGx6ejNIRHhSNDZhQTAwcGpTb0xqSEprQ3hkQWFmMmlzckxrbG1QbnBvQVRwLW9FZkx4VGtwX1dDSVM?oc=5",
+   "ms": 1792761776000,
+   "time": "10/23 21:22"
   },
   {
    "t": "Gold price today, Friday, October 23, 2026: Gold opens at 3-month lows as oil prices keep rising",
@@ -52,7 +73,7 @@
    "t": "TSX futures drop amid gold price fall, AI anxieties",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUkR0N3E5ZGNCOFdrdWxoNFN3OGtVZ3owenJlenVZYW1TZHBrRV83VVQ0dV9mYnJ3c2Q4eGtodENtb2dnSDdBS3JveDFYci16c0ZlSWd1cTF3VFhmelpiM2czTHdmeXhiN0xRR3A5bGpoM0owYlpwZXBJVVJNdUdWaUgyQ1B0SVFDS0ZEdnRhYzJNVUdUa2xXSVMxUnRWNjMxZE1xVmNoS3FIX3M?oc=5",
-   "ms": 1792753529000,
+   "ms": 1792753546000,
    "time": "10/23 19:05"
   },
   {
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPaEFnUmwtbEdtWWdUUkJjQmNRSFJLOWFlbGdzLXZQZnJjR25FWVc0NUhVQTBlZjI5eTRfSm44b2F6QnFOVk9Sdm0tQ0Zyejl1aGZlek5yNXI0MzJmeEF4NkxKZkh5QlpPY0RFTGo1VW5wYjZYZ3JPdjRtYnpZZ2dKUGlnbGpyQnZSck1qOFlDN2lObHAxY2pFUDhfU0EwRG1IbmktWTBDUlhwUmgtQkhRTW13?oc=5",
    "ms": 1792732043000,
    "time": "10/23 13:07"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD hits fresh three-month low below $4,000 amid surging energy prices",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVGVPMGVnV04yaGNoaUhXX0J0dV80S0xnRHZ4a3F2SmJYLVBLemoyUEVLZklsSkcyNEFTbFh2UnY2czdkTkpJTzF5d0Z3SjJnQXBWRFR4WUtUS2ZrZS1uSWczYjlyOHdqSmlPOU1WcDBIMjR1TmkxZmZKRV9LaHB4cXNtbklranVvVVpqX3YtYzkwS3duMDJReXRqQWVrbUg4b3dQRFpDYWw1QUVJbGJUSDlRUEFzZTdZMnVISTg0Tm5MZmUyaG9uNmJYT3B0Mk5LeDhBazFFVQ?oc=5",
-   "ms": 1792726255000,
-   "time": "10/23 11:30"
-  },
-  {
-   "t": "Gold on track for sharp weekly drop as oil price surge fuels rate concerns",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOUVXME5UQlZPUUpuQlJRSlM5RWcxeTB2TTZieGZTaDBGM3VqajY5c0VsOHdJMkYyQTcyTGhOS084NkQtcTJyMjVxWmVsT0l5M254RXpBUlJmbGs1NWtHSzYya3VzTmh1ckVMa2RNZVdZNnNVLWIzMUhrLWMtc212RkZDdUlwdW51YWQwTHRVWEFYbVZ2U0JQYTRKSHNrQm9ieWxSOUUwS1FRMXRrYjhVaGNSMm5WaTFFc1lkR0VYTVJuUk9ZeGc?oc=5",
-   "ms": 1792720377000,
-   "time": "10/23 09:52"
-  },
-  {
-   "t": "Gold falls to two‑month low below $4,050 as oil spikes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNOGt3akRjaTllR1l3OWtsZzBxVGJoc2xRb2gwNmdkMEUxSGlJNDJ2djZjNjFRMDN2ckktU24tS0xGWlpzZkgtWkdxYXFfQ1UyX2Roc0JVeVZPWk1xbnJsM2pfeTZyRGVvRDRZUVB0UlBNU1ppVWRVempmaWxTdjk0emxPeklIWHRWc08yMDRDZkdSSHRJTDdTZktod3U?oc=5",
-   "ms": 1792712122000,
-   "time": "10/23 07:35"
   }
  ]
 }
