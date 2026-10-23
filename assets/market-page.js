@@ -281,7 +281,7 @@
   function paintLive() {
     var E = S.E; if (!E) return;
     var shown = sh(S.live), pe = $("price"), open = marketOpen(), paxg = S.feed && S.feed.source === "paxg";
-    $("price-k").textContent = open ? "现价 · 现货金" : "收盘价 · 现货金";
+    $("price-k").textContent = (open ? "现价 · " : "收盘价 · ") + (M.priceWord || "现货金");
     pe.textContent = fmt(shown, 2);
     if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
     S.lastShown = shown;
@@ -294,6 +294,34 @@
       $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + "，比现价高 " + fmt(b - shown, 1) + " 美元";
       $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = "现价 " + fmt(shown, 1);
     }
+    paintPreview(E, shown);
+  }
+  // 按现价预估: the rule decides on closed candles only (crosses inside a candle often reverse), but the visitor can
+  // see at any second which timeframes the price now stands beyond the turning close of, when that candle closes,
+  // and what the answer would become if it closed here. Not a signal, and never alerted.
+  function paintPreview(E, px) {
+    var el = $("v-pre"); if (!el) return;
+    if (!marketOpen() || num(px) === null) { el.hidden = true; return; }
+    var flips = [];
+    P.votes(E).forEach(function (v) {
+      if (!v.v) return;
+      var lvl = P.flipLevel(E, v.tf, -v.v); if (lvl === null) return;
+      if ((v.v > 0 && px < lvl) || (v.v < 0 && px > lvl)) flips.push({ tf: v.tf, to: -v.v, lvl: lvl });
+    });
+    if (!flips.length) { el.hidden = true; S.preKey = ""; return; }
+    var key = flips.map(function (f) { return f.tf + f.to; }).join(",");
+    if (key !== S.preKey) {
+      var E2 = Object.assign({}, E, { tfs: Object.assign({}, E.tfs) });
+      flips.forEach(function (f) { E2.tfs[f.tf] = Object.assign({}, E.tfs[f.tf], { trend: f.to > 0 ? "bullish" : "bearish", since: Date.now() }); });
+      S.preV = P.verdict(E2); S.preNow = P.verdict(E); S.preKey = key;
+    }
+    var nowS = Date.now() / 1000, close = function (tf) { var end = (Feed.bucket(nowS, tf) + Feed.DUR[tf]) * 1000; return (end - Date.now() > 20 * 3600000 ? sgt(end) : sgt(end, "t")) + " SGT"; };
+    clear(el);
+    el.appendChild(h("b", { text: "按现价预估（K 线还没收盘，不算数）：" }));
+    el.appendChild(document.createTextNode(flips.map(function (f) {
+      return P.TF_ZH[f.tf] + "：现价已经" + (f.to < 0 ? "低于 " : "高于 ") + fmt(f.lvl, 1) + "，这根 K 线 " + close(f.tf) + " 收盘时还在" + (f.to < 0 ? "下方" : "上方") + "，就转" + (f.to < 0 ? "向下" : "向上");
+    }).join("；") + "。真这样收盘的话，结论" + (S.preV.tag === S.preNow.tag ? "仍是「" + S.preV.tag + "」。" : "会从「" + S.preNow.tag + "」变成「" + S.preV.tag + "」。")));
+    el.hidden = false;
   }
 
   // ---------- timeframe table ----------
@@ -1361,7 +1389,8 @@
   S.chgBig = !!LS.get("chgBig", false);
   (function () {
     var st = document.createElement("style");
-    st.textContent = ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}" +
+    st.textContent = ".v-pre{margin:10px 0 0;padding:10px 13px;border:1px dashed rgba(212,167,44,.45);border-radius:12px;background:rgba(212,167,44,.06);font-size:12.5px;line-height:1.7;color:var(--text)}.v-pre b{color:var(--gold-lt)}" +
+      ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}" +
       ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
       ".cg-now{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--text);margin-bottom:12px}.cg-now b{color:var(--ink)}.cg-now .btn{margin-left:auto}" +
       ".cg-list{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:0}" +
