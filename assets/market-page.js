@@ -1196,7 +1196,15 @@
   // recomputing after each 15-minute close and notifies when the answer turns into "go". The answer the page opened
   // with is the baseline (no alert for a signal already showing), and each signal alerts once across all open tabs.
   var NOTE_OK = "Notification" in window;
-  S.notify = !!LS.get("notify", false);
+  // On unless the visitor switched it off (the owner asked on 2026-10-23 for it to be on by default). The browser's
+  // permission is per site, so allowing it once covers the gold page and the Bitcoin page alike.
+  S.notify = LS.get("notify", true) !== false;
+  function askPermission() {
+    if (!NOTE_OK || !S.notify || Notification.permission !== "default" || S.asking) return;
+    S.asking = true;
+    var done = function () { S.asking = false; renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号或趋势变化时会弹出通知"); };
+    try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done, done); } catch (e) { done(); }
+  }
   // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
   // the weekly / daily / 4-hour trend turning, and (off by default: several times a day) the 1-hour / 15-minute
   S.nopt = Object.assign({ signal: true, verdict: true, big: true, small: false }, LS.get("notifyOpts", {}));
@@ -1219,17 +1227,15 @@
       if (!soundOn()) snd.appendChild(h("button", { type: "button", class: "btn sm", text: "开启提示音", onclick: function () { ensureAudio(); setTimeout(function () { chime(); renderAlert(); }, 150); } }));
       t.appendChild(snd);
     }
+    else if (S.notify && perm === "default") { t.appendChild(h("b", { text: "🔔 提醒默认开着，还差浏览器允许一次。" })); t.appendChild(document.createTextNode("浏览器弹出询问时点「允许」；没看到询问就点右边的按钮。允许一次以后，黄金页和比特币页都不用再点。")); }
     else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: "浏览器拒绝了通知。" })); t.appendChild(document.createTextNode("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。")); }
     else { t.appendChild(h("b", { text: "🔔 有新信号或趋势变化时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
     el.appendChild(t);
     if (on) {
       el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", M.id + "-test"); } }));
       el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "关闭", onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
-    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: "开启提醒", onclick: function () {
-      S.notify = true; LS.set("notify", true);
-      try { if (!S.audio && (window.AudioContext || window.webkitAudioContext)) S.audio = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}   // unlocked by this click, for the chime
-      var done = function () { renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号或趋势变化时会弹出通知"); };
-      try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done); } catch (e) { done(); }
+    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? "允许通知" : "开启提醒", onclick: function () {
+      S.notify = true; LS.set("notify", true); ensureAudio(); askPermission(); renderAlert();
     } }));
   }
   // The chime. Browsers let a page make sound only after the visitor has clicked or typed on it since it was
@@ -1243,7 +1249,8 @@
     return !!(S.audio && S.audio.state === "running");
   }
   function soundOn() { return !!(S.audio && S.audio.state === "running"); }
-  if (S.notify) setTimeout(function () { ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); }, 400); }, 0);
+  if (S.notify) setTimeout(function () { askPermission(); ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); }, 400); }, 0);
+  document.addEventListener("click", function () { if (S.notify && NOTE_OK && Notification.permission === "default") askPermission(); }, { once: false, passive: true });
   ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(renderAlert, 300); } }, { passive: true }); });
   function chime() {
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
