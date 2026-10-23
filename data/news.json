@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 19:40 SGT",
+ "updated": "2026-10-23 22:57 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,39 @@
  ],
  "items": [
   {
-   "t": "$4,000: Gold fights to hold its ground after sharp sell-off",
+   "t": "Gold drops below $4,000 as ‘haven’ asset joins market sell-off",
+   "src": "Financial Times",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNREJiUTlBN3JzcUxxMzV0ZkI2Qkc3UjlydG5yRWtzTDZGZzJnMHF3ampSSW1YblM1aEQxck9vMjF5dFBZdUpBWDVNY2Y1cEZXMk5td09NclZ1T0E3eG1KY2JLZG83SE14TUtSWTJmeGRwSzNIYjBkRDJqaXFXSVhvSmhsUy0?oc=5",
+   "ms": 1792766266000,
+   "time": "10/23 22:37"
+  },
+  {
+   "t": "Gold price trades near $4,000/oz after final Consumer Sentiment holds steady at 48, inflation expectations rise",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPZUUtZHJuN3lDVDVOWHVqbFRoZEFHckp0UDI3MUpHN2ZJMVpXMTdROTJQX29yMHgteWFYZDdXVUVOMXp6c3FLVzFLc2V2NTctMzBGTnlJSmJyQWxhWGs2azVqQ0JjUGx2M3BUNVFjNFY0cTgtMlc0NXpxYy1NZGdVRlNsaVU5Ump4cWFlRU9Fd2R3NVFvaGpDem9kT2xLSFc0YklVb2FQcE1ObGp6ek9NMUNVN1BfYndmb3BN?oc=5",
+   "ms": 1792764073000,
+   "time": "10/23 22:01"
+  },
+  {
+   "t": "Gold eyes weekly loss of over 3% as Fed interest rate decision looms",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQTVjU1hSdWdxNkxCVWc1OWZyR1VTZE1WbGdiblo0UW01bG5vYU9Sanh5NG1zQnlsZG5aM2UzdjdqR0xjSHRHUEE3cF82UGd1em1jNkgzNmhIeW9pQUtaVDRzejl1NUtZUUZicUpXWlVKcEt3NXF3OHdUbXRLSG1ZaWdib21WQmhMOVpDMXdjV2VIN0FrN1JhRmVSVUNsVHdzWkE?oc=5",
-   "ms": 1792754587000,
-   "time": "10/23 19:23"
+   "ms": 1792763335000,
+   "time": "10/23 21:48"
+  },
+  {
+   "t": "Current price of gold as of October 23, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1xOFNycUgxTnVOaTg4cVpaUlhNZXJUOHFwTVdwbjk0UW5COXUwamZJaTJCZDhhNkRhc3BfdUxjWFdiTnozbDlUd3BxRmxCbFFOek1zaDVQZUstZ1pnbTJmcjY2bHBhVlkzRmUyNTJVYkxtTjQ?oc=5",
+   "ms": 1792762020000,
+   "time": "10/23 21:27"
+  },
+  {
+   "t": "Gold slides to a 3-month low below $4,000: 3 analysts agree it's under pressure, and disagree on the floor",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQYXBTSWFPSUYyR252aU5Va3hmMm5NbE5qUHBaY2RMLWk3WE81dzFVejlUc0F5bjU5WkJBc3hpZ3pCdTZyZzV0bHRNdEExRXlBRi1YNkR0S3pLMHRybm9OM19FS0EtcExXZmxQcVEtbm9OTDltbnVmYy11UndmeVdLak11NFRHM3NRc2JBbjVKTy1FN2djNWFWMzZLUTBqSVplRElVcmJ2Z25qMWR1a29QNUFDbmNiYVYxUURkc1JHSk5udl9DaXFFTENRTE5DYjlROWhtcHU0Nkp4Sk9IZUNWV0U3NA?oc=5",
+   "ms": 1792756909000,
+   "time": "10/23 20:01"
   },
   {
    "t": "Gold price today, Friday, October 23, 2026: Gold opens at 3-month lows as oil prices keep rising",
@@ -63,13 +91,6 @@
    "time": "10/23 13:07"
   },
   {
-   "t": "Gold heads for steep weekly loss as oil prices fuel Fed rate concerns",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWE1LcUgzRWRwVDZmX3FEaWszVHF0cFQ1ekt6M1pyQ0lfc05PQm9DekdZcXprdm1vQk00SlNEZjEwQllCd1VwMUJySnIxcF9ZblFaRHFsV3BzSU52SlJSSi1TeWxoTmdYc1h6UHhPQTFQYU41ZEdQTFRNY3l0N1Q2bnRDV2x1MjlveGtxTk1oQWlGd3ExcUZEd2QzdF9TUkVKcXotUlIycUgtb1RrZjJ3?oc=5",
-   "ms": 1792728840000,
-   "time": "10/23 12:14"
-  },
-  {
    "t": "Gold Price Forecast: XAU/USD hits fresh three-month low below $4,000 amid surging energy prices",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVGVPMGVnV04yaGNoaUhXX0J0dV80S0xnRHZ4a3F2SmJYLVBLemoyUEVLZklsSkcyNEFTbFh2UnY2czdkTkpJTzF5d0Z3SjJnQXBWRFR4WUtUS2ZrZS1uSWczYjlyOHdqSmlPOU1WcDBIMjR1TmkxZmZKRV9LaHB4cXNtbklranVvVVpqX3YtYzkwS3duMDJReXRqQWVrbUg4b3dQRFpDYWw1QUVJbGJUSDlRUEFzZTdZMnVISTg0Tm5MZmUyaG9uNmJYT3B0Mk5LeDhBazFFVQ?oc=5",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNOGt3akRjaTllR1l3OWtsZzBxVGJoc2xRb2gwNmdkMEUxSGlJNDJ2djZjNjFRMDN2ckktU24tS0xGWlpzZkgtWkdxYXFfQ1UyX2Roc0JVeVZPWk1xbnJsM2pfeTZyRGVvRDRZUVB0UlBNU1ppVWRVempmaWxTdjk0emxPeklIWHRWc08yMDRDZkdSSHRJTDdTZktod3U?oc=5",
    "ms": 1792712122000,
    "time": "10/23 07:35"
-  },
-  {
-   "t": "Newmont beats quarterly profit estimates on higher gold prices, Cadia recovery",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNajFlVFVVNzNoeTg5cTNJM2ZuNjZoU3RBUVUwdnZOUXljd2tpM2dHbDhjbUU4V0JCZkZMWmlrNWlTeHJLM2g0aE01MGE1VkZndzdPb2J0R2Q3bjJtWkJvMG5DeWdLUmJwamw3ckpNeG9jb3RYSFFiLW5PanFLdlRUUXNvN3ptWDBjZ01aR1JMaFRwXzd5RE1jWnNqMDhTWU1SZmp5ekxrWQ?oc=5",
-   "ms": 1792707447000,
-   "time": "10/23 06:17"
-  },
-  {
-   "t": "Gold Miner Newmont Stock Rises on Expected Return to Growth in 2027",
-   "src": "Barron's",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMm1CdVhhSTNOeWFLR3J2UDVYdTBFeUstU25FOWNMVzlnalZPb3FiS2dTTVhYaC1ERUw2amVXZXpqUnJaRUlpTTlXS05rU19RenBBZnJGbjhKVW13anBHNUp3dllHZTkxUk9vWDFmQmdkUXoxZkpRcFIwdVd3R20xRg?oc=5",
-   "ms": 1792702440000,
-   "time": "10/23 04:54"
-  },
-  {
-   "t": "War in Iran, higher energy prices are only delaying gold's rally to $5,000; mining stocks remain undervalued – Gabelli",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy1KLUdfVklTU19ybkZVc3VVVy1JakVKZHB1SlNKR2NJNEg0cVpSR3VnTVZhSFZzaWNPbWR1Y0c3MVJZSGRSdTVwMGk2X1FBRTFRZjdReEpWbk1aSTJicnhlaFlQcG1TM3JNcnpQdDZQanRiTGd3cG9kUXVsZ0c3VnZ6Ujd3M1JFbW5nT0VYdktQaWdwNHIzdnZPMEFuUDVhTnRJbGt1WVEyQzk5SWRCM2QxelNYSmk2?oc=5",
-   "ms": 1792702155000,
-   "time": "10/23 04:49"
   }
  ]
 }
