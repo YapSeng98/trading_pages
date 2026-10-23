@@ -35,7 +35,13 @@ async function get(url) {
 
 (async () => {
   const now = Date.now(), K = {};
-  for (const tf of Object.keys(IV)) K[tf] = (await get(API + "&interval=" + IV[tf] + "&limit=" + LIM[tf])).filter(x => x[6] < now).map(x => [x[0], +x[1], +x[2], +x[3], +x[4], +x[5], x[6]]);
+  for (const tf of Object.keys(IV)) {
+    let rows = await get(API + "&interval=" + IV[tf] + "&limit=" + LIM[tf]);
+    // quarter-hours: a second page further back, so the trend-change history can look back five days with the
+    // engine still seeing its full 800 candles at the start
+    if (tf === "15M" && rows.length) rows = (await get(API + "&interval=15m&limit=1000&endTime=" + (rows[0][0] - 1))).concat(rows);
+    K[tf] = rows.filter(x => x[6] < now).map(x => [x[0], +x[1], +x[2], +x[3], +x[4], +x[5], x[6]]);
+  }
   if (K["15M"].length < 200 || K["1H"].length < 200) throw new Error("too little data from Binance");
   const last = K["15M"][K["15M"].length - 1], feed = { source: "spot", K, price: last[4], priceAt: last[6] + 1 };
   E.XAU_TFS.forEach(c => { c.bars = 0; });

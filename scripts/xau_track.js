@@ -36,6 +36,19 @@ function summary(signals) {
 
 // deps.cfg lets another market use the same record (scripts/update_btc.js): spreadBp, finLong / finShort (yearly
 // financing), nights(fromMs, toMs), shut(T) (true when a signal at T cannot be entered). Gold's are the defaults.
+// Every timeframe's trend at each 15-minute close is compared with the one before: each flip goes into log.changes
+// (newest last, the last 150 kept), so the report page can list the trend changes even for the hours nobody had
+// it open. The first run after this was added looks back over the history it has (BACKFILL_DAYS).
+const TFS = ["W", "D", "4H", "1H", "15M"], BACKFILL_DAYS = 5, KEEP_CHANGES = 150;
+function trendsOf(eng) { const o = {}; TFS.forEach(tf => { const t = eng.tfs[tf]; o[tf] = t && !t.error ? t.trend : null; }); return o; }
+function changesBetween(before, eng, T, price) {
+  const now = trendsOf(eng), out = [];
+  if (before) TFS.forEach(tf => {
+    const a = before[tf], b = now[tf], t = eng.tfs[tf];
+    if (a && b && a !== b) out.push({ ms: T, time: SGT(T), tf, from: a, to: b, price: r2(price), level: t && t.lastEvent ? r2(t.lastEvent.level) : null, a3: eng.overall.agree3, a5: eng.overall.agree5 });
+  });
+  return { now, out };
+}
 function track(K, log, deps) {
   const { E, F } = deps, m15 = K["15M"] || [], alerts = [];
   const cfg = Object.assign({ spreadBp: SPREAD_BP, finLong: FINANCING, finShort: 0, nights: (a, b) => nights(F, a, b),
@@ -49,14 +62,21 @@ function track(K, log, deps) {
     return E.runXauEngine(feed, T);
   };
   const fresh = why => {
-    const ov = evalAt(lastT).overall;
+    const e0 = evalAt(lastT), ov = e0.overall;
     return { rule: "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔", since: SGT(lastT), sinceMs: lastT, lastChecked: lastT, a3: ov.agree3, a5: ov.agree5,
-      open: null, nextId: 1, signals: [], events: [{ ms: lastT, time: SGT(lastT), type: "start", text: why }], summary: summary([]) };
+      open: null, nextId: 1, signals: [], events: [{ ms: lastT, time: SGT(lastT), type: "start", text: why }], summary: summary([]), trends: trendsOf(e0), changes: [] };
   };
   if (!log || !log.lastChecked) return { log: fresh("开始记录"), alerts };
+  if (!log.changes) {                                           // a record from before the change list existed: look back first
+    log.changes = []; let prev = null;
+    for (let i = Math.max(1, upto(m15, log.lastChecked - BACKFILL_DAYS * 86400000)); i < m15.length && m15[i][6] + 1 <= log.lastChecked; i++) {
+      const T = m15[i][6] + 1, r = changesBetween(prev, evalAt(T), T, m15[i][4]); log.changes.push(...r.out); prev = r.now;
+    }
+    log.trends = prev;
+  }
   const start = upto(m15, log.lastChecked);
   if (m15.length - start > MAX_CATCHUP) {                       // too long a gap to walk through with full history: start again from now, keep what is on record
-    const f = fresh("记录中断后重新开始（中间一段没有数据）"); f.since = log.since; f.sinceMs = log.sinceMs; f.nextId = log.nextId; f.signals = log.signals; f.open = log.open; f.events = log.events.concat(f.events).slice(-80); f.summary = summary(f.signals);
+    const f = fresh("记录中断后重新开始（中间一段没有数据）"); f.since = log.since; f.sinceMs = log.sinceMs; f.nextId = log.nextId; f.signals = log.signals; f.open = log.open; f.events = log.events.concat(f.events).slice(-80); f.summary = summary(f.signals); f.changes = log.changes || [];
     return { log: f, alerts };
   }
   const note = (ms, type, text) => { log.events.push({ ms, time: SGT(ms), type, text }); };
@@ -76,6 +96,7 @@ function track(K, log, deps) {
     }
     // 2. what the engine says with the candles closed by now
     const eng = evalAt(T), ov = eng.overall, a3 = ov.agree3, a5 = ov.agree5, H1 = eng.tfs["1H"], way = d => (d > 0 ? "向上" : "向下");
+    { const r = changesBetween(log.trends, eng, T, k[4]); log.changes.push(...r.out); log.trends = r.now; }
     // 3. the big three coming into line, or falling out of it
     if (a3 !== log.a3) {
       if (a3 !== 0 && !(a5 !== 0 && a5 !== log.a5)) { note(T, "ready", "周线、日线、4 小时同向" + way(a3)); alerts.push("🟡 周线、日线、4 小时都" + way(a3) + "了（" + SGT(T) + "，现货金 " + money(k[4]) + "）。还差 1 小时和 15 分钟也转成" + way(a3) + "，到时会再提醒。"); }
@@ -97,7 +118,7 @@ function track(K, log, deps) {
     }
     log.a3 = a3; log.a5 = a5; log.lastChecked = T;
   }
-  log.events = log.events.slice(-80); log.summary = summary(log.signals);
+  log.events = log.events.slice(-80); log.changes = log.changes.slice(-KEEP_CHANGES); log.summary = summary(log.signals);
   return { log, alerts };
 }
 module.exports = { track, summary, SGT, SPREAD_BP, FINANCING, STOP_ATR, TARGET_R };

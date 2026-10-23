@@ -1120,7 +1120,7 @@
   function sgn(v, d) { d = d === undefined ? 2 : d; var t = Math.abs(v).toFixed(d); return (+t === 0 ? "" : v > 0 ? "+" : "−") + t; }
   function loadProof() {
     fetch(M.signals, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
-      if (d && d.summary) { S.rec = d; renderProof(); if (S.E) renderVerdict(); }
+      if (d && d.summary) { S.rec = d; renderProof(); renderChanges(); if (S.E) renderVerdict(); }
     }).catch(function () {});
   }
   // The visitor's own trades: the P&L calendar (journal.html keeps them in localStorage "pnl.v1"; same site, so this
@@ -1195,33 +1195,61 @@
   // with is the baseline (no alert for a signal already showing), and each signal alerts once across all open tabs.
   var NOTE_OK = "Notification" in window;
   S.notify = !!LS.get("notify", false);
+  // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
+  // the weekly / daily / 4-hour trend turning, and (off by default: several times a day) the 1-hour / 15-minute
+  S.nopt = Object.assign({ signal: true, verdict: true, big: true, small: false }, LS.get("notifyOpts", {}));
   function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
   function renderAlert() {
     var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
     var perm = Notification.permission, on = alertsOn(); el.className = "v-alert" + (on ? " on" : "");
     var t = h("div", { class: "t" });
-    if (on) { t.appendChild(h("b", { text: "🔔 新信号提醒已开。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，出现新的做多或做空信号时弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。")); }
+    if (on) {
+      t.appendChild(h("b", { text: "🔔 提醒已开。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
+      var opts = h("div", { class: "nopts" });
+      [["signal", "新的做多 / 做空信号"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时转向"], ["small", "1 小时、15 分钟转向（一天可能好几次）"]].forEach(function (o) {
+        var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
+        cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
+        opts.appendChild(h("label", { class: "nopt", for: "nopt-" + o[0] }, [cb, o[1]]));
+      });
+      t.appendChild(opts);
+      var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
+      snd.appendChild(document.createTextNode(soundOn() ? "🔊 提示音已开（电脑静音或勿扰模式时听不到）。" : "🔇 提示音还没开：浏览器规定页面打开后要先点一下才能出声。点右边按钮，或点页面任意地方。"));
+      if (!soundOn()) snd.appendChild(h("button", { type: "button", class: "btn sm", text: "开启提示音", onclick: function () { ensureAudio(); setTimeout(function () { chime(); renderAlert(); }, 150); } }));
+      t.appendChild(snd);
+    }
     else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: "浏览器拒绝了通知。" })); t.appendChild(document.createTextNode("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。")); }
-    else { t.appendChild(h("b", { text: "🔔 有新的做多 / 做空信号时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
+    else { t.appendChild(h("b", { text: "🔔 有新信号或趋势变化时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
     el.appendChild(t);
     if (on) {
-      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "xau-test"); } }));
+      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "xau-test"); } }));
       el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "关闭", onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
     } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: "开启提醒", onclick: function () {
       S.notify = true; LS.set("notify", true);
       try { if (!S.audio && (window.AudioContext || window.webkitAudioContext)) S.audio = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}   // unlocked by this click, for the chime
-      var done = function () { renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号时会弹出通知"); };
+      var done = function () { renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号或趋势变化时会弹出通知"); };
       try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done); } catch (e) { done(); }
     } }));
   }
+  // The chime. Browsers let a page make sound only after the visitor has clicked or typed on it since it was
+  // loaded, so the sound is unlocked by the first click anywhere (or by 开启提示音 / 试一下); until then the
+  // notification still pops up, silently, and the switch says so.
+  function ensureAudio() {
+    try {
+      if (!S.audio && (window.AudioContext || window.webkitAudioContext)) S.audio = new (window.AudioContext || window.webkitAudioContext)();
+      if (S.audio && S.audio.state === "suspended") S.audio.resume().then(function () { if ($("v-alert")) renderAlert(); }, function () {});
+    } catch (e) {}
+    return !!(S.audio && S.audio.state === "running");
+  }
+  function soundOn() { return !!(S.audio && S.audio.state === "running"); }
+  ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(renderAlert, 300); } }, { passive: true }); });
   function chime() {
-    var a = S.audio; if (!a) return;
-    try { [0, 0.22].forEach(function (d, i) { var o = a.createOscillator(), g = a.createGain(); o.frequency.value = i ? 1046 : 784; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.18, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.2); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.22); }); } catch (e) {}
+    ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
+    try { [[0, 784], [0.2, 1046], [0.4, 1318]].forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = "triangle"; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
   }
   function fireAlert(title, body, tag) {
     if (!alertsOn()) return;
     try {
-      var n = new Notification(title, { body: body, tag: tag, renotify: true, requireInteraction: true });
+      var n = new Notification(title, { body: body, tag: tag, renotify: true, requireInteraction: true, silent: false });
       n.onclick = function () { try { window.focus(); } catch (e) {} $("verdict").scrollIntoView({ behavior: "smooth", block: "start" }); n.close(); };
     } catch (e) { toast(title + "：" + body); }
     chime();
@@ -1229,14 +1257,106 @@
   }
   // called with every new answer: alert when it has just become "go"
   function alertCheck(V, unconfirmed) {
+    levelCheck(V, unconfirmed);
     var R = V.regime || {}, key = V.level === "go" && !V.closed && !unconfirmed ? "go:" + R.dir + ":" + (R.since5 || "") : null;
     var prev = S.alertKey; S.alertKey = key;
     if (prev === undefined) { if (key) LS.set("notified", key); return; }      // the answer the page opened with: already on screen
     if (!key || key === prev || LS.get("notified", "") === key) return;
     LS.set("notified", key);
+    if (!S.nopt.signal) return;
     var k = sysPlanNow(false), nw = newsCheck();
     fireAlert(M.sym + " 新信号：" + V.tag, V.title + "。现价 " + fmt(S.live, 1) + (k ? "，" + (k.side === "short" ? "卖出" : "买入") + "止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）" : "") + "。" + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", "xau-signal");
   }
+
+  // The answer moving from one state to another (a new "go" has its own alert above): e.g. the signal fading to
+  // "wait for the small timeframes", or the big three falling out of line.
+  function levelCheck(V, unconfirmed) {
+    if (V.closed || unconfirmed) return;
+    var R = V.regime || {}, key = V.level + ":" + (R.dir || 0), prev = S.levelKey; S.levelKey = key;
+    if (prev === undefined || prev === key || V.level === "go") return;
+    var stamp = key + ":" + Math.floor(Date.now() / 900000);                    // once per quarter hour across tabs
+    if (LS.get("notifiedLevel", "") === stamp) return; LS.set("notifiedLevel", stamp);
+    if (!S.nopt.verdict) return;
+    fireAlert(M.sym + " 结论变了：" + V.tag, V.title + "。现在 " + arrowsNow() + "。" + (S.pos ? "你有持仓：看「我的持仓」里写的做法。" : ""), "xau-level");
+  }
+  var TW = { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
+  function arrowsNow() { return S.E ? P.votes(S.E).map(function (v) { return P.TF_S[v.tf] + (v.v > 0 ? "↑" : v.v < 0 ? "↓" : "–"); }).join(" ") : ""; }
+  // ---------- trend changes ----------
+  // Each recompute is compared with the one before (on the same data source): a timeframe whose trend has flipped
+  // is listed, and alerted if wanted. The server's record (S.rec.changes, every 15-minute close, also while no page
+  // is open) gives the history before this page was opened.
+  S.liveChanges = [];
+  function trendCheck(E, source) {
+    var cur = {}; ["W", "D", "4H", "1H", "15M"].forEach(function (tf) { var t = E.tfs[tf]; cur[tf] = t && !t.error ? t.trend : null; });
+    var prev = S.prevTrends, same = S.prevSource === source; S.prevTrends = cur; S.prevSource = source;
+    if (!prev || !same || source === "paxg") return;
+    var m15 = E.tfs["15M"], closeMs = m15 && m15.barTime ? Date.parse(m15.barTime) + 900000 : Date.now();
+    Object.keys(cur).forEach(function (tf) {
+      var a = prev[tf], b = cur[tf]; if (!a || !b || a === b) return;
+      var t = E.tfs[tf], ch = { ms: num(t.since) !== null ? t.since : closeMs, tf: tf, from: a, to: b, price: S.feed ? S.feed.price : null, level: t.lastEvent ? t.lastEvent.level : null,
+        a3: E.overall.agree3, a5: E.overall.agree5, live: true };
+      S.liveChanges.push(ch);
+      var key = "chg:" + tf + ":" + ch.ms; if (LS.get("notifiedChg", "") === key) return; LS.set("notifiedChg", key);
+      var big = tf === "W" || tf === "D" || tf === "4H";
+      if (big ? !S.nopt.big : !S.nopt.small) return;
+      var V = P.verdict(E);
+      fireAlert(M.sym + "：" + P.TF_ZH[tf] + "转" + TW[b], "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? "，" + (b === "bearish" ? "跌破 " : "站上 ") + fmt(ch.level, 1) : "") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", "xau-trend-" + tf);
+    });
+    renderChanges();
+  }
+  // the list: the server's record, plus any flip it has not seen yet (each timeframe's start time is newer than the
+  // record's last check), plus what this page saw itself
+  function allChanges() {
+    var r = S.rec, out = (r && r.changes ? r.changes.slice() : []), seen = {}, last = r && num(r.lastChecked) !== null ? r.lastChecked : 0;
+    var keyOf = function (c) { return c.tf + ":" + Math.round(c.ms / 900000); };
+    out.forEach(function (c) { seen[keyOf(c)] = 1; });
+    S.liveChanges.forEach(function (c) { if (!seen[keyOf(c)]) { seen[keyOf(c)] = 1; out.push(c); } });
+    if (S.E) ["W", "D", "4H", "1H", "15M"].forEach(function (tf) {
+      var t = S.E.tfs[tf]; if (!t || t.error || num(t.since) === null || t.since <= last || (t.trend !== "bullish" && t.trend !== "bearish")) return;
+      var c = { ms: t.since, tf: tf, from: t.trend === "bullish" ? "bearish" : "bullish", to: t.trend, price: null, level: t.lastEvent ? t.lastEvent.level : null, a3: S.E.overall.agree3, a5: S.E.overall.agree5, live: true };
+      if (!seen[keyOf(c)]) { seen[keyOf(c)] = 1; out.push(c); }
+    });
+    return out.sort(function (a, b) { return b.ms - a.ms; });
+  }
+  function renderChanges() {
+    var box = $("chg-body"); if (!box) return;
+    var list = allChanges(), bigOnly = !!S.chgBig, shown = list.filter(function (c) { return !bigOnly || c.tf === "W" || c.tf === "D" || c.tf === "4H"; });
+    clear(box);
+    $("chg-span").textContent = S.rec && S.rec.changes ? "每根 15 分钟 K 线收盘后检查 · 记录从 " + sgt(S.rec.changes.length ? S.rec.changes[0].ms : S.rec.lastChecked, "d") + " 起" : "记录读取中";
+    var head = h("div", { class: "cg-now" }); head.appendChild(h("b", { text: "现在 " + arrowsNow() })); 
+    if (list[0]) head.appendChild(document.createTextNode(" · 最近一次：" + P.TF_ZH[list[0].tf] + "转" + TW[list[0].to] + "（" + sgt(list[0].ms) + "，" + ago(list[0].ms) + "）"));
+    var tg = h("button", { type: "button", class: "btn sm ghost", text: bigOnly ? "显示全部周期" : "只看周线、日线、4 小时", onclick: function () { S.chgBig = !S.chgBig; LS.set("chgBig", S.chgBig); renderChanges(); } });
+    head.appendChild(tg); box.appendChild(head);
+    if (!shown.length) { box.appendChild(h("p", { class: "note", text: bigOnly ? "这段时间周线、日线、4 小时都没有转向。" : "这段时间没有周期转向。" })); return; }
+    var ol = h("ol", { class: "cg-list" }), limit = S.chgAll ? shown.length : 8;
+    shown.slice(0, limit).forEach(function (c) {
+      var big = c.tf === "W" || c.tf === "D" || c.tf === "4H", up = c.to === "bullish", fresh = Date.now() - c.ms < 4 * 3600000;
+      var after = c.a5 ? "五个周期同向" + (c.a5 > 0 ? "向上：做多信号" : "向下：做空信号") : c.a3 ? "三大周期同向" + (c.a3 > 0 ? "向上" : "向下") + "，等小周期" : "";
+      ol.appendChild(h("li", { class: "cg" + (big ? " big" : "") }, [
+        h("span", { class: "cg-t", text: sgt(c.ms) }),
+        h("span", { class: "cg-tf " + (up ? "up" : "dn"), text: P.TF_S[c.tf] }),
+        h("span", { class: "cg-d " + (up ? "up" : "dn"), text: (TW[c.from] || "—") + " → " + TW[c.to] + (fresh ? " · 新" : "") }),
+        h("span", { class: "cg-p", text: (c.price !== null && c.price !== undefined ? "收盘 " + fmt(c.price, 1) : "") + (c.level !== null && c.level !== undefined ? (c.price !== null && c.price !== undefined ? "，" : "") + (up ? "站上 " : "跌破 ") + fmt(c.level, 1) : "") }),
+        after ? h("span", { class: "cg-a" + (c.a5 ? " sig" : ""), text: after }) : null
+      ]));
+    });
+    box.appendChild(ol);
+    if (shown.length > 8) box.appendChild(h("button", { type: "button", class: "btn sm ghost", text: S.chgAll ? "收起" : "显示全部 " + shown.length + " 条", onclick: function () { S.chgAll = !S.chgAll; renderChanges(); } }));
+  }
+  S.chgBig = !!LS.get("chgBig", false);
+  (function () {
+    var st = document.createElement("style");
+    st.textContent = ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
+      ".cg-now{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--text);margin-bottom:12px}.cg-now b{color:var(--ink)}.cg-now .btn{margin-left:auto}" +
+      ".cg-list{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:0}" +
+      ".cg{display:grid;grid-template-columns:96px 64px 112px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:9px 4px;border-top:1px solid var(--border);font-size:12.5px;color:var(--dim)}" +
+      ".cg.big{color:var(--text)}.cg.big .cg-tf{font-weight:700}" +
+      ".cg-t{font-family:var(--f-m);font-size:11.5px;white-space:nowrap}.cg-tf{font-family:var(--f-m);font-size:11.5px;padding:3px 8px;border-radius:6px;text-align:center;background:var(--bg3)}" +
+      ".cg-tf.up,.cg-d.up{color:var(--bull)}.cg-tf.dn,.cg-d.dn{color:var(--bear)}.cg-d{font-weight:600;white-space:nowrap}.cg-p{font-family:var(--f-m);font-size:11.5px;min-width:0}" +
+      ".cg-a{font-size:11.5px;padding:3px 9px;border-radius:999px;background:var(--bg3);white-space:nowrap}.cg-a.sig{color:var(--gold-lt);background:rgba(212,167,44,.12)}" +
+      "@media(max-width:700px){.cg{grid-template-columns:auto auto minmax(0,1fr)}.cg-p,.cg-a{grid-column:1/-1}.cg-a{justify-self:start}}";
+    document.head.appendChild(st);
+  })();
 
   // ---------- the written brief inside this page ----------
   // daily.html, news.html and risk.html load in frames only when their tab is first opened (or the section scrolls
@@ -1270,10 +1390,10 @@
     var gnLinks = all("#gnav a"), seen = {};
     var gio = new IntersectionObserver(function (es) {
       es.forEach(function (x) { seen[x.target.id] = x.isIntersecting; });
-      var cur = ["verdict", "ask", "chart-sec", "plan", "read", "replay", "dtabs"].filter(function (id) { return seen[id]; })[0];
+      var cur = ["verdict", "changes", "ask", "chart-sec", "plan", "read", "replay", "dtabs"].filter(function (id) { return seen[id]; })[0];
       gnLinks.forEach(function (a) { var href = a.getAttribute("href").slice(1), id = /^read-/.test(href) ? "read" : href; a.classList.toggle("on", id === cur && (id !== "read" || a.getAttribute("data-read") === S.readTab)); });
     }, { rootMargin: "-25% 0px -60% 0px" });
-    ["verdict", "ask", "chart-sec", "plan", "read", "replay", "dtabs"].forEach(function (id) { var el = $(id); if (el) gio.observe(el); });
+    ["verdict", "changes", "ask", "chart-sec", "plan", "read", "replay", "dtabs"].forEach(function (id) { var el = $(id); if (el) gio.observe(el); });
   }
   (function navH() { var nb = document.querySelector(".navbar"); document.documentElement.style.setProperty("--navh", (nb ? nb.offsetHeight : 54) + "px"); window.addEventListener("resize", function () { document.documentElement.style.setProperty("--navh", (nb ? nb.offsetHeight : 54) + "px"); }); })();
 
@@ -1422,7 +1542,7 @@
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
       renderAll(); setStamp();
-      renderProof();
+      renderProof(); trendCheck(E, feed.source); renderChanges();
       if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");

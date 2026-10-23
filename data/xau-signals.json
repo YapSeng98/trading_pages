@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1792755000000,
+ "lastChecked": 1792757700000,
  "a3": -1,
  "a5": -1,
  "open": 1,
@@ -44,5 +44,157 @@
   "totalR": 0,
   "avgR": null,
   "open": 1
+ },
+ "changes": [
+  {
+   "ms": 1792400400000,
+   "time": "2026-10-19 17:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4170.44,
+   "level": 4170.88,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792418400000,
+   "time": "2026-10-19 22:00 SGT",
+   "tf": "1H",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4154.5,
+   "level": 4155.26,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792463400000,
+   "time": "2026-10-20 10:30 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 4139.75,
+   "level": 4139.2,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792490400000,
+   "time": "2026-10-20 18:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4112.51,
+   "level": 4118.35,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792503900000,
+   "time": "2026-10-20 21:45 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 4129.49,
+   "level": 4127.1,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792538100000,
+   "time": "2026-10-21 07:15 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4118.23,
+   "level": 4118.54,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792560600000,
+   "time": "2026-10-21 13:30 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 4127.85,
+   "level": 4124.18,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792566000000,
+   "time": "2026-10-21 15:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4112.02,
+   "level": 4112.79,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792579500000,
+   "time": "2026-10-21 18:45 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 4128.31,
+   "level": 4124.91,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792584000000,
+   "time": "2026-10-21 20:00 SGT",
+   "tf": "1H",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 4139.77,
+   "level": 4129.31,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792609200000,
+   "time": "2026-10-22 03:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4113.02,
+   "level": 4121.31,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792641600000,
+   "time": "2026-10-22 12:00 SGT",
+   "tf": "1H",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4092.04,
+   "level": 4104.62,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1792688400000,
+   "time": "2026-10-23 01:00 SGT",
+   "tf": "4H",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4037.9,
+   "level": 4073.33,
+   "a3": -1,
+   "a5": -1
+  }
+ ],
+ "trends": {
+  "W": "bearish",
+  "D": "bearish",
+  "4H": "bearish",
+  "1H": "bearish",
+  "15M": "bearish"
  }
 }
