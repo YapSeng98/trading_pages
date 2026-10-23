@@ -149,11 +149,9 @@ footer .disc strong{color:var(--text)}
 <!-- sticky glass nav -->
 <nav class="navbar">
   <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
-  <a class="nl" href="daily.html">📊 每日分析</a>
-  <a class="nl" href="report.html">🧭 4H报告</a>
+  <a class="nl" href="report.html">🥇 黄金</a>
+  <a class="nl" href="btc.html">₿ 比特币</a>
   <a class="nl" href="journal.html">📒 盈亏日历</a>
-  <a class="nl" href="news.html">📰 快讯</a>
-  <a class="nl" href="risk.html">🗓 风险计划</a>
   <a class="nl" href="strategy.html">📖 策略</a>
   <a class="nl" href="stocks.html">📈 股票</a>
   <a class="nl" href="potential.html">🚀 潜力精选</a>
@@ -183,21 +181,21 @@ footer .disc strong{color:var(--text)}
 <div class="wrap">
   <div class="grid">
 
-    <!-- MAIN: Daily Analysis -->
-    <a class="tile main" href="daily.html">
+    <!-- MAIN: gold, everything on one page -->
+    <a class="tile main" href="report.html">
       <div class="main-left">
-        <div class="tag">★ 主功能 · 每日更新</div>
-        <div class="ico">📊</div>
-        <h2>每日深度分析</h2>
-        <p>多周期技术结构、关键支撑阻力层级、技术指标读数、基本面驱动因素、今日操作场景与重大数据前风险预案 —— 每日自动刷新。</p>
+        <div class="tag">★ 主功能 · 实时 + 每日更新</div>
+        <div class="ico">🥇</div>
+        <h2>黄金 XAU/USD</h2>
+        <p>黄金的一切都在一页：五个周期实时算出的结论和交易计划，每日深度分析、快讯、日历与风险，问 Claude，有新信号时浏览器提醒。</p>
         <ul class="feats">
-          <li>价格快照 · 昨日对比 · 52周分位</li>
-          <li>月线 → M5 六周期趋势结构</li>
-          <li>R4→S4 完整支撑阻力层级表</li>
-          <li>FED / DXY / PCE / 地缘 驱动解析</li>
-          <li>多空双场景 + 三大时段操作节奏</li>
+          <li>周线 → 15 分钟五周期结论，每 15 分钟重算</li>
+          <li>入场、止损、目标、手数一步算好，持仓跟踪</li>
+          <li>每日分析 · 快讯 · 日历与风险（10:10 SGT 更新）</li>
+          <li>问 Claude：带着此刻的行情一起问</li>
+          <li>规则上线以来的纸面记录，和你自己的交易</li>
         </ul>
-        <div class="go">进入每日分析 <span class="arr">→</span></div>
+        <div class="go">打开黄金 <span class="arr">→</span></div>
       </div>
       <div class="main-right">
         <div class="mp-label">XAU/USD · 实时金价</div>
@@ -207,18 +205,17 @@ footer .disc strong{color:var(--text)}
       </div>
     </a>
 
-    <!-- 4H multi-timeframe report + plan builder (computed live in the browser) -->
-    <a class="tile" href="report.html">
+    <!-- Bitcoin: the same five-timeframe page, on Binance BTC/USDT -->
+    <a class="tile" href="btc.html">
       <div class="tag">实时 · 多周期</div>
-      <div class="ico">🧭</div>
-      <h2>4H 多周期报告与交易计划</h2>
-      <p>用现货金 K 线实时判断周线到 15 分钟五个周期的方向，五个都同向才说「可以做」。规则上线以来的每个信号都自动记成纸面交易，和你自己的交易一起显示在页面上。内置计划器：自动算出止损、手数与开仓前检查。</p>
+      <div class="ico">₿</div>
+      <h2>比特币 BTC/USD</h2>
+      <p>和黄金同一套五周期规则，用币安 BTC/USDT 实时计算，附 2018 年以来的回放成绩：这个规则在比特币上的优势不明显，页面照实写出。</p>
       <div class="meta">
-        <span class="chip bull">● 实时计算</span>
-        <span class="chip gold">W · D · 4H · 1H · 15M</span>
-        <span class="chip gold">实时记录 · 仓位计算</span>
+        <span class="chip bull">现价 <span id="hub-btc-price">—</span></span>
+        <span id="hub-btc-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
-      <div class="go">打开 4H 报告 <span class="arr">→</span></div>
+      <div class="go">打开比特币 <span class="arr">→</span></div>
     </a>
 
     <!-- Profit and loss calendar (records stay in the visitor's browser) -->
@@ -250,7 +247,7 @@ footer .disc strong{color:var(--text)}
     </a>
 
     <!-- Latest market news -->
-    <a class="tile" href="news.html">
+    <a class="tile" href="report.html#read-news">
       <div class="tag">实时更新 · Live</div>
       <div class="ico">📰</div>
       <h2>市场快讯</h2>
@@ -259,11 +256,11 @@ footer .disc strong{color:var(--text)}
         <span class="chip bear">现价 <span class="js-live-price">—</span></span>
         <span id="hub-news-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
-      <div class="go">查看快讯 <span class="arr">→</span></div>
+      <div class="go">在黄金页看快讯 <span class="arr">→</span></div>
     </a>
 
     <!-- Future risk & plan -->
-    <a class="tile" href="risk.html">
+    <a class="tile" href="report.html#read-risk">
       <div class="tag">前瞻 · 经济日历</div>
       <div class="ico">🗓</div>
       <h2>未来风险与计划</h2>
@@ -271,7 +268,7 @@ footer .disc strong{color:var(--text)}
       <div class="meta">
         <span id="hub-risk-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
-      <div class="go">查看风险计划 <span class="arr">→</span></div>
+      <div class="go">在黄金页看日历与风险 <span class="arr">→</span></div>
     </a>
 
     <!-- Stock picks: US/SG/MY -->
@@ -336,9 +333,7 @@ footer .disc strong{color:var(--text)}
   <div class="chart-card" style="height:480px">
     <div class="tradingview-widget-container" style="height:100%;width:100%">
       <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-      {"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}
-      </script>
+      <script type="application/json" id="tv-adv-cfg">{"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script>
     </div>
   </div>
 </div>
@@ -354,6 +349,14 @@ footer .disc strong{color:var(--text)}
 
 <script src="assets/xau-feed.js?v=5"></script>
 <script src="assets/gold-live.js?v=1"></script>
-<script src="assets/hub-live.js?v=3"></script>
+<script src="assets/hub-live.js?v=4"></script>
+<script>
+// The TradingView chart near the bottom is the heaviest thing on this page: load it only when it is about to be seen.
+(function () {
+  var cfg = document.getElementById("tv-adv-cfg"); if (!cfg) return;
+  var host = cfg.parentNode, go = function () { if (host.dataset.loaded) return; host.dataset.loaded = "1"; var sc = document.createElement("script"); sc.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"; sc.async = true; sc.textContent = cfg.textContent; host.appendChild(sc); };
+  if ("IntersectionObserver" in window) { var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); go(); } }, { rootMargin: "300px 0px" }); io.observe(host); } else go();
+})();
+</script>
 </body>
 </html>

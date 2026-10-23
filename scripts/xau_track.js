@@ -34,8 +34,12 @@ function summary(signals) {
     totalR: r2(total), avgR: done.length ? r2(total / done.length) : null, open: signals.filter(s => s.status === "open").length };
 }
 
+// deps.cfg lets another market use the same record (scripts/update_btc.js): spreadBp, finLong / finShort (yearly
+// financing), nights(fromMs, toMs), shut(T) (true when a signal at T cannot be entered). Gold's are the defaults.
 function track(K, log, deps) {
   const { E, F } = deps, m15 = K["15M"] || [], alerts = [];
+  const cfg = Object.assign({ spreadBp: SPREAD_BP, finLong: FINANCING, finShort: 0, nights: (a, b) => nights(F, a, b),
+    shut: T => F.closed(T / 1000) || new Date(T + F.serverOff(T / 1000) * 1000).getUTCHours() === 0, shutWhy: "出现在每日休市的那一小时" }, deps.cfg || {});
   if (!m15.length) return { log, alerts };
   const lastT = m15[m15.length - 1][6] + 1;
   const evalAt = T => {
@@ -64,7 +68,7 @@ function track(K, log, deps) {
       if (dir > 0) { if (k[1] <= s.stop) { exit = k[1]; why = "stop"; } else if (k[3] <= s.stop) { exit = s.stop; why = "stop"; } else if (k[2] >= s.target) { exit = s.target; why = "target"; } }
       else { if (k[1] + sp >= s.stop) { exit = k[1] + sp; why = "stop"; } else if (k[2] + sp >= s.stop) { exit = s.stop; why = "stop"; } else if (k[3] + sp <= s.target) { exit = s.target; why = "target"; } }
       if (why) {
-        const n = nights(F, s.ms, T), cost = dir > 0 ? n * s.entry * FINANCING / 360 : 0, pnl = (exit - s.entry) * dir - cost;
+        const n = cfg.nights(s.ms, T), cost = n * s.entry * (dir > 0 ? cfg.finLong : cfg.finShort) / 360, pnl = (exit - s.entry) * dir - cost;
         s.status = why; s.exitTime = SGT(T); s.exitMs = T; s.exitPrice = r2(exit); s.nights = n; s.R = r2(pnl / s.risk); log.open = null;
         note(T, "closed", s.side + " #" + s.id + (why === "target" ? " 到目标" : " 止损") + "，" + (s.R >= 0 ? "+" : "−") + Math.abs(s.R).toFixed(2) + "R");
         alerts.push((why === "target" ? "✅" : "❌") + " 纸面记录 #" + s.id + "（" + s.side + "）" + (why === "target" ? "到目标 " : "止损 ") + money(exit) + "，结果 " + (s.R >= 0 ? "+" : "−") + Math.abs(s.R).toFixed(2) + "R。上线以来合计 " + (() => { const z = summary(log.signals); return (z.totalR >= 0 ? "+" : "−") + Math.abs(z.totalR).toFixed(1) + "R（" + z.closed + " 笔）"; })() + "。");
@@ -79,12 +83,12 @@ function track(K, log, deps) {
     }
     // 4. all five agree, newly: the signal
     if (a5 !== 0 && a5 !== log.a5 && H1 && H1.atr) {
-      const dir = a5, px = k[4], sp = r2(px * SPREAD_BP / 10000), entry = dir > 0 ? px + sp : px, risk = STOP_ATR * H1.atr;
+      const dir = a5, px = k[4], sp = r2(px * cfg.spreadBp / 10000), entry = dir > 0 ? px + sp : px, risk = STOP_ATR * H1.atr;
       // gold shuts for an hour at 17:00 New York every day (midnight on the broker clock), and for the weekend:
       // a signal that lands there cannot be entered, and the replay did not count it either
-      const shut = F.closed(T / 1000) || new Date(T + F.serverOff(T / 1000) * 1000).getUTCHours() === 0;
+      const shut = cfg.shut(T);
       const s = { id: log.nextId++, time: SGT(T), ms: T, side: dir > 0 ? "做多" : "做空", entry: r2(entry), stop: r2(entry - dir * risk), target: r2(entry + dir * TARGET_R * risk), risk: r2(risk), atr: H1.atr, spread: sp, status: log.open || shut ? "skipped" : "open" };
-      if (s.status === "skipped") s.why = log.open ? "已有纸面持仓" : "出现在每日休市的那一小时";
+      if (s.status === "skipped") s.why = log.open ? "已有纸面持仓" : cfg.shutWhy;
       log.signals.push(s);
       if (s.status === "open") {
         log.open = s.id; note(T, "go", "信号 #" + s.id + "：" + s.side + " " + money(s.entry));

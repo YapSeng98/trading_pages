@@ -45,6 +45,15 @@ Rules for the refresh when it writes `daily.html` and `risk.html`:
 - The two `.risk-list li` lines in `daily.html` keep their shape. When `plan` is present, write the matching side from it: `多头入场方案：现价 $X 附近顺势做多，止损$X，TP1: $X` (or `空头入场方案：…`). For a side with no plan, write `多头入场方案：暂无。<verdict 的一句话原因>` with no dollar figure before the reason, so the report page does not offer it as a preset.
 - Take calendar rows from `data/calendar.json` (dates, weekdays and times as given there). Use WebSearch for what the search is good at: why gold moved, what the releases showed, what the Fed said.
 
+## Site layout (2026-10-23)
+
+The navbar on every page is: 🥇 黄金 (`report.html`) · ₿ 比特币 (`btc.html`) · 📒 盈亏日历 · 📖 策略 · 📈 股票 · 🚀 潜力精选.
+`report.html` is the one gold page: the live answer and plan, then the written brief in tabs ("分析 · 消息 · 日历"),
+which shows `daily.html`, `news.html` and `risk.html` in frames. Those three pages are still what the refresh writes
+and still open on their own; each loads `assets/embed.js` in `<head>`, which hides their own navbar and live bar when
+they are inside the gold page. Keep that script tag. The home page's news and calendar tiles open
+`report.html#read-news` and `report.html#read-risk`.
+
 ## Live page — never edited by the refresh
 
 The daily, news and risk pages open with a live bar (`<div id="gold-bar">`, filled by `assets/gold-bar.js` from `data/xau-state.json`, `data/calendar.json` and the live price from `assets/gold-live.js`): the current verdict, the price now, the level that would change the answer and the next US release. The refresh must leave that div and the `<div id="news-live">` on news.html empty and in place.
@@ -72,7 +81,17 @@ The written text is then marked against the live price in the browser, without b
 
 `journal.html` (盈亏日历) is the visitor's own profit and loss diary. Everything on it is typed in by the visitor and kept in their browser (localStorage key `pnl.v1`); the page has no data values to refresh.
 
-The refresh routine must NOT edit `report.html`, `journal.html`, `assets/`, `data/` (except `data/refresh-request.txt`), `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
+`btc.html` (比特币) is the same page for Bitcoin: `report.html` and `btc.html` both run `assets/market-page.js`, and
+everything that differs comes from `window.MARKET` in each page (gold's values are the defaults). Bitcoin's candles and
+live price come from Binance BTC/USDT through `assets/btc-feed.js` (UTC days, never shut, no calibration needed). The
+rule is gold's, unchanged; `data/btc-backtest.json` (`research/xau-replay/report_btc.js`, Binance 1-minute history
+2017-08 to 2026-10, scored from 2018-10-08) found its edge on Bitcoin unclear: +0.13R a trade with a range that
+includes zero, positive in 2018-2020, about flat in 2021-2023, negative since 2024, shorts negative. `btc.html` shows
+that card and words its verdict from that file (`XauPlan.setMarket`, `BtcFeed.replayWords`); do not describe a Bitcoin
+signal with gold's replay. `scripts/update_btc.js` (market job) writes `data/btc-state.json` (home page tile) and
+`data/btc-signals.json` (Bitcoin's own paper record, started 2026-10-23 19:30 SGT).
+
+The refresh routine must NOT edit `report.html`, `btc.html`, `journal.html`, `assets/`, `data/` (except `data/refresh-request.txt`), `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
 
 ## Weekly deep refresh — Monday only
 

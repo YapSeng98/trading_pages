@@ -3,13 +3,16 @@
 // usage: node gen_states.js <y0> <y1> [tag=full]
 const L = require("./lib"), fs = require("fs");
 const [y0s, y1s, tagArg] = process.argv.slice(2);
-const y0 = +y0s, y1 = +y1s, tag = tagArg || "full", align = "ny";
+// MARKET=btc replays Bitcoin (Binance BTCUSDT): it trades around the clock, so candles are cut in plain UTC
+// (days from 00:00 UTC, weeks from Monday) and no minute is skipped.
+const BTC = process.env.MARKET === "btc";
+const y0 = +y0s, y1 = +y1s, tag = tagArg || (BTC ? "btc" : "full"), align = BTC ? "utc" : "ny";
 const ctx = L.loadEngine(L.REPO + "/assets/xau-engine.js"), P = L.loadPlan(L.REPO + "/assets/xau-plan.js");
-const B = L.source("duk", y0, y1);
+const B = L.source(BTC ? "btc" : "duk", y0, y1);
 console.log("spot bars", B.n, new Date(B.t[0] * 1000).toISOString(), "->", new Date(B.t[B.n - 1] * 1000).toISOString());
 
 const TFS = ctx.XAU_TFS.map(c => Object.assign({}, c, { bars: 0 }));
-const skip = L.spotClosed;                                    // weekend minutes never reach the engine
+const skip = BTC ? null : L.spotClosed;                       // gold: weekend minutes never reach the engine
 const K = {}, ptr = {}, res = {};
 TFS.forEach(c => { K[c.tf] = L.aggregate(B, c.tf, align, skip); ptr[c.tf] = 0; res[c.tf] = { tf: c.tf, error: "no data" }; });
 console.log("candles", TFS.map(c => c.tf + ":" + K[c.tf].length).join(" "));

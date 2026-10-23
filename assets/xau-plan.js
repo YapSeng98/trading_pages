@@ -11,6 +11,11 @@ var XauPlan = (function () {
   "use strict";
 
   var SYS = { stopAtr: 3, targetR: 3, trailR: 2, minStopAtr: 2, maxStopAtr: 8, risk: 0.5 };
+  // What the replay found, in the words the verdict uses. Gold's by default; btc.html (and scripts/update_btc.js)
+  // pass Bitcoin's own replay through setMarket(), so a signal there is described by what it did on Bitcoin.
+  var MK = { goText: "这是回放里唯一显出优势的情形。", streak: 15, shortWarn: "", longWarn: "",
+    noneText: "回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。" };
+  function setMarket(o) { for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) MK[k] = o[k]; }
   var TF_ORDER = ["W", "D", "4H", "1H", "15M"];
   var TF_WEIGHT = { W: 3, D: 3, "4H": 2, "1H": 1, "15M": 1 };
   var TF_ZH = { W: "周线", D: "日线", "4H": "4 小时", "1H": "1 小时", "15M": "15 分钟" };
@@ -241,7 +246,7 @@ var XauPlan = (function () {
     var riskOk = null, rd = "需要账户余额与风险比例";
     if (sz && sz.actualPct !== null) {
       if (sz.lots === 0) { riskOk = false; rd = "最小手数就要亏 " + usd(sz.minLotRisk) + "，超过你设的上限 " + usd(sz.riskUsd) + "：这笔开不了，不要为了开单把止损缩近"; }
-      else { riskOk = sz.actualPct <= 1.0001; rd = "止损时亏 " + usd(sz.actualRisk) + "，是账户的 " + sz.actualPct.toFixed(2) + "%" + (!riskOk ? "：超过 1%，连亏几笔账户就很伤" : sz.actualPct > 0.55 ? "。回放里最长连亏过 15 笔，0.5% 或更少更稳" : ""); }
+      else { riskOk = sz.actualPct <= 1.0001; rd = "止损时亏 " + usd(sz.actualRisk) + "，是账户的 " + sz.actualPct.toFixed(2) + "%" + (!riskOk ? "：超过 1%，连亏几笔账户就很伤" : sz.actualPct > 0.55 ? "。回放里最长连亏过 " + MK.streak + " 笔，0.5% 或更少更稳" : ""); }
     }
     out.push({ id: "risk", label: "单笔亏损不超过 1%", ok: riskOk, detail: rd });
     return out;
@@ -286,7 +291,7 @@ var XauPlan = (function () {
 
     if (!R.dir) {
       v.tag = "先观望"; v.title = "先观望：大周期方向不一致";
-      v.text = big + "。回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。";
+      v.text = big + "。" + MK.noneText;
       step("现在：不下单", "不用找入场点，也不用一直盯着：结论每 15 分钟重算一次。");
       // the two ways the three can line up; the one whose furthest level is nearer comes first
       var up = pathTo(E, R, 1, price), dn = pathTo(E, R, -1, price), ways = [up, dn].filter(function (w) { return w.complete; }).sort(function (a, b) { return a.far - b.far; });
@@ -306,7 +311,7 @@ var XauPlan = (function () {
       if (R.full) {
         v.level = "go"; v.fresh = num(R.since5) !== null && nowMs - R.since5 <= 2 * 3600000;
         v.tag = "可以顺势" + act(R.dir); v.title = "五个周期都" + way + "，可以顺势" + act(R.dir);
-        v.text = "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已持续一段时间，不要追已经走远的行情。");
+        v.text = MK.goText + (R.dir < 0 ? MK.shortWarn : MK.longWarn) + "按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已持续一段时间，不要追已经走远的行情。");
         // how old the signal is, and how far price has gone since: the replay entered on the candle that completed it
         var sig = v.signal = signalInfo(E, R), note = "", late = false;
         if (sig) {
@@ -319,7 +324,7 @@ var XauPlan = (function () {
           }
         }
         if (k) step(late ? "现在：信号已经走远，别追" : "现在：可以顺势" + act(R.dir), note + (late ? "还是想进的话：" : "") + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →", late: late });
-        step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 15 笔，所以不要加码。");
+        step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 " + MK.streak + " 笔，所以不要加码。");
         // the replay tested two ways out, each on its own: a fixed 3R target, or a daily trailing stop with the regime exit
         if (k) step("进场前选好离场做法（二选一，进场后别换）", "目标 3R：止损 " + fmt(k.stop, 1) + "、目标 " + fmt(k.tp1, 1) + " 都不动。跟踪止损：不设目标，每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。两种都别提前挪到成本价，回放里那样会少赚。");
         step("什么时候离场", "目标 3R：碰到止损或目标就结束，大周期变了也不提前走。跟踪止损：碰到挪过的止损就结束" + (out !== null ? "；或者 4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) + "（三个大周期不再同向）就离场" : "；或者三个大周期不再同向（这里变回「先观望」）就离场") + "。");
@@ -453,6 +458,6 @@ var XauPlan = (function () {
 
   return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
-    patternText: patternText, statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence };
+    patternText: patternText, statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;

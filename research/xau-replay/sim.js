@@ -123,12 +123,13 @@ function trade(sg, X, o) {
   if (why === "stop" && left === 0 && pnl > -1e-9 && o.mgmt === "half") why = "breakeven";
   // overnight financing: charged at each 17:00 New York roll, Monday to Friday, three nights' worth on Wednesday
   let nights = 0;
-  if (o.swapLong || o.swapShort || o.swapRate) {
+  if (o.swapLong || o.swapShort || o.swapRate || o.swapRateShort) {
     for (let day = Math.floor(X.t[e] / 86400) * 86400; day <= exitT; day += 86400) {
+      if (o.swapDaily) { if (day > X.t[e] && day <= exitT) nights++; continue; }   // crypto: every 00:00 UTC, weekends too
       const roll = day + (L.usDst(day + 43200) ? 21 : 22) * 3600, wd = new Date(roll * 1000).getUTCDay();
       if (roll > X.t[e] && roll <= exitT && wd >= 1 && wd <= 5) nights += wd === 3 ? 3 : 1;
     }
-    pnl -= nights * (dir > 0 ? (o.swapLong || 0) + (o.swapRate ? entry * o.swapRate / 360 : 0) : o.swapShort || 0);
+    pnl -= nights * (dir > 0 ? (o.swapLong || 0) + (o.swapRate ? entry * o.swapRate / 360 : 0) : (o.swapShort || 0) + (o.swapRateShort ? entry * o.swapRateShort / 360 : 0));
   }
   return { t: X.t[e], exitT, dir, entry, risk, R: pnl / risk, why, rr1, rrBest, mfeR: mfe / risk, maeR: mae / risk, holdMin: (exitT - X.t[e]) / 60, off, nights, sg };
 }

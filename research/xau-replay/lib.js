@@ -19,6 +19,7 @@ function source(name, y0, y1) {
   if (name === "duk") return loadBars(years(y0, y1).map(y => DATA + "/duk/BID_" + y + ".bin"), 5);
   if (name === "dukask") return loadBars(years(y0, y1).map(y => DATA + "/duk/ASK_" + y + ".bin"), 5);
   if (name === "paxg") return loadBars(years(y0, y1).map(y => DATA + "/paxg/paxg_" + y + ".bin"), 6);
+  if (name === "btc") return loadBars(years(y0, y1).map(y => DATA + "/btcusdt/btcusdt_" + y + ".bin"), 6);   // Binance BTCUSDT (download_binance.py)
   throw new Error("unknown source " + name);
 }
 // index of the first bar with t >= ts

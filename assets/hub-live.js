@@ -123,7 +123,19 @@
     [].forEach.call(document.querySelectorAll(".js-live-time"), function (e) { e.textContent = t + " (SGT)" + (p.how === "spot" ? " · 按现货校准" : p.how === "closed" ? " · 休市" : ""); });
     if (Date.now() - lastPaint > 10000) { lastPaint = Date.now(); paint(); }
   }
+  // Bitcoin tile: its answer from data/btc-state.json (scripts/update_btc.js), its price straight from Binance
+  function btc() {
+    get("data/btc-state.json").then(function (b) {
+      if (!b || !b.verdict) return;
+      var arrows = (b.timeframes || []).map(function (t) { return (t.name || t.tf).replace(" ", "") + (t.trend === "向上" ? "↑" : t.trend === "向下" ? "↓" : "–"); }).join(" ");
+      chips("hub-btc-chips", [[b.verdict.level === "go" ? "bull" : "gold", "结论：" + b.verdict.tag + " · " + arrows]]);
+    }).catch(function () {});
+    fetch("https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
+      var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) set("hub-btc-price", "$" + fmt(p, 0));
+    }).catch(function () {});
+  }
   function start() {
+    btc(); setInterval(btc, 60000);
     loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } });
     setInterval(loadFiles, 15 * 60000);
   }

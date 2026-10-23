@@ -1,0 +1,195 @@
+{
+ "updated": "2026-10-23 19:37 SGT",
+ "source": "币安 BTC/USDT",
+ "marketOpen": true,
+ "price": 81673.2,
+ "priceTime": "2026-10-23 19:30 SGT",
+ "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
+ "today": {
+  "open": 81416.1,
+  "high": 82033.8,
+  "low": 81118.4,
+  "changeFromPrevClose": 257.1,
+  "changePct": 0.32,
+  "note": "按 UTC 换日（新加坡时间早上 8 点）"
+ },
+ "previousDay": {
+  "date": "2026-10-22",
+  "open": 84093.4,
+  "high": 84377.2,
+  "low": 80939.5,
+  "close": 81416.1
+ },
+ "recentDays": [
+  {
+   "date": "10/16",
+   "close": 81615.6
+  },
+  {
+   "date": "10/17",
+   "close": 81491
+  },
+  {
+   "date": "10/18",
+   "close": 82116
+  },
+  {
+   "date": "10/19",
+   "close": 81938.4
+  },
+  {
+   "date": "10/20",
+   "close": 83028.2
+  },
+  {
+   "date": "10/21",
+   "close": 84093.4
+  },
+  {
+   "date": "10/22",
+   "close": 81416.1
+  }
+ ],
+ "verdict": {
+  "level": "none",
+  "tag": "先观望",
+  "title": "先观望：大周期方向不一致",
+  "text": "周线向上、日线向下、4 小时向上。比特币回放里，逆着三个大周期做是长期亏损的（平均每笔 −0.16R）；顺着做的优势也不明显。",
+  "reasons": [
+   {
+    "label": "大方向",
+    "ok": false,
+    "text": "周线向上、日线向下、4 小时向上，还不一致"
+   },
+   {
+    "label": "小周期",
+    "ok": null,
+    "text": "大方向一致后才看小周期"
+   }
+  ]
+ },
+ "plan": null,
+ "watch": [
+  {
+   "price": 87220,
+   "text": "日线收盘站上这里，就三周期同向向上"
+  }
+ ],
+ "score": 2,
+ "timeframes": [
+  {
+   "tf": "W",
+   "name": "周线",
+   "trend": "向上",
+   "since": "2026-08-24 08:00 SGT",
+   "rsi": 57.2,
+   "atr": 6149.33,
+   "turnsUpAbove": 87395.7,
+   "turnsDownBelow": 74968
+  },
+  {
+   "tf": "D",
+   "name": "日线",
+   "trend": "向下",
+   "since": "2026-10-09 08:00 SGT",
+   "rsi": 46.1,
+   "atr": 2188.61,
+   "turnsUpAbove": 87220,
+   "turnsDownBelow": 79800
+  },
+  {
+   "tf": "4H",
+   "name": "4 小时",
+   "trend": "向上",
+   "since": "2026-10-21 20:00 SGT",
+   "rsi": 42.8,
+   "atr": 793.66,
+   "turnsUpAbove": 84898,
+   "turnsDownBelow": 81200
+  },
+  {
+   "tf": "1H",
+   "name": "1 小时",
+   "trend": "向下",
+   "since": "2026-10-22 15:00 SGT",
+   "rsi": 46,
+   "atr": 366.87,
+   "turnsUpAbove": 82033.8,
+   "turnsDownBelow": 81118.4
+  },
+  {
+   "tf": "15M",
+   "name": "15 分钟",
+   "trend": "向上",
+   "since": "2026-10-23 10:30 SGT",
+   "rsi": 47.9,
+   "atr": 138.27,
+   "turnsUpAbove": 81914.8,
+   "turnsDownBelow": 81551
+  }
+ ],
+ "resistance": [
+  {
+   "price": 82033.8,
+   "what": "1小时前高、1小时近期小高点",
+   "strength": 2
+  },
+  {
+   "price": 82101.6,
+   "what": "4小时 200 均线",
+   "strength": 2
+  },
+  {
+   "price": 82563,
+   "what": "日线向下转折位",
+   "strength": 1
+  },
+  {
+   "price": 82635.3,
+   "what": "1小时向下转折位",
+   "strength": 1
+  },
+  {
+   "price": 82918.8,
+   "what": "4小时区间中点",
+   "strength": 1
+  }
+ ],
+ "support": [
+  {
+   "price": 81550.1,
+   "what": "1小时近期小低点",
+   "strength": 1
+  },
+  {
+   "price": 81200,
+   "what": "4小时前低",
+   "strength": 2
+  },
+  {
+   "price": 81118.4,
+   "what": "1小时前低",
+   "strength": 1
+  },
+  {
+   "price": 80939.5,
+   "what": "昨日低点、4小时区间底、1小时区间底、4小时近期小低点",
+   "strength": 7
+  },
+  {
+   "price": 79800,
+   "what": "上周低点、日线前低、日线区间底",
+   "strength": 10
+  }
+ ],
+ "record": {
+  "since": "2026-10-23 19:30 SGT",
+  "signals": 0,
+  "taken": 0,
+  "closed": 0,
+  "wins": 0,
+  "totalR": 0,
+  "avgR": null,
+  "open": 0
+ }
+}
