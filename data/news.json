@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 05:30 SGT",
+ "updated": "2026-10-23 08:07 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold falls to two‑month low below $4,050 as oil spikes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNOGt3akRjaTllR1l3OWtsZzBxVGJoc2xRb2gwNmdkMEUxSGlJNDJ2djZjNjFRMDN2ckktU24tS0xGWlpzZkgtWkdxYXFfQ1UyX2Roc0JVeVZPWk1xbnJsM2pfeTZyRGVvRDRZUVB0UlBNU1ppVWRVempmaWxTdjk0emxPeklIWHRWc08yMDRDZkdSSHRJTDdTZktod3U?oc=5",
+   "ms": 1792712122000,
+   "time": "10/23 07:35"
+  },
+  {
    "t": "Gold Miner Newmont Stock Rises on Expected Return to Growth in 2027",
    "src": "Barron's",
    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQMm1CdVhhSTNOeWFLR3J2UDVYdTBFeUstU25FOWNMVzlnalZPb3FiS2dTTVhYaC1ERUw2amVXZXpqUnJaRUlpTTlXS05rU19RenBBZnJGbjhKVW13anBHNUp3dllHZTkxUk9vWDFmQmdkUXoxZkpRcFIwdVd3R20xRg?oc=5",
    "ms": 1792702440000,
    "time": "10/23 04:54"
+  },
+  {
+   "t": "War in Iran, higher energy prices are only delaying gold's rally to $5,000; mining stocks remain undervalued – Gabelli",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNXy1KLUdfVklTU19ybkZVc3VVVy1JakVKZHB1SlNKR2NJNEg0cVpSR3VnTVZhSFZzaWNPbWR1Y0c3MVJZSGRSdTVwMGk2X1FBRTFRZjdReEpWbk1aSTJicnhlaFlQcG1TM3JNcnpQdDZQanRiTGd3cG9kUXVsZ0c3VnZ6Ujd3M1JFbW5nT0VYdktQaWdwNHIzdnZPMEFuUDVhTnRJbGt1WVEyQzk5SWRCM2QxelNYSmk2?oc=5",
+   "ms": 1792702155000,
+   "time": "10/23 04:49"
   },
   {
    "t": "Newmont beats quarterly profit estimates on higher gold prices",
@@ -35,25 +49,11 @@
    "time": "10/23 03:33"
   },
   {
-   "t": "government spending cuts description={PAGE_DESCRIPTION}",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE43dUl6dW5mV1ZHelY1ZHgtYkN0OVppQ2xUM2Zxcm1JU1Vjd2xsZDdUNEpRYTBCTktJUmthclVoeE1sQ1dpUEhISHB2ZFJ2aW9VSzVxUlpCbFludkxwQ3pRcXZVT3VkQQ?oc=5",
-   "ms": 1792695234000,
-   "time": "10/23 02:53"
-  },
-  {
    "t": "Gold slides as safe-haven demand shifts to US Treasuries despite lower yields",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNR3R0a3pNU2ItV205c3pIcGlQQTA0VzRkVVh5VVpZV3pPanRCZ0FuNHhiZFdUeHpuNlE1RFBKbUtXSlYzemZPbTBWR2NVOHJnd0ppd05FbWdVNklDR2NHVi15OUpkNjBsTXg3eTdxN3hsZ3BlVnYwbEV3bDFnRXV6cmo2WVFzd2RLX0g3T3htYzNwVVRDMDl1X0d1eGV2OFZaeDJrMzBPLVlpTUlTclhZeDdHMHVpM3FKR0ZrYg?oc=5",
    "ms": 1792694252000,
    "time": "10/23 02:37"
-  },
-  {
-   "t": "Marathon Fusion claims it can turn mercury into gold: Could it crash gold prices?",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNVTlBaE9xc3F1bDNjcHJfdkcxSjh3N3JScjlkMmRQWmdwNkUzQkJVSE10ckJXVjk1ZHF1Z0hvMWxOVHZjZF9nSGFYOWRZUjNrVk9yY2g3NWZURmVTU1NHSThlaE9DTGQ3UjRpRGJRZVRRQm4yOVQ1VExOMnJUVk1lYUlPa3VIRHB6M2k4UjZWN0tYcExYbUUtVUJ3Vmg4MHh1eVlBUGlxaGxPdmN2N2F0WlJvSFpUbkFLX1JMbzlIQUR4SGZVOU9fMFFVM0R3QkR1VnfSAdcBQVVfeXFMTTVTak9OVFh5TlRodGNrdnF5b2FkNTNrdXVfUmd6X19xYmNDNXVGazBzYy1sWTFmU3ZrSmdfaVZWT0JsOGFGdnJLc1V4UTdGLU9QaWwzbzRZOG9VTlRLSmpZZHVRMWZNUFFVclFIUkFzME1rd0ptaGlDZDA4Mm8zQWJTX1FvRFotNzRBOGFXTTkzTGpIaW5mUWx1dDZBNC14SUNHcWVoVjAxcVZZQW9JbXVFMjE3SUV0Z0kwaFA2YzYyZTRtZ1JDWVBUZTlwQ2tEQnVvdjhYVGs?oc=5",
-   "ms": 1792691351000,
-   "time": "10/23 01:49"
   },
   {
    "t": "Gold plunges over 2% as Middle East energy shock fuels inflation worries",
@@ -91,13 +91,6 @@
    "time": "10/22 21:44"
   },
   {
-   "t": "Gold Hits 3-Month Low as Asian Tech Stocks Sink Again",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPS1hQWUVhV0k3Z2V4RWZiTFVla09haWszZnZUa1h1RjFsQU5JTDdKV0FSS2lRNzBxRHdjaEZpNVFPT3JKaXE1V3NaMlVKanl5NWZaNmYtZ0dPZEFYdVBXbEZGUUpHQUZKNEsydHpHd0VaZG9FZEw2Z0F0aUtfbTlQUHV3cTZaaDI4dkoyVVRFS1A?oc=5",
-   "ms": 1792675678000,
-   "time": "10/22 21:27"
-  },
-  {
    "t": "‘Gold is no silver bullet’ and isn’t hedging against equity drawdowns, but ‘debasement trade’ should continue – HSBC",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYVRiX2l0VmgzS2xKZzU5UV9Ec0xIRGs4ZmpzalI3REZpT1NsVk5ZQnZLSWxxdkhraEVtSHBab2lZQ0NVMkN0NXBRb3NqLW9CS1h0ZWM3eDJsOVkzVm5hSnZsMVBqMWExTXZSMjZFZndfdFlyX1o2SURfOTQ3aGFyd2NzU25DTC1oYmJwcEt0NkdxZkR3dVo2dklrZTdQcHhtZ2M3T01MNXYyR2JNbnhQaVRNMUpnZndBSk5MNw?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1HSkpCeFgyU1oyUTMwMnc4ZU02NkhxRWp4MF9RT0ZQSjUzeTdXeU56aU10RFh6WTV5cUF5ZTREbUZQbVJ0SXlaV3RFVmplU0xxUW5IWkxQLUhWbVZES0NBUWR2SkVoVERrd1dlRXdn?oc=5",
    "ms": 1792673760000,
    "time": "10/22 20:56"
+  },
+  {
+   "t": "Gold prices struggling as U.S. weekly jobless claims fall to three-month low",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcGpYcE56SEtmRW1HQ2RFWUlFZkhXWlVLS2tsNEo3VG5ZM3FfNU1KWmV6RllHRkhtUkpRc3dKeFVERGdaMXNGdXBTbzczaThYUWFoSUlJTVBXNkhQNVJwc1RRWjMwNzNGUnVLa3l3Y1ZCLTNocnFIRTE5eHk5bUFSQWc2dlF1MGM4QWoyOVNkUmFRT1o0VWhHQU1sMW5wWnVxSndtTUtPM2M3OFo3TTNUU2oteTc?oc=5",
+   "ms": 1792672657000,
+   "time": "10/22 20:37"
   }
  ]
 }
