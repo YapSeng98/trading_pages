@@ -493,6 +493,9 @@ footer .disc strong{color:var(--text)}
 .v-proof b{color:var(--text);font-weight:600}
 .v-proof button{border:0;background:none;color:var(--gold-lt);font:inherit;cursor:pointer;padding:0;margin-left:4px}
 .v-proof button:hover{text-decoration:underline}
+.v-alert{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:rgba(255,255,255,.02);font-size:12.5px;line-height:1.6;color:var(--text)}
+.v-alert.on{border-color:rgba(212,167,44,.4);background:rgba(212,167,44,.06)}
+.v-alert .t{flex:1 1 260px;min-width:0}.v-alert b{color:var(--ink)}
 /* replay results */
 .pf-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:20px}
 .pf-t{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:13px 15px;min-width:0}
@@ -576,6 +579,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       <ul class="v-reasons" id="v-reasons"></ul>
       <div id="v-next-wrap" hidden><div class="v-sub">现在该做什么</div><ol class="v-next" id="v-next"></ol></div>
       <p class="v-proof" id="v-proof" hidden></p>
+      <div class="v-alert" id="v-alert" hidden></div>
     </div>
     <div class="v-side">
       <div class="v-price">
@@ -1070,6 +1074,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     tn.textContent = counters.map(function (c) { return P.TF_ZH[c.tf] + "：大结构还是" + (c.v > 0 ? "向上" : "向下") + "，但最近一直在" + (c.v > 0 ? "跌" : "涨") + "（" + c.why.join("，") + "）" + (c.flip !== null ? "，要收盘" + (c.v > 0 ? "跌破 " : "站上 ") + fmt(c.flip, 1) + " 才算转" + (c.v > 0 ? "向下" : "向上") : ""); }).join("；") + (counters.length ? "。箭头只在 K 线收盘突破前高或前低时才改变，规则看的就是它。" : "");
 
     $("closed").hidden = !V.closed;
+    alertCheck(V, unconfirmed);
     S.vLevel = V.level; paintLive();
   }
   // The parts that move with every price tick: the number, and where it sits between support and resistance.
@@ -1984,6 +1989,56 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   // where the rule's open paper trade stands at the live price, in R (its own risk, before costs)
   function openR(x) { if (!x || x.status !== "open" || num(S.live) === null || !(x.risk > 0)) return null; return (S.live - x.entry) * (x.side === "做空" ? -1 : 1) / x.risk; }
 
+  // ---------- signal reminder ----------
+  // The owner asked on 2026-10-23 for a browser notification when a new buy or sell signal appears. It needs nothing
+  // set up beyond allowing notifications: while this page is open (a background tab is fine on a computer), it keeps
+  // recomputing after each 15-minute close and notifies when the answer turns into "go". The answer the page opened
+  // with is the baseline (no alert for a signal already showing), and each signal alerts once across all open tabs.
+  var NOTE_OK = "Notification" in window;
+  S.notify = !!LS.get("notify", false);
+  function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
+  function renderAlert() {
+    var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
+    var perm = Notification.permission, on = alertsOn(); el.className = "v-alert" + (on ? " on" : "");
+    var t = h("div", { class: "t" });
+    if (on) { t.appendChild(h("b", { text: "🔔 新信号提醒已开。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，出现新的做多或做空信号时弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。")); }
+    else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: "浏览器拒绝了通知。" })); t.appendChild(document.createTextNode("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。")); }
+    else { t.appendChild(h("b", { text: "🔔 有新的做多 / 做空信号时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
+    el.appendChild(t);
+    if (on) {
+      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { fireAlert("XAUUSD 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "xau-test"); } }));
+      el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "关闭", onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
+    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: "开启提醒", onclick: function () {
+      S.notify = true; LS.set("notify", true);
+      try { if (!S.audio && (window.AudioContext || window.webkitAudioContext)) S.audio = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}   // unlocked by this click, for the chime
+      var done = function () { renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号时会弹出通知"); };
+      try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done); } catch (e) { done(); }
+    } }));
+  }
+  function chime() {
+    var a = S.audio; if (!a) return;
+    try { [0, 0.22].forEach(function (d, i) { var o = a.createOscillator(), g = a.createGain(); o.frequency.value = i ? 1046 : 784; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.18, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.2); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.22); }); } catch (e) {}
+  }
+  function fireAlert(title, body, tag) {
+    if (!alertsOn()) return;
+    try {
+      var n = new Notification(title, { body: body, tag: tag, renotify: true, requireInteraction: true });
+      n.onclick = function () { try { window.focus(); } catch (e) {} $("verdict").scrollIntoView({ behavior: "smooth", block: "start" }); n.close(); };
+    } catch (e) { toast(title + "：" + body); }
+    chime();
+    if (document.visibilityState !== "visible") { var t0 = S.title0 || (S.title0 = document.title); document.title = "🔔 " + title; var back = function () { if (document.visibilityState === "visible") { document.title = t0; document.removeEventListener("visibilitychange", back); } }; document.addEventListener("visibilitychange", back); }
+  }
+  // called with every new answer: alert when it has just become "go"
+  function alertCheck(V, unconfirmed) {
+    var R = V.regime || {}, key = V.level === "go" && !V.closed && !unconfirmed ? "go:" + R.dir + ":" + (R.since5 || "") : null;
+    var prev = S.alertKey; S.alertKey = key;
+    if (prev === undefined) { if (key) LS.set("notified", key); return; }      // the answer the page opened with: already on screen
+    if (!key || key === prev || LS.get("notified", "") === key) return;
+    LS.set("notified", key);
+    var k = sysPlanNow(false), nw = newsCheck();
+    fireAlert("XAUUSD 新信号：" + V.tag, V.title + "。现价 " + fmt(S.live, 1) + (k ? "，" + (k.side === "short" ? "卖出" : "买入") + "止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）" : "") + "。" + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", "xau-signal");
+  }
+
   // ---------- ask Claude ----------
   // The question goes to claude.ai with this page's live state written out as plain facts, so the answer is about
   // the situation now. Nothing leaves the page until the button is pressed; the visitor's own Claude account answers.
@@ -2187,7 +2242,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
-  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab);
+  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert();
   refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed
@@ -2195,7 +2250,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   // most. Nothing is fetched in between, so an open tab asks the price feed for candles about 16 times an hour.
   var qSeen = null, qTries = 0;
   setInterval(function () {
-    if (document.visibilityState !== "visible") return;
+    if (document.visibilityState !== "visible" && !alertsOn()) return;         // a hidden tab keeps checking only for the signal reminder
     var now = Date.now(), q = Math.floor((now - 25000) / 900000);
     if (now - S.lastTry < 55000) return;
     if (q !== qSeen) { qSeen = q; qTries = 0; if (q !== S.lastQ) { refresh(); return; } }
