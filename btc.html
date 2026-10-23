@@ -852,6 +852,7 @@ window.MARKET = {
   askIntro: "I trade Bitcoin (BTCUSD) on MT5 and live in Singapore.",
   askReplay: "The same rule was chosen on gold; a replay on Bitcoin (Binance BTCUSDT, 2018-2026) is summarised on the page, take it into account.",
   liveData: "Binance BTC/USDT live, candles cut in UTC", liveDataBackup: "Binance BTC/USDT",
+  chime: { wave: "sine", notes: [[0, 1319], [0.13, 1319], [0.34, 988], [0.47, 988]] },   // Bitcoin: two quick high pairs falling, unlike gold's rising three
   gloss: {
     lots: ["手数怎么算", "多数 MT5 平台的 BTCUSD 是 1 手 = 1 个比特币：价格每动 1 美元，1 手赚或亏 1 美元，0.01 手就是 0.01 美元。手数 = 愿意亏的钱 ÷ 止损距离（美元）。你的平台不同，就在「合约设置」里改。"],
     basis: ["数据从哪来", "K 线和现价都来自币安 BTC/USDT 的公开行情，每一笔成交实时推送。比特币全天交易，日线按 UTC 换日（新加坡早上 8 点），周线从周一开始。MT5 平台的 BTCUSD 报价会和它差一点。"],
@@ -899,6 +900,6 @@ XauPlan.setMarket({ goText: "这个规则是在黄金上选出来的，在比特
   }).catch(function () { var b = document.getElementById("rp-body"); if (b) b.innerHTML = '<p class="note">读不到回放结果（data/btc-backtest.json）。</p>'; });
 })();
 </script>
-<script src="assets/market-page.js?v=4"></script>
+<script src="assets/market-page.js?v=5"></script>
 </body>
 </html>

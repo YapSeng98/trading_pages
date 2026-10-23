@@ -13,6 +13,8 @@
     askIntro: "I trade XAUUSD (spot gold) on MT5 and live in Singapore.",
     askReplay: "A replay on 2011-2026 spot gold found an edge only when all five agree; buying dips, tight stops and trading against the big three lost money.",
     liveData: "spot XAU/USD, broker-style candles, day starts 17:00 New York", liveDataBackup: "backup feed: PAXG token moved onto spot, may differ from spot",
+    // each market has its own chime, so an alert can be told apart by ear: gold rises in three notes
+    chime: { wave: "triangle", notes: [[0, 784], [0.2, 1046], [0.4, 1318]] },
     gloss: {}
   }, window.MARKET || {});
   var Feed = M.feed || window.XauFeed;
@@ -1221,7 +1223,7 @@
     else { t.appendChild(h("b", { text: "🔔 有新信号或趋势变化时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
     el.appendChild(t);
     if (on) {
-      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "xau-test"); } }));
+      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", M.id + "-test"); } }));
       el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "关闭", onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
     } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: "开启提醒", onclick: function () {
       S.notify = true; LS.set("notify", true);
@@ -1245,7 +1247,7 @@
   ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(renderAlert, 300); } }, { passive: true }); });
   function chime() {
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
-    try { [[0, 784], [0.2, 1046], [0.4, 1318]].forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = "triangle"; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
+    try { M.chime.notes.forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = M.chime.wave; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
   }
   function fireAlert(title, body, tag) {
     if (!alertsOn()) return;
@@ -1266,7 +1268,7 @@
     LS.set("notified", key);
     if (!S.nopt.signal) return;
     var k = sysPlanNow(false), nw = newsCheck();
-    fireAlert(M.sym + " 新信号：" + V.tag, V.title + "。现价 " + fmt(S.live, 1) + (k ? "，" + (k.side === "short" ? "卖出" : "买入") + "止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）" : "") + "。" + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", "xau-signal");
+    fireAlert(M.sym + " 新信号：" + V.tag, V.title + "。现价 " + fmt(S.live, 1) + (k ? "，" + (k.side === "short" ? "卖出" : "买入") + "止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）" : "") + "。" + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", M.id + "-signal");
   }
 
   // The answer moving from one state to another (a new "go" has its own alert above): e.g. the signal fading to
@@ -1278,7 +1280,7 @@
     var stamp = key + ":" + Math.floor(Date.now() / 900000);                    // once per quarter hour across tabs
     if (LS.get("notifiedLevel", "") === stamp) return; LS.set("notifiedLevel", stamp);
     if (!S.nopt.verdict) return;
-    fireAlert(M.sym + " 结论变了：" + V.tag, V.title + "。现在 " + arrowsNow() + "。" + (S.pos ? "你有持仓：看「我的持仓」里写的做法。" : ""), "xau-level");
+    fireAlert(M.sym + " 结论变了：" + V.tag, V.title + "。现在 " + arrowsNow() + "。" + (S.pos ? "你有持仓：看「我的持仓」里写的做法。" : ""), M.id + "-level");
   }
   var TW = { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
   function arrowsNow() { return S.E ? P.votes(S.E).map(function (v) { return P.TF_S[v.tf] + (v.v > 0 ? "↑" : v.v < 0 ? "↓" : "–"); }).join(" ") : ""; }
@@ -1301,7 +1303,7 @@
       var big = tf === "W" || tf === "D" || tf === "4H";
       if (big ? !S.nopt.big : !S.nopt.small) return;
       var V = P.verdict(E);
-      fireAlert(M.sym + "：" + P.TF_ZH[tf] + "转" + TW[b], "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? "，" + (b === "bearish" ? "跌破 " : "站上 ") + fmt(ch.level, 1) : "") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", "xau-trend-" + tf);
+      fireAlert(M.sym + "：" + P.TF_ZH[tf] + "转" + TW[b], "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? "，" + (b === "bearish" ? "跌破 " : "站上 ") + fmt(ch.level, 1) : "") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
     });
     renderChanges();
   }
