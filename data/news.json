@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23 10:11 SGT",
+ "updated": "2026-10-23 13:01 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,46 @@
  ],
  "items": [
   {
-   "t": "Gold hits 3-mth low as oil rally fuels rate concerns; set for weekly drop By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNR2FVSWc0Z1pHaW52VTlJNFhfUFJ0VmhreDc3OXJrbFF3THdlYUZGd0RxWHRIRHZzb2NRb0UweTZCbF9jMU5ROEU5ZTVMaFdXRzRWRkZIM19XdngweXNpUjd0dU9CXzBncThTcnBhajFZY1Rkb1BFT0Y3U2tDTEVMMEhwYVR2RFdNcll4NjBmYmhLdTBZbmlKSF9OS2hjQTQxS25Rd2FLMmhnNkZpRlduVGEwWi1XaDhrUlJXbDRGRVgzZ1JI?oc=5",
-   "ms": 1792721025000,
+   "t": "Gold heads for steep weekly loss as oil prices fuel Fed rate concerns",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWE1LcUgzRWRwVDZmX3FEaWszVHF0cFQ1ekt6M1pyQ0lfc05PQm9DekdZcXprdm1vQk00SlNEZjEwQllCd1VwMUJySnIxcF9ZblFaRHFsV3BzSU52SlJSSi1TeWxoTmdYc1h6UHhPQTFQYU41ZEdQTFRNY3l0N1Q2bnRDV2x1MjlveGtxTk1oQWlGd3ExcUZEd2QzdF9TUkVKcXotUlIycUgtb1RrZjJ3?oc=5",
+   "ms": 1792728840000,
+   "time": "10/23 12:14"
+  },
+  {
+   "t": "Gold rebounds from three-month low; not out of the woods yet amid Fed hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeXZUdHQxUjlmRkl1RXVmSDVZRnFwd0dFeTRxU3NaY0REVzdWampCTlVpZTZJTHhRNkZhZGhvRnpmbjN0OHlhaU5rN1ZaZ2NtUU1VY1UyZ3JyUWZ3cWZKUnU3Yl9fZXhxaXYxY19HTUI4R29HYndLOVhnTU9YcHNZZ01QdUoyTmktVThNY2ZQblhzdF93ZUYwaExFWS01aUpwWUFCQS03T09paGU2NDVta0FZVGo1Uy1VWS1QbXJ3?oc=5",
+   "ms": 1792726895000,
+   "time": "10/23 11:41"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD hits fresh three-month low below $4,000 amid surging energy prices",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVGVPMGVnV04yaGNoaUhXX0J0dV80S0xnRHZ4a3F2SmJYLVBLemoyUEVLZklsSkcyNEFTbFh2UnY2czdkTkpJTzF5d0Z3SjJnQXBWRFR4WUtUS2ZrZS1uSWczYjlyOHdqSmlPOU1WcDBIMjR1TmkxZmZKRV9LaHB4cXNtbklranVvVVpqX3YtYzkwS3duMDJReXRqQWVrbUg4b3dQRFpDYWw1QUVJbGJUSDlRUEFzZTdZMnVISTg0Tm5MZmUyaG9uNmJYT3B0Mk5LeDhBazFFVQ?oc=5",
+   "ms": 1792726255000,
+   "time": "10/23 11:30"
+  },
+  {
+   "t": "Gold, silver slide up to 1.65%: Key triggers to watch",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPc1N6TFUwVGpWZWZIdWZFWE1USmN0U2dEMG03a1NjZGd0Qy1IRFNaRE1LVW9XY0EyX0VmdUl4ODVqUDV4aWJfamhQNWRKME96Q05PeFp5LWZvVU55dGV2OEREWVBXTWdBTUdsckh0QndMdDRhZkZsVTdlY0NtREZ2UU9uMEpjYU04XzEtck9obmdyeUJhVGg2b2RBbnJROUlmNnVuTXk2dHBZTlJ4amY4WElzY9IBuAFBVV95cUxNZUdyVnkwUmR0SGp5eTdIYWNaZHZkLUJJNGhEZk9jc2h3VmhVWTlRcjNzWmhuVjRLTHVtMGt1N2JtZ0FraTFRWVBWTTFwWEp0ZGFGZkZpVzAzbjFsNVVXRTRFTlRiR1pTTjJfU1h2VEVPNmUwUGpwYXpTOFE4RkpOZERCSDBuZVVnWDlUVjJfSjliTkZFRENfbk9naDJOcV9ZZnYtN1o1T1d3Q3RaRHBOMFkyVkRMeG5i?oc=5",
+   "ms": 1792721011000,
    "time": "10/23 10:03"
+  },
+  {
+   "t": "Gold hits 3-mth low as oil rally fuels rate concerns; set for weekly drop",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOOUVXME5UQlZPUUpuQlJRSlM5RWcxeTB2TTZieGZTaDBGM3VqajY5c0VsOHdJMkYyQTcyTGhOS084NkQtcTJyMjVxWmVsT0l5M254RXpBUlJmbGs1NWtHSzYya3VzTmh1ckVMa2RNZVdZNnNVLWIzMUhrLWMtc212RkZDdUlwdW51YWQwTHRVWEFYbVZ2U0JQYTRKSHNrQm9ieWxSOUUwS1FRMXRrYjhVaGNSMm5WaTFFc1lkR0VYTVJuUk9ZeGc?oc=5",
+   "ms": 1792720511000,
+   "time": "10/23 09:55"
+  },
+  {
+   "t": "Spot gold hits three-month low amid risk-off moves, climb in oil prices",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQaFlJU29rcTd3X0NNUnJRT0pLTGlwOVA2d0laT3Y4eDg1cHBEa1B5RTYyTURmWXRSRmFPbFFrMHZpZ3Jndm9Tb2RMdmFzblhjajJHclh2cW9TWDhiNjhkRnFNOFZtRmlTRUxOUEZvcmF6bldsbWFySHE5ZVF4X0I5T3ZPbU5sWWR0ZVdWNURnT3V4Vy0xbDFQYWR0YU9XajY4ZHJfQnFqalpiYy1YSU9nMm85dEpaLUFqRC1Xd3NNenFUR0gtSW1J?oc=5",
+   "ms": 1792713079000,
+   "time": "10/23 07:51"
   },
   {
    "t": "Gold falls to two‑month low below $4,050 as oil spikes",
@@ -49,11 +84,11 @@
    "time": "10/23 03:33"
   },
   {
-   "t": "government spending cuts description={PAGE_DESCRIPTION}",
+   "t": "‘Very bizarre action’ as gold retraces entire summer rally to test $4,000/oz: AI weakness, or yen intervention? – Jesse Columbo",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE43dUl6dW5mV1ZHelY1ZHgtYkN0OVppQ2xUM2Zxcm1JU1Vjd2xsZDdUNEpRYTBCTktJUmthclVoeE1sQ1dpUEhISHB2ZFJ2aW9VSzVxUlpCbFludkxwQ3pRcXZVT3VkQQ?oc=5",
-   "ms": 1792695234000,
-   "time": "10/23 02:53"
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcWNod2hTSlpYME52dC1jbWpuR2R0ZVZqQUNaTWNZWGZ6NUphQVlidlAwaEhhRnBGeWp1Wm0yRXR4bHZfc2x5MHNqbS14Zzk0cl95LUIwNjlhaU05YWVJR0g2NWZKQjFxalFMU0tKRmN5SHMyZjdMcVNhNXI1a3BWWURWUGUxOGUzVG1Jb09zZ0Y5WUdxc3dKU3NjeFdNQUowbEQ5UThPU0VueWcxZ0ExQUg3MXk?oc=5",
+   "ms": 1792694906000,
+   "time": "10/23 02:48"
   },
   {
    "t": "Gold slides as safe-haven demand shifts to US Treasuries despite lower yields",
@@ -63,53 +98,18 @@
    "time": "10/23 02:37"
   },
   {
+   "t": "Marathon Fusion claims it can turn mercury into gold: Could it crash gold prices?",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNVTlBaE9xc3F1bDNjcHJfdkcxSjh3N3JScjlkMmRQWmdwNkUzQkJVSE10ckJXVjk1ZHF1Z0hvMWxOVHZjZF9nSGFYOWRZUjNrVk9yY2g3NWZURmVTU1NHSThlaE9DTGQ3UjRpRGJRZVRRQm4yOVQ1VExOMnJUVk1lYUlPa3VIRHB6M2k4UjZWN0tYcExYbUUtVUJ3Vmg4MHh1eVlBUGlxaGxPdmN2N2F0WlJvSFpUbkFLX1JMbzlIQUR4SGZVOU9fMFFVM0R3QkR1VnfSAdcBQVVfeXFMTTVTak9OVFh5TlRodGNrdnF5b2FkNTNrdXVfUmd6X19xYmNDNXVGazBzYy1sWTFmU3ZrSmdfaVZWT0JsOGFGdnJLc1V4UTdGLU9QaWwzbzRZOG9VTlRLSmpZZHVRMWZNUFFVclFIUkFzME1rd0ptaGlDZDA4Mm8zQWJTX1FvRFotNzRBOGFXTTkzTGpIaW5mUWx1dDZBNC14SUNHcWVoVjAxcVZZQW9JbXVFMjE3SUV0Z0kwaFA2YzYyZTRtZ1JDWVBUZTlwQ2tEQnVvdjhYVGs?oc=5",
+   "ms": 1792691351000,
+   "time": "10/23 01:49"
+  },
+  {
    "t": "Gold plunges over 2% as Middle East energy shock fuels inflation worries",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUTZWNzctNWgwbFUyT2V3dWljbGRTT1ZxOEQ2NVVraFg2TEF0aExxRGtmR0hneHc1VThHaHJlcWlvNkJnVTNlR1Z4Z29zcmFscHZrX1NKMzkwNTA2ZC1JclJvTTQ0T2Q5RTN0MUJPejVYc3ppU2M0aE82Wm5EcVkzenU2NzU3S19ORGFjUG53bXVRcFJQZFFDa1phZEpLREtHTlpnVi1SaDlkVEl4VFJLRG0zT1hQMG9odFRwLTNvOGFJdw?oc=5",
    "ms": 1792685104000,
    "time": "10/23 00:05"
-  },
-  {
-   "t": "Gold and silver are not the best inflation hedges; investors should diversify into the commodity supercycle – Auspice Capital",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbW8xSTBQZHZKLUxPa2JDcG5oVkw2c3lUa0RiLXJXemhqdHZIRXYtLWFWQVVsUjRmTkFucl9DbS14T1F5dnk3VFZPcFdjZk54UGhkVi14dTRhUkFtYkUzUkpubzQ4VjlEVGlzNnJBcENDeVBDWklXWVFnZHBpTUZZeXJqaUFBQThiR2I5QXJyZ1RqOFZTMDZiRTJfQXVSV0N3dGZTeFRybVFHS1hPMGsySFY0NGRKc1JJeUE?oc=5",
-   "ms": 1792683031000,
-   "time": "10/22 23:30"
-  },
-  {
-   "t": "London Gold Centre Launches Gold Price Calculator to Help Consumers Check the Value of Their Gold",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMWcteHdkelNtdHV2Uzg3amxoRjVYcElqZXhyWHNZa29nd0pXV0VCZ0VOZFNMeXVGWEtKM3M0clNmOTMzSlFNejFoS1NsbDdsRjBqcTRMRnJhdUluNEItcFdHZ3RjNzU2TjE3X3Q4WHV3SmpZVkRtOC1manlLZ0hROEdncUZiNTVkb1RDM0hKbEc2VzFXYVAyYnNVanZXWDVrTDZFeg?oc=5",
-   "ms": 1792682280000,
-   "time": "10/22 23:18"
-  },
-  {
-   "t": "RBC flags downside risks for gold shares ahead of quarterly results",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOYUlfV3NTRWlTSzI1YWVBeVlmY1Y0c0R3M1F6UHNNSlphWkF6SFV1Y25qYWx1UVBEZFdrNmdZMndocW04Unp4QktGZmxLajRBWEhmLWRBOWJGeGFNMVlFSkJ2M1pfMm92UEFKaEZWQjFZZElQaWdFU213QXJNQ1BBRG1ISzM?oc=5",
-   "ms": 1792677600000,
-   "time": "10/22 22:00"
-  },
-  {
-   "t": "The price of gold today, Oct. 22, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9DdjRtT3hfbU9KTzBBVGh1VEJvbVg3cU9lRXVteml0R1RPYUpfNWdkRnBtSVhhb0R6Y0dMdGEwbk9xeVAyQzB2bWZ5LU5BbzlvYVlwMW1NOWxrV01tOE5wMDc4dUl2eExTclBib0I4MFNJQdIBd0FVX3lxTFBFdkVERlYxZTBKOU9wYWs2eVRGdDhLR21ZNC1RT1NqUGNJUUg1cXlNdlpmM19sY0l1cmlJZ0dQUXU2ZlQ5SFZ1akhZSURPb2xXT0s2d2RDM09RRWl3QWREa3BqYUZnNmE5SkNKVXJkOFRCRE9QWUF3?oc=5",
-   "ms": 1792676543000,
-   "time": "10/22 21:42"
-  },
-  {
-   "t": "‘Gold is no silver bullet’ and isn’t hedging against equity drawdowns, but ‘debasement trade’ should continue – HSBC",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPYVRiX2l0VmgzS2xKZzU5UV9Ec0xIRGs4ZmpzalI3REZpT1NsVk5ZQnZLSWxxdkhraEVtSHBab2lZQ0NVMkN0NXBRb3NqLW9CS1h0ZWM3eDJsOVkzVm5hSnZsMVBqMWExTXZSMjZFZndfdFlyX1o2SURfOTQ3aGFyd2NzU25DTC1oYmJwcEt0NkdxZkR3dVo2dklrZTdQcHhtZ2M3T01MNXYyR2JNbnhQaVRNMUpnZndBSk5MNw?oc=5",
-   "ms": 1792675271000,
-   "time": "10/22 21:21"
-  },
-  {
-   "t": "Current price of gold: Month Day, Year",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1HSkpCeFgyU1oyUTMwMnc4ZU02NkhxRWp4MF9RT0ZQSjUzeTdXeU56aU10RFh6WTV5cUF5ZTREbUZQbVJ0SXlaV3RFVmplU0xxUW5IWkxQLUhWbVZES0NBUWR2SkVoVERrd1dlRXdn?oc=5",
-   "ms": 1792673760000,
-   "time": "10/22 20:56"
   }
  ]
 }
