@@ -52,6 +52,23 @@ function rowSignals(S, sig, cond, o) {
   return out;
 }
 
+// Entering late: one signal per stretch of cond, at the first 15-minute close where price has already gone k x the
+// stop distance (3 x 1H ATR at the moment cond switched on) the signal's way, cond still on. The trade's stop is then
+// set from that later entry, as the page does for someone arriving late. regimeEnd as in rowSignals.
+function lateSignals(S, cond, k, o) {
+  o = o || {}; const out = [], a = S.a; let on = null;
+  for (let i = 0; i < S.n; i++) {
+    const r = a.subarray(i * C, i * C + C), T = r[0];
+    if (o.from && T < o.from) continue; if (o.to && T >= o.to) break;
+    const d = cond(r) || 0;
+    if (!d) { on = null; continue; }
+    if (!on || on.dir !== d) { on = { dir: d, p: r[38], dist: 3 * r[8], done: false }; continue; }
+    if (!on.done && (r[38] - on.p) * d >= k * on.dist) { on.done = true; out.push({ t: T + 60, dir: d, p: r[38], atr: r[8], regimeEnd: 0 }); }
+  }
+  if (o.regime) { let j = 0; out.forEach(s => { while (j < S.n && a[j * C] < s.t) j++; for (let q = j; q < S.n; q++) if (o.regime(a.subarray(q * C, q * C + C)) !== s.dir) { s.regimeEnd = a[q * C] + 60; break; } }); }
+  return out;
+}
+
 // One trade on the execution series X. X is BID prices unless o.mid (then bid/ask sit spread/2 either side).
 // Levels are moved onto X's price basis by the gap between the two feeds at the signal minute (what the page's calibration does).
 // mgmt: "tp1" all out at TP1 | "tp2" all out at the far target | "half" half at TP1 then stop to entry, rest at TP2 | "fix" fixed multiple of risk
@@ -201,4 +218,4 @@ function firstPassage(sigs, X, o) {
 }
 function fpRow(name, fp) { return name.padEnd(34) + " n=" + String(fp.used).padStart(5) + "  " + fp.rows.map(r => "+" + r.k + " first: " + r.hit.toFixed(1) + "% (coin " + r.coin.toFixed(1) + "%, exp " + (r.exp >= 0 ? "+" : "") + r.exp.toFixed(3) + ")").join("  |  "); }
 
-module.exports = { C, loadStates, signals, rowSignals, trade, run, stats, fmtRow, byKey, firstPassage, fpRow };
+module.exports = { C, loadStates, signals, rowSignals, lateSignals, trade, run, stats, fmtRow, byKey, firstPassage, fpRow };

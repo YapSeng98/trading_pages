@@ -50,6 +50,7 @@ var BtcFeed = (function () {
         : "比特币回放里这个信号的优势不明显：平均每笔 " + sg(m.avgR) + "，分段看 " + seg.map(function (x) { return x.label + " " + sg(x.avgR); }).join("、") + "。把它当参考，不要当成有把握的信号。",
       shortWarn: m.short && m.short.avgR < 0 ? "做空信号在回放里整体是亏的（平均每笔 " + sg(m.short.avgR) + "）。" : "",
       longWarn: m.long && m.long.avgR > m.avgR ? "做多信号好一些（平均每笔 " + sg(m.long.avgR) + "）。" : "",
+      lateText: bt.rules.late1r && bt.rules.late1r.n ? "比特币回放里，信号走出 1R 以后才进的单平均每笔 " + sg(bt.rules.late1r.avgR) + "（" + bt.rules.late1r.n + " 笔），没有比刚出现时进差（" + sg(m.avgR) + "）。" : "",
       streak: m.streak,
       noneText: "比特币回放里，逆着三个大周期做是长期亏损的" + (bt.rules.against ? "（平均每笔 " + sg(bt.rules.against.avgR) + "）" : "") + "；顺着做的优势" + (clear ? "也比黄金弱" : "也不明显") + "。"
     };

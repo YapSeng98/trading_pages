@@ -46,6 +46,28 @@ spot. That comparison is why the page moved to spot candles.
 `report.js` prints the three periods separately. The rule is positive in each, but only just in 2011-2018; most of the
 profit comes from 2022-2025, when gold trended. Read the numbers with that in mind.
 
+## Robustness checks (2026-10-24)
+
+`robust_check.js` (`MARKET=gold node robust_check.js 2010 2026`, `MARKET=btc ... 2017 2026`) asks whether the rule is
+real or lucky. Gold, 2011-02 to 2026-10, 495 trades:
+
+- Resampling whole years instead of single trades (trades inside a year move together): target 3R +0.18R a trade,
+  range -0.00 to +0.35, positive in 97% of resamples; trailing stop +0.25R, +0.03 to +0.48, 99%.
+- Stop and target grid (2-4 x ATR, 2R-5R): positive almost everywhere, no single sharp peak, so 3 x ATR / 3R was not
+  tuned to a lucky spot. A closer target wins more often (1R: 51% of trades) but earns about nothing a trade.
+- Entering late, with the stop set 3 x ATR from the later price: after the signal had run 1R, +0.17R a trade (254)
+  against +0.18R on the signal; after 2R or 3R, about the same again. Bitcoin: +0.28R after 1R (153) against +0.13R.
+  The page used to call a signal that had run 1R "too late"; it now says this and keeps the plan. `report.js` writes
+  it as `rules.late1r` (both replay files).
+- Longs and shorts: longs lost in 2011-2018 (-0.07R) and shorts in 2024-2026 (-0.53R, 12 trades). Neither side alone
+  holds up in every period, so the rule keeps both. On Bitcoin shorts lost overall (-0.05R).
+- 4-hour RSI stretched (<= 30 for a short, >= 70 for a long) at the signal: no worse on gold (+0.14R against +0.19R),
+  better on Bitcoin. No reason to skip "oversold" shorts.
+- Daily EMAs (20/50/200) stacked the trade's way at the signal: gold +0.25R against +0.05R when not, Bitcoin +0.24R
+  against -0.07R, but in gold's untouched 2011-2018 no difference with the 3R target (+0.06 / +0.07), and the gap is
+  within chance on each market (88-93% of resamples positive, 61% for Bitcoin's trailing stop). A hint, not a rule;
+  not used.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

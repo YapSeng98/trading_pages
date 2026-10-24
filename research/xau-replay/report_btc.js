@@ -23,6 +23,7 @@ const RULES = {
   gotrail: ["同样的进场和止损，不设目标：每天挪一次跟踪止损", "止损跟在最好价格后面 2R；三个大周期不再同向就离场", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, base, TR))],
   go3rLow: ["同上（目标 3R），按交易所的低成本算", "点差加手续费万分之 2，没有隔夜利息", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, cheap, T3))],
   gotrailLow: ["同上（跟踪止损），按交易所的低成本算", "点差加手续费万分之 2，没有隔夜利息", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, cheap, TR))],
+  late1r: ["信号走出 1R 以后才进", "五个周期还同向，但价格已经顺着走了 1 倍止损距离；止损按这时的价格重新放 3 倍波幅，目标 3R", () => S.run(S.lateSignals(st, C5, 1, { from, to }), X, Object.assign({}, base, T3))],
   early: ["大方向对了就进，不等小周期转回来", "周线、日线、4 小时同向，但 1 小时或 15 分钟还没同向", () => S.run(sig(r => (W3(r) && !C5(r) ? W3(r) : 0)), X, Object.assign({}, base, T3))],
   tight: ["同样的信号，但止损只放 1.5 倍波幅", "止损近了一半，其余不变", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, base, { stopAtr: 1.5, mgmt: "fix", fixR: 3 }))],
   against: ["逆着三个大周期做", "同样的止损和目标，方向反过来", () => S.run(sig(r => -W3(r)), X, Object.assign({}, base, T3))],
@@ -59,7 +60,7 @@ if (write) {
     aligned: { big3: r2(big3 / rowsIn * 100, 0), all5: r2(all5 / rowsIn * 100, 0) }, priceFrom: Math.round(X.c[L.lowerBound(X.t, from)]), priceTo: Math.round(X.c[X.n - 1]),
     source: "币安 BTCUSDT 的 1 分钟 K 线，约 " + Math.round(X.n / 1e5) / 10 + " 百万根，按 UTC 换日（新加坡 08:00）。历史从 " + iso(dataFrom) + " 开始，头一年多只用来让周线攒够 60 根 K 线，成绩从 " + iso(from) + " 算起。",
     costs: "主结果按 MT5 比特币差价合约估：点差按价格的万分之 3，隔夜利息多空都按年化 15%、每天都收（周末也收）。「低成本」两行按交易所估：万分之 2，没有利息。信号出现后 1 分钟按市价进场，止损和目标同一分钟都碰到时算止损。",
-    main: "go3r", order: ["go3r", "gotrail", "go3rLow", "gotrailLow", "early", "tight", "against", "long"], rules: R,
+    main: "go3r", order: ["go3r", "gotrail", "go3rLow", "gotrailLow", "late1r", "early", "tight", "against", "long"], rules: R,
   };
   fs.writeFileSync(L.REPO + "/data/btc-backtest.json", JSON.stringify(out, null, 1) + "\n");
   console.log("\nwrote data/btc-backtest.json");

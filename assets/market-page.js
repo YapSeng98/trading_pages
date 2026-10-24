@@ -55,7 +55,7 @@
     set: function (k, v) { try { localStorage.setItem(M.ls + k, JSON.stringify(v)); } catch (e) {} }
   };
   var S = {
-    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, late: false, pos: LS.get("pos", null), posForm: null, srv: null, lastRun: 0, lastTry: 0, lastQ: 0, lastShown: null, proof: null, rec: null, mins: [], tHi: null, tLo: null,
+    E: null, feed: null, live: null, raw: null, spot: null, spotAt: 0, gap: 0, gapOk: false, busy: false, pos: LS.get("pos", null), posForm: null, srv: null, lastRun: 0, lastTry: 0, lastQ: 0, lastShown: null, proof: null, rec: null, mins: [], tHi: null, tLo: null,
     tf: LS.get("tf", "4H"), cmode: LS.get("cmode", "simple"), tab: LS.get("tab", "levels"),
     plan: LS.get("plan", null) || { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" },
     acct: LS.get("acct", null) || { balance: null, riskPct: 0.5, contract: M.contract, lotStep: 0.01, spread: 0 },
@@ -206,7 +206,6 @@
     var steps = V.next.slice(), hold = false;
     if (V.closed) { steps.unshift({ lead: "现在休市，什么都不用做", text: "周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。" }); hold = true; }
     else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: "先等数据过去", text: nw.detail + "。数据前后价格乱跳，点差也会放大。" }); hold = true; }
-    else if (V.level === "go" && steps[0] && steps[0].late) hold = true;
     // A trade opened on a Friday is held over the weekend: Monday can open beyond the stop. The replay held through
     // weekends too, so this is already in its results; the page only says when the market shuts.
     if (V.level === "go" && !V.closed && M.weekend) {
@@ -223,7 +222,6 @@
       hold = true; if (!agrees) steps.forEach(function (x) { delete x.fill; });
     }
     if (S.pos) { steps.unshift({ lead: "你有一笔持仓在跟踪", text: "怎么管理看上面「我的持仓」：止损、目标、每天该挪到哪里、什么时候离场都写好了。" }); hold = true; }
-    S.late = V.level === "go" && !!(V.next[0] && V.next[0].late);
     var ol = clear($("v-next")); $("v-next-wrap").hidden = !steps.length;
     steps.forEach(function (st, i) {
       var acts = [];
@@ -635,7 +633,7 @@
     };
     if (R.dir) [false, true].forEach(function (trail) {
       var k = P.systemPlan(E, R.dir, { trail: trail }); if (!k) return; var buy = R.dir > 0;
-      card(k, k.side, R.full && S.late ? "信号已走远，这么晚进没有回放数据" : R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
+      card(k, k.side, R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
         "止损 " + fmt(k.dist, 0) + " 美元 = 3 倍小时波幅", trail ? null : P.SYS.targetR, trail ? "跟踪止损方案" : "目标 3R 方案", function () { return sysPlanNow(trail); });
     });
     else {
@@ -693,12 +691,11 @@
     if (!S.E) return null;
     if (S.feed && S.feed.source === "paxg" && P.regime(S.E).full && !(S.srv && S.srv.level === "go")) return ["bad", "备用数据：信号没法确认", "现货数据连不上，五个周期同向是用 PAXG 代币算的，和现货可能不一样。先别下单，等现货恢复。"];
     var R = P.regime(S.E), dir = S.plan.side === "short" ? -1 : 1, way = R.dir > 0 ? "向上" : "向下", act = R.dir > 0 ? "做多" : "做空", mine = dir > 0 ? "做多" : "做空";
-    var gone = "这次信号出现已久，价格已经顺着走了一段。回放只测过信号刚出现时进场，等下一次更稳妥。";
-    if (!hasPlan()) return R.full && S.late ? ["ready", "信号已经走远", gone] : R.full ? ["go", "现在有信号", "点第 1 步里的方案，入场、止损、目标会自动填好。"]
+    if (!hasPlan()) return R.full ? ["go", "现在有信号", "点第 1 步里的方案，入场、止损、目标会自动填好。"]
       : R.dir ? ["ready", "大方向" + way + "，还在等小周期", "可以先点第 1 步里的方案，把计划准备好，等信号出现再下单。"]
       : ["none", "现在没有信号，不用做计划", "上面的结论是「先观望」。想熟悉手数怎么算，可以用第 1 步的练习按钮。"];
     if (!sz.valid) return ["bad", "价位还没填对", "看下面的提示，点一下就能改好。"];
-    if (R.dir === dir) return R.full && S.late ? ["ready", "方向对，但信号已经走远", gone] : R.full ? ["go", "这笔和现在的信号同向", "五个周期都" + way + "。下面的检查都通过，就可以按计划执行。"]
+    if (R.dir === dir) return R.full ? ["go", "这笔和现在的信号同向", "五个周期都" + way + "。下面的检查都通过，就可以按计划执行。"]
       : ["ready", "方向对了，时机还没到", "等小周期转回" + way + "、上面的结论变成「可以顺势" + act + "」再下单。"];
     if (R.dir === -dir) return ["bad", "这笔是逆势", "周线、日线、4 小时都" + way + "，你填的是" + mine + "。回放里逆着三个大周期做是长期亏损。"];
     return ["none", "这是练习，不是信号", "上面的结论是「先观望」。可以用它熟悉手数怎么算，不建议现在真的下单。"];

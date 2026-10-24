@@ -23,6 +23,7 @@ const T3 = { stopAtr: 3, mgmt: "fix", fixR: 3 };
 const RULES = {
   go3r: ["五个周期同向时进场，止损 3 倍小时波幅，目标 3R", "这页现在的做法", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, base, T3))],
   gotrail: ["同样的进场和止损，不设目标：每天挪一次跟踪止损", "止损跟在最好价格后面 2R；三个大周期不再同向就离场", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, base, { stopAtr: 3, mgmt: "trail", trail: 2, trailEvery: 86400, regimeExit: true }))],
+  late1r: ["信号走出 1R 以后才进", "五个周期还同向，但价格已经顺着走了 1 倍止损距离；止损按这时的价格重新放 3 倍波幅，目标 3R", () => S.run(S.lateSignals(st, C5, 1, { from, to }), X, Object.assign({}, base, T3))],
   early: ["大方向对了就进，不等小周期转回来", "周线、日线、4 小时同向，但 1 小时或 15 分钟还没同向", () => S.run(sig(r => (W3(r) && !C5(r) ? W3(r) : 0)), X, Object.assign({}, base, T3))],
   tight: ["同样的信号，但止损只放 1.5 倍波幅", "止损近了一半，其余不变", () => S.run(sig(C5, { onset: true }), X, Object.assign({}, base, { stopAtr: 1.5, mgmt: "fix", fixR: 3 }))],
   d4: ["只看日线和 4 小时，不管周线", "这页以前判断方向的办法", () => S.run(S.rowSignals(st, X, D4, { from, to, regime: D4 }), X, Object.assign({}, base, T3))],
@@ -56,7 +57,7 @@ for (const id of Object.keys(RULES)) {
 }
 if (write) {
   const sg = (v, d) => { const t = Math.abs(v).toFixed(d === undefined ? 2 : d); return (+t === 0 ? "" : v > 0 ? "+" : "−") + t; }, num = v => Math.round(v).toLocaleString("en-US");
-  const m = R.go3r, t = R.gotrail, e = R.early, g = R.tight, o = R.old, a = R.against, bad = m.years.filter(y => y.r < 0).map(y => y.y), [s1, s2, s3] = m.segments;
+  const m = R.go3r, t = R.gotrail, l = R.late1r, e = R.early, g = R.tight, o = R.old, a = R.against, bad = m.years.filter(y => y.r < 0).map(y => y.y), [s1, s2, s3] = m.segments;
   const p0 = X.c[L.lowerBound(X.t, from)], p1 = X.c[X.n - 1];
   // how many times the signal came up, against how many became trades (one position at a time: the rest came up while a trade was on)
   let rowsIn = 0, big3 = 0, all5 = 0;                                          // how much of the time the trends line up
@@ -66,10 +67,11 @@ if (write) {
     updated: iso(Date.now() / 1000 + 8 * 3600), from: iso(from), to: iso(to), years: r2(yrs, 1), dataFrom: iso(dataFrom), signals: onsets, signalsWhileOpen: onsets - m.n - m.shut, signalsShut: m.shut, aligned: { big3: r2(big3 / rowsIn * 100, 0), all5: r2(all5 / rowsIn * 100, 0) }, partialYears: partial, priceFrom: Math.round(p0), priceTo: Math.round(p1),
     source: "现货金 XAU/USD 的 1 分钟买价 K 线（Dukascopy），约 " + Math.round(X.n / 1e5) / 10 + " 百万根，日线按纽约 17:00 换日。历史从 " + iso(dataFrom) + " 开始，头一年多只用来让周线攒够 60 根 K 线，成绩从 " + iso(from) + " 算起。",
     costs: "点差按价格的万分之 1.5（现在约 0.63 美元），做多的隔夜利息按年化 7.5%，做空不计利息；信号出现后 1 分钟按市价进场，止损和目标同一分钟都碰到时算止损。",
-    main: "go3r", order: ["go3r", "gotrail", "early", "tight", "d4", "old", "against", "long"], rules: R,
+    main: "go3r", order: ["go3r", "gotrail", "late1r", "early", "tight", "d4", "old", "against", "long"], rules: R,
     findings: [
       { b: "只做三个大周期同向的那一边。", t: "顺着做，平均每笔 " + sg(m.avgR) + "R；逆着做，平均每笔 " + sg(a.avgR) + "R，" + r2(yrs, 1) + " 年累计亏掉 " + Math.round(Math.abs(a.totalR)) + "R。" },
       { b: "等小周期也转回来再进。", t: "大方向对了就急着进，" + e.n + " 笔平均每笔 " + sg(e.avgR) + "R，等于白做；等 1 小时和 15 分钟也同向再进，才是 " + sg(m.avgR) + "R。" },
+      { b: "信号走了一段再进也可以。", t: "价格已经顺着走了 1R 才进、止损按那时的价格重新放 3 倍波幅：" + l.n + " 笔，平均每笔 " + sg(l.avgR) + "R，和信号刚出现时进（" + sg(m.avgR) + "R）差不多。要紧的是止损从自己的入场价算，不沿用信号当时的止损。" },
       { b: "止损要放宽。", t: "同样的信号，止损从 3 倍小时波幅缩到 1.5 倍：平均每笔从 " + sg(m.avgR) + "R 降到 " + sg(g.avgR) + "R，最长连亏从 " + m.streak + " 笔变成 " + g.streak + " 笔，最深回撤从 " + Math.round(m.maxDD) + "R 变成 " + Math.round(g.maxDD) + "R。" },
       { b: "旧版的入场信号没有优势。", t: "日线和 4 小时同向、价格进缺口、15 分钟出现转折，也就是这页以前说「可以考虑」的情形：" + num(o.n) + " 笔里 " + Math.round(o.win) + "% 是赚的，但平均每笔 " + sg(o.avgR) + "R，因为赚的时候赚得少、亏的时候亏得多。" },
       { b: "不设目标、用跟踪止损，结果略好。", t: "平均每笔 " + sg(t.avgR) + "R、最深回撤 " + Math.round(t.maxDD) + "R（设 3R 目标是 " + sg(m.avgR) + "R、" + Math.round(m.maxDD) + "R）。代价是更靠少数大单：最好的 5 笔占了总利润的 " + Math.round(t.top5 / t.totalR * 100) + "%。" },

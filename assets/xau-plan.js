@@ -14,6 +14,7 @@ var XauPlan = (function () {
   // What the replay found, in the words the verdict uses. Gold's by default; btc.html (and scripts/update_btc.js)
   // pass Bitcoin's own replay through setMarket(), so a signal there is described by what it did on Bitcoin.
   var MK = { goText: "这是回放里唯一显出优势的情形。", streak: 15, shortWarn: "", longWarn: "",
+    lateText: "回放里，信号走出 1R 以后才进的单平均每笔 +0.17R，和刚出现时进（+0.18R）差不多。",                 // data/xau-backtest.json rules.late1r / go3r
     noneText: "回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。" };
   function setMarket(o) { for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) MK[k] = o[k]; }
   var TF_ORDER = ["W", "D", "4H", "1H", "15M"];
@@ -311,19 +312,21 @@ var XauPlan = (function () {
       if (R.full) {
         v.level = "go"; v.fresh = num(R.since5) !== null && nowMs - R.since5 <= 2 * 3600000;
         v.tag = "可以顺势" + act(R.dir); v.title = "五个周期都" + way + "，可以顺势" + act(R.dir);
-        v.text = MK.goText + (R.dir < 0 ? MK.shortWarn : MK.longWarn) + "按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已持续一段时间，不要追已经走远的行情。");
-        // how old the signal is, and how far price has gone since: the replay entered on the candle that completed it
-        var sig = v.signal = signalInfo(E, R), note = "", late = false;
+        v.text = MK.goText + (R.dir < 0 ? MK.shortWarn : MK.longWarn) + "按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已出现一段时间：现在进的话，止损和目标按现价重新算（下面的价位就是）。");
+        // how old the signal is, and how far price has gone since. Entering later, with the stop set 3 x ATR from the
+        // later price, did about as well in the replay as entering on the signal (rules.late1r), so a signal that has
+        // run is still a signal: the plan is always worked out from the price now.
+        var sig = v.signal = signalInfo(E, R), note = "";
         if (sig) {
           note = "信号 " + agoTxt(nowMs - sig.at) + "出现" + (sig.price !== null ? "，当时 " + fmt(sig.price, 1) : "") + "。";
           if (sig.price !== null && price !== null && room) {
-            var m = sig.movedR = (price - sig.price) * R.dir / room; late = m >= 1;
-            note += late ? "之后价格已经顺着走了 " + m.toFixed(1) + "R。回放只测过信号刚出现时进场，这么晚再进没有数据支持，等下一次更稳妥。"
-              : m >= 0.25 ? "之后价格顺着走了 " + m.toFixed(1) + "R，剩下的空间小了一些。"
+            var m = sig.movedR = (price - sig.price) * R.dir / room;
+            note += m >= 1 ? "之后价格已经顺着走了 " + m.toFixed(1) + "R。" + MK.lateText + "止损按现价重新放，不沿用信号当时的止损。"
+              : m >= 0.25 ? "之后价格顺着走了 " + m.toFixed(1) + "R，下面的止损和目标已按现价重新算。"
               : m <= -0.25 ? "现在的价格比当时" + (buy ? "低" : "高") + " " + fmt(Math.abs(price - sig.price), 1) + " 美元：进场价更好，但也说明价格在往回走。" : "价格和当时差不多。";
           }
         }
-        if (k) step(late ? "现在：信号已经走远，别追" : "现在：可以顺势" + act(R.dir), note + (late ? "还是想进的话：" : "") + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →", late: late });
+        if (k) step("现在：可以顺势" + act(R.dir), note + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →" });
         step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 " + MK.streak + " 笔，所以不要加码。");
         // the replay tested two ways out, each on its own: a fixed 3R target, or a daily trailing stop with the regime exit
         if (k) step("进场前选好离场做法（二选一，进场后别换）", "目标 3R：止损 " + fmt(k.stop, 1) + "、目标 " + fmt(k.tp1, 1) + " 都不动。跟踪止损：不设目标，每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。两种都别提前挪到成本价，回放里那样会少赚。");
