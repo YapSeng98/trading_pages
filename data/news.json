@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24 14:24 SGT",
+ "updated": "2026-10-24 19:06 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold Price Tests $4,000 Support as Bearish Gaps Signal Further Downside Risks",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbzBQSnVoSVpPT1VWQ2UtVDVDUTZqSGJKQnBxNUxmNzhtdlF3X3VUTHdRVG5wZmRYRW5SSGxPOTRqYS01TktUTkRiYlV2WDBITzNsbDd5MHlxWFZWYUpSQ1oxam1td3JJSHpEMHF1RVd4UXl5VHNiaUFBVHd3RUx0TUdid2o0V2lDdEhfYmdIcW9YeEN1MnBNTjB2c1FRb1NZYjYwSmRPWmN6b3JmeWRrMFQ5LUJpQXZTU3liWQ?oc=5",
+   "ms": 1792828350000,
+   "time": "10/24 15:52"
+  },
+  {
    "t": "TSX falls as gold slides, AI spending concerns weigh on technology stocks",
    "src": "Investing.com Canada",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMVdQeGdkbExKSzRuaEtUVWtoWXpEd2JERmhiWWNWUERKbFpRWWRIVVV0cXBBY2NlVnVseUpLOS01X2ZTeWhEQkVGVm5ZbGlYdWZad2txVFdxV2kxMzZBcHRBSjlqV3h4SVpmSGZZdGlHZzBKcG9STDhDdzdCZElVbTNQR0QyWHJvS1lzUVNmS29nZzBDeFFrQUpCVDR0Nmg0Z3FzNDlpZDd1Zw?oc=5",
    "ms": 1792793649000,
    "time": "10/24 06:14"
+  },
+  {
+   "t": "Wall Street doubts gold’s near-term strength, Main Street maintains bullish minority as central banks take center stage",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRU1yRlZsNTh6bkNjQkY0X2hSVEVOSjdaRWFBaldpcENGUHRBcmlNbE43UmZKS21DZHNXOTh5NXVGX1dodmVXZXhuR3BJQUtZbEtPNHZWZXprR2l5NDFkN2dBQ0V3MDFKZDZJTG9IWDVNYTRyR2VBdXBLWGN6aVkyWURNOVp3elJFVFlodUNFQ1RUeXVBMXZNZW1XT3pvVE1JWXVMdG8xYml2SGdrUlFMMC0yemg0MURjSHE0?oc=5",
+   "ms": 1792792822000,
+   "time": "10/24 06:00"
   },
   {
    "t": "Gold's $4,000 support breaks, but is the selloff overdone?",
@@ -70,46 +84,25 @@
    "time": "10/23 21:27"
   },
   {
+   "t": "Gold Is Sliding Back Toward $4,000 as the Haven Trade Breaks",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQajFQcTVucWxRSk15QkVzU3ozMFpDZFFXVkhER0ZKeWZIRkhvNW5TZHRZY1RWUENBeGtMeElrazlVVTVCTXVOVUZnMWUzQzJTU2JjM2tqUDQxZG9uYUxvbUp3OGx6ejNIRHhSNDZhQTAwcGpTb0xqSEprQ3hkQWFmMmlzckxrbG1QbnBvQVRwLW9FZkx4VGtwX1dDSVM?oc=5",
+   "ms": 1792761776000,
+   "time": "10/23 21:22"
+  },
+  {
+   "t": "TSX futures drop amid gold price fall, AI anxieties",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQNnhwM1BGR2JLWWZQd0lhMDRMRXdILTJMSzdTZlR0N3F2cUgzeXZIRFEwS1lXYmN1cmNUaEVtMzVhUlJ6SVNQWER0WWFYeVlJRUE0ZjQ4MTVyOGtzalZONkhzbUlfU0Y0anhCV3Y2NlJSSG5OSHhCWlM0TndUREltOVdvb3puN2pwcU5oZUdzRXNYNmJZVWc?oc=5",
+   "ms": 1792755138000,
+   "time": "10/23 19:32"
+  },
+  {
    "t": "Gold price today, Friday, October 23, 2026: Gold opens at 3-month lows as oil prices keep rising",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOZnp1ZFhreERCV0F0bEs4emx4WlVNdW40OGJhWThrY0pIazRJY1FiTkIxeTFIbVRQX1NmYWVSaktzbzhTdEhocjZMMzdMUHBmeXFJOXUyLXRBSm9OMkdDWnJuMmg0SXBuNUxsSEd4U2ZRbndoN243LVl4ZEFzc2JkdVRCWWFIell2SW5IdEFXZGZ4b3AzUjNQbU41bFBCNnhpNXFsUkUySU9FaUhXem8tTDJuU1pGakZYM3A1UzRTZHY0aDJiZlc1WTZpWWJ0ZW9MQml0Rkdta05KZTFQbFNqeGREQXlseVVhQXNmaDFnbzZMeFgzcHZzc0FTVXc?oc=5",
    "ms": 1792753968000,
    "time": "10/23 19:12"
-  },
-  {
-   "t": "TSX futures drop amid gold price fall, AI anxieties",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUkR0N3E5ZGNCOFdrdWxoNFN3OGtVZ3owenJlenVZYW1TZHBrRV83VVQ0dV9mYnJ3c2Q4eGtodENtb2dnSDdBS3JveDFYci16c0ZlSWd1cTF3VFhmelpiM2czTHdmeXhiN0xRR3A5bGpoM0owYlpwZXBJVVJNdUdWaUgyQ1B0SVFDS0ZEdnRhYzJNVUdUa2xXSVMxUnRWNjMxZE1xVmNoS3FIX3M?oc=5",
-   "ms": 1792753546000,
-   "time": "10/23 19:05"
-  },
-  {
-   "t": "UBS sees dip buyers stepping in to support gold at this level",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNT21oQXRrLXliemZWM2wxQUhUb1pLNlpGS3NYMFh4YnN0MXczT1dPMkhuWTN4djRHelk5TlltdFJzNElnTkM0cHdySVE3TGtWVkpPYTZfUml6aWd5RXdteXNnbDhDYkFaeEtOOXNFaUR6VExEOFlFaEN1YUhyUFdLemtIT3o1ZkNXRHFaeXV6ejJyQmYzV3VVSlA2blRFcDg?oc=5",
-   "ms": 1792753239000,
-   "time": "10/23 19:00"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD picks up from the $4,000 area with bears still in control",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOQUpUbEtObkhna1NlSFEzQVB3WWZOV2U3ZHBMNHAwY1FQeXRSNXhaTkpUNzBoUTVSaHZCVjRhQjZTU0RvajkzU2I2SmdzSVBKVkJybW0xNnh4TnBmR2lGOTQxNGMtRmRmUEVNZW1mdWR1TmZHNk04SVVtdDk5Zk9GTUVQb2tYOURoU2ZHUFJZLURHN3ZkZUlKb3YyVlAtRTV1cWVNbkk4aXNHMWNGZjI2X2k2NXpNQTZOcXByLUxrQVppN3pnenc?oc=5",
-   "ms": 1792750608000,
-   "time": "10/23 18:16"
-  },
-  {
-   "t": "Gold holds above $4,000/three-month low as Fed hike bets and firm USD cap upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPeXZUdHQxUjlmRkl1RXVmSDVZRnFwd0dFeTRxU3NaY0REVzdWampCTlVpZTZJTHhRNkZhZGhvRnpmbjN0OHlhaU5rN1ZaZ2NtUU1VY1UyZ3JyUWZ3cWZKUnU3Yl9fZXhxaXYxY19HTUI4R29HYndLOVhnTU9YcHNZZ01QdUoyTmktVThNY2ZQblhzdF93ZUYwaExFWS01aUpwWUFCQS03T09paGU2NDVta0FZVGo1Uy1VWS1QbXJ3?oc=5",
-   "ms": 1792745347000,
-   "time": "10/23 16:49"
-  },
-  {
-   "t": "Gold price analysis: XAU/USD tests critical 4,000 barrier",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPWmxneXNQNmQ4bjBoUTRNcWY5dkhtcjExVGljZkRlNXFlZHZUU3IzenhZUHo0TzJxNU9zU1lVLWIwV0hlWmg0VWx6X1h5UzMyWmdzYjIweUUzS3VSVldtdm9uU0ZHcDFldXZUWE52VUc2SXBnT2JqQWM3NVBESTQzeER6VE9heWxiUmp6TTM0SUM2VTlZbFZQNUYzTUhOX0hTZjNLLU1B?oc=5",
-   "ms": 1792745181000,
-   "time": "10/23 16:46"
   }
  ]
 }
