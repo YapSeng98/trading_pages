@@ -68,6 +68,22 @@ real or lucky. Gold, 2011-02 to 2026-10, 495 trades:
   within chance on each market (88-93% of resamples positive, 61% for Bitcoin's trailing stop). A hint, not a rule;
   not used.
 
+## Chart patterns (2026-10-24)
+
+`pattern_check.js` (`MARKET=gold node pattern_check.js 2010 2026 [--write]`) runs the page's own pattern finder
+(`xPatterns` in the engine) at every candle close and scores each pattern on the close that completes it (a double top
+or bottom, head and shoulders through its neckline; a triangle, wedge, channel, range or flag breaking out).
+`--write` keeps the summary in the market's replay file as `patterns`; `report.js` / `report_btc.js` carry it over.
+
+- On their own, traded the breakout way: gold 1-hour +0.01R (2,637), 4-hour −0.02R (487); Bitcoin 1-hour −0.09R
+  (1,785), 4-hour −0.03R. With each pattern's own stop and target they win about 57-60% of the time and still average
+  about 0R: the high win rate is paid for by losses bigger than the wins.
+- With the big three trends they do better and against them worse, which is the trend doing the work, not the pattern.
+- With the rule: signals where a finished daily / 4-hour / 1-hour pattern agrees did no better on gold (+0.20R
+  against +0.21R with none); better on Bitcoin (+0.28R against +0.09R), so not consistent. A finished pattern pointing
+  against the signal was rare and did worse (gold 16 trades −0.28R, Bitcoin 9 trades −0.58R): too few to make a rule.
+  The page shows patterns in the answer as reference and adds a caution step in that last case.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

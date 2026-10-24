@@ -573,17 +573,19 @@
       zl.appendChild(h("div", { class: "zi " + z.polarity + (z.side === "in" ? " in" : "") }, [h("span", { class: "bar" }), h("div", null, [h("div", { class: "zt", text: z.label + (z.tapped ? "" : " · 还没被碰过") }), h("div", { class: "zr", text: fmt(bot, 1) + " – " + fmt(top, 1) })]), h("span", { class: "zs", text: st })]));
     });
 
-    var pt = clear($("patterns")), any = false;
+    var pt = clear($("patterns")), any = false, Rp = P.regime(E), pw = P.words();
+    if (pw.patNote) pt.appendChild(h("p", { class: "note", text: pw.patNote }));
     P.TF_ORDER.forEach(function (tf) {
       var t = E.tfs[tf]; if (!t || t.error) return;
       (t.patterns || []).forEach(function (p) {
         any = true;
+        var pd = P.patternWay(p), rel = !pd ? "" : " · 已完成" + (!Rp.dir ? "" : pd === Rp.dir ? "，和大方向一致" : "，和大方向相反");
         var bits = [];
         if (num(p.level) !== null) bits.push("关键位 " + fmt(sh(p.level), 1));
         if (num(p.upper) !== null) bits.push("上沿 " + fmt(sh(p.upper), 1) + " · 下沿 " + fmt(sh(p.lower), 1));
         if (num(p.target) !== null) bits.push("目标 " + fmt(sh(p.target), 1));
         if (num(p.invalid) !== null) bits.push("失效 " + fmt(sh(p.invalid), 1));
-        pt.appendChild(h("div", { class: "pat " + p.bias }, [h("span", { class: "t", text: P.TF_ZH[tf] + " · " + P.patternText(p) + (p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "") }), h("span", { class: "s", text: P.statusText(p.status) }), bits.length ? h("span", { class: "s mono", text: bits.join(" · ") }) : null]));
+        pt.appendChild(h("div", { class: "pat " + p.bias }, [h("span", { class: "t", text: P.TF_ZH[tf] + " · " + P.patternText(p) + (p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "") }), h("span", { class: "s", text: P.statusText(p.status) + rel }), bits.length ? h("span", { class: "s mono", text: bits.join(" · ") }) : null]));
       });
     });
     if (!any) pt.appendChild(h("p", { class: "note", text: "各周期暂时没有清晰的形态。" }));
@@ -1501,6 +1503,9 @@
       L.push("- " + EN_TF[v.tf] + ": " + (v.v > 0 ? "UP" : v.v < 0 ? "DOWN" : "unclear") + (num(t.since) !== null ? " since " + sgt(t.since) : "") + ", RSI " + (num(t.rsi) !== null ? Math.round(t.rsi) : "—") + ", ATR " + f1(t.atr) +
         (against ? ", but moving against it lately (" + (v.v > 0 ? "pullback" : "bounce") + ")" : "") + (flip !== null ? "; turns " + (v.v > 0 ? "down on a close below " : "up on a close above ") + f1(flip) : ""));
     });
+    var pats = P.patternsNow(E);
+    L.push("Chart patterns finished on the daily, 4-hour and 1-hour charts: " + (pats.length ? pats.map(function (p) { return EN_TF[p.tf] + " " + p.name + " (broke " + (p.dir > 0 ? "up" : "down") + ")"; }).join("; ") : "none") +
+      ". In the page's replay, patterns on their own showed no edge, and a pattern agreeing with a signal did not make it better.");
     var k = R.dir ? P.systemPlan(E, R.dir) : null;
     if (k) L.push("Plan at the live price: " + (k.side === "short" ? "SELL" : "BUY") + " " + f1(k.entry) + ", stop " + f1(k.stop) + " (" + fmt(k.dist, 1) + " away = 3x 1-hour ATR), target 3R " + f1(k.tp1) + "; trailing-stop alternative keeps the stop " + fmt(k.trailDist, 0) + " behind the best price" + (R.full ? "" : " (not valid yet: the small timeframes have not turned)"));
     V.lines.forEach(function (l) { L.push("Level that changes the answer: " + f1(l.price) + " (" + l.text + ")"); });
@@ -1697,6 +1702,6 @@
     var K = S.feed && S.feed.K["15M"], have = K && K.length ? K[K.length - 1][6] + 1 : 0;
     if (q !== S.lastQ || (marketOpen() && have < q * 900000)) { if (qTries < 3) { qTries++; refresh(); } }
   }, 20000);
-  document.addEventListener("market:words", function () { if (S.E) { renderVerdict(); renderPlan(); } });   // btc.html: its replay's words arrived
+  document.addEventListener("market:words", function () { if (S.E) { renderVerdict(); renderPlan(); renderLevels(); } });   // btc.html: its replay's words arrived
   setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); if (S.rec && S.tab === "proof") renderProof(); }, 60000);
 })();

@@ -148,7 +148,8 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 .v-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .v-title{font-family:var(--f-d);font-size:clamp(23px,3vw,33px);font-weight:700;color:var(--ink);line-height:1.22;letter-spacing:-.8px;margin:16px 0 10px}
 .v-text{font-size:14px;line-height:1.9;color:var(--text);max-width:62ch}
-.v-reasons{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.v-reasons{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+@media(max-width:1180px){.v-reasons{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .v-reasons li{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;display:grid;gap:7px;align-content:start}
 .v-reasons .rl{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink)}
 .v-reasons .rt{font-size:12.5px;color:var(--text);line-height:1.55}
@@ -712,7 +713,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     <div class="panel live-data" data-panel="zones" hidden>
       <div class="two">
         <div><div class="sub-h">缺口<button type="button" class="q" data-g="fvg" aria-label="解释：缺口">?</button></div><p class="p-intro">价格走得太急留下的空档。常被当成入场区，但回放里它没有带来额外优势，这里只作参考。</p><div class="zl" id="zones"></div></div>
-        <div><div class="sub-h">图表形态</div><p class="p-intro">程序在各周期上识别出的经典形态，给出关键位、目标和失效位，只作参考。</p><div id="patterns"></div></div>
+        <div><div class="sub-h">图表形态</div><p class="p-intro">程序在各周期上识别出的经典形态，给出关键位、目标和失效位。日线、4 小时、1 小时上已完成的形态也会显示在顶部结论的「形态」一格。</p><div id="patterns"></div></div>
       </div>
     </div>
 
@@ -854,8 +855,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
 <script src="assets/xau-feed.js?v=5"></script>
 <script src="assets/xau-engine.js?v=5"></script>
-<script src="assets/xau-plan.js?v=10"></script>
+<script src="assets/xau-plan.js?v=11"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=10"></script>
+<script src="assets/market-page.js?v=11"></script>
 </body>
 </html>

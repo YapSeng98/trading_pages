@@ -45,12 +45,15 @@ var BtcFeed = (function () {
     var m = bt && bt.rules && bt.rules.go3r; if (!m) return null;
     var sg = function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2) + "R"; }, seg = (m.segments || []).filter(function (x) { return x.n; });
     var clear = m.lo > 0;                                                       // the whole range of the estimate above zero
+    var pt = bt.patterns && bt.patterns.alone && bt.patterns.own && bt.patterns.rule ? bt.patterns : null;   // research/xau-replay/pattern_check.js
     return {
       goText: clear ? "比特币回放里，这个信号平均每笔 " + sg(m.avgR) + "。"
         : "比特币回放里这个信号的优势不明显：平均每笔 " + sg(m.avgR) + "，分段看 " + seg.map(function (x) { return x.label + " " + sg(x.avgR); }).join("、") + "。把它当参考，不要当成有把握的信号。",
       shortWarn: m.short && m.short.avgR < 0 ? "做空信号在回放里整体是亏的（平均每笔 " + sg(m.short.avgR) + "）。" : "",
       longWarn: m.long && m.long.avgR > m.avgR ? "做多信号好一些（平均每笔 " + sg(m.long.avgR) + "）。" : "",
       lateText: bt.rules.late1r && bt.rules.late1r.n ? "比特币回放里，信号走出 1R 以后才进的单平均每笔 " + sg(bt.rules.late1r.avgR) + "（" + bt.rules.late1r.n + " 笔），没有比刚出现时进差（" + sg(m.avgR) + "）。" : "",
+      patNote: pt ? "比特币回放里形态单独拿来做没有优势：1 小时形态完成后进场 " + pt.alone["1H"].n.toLocaleString("en-US") + " 次，平均每笔 " + sg(pt.alone["1H"].avgR) + "；按形态自己的止损和目标，胜率 " + Math.round(pt.own["1H"].win) + "%，平均 " + sg(pt.own["1H"].avgR) + "。和信号同向的平均 " + sg(pt.rule.agree.avgR) + "，没有形态的 " + sg(pt.rule.none.avgR) + "，在黄金上看不到这个差别，不能当规则。它们的用处是标出关键位、目标和失效位。" : "",
+      patAgainst: pt && pt.rule.against.n ? "比特币回放里这种情况很少（" + pt.rule.against.n + " 笔），平均每笔 " + sg(pt.rule.against.avgR) + "，比平常差；笔数太少，规则不因此改变。想更稳，这一笔可以减半手数或不做。" : "",
       streak: m.streak,
       noneText: "比特币回放里，逆着三个大周期做是长期亏损的" + (bt.rules.against ? "（平均每笔 " + sg(bt.rules.against.avgR) + "）" : "") + "；顺着做的优势" + (clear ? "也比黄金弱" : "也不明显") + "。"
     };

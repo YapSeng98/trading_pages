@@ -15,6 +15,9 @@ var XauPlan = (function () {
   // pass Bitcoin's own replay through setMarket(), so a signal there is described by what it did on Bitcoin.
   var MK = { goText: "这是回放里唯一显出优势的情形。", streak: 15, shortWarn: "", longWarn: "",
     lateText: "回放里，信号走出 1R 以后才进的单平均每笔 +0.17R，和刚出现时进（+0.18R）差不多。",                 // data/xau-backtest.json rules.late1r / go3r
+    // data/xau-backtest.json patterns (research/xau-replay/pattern_check.js)
+    patNote: "回放里（黄金 2011–2026）形态单独拿来做没有优势：1 小时形态完成后进场 2,637 次，平均每笔 +0.01R；按形态自己的止损和目标，胜率 59%，平均 −0.02R。和信号同向也没让信号更好（+0.20R，没有形态时 +0.21R）。它们的用处是标出关键位、目标和失效位。",
+    patAgainst: "回放里这种情况很少（16 笔），平均每笔 −0.28R，比平常差；笔数太少，规则不因此改变。想更稳，这一笔可以减半手数或不做。",
     noneText: "回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。" };
   function setMarket(o) { for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) MK[k] = o[k]; }
   var TF_ORDER = ["W", "D", "4H", "1H", "15M"];
@@ -215,6 +218,23 @@ var XauPlan = (function () {
   // The price a timeframe has to close beyond for its trend to turn `to` (1 up, -1 down), if the engine has one.
   function flipLevel(E, tf, to) { var t = tfOk(E, tf); if (!t) return null; return to > 0 ? num(t.swingHigh) : num(t.swingLow); }
 
+  // ---------- chart patterns ----------
+  // Which way a finished pattern points: a double top / bottom or head and shoulders that closed through its neckline,
+  // or a triangle, wedge, channel, range or flag that broke out. 0 while it is still forming.
+  function patternWay(p) {
+    var s = (p && p.status) || "";
+    return /closed below|broke out downward/.test(s) ? -1 : /closed above|broke out upward/.test(s) ? 1 : s === "broke out" ? (p.bias === "bullish" ? 1 : -1) : 0;
+  }
+  // The finished patterns on the daily, 4-hour and 1-hour charts (the ones the replay scored), biggest timeframe first.
+  function patternsNow(E) {
+    var out = [];
+    ["D", "4H", "1H"].forEach(function (tf) {
+      var t = tfOk(E, tf);
+      ((t && t.patterns) || []).forEach(function (p) { var d = patternWay(p); if (d) out.push({ tf: tf, dir: d, name: p.name, text: TF_ZH[tf] + (ZH.pattern[p.name] || p.name) + "（已" + (d > 0 ? "向上" : "向下") + "突破）" }); });
+    });
+    return out;
+  }
+
   // ---------- the plan the replay supports ----------
   // Enter at the current price with the big trend; stop 3 x 1H ATR away; target 3R, or no target and a trailing stop.
   function systemPlan(E, dir, opts) {
@@ -283,6 +303,14 @@ var XauPlan = (function () {
     v.reasons.push({ key: "dir", label: "大方向", ok: R.dir !== 0, text: R.dir ? "周线、日线、4 小时都" + way : big + "，还不一致" });
     v.reasons.push({ key: "small", label: "小周期", ok: R.dir ? R.full : null,
       text: !R.dir ? "大方向一致后才看小周期" : R.full ? "1 小时和 15 分钟也" + way : R.lagging.map(zh).join("、") + "还是" + say(-R.dir) + "，等它转回" + way });
+    // chart patterns: shown for what they are. The replay found no edge in them, alone or with the rule; the rare
+    // finished pattern pointing against a signal did worse, on too few trades to change the rule (MK.patAgainst).
+    var pats = patternsNow(E), pAg = pats.filter(function (p) { return R.dir && p.dir === R.dir; }), pOp = pats.filter(function (p) { return R.dir && p.dir === -R.dir; });
+    var ptx = function (list) { return list.slice(0, 2).map(function (p) { return p.text; }).join("；"); };
+    v.patterns = { all: pats, agree: pAg, against: pOp };
+    v.reasons.push({ key: "pat", label: "形态", ok: pOp.length && !pAg.length ? false : null,
+      text: !pats.length ? "日线、4 小时、1 小时都没有已完成的形态" : !R.dir ? ptx(pats) + "，只作参考"
+        : pOp.length ? ptx(pOp) + "，和大方向相反" + (pAg.length ? "；" + pAg[0].text + "同向" : "") : ptx(pAg) + "，和大方向一致（只作参考）" });
     var add = function (dir, p, text) { p = num(p); if (p !== null) v.lines.push({ dir: dir, price: p, text: text, dist: price === null ? null : Math.abs(p - price) }); return p; };
     var away = function (p) { return price === null ? "" : "比现价" + (p >= price ? "高 " : "低 ") + fmt(Math.abs(p - price), 1) + " 美元。"; };
     var step = function (lead, text, more) { var s = { lead: lead, text: text }, k; for (k in (more || {})) s[k] = more[k]; v.next.push(s); };
@@ -343,6 +371,7 @@ var XauPlan = (function () {
         if (k) step("到时候这样做", "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。", { fill: "先填进计划看看 →" });
         step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
       }
+      if (v.level === "go" && pOp.length && !pAg.length) v.next.splice(1, 0, { lead: "注意：有反方向的形态", text: ptx(pOp) + "，和信号方向相反。" + MK.patAgainst });
       // what ends it: the 4-hour trend turning against
       add(buy ? "down" : "up", out, "4 小时收盘" + (buy ? "跌破" : "站上") + "这里，三周期不再同向：用跟踪止损的持仓在这里离场");
     }
@@ -461,6 +490,6 @@ var XauPlan = (function () {
 
   return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
-    patternText: patternText, statusText: statusText, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
+    patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;

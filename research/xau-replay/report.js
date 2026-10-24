@@ -86,6 +86,8 @@ if (write) {
       { b: "成本是估的。", t: "各家平台的点差和隔夜利息不一样。持仓通常要过一两夜，利息对结果的影响不小；你的平台更贵的话，结果会更差。" },
     ],
   };
+  // the chart-pattern check (pattern_check.js --write) keeps its results in the same file: carry them over
+  try { const old = JSON.parse(fs.readFileSync(L.REPO + "/data/xau-backtest.json", "utf8")); if (old.patterns) out.patterns = old.patterns; } catch (e) { /* first run */ }
   fs.writeFileSync(L.REPO + "/data/xau-backtest.json", JSON.stringify(out, null, 1) + "\n");
   console.log("\nwrote data/xau-backtest.json");
 }
