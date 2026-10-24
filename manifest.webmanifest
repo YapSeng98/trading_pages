@@ -1,0 +1,21 @@
+{
+  "name": "Trading Hub · 黄金与比特币",
+  "short_name": "Trading Hub",
+  "description": "黄金和比特币的五周期实时结论、交易计划和提醒。装成应用后提醒的提示音不用点就能响。",
+  "id": "./report.html",
+  "start_url": "./report.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#0A0A0F",
+  "lang": "zh",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "黄金", "url": "./report.html" },
+    { "name": "比特币", "url": "./btc.html" }
+  ]
+}

@@ -1251,8 +1251,14 @@
       });
       t.appendChild(opts);
       var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
-      snd.appendChild(document.createTextNode(soundOn() ? "🔊 网页提示音已开（电脑静音或勿扰模式时听不到）。" : "通知照常弹出。网页提示音在按浏览器的刷新（F5）后要点一下页面才响：这是浏览器的规定。页面自己会更新，不用刷新；要重算就点上面的「⟳ 刷新」，提示音不会断。完全不想点：在电脑通知设置里打开浏览器的通知声音（Mac：系统设置 → 通知 → Google Chrome → 播放通知声音）。"));
-      if (!soundOn()) snd.appendChild(h("button", { type: "button", class: "btn sm", text: "开启提示音", onclick: function () { ensureAudio(); setTimeout(function () { chime(); renderAlert(); }, 150); } }));
+      if (soundOn()) snd.appendChild(document.createTextNode("🔊 提示音已开" + (isApp() ? "（应用里打开：刷新后也不用点）" : "") + "。电脑静音或勿扰模式时听不到。"));
+      else {
+        snd.appendChild(document.createTextNode("🔇 这次打开还没有提示音（通知照常弹出）。浏览器规定网页刷新后要点一下才能出声；"));
+        snd.appendChild(h("b", { text: "把网站装成电脑上的应用（只要一次），以后从应用打开就不用再点。" }));
+        if (S.installEvt) snd.appendChild(h("button", { type: "button", class: "btn sm pri", text: "安装成应用", onclick: installApp }));
+        else if (!isApp()) snd.appendChild(document.createTextNode("安装方法：Chrome 地址栏右边的「安装」图标，或右上角 ⋮ → 投放、保存和分享 → 将网页安装为应用。"));
+        snd.appendChild(h("button", { type: "button", class: "btn sm", text: "这次先开启", onclick: function () { ensureAudio(); probeSound(function () { chime(); renderAlert(); soundChip(); }); } }));
+      }
       t.appendChild(snd);
     }
     else if (S.notify && perm === "default") { t.appendChild(h("b", { text: "🔔 提醒默认开着，还差浏览器允许一次。" })); t.appendChild(document.createTextNode("浏览器弹出询问时点「允许」；没看到询问就点右边的按钮。允许一次以后，黄金页和比特币页都不用再点。")); }
@@ -1276,16 +1282,49 @@
     } catch (e) {}
     return !!(S.audio && S.audio.state === "running");
   }
-  function soundOn() { return !!(S.audio && S.audio.state === "running"); }
+  // The chime is also a short WAV made here and played by an <audio> element: Chrome lets media elements play with
+  // sound without a click when the site is installed as an app (or it knows the visitor plays sound here). On load the
+  // page tries it silently (volume 0) to learn whether sound is allowed; a click anywhere allows it for this load.
+  function makeChimeUrl() {
+    var rate = 22050, notes = M.chime.notes, end = notes[notes.length - 1][0] + 0.36, n = Math.ceil(rate * end), data = new Float32Array(n);
+    notes.forEach(function (nt) {
+      var start = Math.floor(nt[0] * rate), len = Math.floor(0.34 * rate);
+      for (var i = 0; i < len && start + i < n; i++) { var t = i / rate, env = Math.min(1, t / 0.01) * Math.exp(-t * 9), ph = 2 * Math.PI * nt[1] * t; data[start + i] += 0.45 * env * (M.chime.wave === "triangle" ? (2 / Math.PI) * Math.asin(Math.sin(ph)) : Math.sin(ph)); }
+    });
+    var buf = new ArrayBuffer(44 + n * 2), v = new DataView(buf), ws = function (o, t) { for (var i = 0; i < t.length; i++) v.setUint8(o + i, t.charCodeAt(i)); };
+    ws(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); ws(8, "WAVE"); ws(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, rate, true); v.setUint32(28, rate * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true); ws(36, "data"); v.setUint32(40, n * 2, true);
+    for (var i = 0; i < n; i++) v.setInt16(44 + i * 2, Math.max(-1, Math.min(1, data[i])) * 32767, true);
+    return URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+  }
+  S.mediaOk = false;
+  function chimeEl() { if (!S.chimeEl) { try { S.chimeEl = new Audio(makeChimeUrl()); S.chimeEl.preload = "auto"; } catch (e) { S.chimeEl = null; } } return S.chimeEl; }
+  function probeSound(cb) {
+    var a = chimeEl(), fin = function (ok) { S.mediaOk = ok; if (a) a.volume = 1; if (cb) cb(ok); };
+    if (!a) return fin(false);
+    a.volume = 0; var pr; try { pr = a.play(); } catch (e) { pr = null; }
+    if (!pr || !pr.then) return fin(false);
+    pr.then(function () { a.pause(); a.currentTime = 0; fin(true); }, function () { fin(false); });
+  }
+  function isApp() { try { return matchMedia("(display-mode: standalone)").matches || navigator.standalone === true; } catch (e) { return false; } }
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); S.installEvt = e; renderAlert(); });
+  window.addEventListener("appinstalled", function () { S.installEvt = null; toast("已装成应用：以后从应用打开，提示音不用点"); renderAlert(); });
+  function installApp() { var e = S.installEvt; if (!e) return; e.prompt(); (e.userChoice || Promise.resolve()).then(function () { S.installEvt = null; renderAlert(); }); }
+  function soundOn() { return !!(S.mediaOk || (S.audio && S.audio.state === "running")); }
   function soundChip() {
     var c = $("snd-chip");
     if (!c) { c = h("button", { type: "button", id: "snd-chip", class: "snd-chip", text: "🔇 点一下页面，开启提示音" }); document.body.appendChild(c); }
     c.hidden = !(S.notify && NOTE_OK && !soundOn());
   }
-  if (S.notify) setTimeout(function () { askPermission(); ensureAudio(); setTimeout(function () { if ($("v-alert")) renderAlert(); soundChip(); }, 400); }, 0);
+  if (S.notify) setTimeout(function () { askPermission(); probeSound(function () { if ($("v-alert")) renderAlert(); soundChip(); }); }, 0);
   document.addEventListener("click", function () { if (S.notify && NOTE_OK && Notification.permission === "default") askPermission(); }, { once: false, passive: true });
-  ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); setTimeout(function () { renderAlert(); soundChip(); }, 300); } }, { passive: true }); });
+  ["pointerdown", "keydown", "touchstart"].forEach(function (evn) { document.addEventListener(evn, function () { if (S.notify && !soundOn()) { ensureAudio(); probeSound(function () { renderAlert(); soundChip(); }); } }, { passive: true }); });
   function chime() {
+    var el = chimeEl();
+    if (el) { try { el.currentTime = 0; el.volume = 1; var pr = el.play(); if (pr && pr.then) { pr.then(function () { S.mediaOk = true; }, oscChime); return; } } catch (e) {} }
+    oscChime();
+  }
+  function oscChime() {
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
     try { M.chime.notes.forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = M.chime.wave; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
   }
