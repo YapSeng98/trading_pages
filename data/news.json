@@ -1,11 +1,25 @@
 {
- "updated": "2026-10-24 06:18 SGT",
+ "updated": "2026-10-24 08:59 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "TSX falls as gold slides, AI spending concerns weigh on technology stocks",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMVdQeGdkbExKSzRuaEtUVWtoWXpEd2JERmhiWWNWUERKbFpRWWRIVVV0cXBBY2NlVnVseUpLOS01X2ZTeWhEQkVGVm5ZbGlYdWZad2txVFdxV2kxMzZBcHRBSjlqV3h4SVpmSGZZdGlHZzBKcG9STDhDdzdCZElVbTNQR0QyWHJvS1lzUVNmS29nZzBDeFFrQUpCVDR0Nmg0Z3FzNDlpZDd1Zw?oc=5",
+   "ms": 1792793649000,
+   "time": "10/24 06:14"
+  },
+  {
+   "t": "Wall Street doubts gold’s near-term strength, Main Street maintains bullish minority as central banks take center stage",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRU1yRlZsNTh6bkNjQkY0X2hSVEVOSjdaRWFBaldpcENGUHRBcmlNbE43UmZKS21DZHNXOTh5NXVGX1dodmVXZXhuR3BJQUtZbEtPNHZWZXprR2l5NDFkN2dBQ0V3MDFKZDZJTG9IWDVNYTRyR2VBdXBLWGN6aVkyWURNOVp3elJFVFlodUNFQ1RUeXVBMXZNZW1XT3pvVE1JWXVMdG8xYml2SGdrUlFMMC0yemg0MURjSHE0?oc=5",
+   "ms": 1792792822000,
+   "time": "10/24 06:00"
+  },
   {
    "t": "Gold's $4,000 support breaks, but is the selloff overdone?",
    "src": "Kitco",
@@ -42,13 +56,6 @@
    "time": "10/24 00:16"
   },
   {
-   "t": "TSX falls at open as gold weakness, AI spending concerns weigh on sentiment",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQMVdQeGdkbExKSzRuaEtUVWtoWXpEd2JERmhiWWNWUERKbFpRWWRIVVV0cXBBY2NlVnVseUpLOS01X2ZTeWhEQkVGVm5ZbGlYdWZad2txVFdxV2kxMzZBcHRBSjlqV3h4SVpmSGZZdGlHZzBKcG9STDhDdzdCZElVbTNQR0QyWHJvS1lzUVNmS29nZzBDeFFrQUpCVDR0Nmg0Z3FzNDlpZDd1Zw?oc=5",
-   "ms": 1792771748000,
-   "time": "10/24 00:09"
-  },
-  {
    "t": "Gold Weekly Forecast: Inflation fears attract bears ahead of critical Fed meeting",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOY0JSQ2pFSE5ydUZiN1FCdFNTeHZEbER5cEtXWUFoSDN0RjRocGV6cUhnWk42OVdfRDlfMTBVSG1sZFpxWnpkdUo2YUZNTXlIYWFoU1BObnhWODRCeG9odk9KT0FjdGdjbWdaUWdIa05sU3pKaVNfbl9kd2ZCNW1zaHBueFNzazk5N1MycjlhNy1MaHY4MS10LThVM1g4cWFjWnY4ZU9aZm9xc2ZwejlCdTJJYWFuWVJpOUxpbm1TeUV4b2xyTFE?oc=5",
@@ -75,13 +82,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBoRTI1THNqVk5qWGRlbXh6MWRld3NrQTJ4ZEJJZFRaaEYtMDNyYXFPVC1sWmcyMHhkTXY0dUdpLWxXMmR1MXRhdWgyRUY5Y0VtYU9udDJfNmd1Q2thREptT24weDM5QklxYlNaWVF3?oc=5",
    "ms": 1792762020000,
    "time": "10/23 21:27"
-  },
-  {
-   "t": "Gold Is Sliding Back Toward $4,000 as the Haven Trade Breaks",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQajFQcTVucWxRSk15QkVzU3ozMFpDZFFXVkhER0ZKeWZIRkhvNW5TZHRZY1RWUENBeGtMeElrazlVVTVCTXVOVUZnMWUzQzJTU2JjM2tqUDQxZG9uYUxvbUp3OGx6ejNIRHhSNDZhQTAwcGpTb0xqSEprQ3hkQWFmMmlzckxrbG1QbnBvQVRwLW9FZkx4VGtwX1dDSVM?oc=5",
-   "ms": 1792761776000,
-   "time": "10/23 21:22"
   },
   {
    "t": "Gold price today, Friday, October 23, 2026: Gold opens at 3-month lows as oil prices keep rising",
