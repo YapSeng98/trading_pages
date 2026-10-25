@@ -1,66 +1,114 @@
 {
- "updated": "2026-10-22 04:41 SGT",
+ "updated": "2026-10-25 12:46 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
-   "ms": 1792672200000,
-   "date": "10月22日",
+   "ms": 1793109600000,
+   "date": "10月27日",
+   "weekday": "周二",
+   "time": "22:00",
+   "allDay": false,
+   "impact": "medium",
+   "title": "CB Consumer Confidence",
+   "zh": "谘商会消费者信心",
+   "forecast": "80.5",
+   "previous": "81.9"
+  },
+  {
+   "ms": 1793210400000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "02:00",
+   "allDay": false,
+   "impact": "high",
+   "title": "FOMC Statement",
+   "zh": "FOMC 声明",
+   "forecast": "",
+   "previous": ""
+  },
+  {
+   "ms": 1793210400000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "02:00",
+   "allDay": false,
+   "impact": "high",
+   "title": "Federal Funds Rate",
+   "zh": "美联储利率决议",
+   "forecast": "4.00%",
+   "previous": "4.00%"
+  },
+  {
+   "ms": 1793212200000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "02:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "FOMC Press Conference",
+   "zh": "美联储主席记者会",
+   "forecast": "",
+   "previous": ""
+  },
+  {
+   "ms": 1793277000000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "medium",
+   "title": "Advance GDP Price Index q/q",
+   "zh": "GDP 物价指数初值",
+   "forecast": "3.5%",
+   "previous": "6.2%"
+  },
+  {
+   "ms": 1793277000000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Advance GDP q/q",
+   "zh": "GDP 季率初值",
+   "forecast": "3.2%",
+   "previous": "1.5%"
+  },
+  {
+   "ms": 1793277000000,
+   "date": "10月29日",
+   "weekday": "周四",
+   "time": "20:30",
+   "allDay": false,
+   "impact": "high",
+   "title": "Core PCE Price Index m/m",
+   "zh": "核心 PCE 物价指数月率",
+   "forecast": "0.3%",
+   "previous": "0.2%"
+  },
+  {
+   "ms": 1793277000000,
+   "date": "10月29日",
    "weekday": "周四",
    "time": "20:30",
    "allDay": false,
    "impact": "medium",
    "title": "Unemployment Claims",
    "zh": "初请失业金人数",
-   "forecast": "200K",
-   "previous": "199K"
+   "forecast": "198K",
+   "previous": "194K"
   },
   {
-   "ms": 1792763100000,
-   "date": "10月23日",
+   "ms": 1793363400000,
+   "date": "10月30日",
    "weekday": "周五",
-   "time": "21:45",
+   "time": "20:30",
    "allDay": false,
    "impact": "medium",
-   "title": "Flash Manufacturing PMI",
-   "zh": "制造业 PMI 初值",
-   "forecast": "55.4",
-   "previous": "57.0"
-  },
-  {
-   "ms": 1792763100000,
-   "date": "10月23日",
-   "weekday": "周五",
-   "time": "21:45",
-   "allDay": false,
-   "impact": "medium",
-   "title": "Flash Services PMI",
-   "zh": "服务业 PMI 初值",
-   "forecast": "57.9",
-   "previous": "58.7"
-  },
-  {
-   "ms": 1792764000000,
-   "date": "10月23日",
-   "weekday": "周五",
-   "time": "22:00",
-   "allDay": false,
-   "impact": "medium",
-   "title": "Revised UoM Consumer Sentiment",
-   "zh": "密歇根消费者信心终值",
-   "forecast": "46.3",
-   "previous": "46.3"
-  },
-  {
-   "ms": 1792764000000,
-   "date": "10月23日",
-   "weekday": "周五",
-   "time": "22:00",
-   "allDay": false,
-   "impact": "medium",
-   "title": "Revised UoM Inflation Expectations",
-   "zh": "密歇根通胀预期终值",
-   "forecast": "",
-   "previous": "4.7%"
+   "title": "Employment Cost Index q/q",
+   "zh": "就业成本指数季率",
+   "forecast": "0.8%",
+   "previous": "0.9%"
   }
  ]
 }

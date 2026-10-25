@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-25 10:11 SGT",
+ "updated": "2026-10-25 12:46 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 80902,
- "priceTime": "2026-10-25 10:00 SGT",
+ "price": 80936,
+ "priceTime": "2026-10-25 12:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 80888.2,
-  "high": 80917.3,
+  "high": 81033.7,
   "low": 80771.7,
-  "changeFromPrevClose": 13.8,
-  "changePct": 0.02,
+  "changeFromPrevClose": 47.8,
+  "changePct": 0.06,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -107,8 +107,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 43.1,
-   "atr": 788.47,
+   "rsi": 42.9,
+   "atr": 750.86,
    "turnsUpAbove": 82060.9,
    "turnsDownBelow": null
   },
@@ -117,8 +117,8 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-10-25 08:00 SGT",
-   "rsi": 53.6,
-   "atr": 313.64,
+   "rsi": 52.4,
+   "atr": 295.38,
    "turnsUpAbove": null,
    "turnsDownBelow": 79220.7
   },
@@ -127,17 +127,17 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-10-25 07:45 SGT",
-   "rsi": 64.3,
-   "atr": 108.5,
-   "turnsUpAbove": 80933.6,
+   "rsi": 60.2,
+   "atr": 86.57,
+   "turnsUpAbove": 81033.7,
    "turnsDownBelow": 80304.7
   }
  ],
  "resistance": [
   {
-   "price": 80933.6,
-   "what": "1小时区间顶、1小时近期小高点、4小时向下转折位",
-   "strength": 3
+   "price": 81033.7,
+   "what": "1小时区间顶",
+   "strength": 1
   },
   {
    "price": 81213.6,
@@ -145,7 +145,7 @@
    "strength": 3
   },
   {
-   "price": 81990.1,
+   "price": 81978.9,
    "what": "4小时 200 均线",
    "strength": 2
   },
@@ -162,12 +162,17 @@
  ],
  "support": [
   {
+   "price": 80933.6,
+   "what": "1小时近期小高点、4小时向下转折位",
+   "strength": 2
+  },
+  {
    "price": 80846,
    "what": "1小时向上转折位",
    "strength": 1
   },
   {
-   "price": 80727.9,
+   "price": 80711.6,
    "what": "4小时头肩顶关键位",
    "strength": 2
   },
@@ -180,11 +185,6 @@
    "price": 80304.7,
    "what": "1小时近期小低点",
    "strength": 1
-  },
-  {
-   "price": 79800,
-   "what": "上周低点、日线前低、日线双顶关键位",
-   "strength": 9
   }
  ],
  "record": {
