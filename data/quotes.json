@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24 10:11 SGT",
+ "updated": "2026-10-25 10:11 SGT",
  "source": "Yahoo Finance chart API, daily bars",
  "failed": [],
  "quotes": {
@@ -310,18 +310,18 @@
    "cur": "S$"
   },
   "SGX:CLR": {
-   "price": 0.745,
-   "prev": 0.743,
-   "chg": 0.27,
-   "date": "2026-10-22",
+   "price": 0.76,
+   "prev": 0.745,
+   "chg": 2.01,
+   "date": "2026-10-23",
    "hi52": 0.895,
    "lo52": 0.737,
-   "pos52": 5,
-   "r1m": -4.12,
-   "r3m": -11.31,
-   "ytd": -15.24,
+   "pos52": 15,
+   "r1m": -1.04,
+   "r3m": -9.09,
+   "ytd": -13.54,
    "divTtm": 0.045,
-   "yield": 6.04,
+   "yield": 5.92,
    "symbol": "CLR.SI",
    "market": "SG",
    "cur": "S$"
