@@ -1,30 +1,26 @@
 {
- "updated": "2026-10-25 04:53 SGT",
+ "updated": "2026-10-25 10:11 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 80554.7,
- "priceTime": "2026-10-25 04:45 SGT",
+ "price": 80902,
+ "priceTime": "2026-10-25 10:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
-  "open": 81189.4,
-  "high": 81213.6,
-  "low": 79220.7,
-  "changeFromPrevClose": -634.7,
-  "changePct": -0.78,
+  "open": 80888.2,
+  "high": 80917.3,
+  "low": 80771.7,
+  "changeFromPrevClose": 13.8,
+  "changePct": 0.02,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
-  "date": "2026-10-23",
-  "open": 81416.1,
-  "high": 82060.9,
-  "low": 80513,
-  "close": 81189.4
+  "date": "2026-10-24",
+  "open": 81189.4,
+  "high": 81213.6,
+  "low": 79220.7,
+  "close": 80888.2
  },
  "recentDays": [
-  {
-   "date": "10/17",
-   "close": 81491
-  },
   {
    "date": "10/18",
    "close": 82116
@@ -48,6 +44,10 @@
   {
    "date": "10/23",
    "close": 81189.4
+  },
+  {
+   "date": "10/24",
+   "close": 80888.2
   }
  ],
  "verdict": {
@@ -69,7 +69,7 @@
    {
     "label": "形态",
     "ok": null,
-    "text": "4 小时头肩顶（已向下突破），只作参考"
+    "text": "日线、4 小时、1 小时都没有已完成的形态"
    }
   ]
  },
@@ -80,7 +80,7 @@
    "text": "周线收盘跌破这里，就三周期同向向下"
   }
  ],
- "score": -4,
+ "score": 0,
  "timeframes": [
   {
    "tf": "W",
@@ -97,8 +97,8 @@
    "name": "日线",
    "trend": "向下",
    "since": "2026-10-09 08:00 SGT",
-   "rsi": 45.3,
-   "atr": 2142.84,
+   "rsi": 44.3,
+   "atr": 2132.13,
    "turnsUpAbove": 87220,
    "turnsDownBelow": 79800
   },
@@ -107,84 +107,84 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 38.4,
-   "atr": 800.75,
+   "rsi": 43.1,
+   "atr": 788.47,
    "turnsUpAbove": 82060.9,
    "turnsDownBelow": null
   },
   {
    "tf": "1H",
    "name": "1 小时",
-   "trend": "向下",
-   "since": "2026-10-22 15:00 SGT",
-   "rsi": 43.8,
-   "atr": 373.28,
-   "turnsUpAbove": 80846,
-   "turnsDownBelow": null
+   "trend": "向上",
+   "since": "2026-10-25 08:00 SGT",
+   "rsi": 53.6,
+   "atr": 313.64,
+   "turnsUpAbove": null,
+   "turnsDownBelow": 79220.7
   },
   {
    "tf": "15M",
    "name": "15 分钟",
-   "trend": "向下",
-   "since": "2026-10-24 22:15 SGT",
-   "rsi": 57.8,
-   "atr": 167.3,
-   "turnsUpAbove": 80638.7,
-   "turnsDownBelow": 79220.7
+   "trend": "向上",
+   "since": "2026-10-25 07:45 SGT",
+   "rsi": 64.3,
+   "atr": 108.5,
+   "turnsUpAbove": 80933.6,
+   "turnsDownBelow": 80304.7
   }
  ],
  "resistance": [
+  {
+   "price": 80933.6,
+   "what": "1小时区间顶、1小时近期小高点、4小时向下转折位",
+   "strength": 3
+  },
+  {
+   "price": 81213.6,
+   "what": "昨日高点",
+   "strength": 3
+  },
+  {
+   "price": 81990.1,
+   "what": "4小时 200 均线",
+   "strength": 2
+  },
+  {
+   "price": 82060.9,
+   "what": "4小时前高、4小时区间顶、1小时等高点（止损密集）、4小时近期小高点",
+   "strength": 7
+  },
+  {
+   "price": 82563,
+   "what": "日线向下转折位",
+   "strength": 1
+  }
+ ],
+ "support": [
+  {
+   "price": 80846,
+   "what": "1小时向上转折位",
+   "strength": 1
+  },
+  {
+   "price": 80727.9,
+   "what": "4小时头肩顶关键位",
+   "strength": 2
+  },
   {
    "price": 80640.8,
    "what": "4小时区间中点",
    "strength": 1
   },
   {
-   "price": 80744.2,
-   "what": "4小时头肩顶关键位",
-   "strength": 2
-  },
-  {
-   "price": 80846,
-   "what": "1小时前高、1小时近期小高点",
-   "strength": 2
-  },
-  {
-   "price": 80939.5,
-   "what": "4小时向下转折位",
+   "price": 80304.7,
+   "what": "1小时近期小低点",
    "strength": 1
-  },
-  {
-   "price": 81213.6,
-   "what": "1小时区间顶",
-   "strength": 1
-  }
- ],
- "support": [
-  {
-   "price": 80513,
-   "what": "昨日低点、1小时向下突破位",
-   "strength": 4
   },
   {
    "price": 79800,
-   "what": "上周低点、日线前低、日线区间底",
-   "strength": 10
-  },
-  {
-   "price": 79220.7,
-   "what": "4小时区间底、1小时区间底、1小时近期小低点",
-   "strength": 4
-  },
-  {
-   "price": 76883.4,
-   "what": "4小时头肩顶目标",
-   "strength": 1
-  },
-  {
-   "price": 76226.1,
-   "what": "日线 200 均线",
-   "strength": 2
+   "what": "上周低点、日线前低、日线双顶关键位",
+   "strength": 9
   }
  ],
  "record": {
