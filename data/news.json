@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26 00:26 SGT",
+ "updated": "2026-10-26 04:54 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Gold market and central banks: Russia, Kazakhstan sell as Poland, China buy",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMHItSFJobjRyTUNZSVJTS3JvaHRNQzJORFpEb0x3MUJLQ1VIS1RCZW10Vm15TFNoSlpfTE5zRkdIU212VE16a0F0TzBqWEQwX2c2S1l4T244REkwZ2c3NVhfZTdRRjNFcWlVMm8wQmFVQ0x3NGp0Zm9TRXI1c0x1ajUzdU44YmJ3?oc=5",
-   "ms": 1792911480000,
-   "time": "10/25 14:58"
+   "t": "The US has the largest gold reserve. But repricing it to $1 trillion 'would backfire in a big way'",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHBxNUF1SHZxTzlxSEpoUE5wUXJKbXNLdlI3M3pSeUpMenhqTEEwUTN2QngyNXhLM3FXVEhVanNBUlBGWnFoRlQyYTBoZlRBTVA4aVlZYWNkU1hsWkxQcFdNSzE2dEc4RDgyUHNEUHQ3NkVtZXF6QkdFZHlrSkJDLUNaOWlpdDJjai01U1lmTVJocHBzWW9rbDZ3dGZaQnNnbzNPZ0Y2WE5HTEJr?oc=5",
+   "ms": 1792954620000,
+   "time": "10/26 02:57"
+  },
+  {
+   "t": "Can silver recover from its latest sell-off? UBS weighs in",
+   "src": "Yahoo Finance Australia",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPalJDeDJiYm5DM2tuZ2cxWkhMRTNvaEZsRGhXOWl2TVBpR1p5WUdVQzUtMm10dHBEMGh3TWRqdGdJbnBzdnVXdVdoTE9adDliLUlEQ29ubV96UjN0cGF5eDhjeEhvV0dsSWNic1NXNDFaa1ZSZk9xMGJScVQzVVdya1RGendldw?oc=5",
+   "ms": 1792875972000,
+   "time": "10/25 05:06"
   }
  ]
 }
