@@ -45,6 +45,7 @@ var BtcFeed = (function () {
     var m = bt && bt.rules && bt.rules.go3r; if (!m) return null;
     var sg = function (v) { return (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2) + "R"; }, seg = (m.segments || []).filter(function (x) { return x.n; });
     var clear = m.lo > 0;                                                       // the whole range of the estimate above zero
+    var st = bt.shortTerm && bt.shortTerm.rules && bt.shortTerm.rules.ST3 ? bt.shortTerm.rules : null;      // research/xau-replay/short_check.js
     var pt = bt.patterns && bt.patterns.alone && bt.patterns.own && bt.patterns.rule ? bt.patterns : null;   // research/xau-replay/pattern_check.js
     return {
       goText: clear ? "比特币回放里，这个信号平均每笔 " + sg(m.avgR) + "。"
@@ -54,6 +55,7 @@ var BtcFeed = (function () {
       lateText: bt.rules.late1r && bt.rules.late1r.n ? "比特币回放里，信号走出 1R 以后才进的单平均每笔 " + sg(bt.rules.late1r.avgR) + "（" + bt.rules.late1r.n + " 笔），没有比刚出现时进差（" + sg(m.avgR) + "）。" : "",
       patNote: pt ? "比特币回放里形态单独拿来做没有优势：1 小时形态完成后进场 " + pt.alone["1H"].n.toLocaleString("en-US") + " 次，平均每笔 " + sg(pt.alone["1H"].avgR) + "；按形态自己的止损和目标，胜率 " + Math.round(pt.own["1H"].win) + "%，平均 " + sg(pt.own["1H"].avgR) + "。和信号同向的平均 " + sg(pt.rule.agree.avgR) + "，没有形态的 " + sg(pt.rule.none.avgR) + "，在黄金上看不到这个差别，不能当规则。它们的用处是标出关键位、目标和失效位。" : "",
       patAgainst: pt && pt.rule.against.n ? "比特币回放里这种情况很少（" + pt.rule.against.n + " 笔），平均每笔 " + sg(pt.rule.against.avgR) + "，比平常差；笔数太少，规则不因此改变。想更稳，这一笔可以减半手数或不做。" : "",
+      shortText: st ? "回放（比特币 " + bt.shortTerm.from.slice(0, 4) + "–" + bt.shortTerm.to.slice(0, 4) + "，含点差）：这条规则 " + st.ST3.n.toLocaleString("en-US") + " 笔，平均每笔 " + sg(st.ST3.avgR) + "，" + (st.ST3.segments || []).filter(function (x) { return x.avgR < 0; }).map(function (x) { return x.label.replace("-", "–20") + " 年是亏的（" + sg(x.avgR) + "）"; }).join("、") + "，算不上可靠的优势；另外两条常见短线规则更差：15 分钟顺势 " + sg(st.ST1.avgR) + "，亚洲盘区间突破 " + sg(st.ST2.avgR) + "。所以这里只给参考价位，不发提醒。真要做，手数用主信号的一半或更少。" : "",
       streak: m.streak,
       noneText: "比特币回放里，逆着三个大周期做是长期亏损的" + (bt.rules.against ? "（平均每笔 " + sg(bt.rules.against.avgR) + "）" : "") + "；顺着做的优势" + (clear ? "也比黄金弱" : "也不明显") + "。"
     };

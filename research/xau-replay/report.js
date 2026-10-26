@@ -87,7 +87,7 @@ if (write) {
     ],
   };
   // the chart-pattern check (pattern_check.js --write) keeps its results in the same file: carry them over
-  try { const old = JSON.parse(fs.readFileSync(L.REPO + "/data/xau-backtest.json", "utf8")); if (old.patterns) out.patterns = old.patterns; } catch (e) { /* first run */ }
+  try { const old = JSON.parse(fs.readFileSync(L.REPO + "/data/xau-backtest.json", "utf8")); if (old.patterns) out.patterns = old.patterns; if (old.shortTerm) out.shortTerm = old.shortTerm; } catch (e) { /* first run */ }
   fs.writeFileSync(L.REPO + "/data/xau-backtest.json", JSON.stringify(out, null, 1) + "\n");
   console.log("\nwrote data/xau-backtest.json");
 }

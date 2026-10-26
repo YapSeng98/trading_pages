@@ -63,7 +63,7 @@ if (write) {
     main: "go3r", order: ["go3r", "gotrail", "go3rLow", "gotrailLow", "late1r", "early", "tight", "against", "long"], rules: R,
   };
   // the chart-pattern check (pattern_check.js --write) keeps its results in the same file: carry them over
-  try { const old = JSON.parse(fs.readFileSync(L.REPO + "/data/btc-backtest.json", "utf8")); if (old.patterns) out.patterns = old.patterns; } catch (e) { /* first run */ }
+  try { const old = JSON.parse(fs.readFileSync(L.REPO + "/data/btc-backtest.json", "utf8")); if (old.patterns) out.patterns = old.patterns; if (old.shortTerm) out.shortTerm = old.shortTerm; } catch (e) { /* first run */ }
   fs.writeFileSync(L.REPO + "/data/btc-backtest.json", JSON.stringify(out, null, 1) + "\n");
   console.log("\nwrote data/btc-backtest.json");
 }

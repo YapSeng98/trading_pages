@@ -18,6 +18,8 @@ var XauPlan = (function () {
     // data/xau-backtest.json patterns (research/xau-replay/pattern_check.js)
     patNote: "回放里（黄金 2011–2026）形态单独拿来做没有优势：1 小时形态完成后进场 2,637 次，平均每笔 +0.01R；按形态自己的止损和目标，胜率 59%，平均 −0.02R。和信号同向也没让信号更好（+0.20R，没有形态时 +0.21R）。它们的用处是标出关键位、目标和失效位。",
     patAgainst: "回放里这种情况很少（16 笔），平均每笔 −0.28R，比平常差；笔数太少，规则不因此改变。想更稳，这一笔可以减半手数或不做。",
+    // data/xau-backtest.json shortTerm (research/xau-replay/short_check.js, costs included)
+    shortText: "回放（黄金 2011–2026，含点差）：这条规则 1,164 笔，平均每笔 +0.04R，2019–2023 年是亏的（−0.07R），算不上可靠的优势；另外两条常见短线规则更差：15 分钟顺势 −0.10R，亚洲盘区间突破 +0.01R。所以这里只给参考价位，不发提醒。真要做，手数用主信号的一半或更少。",
     noneText: "回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。" };
   function setMarket(o) { for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) MK[k] = o[k]; }
   var TF_ORDER = ["W", "D", "4H", "1H", "15M"];
@@ -368,7 +370,10 @@ var XauPlan = (function () {
         R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
         if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。");
         else step("等" + lag + "转回" + way, "页面每 15 分钟重算一次，转回来时这里的结论会变成「可以顺势" + act(R.dir) + "」。");
-        if (k) step("到时候这样做", "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。", { fill: "先填进计划看看 →" });
+        // the trade the signal would give if it fired at the last close still needed: concrete prices, worked out now
+        var trig = got.length ? got.slice().sort(function (a, b) { return (a.price - b.price) * R.dir; })[got.length - 1].price : null;
+        if (k) step("到时候这样做", (trig !== null ? "如果在 " + fmt(trig, 1) + " 附近触发：" + (buy ? "买入" : "卖出") + "约 " + fmt(trig, 1) + "，止损约 " + fmt(trig - R.dir * k.dist, 1) + "，目标约 " + fmt(trig + R.dir * SYS.targetR * k.dist, 1) + "（3R）。触发时这里会按当时的价格和波动直接给出准确价位。"
+          : "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。"), { fill: "先填进计划看看 →" });
         step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
       }
       if (v.level === "go" && pOp.length && !pAg.length) v.next.splice(1, 0, { lead: "注意：有反方向的形态", text: ptx(pOp) + "，和信号方向相反。" + MK.patAgainst });

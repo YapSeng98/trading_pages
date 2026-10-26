@@ -84,6 +84,20 @@ or bottom, head and shoulders through its neckline; a triangle, wedge, channel, 
   against the signal was rare and did worse (gold 16 trades −0.28R, Bitcoin 9 trades −0.58R): too few to make a rule.
   The page shows patterns in the answer as reference and adds a caution step in that last case.
 
+## Short-term rules (2026-10-26)
+
+`short_check.js` (`MARKET=gold node short_check.js 2010 2026 [--write]`; `SPREAD=<bp>` to try other costs) tests three
+common intraday rules, parameters fixed before the first run, out by the end of the trading day, one at a time:
+
+| Rule | Gold a trade | Bitcoin a trade |
+|---|---|---|
+| 15-minute turn with the 4-hour and 1-hour trend (stop 2 x 15M ATR, 2R) | −0.10R, every period negative | −0.10R, every period negative |
+| Asian-range breakout with the 4-hour trend (stop at the range middle, 2R) | +0.01R | −0.06R |
+| Yesterday's high / low broken with the daily and 4-hour trend (stop 1.5 x 1H ATR, 2R) | +0.04R, 2019-2023 −0.07R | +0.03R, 2021-2023 −0.06R |
+
+With half the spread (0.5 bp on gold) the last two reach +0.04R and +0.06R and still lose in 2019-2023. None is a
+reliable short-term signal; the pages show the third as a reference with its prices, never as a signal or an alert.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

@@ -1446,6 +1446,11 @@
     st.textContent = ".v-pre{margin:10px 0 0;padding:10px 13px;border:1px dashed rgba(212,167,44,.45);border-radius:12px;background:rgba(212,167,44,.06);font-size:12.5px;line-height:1.7;color:var(--text)}.v-pre b{color:var(--gold-lt)}" +
       ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}@media(max-width:640px){.snd-chip{right:10px;bottom:calc(10px + env(safe-area-inset-bottom));font-size:11.5px;padding:8px 12px}}" +
       ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
+      ".sh-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}.sh-t{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;min-width:0}.sh-t .k{font-size:11.5px;color:var(--dim)}.sh-t .v{font-size:16px;font-weight:700;color:var(--ink);margin-top:3px}.sh-t .d{font-size:11.5px;color:var(--dim);margin-top:2px}" +
+      ".sh-sub{font-size:12px;font-weight:700;color:var(--gold-lt);margin:4px 0 8px}.sh-lv{list-style:none;margin:0 0 10px;padding:0}.sh-lv li{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 6px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text)}.sh-lv li b{color:var(--ink)}.sh-lv li.res b{color:var(--bear)}.sh-lv li.sup b{color:var(--bull)}.sh-lv li.now{background:rgba(212,167,44,.08);border-radius:8px}.sh-lv li.now b{color:var(--gold-lt)}.sh-lv .dd{color:var(--dim);font-size:11.5px}" +
+      ".sh-tf{font-size:12.5px;color:var(--text);margin:0 0 14px;line-height:1.7}.sh-ref{border:1px solid rgba(212,167,44,.35);border-radius:var(--r-md);padding:14px 16px;background:rgba(212,167,44,.05)}.sh-ref.off{border-color:var(--border);background:var(--bg3)}.sh-rh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}.sh-rh b{font-size:13px;color:var(--ink)}.sh-ref p{margin:6px 0 0;font-size:13px;line-height:1.75;color:var(--text)}.sh-ref .sh-note{font-size:12px;color:var(--dim)}" +
+      ".sh-cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}@media(max-width:860px){.sh-cols{grid-template-columns:minmax(0,1fr)}}" +
+      "@media(max-width:640px){.sh-tiles{grid-template-columns:1fr 1fr}.sh-t:nth-child(2){grid-column:1/-1;order:3}.sh-lv li{grid-template-columns:72px minmax(0,1fr) auto;gap:8px;padding:8px 2px}}" +
       ".cg-now{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--text);margin-bottom:12px}.cg-now b{color:var(--ink)}.cg-now .btn{margin-left:auto}" +
       ".cg-list{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:0}" +
       ".cg{display:grid;grid-template-columns:96px 64px 112px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:9px 4px;border-top:1px solid var(--border);font-size:12.5px;color:var(--dim)}" +
@@ -1519,6 +1524,8 @@
       L.push("- " + EN_TF[v.tf] + ": " + (v.v > 0 ? "UP" : v.v < 0 ? "DOWN" : "unclear") + (num(t.since) !== null ? " since " + sgt(t.since) : "") + ", RSI " + (num(t.rsi) !== null ? Math.round(t.rsi) : "—") + ", ATR " + f1(t.atr) +
         (against ? ", but moving against it lately (" + (v.v > 0 ? "pullback" : "bounce") + ")" : "") + (flip !== null ? "; turns " + (v.v > 0 ? "down on a close below " : "up on a close above ") + f1(flip) : ""));
     });
+    var cx = E.context || {};
+    L.push("Intraday: yesterday's high " + f1(cx.prevDayHigh) + ", low " + f1(cx.prevDayLow) + ". The page's short-term reference (yesterday's high/low broken with the daily and 4-hour trend, stop 1.5x 1-hour ATR, target 2R, out by day's end) had no reliable edge in its replay, nor did 15-minute trend turns or the Asian-range breakout; it is shown as reference only.");
     var pats = P.patternsNow(E);
     L.push("Chart patterns finished on the daily, 4-hour and 1-hour charts: " + (pats.length ? pats.map(function (p) { return EN_TF[p.tf] + " " + p.name + " (broke " + (p.dir > 0 ? "up" : "down") + ")"; }).join("; ") : "none") +
       ". In the page's replay, patterns on their own showed no edge, and a pattern agreeing with a signal did not make it better.");
@@ -1606,7 +1613,7 @@
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
-      paintLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
+      paintLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 5 === 0) renderShort(); if (slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
     }, 1000);
   }
   function connectStream() {
@@ -1624,7 +1631,88 @@
     ws.onerror = function () { try { ws.close(); } catch (e) {} };
     ws.onclose = function () { if (WS === ws) WS = null; wsBack = Math.min(wsBack + 1, 6); setTimeout(connectStream, 3000 * wsBack); setStamp(); };
   }
-  function renderAll() { renderPos(); renderVerdict(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
+  // ---------- 短线: today's map, and the one intraday rule worth a look ----------
+  // The replay (research/xau-replay/short_check.js, costs included) tested three common intraday rules: 15-minute
+  // turns with the 4-hour and 1-hour trend, the Asian-range breakout, and yesterday's high / low taken out with the
+  // daily and 4-hour trend. None had a reliable edge, so this card is a map plus the best of the three as a reference
+  // with its prices. It is never alerted and never called a signal.
+  function renderShort() {
+    var box = $("short-body"); if (!box || !S.E || !S.feed) return;
+    var E = S.E, K = S.feed.K || {}, m15 = K["15M"] || [], px = num(S.live), H = 3600, nowS = Date.now() / 1000, open = marketOpen();
+    var ds = Feed.bucket(nowS, "D"), asiaA = ds + (M.weekend ? H : 0), asiaB = asiaA + 8 * H, lastNew = ds + 20 * H, outAt = ds + 22 * H;
+    var today = m15.filter(function (k) { return k[0] / 1000 >= ds; });
+    var ctx = E.context || {}, pdh = num(ctx.prevDayHigh), pdl = num(ctx.prevDayLow), D = (E.tfs || {}).D || {}, H1 = (E.tfs || {})["1H"] || {};
+    var hi = null, lo = null, op = today.length ? today[0][1] : null;
+    today.forEach(function (k) { hi = hi === null ? k[2] : Math.max(hi, k[2]); lo = lo === null ? k[3] : Math.min(lo, k[3]); });
+    if (open && px !== null && today.length) { [px, S.tHi, S.tLo].forEach(function (v) { v = num(v); if (v !== null) { hi = Math.max(hi, v); lo = Math.min(lo, v); } }); }
+    var aH = null, aL = null; today.forEach(function (k) { var t = k[0] / 1000; if (t >= asiaA && t < asiaB) { aH = aH === null ? k[2] : Math.max(aH, k[2]); aL = aL === null ? k[3] : Math.min(aL, k[3]); } });
+    var R = P.regime(E), dD = R.dirs.D, d4 = R.dirs["4H"], want = dD && dD === d4 ? dD : 0, way = function (d) { return d > 0 ? "向上" : d < 0 ? "向下" : "不明"; };
+    var dist = function (p) { return px === null || p === null ? "" : (p >= px ? "高 " : "低 ") + fmt(Math.abs(p - px), 1); };
+    clear(box);
+    // 1. today in numbers
+    var range = hi !== null ? hi - lo : null, used = range !== null && num(D.atr) ? Math.round(range / D.atr * 100) : null;
+    var tiles = h("div", { class: "sh-tiles" }), tile = function (k, v, d) { tiles.appendChild(h("div", { class: "sh-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v mono", text: v }), d ? h("div", { class: "d", text: d }) : null])); };
+    if (!today.length) tile(open ? "今天" : "休市中", open ? "还没有收盘的 15 分钟 K 线" : "下个交易日开盘后更新", "");
+    else {
+      tile("今日开盘", fmt(op, 1), "交易日从 " + sgt(ds * 1000, "t") + " SGT 起");
+      tile("今日最高 / 最低", fmt(hi, 1) + " / " + fmt(lo, 1), "区间 " + fmt(range, 1));
+      tile("已走平均日波幅", used === null ? "—" : used + "%", num(D.atr) ? "平均一天走 " + fmt(D.atr, 0) + "（日线 ATR）" : "");
+    }
+    box.appendChild(tiles);
+    // 2. the prices an intraday trader watches today, highest first
+    var lv = [];
+    if (pdh !== null) lv.push(["昨日高点", pdh]); if (pdl !== null) lv.push(["昨日低点", pdl]);
+    if (aH !== null) lv.push(["亚洲盘高点" + (nowS < asiaB ? "（还在形成）" : ""), aH], ["亚洲盘低点" + (nowS < asiaB ? "（还在形成）" : ""), aL]);
+    if (op !== null) lv.push(["今日开盘", op]);
+    var t1 = P.flipLevel(E, "1H", -R.dirs["1H"]), t15 = P.flipLevel(E, "15M", -R.dirs["15M"]);
+    if (t1 !== null && R.dirs["1H"]) lv.push(["1 小时收盘" + (R.dirs["1H"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t1]);
+    if (t15 !== null && R.dirs["15M"]) lv.push(["15 分钟收盘" + (R.dirs["15M"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t15]);
+    lv.sort(function (a, b) { return b[1] - a[1]; });
+    var ul = h("ul", { class: "sh-lv" }), nowDone = false;
+    lv.forEach(function (x) {
+      if (!nowDone && px !== null && x[1] < px) { nowDone = true; ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: "现价" }), h("span")])); }
+      ul.appendChild(h("li", { class: px !== null && x[1] >= px ? "res" : "sup" }, [h("b", { class: "mono", text: fmt(x[1], 1) }), h("span", { text: x[0] }), h("span", { class: "dd mono", text: dist(x[1]) })]));
+    });
+    if (!nowDone && px !== null) ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: "现价" }), h("span")]));
+    var cols = h("div", { class: "sh-cols" }), left = h("div"); cols.appendChild(left); box.appendChild(cols);
+    left.appendChild(h("div", { class: "sh-sub", text: "今天要看的价位" })); left.appendChild(ul);
+    left.appendChild(h("p", { class: "sh-tf", text: "1 小时" + way(R.dirs["1H"]) + "（RSI " + (num(H1.rsi) !== null ? Math.round(H1.rsi) : "—") + "）、15 分钟" + way(R.dirs["15M"]) + "（RSI " + (num(((E.tfs || {})["15M"] || {}).rsi) !== null ? Math.round(E.tfs["15M"].rsi) : "—") + "）。亚洲盘按交易日开盘后 8 小时算（" + sgt(asiaA * 1000, "t") + "–" + sgt(asiaB * 1000, "t") + " SGT）。" }));
+    // 3. the reference setup: yesterday's high or low taken out, with the daily and 4-hour trend
+    var ref = h("div", { class: "sh-ref" + (want ? "" : " off") }), lines = [], atr = num(H1.atr), Rd = atr ? 1.5 * atr : null;
+    var first = null;
+    if (pdh !== null && pdl !== null) {
+      for (var i = 0; i < today.length; i++) { var k = today[i], t = k[0] / 1000; if (t < asiaA || t >= lastNew) continue; var up = k[2] > pdh, dn = k[3] < pdl; if (up || dn) { first = { dir: up && dn ? 0 : up ? 1 : -1, t: k[6] + 1, i: i }; break; } }
+      if (!first && open && px !== null && nowS >= asiaA && nowS < lastNew) { if (px > pdh) first = { dir: 1, t: Date.now(), live: true }; else if (px < pdl) first = { dir: -1, t: Date.now(), live: true }; }
+    }
+    var head = "昨日高低点突破（顺日线和 4 小时）";
+    if (!want) lines.push("日线" + way(dD) + "、4 小时" + way(d4) + "，不一致：按这条规则今天没有短线方向。");
+    else if (!Rd) lines.push("暂时算不出小时波幅。");
+    else {
+      var lvl = want > 0 ? pdh : pdl, other = want > 0 ? pdl : pdh, act = want > 0 ? "做多" : "做空", cross = want > 0 ? "突破" : "跌破";
+      var e = lvl, st = e - want * Rd, tg = e + want * 2 * Rd, plan = "入场 " + fmt(e, 1) + "，止损 " + fmt(st, 1) + "（1.5 倍小时波幅，" + fmt(Rd, 1) + "），目标 " + fmt(tg, 1) + "（2R），" + sgt(outAt * 1000, "t") + " SGT 前离场。";
+      if (!open && !today.length) lines.push("休市中。下个交易日：日线和 4 小时都" + way(want) + "，开盘后先" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + " 就是短线" + act + "参考：" + plan);
+      else if (!first && nowS >= lastNew) lines.push("今天没有触发，已过开新单的时段（离场前 2 小时不再开新单）。");
+      else if (!first) lines.push("等：价格" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + "（" + (dist(lvl) || "—") + "）→ 短线" + act + "参考：" + plan + "如果先" + (want > 0 ? "跌破昨日低点 " : "突破昨日高点 ") + fmt(other, 1) + "，今天就不做。");
+      else if (first.dir !== want) lines.push("今天先" + (first.dir > 0 ? "突破的是昨日高点" : first.dir < 0 ? "跌破的是昨日低点" : "两边都碰了") + "（" + sgt(first.t, "t") + "），和日线、4 小时的方向不符：按这条规则今天不做。");
+      else {
+        // follow the reference trade through the candles since it triggered, then the live price
+        var res = null, after = first.live ? [] : today.slice(first.i + (first.live ? 0 : 1));
+        after.forEach(function (k) { if (res) return; if (want > 0 ? k[3] <= st : k[2] >= st) res = "stop"; else if (want > 0 ? k[2] >= tg : k[3] <= tg) res = "target"; });
+        if (!res && px !== null) { if ((px - st) * want <= 0) res = "stop"; else if ((px - tg) * want >= 0) res = "target"; }
+        var nowR = px !== null ? (px - e) * want / Rd : null;
+        lines.push((first.live ? "刚刚" : sgt(first.t, "t") + " SGT ") + cross + "昨日" + (want > 0 ? "高点" : "低点") + "，短线" + act + "参考已触发：" + plan +
+          (res === "stop" ? "之后已经碰到止损（−1R）。" : res === "target" ? "之后已经到目标（+2R）。" : nowOut(outAt) ? "已到离场时间。" : nowR !== null ? "现在 " + (nowR >= 0 ? "+" : "−") + Math.abs(nowR).toFixed(2) + "R。" : ""));
+      }
+      if (R.dir && R.dir === want) lines.push(R.full ? "和主信号同方向：主信号是「" + (R.dir > 0 ? "可以顺势做多" : "可以顺势做空") + "」。" : "和三个大周期同方向；主信号还在等小周期。");
+      else if (!R.dir) lines.push("周线和日线、4 小时不一致，主结论是观望：短线单只是日内的，不要拿过夜。");
+    }
+    ref.appendChild(h("div", { class: "sh-rh" }, [h("b", { text: "短线参考 · " + head }), h("span", { class: "chip neut", text: "参考，不是信号 · 不提醒" })]));
+    lines.forEach(function (x) { ref.appendChild(h("p", { text: x })); });
+    var wd = P.words(); if (wd.shortText) ref.appendChild(h("p", { class: "sh-note", text: wd.shortText }));
+    cols.appendChild(ref);
+  }
+  function nowOut(t) { return Date.now() / 1000 >= t; }
+  function renderAll() { renderShort(); renderPos(); renderVerdict(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
   function refresh() {
     if (S.busy) return; S.busy = true; S.lastTry = Date.now(); document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });
@@ -1718,6 +1806,6 @@
     var K = S.feed && S.feed.K["15M"], have = K && K.length ? K[K.length - 1][6] + 1 : 0;
     if (q !== S.lastQ || (marketOpen() && have < q * 900000)) { if (qTries < 3) { qTries++; refresh(); } }
   }, 20000);
-  document.addEventListener("market:words", function () { if (S.E) { renderVerdict(); renderPlan(); renderLevels(); } });   // btc.html: its replay's words arrived
+  document.addEventListener("market:words", function () { if (S.E) { renderVerdict(); renderPlan(); renderLevels(); renderShort(); } });   // btc.html: its replay's words arrived
   setInterval(function () { renderSessions(); renderPlan(); if (S.E) renderVerdict(); if (S.rec && S.tab === "proof") renderProof(); }, 60000);
 })();

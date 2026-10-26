@@ -618,7 +618,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   </header>
 
   <nav class="gnav" id="gnav" aria-label="本页目录">
-    <a href="#verdict">结论</a><a href="#changes">趋势变化</a><a href="#ask">问 Claude</a><a href="#chart-sec">图表</a><a href="#plan">交易计划</a>
+    <a href="#verdict">结论</a><a href="#changes">趋势变化</a><a href="#short">短线</a><a href="#ask">问 Claude</a><a href="#chart-sec">图表</a><a href="#plan">交易计划</a>
     <a href="#read-daily" data-read="daily">每日分析</a><a href="#read-news" data-read="news">快讯</a><a href="#read-risk" data-read="risk">日历与风险</a><a href="#dtabs" data-tab="proof">成绩记录</a>
   </nav>
 
@@ -671,6 +671,11 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   <section class="card chg" id="changes" aria-label="趋势变化">
     <div class="card-head"><h2>趋势变化 <small>Trend changes</small></h2><span class="chip neut" id="chg-span">读取中</span></div>
     <div id="chg-body"><p class="note">读取中…</p></div>
+  </section>
+
+  <section class="card live-data" id="short" aria-label="短线">
+    <div class="card-head"><h2>短线 <small>Intraday</small></h2><span class="chip neut">今天的盘面 · 随现价更新</span></div>
+    <div id="short-body"><p class="note">正在载入…</p></div>
   </section>
 
   <section class="card pos" id="pos" hidden aria-label="我的持仓"></section>
@@ -901,8 +906,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
 <script src="assets/xau-feed.js?v=5"></script>
 <script src="assets/xau-engine.js?v=5"></script>
-<script src="assets/xau-plan.js?v=11"></script>
+<script src="assets/xau-plan.js?v=12"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=12"></script>
+<script src="assets/market-page.js?v=13"></script>
 </body>
 </html>
