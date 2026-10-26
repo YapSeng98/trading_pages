@@ -98,6 +98,31 @@ common intraday rules, parameters fixed before the first run, out by the end of 
 With half the spread (0.5 bp on gold) the last two reach +0.04R and +0.06R and still lose in 2019-2023. None is a
 reliable short-term signal; the pages show the third as a reference with its prices, never as a signal or an alert.
 
+## Is it proven? (2026-10-26)
+
+`proof_check.js` (`MARKET=gold node proof_check.js 2010 2026`) tries to knock the rule down. Random entries are traded
+one at a time, like a person would; picking random moments independently over-counts long trends and flatters them.
+
+| Test | Gold | Bitcoin |
+|---|---|---|
+| Average a trade (target 3R), t-test | +0.18R, p 0.03 | +0.13R, p 0.24 |
+| Random entries, same stop / target / costs, one at a time | −0.04R; never beat the rule in 400 runs | +0.00R; beat it in 3.5% |
+| Same entry times, side chosen by coin flip | beat the rule's side in 3% | beat it in 28% |
+| Random moments inside the big-three trend | +0.09R; beat the rule in 1.3% | +0.11R; beat it in 28% |
+| Deflated Sharpe ratio, ~50 variants tried | 76% (95% is the usual bar) | 49% |
+| Probability of backtest overfitting (34 stop/target/trailing variants, CSCV by year) | 21%; all 34 variants positive | 33%; 31 of 34 positive |
+| Trades a 95% proof would need at this average | 387 (have 495) | 696 (have 254) |
+| Spread that halves the edge | about 8 bp | over 15 bp |
+| Rule at 0.5% risk vs holding the market | 2.9%/yr, 19% drawdown vs 7.0%/yr, 45% | 2.1%/yr, 14% vs 36.7%/yr, 77% |
+| Correlation of yearly R with how far the market moved | 0.48 | 0.77 |
+
+Gold: every single test points the same way and the parameter choice is not a lucky peak, but after allowing for the
+~50 variants looked at the confidence is about 76%, not 95%; the untouched 2011-2018 period alone was +0.07R (not
+significant) and the best years are the trending ones. Real-looking, small, unproven beyond doubt. Bitcoin: not
+proven; its side choice and its timing are no better than chance. Only live trades can settle it, slowly: at about
+32 a year, a 95% live proof of +0.18R takes about twelve years, so the useful live check is the other way round
+(stop trusting it if the paper record falls further than the replay's worst drawdown, 38R on gold).
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.
