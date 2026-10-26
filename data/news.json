@@ -1,11 +1,39 @@
 {
- "updated": "2026-10-27 00:56 SGT",
+ "updated": "2026-10-27 05:34 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Geopolitical tensions complicate the gold bull case, says AHG president",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcXhiWkhNYm1fUFo0SFM2WVd3ZjJxcEMyS2w3ZjBoUk1Wb1Utd0o1cFhacEFOMzJCd1lLdVNUcVBfZmJCZkFmU3FrMmZrLVhBaVlCSnE3OVFKejhjc2NMbkp5MmQzLXRLNElMUWpuTi02NGM2ZFZ2RXI1TnZwSVZJeW5XdmhST29tWk9ZRGpoVmlDRDFtSl9YOVF4ODBVRTlRQ1laU21zNS05ZlhfTzFKYk1B?oc=5",
+   "ms": 1793039078000,
+   "time": "10/27 02:24"
+  },
+  {
+   "t": "Gold reclaims $4,000 as Oil eases, Fed decision tests recovery",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSWZIVklTamozb3NfTXNDNXNSLUdEZDJXYXg2blRydlF1NW4yWW9hZFktYXNVRVU4NEtBcHJLMmwySmRFd0xHYUJSZE5TVjh6NzZEVVlicnZRbG0tbmpCemdEMHM0MUdmdDhsR0RlTnBVVllvaTF4NXVhMXdiSGRtMms3dVJnTV9vSXJERDRic1pkdVQ4Z255Ty1DaVNYTVA0TlVGSnRB?oc=5",
+   "ms": 1793036562000,
+   "time": "10/27 01:42"
+  },
+  {
+   "t": "Gold prices are oversold below $4,000, but a potential rally could still be out of reach in the near term - BCA’s Ibrahim",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUHhqQkVQaWN4T3FHOTAzXzdRTV90VlpQYTBHdHdIMnVGbDhPeTNiZEVPbVc0Q01IZnBiRjVoQXV3NWNSdFVzWkJiWXBYSVJTRjREbjZpREpJcURiZzhtLVpHTDNwWjQySFpOOXFlQlBBclZlRVZ5dDE3MERKXzVQX2tsQWV0QzRBR1VfczNESVBiUTc4VU9QSXlLbTZoenptdnlDZHoxVnhUaW1uMHUwNkdKMUdqN0E?oc=5",
+   "ms": 1793035410000,
+   "time": "10/27 01:23"
+  },
+  {
+   "t": "Gold consolidates near $4,000 as recovery remains fragile ahead of Fed decision",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNN2pzcmtkTXhMeEhlSU53NGcwOHA5ZXYzT1BOcThjdm5vTUpNMDdjR2Y5V2t3NWtfbjBsUGZJZ1hjVkNjY1dxZ1owdGh0WUM1d29DbFE0ckt5Ukt4VjhEUVo0QjR3eU9lMWZNZDBCOXFfUnFUOWdrU3BNNldxVDIzcThYWFNsb1lyWndSeGtBV3NFRGlHVHFyWmFMdHluZUFpOXRJMWpuTi1mLVdjTV9uWVl2OWpUM0dwZ2dvTmFB?oc=5",
+   "ms": 1793026967000,
+   "time": "10/26 23:02"
+  },
   {
    "t": "Gold Reclaims $4000 as Data Show Modest Speculative Retreat Before Latest Sell-Off",
    "src": "BullionVault",
@@ -35,6 +63,13 @@
    "time": "10/26 21:26"
   },
   {
+   "t": "The price of gold today, Oct. 26, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE84a01uLWJSOTZUbDRqUmRGWEMwVDNMRGpxMUljbUI0N21rdFhkaFRlMGpFQlFnX1czYzA2NWVJcjU3TjRBMTdNSVVlekZWVDB3NmlKV2c5U2xwanF0WTJfaHhjejdaQ3VETkFWS1VINkdHd9IBd0FVX3lxTE9IMmNjaWdvb2xWN0wwSUpvZnF4cWNuS2tMMlRMUmNjbkxFbUlic25VcDAtTktqNlM2bzFjeWdGckJxMWlCTVI1SUJUT1liaDVQeUtoa0xSM0szLVU1ZktheFlkVEFpbTNrY01qOFNsSTkweXNXZEhR?oc=5",
+   "ms": 1793020543000,
+   "time": "10/26 21:15"
+  },
+  {
    "t": "TSX futures climb as oil falls, gold advances amid hopes for cooling Iran tensions",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOT1ZTMXZVVE9HY09kbGlTUF9keDlSZTFFUVFIc0tEa1JIOGUzdzNlOGI2TS02bEhIZWdjeGc0cUxRUXZOdUs2OFkxYW45ekJtZEotTXRob1BMUzJjc3Y1SXlVQnpxZHdZVDJ0cU16Y3FZZXlzQ0dMNHVuclVQMUxqaXo0ZGVHSTFjTndCdmNn?oc=5",
@@ -56,13 +91,6 @@
    "time": "10/26 16:51"
   },
   {
-   "t": "Gold prices under pressure ahead of Dhanteras: What should buyers consider",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOaF9fV3ZIZUtRNGEwMDZzT2l2RVJXRlJDQ0RvaUZBVWN3anlmQlRSeDlmZmJ5MklTTXo1eGJNclRxUlZaWXRZMXB5aFFSSUFRQ3NvUTJKY19YbGxwY2NyTWt1NUF5cTVBUEpISmtSRzZuYk1wSFlvUnhVbmJFcHVtenRxbGV6Q0NBQzVCMmpvTWxrWWY1OUhRNmFCZ1lFdFRRWTA4emJFVmpzYTFpRlZFamkwVGxyZkEwYjRHUjZTdWZpckHSAcgBQVVfeXFMTXZHZjRkNEFESG8tYlYxQWgza0NqYUN0bThIMlk1VmZVdDlfNE1UbGNtaXN3YUxRb3lsclUyM2pfekJWZjVwbGl3VE5PYmFpdXhfcllVRzZyMGFHaW56cjFkYWtWUDhQOVJXRHdYOWlYZG5CWS1BUzIzcGVyX3YyZFRTcGJhYXVPbDg3LUViSXdBNXdZd19lb3dtTGJUZUplUFhiSWNjM2ZoZzh4UUVaMjdaMjNsRFpSVUExMENRWGJUUXJfR1NuWWY?oc=5",
-   "ms": 1793001296000,
-   "time": "10/26 15:54"
-  },
-  {
    "t": "Gold rises as lower oil prices ease inflation fears ahead of Fed meeting",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZml1aC0yS2NrLUloeEFPZnYyeExpazhPVExTT1BLcV9HZGxEZWFzcHFUMTJFbDhUTjgyaE5EbGRja1BRX0p2UzlDSmEzUUpzTG9ZT2xKZEZMczFvb1pzU2xrdXlNT0dDUXYtQnhoLUFpT09xQmF5Q25FQXdKNGpjOERVdTB1UTk4NkhSd2k3cUNBSTJRMVVsUlpSWQ?oc=5",
@@ -82,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcFQ1alE2OUhRMWJwbU5GeldSU1h4MWVJMXotUG5GVEkzUnlxb1hsTVJzYnZkRE15X2phMHRRNUtyWXlURGxhSHp5blFJUGVXRFFUZVVTSTE2VlNHbW9ET0t6SmVYY3paMTBnemRYZXBFa3M4Z1RNemZieWJoVE14MVM4clFBMWlkZkt1ZGJUQ010dnI5MGQ5V1Rzc2hWYWtHU1JEY1N6cE1IUHp3Q2tPUVUtUHU1bUVTcGlQX3cxT3psU0U4?oc=5",
    "ms": 1792983853000,
    "time": "10/26 11:04"
-  },
-  {
-   "t": "Gold declines below $4,000 as higher oil prices reinforce Fed rate-hike expectations",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPenkzWHJESUR3b3dVVTA2QzZkUlB6VmRRaVJzT2xvemEwakRCU3dDLThobUtKQmx6MUdBQVRNREw5TUgzdHNSLUVaR3JmRTZTeVA1VjJuWVpOS1pMWG5zbjg0M0RESlRzalROOUlKSDdNYjZZTW12YWM3TWtsYTJGTTZRSFFPa3kzYS00TG1NQTYzTVlJSXVETkh6dzh4aXZOUmNaeHZ0MkZXc2xNal9DaU1fakV3VjV6TlFsaDlpRjF4NjBY?oc=5",
-   "ms": 1792970692000,
-   "time": "10/26 07:24"
-  },
-  {
-   "t": "The US has the largest gold reserve. But repricing it to $1 trillion 'would backfire in a big way'",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHBxNUF1SHZxTzlxSEpoUE5wUXJKbXNLdlI3M3pSeUpMenhqTEEwUTN2QngyNXhLM3FXVEhVanNBUlBGWnFoRlQyYTBoZlRBTVA4aVlZYWNkU1hsWkxQcFdNSzE2dEc4RDgyUHNEUHQ3NkVtZXF6QkdFZHlrSkJDLUNaOWlpdDJjai01U1lmTVJocHBzWW9rbDZ3dGZaQnNnbzNPZ0Y2WE5HTEJr?oc=5",
-   "ms": 1792954620000,
-   "time": "10/26 02:57"
   }
  ]
 }

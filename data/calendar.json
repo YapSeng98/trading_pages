@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27 00:56 SGT",
+ "updated": "2026-10-27 05:34 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -11,7 +11,7 @@
    "impact": "medium",
    "title": "CB Consumer Confidence",
    "zh": "谘商会消费者信心",
-   "forecast": "80.7",
+   "forecast": "81.2",
    "previous": "81.9"
   },
   {
@@ -59,7 +59,7 @@
    "impact": "medium",
    "title": "Advance GDP Price Index q/q",
    "zh": "GDP 物价指数初值",
-   "forecast": "3.5%",
+   "forecast": "3.3%",
    "previous": "6.2%"
   },
   {
