@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26 18:28 SGT",
+ "updated": "2026-10-27 00:56 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
-   "t": "Greatland Resources Reports 70,131 Ounces of Gold Production in Q1 FY27, Begins Havieron Construction",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTWlKWmZwZGZTRGItd083d2xfbzZnSlZicmI0ZjFQSzR0QTNHNnl5cE1IU0VLZU1DUHpyVmhqSjhISW03OGVGNjFjOGhmbXJrenppVFdkRzZpSkZqM2U2YUVPWlpVd29RcUFjZ0ZGT2ZDS0VtM1ZxUzBjOUFSRU4tRUpVTldpLTc2anZr?oc=5",
-   "ms": 1793001683000,
-   "time": "10/26 16:01"
+   "t": "Gold Reclaims $4000 as Data Show Modest Speculative Retreat Before Latest Sell-Off",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNanJySDVaeVBJNUQyRk5tUTAzTm1iYXpLODd6NzJJaHNGSHZhNm8xb1FpMVkzNmFHVW4zeVRUc19iZmZIZFh6T0dMWUp3VUV3RzJFOHdMVDdYajhONERYOGppc0lEMnhZeDZNcnVES21EZTFaWlA3MEdtRVp0WUtRR3FRN0NHcC1vVnRsVlZKWTRMNFBLdm9RamQ5eXRIY1ExcTNEVl9YWVRwcTR6V2Fn?oc=5",
+   "ms": 1793024237000,
+   "time": "10/26 22:17"
+  },
+  {
+   "t": "Current price of gold as of October 26, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1tdGRuWXBqTERESi03MHpxMmh2d2FJZk9zUWlzWFlIQm1uVm9zMy16S3lfWWJVZ0E0WFZ5c0dxVUdhQVdMRHNvUm1SVEpjVGpsd1VpekNwb19JMlRMNUhTMkM0TDFORmtGdkdESld3?oc=5",
+   "ms": 1793023380000,
+   "time": "10/26 22:03"
+  },
+  {
+   "t": "Gold SWOT: Northern Star is open to improved Gold Fields takeover offer",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcWhLZndlNTdacGFGYkI4ek9pZUx2b0s2VUxUVEdRUU9VODVQQTFBTXk5Nk5Vb0JNWC1GMC0yd1RsMkI4N3Y5MWhnS0ZLUGJuREIySGZNb0JaZUxubmNfRjE0dk9ETGhYQTAtUXEzc0NKWGtRV0VNR1ZpUzJZTjFWWjAxQ0pMR21rNkF6cGNaV2JobGw1QWh6Y0lWZzlTTDBPUWsxM1NDbUg?oc=5",
+   "ms": 1793021792000,
+   "time": "10/26 21:36"
+  },
+  {
+   "t": "Gold prices squeezed between rising oil and falling yields, Fresnillo silver output declines in 2026 – Heraeus",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNcVNMQnZQS3ZmcmtSNElycE9ZX21HblVQbGlDdTI3czFYaGcydnFqV0lmbG9sYTBxMzdXbFlmV01oVUg3alZxcE5UZl9lVVZUN25idXNPNGxWekZPenktaTNiR0xKVW5PT2djQVdsX3hMQUc4TWhhZEtqa0szQjU3aVNJaVVtV05JN1o3UmdkcWhoY2Z2bmdnVl9SY2NfaUxwakJhSDRtZkZVYWNkVV9UaFg4WktLVFItRllRM2NB?oc=5",
+   "ms": 1793021215000,
+   "time": "10/26 21:26"
+  },
+  {
+   "t": "TSX futures climb as oil falls, gold advances amid hopes for cooling Iran tensions",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOT1ZTMXZVVE9HY09kbGlTUF9keDlSZTFFUVFIc0tEa1JIOGUzdzNlOGI2TS02bEhIZWdjeGc0cUxRUXZOdUs2OFkxYW45ekJtZEotTXRob1BMUzJjc3Y1SXlVQnpxZHdZVDJ0cU16Y3FZZXlzQ0dMNHVuclVQMUxqaXo0ZGVHSTFjTndCdmNn?oc=5",
+   "ms": 1793017569000,
+   "time": "10/26 20:26"
+  },
+  {
+   "t": "Gold prices today, Monday, October 26, 2026: Gold opens at 3-month lows at the start of Fed week",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOUUVBTXJ0WUFrQkcxUEJKRlJVeGhURDlYTFd0MzJRZ045bUwwb1N1MzBOOHB3Wk0wOC1saURvVEVRMm9SNGpCYzQ5cmZFaUZubnJkY19sa3dtQ0Q0ZkV4Q0ludmgyeEk4QW9BaXY5Rm1famlDNWMzVHFwN2gzUzdBVGp3X093WXpNOXcyZi1JVnNOMXRlODJhVXd0S3dmTkM4Vm45c1hXelJ2WDZnOGVSMWNwbDNfdE1tdG15Tk5yMnpWTHg4c3cyVW5xNlJhbDR6YlZRWjhDdjNhWS1CbHpsaHF3TXlCSDRFWFpBUE1kakpOWGpOcVA2SzBWbGo?oc=5",
+   "ms": 1793013424000,
+   "time": "10/26 19:17"
+  },
+  {
+   "t": "Gold clings to recovery gains above $4,000; upside seems limited ahead of FOMC meeting",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZ1VFckNUaUtDNkpsb2NmeG9GZG9LX1NITzRxVGd2cHl5YnNBNlBYYUIxYkpaVUZFMXFKU0N2ZVVRZzBvSGZCaWNpb25hdmg4LXJ1Yi1oTlktOHVPaURKUWt1RFJhYkdCcFMzdVVTdVlEQUkxZ0JFNU41Yzg4bHhpejhhZEFnbHhucVRxdDVoWDhNVllWMzlMandteGN6RVp3bTBUYllpUHF5cWpwYnNFYkh4MnJOeTVNNS1MV01kRkRoMTRkLXF6ag?oc=5",
+   "ms": 1793004718000,
+   "time": "10/26 16:51"
   },
   {
    "t": "Gold prices under pressure ahead of Dhanteras: What should buyers consider",
@@ -21,25 +63,11 @@
    "time": "10/26 15:54"
   },
   {
-   "t": "Gold struggles to extend recovery as hawkish Fed bets and Iran risks support USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZ1VFckNUaUtDNkpsb2NmeG9GZG9LX1NITzRxVGd2cHl5YnNBNlBYYUIxYkpaVUZFMXFKU0N2ZVVRZzBvSGZCaWNpb25hdmg4LXJ1Yi1oTlktOHVPaURKUWt1RFJhYkdCcFMzdVVTdVlEQUkxZ0JFNU41Yzg4bHhpejhhZEFnbHhucVRxdDVoWDhNVllWMzlMandteGN6RVp3bTBUYllpUHF5cWpwYnNFYkh4MnJOeTVNNS1MV01kRkRoMTRkLXF6ag?oc=5",
-   "ms": 1793000449000,
-   "time": "10/26 15:40"
-  },
-  {
-   "t": "Gold gains on softer oil prices; Fed decision in focus",
+   "t": "Gold rises as lower oil prices ease inflation fears ahead of Fed meeting",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZml1aC0yS2NrLUloeEFPZnYyeExpazhPVExTT1BLcV9HZGxEZWFzcHFUMTJFbDhUTjgyaE5EbGRja1BRX0p2UzlDSmEzUUpzTG9ZT2xKZEZMczFvb1pzU2xrdXlNT0dDUXYtQnhoLUFpT09xQmF5Q25FQXdKNGpjOERVdTB1UTk4NkhSd2k3cUNBSTJRMVVsUlpSWQ?oc=5",
    "ms": 1792994160000,
    "time": "10/26 13:56"
-  },
-  {
-   "t": "Gold Falls As Rising Oil Prices Reinforce Fed Outlook For Higher Rates To Last By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOYXBOa2FKaC13cG10VExFNmJwRWJ4Q2JObE5VaVhpQVVjVnZoQzM3R1VsT2NIMnJBWXVveS1WRVJQaWJDUWtCemRtZ2tSczlselNFalZVMHZ4NnQ3Tm9OZlV5WUpNd2ZQbElRN3VkRUFMVEtESTUwdVpHZTlmNTVJT0ZyT0YyMXphNmhtdmI4a3JNRmgtd0ZFOTFXbXA4V0I3NkJVME9tTzAyVlBJaUZtTE8tU1l3ODFhc2dlZFpDbHRGSFN3enc4VloySlRjQQ?oc=5",
-   "ms": 1792989605000,
-   "time": "10/26 12:40"
   },
   {
    "t": "Gold Price Forecast: XAU/USD gains at start of Fed’s policy week",
@@ -47,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTmppZ3ZXUk9zWHJfSTJxMkphMWpVTk5DQXN0cWthMjhCWFowS3FwbXlmS21zb0ZHNDBxWGpMb2ZlUmQxVktDMExySFVZUExtRk1mMHoxRlRUTnpEcnJ5MDlPZFJETHNUUkF1RmVualNoVmJsd1BlclFzTFhKeHhYY1ZKZ3pIYW8yM3FIWTlRZ2lGcjM3WFpqM09ac3MtWkJSNDhQbW5SalZHM3J3d2c?oc=5",
    "ms": 1792985165000,
    "time": "10/26 11:26"
+  },
+  {
+   "t": "Gold gains as easing oil prices soothe inflation jitters",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcFQ1alE2OUhRMWJwbU5GeldSU1h4MWVJMXotUG5GVEkzUnlxb1hsTVJzYnZkRE15X2phMHRRNUtyWXlURGxhSHp5blFJUGVXRFFUZVVTSTE2VlNHbW9ET0t6SmVYY3paMTBnemRYZXBFa3M4Z1RNemZieWJoVE14MVM4clFBMWlkZkt1ZGJUQ010dnI5MGQ5V1Rzc2hWYWtHU1JEY1N6cE1IUHp3Q2tPUVUtUHU1bUVTcGlQX3cxT3psU0U4?oc=5",
+   "ms": 1792983853000,
+   "time": "10/26 11:04"
   },
   {
    "t": "Gold declines below $4,000 as higher oil prices reinforce Fed rate-hike expectations",
