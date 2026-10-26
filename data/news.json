@@ -1,11 +1,18 @@
 {
- "updated": "2026-10-26 04:54 SGT",
+ "updated": "2026-10-26 10:11 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Futures Streaming Chart",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
+   "ms": 1792972456000,
+   "time": "10/26 07:54"
+  },
   {
    "t": "The US has the largest gold reserve. But repricing it to $1 trillion 'would backfire in a big way'",
    "src": "Fortune",
@@ -14,11 +21,11 @@
    "time": "10/26 02:57"
   },
   {
-   "t": "Can silver recover from its latest sell-off? UBS weighs in",
-   "src": "Yahoo Finance Australia",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPalJDeDJiYm5DM2tuZ2cxWkhMRTNvaEZsRGhXOWl2TVBpR1p5WUdVQzUtMm10dHBEMGh3TWRqdGdJbnBzdnVXdVdoTE9adDliLUlEQ29ubV96UjN0cGF5eDhjeEhvV0dsSWNic1NXNDFaa1ZSZk9xMGJScVQzVVdya1RGendldw?oc=5",
-   "ms": 1792875972000,
-   "time": "10/25 05:06"
+   "t": "Gold prices break $4,000 as investors brace for crucial test",
+   "src": "Yahoo Finance Singapore",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA2YWtjWFd5S3VHV2EtMFhHc3hVb1dfQi1MZjh6YkhvRnFGQnE3WXN5dGhkM3VYMWlLbTI3dDZ3X05rc0dHZjk0dndONUkwa2hIZlJNWklRQU5zME9wUmw1ejZIT0lVZk5TaFBJV0czTmtkQVMtRk1OV1RUVGs?oc=5",
+   "ms": 1792894620000,
+   "time": "10/25 10:17"
   }
  ]
 }
