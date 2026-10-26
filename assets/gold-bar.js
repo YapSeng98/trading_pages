@@ -16,7 +16,7 @@
     ".gbar .tag.go{background:rgba(52,211,153,.14);color:var(--bull,#34D399)}" +
     ".gbar .up{color:var(--bull,#34D399)} .gbar .dn{color:var(--bear,#F87171)}" +
     ".gbar a{color:var(--gold-lt,#E6BE55);text-decoration:none;font-weight:600} .gbar a:hover{text-decoration:underline}" +
-    ".gbar .foot{grid-column:1/-1;font-size:11px;color:var(--dim,#8A857E);padding:9px 16px}" +
+    ".gbar .foot{grid-column:1/-1;font-size:11px;color:var(--dim,#8A857E);padding:9px 16px}@media(max-width:640px){.gbar .foot a{display:inline-block;padding:7px 0}}" +
     "@media(max-width:860px){.gbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.gbar>div:first-child,.gbar>div:nth-child(4){grid-column:1/-1}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   host.innerHTML = '<div class="gbar"><div><div class="k">现在的结论（规则）</div><div class="v" id="gb-v">读取中…</div><div class="d" id="gb-vd"></div></div>' +

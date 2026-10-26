@@ -143,6 +143,16 @@ footer .disc{font-size:11px;color:var(--dim);max-width:680px;margin:0 auto;line-
 footer .disc strong{color:var(--text)}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){/* ── AI insight badge (marks auto-synthesized content) ── */
+.ai-tag,.ai-tag::before,.hero .eyebrow,.tile .tag,.chip,.mp-label,.mp-time,.feats li::before,/* ── section label ── */
+.sec-label,.pulse-time,.ps .pk,.pv-k,.pulse-notes .pn-title,footer .upd{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+@media(max-width:640px){.mp-time{display:block;line-height:1.7}}
+@media(max-width:480px){.pulse-stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -352,7 +362,7 @@ footer .disc strong{color:var(--text)}
 
 <script src="assets/xau-feed.js?v=5"></script>
 <script src="assets/gold-live.js?v=1"></script>
-<script src="assets/hub-live.js?v=4"></script>
+<script src="assets/hub-live.js?v=5"></script>
 <script>
 // The TradingView chart near the bottom is the heaviest thing on this page: load it only when it is about to be seen.
 (function () {

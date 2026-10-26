@@ -153,6 +153,14 @@ details.more[open] summary{margin-bottom:10px}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 footer{max-width:1180px;margin:0 auto;padding:0 24px 40px}
 .disc{font-size:11.5px;color:var(--dim);line-height:1.8;border-top:1px solid var(--border);padding-top:18px}
+
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){.card h2 small,.day .c{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+@media(max-width:640px){input:not([type=checkbox]):not([type=radio]),select,textarea{font-size:16px}.btn.sm{min-height:36px;padding:9px 13px;font-size:12px}details.more summary{padding:10px 0}}
+@media(max-width:640px){.inp select,.inp input{font-size:16px}}
 </style>
 </head>
 <body>

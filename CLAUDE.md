@@ -54,6 +54,12 @@ and still open on their own; each loads `assets/embed.js` in `<head>`, which hid
 they are inside the gold page. Keep that script tag. The home page's news and calendar tiles open
 `report.html#read-news` and `report.html#read-risk`.
 
+Phones (checked 2026-10-26 at 360 and 390 px wide, no page scrolls sideways): each page's `<style>` ends with phone rules
+(`max-width:640px`): nothing under 11px, the navbar on one line, buttons about 36px tall, inputs 16px so iOS does not zoom.
+`risk.html`'s `table.cal` becomes one card per row on phones, so every calendar row keeps its three cells (date and time,
+impact, event). On `report.html` / `btc.html` the answer card shows the price, gauge and lights right after the answer, and
+wide tables (`.tablewrap.stk`) become cards labelled from their header row.
+
 ## Live page — never edited by the refresh
 
 The daily, news and risk pages open with a live bar (`<div id="gold-bar">`, filled by `assets/gold-bar.js` from `data/xau-state.json`, `data/calendar.json` and the live price from `assets/gold-live.js`): the current verdict, the price now, the level that would change the answer and the next US release. The refresh must leave that div and the `<div id="news-live">` on news.html empty and in place.

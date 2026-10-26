@@ -77,16 +77,25 @@
     var chg = typeof pd.close === "number" ? price - pd.close : null, pct = chg === null ? null : chg / pd.close * 100;
     var tfs = (st.timeframes || []).filter(function (t) { return !t.error; }), dirs = tfs.map(function (t) { return SHORT[t.tf] + (ARROW[t.trend] || "–"); }).join(" ");
     var big = tfs.slice(0, 3).map(function (t) { return t.name.replace(" ", "") + t.trend; }).join("、"), v = st.verdict || {}, go = v.level === "go";
-    var dayHi = Math.max(td.high || price, price), dayLo = Math.min(td.low || price, price);
+    var dayHi = Math.max(td.high || price, price), dayLo = Math.min(td.low || price, price), dayOpen = td.open;
+    // weekend: the day to show is the last full one (previousDay, Friday), measured against the day before it
+    var shut = !st.marketOpen, rd = st.recentDays || [], pdKey = typeof pd.date === "string" ? (+pd.date.slice(5, 7)) + "/" + (+pd.date.slice(8, 10)) : null;
+    var base = pd.close;
+    if (shut && typeof pd.close === "number") {
+      var k = rd.length && rd[rd.length - 1].date === pdKey ? rd.length - 2 : -1;
+      base = k >= 0 ? rd[k].close : null; dayHi = pd.high; dayLo = pd.low; dayOpen = pd.open;
+      chg = typeof base === "number" ? pd.close - base : null; pct = chg === null ? null : chg / base * 100;
+    }
+    var dayWord = shut ? "上一交易日" + (pdKey ? "（" + pdKey + "）" : "") : "今日";
     // say plainly when the data file is old: the job that writes it runs on GitHub's timer, which can fall hours behind
     var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 2;
     set("pulse-updated", "⟳ 数据 " + st.updated + (old ? "（" + Math.round(ageH) + " 小时前，自动更新晚了）" : " · 自动更新") + " · 价格实时");
     set("hub-upd", "⟳ 数据文件 " + st.updated + (old ? "，已是 " + Math.round(ageH) + " 小时前；方向和价位请以 4H 报告为准" : "") + " · 金价与图表实时");
-    set("pulse-gold", (st.marketOpen ? "今日" : "上一交易日") + (chg === null ? "" : " " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "，区间 " + fmt(dayLo) + "–" + fmt(dayHi) + "。昨日收 " + fmt(pd.close) + "，区间 " + fmt(pd.low) + "–" + fmt(pd.high) + "。上周区间 " + fmt(pw.low) + "–" + fmt(pw.high) + "。");
+    set("pulse-gold", dayWord + (chg === null ? "" : " " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "，区间 " + fmt(dayLo) + "–" + fmt(dayHi) + "。" + (shut ? "" : "昨日收 " + fmt(pd.close) + "，区间 " + fmt(pd.low) + "–" + fmt(pd.high) + "。") + "上周区间 " + fmt(pw.low) + "–" + fmt(pw.high) + "。");
     set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", (v.title || "") + "。" + ((st.watch || [])[0] ? "关注 " + fmt(st.watch[0].price) + "：" + st.watch[0].text + "。" : ""));
     set("pulse-tf", dirs); set("pulse-tf-d", "周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：" + big + "。");
     chips("hub-main-chips", [
-      [chg === null ? "gold" : chg >= 0 ? "bull" : "bear", (st.marketOpen ? "今日 " : "收盘 ") + (chg === null ? "" : sgn(chg) + "（" + sgn(pct, 2) + "%）· ") + "区间 " + fmt(dayLo, 0) + "–" + fmt(dayHi, 0)],
+      [chg === null ? "gold" : chg >= 0 ? "bull" : "bear", (st.marketOpen ? "今日 " : (pdKey ? pdKey + " " : "") + "收盘 ") + (chg === null ? "" : sgn(chg) + "（" + sgn(pct, 2) + "%）· ") + "区间 " + fmt(dayLo, 0) + "–" + fmt(dayHi, 0)],
       [go ? "bull" : "gold", "系统结论：" + (v.tag || "—") + " · " + dirs],
       hi[0] ? ["gold", "下一个大数据：" + hi[0].name + " " + hi[0].when] : null
     ]);
@@ -96,7 +105,7 @@
     if (ul) {
       while (ul.firstChild) ul.removeChild(ul.firstChild);
       var li = function (head, text) { var x = el("li"); x.appendChild(el("strong", "", head)); x.appendChild(document.createTextNode("：" + text)); ul.appendChild(x); };
-      li("黄金", "现价 " + fmt(price) + "。" + (st.marketOpen ? "今日" : "上一交易日") + "开 " + fmt(td.open) + "，最高 " + fmt(dayHi) + "，最低 " + fmt(dayLo) + (chg === null ? "" : "，较昨日收盘 " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "。上方最近的阻力 " + ((st.resistance || [])[0] ? fmt(st.resistance[0].price) + "（" + st.resistance[0].what + "）" : "—") + "，下方最近的支撑 " + ((st.support || [])[0] ? fmt(st.support[0].price) + "（" + st.support[0].what + "）" : "—") + "。");
+      li("黄金", (shut ? "休市中，收盘价 " : "现价 ") + fmt(price) + "。" + dayWord + "开 " + fmt(dayOpen) + "，最高 " + fmt(dayHi) + "，最低 " + fmt(dayLo) + (chg === null ? "" : "，较" + (shut ? "前一日" : "昨日") + "收盘 " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "。上方最近的阻力 " + ((st.resistance || [])[0] ? fmt(st.resistance[0].price) + "（" + st.resistance[0].what + "）" : "—") + "，下方最近的支撑 " + ((st.support || [])[0] ? fmt(st.support[0].price) + "（" + st.support[0].what + "）" : "—") + "。");
       li("结论", (v.text || "") + (go && st.plan ? " 方案：" + st.plan.side + "，止损 " + fmt(st.plan.stop) + "，目标 " + fmt(st.plan.target) + "。" : ""));
       li("接下来", (hi.length ? hi.slice(0, 3).map(function (e) { return e.when + " " + e.name; }).join("；") + "。数据公布前后 30 分钟不开新仓。" : "本周日历上没有剩下的大数据。"));
     }

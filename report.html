@@ -539,6 +539,50 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 .pf-list li::before{content:"";position:absolute;left:3px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .pf-list li b{color:var(--ink);font-weight:600}
 @media(max-width:700px){.pf-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---- phones (2026-10-25 mobile check) ---- */
+@media(max-width:980px){
+  /* answer first, then the price, the gauge and the five lights, then the reasons and the steps */
+  .verdict{row-gap:0}
+  .verdict>div:first-child{display:contents}
+  .verdict .v-top{order:1}.verdict .v-title{order:2}.verdict .v-text{order:3}
+  .verdict .v-side{order:4;margin-top:22px}
+  .verdict .v-range{order:5;margin-top:22px}
+  .verdict .v-reasons{order:6}.verdict #v-next-wrap{order:7}.verdict .v-proof{order:8}.verdict .v-alert{order:9}
+}
+@media(max-width:640px){
+  /* 16px stops iPhone from zooming into a field when it is tapped */
+  input:not([type=checkbox]):not([type=radio]),select,textarea,.inp input,.ask textarea{font-size:16px!important}
+  /* fingers need about 36px */
+  .btn.sm{min-height:36px;padding:9px 13px;font-size:12px}
+  .seg button{padding:11px 14px}
+  .tabs button{padding:12px 16px}
+  .q{position:relative}.q::after{content:"";position:absolute;inset:-11px}
+  .v-proof button{padding:8px 0}
+  /* wide tables become one small card per row */
+  .tablewrap.stk{overflow:visible;margin:0;padding:0}
+  .stk table{min-width:0!important}
+  .stk thead{display:none}
+  .stk tbody{display:block}
+  .stk tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;padding:14px 2px;border-bottom:1px solid var(--border)}
+  .stk.stk-3 tr{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stk tr:last-child{border-bottom:0}
+  .stk td{display:block;padding:0!important;border:0!important;text-align:left!important;white-space:normal!important;min-width:0!important;background:none!important}
+  .stk td[data-l]::before{content:attr(data-l);display:block;font:500 11px/1.4 var(--f-b);color:var(--dim);margin-bottom:3px;letter-spacing:0}
+  .stk td:first-child,.stk td.wide,.stk td[colspan]{grid-column:1/-1}
+  .stk td:first-child::before{display:none}
+  .stk td:first-child{font-weight:600;color:var(--ink)}
+}
+
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){/* ── shared pieces ── */
+.k,.card h2 small,.chip,/* term explainers */
+.q,.tfc .s,.tfc .c,.vr-cap,.cand .cr small,.inp .unit,.quick button,.tk-nums .td,.tabs .cnt,.ev .time,.tl-name span,.tl-axis div,.ai-tag,.ai-tag::before{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+@media(max-width:640px){.helpers .hr button{min-height:36px}details>summary{padding-top:9px;padding-bottom:9px}}
+@media(max-width:640px){details>summary{padding-top:10px!important;padding-bottom:10px!important}.quick button{min-height:34px;padding-left:10px;padding-right:10px}}
 </style>
 </head>
 <body>
@@ -702,7 +746,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 
     <div class="panel live-data" data-panel="mtf" hidden>
       <p class="p-intro">每个周期单独看一遍：方向怎么走、最近一次突破在哪、价格在区间里偏贵还是偏便宜。周线、日线、4 小时决定能不能做，1 小时和 15 分钟决定什么时候进。</p>
-      <div class="tablewrap">
+      <div class="tablewrap stk">
         <table class="mx">
           <thead><tr><th>周期</th><th>方向<button type="button" class="q" data-g="structure" aria-label="解释：方向">?</button></th><th>最近一次突破<button type="button" class="q" data-g="bos" aria-label="解释：突破">?</button></th><th>在区间的位置<button type="button" class="q" data-g="zone" aria-label="解释：偏贵偏便宜">?</button></th><th>强弱<button type="button" class="q" data-g="rsi" aria-label="解释：RSI">?</button></th><th>均线<button type="button" class="q" data-g="ema" aria-label="解释：均线">?</button></th><th>形态与流动性<button type="button" class="q" data-g="liq" aria-label="解释：流动性">?</button></th></tr></thead>
           <tbody id="matrix"><tr><td colspan="7" class="muted">载入中…</td></tr></tbody>
@@ -857,6 +901,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-engine.js?v=5"></script>
 <script src="assets/xau-plan.js?v=11"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=11"></script>
+<script src="assets/market-page.js?v=12"></script>
 </body>
 </html>

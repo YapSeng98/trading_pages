@@ -226,6 +226,14 @@ main{max-width:1088px;margin:0 auto;padding:22px 24px 64px;display:grid;grid-tem
   .factor-item{flex-direction:column;gap:4px}
   .event-item{flex-wrap:wrap;gap:6px 10px}.event-body{flex-basis:100%}
 }
+
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){.hl-tag,.biaslabel,.snap-label,.tf-table th,.ind-table th,.lvl-table th,.inst-name,.risk-list li::before,.vs-label{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+@media(max-width:640px){.more-btn,.bias-more{padding:10px 0 6px}.fold-btn{padding:10px 13px}}
+@media(max-width:640px){.biasbar .bias-more{padding:10px 0 6px}}
 </style>
 </head>
 <body>
@@ -675,7 +683,7 @@ main{max-width:1088px;margin:0 auto;padding:22px 24px 64px;display:grid;grid-tem
 
 <script src="assets/xau-feed.js?v=5" defer></script>
 <script src="assets/gold-live.js?v=1" defer></script>
-<script src="assets/gold-bar.js?v=5" defer></script>
+<script src="assets/gold-bar.js?v=6" defer></script>
 <script src="assets/daily-live.js?v=2" defer></script>
 </body>
 </html>

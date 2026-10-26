@@ -151,7 +151,15 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
   .sb-val{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;width:38px;text-align:right;flex-shrink:0;color:var(--white)}
   #evtTimeline{width:100%;height:auto;display:block}
   .rviz-note{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--dim);margin-top:8px}
-  </style>
+  
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){.ai-tag,.ai-tag::before,.hl-tag,.hprice-sub,.sec-eyebrow,.cal th,.cal-time,.imp,.scen-prob,.scen-item-l,.lvl .d,.rules li::before,.rviz h5,.rviz-note{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+/* phones: each calendar row becomes a card; the timeline scrolls sideways so its labels stay readable */
+@media(max-width:640px){table.cal thead{display:none}table.cal,table.cal tbody{display:block;width:100%}table.cal tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:14px 4px;border-bottom:1px solid var(--border)}table.cal tr:last-child{border-bottom:0}table.cal td{display:block;padding:0;border:0}table.cal td:nth-child(3){grid-column:1/-1}.rviz div:has(>#evtTimeline){overflow-x:auto}#evtTimeline{min-width:560px}}
+</style>
   <div class="rviz ai-frame">
     <div>
       <h5 style="display:flex;align-items:center;gap:8px"><span class="ai-tag">AI Synthesis</span>前瞻情景概率 · Scenario Odds</h5>
@@ -387,7 +395,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 
 <script src="assets/xau-feed.js?v=5" defer></script>
 <script src="assets/gold-live.js?v=1" defer></script>
-<script src="assets/gold-bar.js?v=5" defer></script>
+<script src="assets/gold-bar.js?v=6" defer></script>
 <script src="assets/levels-live.js?v=1" defer></script>
 </body>
 </html>

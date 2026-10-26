@@ -309,6 +309,18 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 .upd-stamp{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:12px;padding:7px 16px;border:1px solid rgba(184,134,11,.22);border-radius:999px;background:rgba(184,134,11,.05)}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* phones: nothing smaller than 11px */
+@media(max-width:640px){/* AI insight badge + animated-border frame */
+.ai-tag,.ai-tag::before,.eyebrow,.tldr .lab,/* legend */
+.legend,.risk-tag,/* section label */
+.sec-label,.mini-card .cap,.qb-head,.q-tk,.q-score,.q-risk,.q-thesis,.q-card .q-scorerow .dot,.stat .sk,.risk-vals,.deep-badge,.ds .k,.range52 .rk,.range52 .cap,.deep-cols h4,.tr-cell .k,.deep-note,.ai-view .ak,.viz-sub,.viz-legend,.mcmp .mb .k,.radar-foot,.mkt-head .idx,.dash-card .dk,.col-head,.score-k,.alloc-vals,.howto .lab,.srcs a,.upd-stamp{font-size:11px}}
+
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+/* phones: the 52-week rows wrap the name onto its own line; the small cash label is never cut */
+@media(max-width:640px){#w52Host .vrow{flex-wrap:wrap;row-gap:5px}#w52Host .vname{width:100%!important;flex:0 0 100%}.alloc-vals span:last-child{flex:0 0 auto!important;overflow:visible;text-align:right}}
+@media(max-width:640px){.rv-seg button{min-height:36px}th button{min-height:34px}.rv-chk{position:relative}.rv-chk::after{content:"";position:absolute;inset:-9px}#w52Host .vrow>span{font-size:11px!important}span.ty{font-size:11px!important}}
 </style>
 <link rel="stylesheet" href="assets/stocks-live.css">
 <script src="data/quotes.js"></script>

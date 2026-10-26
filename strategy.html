@@ -38,7 +38,12 @@
     .navbar a.nl:hover{color:#F6F5F3;background:#1E1E27}
     .navbar a.nl.on{color:#E6BE55;background:rgba(184,134,11,.10)}
     @media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
-  </style>
+  
+/* phones: navbar on one line, links a finger tall */
+@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
+/* phones: the handbook sets sizes inline; nothing under 11px, buttons a finger tall */
+@media(max-width:640px){#root [style*="font-size: 9px"],#root [style*="font-size: 9.5px"],#root [style*="font-size: 10px"],#root [style*="font-size: 8px"],#root [style*="font-size: 8.5px"]{font-size:11px!important}#root button{min-height:36px}}
+</style>
 </head>
 <body>
   <div class="mesh"><div class="orb-violet"></div></div>

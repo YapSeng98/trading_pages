@@ -324,6 +324,13 @@
 
   // ---------- timeframe table ----------
   function rsiWord(r) { return r >= 70 ? "偏热" : r <= 30 ? "偏冷" : r >= 55 ? "偏强" : r <= 45 ? "偏弱" : "均衡"; }
+  // Phones show wide tables as one small card per row (.tablewrap.stk in the page CSS): each cell carries its
+  // column's name in data-l.
+  function stackLabels(table) {
+    if (!table || !table.tHead || !table.tHead.rows[0]) return;
+    var names = [].map.call(table.tHead.rows[0].cells, function (c) { return (c.firstChild && c.firstChild.nodeType === 3 ? c.firstChild.textContent : c.textContent).replace(/\?$/, "").trim(); });
+    [].forEach.call(table.tBodies, function (b) { [].forEach.call(b.rows, function (r) { var k = 0; [].forEach.call(r.cells, function (c) { if (names[k]) c.setAttribute("data-l", names[k]); k += c.colSpan || 1; }); }); });
+  }
   function renderMatrix() {
     var tb = clear($("matrix")), E = S.E;
     P.TF_ORDER.forEach(function (tf) {
@@ -355,6 +362,7 @@
       notes.forEach(function (n, k) { last.appendChild(h("div", { class: k ? "sm" : "", text: n })); });
       tr.appendChild(last); tb.appendChild(tr);
     });
+    stackLabels(tb.parentNode);
   }
 
   // ---------- chart ----------
@@ -1199,7 +1207,8 @@
         tb.appendChild(h("tr", null, [h("td", { class: "l", text: "#" + x.id + " · " + x.time.replace(" SGT", "") }), h("td", { class: "num " + (x.side === "做多" ? "up" : "dn"), text: x.side }), h("td", { class: "num", text: fmt(x.entry, 1) }), h("td", { class: "num", text: fmt(x.stop, 1) }), h("td", { class: "num", text: fmt(x.target, 1) }),
           h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? "（" + x.why + "）" : "") }), (function () { var rr = typeof x.R === "number" ? x.R : openR(x); return h("td", { class: "num " + (rr > 0 ? "up" : rr < 0 ? "dn" : ""), text: rr === null ? "—" : sgn(rr) + "R" + (typeof x.R === "number" ? "" : "（现在）") }); })()]));
       });
-      el.appendChild(h("div", { class: "tablewrap", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
+      el.appendChild(h("div", { class: "tablewrap stk stk-3", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
+      stackLabels(tb.parentNode);
     }
     var ev = (r.events || []).slice(-4).reverse();
     if (ev.length) el.appendChild(h("p", { class: "note", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。" + (num(r.lastChecked) !== null ? "已经检查到 " + sgt(r.lastChecked, "dt") + " SGT 收盘的 K 线；" : "") + "它不知道你自己有没有下单。" }));
@@ -1313,7 +1322,14 @@
   function soundChip() {
     var c = $("snd-chip");
     if (!c) { c = h("button", { type: "button", id: "snd-chip", class: "snd-chip", text: "🔇 点一下页面，开启提示音" }); document.body.appendChild(c); }
-    c.hidden = !(S.notify && NOTE_OK && !soundOn());
+    var show = !!(S.notify && NOTE_OK && !soundOn());
+    // on a phone the chip floats over the text: it says its piece for a few seconds, then leaves it to the 🔔 panel
+    if (show && window.matchMedia && matchMedia("(max-width:640px)").matches) {
+      if (!S.chipAt) S.chipAt = Date.now();
+      var left = 7000 - (Date.now() - S.chipAt);
+      if (left <= 0) show = false; else if (!S.chipT) S.chipT = setTimeout(function () { S.chipT = 0; soundChip(); }, left + 100);
+    }
+    c.hidden = !show;
   }
   if (S.notify) setTimeout(function () { askPermission(); probeSound(function () { if ($("v-alert")) renderAlert(); soundChip(); }); }, 0);
   document.addEventListener("click", function () { if (S.notify && NOTE_OK && Notification.permission === "default") askPermission(); }, { once: false, passive: true });
@@ -1428,7 +1444,7 @@
   (function () {
     var st = document.createElement("style");
     st.textContent = ".v-pre{margin:10px 0 0;padding:10px 13px;border:1px dashed rgba(212,167,44,.45);border-radius:12px;background:rgba(212,167,44,.06);font-size:12.5px;line-height:1.7;color:var(--text)}.v-pre b{color:var(--gold-lt)}" +
-      ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}" +
+      ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}@media(max-width:640px){.snd-chip{right:10px;bottom:calc(10px + env(safe-area-inset-bottom));font-size:11.5px;padding:8px 12px}}" +
       ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
       ".cg-now{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:var(--text);margin-bottom:12px}.cg-now b{color:var(--ink)}.cg-now .btn{margin-left:auto}" +
       ".cg-list{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:0}" +
