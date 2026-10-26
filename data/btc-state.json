@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-26 10:11 SGT",
+ "updated": "2026-10-26 12:31 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 79756.5,
- "priceTime": "2026-10-26 10:00 SGT",
+ "price": 79935.6,
+ "priceTime": "2026-10-26 12:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 80154.1,
   "high": 80386,
-  "low": 79390,
-  "changeFromPrevClose": -397.6,
-  "changePct": -0.5,
+  "low": 79368.7,
+  "changeFromPrevClose": -218.5,
+  "changePct": -0.27,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -107,8 +107,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 36.3,
-   "atr": 706.51,
+   "rsi": 31.7,
+   "atr": 728.71,
    "turnsUpAbove": 82060.9,
    "turnsDownBelow": 79220.7
   },
@@ -117,8 +117,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-10-26 10:00 SGT",
-   "rsi": 32.5,
-   "atr": 359.47,
+   "rsi": 30.6,
+   "atr": 375.77,
    "turnsUpAbove": 80951.6,
    "turnsDownBelow": null
   },
@@ -127,22 +127,17 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-26 04:45 SGT",
-   "rsi": 34.5,
-   "atr": 266.97,
+   "rsi": 49,
+   "atr": 259.5,
    "turnsUpAbove": 80732,
-   "turnsDownBelow": null
+   "turnsDownBelow": 79390
   }
  ],
  "resistance": [
   {
-   "price": 79800,
-   "what": "日线前低、昨日低点、日线双顶关键位",
-   "strength": 8
-  },
-  {
    "price": 80087.7,
-   "what": "4小时近期小低点、1小时向下转折位",
-   "strength": 2
+   "what": "1小时向下转折位",
+   "strength": 1
   },
   {
    "price": 80640.8,
@@ -156,13 +151,23 @@
   },
   {
    "price": 80951.6,
-   "what": "1小时前高、1小时区间顶、4小时向下转折位",
+   "what": "1小时前高、1小时区间顶、4小时向下转折位、4小时近期小高点",
+   "strength": 4
+  },
+  {
+   "price": 81033.7,
+   "what": "昨日高点",
    "strength": 3
   }
  ],
  "support": [
   {
-   "price": 79390,
+   "price": 79800,
+   "what": "日线前低、昨日低点、日线双顶关键位",
+   "strength": 8
+  },
+  {
+   "price": 79368.7,
    "what": "1小时区间底",
    "strength": 1
   },
@@ -180,11 +185,6 @@
    "price": 74968,
    "what": "周线前低",
    "strength": 3
-  },
-  {
-   "price": 74702,
-   "what": "日线双顶目标",
-   "strength": 1
   }
  ],
  "record": {

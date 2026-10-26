@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26 10:11 SGT",
+ "updated": "2026-10-26 12:31 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
-   "t": "Gold Futures Streaming Chart",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
-   "ms": 1792972456000,
-   "time": "10/26 07:54"
+   "t": "Gold Price Forecast: XAU/USD gains at start of Fed’s policy week",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTmppZ3ZXUk9zWHJfSTJxMkphMWpVTk5DQXN0cWthMjhCWFowS3FwbXlmS21zb0ZHNDBxWGpMb2ZlUmQxVktDMExySFVZUExtRk1mMHoxRlRUTnpEcnJ5MDlPZFJETHNUUkF1RmVualNoVmJsd1BlclFzTFhKeHhYY1ZKZ3pIYW8yM3FIWTlRZ2lGcjM3WFpqM09ac3MtWkJSNDhQbW5SalZHM3J3d2c?oc=5",
+   "ms": 1792985165000,
+   "time": "10/26 11:26"
+  },
+  {
+   "t": "Gold steadies near 3-mth low as elevated oil prices weigh; Fed meet eyed By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYlJLQ2tNWjRwbVFjQkEwU0lXeWRELWZOR0ZqUklnZGFBLUxwOXVxdk1hSWZudVNIT2gzLTVFOElwdkNmaVRPNGtwV0s4U3RyN3ZodmpYd05fRkc0YXl0OHR5SDJ1ZDdtV3RZdEx4Vm4zbllFTmJRWm9FYkd6QWxjUnd6RXotY0l6cm1WVzdkM2dXMkQ3U3NBTXl5b3Nrc1hTOWtKQWdtNl9RckZ0bUtmOGVKT2VuRHBTMnJOdHJERTRKbDA?oc=5",
+   "ms": 1792983980000,
+   "time": "10/26 11:06"
+  },
+  {
+   "t": "Gold, silver recover slightly after sell-off: What to watch this week",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTkNfb2xBU2FRTFEzbFFJRHcxamNVWEVPMUIwdUhnQkg2dVpaSXlFaHd1NmIyNS1vVi12bXpYQXkzaG1zVDBDRlEwVkt3bzd1RFhucU44ODlsVDI4Qm8tUm1WX05FTlVhZXRMblZabDNWMkcxV1dZbElURHVEM0FCcFA3cDVlMzhSc2JRZlRJWTdtTG1HbXFsNVFWZzZfdlFwY3BldlY4T3ktcTZjei11dzFOWGhUM2YyY3RUZEM5ejPSAcYBQVVfeXFMTUVCMUVid0ZZX3FUODl0UWQ1U2MxS0JseTdrcUgxRXpDVkpXUVRrS1k0eFZzNkxrT1JFUHRWbGxPbFotcDBRczM2YU14NnY2YUhPMkx1elVjdENEbUVMVW9EbVo3ajRQcFNWeDJRZHd1VjlfemZjRF9EOVF1ck52bkJfMmo4VDJNZ21HZWlqV0hrQWZVN3lDRU9iNkRMeWh0NS11amczelJwS0x3aEhvbk9aR0VCbjBhMFVvN3J5TkgySDRVZDZn?oc=5",
+   "ms": 1792978827000,
+   "time": "10/26 09:40"
   },
   {
    "t": "The US has the largest gold reserve. But repricing it to $1 trillion 'would backfire in a big way'",
@@ -19,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHBxNUF1SHZxTzlxSEpoUE5wUXJKbXNLdlI3M3pSeUpMenhqTEEwUTN2QngyNXhLM3FXVEhVanNBUlBGWnFoRlQyYTBoZlRBTVA4aVlZYWNkU1hsWkxQcFdNSzE2dEc4RDgyUHNEUHQ3NkVtZXF6QkdFZHlrSkJDLUNaOWlpdDJjai01U1lmTVJocHBzWW9rbDZ3dGZaQnNnbzNPZ0Y2WE5HTEJr?oc=5",
    "ms": 1792954620000,
    "time": "10/26 02:57"
-  },
-  {
-   "t": "Gold prices break $4,000 as investors brace for crucial test",
-   "src": "Yahoo Finance Singapore",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA2YWtjWFd5S3VHV2EtMFhHc3hVb1dfQi1MZjh6YkhvRnFGQnE3WXN5dGhkM3VYMWlLbTI3dDZ3X05rc0dHZjk0dndONUkwa2hIZlJNWklRQU5zME9wUmw1ejZIT0lVZk5TaFBJV0czTmtkQVMtRk1OV1RUVGs?oc=5",
-   "ms": 1792894620000,
-   "time": "10/25 10:17"
   }
  ]
 }
