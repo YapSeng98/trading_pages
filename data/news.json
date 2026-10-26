@@ -1,11 +1,32 @@
 {
- "updated": "2026-10-26 12:31 SGT",
+ "updated": "2026-10-26 14:54 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold gains on softer oil prices; Fed decision in focus",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZml1aC0yS2NrLUloeEFPZnYyeExpazhPVExTT1BLcV9HZGxEZWFzcHFUMTJFbDhUTjgyaE5EbGRja1BRX0p2UzlDSmEzUUpzTG9ZT2xKZEZMczFvb1pzU2xrdXlNT0dDUXYtQnhoLUFpT09xQmF5Q25FQXdKNGpjOERVdTB1UTk4NkhSd2k3cUNBSTJRMVVsUlpSWQ?oc=5",
+   "ms": 1792994160000,
+   "time": "10/26 13:56"
+  },
+  {
+   "t": "Gold Falls As Rising Oil Prices Reinforce Fed Outlook For Higher Rates To Last By Kedia Advisory",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOYXBOa2FKaC13cG10VExFNmJwRWJ4Q2JObE5VaVhpQVVjVnZoQzM3R1VsT2NIMnJBWXVveS1WRVJQaWJDUWtCemRtZ2tSczlselNFalZVMHZ4NnQ3Tm9OZlV5WUpNd2ZQbElRN3VkRUFMVEtESTUwdVpHZTlmNTVJT0ZyT0YyMXphNmhtdmI4a3JNRmgtd0ZFOTFXbXA4V0I3NkJVME9tTzAyVlBJaUZtTE8tU1l3ODFhc2dlZFpDbHRGSFN3enc4VloySlRjQQ?oc=5",
+   "ms": 1792989605000,
+   "time": "10/26 12:40"
+  },
+  {
+   "t": "Gold rebounds from three-month low and retakes $4,000 on weak USD; focus remains on FOMC",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZ1VFckNUaUtDNkpsb2NmeG9GZG9LX1NITzRxVGd2cHl5YnNBNlBYYUIxYkpaVUZFMXFKU0N2ZVVRZzBvSGZCaWNpb25hdmg4LXJ1Yi1oTlktOHVPaURKUWt1RFJhYkdCcFMzdVVTdVlEQUkxZ0JFNU41Yzg4bHhpejhhZEFnbHhucVRxdDVoWDhNVllWMzlMandteGN6RVp3bTBUYllpUHF5cWpwYnNFYkh4MnJOeTVNNS1MV01kRkRoMTRkLXF6ag?oc=5",
+   "ms": 1792989262000,
+   "time": "10/26 12:34"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD gains at start of Fed’s policy week",
    "src": "FXStreet",
@@ -14,11 +35,11 @@
    "time": "10/26 11:26"
   },
   {
-   "t": "Gold steadies near 3-mth low as elevated oil prices weigh; Fed meet eyed By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQYlJLQ2tNWjRwbVFjQkEwU0lXeWRELWZOR0ZqUklnZGFBLUxwOXVxdk1hSWZudVNIT2gzLTVFOElwdkNmaVRPNGtwV0s4U3RyN3ZodmpYd05fRkc0YXl0OHR5SDJ1ZDdtV3RZdEx4Vm4zbllFTmJRWm9FYkd6QWxjUnd6RXotY0l6cm1WVzdkM2dXMkQ3U3NBTXl5b3Nrc1hTOWtKQWdtNl9RckZ0bUtmOGVKT2VuRHBTMnJOdHJERTRKbDA?oc=5",
-   "ms": 1792983980000,
-   "time": "10/26 11:06"
+   "t": "Gold steadies near 3-mth low as elevated oil prices weigh; Fed meet eyed",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNktOWlBwajBDNG04T2cxVHBRWGppZjg3NFVWdEhzeXk3YjhwNUkwei1UbmFQMF9fNkRTYXhJOFo3X1pKZ0hzSGQ4VmZDekZGOFo3b0RpUF9MMEVhUnlwR0FNUzBTMVVPVWRYMnctZXp5VWlSLVQ5U0ZSZHkwT3RyM3hPdmpMV0VES09ORFRzdVNfaE9JT05GcXNaMUFjSnpYZ2VwUDlTR3BXdjBlVDFjTUotYWxDZzFfXzBZeXFqU3dOQ2c?oc=5",
+   "ms": 1792983720000,
+   "time": "10/26 11:02"
   },
   {
    "t": "Gold, silver recover slightly after sell-off: What to watch this week",
@@ -28,11 +49,25 @@
    "time": "10/26 09:40"
   },
   {
+   "t": "Gold declines below $4,000 as higher oil prices reinforce Fed rate-hike expectations",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPenkzWHJESUR3b3dVVTA2QzZkUlB6VmRRaVJzT2xvemEwakRCU3dDLThobUtKQmx6MUdBQVRNREw5TUgzdHNSLUVaR3JmRTZTeVA1VjJuWVpOS1pMWG5zbjg0M0RESlRzalROOUlKSDdNYjZZTW12YWM3TWtsYTJGTTZRSFFPa3kzYS00TG1NQTYzTVlJSXVETkh6dzh4aXZOUmNaeHZ0MkZXc2xNal9DaU1fakV3VjV6TlFsaDlpRjF4NjBY?oc=5",
+   "ms": 1792970692000,
+   "time": "10/26 07:24"
+  },
+  {
    "t": "The US has the largest gold reserve. But repricing it to $1 trillion 'would backfire in a big way'",
    "src": "Fortune",
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHBxNUF1SHZxTzlxSEpoUE5wUXJKbXNLdlI3M3pSeUpMenhqTEEwUTN2QngyNXhLM3FXVEhVanNBUlBGWnFoRlQyYTBoZlRBTVA4aVlZYWNkU1hsWkxQcFdNSzE2dEc4RDgyUHNEUHQ3NkVtZXF6QkdFZHlrSkJDLUNaOWlpdDJjai01U1lmTVJocHBzWW9rbDZ3dGZaQnNnbzNPZ0Y2WE5HTEJr?oc=5",
    "ms": 1792954620000,
    "time": "10/26 02:57"
+  },
+  {
+   "t": "Gold market and central banks: Russia, Kazakhstan sell as Poland, China buy",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMHItSFJobjRyTUNZSVJTS3JvaHRNQzJORFpEb0x3MUJLQ1VIS1RCZW10Vm15TFNoSlpfTE5zRkdIU212VE16a0F0TzBqWEQwX2c2S1l4T244REkwZ2c3NVhfZTdRRjNFcWlVMm8wQmFVQ0x3NGp0Zm9TRXI1c0x1ajUzdU44YmJ3?oc=5",
+   "ms": 1792911480000,
+   "time": "10/25 14:58"
   }
  ]
 }
