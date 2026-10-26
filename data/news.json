@@ -1,11 +1,25 @@
 {
- "updated": "2026-10-26 16:21 SGT",
+ "updated": "2026-10-26 18:28 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Greatland Resources Reports 70,131 Ounces of Gold Production in Q1 FY27, Begins Havieron Construction",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTWlKWmZwZGZTRGItd083d2xfbzZnSlZicmI0ZjFQSzR0QTNHNnl5cE1IU0VLZU1DUHpyVmhqSjhISW03OGVGNjFjOGhmbXJrenppVFdkRzZpSkZqM2U2YUVPWlpVd29RcUFjZ0ZGT2ZDS0VtM1ZxUzBjOUFSRU4tRUpVTldpLTc2anZr?oc=5",
+   "ms": 1793001683000,
+   "time": "10/26 16:01"
+  },
+  {
+   "t": "Gold prices under pressure ahead of Dhanteras: What should buyers consider",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOaF9fV3ZIZUtRNGEwMDZzT2l2RVJXRlJDQ0RvaUZBVWN3anlmQlRSeDlmZmJ5MklTTXo1eGJNclRxUlZaWXRZMXB5aFFSSUFRQ3NvUTJKY19YbGxwY2NyTWt1NUF5cTVBUEpISmtSRzZuYk1wSFlvUnhVbmJFcHVtenRxbGV6Q0NBQzVCMmpvTWxrWWY1OUhRNmFCZ1lFdFRRWTA4emJFVmpzYTFpRlZFamkwVGxyZkEwYjRHUjZTdWZpckHSAcgBQVVfeXFMTXZHZjRkNEFESG8tYlYxQWgza0NqYUN0bThIMlk1VmZVdDlfNE1UbGNtaXN3YUxRb3lsclUyM2pfekJWZjVwbGl3VE5PYmFpdXhfcllVRzZyMGFHaW56cjFkYWtWUDhQOVJXRHdYOWlYZG5CWS1BUzIzcGVyX3YyZFRTcGJhYXVPbDg3LUViSXdBNXdZd19lb3dtTGJUZUplUFhiSWNjM2ZoZzh4UUVaMjdaMjNsRFpSVUExMENRWGJUUXJfR1NuWWY?oc=5",
+   "ms": 1793001296000,
+   "time": "10/26 15:54"
+  },
   {
    "t": "Gold struggles to extend recovery as hawkish Fed bets and Iran risks support USD",
    "src": "FXStreet",
@@ -33,20 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTmppZ3ZXUk9zWHJfSTJxMkphMWpVTk5DQXN0cWthMjhCWFowS3FwbXlmS21zb0ZHNDBxWGpMb2ZlUmQxVktDMExySFVZUExtRk1mMHoxRlRUTnpEcnJ5MDlPZFJETHNUUkF1RmVualNoVmJsd1BlclFzTFhKeHhYY1ZKZ3pIYW8yM3FIWTlRZ2lGcjM3WFpqM09ac3MtWkJSNDhQbW5SalZHM3J3d2c?oc=5",
    "ms": 1792985165000,
    "time": "10/26 11:26"
-  },
-  {
-   "t": "Gold steadies near 3-mth low as markets brace for Fed meeting",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcFQ1alE2OUhRMWJwbU5GeldSU1h4MWVJMXotUG5GVEkzUnlxb1hsTVJzYnZkRE15X2phMHRRNUtyWXlURGxhSHp5blFJUGVXRFFUZVVTSTE2VlNHbW9ET0t6SmVYY3paMTBnemRYZXBFa3M4Z1RNemZieWJoVE14MVM4clFBMWlkZkt1ZGJUQ010dnI5MGQ5V1Rzc2hWYWtHU1JEY1N6cE1IUHp3Q2tPUVUtUHU1bUVTcGlQX3cxT3psU0U4?oc=5",
-   "ms": 1792983887000,
-   "time": "10/26 11:04"
-  },
-  {
-   "t": "Gold, silver recover slightly after sell-off: What to watch this week",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTkNfb2xBU2FRTFEzbFFJRHcxamNVWEVPMUIwdUhnQkg2dVpaSXlFaHd1NmIyNS1vVi12bXpYQXkzaG1zVDBDRlEwVkt3bzd1RFhucU44ODlsVDI4Qm8tUm1WX05FTlVhZXRMblZabDNWMkcxV1dZbElURHVEM0FCcFA3cDVlMzhSc2JRZlRJWTdtTG1HbXFsNVFWZzZfdlFwY3BldlY4T3ktcTZjei11dzFOWGhUM2YyY3RUZEM5ejPSAcYBQVVfeXFMTUVCMUVid0ZZX3FUODl0UWQ1U2MxS0JseTdrcUgxRXpDVkpXUVRrS1k0eFZzNkxrT1JFUHRWbGxPbFotcDBRczM2YU14NnY2YUhPMkx1elVjdENEbUVMVW9EbVo3ajRQcFNWeDJRZHd1VjlfemZjRF9EOVF1ck52bkJfMmo4VDJNZ21HZWlqV0hrQWZVN3lDRU9iNkRMeWh0NS11amczelJwS0x3aEhvbk9aR0VCbjBhMFVvN3J5TkgySDRVZDZn?oc=5",
-   "ms": 1792978827000,
-   "time": "10/26 09:40"
   },
   {
    "t": "Gold declines below $4,000 as higher oil prices reinforce Fed rate-hike expectations",
