@@ -583,6 +583,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 @media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
 @media(max-width:640px){.helpers .hr button{min-height:36px}details>summary{padding-top:9px;padding-bottom:9px}}
 @media(max-width:640px){details>summary{padding-top:10px!important;padding-bottom:10px!important}.quick button{min-height:34px;padding-left:10px;padding-right:10px}}
+/* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
+@media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}.gnav,#dtabs{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
 </style>
 </head>
 <body>

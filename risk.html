@@ -159,6 +159,8 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 @media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
 /* phones: each calendar row becomes a card; the timeline scrolls sideways so its labels stay readable */
 @media(max-width:640px){table.cal thead{display:none}table.cal,table.cal tbody{display:block;width:100%}table.cal tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:14px 4px;border-bottom:1px solid var(--border)}table.cal tr:last-child{border-bottom:0}table.cal td{display:block;padding:0;border:0}table.cal td:nth-child(3){grid-column:1/-1}.rviz div:has(>#evtTimeline){overflow-x:auto}#evtTimeline{min-width:560px}}
+/* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
+@media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
 </style>
   <div class="rviz ai-frame">
     <div>

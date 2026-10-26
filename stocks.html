@@ -321,6 +321,8 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 /* phones: the 52-week rows wrap the name onto its own line; the small cash label is never cut */
 @media(max-width:640px){#w52Host .vrow{flex-wrap:wrap;row-gap:5px}#w52Host .vname{width:100%!important;flex:0 0 100%}.alloc-vals span:last-child{flex:0 0 auto!important;overflow:visible;text-align:right}}
 @media(max-width:640px){.rv-seg button{min-height:36px}th button{min-height:34px}.rv-chk{position:relative}.rv-chk::after{content:"";position:absolute;inset:-9px}#w52Host .vrow>span{font-size:11px!important}span.ty{font-size:11px!important}}
+/* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
+@media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
 </style>
 <link rel="stylesheet" href="assets/stocks-live.css">
 <script src="data/quotes.js"></script>

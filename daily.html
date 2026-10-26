@@ -234,6 +234,8 @@ main{max-width:1088px;margin:0 auto;padding:22px 24px 64px;display:grid;grid-tem
 @media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
 @media(max-width:640px){.more-btn,.bias-more{padding:10px 0 6px}.fold-btn{padding:10px 13px}}
 @media(max-width:640px){.biasbar .bias-more{padding:10px 0 6px}}
+/* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
+@media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}.secnav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
 </style>
 </head>
 <body>
