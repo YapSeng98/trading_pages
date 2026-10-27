@@ -144,6 +144,19 @@ NOT confirmed: 3 of 7 positive, pooled no better than chance. On crypto the rule
 own +0.13R is most likely luck. Gold could not be checked this way: the only free intraday history for silver,
 currencies, indices and oil is Dukascopy's chart feed, which turns away automated downloads.
 
+## Indicators as confirmation (2026-10-27)
+
+`indicator_check.js`, written down before the run: the rule's own trades split by eight standard indicators at the
+signal (EMA 20/50/200 stacked, daily and 4-hour; RSI(14) on the trade's side of 50, 1-hour and 4-hour; MACD(12,26,9)
+histogram the trade's way, 4-hour and daily; ADX(14) at 25 or more, daily and 4-hour). An indicator confirms only if
+its confirmed trades beat the rest in all three gold periods, on Bitcoin and on the seven coins, with 40% or more of
+trades confirmed and gold's difference at p < 0.05 / 8.
+
+None passed. Closest: the 1-hour RSI on the wrong side of 50 (one signal in ten) did worse in most places but not in
+gold's 2019-2023, p 0.03; the daily EMA stack and daily MACD helped on gold and Bitcoin and hurt on the coins. Adding
+them would raise the hit rate on paper and lower it in use. The page shows RSI and the EMA stack in 各周期明细 as
+information only.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.
