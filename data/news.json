@@ -1,11 +1,18 @@
 {
- "updated": "2026-10-27 08:53 SGT",
+ "updated": "2026-10-27 10:11 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Price Crashed 25%, But Investors are Still Buying",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPb2pmZ2txWEtsc3N1VEg4Ty15VlBZVmVDZG9JX1R3aUE3a0ZRYWVkTHdUcG54bF85RmcwdlA0aHVvNFRoa0JKbUhFVmVnRmdSaDlVYmIyb29vYm95N3RCb2xYQk1TNXhVdmUzRzMtdWtxODFNNWZVRnozMVVTbUpVNVdSOF9qTDZUQVV0bnpEeHhaSGVwTjNTelRDSU9YWF9OcXNV?oc=5",
+   "ms": 1793061960000,
+   "time": "10/27 08:46"
+  },
   {
    "t": "Gold rebounds above $4,000 amid hopes of easing US‑Iran tensions",
    "src": "FXStreet",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX2dJS3lIQ29lTFNITjBZb0dtekZfS0dOZFhZSkpQNFIxanZNVGFfZzFxNnphV3hJejNoblc1X0dDSVU5RkxCYzZXRWVuYlZFMFhabGRkM2o4TnZvY2pqM0hldGlMV1Y4NldZYS1rSWl6STItZFBhekNPU3I4TUFkQW5uYmQ4OTJSTXBVUDdfVnRpWHV4bWtKc19mVGV4T3ozVDJza2dHcFdxN2N2TUZ1NUpuUnA4Y3c?oc=5",
    "ms": 1793056229000,
    "time": "10/27 07:10"
+  },
+  {
+   "t": "Geopolitical tensions complicate the gold bull case, says AHG president",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcXhiWkhNYm1fUFo0SFM2WVd3ZjJxcEMyS2w3ZjBoUk1Wb1Utd0o1cFhacEFOMzJCd1lLdVNUcVBfZmJCZkFmU3FrMmZrLVhBaVlCSnE3OVFKejhjc2NMbkp5MmQzLXRLNElMUWpuTi02NGM2ZFZ2RXI1TnZwSVZJeW5XdmhST29tWk9ZRGpoVmlDRDFtSl9YOVF4ODBVRTlRQ1laU21zNS05ZlhfTzFKYk1B?oc=5",
+   "ms": 1793039078000,
+   "time": "10/27 02:24"
   },
   {
    "t": "Gold reclaims $4,000 as Oil eases, Fed decision tests recovery",
@@ -70,6 +84,13 @@
    "time": "10/26 21:15"
   },
   {
+   "t": "Gold rebounds above $4,000 as lower oil prices ease Fed tightening concerns - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPU3hQUFBiUWRZTzNMbjhnUGdPWEw5WXRnOGlrSjNYSXAxWC0yZnFjMUw0SlBpcl9qLUYzQjZTQ2NIcTU3TFNUdk9FTEhoTkJITHQtVVlLektXNUw0R1BRQXBKR0hzMVk5SnVMRHM5bnplUE9pY1ZxNlhfZmV6bFlQeEpvT1RfTVVOcTZkcGRxV3FNbmt4NVpBZk90Q3hUQ0FjWEpKRGJybV9zQ3hJcWZldklQcTJDWDg?oc=5",
+   "ms": 1793018881000,
+   "time": "10/26 20:48"
+  },
+  {
    "t": "TSX futures climb as oil falls, gold advances amid hopes for cooling Iran tensions",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOT1ZTMXZVVE9HY09kbGlTUF9keDlSZTFFUVFIc0tEa1JIOGUzdzNlOGI2TS02bEhIZWdjeGc0cUxRUXZOdUs2OFkxYW45ekJtZEotTXRob1BMUzJjc3Y1SXlVQnpxZHdZVDJ0cU16Y3FZZXlzQ0dMNHVuclVQMUxqaXo0ZGVHSTFjTndCdmNn?oc=5",
@@ -84,32 +105,11 @@
    "time": "10/26 19:17"
   },
   {
-   "t": "Gold clings to recovery gains above $4,000; upside seems limited ahead of FOMC meeting",
+   "t": "Gold clings to recovery gains above $4,000 as FOMC risk looms",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZ1VFckNUaUtDNkpsb2NmeG9GZG9LX1NITzRxVGd2cHl5YnNBNlBYYUIxYkpaVUZFMXFKU0N2ZVVRZzBvSGZCaWNpb25hdmg4LXJ1Yi1oTlktOHVPaURKUWt1RFJhYkdCcFMzdVVTdVlEQUkxZ0JFNU41Yzg4bHhpejhhZEFnbHhucVRxdDVoWDhNVllWMzlMandteGN6RVp3bTBUYllpUHF5cWpwYnNFYkh4MnJOeTVNNS1MV01kRkRoMTRkLXF6ag?oc=5",
    "ms": 1793004718000,
    "time": "10/26 16:51"
-  },
-  {
-   "t": "Gold rises as lower oil prices ease inflation fears ahead of Fed meeting",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZml1aC0yS2NrLUloeEFPZnYyeExpazhPVExTT1BLcV9HZGxEZWFzcHFUMTJFbDhUTjgyaE5EbGRja1BRX0p2UzlDSmEzUUpzTG9ZT2xKZEZMczFvb1pzU2xrdXlNT0dDUXYtQnhoLUFpT09xQmF5Q25FQXdKNGpjOERVdTB1UTk4NkhSd2k3cUNBSTJRMVVsUlpSWQ?oc=5",
-   "ms": 1792994160000,
-   "time": "10/26 13:56"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD gains at start of Fed’s policy week",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTmppZ3ZXUk9zWHJfSTJxMkphMWpVTk5DQXN0cWthMjhCWFowS3FwbXlmS21zb0ZHNDBxWGpMb2ZlUmQxVktDMExySFVZUExtRk1mMHoxRlRUTnpEcnJ5MDlPZFJETHNUUkF1RmVualNoVmJsd1BlclFzTFhKeHhYY1ZKZ3pIYW8yM3FIWTlRZ2lGcjM3WFpqM09ac3MtWkJSNDhQbW5SalZHM3J3d2c?oc=5",
-   "ms": 1792985165000,
-   "time": "10/26 11:26"
-  },
-  {
-   "t": "Gold jumps as easing oil prices eases inflation fears",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcFQ1alE2OUhRMWJwbU5GeldSU1h4MWVJMXotUG5GVEkzUnlxb1hsTVJzYnZkRE15X2phMHRRNUtyWXlURGxhSHp5blFJUGVXRFFUZVVTSTE2VlNHbW9ET0t6SmVYY3paMTBnemRYZXBFa3M4Z1RNemZieWJoVE14MVM4clFBMWlkZkt1ZGJUQ010dnI5MGQ5V1Rzc2hWYWtHU1JEY1N6cE1IUHp3Q2tPUVUtUHU1bUVTcGlQX3cxT3psU0U4?oc=5",
-   "ms": 1792983853000,
-   "time": "10/26 11:04"
   }
  ]
 }
