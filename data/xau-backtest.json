@@ -1685,5 +1685,22 @@
    }
   },
   "note": "research/xau-replay/short_check.js：三条短线规则，参数在第一次运行前定好，按 1 分钟 K 线和回放的成本算，一次一笔，当天收盘前离场。"
+ },
+ "proof": {
+  "tested": "2026-10-26",
+  "n": 495,
+  "avgR": 0.182,
+  "sd": 1.823,
+  "maxDD": 38,
+  "pValue": 0.026,
+  "randomBeat": 0,
+  "sideBeat": 0.03,
+  "timingBeat": 0.013,
+  "randomTimingAvgR": 0.085,
+  "deflatedSharpe": 0.759,
+  "pbo": 0.21,
+  "variantsPositive": 34,
+  "variants": 34,
+  "note": "research/xau-replay/proof_check.js：随机进场按一次一笔算；deflated Sharpe 按约 50 个看过的变体算；pbo 用 CSCV、整年为块。"
  }
 }

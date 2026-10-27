@@ -71,7 +71,7 @@ var XauFeed = (function () {
     rows.sort(function (a, b) { return a[0] - b[0]; });
     return rows;
   }
-  function duk(interval, limit, timeout) {
+  function duk(interval, limit, timeout, inst) {
     return new Promise(function (ok, no) {
       var cb = "__xauFeed" + (++seq), s = document.createElement("script"), done = false;
       var drop = function () { try { delete window[cb]; } catch (e) { window[cb] = undefined; } if (s.parentNode) s.parentNode.removeChild(s); };
@@ -85,7 +85,7 @@ var XauFeed = (function () {
       window[cb] = function (data) { fin(null, data); };
       s.onerror = function () { fin("refused"); };
       s.async = true; s.referrerPolicy = "origin";
-      s.src = DUK + "&interval=" + interval + "&limit=" + limit + "&timestamp=" + (Date.now() + 60000) + "&jsonp=" + cb;
+      s.src = (inst ? DUK.replace("XAU/USD", inst) : DUK) + "&interval=" + interval + "&limit=" + limit + "&timestamp=" + (Date.now() + 60000) + "&jsonp=" + cb;
       document.head.appendChild(s);
     });
   }
@@ -150,6 +150,20 @@ var XauFeed = (function () {
     return Promise.all([q("15m", 800), q("1h", 800), q("4h", 800, true), q("1d", 1000, true), spotNow()]).then(function (res) { return paxgCandles(res[0], res[1], res[2], res[3], res[4], nowMs, why); });
   }
 
+  // ---------- any other Dukascopy instrument (the forex page) ----------
+  // Same feed, same broker-day candles; a lighter history (250 broker days of hourly bars is plenty for the trends)
+  // and one cache per instrument: a full load every 6 hours, otherwise only the newest bars.
+  var NEED_FX = { h1: 6000, d1: 1900, m15: 820 }, caches = {};
+  function loadInst(inst) {
+    var nowMs = Date.now(), c = caches[inst] || (caches[inst] = { h1: null, d1: null, m15: null, at: 0 }), full = !c.h1 || nowMs - c.at > 6 * 3600000;
+    return Promise.all([duk("1HOUR", full ? NEED_FX.h1 : 48, full ? 25000 : 12000, inst), duk("1DAY", full ? NEED_FX.d1 : 12, 15000, inst), duk("15MIN", full ? NEED_FX.m15 : 96, 15000, inst)]).then(function (res) {
+      if (res[0].length < (full ? 1500 : 2) || res[2].length < (full ? 200 : 2)) throw new Error(inst + "：数据太少");
+      c.h1 = merge(full ? null : c.h1, res[0], NEED_FX.h1); c.d1 = merge(full ? null : c.d1, res[1], NEED_FX.d1); c.m15 = merge(full ? null : c.m15, res[2], NEED_FX.m15);
+      if (full) c.at = nowMs;
+      return spotCandles(c.h1, c.d1, c.m15, nowMs);
+    });
+  }
+
   function load(opts) {
     opts = opts || {}; var nowMs = Date.now();
     if (opts.source === "paxg") return loadPaxg(nowMs, null);
@@ -165,7 +179,7 @@ var XauFeed = (function () {
   // second opinion on the live price
   function minutes(n) { return duk("1MIN", n || 20, 8000); }
 
-  return { load: load, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
+  return { load: load, loadInst: loadInst, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
     spotCandles: spotCandles, paxgCandles: paxgCandles, clean: clean, NEED: NEED, DUK: DUK, BIN: BIN, SPOT: SPOT };   // the pure parts, for scripts/update_gold.js
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauFeed;

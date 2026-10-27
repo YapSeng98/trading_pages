@@ -111,3 +111,16 @@ const yy = S.byKey(main, x => new Date(x.t * 1000).getUTCFullYear()), pts = [];
 for (const y of Object.keys(yy)) { const a = L.lowerBound(X.t, Date.UTC(+y, 0, 1) / 1000), b = L.lowerBound(X.t, Date.UTC(+y + 1, 0, 1) / 1000) - 1; if (b > a) pts.push([Math.abs(X.c[b] / X.c[a] - 1), yy[y].reduce((s, x) => s + x.R, 0)]); }
 const mx = L.mean(pts.map(p => p[0])), my = L.mean(pts.map(p => p[1])); let sxy = 0, sxx = 0, syy = 0; for (const [a, b] of pts) { sxy += (a - mx) * (b - my); sxx += (a - mx) ** 2; syy += (b - my) ** 2; }
 console.log("  correlation between how far " + (BTC ? "Bitcoin" : "gold") + " moved in a year (either way) and the rule's R that year: " + (sxy / Math.sqrt(sxx * syy)).toFixed(2));
+// --write: keep what the pages quote (the health check's yardstick and the proof results) in the market's replay file
+if (process.argv.includes("--write")) {
+  const fs = require("fs"), file = L.REPO + "/data/" + (BTC ? "btc" : "xau") + "-backtest.json", bt = JSON.parse(fs.readFileSync(file, "utf8"));
+  const R3 = main.map(x => x.R), m3 = moments(R3);
+  bt.proof = {
+    tested: new Date().toISOString().slice(0, 10), n: m3.n, avgR: +m3.m.toFixed(3), sd: +m3.s.toFixed(3), maxDD: +S.stats(main).maxDD.toFixed(1),
+    pValue: +(2 * (1 - Phi(Math.abs(m3.m / (m3.s / Math.sqrt(m3.n)))))).toFixed(3),
+    randomBeat: +(beat / RUNS).toFixed(3), sideBeat: +(beat3 / RUNS).toFixed(3), timingBeat: +(beat4 / RUNS).toFixed(3), randomTimingAvgR: +L.mean(tm).toFixed(3),
+    deflatedSharpe: +DSR.toFixed(3), pbo: +(below / combos.length).toFixed(3), variantsPositive: famTr.filter(v => L.mean(v.tr.map(x => x.R)) > 0).length, variants: famTr.length,
+    note: "research/xau-replay/proof_check.js：随机进场按一次一笔算；deflated Sharpe 按约 50 个看过的变体算；pbo 用 CSCV、整年为块。",
+  };
+  fs.writeFileSync(file, JSON.stringify(bt, null, 1) + "\n"); console.log("\nwrote proof into " + file);
+}

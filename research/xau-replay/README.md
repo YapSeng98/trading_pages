@@ -123,6 +123,27 @@ proven; its side choice and its timing are no better than chance. Only live trad
 32 a year, a 95% live proof of +0.18R takes about twelve years, so the useful live check is the other way round
 (stop trusting it if the paper record falls further than the replay's worst drawdown, 38R on gold).
 
+## The rule on markets it was never chosen on (2026-10-26)
+
+Written down before the run (`cross_check.js` header): seven coins on Binance (ETH, BNB, LTC, XRP, ADA, DOGE, SOL),
+15-minute bars (`download_binance15.py`; 15-minute fills flattered gold and Bitcoin by 0.01-0.03R), Bitcoin's CFD
+costs, the rule unchanged; success = pooled average above 0 with p < 0.05 and at least 5 of 7 positive.
+
+| | n | Target 3R a trade | Trailing |
+|---|---|---|---|
+| ETH | 336 | +0.11R | +0.15R |
+| BNB | 297 | −0.00R | +0.17R |
+| LTC | 294 | −0.16R | −0.19R |
+| XRP | 134 | −0.25R | −0.10R |
+| ADA | 107 | +0.05R | +0.05R |
+| DOGE | 26 | −0.09R | +0.29R |
+| SOL | 169 | +0.19R | +0.23R |
+| **Pooled** | 1,363 | **−0.005R, p 0.91** | +0.06R, p 0.27 |
+
+NOT confirmed: 3 of 7 positive, pooled no better than chance. On crypto the rule has no general edge, and Bitcoin's
+own +0.13R is most likely luck. Gold could not be checked this way: the only free intraday history for silver,
+currencies, indices and oil is Dukascopy's chart feed, which turns away automated downloads.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

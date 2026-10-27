@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外汇趋势扫描 · Trading Hub</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0A0A0F">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%23D4A72C'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;
+  --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
+  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --r-lg:22px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
+  --f-d:'Space Grotesk','Noto Sans SC',sans-serif;--f-m:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto;white-space:nowrap;flex:none}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s;white-space:nowrap;flex:none}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 28px 70px}
+h1{font-family:var(--f-d);font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--ink);letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--gold-lt)}
+.lead{margin-top:8px;max-width:860px;color:var(--text);font-size:14.5px}
+.warn{margin-top:18px;padding:14px 16px;border:1px solid rgba(212,167,44,.4);background:rgba(212,167,44,.06);border-radius:var(--r-md);font-size:13.5px;line-height:1.75}
+.warn b{color:var(--gold-lt)}
+.others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.fx-o{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:4px 12px;align-items:center;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2);text-decoration:none;color:var(--text)}
+.fx-o b{color:var(--ink);font-size:15px}.fx-o .mono{color:var(--gold-lt);font-size:15px}.fx-o-v{justify-self:end;font-size:12.5px;color:var(--ink)}
+.fx-o-t,.fx-o-n{grid-column:1/-1;font-size:12px;color:var(--dim)}.fx-o-n{color:var(--gold-lt)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:24px 0 14px}
+.bar .sum{font-weight:700;color:var(--ink);font-size:14px}
+.bar .stamp{font-size:12px;color:var(--dim);flex:1;min-width:200px}
+.btn{border:1px solid var(--border);background:var(--bg3);border-radius:999px;padding:9px 15px;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink)}
+.btn.on{border-color:rgba(212,167,44,.6);color:var(--gold-lt);background:rgba(212,167,44,.08)}
+.fx-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.fx-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;min-width:0}
+.fx-c.buy{border-color:rgba(52,211,153,.45);box-shadow:0 0 0 1px rgba(52,211,153,.12),var(--shadow-sm)}
+.fx-c.sell{border-color:rgba(248,113,113,.5);box-shadow:0 0 0 1px rgba(248,113,113,.12),var(--shadow-sm)}
+.fx-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.fx-i{font-family:var(--f-d);font-size:18px;color:var(--ink);display:block}.fx-n{font-size:12px;color:var(--dim)}
+.fx-p{text-align:right}.fx-p b{display:block;font-size:17px;color:var(--ink)}.fx-p span{font-size:12px}
+.up{color:var(--bull)}.dn{color:var(--bear)}
+.fx-mid{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.fx-tf{display:flex;gap:4px}
+.fx-tf span{display:flex;flex-direction:column;align-items:center;min-width:42px;padding:4px 2px;border-radius:8px;background:var(--bg3);border:1px solid var(--border)}
+.fx-tf span i{font-style:normal;font-size:11px;color:var(--dim)}.fx-tf span b{font-size:15px;line-height:1.2;color:var(--dim)}
+.fx-tf span.up b{color:var(--bull)}.fx-tf span.dn b{color:var(--bear)}
+.fx-chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;border:1px solid var(--border);color:var(--dim);white-space:nowrap}
+.fx-chip.buy{color:var(--bull);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08)}
+.fx-chip.sell{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
+.fx-chip.ready{color:var(--gold-lt);border-color:rgba(212,167,44,.45)}
+.fx-l{font-size:13px;line-height:1.75;color:var(--text)}
+.fx-f{font-size:11.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+.how{margin-top:30px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px}
+.how h2{font-family:var(--f-d);font-size:17px;color:var(--ink);margin-bottom:8px}
+.how li{margin:6px 0 0 18px;font-size:13.5px;line-height:1.75}
+footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
+@media(max-width:860px){.others{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){
+  .navbar{padding:10px 14px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}
+  .navbar .brand{padding:6px 0}.navbar a.nl{padding:10px 13px}
+  .wrap{padding:22px 16px 60px}
+  .fx-list{grid-template-columns:minmax(0,1fr)}
+  .fx-tf span{min-width:0;flex:1}
+  .btn{min-height:36px}
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="report.html">🥇 黄金</a>
+  <a class="nl" href="btc.html">₿ 比特币</a>
+  <a class="nl on" href="forex.html">💱 外汇</a>
+  <a class="nl" href="journal.html">📒 盈亏日历</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
+  <a class="nl" href="potential.html">🚀 潜力精选</a>
+</nav>
+<main class="wrap">
+  <h1>外汇 <em>趋势扫描</em></h1>
+  <p class="lead">黄金页的五周期规则，原样用在 11 个主要货币对和白银上：周线、日线、4 小时同向时看大方向，1 小时和 15 分钟也转过来就是信号。每个市场都给出现在的方向、还差哪一步，以及按规则算好的入场、止损和目标。</p>
+  <div class="warn"><b>先说清楚：这里的信号没有被验证过。</b> 这个规则只在黄金上做过回放（小优势，没有完全证明）。外汇拿不到可以批量下载的历史数据，没法回放；同样的规则原样用在另外 7 个加密货币上，合起来是 −0.005R，<b>没有通过事先定好的检验</b>。所以这一页是趋势地图：看哪些货币对的大方向一致、离信号还有多远，真钱下单仍以黄金页为主，外汇只用很小的仓位，或者先只看不做。</div>
+  <div class="others" id="fx-others"></div>
+  <div class="bar">
+    <span class="sum" id="fx-sum">读取中…</span>
+    <span class="stamp" id="fx-stamp"></span>
+    <button class="btn" type="button" id="fx-refresh">⟳ 刷新</button>
+    <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
+  </div>
+  <div class="fx-list" id="fx-list"></div>
+  <section class="how">
+    <h2>怎么看</h2>
+    <ul>
+      <li><b>买入 / 卖出信号</b>：五个周期同向。给出的价位按规则算：止损 3 倍小时波幅，目标 3R；或者不设目标，每天把止损挪到最好价格后面 2R，三个大周期不再同向就离场（在黄金上这是更好的做法）。</li>
+      <li><b>等小周期</b>：周线、日线、4 小时已经同向，写出了还差哪根 K 线收在哪里，以及到时的大约价位。</li>
+      <li><b>方向不一致</b>：三个大周期没有同向，不做；写出了最近的一步。</li>
+      <li>所有判断只看已经收盘的 K 线，每 15 分钟重算一次。数据来自 Dukascopy 的公开图表（买价），按纽约 17:00 换日；你平台的报价可能差几个点。</li>
+      <li>提醒默认关：打开后，任何一个市场出现新的买入或卖出信号都会弹通知（页面开着时）。</li>
+    </ul>
+  </section>
+  <footer>这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。回放和检验的工具在 research/xau-replay/（cross_check.js、proof_check.js）。</footer>
+</main>
+<script src="assets/xau-feed.js?v=6"></script>
+<script src="assets/xau-engine.js?v=5"></script>
+<script src="assets/xau-plan.js?v=14"></script>
+<script src="assets/fx-page.js?v=1"></script>
+</body>
+</html>

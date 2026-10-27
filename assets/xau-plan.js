@@ -18,6 +18,10 @@ var XauPlan = (function () {
     // data/xau-backtest.json patterns (research/xau-replay/pattern_check.js)
     patNote: "回放里（黄金 2011–2026）形态单独拿来做没有优势：1 小时形态完成后进场 2,637 次，平均每笔 +0.01R；按形态自己的止损和目标，胜率 59%，平均 −0.02R。和信号同向也没让信号更好（+0.20R，没有形态时 +0.21R）。它们的用处是标出关键位、目标和失效位。",
     patAgainst: "回放里这种情况很少（16 笔），平均每笔 −0.28R，比平常差；笔数太少，规则不因此改变。想更稳，这一笔可以减半手数或不做。",
+    // the health check's yardstick: data/xau-backtest.json proof (target 3R: average, spread, worst drawdown)
+    health: { avgR: 0.182, sd: 1.823, maxDD: 38 }, observe: false,
+    // data/xau-backtest.json rules.gotrail / go3r, by period
+    exitNote: "大趋势里用跟踪止损更能拿住利润：回放里它在三段历史都比 3R 好（平均每笔 +0.25R 对 +0.18R）。",
     // data/xau-backtest.json shortTerm (research/xau-replay/short_check.js, costs included)
     shortText: "回放（黄金 2011–2026，含点差）：这条规则 1,164 笔，平均每笔 +0.04R，2019–2023 年是亏的（−0.07R），算不上可靠的优势；另外两条常见短线规则更差：15 分钟顺势 −0.10R，亚洲盘区间突破 +0.01R。所以这里只给参考价位，不发提醒。真要做，手数用主信号的一半或更少。",
     noneText: "回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。" };
@@ -341,7 +345,8 @@ var XauPlan = (function () {
       var out = flipLevel(E, "4H", -R.dir), k = v.plan;
       if (R.full) {
         v.level = "go"; v.fresh = num(R.since5) !== null && nowMs - R.since5 <= 2 * 3600000;
-        v.tag = "可以顺势" + act(R.dir); v.title = "五个周期都" + way + "，可以顺势" + act(R.dir);
+        // a market where the rule is not proven (Bitcoin) says so in the answer itself
+        v.tag = (MK.observe ? "仅观察 · " : "") + "可以顺势" + act(R.dir); v.title = "五个周期都" + way + "，可以顺势" + act(R.dir) + (MK.observe ? "（只作观察）" : "");
         v.text = MK.goText + (R.dir < 0 ? MK.shortWarn : MK.longWarn) + "按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。" + (v.fresh ? "信号刚出现不久。" : "信号已出现一段时间：现在进的话，止损和目标按现价重新算（下面的价位就是）。");
         // how old the signal is, and how far price has gone since. Entering later, with the stop set 3 x ATR from the
         // later price, did about as well in the replay as entering on the signal (rules.late1r), so a signal that has
@@ -356,7 +361,7 @@ var XauPlan = (function () {
               : m <= -0.25 ? "现在的价格比当时" + (buy ? "低" : "高") + " " + fmt(Math.abs(price - sig.price), 1) + " 美元：进场价更好，但也说明价格在往回走。" : "价格和当时差不多。";
           }
         }
-        if (k) step("现在：可以顺势" + act(R.dir), note + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →" });
+        if (k) step(MK.observe ? "现在：只作观察，不建议用真钱" : "现在：可以顺势" + act(R.dir), note + (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 1) + "，止损 " + fmt(k.stop, 1) + "（离入场 " + fmt(k.dist, 0) + " 美元），目标 " + fmt(k.tp1, 1) + "（3R）。", { fill: "填进计划 →" });
         step("算好手数", "在计划器第 3 步填账户余额，每笔最多亏账户的 " + SYS.risk + "%。回放里最长连亏过 " + MK.streak + " 笔，所以不要加码。");
         // the replay tested two ways out, each on its own: a fixed 3R target, or a daily trailing stop with the regime exit
         if (k) step("进场前选好离场做法（二选一，进场后别换）", "目标 3R：止损 " + fmt(k.stop, 1) + "、目标 " + fmt(k.tp1, 1) + " 都不动。跟踪止损：不设目标，每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(k.trailDist, 0) + " 美元，只往有利方向挪。两种都别提前挪到成本价，回放里那样会少赚。");

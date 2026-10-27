@@ -5,12 +5,13 @@ const DATA = process.env.XAU_REPLAY_DATA || path.join(__dirname, "data");       
 
 // ---- 1-minute bars ----
 // files: compact int32 records (t, o, h, l, c[, extra]); prices in 1/1000 USD.
-function loadBars(files, recInts) {
+function loadBars(files, recInts, scale) {
+  scale = scale || 1000;
   const chunks = files.filter(f => fs.existsSync(f)).map(f => { const b = fs.readFileSync(f); return new Int32Array(b.buffer.slice(b.byteOffset, b.byteOffset + b.length)); });
   let n = 0; chunks.forEach(iv => { n += iv.length / recInts; });
   const t = new Float64Array(n), o = new Float64Array(n), h = new Float64Array(n), l = new Float64Array(n), c = new Float64Array(n), x = new Float64Array(n);
   let k = 0;
-  for (const iv of chunks) for (let i = 0; i < iv.length; i += recInts) { t[k] = iv[i]; o[k] = iv[i + 1] / 1000; h[k] = iv[i + 2] / 1000; l[k] = iv[i + 3] / 1000; c[k] = iv[i + 4] / 1000; x[k] = recInts > 5 ? iv[i + 5] : 1; k++; }
+  for (const iv of chunks) for (let i = 0; i < iv.length; i += recInts) { t[k] = iv[i]; o[k] = iv[i + 1] / scale; h[k] = iv[i + 2] / scale; l[k] = iv[i + 3] / scale; c[k] = iv[i + 4] / scale; x[k] = recInts > 5 ? iv[i + 5] : 1; k++; }
   for (let i = 1; i < n; i++) if (t[i] <= t[i - 1]) throw new Error("bars not ascending at " + i + " in " + files[0]);
   return { t, o, h, l, c, x, n };
 }
@@ -20,7 +21,22 @@ function source(name, y0, y1) {
   if (name === "dukask") return loadBars(years(y0, y1).map(y => DATA + "/duk/ASK_" + y + ".bin"), 5);
   if (name === "paxg") return loadBars(years(y0, y1).map(y => DATA + "/paxg/paxg_" + y + ".bin"), 6);
   if (name === "btc") return loadBars(years(y0, y1).map(y => DATA + "/btcusdt/btcusdt_" + y + ".bin"), 6);   // Binance BTCUSDT (download_binance.py)
+  // 15-minute Binance bars for testing the rule on markets it was never chosen on (download_binance15.py)
+  if (name.startsWith("bn15:")) { const s = name.slice(5).toLowerCase(); return loadBars(years(y0, y1).map(y => DATA + "/bn15/" + s + "_" + y + ".bin"), 5, BN15_SCALE[s] || 1e6); }
+  // Bitcoin's 1-minute bars folded into 15-minute ones: checks how much 15-minute fills change a result
+  if (name === "btc15") return to15(loadBars(years(y0, y1).map(y => DATA + "/btcusdt/btcusdt_" + y + ".bin"), 6));
+  if (name === "duk15") return to15(loadBars(years(y0, y1).map(y => DATA + "/duk/BID_" + y + ".bin"), 5));
   throw new Error("unknown source " + name);
+}
+const BN15_SCALE = { ethusdt: 1000 };
+function to15(B) {
+  const t = [], o = [], h = [], l = [], c = [];
+  for (let i = 0; i < B.n; i++) {
+    const s = Math.floor(B.t[i] / 900) * 900, k = t.length - 1;
+    if (k < 0 || t[k] !== s) { t.push(s); o.push(B.o[i]); h.push(B.h[i]); l.push(B.l[i]); c.push(B.c[i]); }
+    else { if (B.h[i] > h[k]) h[k] = B.h[i]; if (B.l[i] < l[k]) l[k] = B.l[i]; c[k] = B.c[i]; }
+  }
+  return { t: Float64Array.from(t), o: Float64Array.from(o), h: Float64Array.from(h), l: Float64Array.from(l), c: Float64Array.from(c), x: new Float64Array(t.length).fill(1), n: t.length };
 }
 // index of the first bar with t >= ts
 function lowerBound(t, ts) { let a = 0, b = t.length; while (a < b) { const m = (a + b) >> 1; if (t[m] < ts) a = m + 1; else b = m; } return a; }

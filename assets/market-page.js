@@ -1150,6 +1150,25 @@
     renderVerdict(); renderCands();
   }
 
+  // ---------- the early word before a signal ----------
+  // The big three agree and the live price already stands beyond every close the small timeframes still need. The rule
+  // decides on closed candles only, so this says which close to watch and what the trade would look like. Once per
+  // deciding candle, across tabs; never on the backup feed or with the market shut.
+  var soonAt = 0;
+  function soonCheck() {
+    if (!S.E || !S.nopt.soon || !alertsOn() || Date.now() - soonAt < 5000) return; soonAt = Date.now();
+    if (!marketOpen() || (S.feed && S.feed.source === "paxg")) return;
+    var R = P.regime(S.E), px = num(S.live); if (!R.dir || R.full || px === null) return;
+    var need = R.lagging.map(function (tf) { return { tf: tf, p: P.flipLevel(S.E, tf, R.dir) }; });
+    if (!need.length || need.some(function (g) { return g.p === null || (px - g.p) * R.dir <= 0; })) return;
+    var tf = need.some(function (g) { return g.tf === "1H"; }) ? "1H" : "15M", start = Feed.bucket(Date.now() / 1000, tf), end = (start + (tf === "1H" ? 3600 : 900)) * 1000;
+    var key = "soon:" + R.dir + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
+    var k = sysPlanNow(false), buy = R.dir > 0, wd = P.words();
+    fireAlert("⏳ " + M.name + " · 可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
+      need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + fmt(g.p, 1); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + fmt(px, 1) + " 已经在这边，" + sgt(end, "t") + " 收盘时还在才算。" +
+      (k ? "到时约：" + (buy ? "买入 " : "卖出 ") + fmt(px, 1) + "，止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "。" : ""), M.id + "-soon");
+  }
+
   // ---------- records: only what really happened ----------
   // The owner asked on 2026-10-14 for this tab to show real records only: their own trades and the rule's paper
   // record since it went live. The 2011-2026 replay behind the rule is not shown; it stays in data/xau-backtest.json
@@ -1189,6 +1208,24 @@
     el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, [say + (done.length ? "「已保存」里另有 " + done.length + " 笔标成已结束的计划。" : "") + " ", link]));
   }
   // The rule's paper record since it went live, kept by the market job (scripts/xau_track.js).
+  // ---------- health check ----------
+  // A small edge takes years of live trades to prove, but a broken one shows sooner. The paper record is compared with
+  // what the replay says should happen after the same number of trades (average x n, give or take 1.96 x spread x √n),
+  // and with the replay's worst drawdown, agreed beforehand as the line to stop trading it with real money.
+  function health() {
+    var r = S.rec, yard = P.words().health; if (!r || !yard) return null;
+    var done = (r.signals || []).filter(function (x) { return (x.status === "target" || x.status === "stop") && typeof x.R === "number"; }).sort(function (a, b) { return a.ms - b.ms; });
+    var n = done.length, tot = 0, peak = 0, dd = 0;
+    done.forEach(function (x) { tot += x.R; peak = Math.max(peak, tot); dd = Math.max(dd, peak - tot); });
+    var oR = openR((r.signals || []).filter(function (x) { return x.status === "open"; })[0]), now = Math.max(dd, peak - (tot + (oR || 0)));
+    var lo = yard.avgR * n - 1.96 * yard.sd * Math.sqrt(n), hi = yard.avgR * n + 1.96 * yard.sd * Math.sqrt(n);
+    var level = now >= yard.maxDD ? "stop" : !n ? "wait" : tot < lo ? "low" : "ok";
+    var text = level === "stop" ? "停用：纸面记录从高点回落了 " + now.toFixed(1) + "R，超过回放里最深的回撤 " + yard.maxDD + "R。按事先定好的规矩，先停止用真钱做这个规则。"
+      : level === "wait" ? "还没有结束的纸面单，第一笔结束后开始和回放对照。停用线：纸面记录从高点回落超过 " + yard.maxDD + "R（回放里最深的回撤）。"
+      : level === "low" ? "偏低：" + n + " 笔合计 " + sgn(tot, 1) + "R，低于回放里 " + n + " 笔后的正常范围（" + sgn(lo, 1) + " 到 " + sgn(hi, 1) + "R）。可能只是运气差，也可能规则失效：先把手数减半，继续观察。"
+      : "正常：" + n + " 笔合计 " + sgn(tot, 1) + "R，回放里 " + n + " 笔后通常在 " + sgn(lo, 1) + " 到 " + sgn(hi, 1) + "R 之间。从高点回落 " + now.toFixed(1) + "R，停用线 " + yard.maxDD + "R。";
+    return { level: level, text: text, word: { stop: "停用", wait: "等第一笔结束", low: "偏低", ok: "正常" }[level] };
+  }
   function recordBlock(el) {
     var r = S.rec; if (!r) return;
     var z = r.summary || {}, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
@@ -1201,6 +1238,7 @@
     var oR = openR(open);
     tile("进行中", open ? open.side + (oR !== null ? " " + sgn(oR) + "R" : "") : "没有", oR !== null ? (oR > 0 ? "up" : oR < 0 ? "dn" : "") : open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) + (oR !== null ? " · 按现价 " + fmt(S.live, 1) + " 算" : "") : "现在没有纸面持仓");
     el.appendChild(tiles);
+    var hc = health(); if (hc) el.appendChild(h("div", { class: "hc " + hc.level }, [h("b", { text: "健康检查 · " + hc.word }), h("span", { text: hc.text })]));
     if (sig.length) {
       var tb = h("tbody"), word = { open: "进行中", target: "到目标", stop: "止损", skipped: "跳过" };
       sig.slice().reverse().slice(0, 15).forEach(function (x) {
@@ -1220,6 +1258,7 @@
     el.appendChild(h("b", { text: "规则上线以来（" + r.since.replace(" SGT", "") + " 起）：" }));
     var op = (r.signals || []).filter(function (x) { return x.status === "open"; })[0], oR = openR(op);
     el.appendChild(document.createTextNode(z.signals ? "信号 " + z.signals + " 次，进场 " + z.taken + " 笔，已结束 " + z.closed + " 笔" + (z.closed ? "，合计 " + sgn(z.totalR, 1) + "R" : "") + (op ? "；纸面持仓 #" + op.id + " " + op.side + "中" + (oR !== null ? "，现在 " + sgn(oR) + "R" : "") : "") + "。" : "还没有出现过信号。"));
+    var hc = health(); if (hc && hc.level !== "wait") el.appendChild(h("span", { class: "hc-w " + hc.level, text: " 健康检查：" + hc.word + "。" }));
     el.appendChild(h("button", { type: "button", text: "看成绩记录 →", onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
   }
   function renderProof() { var el = clear($("proof")); ownBlock(el); recordBlock(el); }
@@ -1243,7 +1282,7 @@
   }
   // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
   // the weekly / daily / 4-hour trend turning, and (off by default: several times a day) the 1-hour / 15-minute
-  S.nopt = Object.assign({ signal: true, verdict: true, big: true, small: false }, LS.get("notifyOpts", {}));
+  S.nopt = Object.assign({ signal: true, soon: true, verdict: true, big: true, small: false }, LS.get("notifyOpts", {}));
   function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
   function renderAlert() {
     var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
@@ -1252,7 +1291,7 @@
     if (on) {
       t.appendChild(h("b", { text: "🔔 提醒已开，刷新或重开浏览器后也一直开着。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
       var opts = h("div", { class: "nopts" });
-      [["signal", "新的做多 / 做空信号"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时转向"], ["small", "1 小时、15 分钟转向（一天可能好几次）"]].forEach(function (o) {
+      [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时转向"], ["small", "1 小时、15 分钟转向（一天可能好几次）"]].forEach(function (o) {
         var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
         cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
         opts.appendChild(h("label", { class: "nopt", for: "nopt-" + o[0] }, [cb, o[1]]));
@@ -1361,8 +1400,9 @@
     if (!key || key === prev || LS.get("notified", "") === key) return;
     LS.set("notified", key);
     if (!S.nopt.signal) return;
-    var k = sysPlanNow(false), nw = newsCheck();
-    fireAlert(M.sym + " 新信号：" + V.tag, V.title + "。现价 " + fmt(S.live, 1) + (k ? "，" + (k.side === "short" ? "卖出" : "买入") + "止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）" : "") + "。" + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", M.id + "-signal");
+    var k = sysPlanNow(false), nw = newsCheck(), buy = R.dir > 0, wd = P.words();
+    fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
+      "五个周期都" + (buy ? "向上" : "向下") + "。" + (k ? (buy ? "买入" : "卖出") + "约 " + fmt(S.live, 1) + "，止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）；或不设目标、每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。" : "") + (wd.exitNote || "") + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", M.id + "-signal");
   }
 
   // The answer moving from one state to another (a new "go" has its own alert above): e.g. the signal fading to
@@ -1446,6 +1486,7 @@
     st.textContent = ".v-pre{margin:10px 0 0;padding:10px 13px;border:1px dashed rgba(212,167,44,.45);border-radius:12px;background:rgba(212,167,44,.06);font-size:12.5px;line-height:1.7;color:var(--text)}.v-pre b{color:var(--gold-lt)}" +
       ".snd-chip{position:fixed;right:16px;bottom:16px;z-index:60;border:1px solid rgba(212,167,44,.5);background:rgba(21,21,28,.95);color:var(--gold-lt);font:600 12.5px/1 var(--f-d);padding:11px 15px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.5);cursor:pointer}@media(max-width:640px){.snd-chip{right:10px;bottom:calc(10px + env(safe-area-inset-bottom));font-size:11.5px;padding:8px 12px}}" +
       ".nsnd{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--gold-lt)}.nsnd.on{color:var(--dim)}.nopts{display:flex;flex-direction:column;gap:6px;margin-top:10px}.nopt{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--text);cursor:pointer}" +
+      ".hc{display:grid;gap:4px;margin:0 0 16px;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--bg3);font-size:13px;line-height:1.7;color:var(--text)}.hc b{color:var(--ink)}.hc.ok{border-color:rgba(52,211,153,.35)}.hc.low{border-color:rgba(212,167,44,.55);background:rgba(212,167,44,.06)}.hc.stop{border-color:rgba(248,113,113,.6);background:rgba(248,113,113,.07)}.hc-w.low{color:var(--gold-lt)}.hc-w.stop{color:var(--bear);font-weight:700}" +
       ".sh-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}.sh-t{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:12px 14px;min-width:0}.sh-t .k{font-size:11.5px;color:var(--dim)}.sh-t .v{font-size:16px;font-weight:700;color:var(--ink);margin-top:3px}.sh-t .d{font-size:11.5px;color:var(--dim);margin-top:2px}" +
       ".sh-sub{font-size:12px;font-weight:700;color:var(--gold-lt);margin:4px 0 8px}.sh-lv{list-style:none;margin:0 0 10px;padding:0}.sh-lv li{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 6px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text)}.sh-lv li b{color:var(--ink)}.sh-lv li.res b{color:var(--bear)}.sh-lv li.sup b{color:var(--bull)}.sh-lv li.now{background:rgba(212,167,44,.08);border-radius:8px}.sh-lv li.now b{color:var(--gold-lt)}.sh-lv .dd{color:var(--dim);font-size:11.5px}" +
       ".sh-tf{font-size:12.5px;color:var(--text);margin:0 0 14px;line-height:1.7}.sh-ref{border:1px solid rgba(212,167,44,.35);border-radius:var(--r-md);padding:14px 16px;background:rgba(212,167,44,.05)}.sh-ref.off{border-color:var(--border);background:var(--bg3)}.sh-rh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}.sh-rh b{font-size:13px;color:var(--ink)}.sh-ref p{margin:6px 0 0;font-size:13px;line-height:1.75;color:var(--text)}.sh-ref .sh-note{font-size:12px;color:var(--dim)}" +
@@ -1609,7 +1650,7 @@
   var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
   function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
   function onPrice() {
-    checkVerdict();
+    checkVerdict(); soonCheck();
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;

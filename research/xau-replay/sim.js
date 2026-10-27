@@ -73,7 +73,7 @@ function lateSignals(S, cond, k, o) {
 // Levels are moved onto X's price basis by the gap between the two feeds at the signal minute (what the page's calibration does).
 // mgmt: "tp1" all out at TP1 | "tp2" all out at the far target | "half" half at TP1 then stop to entry, rest at TP2 | "fix" fixed multiple of risk
 function trade(sg, X, o) {
-  const dir = sg.dir;
+  const dir = sg.dir, bs = o.barSec || 60;                               // bar length: 60 s, or 900 s on 15-minute bars
   let off = 0;
   if (o.shift) { const k0 = L.lowerBound(X.t, sg.t - 60); if (k0 >= X.n || X.t[k0] - (sg.t - 60) > 120) return null; off = X.c[k0] - sg.p; }
   const te = sg.t + (o.delay || 0) * 60, e = L.lowerBound(X.t, te);
@@ -100,8 +100,8 @@ function trade(sg, X, o) {
   for (; k < maxK; k++) {
     if (k > e && X.t[k] - X.t[k - 1] > 3 * 86400 + 3600) { /* long holiday gap: carry on */ }
     const bo = X.o[k] - aB, bh = X.h[k] - aB, bl = X.l[k] - aB, ao = X.o[k] + aA, ah = X.h[k] + aA, al = X.l[k] + aA;
-    if (o.regimeExit && sg.regimeEnd && X.t[k] >= sg.regimeEnd) { pnl += left * (dir > 0 ? bo - entry : entry - ao); left = 0; why = "regime"; exitT = X.t[k] + 60; break; }
-    if (o.timeStop && k - e >= o.timeStop) { pnl += left * (dir > 0 ? bo - entry : entry - ao); left = 0; why = "time"; exitT = X.t[k] + 60; break; }
+    if (o.regimeExit && sg.regimeEnd && X.t[k] >= sg.regimeEnd) { pnl += left * (dir > 0 ? bo - entry : entry - ao); left = 0; why = "regime"; exitT = X.t[k] + bs; break; }
+    if (o.timeStop && k - e >= o.timeStop) { pnl += left * (dir > 0 ? bo - entry : entry - ao); left = 0; why = "time"; exitT = X.t[k] + bs; break; }
     if (dir > 0) {
       if (bo <= stop) { pnl += left * (bo - entry); left = 0; why = "stop"; }
       else if (bl <= stop) { pnl += left * (stop - entry); left = 0; why = "stop"; }
@@ -127,16 +127,16 @@ function trade(sg, X, o) {
         mfe = Math.max(mfe, entry - al);
       }
     }
-    if (left === 0) { exitT = X.t[k] + 60; break; }
+    if (left === 0) { exitT = X.t[k] + bs; break; }
     if (o.trail) {
       best = dir > 0 ? Math.max(best, bh) : Math.min(best, al);
       // trailEvery: the stop is only moved at fixed clock times (a person checking in), not tick by tick
-      const due = !o.trailEvery || Math.floor((X.t[k] + 60 - (o.trailOff || 0)) / o.trailEvery) !== Math.floor((X.t[k] - (o.trailOff || 0)) / o.trailEvery);
+      const due = !o.trailEvery || Math.floor((X.t[k] + bs - (o.trailOff || 0)) / o.trailEvery) !== Math.floor((X.t[k] - (o.trailOff || 0)) / o.trailEvery);
       if (due && (!o.trailStart || (best - entry) * dir >= o.trailStart * risk)) { if (dir > 0) stop = Math.max(stop, best - o.trail * risk); else stop = Math.min(stop, best + o.trail * risk); }
     }
     if (o.beAt && ((dir > 0 ? bh - entry : entry - al) >= o.beAt * risk)) { if (dir > 0) stop = Math.max(stop, entry); else stop = Math.min(stop, entry); }
   }
-  if (left > 0) { const kk = Math.min(k, X.n - 1); pnl += left * (dir > 0 ? X.c[kk] - aB - entry : entry - (X.c[kk] + aA)); exitT = X.t[kk] + 60; }
+  if (left > 0) { const kk = Math.min(k, X.n - 1); pnl += left * (dir > 0 ? X.c[kk] - aB - entry : entry - (X.c[kk] + aA)); exitT = X.t[kk] + bs; }
   if (why === "stop" && left === 0 && pnl > -1e-9 && o.mgmt === "half") why = "breakeven";
   // overnight financing: charged at each 17:00 New York roll, Monday to Friday, three nights' worth on Wednesday
   let nights = 0;
