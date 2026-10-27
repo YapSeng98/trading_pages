@@ -333,6 +333,14 @@ var XauPlan = (function () {
     v.reasons.push({ key: "pat", label: "形态", ok: pOp.length && !pAg.length ? false : null,
       text: !pats.length ? "日线、4 小时、1 小时都没有已完成的形态" : !R.dir ? ptx(pats) + "，只作参考"
         : pOp.length ? ptx(pOp) + "，和大方向相反" + (pAg.length ? "；" + pAg[0].text + "同向" : "") : ptx(pAg) + "，和大方向一致（只作参考）" });
+    // What it takes for the big three to turn `to`: the 4-hour close that ends the current direction (then 观望), and
+    // the daily and weekly closes that would make it the other way round.
+    var turnText = function (to) {
+      var f = function (tf) { var p = flipLevel(E, tf, to); return p === null ? null : { tf: tf, p: p, d: price === null ? null : Math.abs(p - price) }; };
+      var h4 = R.dirs["4H"] === to ? null : f("4H"), rest = ["D", "W"].filter(function (tf) { return R.dirs[tf] !== to; }).map(f).filter(Boolean);
+      var fp = function (x) { return zh(x.tf) + "收盘" + cross(to) + " " + fmt(x.p, 1) + (x.d !== null ? "（差 " + fmt(x.d, 1) + "）" : ""); };
+      return (h4 ? fp(h4) + "：三个大周期不再同向，变成观望。" : "") + (rest.length ? "要转成" + act(to) + "方向，还要" + rest.map(fp).join("、") + "。" : "");
+    };
     var add = function (dir, p, text) { p = num(p); if (p !== null) v.lines.push({ dir: dir, price: p, text: text, dist: price === null ? null : Math.abs(p - price) }); return p; };
     var away = function (p) { return price === null ? "" : "比现价" + (p >= price ? "高 " : "低 ") + fmt(Math.abs(p - price), 1) + " 美元。"; };
     var step = function (lead, text, more) { var s = { lead: lead, text: text }, k; for (k in (more || {})) s[k] = more[k]; v.next.push(s); };
@@ -384,9 +392,15 @@ var XauPlan = (function () {
         step("什么时候离场", "目标 3R：碰到止损或目标就结束，大周期变了也不提前走。跟踪止损：碰到挪过的止损就结束" + (out !== null ? "；或者 4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) + "（三个大周期不再同向）就离场" : "；或者三个大周期不再同向（这里变回「先观望」）就离场") + "。");
       } else {
         var lag = R.lagging.map(zh).join("和 ");
-        v.level = "ready"; v.tag = buy ? "等小周期转多" : "等小周期转空"; v.title = "大方向" + way + "，等小周期转回来再" + (buy ? "买" : "卖");
-        v.text = "周线、日线、4 小时都" + way + "，但 " + lag + "还在" + (buy ? "回调" : "反弹") + "。等它重新转成" + way + "再进；提前接" + (buy ? "回调" : "反弹") + "在回放里没有优势。";
-        step("现在：先不进", "大方向对了，小周期还没转回来。可以先把计划准备好。");
+        // the small timeframes running against the big three: say so plainly (a bounce in a downtrend, a pullback in
+        // an uptrend), and what it would take for the big direction itself to change
+        var against = R.lagging.filter(function (tf) { return R.dirs[tf] === -R.dir; }), swing = buy ? "回调" : "反弹", other = buy ? "向下" : "向上";
+        v.level = "ready";
+        v.tag = against.length ? swing + "中 · 大方向" + way : (buy ? "等小周期转多" : "等小周期转空");
+        v.title = against.length ? "大方向" + way + "，现在在" + swing + "（" + against.map(zh).join("、") + other + "）" : "大方向" + way + "，等小周期转回来再" + (buy ? "买" : "卖");
+        v.text = "周线、日线、4 小时都" + way + "；" + (against.length ? against.map(zh).join("和 ") + "已经转" + other + "，价格在" + swing : lag + "还没转过来") + "。按规则：不追这段" + swing +
+          "（逆着三个大周期做，回放里长期亏损），也先不" + (buy ? "买" : "卖") + "；" + swing + "结束、小周期转回" + way + "，才是" + act(R.dir) + "信号。" + turnText(-R.dir);
+        step(against.length ? "现在：不追" + swing + "，也先不" + (buy ? "买" : "卖") : "现在：先不进", against.length ? "价格在" + swing + "（" + against.map(zh).join("、") + other + "）。逆着三个大周期做在回放里长期亏损；等" + swing + "结束再" + act(R.dir) + "。" : "大方向对了，小周期还没转回来。可以先把计划准备好。");
         var got = [];
         R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
         if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。");
@@ -395,7 +409,7 @@ var XauPlan = (function () {
         var trig = got.length ? got.slice().sort(function (a, b) { return (a.price - b.price) * R.dir; })[got.length - 1].price : null;
         if (k) step("到时候这样做", (trig !== null ? "如果在 " + fmt(trig, 1) + " 附近触发：" + (buy ? "买入" : "卖出") + "约 " + fmt(trig, 1) + "，止损约 " + fmt(trig - R.dir * k.dist, 1) + "，目标约 " + fmt(trig + R.dir * SYS.targetR * k.dist, 1) + "（3R）。触发时这里会按当时的价格和波动直接给出准确价位。"
           : "按当时的价格" + (buy ? "买入" : "卖出") + "，止损放在入场价" + (buy ? "下方" : "上方") + " " + fmt(k.dist, 0) + " 美元左右（3 倍小时波幅），目标是止损距离的 3 倍。"), { fill: "先填进计划看看 →" });
-        step("什么时候作废", (out !== null ? "4 小时收盘" + cross(-R.dir) + " " + fmt(out, 1) : "4 小时方向反转") + "，三个大周期就不再同向，回到观望。");
+        step("什么时候不再看" + (buy ? "多" : "空"), turnText(-R.dir));
       }
       if (v.level === "go" && pOp.length && !pAg.length) v.next.splice(1, 0, { lead: "注意：有反方向的形态", text: ptx(pOp) + "，和信号方向相反。" + MK.patAgainst });
       // what ends it: the 4-hour trend turning against

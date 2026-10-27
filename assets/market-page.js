@@ -268,6 +268,14 @@
       var sinceTxt = !since ? "" : Date.now() - since < 86400000 ? sgt(since, "t") + " 起" : sgt(since, "d") + " 起";
       tfl.appendChild(h("div", { class: "tfc " + (v.v === 1 ? "bull" : v.v === -1 ? "bear" : "") + (against ? " counter" : ""), title: tip, "aria-label": tip }, [h("div", { class: "n", text: P.TF_ZH[v.tf].replace(" ", "") }), h("div", { class: "a", text: v.v === 1 ? "▲" : v.v === -1 ? "▼" : "—" }), h("div", { class: "w", text: dirWord }), against ? h("div", { class: "c", text: v.v > 0 ? "回调中" : "反弹中" }) : null, h("div", { class: "s", text: sinceTxt })]));
     });
+    // where each big timeframe would turn, always in view (the boxes' tooltips don't show on a phone)
+    var tt = $("tfl-turn"), lp = num(S.live);
+    if (!tt) { tt = h("p", { class: "tfl-note", id: "tfl-turn" }); $("tfl-note").parentNode.insertBefore(tt, $("tfl-note")); }
+    var turns = vs.filter(function (v) { return v.v && (v.tf === "W" || v.tf === "D" || v.tf === "4H"); }).map(function (v) {
+      var fl = P.flipLevel(E, v.tf, -v.v); if (fl === null) return null;
+      return P.TF_ZH[v.tf] + (v.v > 0 ? "↑" : "↓") + "：收盘" + (v.v > 0 ? "跌破 " : "站上 ") + fmt(sh(fl), 1) + " 转" + (v.v > 0 ? "向下" : "向上") + (lp !== null ? "（差 " + fmt(Math.abs(fl - lp), 1) + "）" : "");
+    }).filter(Boolean);
+    tt.hidden = !turns.length; tt.textContent = "大周期转向的价位：" + turns.join(" · ") + "。";
     var tn = $("tfl-note"); tn.hidden = !counters.length;
     tn.textContent = counters.map(function (c) { return P.TF_ZH[c.tf] + "：大结构还是" + (c.v > 0 ? "向上" : "向下") + "，但最近一直在" + (c.v > 0 ? "跌" : "涨") + "（" + c.why.join("，") + "）" + (c.flip !== null ? "，要收盘" + (c.v > 0 ? "跌破 " : "站上 ") + fmt(c.flip, 1) + " 才算转" + (c.v > 0 ? "向下" : "向上") : ""); }).join("；") + (counters.length ? "。箭头只在 K 线收盘突破前高或前低时才改变，规则看的就是它。" : "");
 

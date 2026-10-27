@@ -92,7 +92,8 @@
   }
   function card(r) {
     var p = r.p, el = h("div", { class: "fx-c " + r.state });
-    var chip = { buy: "买入信号（未验证）", sell: "卖出信号（未验证）", ready: r.dir > 0 ? "大方向向上 · 等小周期" : "大方向向下 · 等小周期", none: "方向不一致", err: "读取失败", load: "读取中…" }[r.state];
+    var counter = r.state === "ready" && (r.lag || []).some(function (g) { return r.dirs[g.tf] === -r.dir; });   // small timeframes running against the big three
+    var chip = { buy: "买入信号（未验证）", sell: "卖出信号（未验证）", ready: r.dir > 0 ? (counter ? "大方向向上 · 回调中" : "大方向向上 · 等小周期") : (counter ? "大方向向下 · 反弹中" : "大方向向下 · 等小周期"), none: "方向不一致", err: "读取失败", load: "读取中…" }[r.state];
     el.appendChild(h("div", { class: "fx-top" }, [h("div", null, [h("b", { class: "fx-i", text: p.i }), h("span", { class: "fx-n", text: p.n })]),
       h("div", { class: "fx-p" }, [h("b", { class: "mono", text: px(p, r.price) }), r.chg !== null && r.chg !== undefined ? h("span", { class: "mono " + (r.chg >= 0 ? "up" : "dn"), text: (r.chg >= 0 ? "+" : "") + r.chg.toFixed(2) + "%" }) : null])]));
     if (r.state === "load" || r.state === "err") { el.appendChild(h("p", { class: "fx-l", text: r.state === "err" ? "读取失败：" + (r.err || "") + "，下一次刷新再试。" : "读取中…" })); return el; }
