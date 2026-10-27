@@ -57,6 +57,16 @@
       }).filter(function (w) { return w.ok && w.steps.length; }).sort(function (a, b) { return a.far - b.far; });
     }
     out.state = R.full ? (R.dir > 0 ? "buy" : "sell") : R.dir ? "ready" : "none";
+    // chart patterns, as on the gold page: finished ones on the daily, 4-hour and 1-hour charts, and any still forming
+    out.pats = P.patternsNow(E);
+    out.plans = [];
+    ["D", "4H", "1H"].forEach(function (tf) {
+      ((E.tfs[tf] || {}).patterns || []).forEach(function (q) {
+        var pl = P.patternPlan(q, E.price), done = P.patternWay(q);
+        out.plans.push({ tf: tf, name: P.patternText(q), done: !!done, dir: pl ? pl.dir : done, bias: q.bias, status: P.statusText(q.status),
+          plan: pl ? { entry: un(pl.entry), stop: un(pl.stop), target: un(pl.target), rr: pl.rr } : null });
+      });
+    });
     return out;
   }
 
@@ -100,6 +110,7 @@
       line = "周线" + way(r.dirs.W) + "、日线" + way(r.dirs.D) + "、4 小时" + way(r.dirs["4H"]) + "，不一致。" + (w ? "最近的一步：" + w.steps.map(function (s) { return TFN[s.tf] + "收盘" + (w.to > 0 ? "站上 " : "跌破 ") + px(p, s.price); }).join("、") + " → 三个大周期同向" + way(w.to) + "。" : "");
     }
     if (line) el.appendChild(h("p", { class: "fx-l", text: line }));
+    el.appendChild(patLine(r));
     var foot = [];
     if (r.dir && r.since3) foot.push("大方向已持续 " + Math.max(0, Math.round((Date.now() - r.since3) / 86400000)) + " 天");
     if (r.dir && r.flipOut !== null && r.flipOut !== undefined) foot.push("4 小时收盘" + (buy ? "跌破 " : "站上 ") + px(p, r.flipOut) + " 就结束");
@@ -128,6 +139,30 @@
     box.appendChild(h("div", { class: "fx-act-b" }, [btn]));
     return box;
   }
+  // the pattern line: what has finished, whether it agrees with the big direction, and what is still forming
+  function patLine(r) {
+    var box = h("div", { class: "fx-pat" + (warnOf(r) ? " warn" : "") });
+    var dir = r.dir || 0, list = (r.plans || []).slice(0, 3);
+    box.appendChild(h("b", { class: "fx-pat-h", text: (warnOf(r) ? "⚠ " : "") + "形态" + (list.length ? "（" + list.length + " 个）" : "") }));
+    if (!list.length) box.appendChild(h("p", { text: "日线、4 小时、1 小时都没有清楚的形态。" }));
+    list.forEach(function (q) {
+      var rel = !q.dir ? "" : !dir ? "" : q.dir === dir ? " · 和大方向一致" : " · 和大方向相反", p = r.p, k = q.plan;
+      var row = h("div", { class: "fx-pr" }, [h("div", { class: "fx-pr-n" }, [h("b", { text: P.TF_ZH[q.tf] + " " + q.name }), h("span", { text: q.status + rel })])]);
+      if (k) {
+        var buy = k.dir > 0, weak = k.rr < 1;
+        row.appendChild(h("div", { class: "fx-pr-g" }, [
+          h("span", null, [h("i", { text: q.done ? (buy ? "买入（现价）" : "卖出（现价）") : (buy ? "收盘站上才买" : "收盘跌破才卖") }), h("b", { class: "mono", text: px(p, k.entry) })]),
+          h("span", { class: "st" }, [h("i", { text: "止损 SL" }), h("b", { class: "mono", text: px(p, k.stop) })]),
+          h("span", { class: "tg" }, [h("i", { text: "目标 TP" }), h("b", { class: "mono", text: px(p, k.target) })]),
+          h("span", { class: weak ? "weak" : "" }, [h("i", { text: "盈亏比" }), h("b", { class: "mono", text: k.rr.toFixed(2) })])]));
+        if (weak) row.appendChild(h("p", { class: "fx-pr-w", text: "盈亏比低于 1：赚的比可能亏的少，" + (q.done ? "大部分已经走完，不值得追。" : "不值得做。") }));
+      } else row.appendChild(h("p", { class: "fx-pr-w", text: q.bias === "neutral" ? "没有方向的形态：等它突破再看。" : "价位对不上（可能已经走过目标或止损），不给方案。" }));
+      box.appendChild(row);
+    });
+    box.appendChild(h("p", { class: "fx-pr-note", text: (warnOf(r) ? "有反方向的已完成形态：黄金回放里这种情况很少，结果偏差（16 笔，平均 −0.28R），笔数太少不能当规则；想更稳可以减半或不做。" : "") + S.patWords }));
+    return box;
+  }
+  function warnOf(r) { var dir = r.dir || 0, ag = (r.pats || []).filter(function (q) { return dir && q.dir === dir; }), op = (r.pats || []).filter(function (q) { return dir && q.dir === -dir; }); return (r.state === "buy" || r.state === "sell") && op.length && !ag.length; }
   function way(d) { return d > 0 ? "向上" : d < 0 ? "向下" : "不明"; }
 
   // gold and Bitcoin from their own pages' server files, for one view of everything
@@ -188,6 +223,12 @@
     renderAlert();
   });
   $("fx-refresh").addEventListener("click", function () { scan(); others(); });
+  S.patWords = "形态按自己的止损和目标做：回放里胜率约六成，但赚的少、亏的多，平均每笔约 0R，只作参考。";
+  fetch("data/xau-backtest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (bt) {
+    var o = bt && bt.patterns && bt.patterns.own; if (!o || !o["1H"]) return;
+    var sg = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; };
+    S.patWords = "形态按自己的止损和目标做（黄金回放，" + o["1H"].n.toLocaleString("en-US") + " 个 1 小时形态）：胜率 " + Math.round(o["1H"].win) + "%，但平均每笔 " + sg(o["1H"].avgR) + "：赚的次数多、亏的时候亏得多。只作参考，不比上面的五周期信号可靠。"; render();
+  }).catch(function () {});
   renderAlert(); render(); others(); scan();
   // after every 15-minute close (+25 s for the feed); while hidden only when alerts are on
   setInterval(function () {

@@ -241,6 +241,22 @@ var XauPlan = (function () {
     return out;
   }
 
+  // A pattern's own trade, the textbook way: in on the break of its key level (or now, if it has already broken),
+  // stop where the pattern fails, target its measured move. dir: the way it points (forming patterns: their bias;
+  // patterns with no bias, such as a range still forming, have no plan). Returns null when the levels don't line up.
+  // The replay scored these (research/xau-replay/pattern_check.js): about six in ten win, and on average about 0R.
+  function patternPlan(p, price) {
+    var done = patternWay(p), dir = done || (p.bias === "bullish" ? 1 : p.bias === "bearish" ? -1 : 0);
+    if (!dir) return null;
+    var key = num(p.level), up = num(p.upper), lo = num(p.lower), ht = num(p.height);
+    var trig = key !== null ? key : dir > 0 ? up : lo;
+    var stop = num(p.invalid) !== null ? num(p.invalid) : dir > 0 ? lo : up;
+    var tgt = num(p.target) !== null ? num(p.target) : ht !== null && trig !== null ? trig + dir * ht : null;
+    var entry = done ? num(price) : trig;
+    if (entry === null || stop === null || tgt === null || (entry - stop) * dir <= 0 || (tgt - entry) * dir <= 0) return null;
+    return { dir: dir, done: !!done, entry: entry, trigger: trig, stop: stop, target: tgt, rr: Math.abs(tgt - entry) / Math.abs(entry - stop) };
+  }
+
   // ---------- the plan the replay supports ----------
   // Enter at the current price with the big trend; stop 3 x 1H ATR away; target 3R, or no target and a trailing stop.
   function systemPlan(E, dir, opts) {
@@ -500,6 +516,6 @@ var XauPlan = (function () {
 
   return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
-    patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
+    patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, patternPlan: patternPlan, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;

@@ -588,11 +588,13 @@
       (t.patterns || []).forEach(function (p) {
         any = true;
         var pd = P.patternWay(p), rel = !pd ? "" : " · 已完成" + (!Rp.dir ? "" : pd === Rp.dir ? "，和大方向一致" : "，和大方向相反");
-        var bits = [];
-        if (num(p.level) !== null) bits.push("关键位 " + fmt(sh(p.level), 1));
-        if (num(p.upper) !== null) bits.push("上沿 " + fmt(sh(p.upper), 1) + " · 下沿 " + fmt(sh(p.lower), 1));
-        if (num(p.target) !== null) bits.push("目标 " + fmt(sh(p.target), 1));
-        if (num(p.invalid) !== null) bits.push("失效 " + fmt(sh(p.invalid), 1));
+        var bits = [], pl = P.patternPlan(p, E.price);
+        if (pl) {
+          bits.push((pl.done ? (pl.dir > 0 ? "买入（现价）" : "卖出（现价）") : (pl.dir > 0 ? "收盘站上才买 " : "收盘跌破才卖 ")) + fmt(sh(pl.entry), 1) + " · 止损 SL " + fmt(sh(pl.stop), 1) + " · 目标 TP " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1，" + (pl.done ? "大部分已走完，不值得追）" : "不值得做）") : ""));
+        } else {
+          if (num(p.level) !== null) bits.push("关键位 " + fmt(sh(p.level), 1));
+          if (num(p.upper) !== null) bits.push("上沿 " + fmt(sh(p.upper), 1) + " · 下沿 " + fmt(sh(p.lower), 1));
+        }
         pt.appendChild(h("div", { class: "pat " + p.bias }, [h("span", { class: "t", text: P.TF_ZH[tf] + " · " + P.patternText(p) + (p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "") }), h("span", { class: "s", text: P.statusText(p.status) + rel }), bits.length ? h("span", { class: "s mono", text: bits.join(" · ") }) : null]));
       });
     });
