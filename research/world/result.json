@@ -1,0 +1,139 @@
+{
+ "tested": "2026-10-28",
+ "out": {
+  "T1": {
+   "Nasdaq Composite": {
+    "win": 65.1,
+    "trades": 415,
+    "pre": -0.19,
+    "preP": 0.243,
+    "post": 0.66,
+    "postP": 0.006
+   },
+   "Nasdaq 100": {
+    "win": 70.9,
+    "trades": 330,
+    "pre": 0.41,
+    "preP": 0.048,
+    "post": 0.57,
+    "postP": 0.02
+   },
+   "Nikkei 225": {
+    "win": 67.1,
+    "trades": 532,
+    "pre": -0.02,
+    "preP": 0.889,
+    "post": 0.41,
+    "postP": 0.099
+   },
+   "passed": false
+  },
+  "T2": {
+   "ts": {
+    "pre": 1.06,
+    "preP": 0,
+    "post": 0.06,
+    "postP": 0.815,
+    "passed": false
+   },
+   "xs": {
+    "pre": 0.55,
+    "preP": 0.007,
+    "post": 0.43,
+    "postP": 0.081,
+    "passed": false
+   }
+  },
+  "T4": {
+   "passed": false,
+   "cells": [
+    {
+     "seg": "2011-18",
+     "agree": -0.08,
+     "against": 0.462
+    },
+    {
+     "seg": "2019-23",
+     "agree": 0.131,
+     "against": 0.196
+    },
+    {
+     "seg": "2024-26",
+     "agree": 0.488,
+     "against": 0.479
+    }
+   ]
+  },
+  "T5": {
+   "passed": true,
+   "mixPost": 0.87,
+   "mixPostP": 0,
+   "singlesPost": [
+    {
+     "name": "trend",
+     "post": 0.33
+    },
+    {
+     "name": "carry",
+     "post": 0.43
+    },
+    {
+     "name": "Nasdaq mean reversion",
+     "post": 0.66
+    }
+   ],
+   "corr": {
+    "trendCarry": -0.09,
+    "trendMR": 0.05,
+    "carryMR": 0.08
+   },
+   "mixAll": 0.92
+  },
+  "T5checks": {
+   "holdAlone": {
+    "trend": 0.15,
+    "carry": 0.18
+   },
+   "as tested": {
+    "pre": 0.95,
+    "post": 0.87,
+    "postP": 0
+   },
+   "risk measured from the past only": {
+    "pre": 0.72,
+    "post": 0.87,
+    "postP": 0
+   },
+   "without the Nasdaq part": {
+    "pre": 1.23,
+    "post": 0.65,
+    "postP": 0.007
+   },
+   "Nasdaq 100 instead of Composite": {
+    "pre": 1.15,
+    "post": 0.81,
+    "postP": 0.001
+   },
+   "trend and carry pay 1%/yr on positions held": {
+    "pre": 0.72,
+    "post": 0.66,
+    "postP": 0.006
+   },
+   "Nasdaq part pays 5%/yr financing": {
+    "pre": 0.91,
+    "post": 0.83,
+    "postP": 0.001
+   },
+   "late Nasdaq Composite": 0.49,
+   "late Nasdaq 100": 0.5,
+   "gold4th": {
+    "from": "2011-02",
+    "goldAlone": 0.55,
+    "mix3": 0.94,
+    "mix4": 1.07,
+    "corrTrend": 0.13,
+    "corrMix": 0.04
+   }
+  }
+ }
+}

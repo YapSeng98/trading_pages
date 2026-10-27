@@ -4,40 +4,40 @@
  "from": 1971,
  "strategies": {
   "TSMOM": {
-   "sharpe": 0.79,
+   "sharpe": 0.82,
    "pre": 1.07,
    "preP": 0,
-   "post": 0.36,
-   "postP": 0.088,
+   "post": 0.23,
+   "postP": 0.344,
    "positive": 26,
    "markets": 31,
    "passed": false
   },
   "DONCH": {
-   "sharpe": 0.91,
+   "sharpe": 1.01,
    "pre": 1.23,
    "preP": 0,
-   "post": 0.33,
-   "postP": 0.117,
+   "post": 0.39,
+   "postP": 0.105,
    "positive": 28,
    "markets": 31,
    "passed": false
   },
   "MAX": {
-   "sharpe": 0.6,
+   "sharpe": 0.65,
    "pre": 0.77,
    "preP": 0,
-   "post": 0.3,
-   "postP": 0.15,
+   "post": 0.32,
+   "postP": 0.186,
    "positive": 26,
    "markets": 31,
    "passed": false
   },
   "combined": {
-   "sharpe": 0.91,
+   "sharpe": 0.98,
    "pre": 1.2,
-   "post": 0.4,
-   "postP": 0.056,
+   "post": 0.39,
+   "postP": 0.107,
    "worst": 21,
    "note": "decided after the three were run: information only"
   }

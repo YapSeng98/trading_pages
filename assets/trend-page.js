@@ -149,7 +149,7 @@
   // the replay behind the page, from its own results file
   fetch("research/trend-daily/result.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
     if (!d || !d.strategies) return; var s = d.strategies, c = s.combined || {};
-    $("tr-proof").textContent = "回放（" + d.from + "–2026，" + d.markets + " 个市场，含成本）：三条规则一起用，夏普 " + c.sharpe + "（2010 年前 " + c.pre + "，2010 年起 " + c.post + "，还差一点达到统计上的把握），最深回撤约 " + c.worst + "%。单条规则：动量 " + s.TSMOM.sharpe + "、突破 " + s.DONCH.sharpe + "、均线 " + s.MAX.sharpe + "；" + s.DONCH.positive + " / " + s.DONCH.markets + " 个市场是赚的。";
+    $("tr-proof").textContent = "回放（" + d.from + "–2026，" + d.markets + " 个市场，含成本）：三条规则一起用，夏普 " + c.sharpe + "（2010 年前 " + c.pre + "，2010 年起 " + c.post + "，" + (c.postP < 0.05 ? "有统计上的把握" : c.postP < 0.1 ? "还差一点达到统计上的把握" : "还没有统计上的把握") + "），最深回撤约 " + c.worst + "%。单条规则：动量 " + s.TSMOM.sharpe + "、突破 " + s.DONCH.sharpe + "、均线 " + s.MAX.sharpe + "；" + s.DONCH.positive + " / " + s.DONCH.markets + " 个市场是赚的。";
   }).catch(function () {});
   if (S.notify && "Notification" in window && Notification.permission === "default") document.addEventListener("click", function once() { document.removeEventListener("click", once); Notification.requestPermission().then(renderAlert); });
   renderAlert(); render(); scan();

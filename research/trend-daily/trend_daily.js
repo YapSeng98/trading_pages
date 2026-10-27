@@ -26,7 +26,10 @@ for (const [id, [name, cost]] of Object.entries(FRED)) {
   const rows = fs.readFileSync(path.join(DATA, id + ".csv"), "utf8").trim().split("\n").map(l => { const [d, v] = l.split(","); return [Date.parse(d + "T00:00:00Z") / 1000, +v]; }).filter(r => isFinite(r[1]));
   markets.push({ name, cost, kind: /DEX/.test(id) ? "fx" : /NASDAQ/.test(id) ? "index" : "commodity", d: rows });
 }
-const fromBars = (B, align, skip) => L.aggregate(B, "D", align, skip).map(k => [(k[6] + 1) / 1000 - DAY, k[4]]);
+// each daily bar is dated by the UTC day it closes in (gold closes 17:00 New York, the coins at midnight UTC)
+const fromBars = (B, align, skip) => L.aggregate(B, "D", align, skip).map(k => [Math.floor(k[6] / 1000 / DAY) * DAY, k[4]]);
+// the portfolio averages markets by weekday: the coins' Saturday and Sunday returns are added to their Monday
+const bday = tSec => { const d = Math.floor(tSec / DAY), w = new Date(d * DAY * 1000).getUTCDay(); return w === 6 ? d + 2 : w === 0 ? d + 1 : d; };
 markets.push({ name: "Gold", cost: 1.5, kind: "gold", d: fromBars(L.source("duk", 2010, 2026), "ny", L.spotClosed) });
 markets.push({ name: "BTC", cost: 5, kind: "crypto", d: fromBars(L.source("btc", 2017, 2026), "utc") });
 for (const s of ["ETHUSDT", "BNBUSDT", "LTCUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "SOLUSDT"]) markets.push({ name: s.replace("USDT", ""), cost: 5, kind: "crypto", d: fromBars(L.source("bn15:" + s, 2017, 2026), "utc") });
@@ -91,8 +94,8 @@ for (const strat of ["TSMOM", "DONCH", "MAX"]) {
   }
   // the equal-risk portfolio: each day, the average of the markets trading that day
   const byDay = new Map();
-  for (const { res } of runs) for (let i = 0; i < res.R.length; i++) { if (Number.isNaN(res.R[i])) continue; const d = Math.floor(res.t[i] / DAY); const e = byDay.get(d) || [0, 0]; e[0] += res.R[i]; e[1]++; byDay.set(d, e); }
-  const days = [...byDay.keys()].sort((a, b) => a - b), PT = days.map(d => d * DAY), PR = days.map(d => byDay.get(d)[0] / byDay.get(d)[1]);
+  runs.forEach(({ res }, k) => { for (let i = 0; i < res.R.length; i++) { if (Number.isNaN(res.R[i])) continue; const d = bday(res.t[i]), e = byDay.get(d) || new Map(); e.set(k, (e.get(k) || 0) + res.R[i]); byDay.set(d, e); } });
+  const days = [...byDay.keys()].sort((a, b) => a - b), PT = days.map(d => d * DAY), PR = days.map(d => { const e = byDay.get(d); let s = 0; for (const v of e.values()) s += v; return s / e.size; });
   const all = stats(PR, 0, 1e12, PT), pre = stats(PR, 0, Y2010, PT), post = stats(PR, Y2010, 1e12, PT);
   const decades = [1975, 1980, 1990, 2000, 2010, 2020].map((y, k, arr) => { const s = stats(PR, Date.UTC(y, 0, 1) / 1000, Date.UTC(arr[k + 1] || 2030, 0, 1) / 1000, PT); return (y === 1975 ? "1970s" : y + "s") + " " + (s ? s.sharpe.toFixed(2) : "—"); });
   const passed = pre && post && pre.sharpe > 0 && pre.p < 0.05 && post.sharpe > 0 && post.p < 0.05 && pos / runs.length >= 0.6;
@@ -105,11 +108,11 @@ fs.writeFileSync(path.join(__dirname, "result.json"), JSON.stringify({ tested: n
 // ---- the three together (decided AFTER the results above, so information only, not a pass / fail test) ----
 {
   const byDay = new Map();
-  for (const m of markets) {
+  markets.forEach((m, k) => {
     const rs = ["TSMOM", "DONCH", "MAX"].map(s => run(m, s));
-    for (let i = 0; i < rs[0].R.length; i++) { if (Number.isNaN(rs[0].R[i])) continue; const d = Math.floor(rs[0].t[i] / DAY), e = byDay.get(d) || [0, 0]; e[0] += (rs[0].R[i] + rs[1].R[i] + rs[2].R[i]) / 3; e[1]++; byDay.set(d, e); }
-  }
-  const days = [...byDay.keys()].sort((a, b) => a - b), PT = days.map(d => d * DAY), PR = days.map(d => byDay.get(d)[0] / byDay.get(d)[1]);
+    for (let i = 0; i < rs[0].R.length; i++) { if (Number.isNaN(rs[0].R[i])) continue; const d = bday(rs[0].t[i]), e = byDay.get(d) || new Map(); e.set(k, (e.get(k) || 0) + (rs[0].R[i] + rs[1].R[i] + rs[2].R[i]) / 3); byDay.set(d, e); }
+  });
+  const days = [...byDay.keys()].sort((a, b) => a - b), PT = days.map(d => d * DAY), PR = days.map(d => { const e = byDay.get(d); let s = 0; for (const v of e.values()) s += v; return s / e.size; });
   const all = stats(PR, 0, 1e12, PT), pre = stats(PR, 0, Y2010, PT), post = stats(PR, Y2010, 1e12, PT);
   const yrs = []; for (let y = 2010; y <= 2026; y++) { const s = stats(PR, Date.UTC(y, 0, 1) / 1000, Date.UTC(y + 1, 0, 1) / 1000, PT); if (s) yrs.push(y + " " + (s.ann * 100).toFixed(0) + "%"); }
   console.log("\n==== the three together (information only) ====\nPORTFOLIO    Sharpe " + all.sharpe.toFixed(2) + "  before 2010 " + pre.sharpe.toFixed(2) + " (p " + pre.p.toFixed(3) + ")  from 2010 " + post.sharpe.toFixed(2) + " (p " + post.p.toFixed(3) + ")  worst fall " + (all.dd * 100).toFixed(0) + "%");
