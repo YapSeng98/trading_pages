@@ -47,7 +47,8 @@ Rules for the refresh when it writes `daily.html` and `risk.html`:
 
 ## Site layout (2026-10-23)
 
-The navbar on every page is: 🥇 黄金 (`report.html`) · ₿ 比特币 (`btc.html`) · 💱 外汇 (`forex.html`) · 📒 盈亏日历 · 📖 策略 · 📈 股票 · 🚀 潜力精选.
+The navbar on every page is: 🥇 黄金 (`report.html`) · ₿ 比特币 (`btc.html`) · 💱 外汇 (`forex.html`) · 📊 趋势组合 (`trend.html`) · 📒 盈亏日历 · 📖 策略 · 📈 股票 · 🚀 潜力精选.
+`trend.html` (`assets/trend-page.js`) is the daily trend-following portfolio: 19 markets (Dukascopy daily bars via `XauFeed.daily`, Binance for BTC/ETH), three textbook rules (12-month momentum, 55/20 breakout, 50/200 averages), equal daily risk per market sized to the visitor's balance, alerts when a market's combined position changes. Its evidence (`research/trend-daily/`, 31 markets since 1971) is quoted from `research/trend-daily/result.json`: broad but weaker since 2010 and not yet significant there; the page says so.
 `forex.html` (`assets/fx-page.js`) runs the gold rule unchanged on 11 currency pairs and silver in the visitor's browser (Dukascopy chart feed via `XauFeed.loadInst`; prices scaled to whole points before the engine, which rounds to two decimals). The rule is unproven there: forex history cannot be replayed (the feed turns away automated downloads) and the same rule failed on seven other cryptocurrencies (`crossMarket` in `data/btc-backtest.json`). The page says so; its alerts are off until switched on. Never describe its signals as tested.
 `report.html` is the one gold page: the live answer and plan, then the written brief in tabs ("分析 · 消息 · 日历"),
 which shows `daily.html`, `news.html` and `risk.html` in frames. Those three pages are still what the refresh writes

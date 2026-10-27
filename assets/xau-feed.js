@@ -164,6 +164,9 @@ var XauFeed = (function () {
     });
   }
 
+  // Daily bars (UTC days) of any instrument, for the daily trend page: rows of [tSec, o, h, l, c], oldest first.
+  function daily(inst, limit) { return duk("1DAY", limit || 420, 20000, inst); }
+
   function load(opts) {
     opts = opts || {}; var nowMs = Date.now();
     if (opts.source === "paxg") return loadPaxg(nowMs, null);
@@ -179,7 +182,7 @@ var XauFeed = (function () {
   // second opinion on the live price
   function minutes(n) { return duk("1MIN", n || 20, 8000); }
 
-  return { load: load, loadInst: loadInst, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
+  return { load: load, loadInst: loadInst, daily: daily, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
     spotCandles: spotCandles, paxgCandles: paxgCandles, clean: clean, NEED: NEED, DUK: DUK, BIN: BIN, SPOT: SPOT };   // the pure parts, for scripts/update_gold.js
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauFeed;

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日线趋势组合 · Trading Hub</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0A0A0F">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%23D4A72C'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{
+  --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;
+  --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
+  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
+  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --r-lg:22px;--r-md:14px;--r-sm:10px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
+  --f-d:'Space Grotesk','Noto Sans SC',sans-serif;--f-m:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.navbar .brand{display:flex;align-items:center;gap:9px;font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto;white-space:nowrap;flex:none}
+.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
+.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s;white-space:nowrap;flex:none}
+.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
+.navbar a.nl.on{color:var(--gold-lt);background:rgba(184,134,11,.10)}
+.wrap{max-width:1180px;margin:0 auto;padding:30px 28px 70px}
+h1{font-family:var(--f-d);font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--ink);letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--gold-lt)}
+.lead{margin-top:8px;max-width:860px;color:var(--text);font-size:14.5px}
+.warn{margin-top:18px;padding:14px 16px;border:1px solid rgba(212,167,44,.4);background:rgba(212,167,44,.06);border-radius:var(--r-md);font-size:13.5px;line-height:1.75}
+.warn b{color:var(--gold-lt)}
+.others{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.fx-o{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:4px 12px;align-items:center;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2);text-decoration:none;color:var(--text)}
+.fx-o b{color:var(--ink);font-size:15px}.fx-o .mono{color:var(--gold-lt);font-size:15px}.fx-o-v{justify-self:end;font-size:12.5px;color:var(--ink)}
+.fx-o-t,.fx-o-n{grid-column:1/-1;font-size:12px;color:var(--dim)}.fx-o-n{color:var(--gold-lt)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:24px 0 14px}
+.bar .sum{font-weight:700;color:var(--ink);font-size:14px}
+.bar .stamp{font-size:12px;color:var(--dim);flex:1;min-width:200px}
+.btn{border:1px solid var(--border);background:var(--bg3);border-radius:999px;padding:9px 15px;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink)}
+.btn.on{border-color:rgba(212,167,44,.6);color:var(--gold-lt);background:rgba(212,167,44,.08)}
+.fx-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.fx-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;min-width:0}
+.fx-c.buy{border-color:rgba(52,211,153,.45);box-shadow:0 0 0 1px rgba(52,211,153,.12),var(--shadow-sm)}
+.fx-c.sell{border-color:rgba(248,113,113,.5);box-shadow:0 0 0 1px rgba(248,113,113,.12),var(--shadow-sm)}
+.fx-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.fx-i{font-family:var(--f-d);font-size:18px;color:var(--ink);display:block}.fx-n{font-size:12px;color:var(--dim)}
+.fx-p{text-align:right}.fx-p b{display:block;font-size:17px;color:var(--ink)}.fx-p span{font-size:12px}
+.up{color:var(--bull)}.dn{color:var(--bear)}
+.fx-mid{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.fx-tf{display:flex;gap:4px}
+.fx-tf span{display:flex;flex-direction:column;align-items:center;min-width:42px;padding:4px 2px;border-radius:8px;background:var(--bg3);border:1px solid var(--border)}
+.fx-tf span i{font-style:normal;font-size:11px;color:var(--dim)}.fx-tf span b{font-size:15px;line-height:1.2;color:var(--dim)}
+.fx-tf span.up b{color:var(--bull)}.fx-tf span.dn b{color:var(--bear)}
+.fx-chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;border:1px solid var(--border);color:var(--dim);white-space:nowrap}
+.fx-chip.buy{color:var(--bull);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08)}
+.fx-chip.sell{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
+.fx-chip.ready{color:var(--gold-lt);border-color:rgba(212,167,44,.45)}
+.fx-l{font-size:13px;line-height:1.75;color:var(--text)}
+.fx-sig{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2);font-size:13px}
+.fx-sig b{color:var(--ink)}
+.fx-s{padding:6px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;border:1px solid}
+.fx-s.buy{color:var(--bull);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08)}
+.fx-s.sell{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
+.fx-act{border-radius:var(--r-md);padding:12px 14px;border:1px solid;display:flex;flex-direction:column;gap:9px;scroll-margin-top:80px}
+.fx-act.buy{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.fx-act.sell{border-color:rgba(248,113,113,.45);background:rgba(248,113,113,.06)}
+.fx-act-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fx-act-h b{font-family:var(--f-d);font-size:22px;letter-spacing:-.5px}
+.fx-act.buy .fx-act-h b{color:var(--bull)}.fx-act.sell .fx-act-h b{color:var(--bear)}
+.fx-act-h span{font-size:12px;color:var(--text)}
+.fx-act-h .fx-un{margin-left:auto;font-size:11px;color:var(--gold-lt);border:1px solid rgba(212,167,44,.45);border-radius:999px;padding:2px 8px}
+.fx-act-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fx-act-g div{background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 10px;min-width:0}
+.fx-act-g i{display:block;font-style:normal;font-size:11px;color:var(--dim)}
+.fx-act-g b{display:block;font-size:15px;color:var(--ink);overflow:hidden;text-overflow:ellipsis}
+.fx-act-g s{display:block;text-decoration:none;font-size:11px;color:var(--dim)}
+.fx-act-g .st b{color:var(--bear)}.fx-act-g .tg b{color:var(--bull)}
+.fx-act p{font-size:12.5px;line-height:1.7;color:var(--text)}
+.fx-act .fx-age{color:var(--dim)}
+.fx-act-b{display:flex;justify-content:flex-end}
+.fx-f{font-size:11.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+.how{margin-top:30px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px}
+.how h2{font-family:var(--f-d);font-size:17px;color:var(--ink);margin-bottom:8px}
+.how li{margin:6px 0 0 18px;font-size:13.5px;line-height:1.75}
+footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
+@media(max-width:860px){.others{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){
+  .navbar{padding:10px 14px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}
+  .navbar .brand{padding:6px 0}.navbar a.nl{padding:10px 13px}
+  .wrap{padding:22px 16px 60px}
+  .fx-list{grid-template-columns:minmax(0,1fr)}
+  .fx-tf span{min-width:0;flex:1}
+  .btn{min-height:36px}
+}
+
+.acct{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;margin-top:16px}
+.acct label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--dim)}
+.acct input{width:150px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--ink);font:600 15px var(--f-m);padding:9px 11px}
+.acct .note{font-size:12px;color:var(--dim);max-width:520px;line-height:1.6}
+.proof{margin-top:14px;font-size:13px;color:var(--text);line-height:1.75}
+.tr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.tr-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:15px 17px;display:flex;flex-direction:column;gap:9px;min-width:0;box-shadow:var(--shadow-sm)}
+.tr-c.long{border-color:rgba(52,211,153,.4)}.tr-c.short{border-color:rgba(248,113,113,.45)}
+.tr-top{display:flex;justify-content:space-between;gap:10px}.tr-i{display:block;font-family:var(--f-d);font-size:17px;color:var(--ink)}.tr-n{font-size:12px;color:var(--dim)}
+.tr-p b{font-size:16px;color:var(--ink)}
+.tr-mid{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.tr-rs{display:flex;gap:5px}.tr-r{display:flex;flex-direction:column;align-items:center;min-width:50px;padding:4px 6px;border-radius:8px;background:var(--bg3);border:1px solid var(--border)}
+.tr-r i{font-style:normal;font-size:11px;color:var(--dim)}.tr-r b{font-size:14px;color:var(--dim)}.tr-r.up b{color:var(--bull)}.tr-r.dn b{color:var(--bear)}
+.tr-chip{font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;border:1px solid var(--border);color:var(--dim)}
+.tr-chip.long{color:var(--bull);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08)}.tr-chip.short{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
+.tr-l{font-size:13px;line-height:1.7}.tr-f{font-size:11.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+@media(max-width:640px){.tr-list{grid-template-columns:minmax(0,1fr)}.acct input{width:130px;font-size:16px}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
+  <a class="nl" href="report.html">🥇 黄金</a>
+  <a class="nl" href="btc.html">₿ 比特币</a>
+  <a class="nl" href="forex.html">💱 外汇</a>
+  <a class="nl on" href="trend.html">📊 趋势组合</a>
+  <a class="nl" href="journal.html">📒 盈亏日历</a>
+  <a class="nl" href="strategy.html">📖 策略</a>
+  <a class="nl" href="stocks.html">📈 股票</a>
+  <a class="nl" href="potential.html">🚀 潜力精选</a>
+</nav>
+<main class="wrap">
+  <h1>日线趋势 <em>组合</em></h1>
+  <p class="lead">不挑单个市场、不追求高胜率：19 个市场（主要货币、黄金白银、原油、纳斯达克、比特币和以太坊）都按三条最经典的日线趋势规则持仓，每个市场冒同样大的风险。一年只换几次方向，靠少数几段大趋势赚钱，胜率通常只有三到五成。</p>
+  <div class="warn"><b>这是这个项目里证据最广的一套做法，但也没有完全证明。</b> <span id="tr-proof">回放结果读取中…</span> 2010 年以后的十几年明显比以前弱。适合每天看一次、拿几周到几个月；不适合想天天进出的人。</div>
+  <div class="acct">
+    <label>账户余额（美元）<input id="tr-bal" type="number" inputmode="decimal" min="0" step="100"></label>
+    <label>每个市场的风险（% / 天）<input id="tr-risk" type="number" inputmode="decimal" min="0" step="0.05"></label>
+    <span class="note">每个市场的仓位 = 账户 × 风险% ÷ 这个市场每天的平均波动；三条规则里有几条同意就用几成。默认 0.15%：19 个市场合起来，账户一天的波动大约 0.3–0.6%。只存在这个浏览器里。</span>
+  </div>
+  <div class="bar">
+    <span class="sum" id="tr-sum">读取中…</span>
+    <span class="stamp" id="tr-stamp"></span>
+    <button class="btn" type="button" id="tr-refresh">⟳ 刷新</button>
+    <button class="btn" type="button" id="tr-alert">🔔 仓位变化提醒</button>
+  </div>
+  <div class="tr-list" id="tr-list"></div>
+  <section class="how">
+    <h2>三条规则</h2>
+    <ul>
+      <li><b>动量</b>：每个月最后一天看过去一年（252 个交易日）涨还是跌，涨就做多、跌就做空，持有到下个月底。</li>
+      <li><b>突破</b>：收盘创 55 天新高就做多、创 55 天新低就做空；做多以后收盘跌破 20 天低点就离场（做空反过来）。</li>
+      <li><b>均线</b>：50 日均线在 200 日均线上方做多，下方做空。</li>
+      <li>三条一起看：3/3 同意用满仓位，2/3 用三分之二，依此类推。只看已经收盘的日线（UTC 0 点，新加坡早上 8 点换日），价格每 15 分钟更新一次。</li>
+      <li>没有固定止损：离场靠规则本身（突破规则的 20 天反向、均线交叉、月底动量转向）。所以仓位一定要按上面的风险算小。</li>
+    </ul>
+  </section>
+  <footer>外汇、黄金、原油、纳斯达克的日线来自 Dukascopy 公开图表（买价），比特币和以太坊来自币安。回放工具和结果在 research/trend-daily/。只做计算和展示，不构成投资建议。</footer>
+</main>
+<script src="assets/xau-feed.js?v=7"></script>
+<script src="assets/trend-page.js?v=1"></script>
+</body>
+</html>

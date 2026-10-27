@@ -114,4 +114,6 @@ fs.writeFileSync(path.join(__dirname, "result.json"), JSON.stringify({ tested: n
   const yrs = []; for (let y = 2010; y <= 2026; y++) { const s = stats(PR, Date.UTC(y, 0, 1) / 1000, Date.UTC(y + 1, 0, 1) / 1000, PT); if (s) yrs.push(y + " " + (s.ann * 100).toFixed(0) + "%"); }
   console.log("\n==== the three together (information only) ====\nPORTFOLIO    Sharpe " + all.sharpe.toFixed(2) + "  before 2010 " + pre.sharpe.toFixed(2) + " (p " + pre.p.toFixed(3) + ")  from 2010 " + post.sharpe.toFixed(2) + " (p " + post.p.toFixed(3) + ")  worst fall " + (all.dd * 100).toFixed(0) + "%");
   console.log("             each year since 2010 (return at ~16% yearly risk per market, averaged): " + yrs.join("  "));
+  out.combined = { sharpe: +all.sharpe.toFixed(2), pre: +pre.sharpe.toFixed(2), post: +post.sharpe.toFixed(2), postP: +post.p.toFixed(3), worst: +(all.dd * 100).toFixed(0), note: "decided after the three were run: information only" };
+  fs.writeFileSync(path.join(__dirname, "result.json"), JSON.stringify({ tested: new Date().toISOString().slice(0, 10), markets: markets.length, from: 1971, strategies: out }, null, 1) + "\n");
 }

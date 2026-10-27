@@ -1,5 +1,7 @@
 {
  "tested": "2026-10-27",
+ "markets": 31,
+ "from": 1971,
  "strategies": {
   "TSMOM": {
    "sharpe": 0.79,
@@ -30,6 +32,14 @@
    "positive": 26,
    "markets": 31,
    "passed": false
+  },
+  "combined": {
+   "sharpe": 0.91,
+   "pre": 1.2,
+   "post": 0.4,
+   "postP": 0.056,
+   "worst": 21,
+   "note": "decided after the three were run: information only"
   }
  }
 }
