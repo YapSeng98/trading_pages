@@ -2,3 +2,6 @@
 .github/workflows/update-price.yml
 # 1-minute history and replay output: large, and can be downloaded again
 research/xau-replay/data/
+
+# daily trend-following test: FRED downloads, fetched again by research/trend-daily/fetch_fred.py
+research/trend-daily/data/

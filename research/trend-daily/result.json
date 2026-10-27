@@ -1,0 +1,35 @@
+{
+ "tested": "2026-10-27",
+ "strategies": {
+  "TSMOM": {
+   "sharpe": 0.79,
+   "pre": 1.07,
+   "preP": 0,
+   "post": 0.36,
+   "postP": 0.088,
+   "positive": 26,
+   "markets": 31,
+   "passed": false
+  },
+  "DONCH": {
+   "sharpe": 0.91,
+   "pre": 1.23,
+   "preP": 0,
+   "post": 0.33,
+   "postP": 0.117,
+   "positive": 28,
+   "markets": 31,
+   "passed": false
+  },
+  "MAX": {
+   "sharpe": 0.6,
+   "pre": 0.77,
+   "preP": 0,
+   "post": 0.3,
+   "postP": 0.15,
+   "positive": 26,
+   "markets": 31,
+   "passed": false
+  }
+ }
+}
