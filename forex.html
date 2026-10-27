@@ -63,6 +63,28 @@ h1 em{font-style:normal;color:var(--gold-lt)}
 .fx-chip.sell{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
 .fx-chip.ready{color:var(--gold-lt);border-color:rgba(212,167,44,.45)}
 .fx-l{font-size:13px;line-height:1.75;color:var(--text)}
+.fx-sig{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2);font-size:13px}
+.fx-sig b{color:var(--ink)}
+.fx-s{padding:6px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;border:1px solid}
+.fx-s.buy{color:var(--bull);border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.08)}
+.fx-s.sell{color:var(--bear);border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.08)}
+.fx-act{border-radius:var(--r-md);padding:12px 14px;border:1px solid;display:flex;flex-direction:column;gap:9px;scroll-margin-top:80px}
+.fx-act.buy{border-color:rgba(52,211,153,.45);background:rgba(52,211,153,.06)}
+.fx-act.sell{border-color:rgba(248,113,113,.45);background:rgba(248,113,113,.06)}
+.fx-act-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fx-act-h b{font-family:var(--f-d);font-size:22px;letter-spacing:-.5px}
+.fx-act.buy .fx-act-h b{color:var(--bull)}.fx-act.sell .fx-act-h b{color:var(--bear)}
+.fx-act-h span{font-size:12px;color:var(--text)}
+.fx-act-h .fx-un{margin-left:auto;font-size:11px;color:var(--gold-lt);border:1px solid rgba(212,167,44,.45);border-radius:999px;padding:2px 8px}
+.fx-act-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fx-act-g div{background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 10px;min-width:0}
+.fx-act-g i{display:block;font-style:normal;font-size:11px;color:var(--dim)}
+.fx-act-g b{display:block;font-size:15px;color:var(--ink);overflow:hidden;text-overflow:ellipsis}
+.fx-act-g s{display:block;text-decoration:none;font-size:11px;color:var(--dim)}
+.fx-act-g .st b{color:var(--bear)}.fx-act-g .tg b{color:var(--bull)}
+.fx-act p{font-size:12.5px;line-height:1.7;color:var(--text)}
+.fx-act .fx-age{color:var(--dim)}
+.fx-act-b{display:flex;justify-content:flex-end}
 .fx-f{font-size:11.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
 .how{margin-top:30px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px}
 .how h2{font-family:var(--f-d);font-size:17px;color:var(--ink);margin-bottom:8px}
@@ -101,6 +123,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
     <button class="btn" type="button" id="fx-refresh">⟳ 刷新</button>
     <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
   </div>
+  <div class="fx-sig" id="fx-sig" hidden></div>
   <div class="fx-list" id="fx-list"></div>
   <section class="how">
     <h2>怎么看</h2>
@@ -117,6 +140,6 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <script src="assets/xau-feed.js?v=6"></script>
 <script src="assets/xau-engine.js?v=5"></script>
 <script src="assets/xau-plan.js?v=14"></script>
-<script src="assets/fx-page.js?v=1"></script>
+<script src="assets/fx-page.js?v=3"></script>
 </body>
 </html>

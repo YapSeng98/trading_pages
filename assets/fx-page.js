@@ -67,6 +67,13 @@
     var n = { buy: 0, sell: 0, ready: 0, none: 0 }; list.forEach(function (r) { if (n[r.state] !== undefined) n[r.state]++; });
     $("fx-sum").textContent = "买入信号 " + n.buy + " · 卖出信号 " + n.sell + " · 等小周期 " + n.ready + " · 方向不一致 " + n.none;
     list.sort(function (a, b) { return (ORDER[a.state] === undefined ? 4 : ORDER[a.state]) - (ORDER[b.state] === undefined ? 4 : ORDER[b.state]) || (b.since5 || 0) - (a.since5 || 0); });
+    var strip = $("fx-sig"); while (strip.firstChild) strip.removeChild(strip.firstChild);
+    var live = list.filter(function (r) { return r.state === "buy" || r.state === "sell"; });
+    strip.hidden = !live.length;
+    if (live.length) {
+      strip.appendChild(h("b", { text: "现在可以做的：" }));
+      live.forEach(function (r) { strip.appendChild(h("a", { class: "fx-s " + r.state, href: "#sig-" + r.p.i.replace("/", ""), text: (r.state === "buy" ? "▲ 买入 " : "▼ 卖出 ") + r.p.i })); });
+    }
     var box = $("fx-list"); while (box.firstChild) box.removeChild(box.firstChild);
     list.forEach(function (r) { box.appendChild(card(r)); });
   }
@@ -79,12 +86,10 @@
     el.appendChild(h("div", { class: "fx-top" }, [h("div", null, [h("b", { class: "fx-i", text: p.i }), h("span", { class: "fx-n", text: p.n })]),
       h("div", { class: "fx-p" }, [h("b", { class: "mono", text: px(p, r.price) }), r.chg !== null && r.chg !== undefined ? h("span", { class: "mono " + (r.chg >= 0 ? "up" : "dn"), text: (r.chg >= 0 ? "+" : "") + r.chg.toFixed(2) + "%" }) : null])]));
     if (r.state === "load" || r.state === "err") { el.appendChild(h("p", { class: "fx-l", text: r.state === "err" ? "读取失败：" + (r.err || "") + "，下一次刷新再试。" : "读取中…" })); return el; }
-    el.appendChild(h("div", { class: "fx-mid" }, [arrows(r), h("span", { class: "fx-chip " + r.state, text: chip })]));
+    el.appendChild(h("div", { class: "fx-mid" }, [arrows(r), r.state === "buy" || r.state === "sell" ? null : h("span", { class: "fx-chip " + r.state, text: chip })]));   // a signal says it in its own block below
     var buy = r.dir > 0, act = buy ? "买入" : "卖出", line = "";
     if (r.state === "buy" || r.state === "sell") {
-      var k = r.plan;
-      line = act + " " + px(p, k.entry) + "，止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "），目标 " + px(p, k.tp1) + "（3R）；或不设目标、每天把止损挪到最好价格后面 " + pips(p, k.trail) + "。" +
-        (r.since5 ? "信号 " + ago(r.since5) + "出现" + (r.sigPx ? "，当时 " + px(p, r.sigPx) : "") + (typeof r.movedR === "number" ? "，之后走了 " + (r.movedR >= 0 ? "+" : "−") + Math.abs(r.movedR).toFixed(1) + "R" : "") + "。" : "");
+      el.appendChild(action(r)); line = null;
     } else if (r.state === "ready") {
       var got = (r.lag || []).filter(function (g) { return g.price !== null; });
       var trig = got.length ? got.slice().sort(function (a, b) { return (a.price - b.price) * r.dir; })[got.length - 1].price : null;
@@ -94,7 +99,7 @@
       var w = (r.paths || [])[0];
       line = "周线" + way(r.dirs.W) + "、日线" + way(r.dirs.D) + "、4 小时" + way(r.dirs["4H"]) + "，不一致。" + (w ? "最近的一步：" + w.steps.map(function (s) { return TFN[s.tf] + "收盘" + (w.to > 0 ? "站上 " : "跌破 ") + px(p, s.price); }).join("、") + " → 三个大周期同向" + way(w.to) + "。" : "");
     }
-    el.appendChild(h("p", { class: "fx-l", text: line }));
+    if (line) el.appendChild(h("p", { class: "fx-l", text: line }));
     var foot = [];
     if (r.dir && r.since3) foot.push("大方向已持续 " + Math.max(0, Math.round((Date.now() - r.since3) / 86400000)) + " 天");
     if (r.dir && r.flipOut !== null && r.flipOut !== undefined) foot.push("4 小时收盘" + (buy ? "跌破 " : "站上 ") + px(p, r.flipOut) + " 就结束");
@@ -102,6 +107,26 @@
     foot.push("K 线到 " + sgt(r.at));
     el.appendChild(h("p", { class: "fx-f", text: foot.join(" · ") }));
     return el;
+  }
+  // A pair you can trade now: which way, the three prices, and a plan to copy into MT5.
+  function action(r) {
+    var p = r.p, k = r.plan, buy = r.dir > 0, side = buy ? "buy" : "sell";
+    var box = h("div", { class: "fx-act " + side, id: "sig-" + p.i.replace("/", "") });
+    box.appendChild(h("div", { class: "fx-act-h" }, [h("b", { text: buy ? "▲ 买入" : "▼ 卖出" }), h("span", { text: (buy ? "BUY" : "SELL") + " · 五个周期都" + (buy ? "向上" : "向下") }), h("span", { class: "fx-un", text: "未验证" })]));
+    var g = h("div", { class: "fx-act-g" }), tile = function (k1, v, d, cls) { g.appendChild(h("div", { class: cls || "" }, [h("i", { text: k1 }), h("b", { class: "mono", text: v }), h("s", { text: d })])); };
+    tile("入场", px(p, k.entry), "现价");
+    tile("止损", px(p, k.stop), (buy ? "−" : "+") + pips(p, k.dist), "st");
+    tile("目标 3R", px(p, k.tp1), (buy ? "+" : "−") + pips(p, 3 * k.dist), "tg");
+    box.appendChild(g);
+    box.appendChild(h("p", { text: "或者不设目标：每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + pips(p, k.trail) + "，三个大周期不再同向就离场（大趋势里更能拿住利润）。" }));
+    if (r.since5) box.appendChild(h("p", { class: "fx-age", text: "信号 " + ago(r.since5) + "出现" + (r.sigPx ? "（当时 " + px(p, r.sigPx) + "）" : "") + (typeof r.movedR === "number" ? "，之后已走 " + (r.movedR >= 0 ? "+" : "−") + Math.abs(r.movedR).toFixed(1) + "R" : "") + "。上面的止损和目标已按现价重算。" }));
+    var plan = p.i + " " + (buy ? "买入" : "卖出") + " · 入场 " + px(p, k.entry) + " · 止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "）· 目标 " + px(p, k.tp1) + "（3R）· 或跟踪止损 " + pips(p, k.trail) + " · 信号 " + (r.since5 ? sgt(r.since5) + " SGT" : "") + " · 外汇上未经回放验证";
+    var btn = h("button", { type: "button", class: "btn sm", text: "复制计划", onclick: function () {
+      var done = function () { btn.textContent = "已复制 ✓"; setTimeout(function () { btn.textContent = "复制计划"; }, 1600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(plan).then(done, function () { window.prompt("复制这段：", plan); }); else window.prompt("复制这段：", plan);
+    } });
+    box.appendChild(h("div", { class: "fx-act-b" }, [btn]));
+    return box;
   }
   function way(d) { return d > 0 ? "向上" : d < 0 ? "向下" : "不明"; }
 
