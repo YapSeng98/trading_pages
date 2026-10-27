@@ -1,11 +1,25 @@
 {
- "updated": "2026-10-28 01:28 SGT",
+ "updated": "2026-10-28 01:58 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold reclaims $4,060 as Oil retreats ahead of crucial Fed decision",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNckgtNmRVa0pMX3lGU2pIQkU5cmNHRUFjNlpUeGJkM1BjdVVYVFY1Z3c3WHhtR0ZEc2NibVVhR3lNTnZwTWJkbUJtemItSWtSN0h5M19jWWs1VVkzNE5jZXVseW5aMnBNaEt3TWZJVjZPUExPdUpRemdZMFZkTURIT0RDdG5INWxDNzYwOW9DMS03T1ExZElzU1E1b3hZVHNyaVdKNWNWbjl2dmNs?oc=5",
+   "ms": 1793122841000,
+   "time": "10/28 01:40"
+  },
+  {
+   "t": "Gold price needs to build a floor here or face a deeper correction - Standard Chartered’s Cooper",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSkFmQ3ZSYmFHZlZ5V055N3BTYU5FSzZWWmd3LWxfTFZwVmhsQWJTMzdBVjNvUVN6M19ZYzd3anFpQ0I4Rl9RWGdyaVo5a2JWUEpoUGctT20xdnpTOGdGVGZZX0p1dEw1RFR3VkpQbWQ2VUZlNUtsdjJiR0hJRk1zeV9nR0pqX3l2UnE3Wng0YmhFYzdyZjM1TVhQYWVQb2hWUWRmRktCZjZRSi0wNzV2ZTJJNGQ?oc=5",
+   "ms": 1793122688000,
+   "time": "10/28 01:38"
+  },
   {
    "t": "We don’t understand the gold price",
    "src": "Financial Times",
@@ -57,10 +71,10 @@
   },
   {
    "t": "Freeport beats Q3 estimates on higher copper, gold prices By Investing.com",
-   "src": "Investing.com Australia",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNb0ZrYXRSSTVkejdfVTlWRlVoeW9KbUVDZnkwOEZFS18wdHR6emJVSmRYbDdlRVE0RndYeENhYXJVYV9SVUxrdWtuUHZtZEFIbE0tU0h4U1FTWndJbFEtU3pYX0o2b1YyUllnbEFxMWxDMkNhczVVY2l3MjhERHRNV3ZiUEpNMFlCZEZrYlZ3eGEtcy1UcVR0Nl9JQm5CVmRiQmNBTmxn?oc=5",
-   "ms": 1793105555000,
-   "time": "10/27 20:52"
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUUJTNENEYVhmcFJRbExPb2VRUEtWOGRwcTJ0SWNWcFlSQlZDX3gzcXdpUDZZdVRORG02U2tFSUgzRjZIUkdMWmVCVVZXOVBFT0Z1ME9BNHM5a29RUmNHUkdveHpnV21yeVRXM1dWc3BjeFAyRXEwNEZLNjdBY3lvWW51aWVkaExDdmt6TjVielNUNi1WQU5hUEJybEdBcnotV1pVMkdR?oc=5",
+   "ms": 1793105886000,
+   "time": "10/27 20:58"
   },
   {
    "t": "Gold price today, Tuesday, October 27, 2026: Gold prices slipping closer to $4,000 ahead of Fed meeting",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcDY2T2dHeXp1anl0WVRhbDItM1ppQVJFSDRiVkFTLVdOZkNUalBsekIzTmhaaTd4OG1NU2QzSkpmbWc3dXN6Q3EwQVUwWmVxYkhLc2NVMENRdTRqU2xvLU1rbzZmTldHUU5oZWppNnptUGZhLUR6RDE0YWRkUUUxNUR3VTlaQmhpdUdfTV95VmpiLUZqb2FPWTlQU3E2LWs?oc=5",
    "ms": 1793089404000,
    "time": "10/27 16:23"
-  },
-  {
-   "t": "Gold Is Testing $4,000 — Could These 10 Mining Stocks Rebound First?",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQa2h5RDF2RWRyNVljdmt5Y0tkN2Y1M0laQVVoNklHQWdsYTA3MGNISVBzbl9hdm12RDczaEcxUFZvOWFKRDNfT2ZtdGkyc01fX1JCTC1NeVlqblBReVBsNGxBUHZXOGZYUHlqNmQzTF91OXNXaC1GNXVSSjN4MEIyY09tczY4c3RnWDZVX3lrQlV2cnBOYndKWDhlU3kxbld5SjlmeFNGQzFvU1dKMUE?oc=5",
-   "ms": 1793088954000,
-   "time": "10/27 16:15"
-  },
-  {
-   "t": "Gold gains on softer oil prices ahead of Fed meeting",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQWIyeWVhRnVBaHZfV05HanpZVFJzZDZiaC1MTEFVX0JEbWc5RVhRV3htMnJFMDNCVjBPWTJISkhha3ZWc3otaXBCTGloREJidmlqOWtXMTQ4Zks2aTA5czBzNC1OdGNuVXlqLVZ4TTk3M1VUSEZvdVdCLXV3bHJsZXBHSktGcXR0dk1wS2VYdWYxTm9ueGc?oc=5",
-   "ms": 1793079960000,
-   "time": "10/27 13:46"
   }
  ]
 }

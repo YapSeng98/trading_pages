@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-28 01:28 SGT",
+ "updated": "2026-10-28 01:58 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 80634,
- "priceTime": "2026-10-28 01:15 SGT",
+ "price": 80697.5,
+ "priceTime": "2026-10-28 01:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 80150.6,
-  "high": 80704.9,
+  "high": 80836,
   "low": 79506,
-  "changeFromPrevClose": 483.4,
-  "changePct": 0.6,
+  "changeFromPrevClose": 547,
+  "changePct": 0.68,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -131,18 +131,13 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-10-27 20:30 SGT",
-   "rsi": 64.6,
-   "atr": 198.33,
-   "turnsUpAbove": 80704.9,
+   "rsi": 64.7,
+   "atr": 195.45,
+   "turnsUpAbove": null,
    "turnsDownBelow": 79890
   }
  ],
  "resistance": [
-  {
-   "price": 80640.8,
-   "what": "4小时区间中点",
-   "strength": 1
-  },
   {
    "price": 80704.9,
    "what": "1小时区间顶",
@@ -162,9 +157,19 @@
    "price": 81033.7,
    "what": "4小时双底关键位",
    "strength": 2
+  },
+  {
+   "price": 81734,
+   "what": "4小时 200 均线",
+   "strength": 2
   }
  ],
  "support": [
+  {
+   "price": 80640.8,
+   "what": "4小时区间中点",
+   "strength": 1
+  },
   {
    "price": 80388.4,
    "what": "1小时向上转折位",
@@ -184,11 +189,6 @@
    "price": 79451.4,
    "what": "1小时等低点（止损密集）、1小时前低、1小时区间底、4小时近期小低点、1小时近期小低点",
    "strength": 6
-  },
-  {
-   "price": 79368.7,
-   "what": "昨日低点、4小时前低、4小时双顶关键位",
-   "strength": 7
   }
  ],
  "record": {

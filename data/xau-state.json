@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-28 01:28 SGT",
+ "updated": "2026-10-28 01:58 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4059,
- "priceTime": "2026-10-28 01:15 SGT",
+ "price": 4062.9,
+ "priceTime": "2026-10-28 01:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4018.3,
-  "high": 4064.5,
+  "high": 4065.5,
   "low": 3989,
-  "changeFromPrevClose": 43.1,
-  "changePct": 1.07,
+  "changeFromPrevClose": 47.1,
+  "changePct": 1.17,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -63,9 +63,9 @@
  },
  "verdict": {
   "level": "ready",
-  "tag": "等小周期转空",
-  "title": "大方向向下，等小周期转回来再卖",
-  "text": "周线、日线、4 小时都向下，但 1 小时和 15 分钟还在反弹。等它重新转成向下再进；提前接反弹在回放里没有优势。",
+  "tag": "反弹中 · 大方向向下",
+  "title": "大方向向下，现在在反弹（1 小时、15 分钟向上）",
+  "text": "周线、日线、4 小时都向下；1 小时和 15 分钟已经转向上，价格在反弹。按规则：不追这段反弹（逆着三个大周期做，回放里长期亏损），也先不卖；反弹结束、小周期转回向下，才是做空信号。4 小时收盘站上 4,145.6（差 82.8）：三个大周期不再同向，变成观望。要转成做多方向，还要日线收盘站上 4,216.9（差 154.0）、周线收盘站上 4,696.6（差 633.8）。",
   "reasons": [
    {
     "label": "大方向",
@@ -206,24 +206,24 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-10-27 21:45 SGT",
-   "rsi": 76.1,
-   "atr": 6.83,
-   "ema20": 4045.5,
-   "ema50": 4029.2,
-   "ema200": 4022.1,
+   "rsi": 78.5,
+   "atr": 6.44,
+   "ema20": 4048.5,
+   "ema50": 4031.7,
+   "ema200": 4022.9,
    "emaOrder": "多头排列",
    "range": {
-    "top": 4064.5,
+    "top": 4065.5,
     "bottom": 3989,
-    "positionPct": 93
+    "positionPct": 97
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4025.5,
-    "barsAgo": 14
+    "barsAgo": 16
    },
-   "turnsUpAbove": null,
+   "turnsUpAbove": 4064.5,
    "turnsDownBelow": 3993.1
   }
  ],
