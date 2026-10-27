@@ -1,11 +1,18 @@
 {
- "updated": "2026-10-27 10:11 SGT",
+ "updated": "2026-10-27 14:10 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Price Forecast: XAU/USD trades with caution as Fed’s policy takes centre stage",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxON2xlZ3VVNlExVV9MOHZKR3N3S3ZUMjdrNTE1SUtnc0Jjb3NVZmkyRlNuNWFuTDUzWmQzVUdoZnFBSmhicWhyR0Itc3JlNTZhVTJPdE5qeERKaG1kQnh1SlpTaTJhVVl4djdhS01qRUduTklXOWRhRERyNWVZQUx0Vlk1dUxzclFJYkVlTVl0UUdNalNFM1A1c2R2cVBLbmhHTmQtZkpBeF9kbFBTLTY2dEZ5VV9NUWRaUkoxM3ZWQkpobmhjQS1j?oc=5",
+   "ms": 1793071822000,
+   "time": "10/27 11:30"
+  },
   {
    "t": "Gold Price Crashed 25%, But Investors are Still Buying",
    "src": "Yahoo Finance",
@@ -28,11 +35,11 @@
    "time": "10/27 07:10"
   },
   {
-   "t": "Geopolitical tensions complicate the gold bull case, says AHG president",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcXhiWkhNYm1fUFo0SFM2WVd3ZjJxcEMyS2w3ZjBoUk1Wb1Utd0o1cFhacEFOMzJCd1lLdVNUcVBfZmJCZkFmU3FrMmZrLVhBaVlCSnE3OVFKejhjc2NMbkp5MmQzLXRLNElMUWpuTi02NGM2ZFZ2RXI1TnZwSVZJeW5XdmhST29tWk9ZRGpoVmlDRDFtSl9YOVF4ODBVRTlRQ1laU21zNS05ZlhfTzFKYk1B?oc=5",
-   "ms": 1793039078000,
-   "time": "10/27 02:24"
+   "t": "Newmont stands out among oversold mining stocks as gold miners trade at a discount",
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQYUNwRXpEcWZYNk9KQWkybjBkNkFSRkl4dGdUWC1NNEJ0cWE5UURhY3BzblBNWUVMRFMzbXlnTGpDSHBOTW1uSGkzeWhpSjdnUXk0UnJvaTBFS0tZV1hsSHdVd3BNSmIzcC04QTAxdEFvWnhtLWcyOHVvNlFOSVZvV21NU0xRaHhCLThhY0hjdXFzQmR5dnE5M2JxeVM2U3lPZUVDcGR1eHRKWHNuMmUtVG0xanZackhFZnBvajltb1pjSHUyWHFvV1FpRjRuWGVwVmRNQnVPckJ0cGM?oc=5",
+   "ms": 1793042990000,
+   "time": "10/27 03:29"
   },
   {
    "t": "Gold reclaims $4,000 as Oil eases, Fed decision tests recovery",
@@ -47,6 +54,13 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUHhqQkVQaWN4T3FHOTAzXzdRTV90VlpQYTBHdHdIMnVGbDhPeTNiZEVPbVc0Q01IZnBiRjVoQXV3NWNSdFVzWkJiWXBYSVJTRjREbjZpREpJcURiZzhtLVpHTDNwWjQySFpOOXFlQlBBclZlRVZ5dDE3MERKXzVQX2tsQWV0QzRBR1VfczNESVBiUTc4VU9QSXlLbTZoenptdnlDZHoxVnhUaW1uMHUwNkdKMUdqN0E?oc=5",
    "ms": 1793035410000,
    "time": "10/27 01:23"
+  },
+  {
+   "t": "Gold consolidates near $4,000 as recovery remains fragile ahead of Fed decision",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNN2pzcmtkTXhMeEhlSU53NGcwOHA5ZXYzT1BOcThjdm5vTUpNMDdjR2Y5V2t3NWtfbjBsUGZJZ1hjVkNjY1dxZ1owdGh0WUM1d29DbFE0ckt5Ukt4VjhEUVo0QjR3eU9lMWZNZDBCOXFfUnFUOWdrU3BNNldxVDIzcThYWFNsb1lyWndSeGtBV3NFRGlHVHFyWmFMdHluZUFpOXRJMWpuTi1mLVdjTV9uWVl2OWpUM0dwZ2dvTmFB?oc=5",
+   "ms": 1793026967000,
+   "time": "10/26 23:02"
   },
   {
    "t": "Gold Reclaims $4000 as Data Show Modest Speculative Retreat Before Latest Sell-Off",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOT1ZTMXZVVE9HY09kbGlTUF9keDlSZTFFUVFIc0tEa1JIOGUzdzNlOGI2TS02bEhIZWdjeGc0cUxRUXZOdUs2OFkxYW45ekJtZEotTXRob1BMUzJjc3Y1SXlVQnpxZHdZVDJ0cU16Y3FZZXlzQ0dMNHVuclVQMUxqaXo0ZGVHSTFjTndCdmNn?oc=5",
    "ms": 1793017569000,
    "time": "10/26 20:26"
-  },
-  {
-   "t": "Gold prices today, Monday, October 26, 2026: Gold opens at 3-month lows at the start of Fed week",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOUUVBTXJ0WUFrQkcxUEJKRlJVeGhURDlYTFd0MzJRZ045bUwwb1N1MzBOOHB3Wk0wOC1saURvVEVRMm9SNGpCYzQ5cmZFaUZubnJkY19sa3dtQ0Q0ZkV4Q0ludmgyeEk4QW9BaXY5Rm1famlDNWMzVHFwN2gzUzdBVGp3X093WXpNOXcyZi1JVnNOMXRlODJhVXd0S3dmTkM4Vm45c1hXelJ2WDZnOGVSMWNwbDNfdE1tdG15Tk5yMnpWTHg4c3cyVW5xNlJhbDR6YlZRWjhDdjNhWS1CbHpsaHF3TXlCSDRFWFpBUE1kakpOWGpOcVA2SzBWbGo?oc=5",
-   "ms": 1793013424000,
-   "time": "10/26 19:17"
-  },
-  {
-   "t": "Gold clings to recovery gains above $4,000 as FOMC risk looms",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZ1VFckNUaUtDNkpsb2NmeG9GZG9LX1NITzRxVGd2cHl5YnNBNlBYYUIxYkpaVUZFMXFKU0N2ZVVRZzBvSGZCaWNpb25hdmg4LXJ1Yi1oTlktOHVPaURKUWt1RFJhYkdCcFMzdVVTdVlEQUkxZ0JFNU41Yzg4bHhpejhhZEFnbHhucVRxdDVoWDhNVllWMzlMandteGN6RVp3bTBUYllpUHF5cWpwYnNFYkh4MnJOeTVNNS1MV01kRkRoMTRkLXF6ag?oc=5",
-   "ms": 1793004718000,
-   "time": "10/26 16:51"
   }
  ]
 }
