@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27 05:34 SGT",
+ "updated": "2026-10-27 08:53 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Geopolitical tensions complicate the gold bull case, says AHG president",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcXhiWkhNYm1fUFo0SFM2WVd3ZjJxcEMyS2w3ZjBoUk1Wb1Utd0o1cFhacEFOMzJCd1lLdVNUcVBfZmJCZkFmU3FrMmZrLVhBaVlCSnE3OVFKejhjc2NMbkp5MmQzLXRLNElMUWpuTi02NGM2ZFZ2RXI1TnZwSVZJeW5XdmhST29tWk9ZRGpoVmlDRDFtSl9YOVF4ODBVRTlRQ1laU21zNS05ZlhfTzFKYk1B?oc=5",
-   "ms": 1793039078000,
-   "time": "10/27 02:24"
+   "t": "Gold rebounds above $4,000 amid hopes of easing US‑Iran tensions",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOR2h0TkR3TDJRYzVCLThGNTBZV1lScHB4NU1veVJXRERvaEpwX0o5NUdVSXV3TVB3Z05JMENoQkVIampiOWNrUGZuOGhCLXBqcXdSS0JWbkp5c3BULVdPUVhrLWJtZjFxcmhYM05pLXV5WmJ2VFhlU3g4ZGJoVzNXNjhhWENsVFY1c0cwNnp6UUdGRXJJbk5iRk4zN1kyS1Q2dldmd29DM0pEUQ?oc=5",
+   "ms": 1793056859000,
+   "time": "10/27 07:20"
+  },
+  {
+   "t": "Newcore Gold says market undervalues Enchi after PFS - Luke Alexander",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNX2dJS3lIQ29lTFNITjBZb0dtekZfS0dOZFhZSkpQNFIxanZNVGFfZzFxNnphV3hJejNoblc1X0dDSVU5RkxCYzZXRWVuYlZFMFhabGRkM2o4TnZvY2pqM0hldGlMV1Y4NldZYS1rSWl6STItZFBhekNPU3I4TUFkQW5uYmQ4OTJSTXBVUDdfVnRpWHV4bWtKc19mVGV4T3ozVDJza2dHcFdxN2N2TUZ1NUpuUnA4Y3c?oc=5",
+   "ms": 1793056229000,
+   "time": "10/27 07:10"
   },
   {
    "t": "Gold reclaims $4,000 as Oil eases, Fed decision tests recovery",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUHhqQkVQaWN4T3FHOTAzXzdRTV90VlpQYTBHdHdIMnVGbDhPeTNiZEVPbVc0Q01IZnBiRjVoQXV3NWNSdFVzWkJiWXBYSVJTRjREbjZpREpJcURiZzhtLVpHTDNwWjQySFpOOXFlQlBBclZlRVZ5dDE3MERKXzVQX2tsQWV0QzRBR1VfczNESVBiUTc4VU9QSXlLbTZoenptdnlDZHoxVnhUaW1uMHUwNkdKMUdqN0E?oc=5",
    "ms": 1793035410000,
    "time": "10/27 01:23"
-  },
-  {
-   "t": "Gold consolidates near $4,000 as recovery remains fragile ahead of Fed decision",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNN2pzcmtkTXhMeEhlSU53NGcwOHA5ZXYzT1BOcThjdm5vTUpNMDdjR2Y5V2t3NWtfbjBsUGZJZ1hjVkNjY1dxZ1owdGh0WUM1d29DbFE0ckt5Ukt4VjhEUVo0QjR3eU9lMWZNZDBCOXFfUnFUOWdrU3BNNldxVDIzcThYWFNsb1lyWndSeGtBV3NFRGlHVHFyWmFMdHluZUFpOXRJMWpuTi1mLVdjTV9uWVl2OWpUM0dwZ2dvTmFB?oc=5",
-   "ms": 1793026967000,
-   "time": "10/26 23:02"
   },
   {
    "t": "Gold Reclaims $4000 as Data Show Modest Speculative Retreat Before Latest Sell-Off",
@@ -105,7 +105,7 @@
    "time": "10/26 11:26"
   },
   {
-   "t": "Gold gains as easing oil prices soothe inflation jitters",
+   "t": "Gold jumps as easing oil prices eases inflation fears",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcFQ1alE2OUhRMWJwbU5GeldSU1h4MWVJMXotUG5GVEkzUnlxb1hsTVJzYnZkRE15X2phMHRRNUtyWXlURGxhSHp5blFJUGVXRFFUZVVTSTE2VlNHbW9ET0t6SmVYY3paMTBnemRYZXBFa3M4Z1RNemZieWJoVE14MVM4clFBMWlkZkt1ZGJUQ010dnI5MGQ5V1Rzc2hWYWtHU1JEY1N6cE1IUHp3Q2tPUVUtUHU1bUVTcGlQX3cxT3psU0U4?oc=5",
    "ms": 1792983853000,
