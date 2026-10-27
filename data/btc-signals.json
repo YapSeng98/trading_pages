@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1793103300000,
+ "lastChecked": 1793121300000,
  "a3": 0,
  "a5": 0,
  "open": null,
@@ -355,13 +355,35 @@
    "level": 79728.57,
    "a3": 0,
    "a5": 0
+  },
+  {
+   "ms": 1793104200000,
+   "time": "2026-10-27 20:30 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 80248.16,
+   "level": 80162.44,
+   "a3": 0,
+   "a5": 0
+  },
+  {
+   "ms": 1793116800000,
+   "time": "2026-10-28 00:00 SGT",
+   "tf": "1H",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 80562.27,
+   "level": 80388.37,
+   "a3": 0,
+   "a5": 0
   }
  ],
  "trends": {
   "W": "bullish",
   "D": "bearish",
   "4H": "bearish",
-  "1H": "bearish",
-  "15M": "bearish"
+  "1H": "bullish",
+  "15M": "bullish"
  }
 }
