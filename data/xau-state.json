@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-27 16:08 SGT",
+ "updated": "2026-10-27 20:23 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3998,
- "priceTime": "2026-10-27 16:00 SGT",
+ "price": 4013.1,
+ "priceTime": "2026-10-27 20:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4018.3,
   "high": 4025.5,
-  "low": 3997,
-  "changeFromPrevClose": -17.8,
-  "changePct": -0.44,
+  "low": 3989,
+  "changeFromPrevClose": -2.8,
+  "changePct": -0.07,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -80,17 +80,17 @@
    {
     "label": "形态",
     "ok": null,
-    "text": "日线双顶（已向下突破）；1 小时双顶（已向下突破），和大方向一致（只作参考）"
+    "text": "日线双顶（已向下突破），和大方向一致（只作参考）"
    }
   ]
  },
  "plan": {
   "side": "做空",
-  "entry": 3998,
-  "stop": 4036.7,
-  "target": 3882,
-  "stopDistance": 38.7,
-  "trailDistance": 77.3,
+  "entry": 4013.1,
+  "stop": 4051.9,
+  "target": 3896.6,
+  "stopDistance": 38.8,
+  "trailDistance": 77.6,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -156,22 +156,22 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-23 01:00 SGT",
-   "rsi": 36.4,
-   "atr": 26.46,
-   "ema20": 4034.8,
-   "ema50": 4079.9,
-   "ema200": 4183.8,
+   "rsi": 32.7,
+   "atr": 26.21,
+   "ema20": 4031,
+   "ema50": 4076.6,
+   "ema200": 4182,
    "emaOrder": "空头排列",
    "range": {
     "top": 4198.8,
     "bottom": 3975.3,
-    "positionPct": 16
+    "positionPct": 9
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4073.3,
-    "barsAgo": 15
+    "barsAgo": 16
    },
    "turnsUpAbove": 4145.6,
    "turnsDownBelow": 3975.3
@@ -181,24 +181,24 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-10-22 12:00 SGT",
-   "rsi": 41.1,
-   "atr": 12.89,
-   "ema20": 4009.5,
-   "ema50": 4018.9,
-   "ema200": 4080.9,
-   "emaOrder": "空头排列",
+   "rsi": 52.1,
+   "atr": 12.94,
+   "ema20": 4008,
+   "ema50": 4016.8,
+   "ema200": 4077.9,
+   "emaOrder": "交错",
    "range": {
     "top": 4102.6,
     "bottom": 3975.3,
-    "positionPct": 18
+    "positionPct": 29
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 4066.6,
-    "barsAgo": 65
+    "barsAgo": 69
    },
-   "turnsUpAbove": 4029.7,
+   "turnsUpAbove": 4025.5,
    "turnsDownBelow": 3988.5
   },
   {
@@ -206,42 +206,37 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-27 13:30 SGT",
-   "rsi": 37.3,
-   "atr": 6.37,
-   "ema20": 4006.7,
-   "ema50": 4010.1,
-   "ema200": 4019.8,
-   "emaOrder": "空头排列",
+   "rsi": 60.7,
+   "atr": 6.66,
+   "ema20": 4005.4,
+   "ema50": 4006.7,
+   "ema200": 4017.1,
+   "emaOrder": "交错",
    "range": {
     "top": 4025.5,
-    "bottom": 3997,
-    "positionPct": 3
+    "bottom": 3989,
+    "positionPct": 66
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4005.5,
-    "barsAgo": 10
+    "barsAgo": 27
    },
    "turnsUpAbove": 4025.5,
-   "turnsDownBelow": null
+   "turnsDownBelow": 3993.1
   }
  ],
  "resistance": [
   {
-   "price": 4003.6,
-   "what": "1小时双顶关键位",
+   "price": 4025.5,
+   "what": "1小时前高、1小时近期小高点",
    "strength": 2
   },
   {
-   "price": 4025.5,
-   "what": "1小时近期小高点",
-   "strength": 1
-  },
-  {
    "price": 4029.7,
-   "what": "昨日高点、1小时前高、4小时近期小高点",
-   "strength": 5
+   "what": "昨日高点、4小时近期小高点",
+   "strength": 4
   },
   {
    "price": 4065.6,
@@ -252,13 +247,23 @@
    "price": 4073.3,
    "what": "4小时向下转折位",
    "strength": 1
+  },
+  {
+   "price": 4087.1,
+   "what": "4小时区间中点",
+   "strength": 1
   }
  ],
  "support": [
   {
-   "price": 3988.5,
-   "what": "1小时前低、4小时近期小低点",
+   "price": 4003.6,
+   "what": "1小时双顶关键位",
    "strength": 2
+  },
+  {
+   "price": 3988.5,
+   "what": "1小时前低、4小时近期小低点、1小时近期小低点",
+   "strength": 3
   },
   {
    "price": 3977.8,
@@ -274,11 +279,6 @@
    "price": 3941.5,
    "what": "周线前低、周线区间底",
    "strength": 6
-  },
-  {
-   "price": 3905.2,
-   "what": "日线双顶目标",
-   "strength": 1
   }
  ],
  "rules": "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
