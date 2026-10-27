@@ -22,7 +22,7 @@
   ];
   var F = window.XauFeed, $ = function (id) { return document.getElementById(id); }, DAY = 86400;
   var ls = { get: function (k, d) { try { var v = localStorage.getItem("trend." + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }, set: function (k, v) { try { localStorage.setItem("trend." + k, JSON.stringify(v)); } catch (e) {} } };
-  var S = { rows: {}, res: {}, busy: false, lastQ: -1, base: null, notify: ls.get("notify", true), acct: ls.get("acct", { bal: 10000, risk: 0.15 }) };
+  var S = { rows: {}, res: {}, busy: false, lastQ: -1, base: null, notify: ls.get("notify", true), acct: ls.get("acct", { bal: 10000, risk: 0.05 }), swing: null };
   function h(tag, attrs, kids) {
     var e = document.createElement(tag), k;
     for (k in (attrs || {})) { var v = attrs[k]; if (v === null || v === undefined || v === false) continue; if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); }
@@ -141,10 +141,21 @@
     if (S.notify && "Notification" in window && Notification.permission === "default") { Notification.requestPermission().then(renderAlert); return; }
     S.notify = !S.notify; ls.set("notify", S.notify); if (S.notify && "Notification" in window && Notification.permission === "default") Notification.requestPermission().then(renderAlert); renderAlert();
   });
+  function riskNote() {
+    var w = S.swing, r = S.acct.risk, el = $("tr-risknote"); if (!el) return; while (el.firstChild) el.removeChild(el.firstChild);
+    if (!w || !(r > 0)) return;
+    var f = function (v) { return (Math.round(v * 10) / 10).toFixed(1); }, big = r > 0.08;
+    el.className = "risknote" + (big ? " hi" : "");
+    el.appendChild(h("span", { text: "按你设的 " + r + "%：回放里（2011 年起，" + "所有市场一起持有）账户每天波动约 " + f(w.daySwingPer1pct * r) + "%、一年约 " + Math.round(w.yearSwingPer1pct * r) + "%，最差的一天 " + f(w.worstDayPer1pct * r) + "%，最深回撤约 " + Math.round(w.worstFallPer1pct * r) + "%。" + (big ? "偏大：很多货币对都对着美元，常常一起亏。" : "") }));
+    if (big) el.appendChild(h("button", { type: "button", class: "btn", text: "改成 0.05%", onclick: function () { S.acct.risk = 0.05; ls.set("acct", S.acct); $("tr-risk").value = 0.05; riskNote(); render(); } }));
+  }
   ["bal", "risk"].forEach(function (k) {
     var inp = $("tr-" + k); inp.value = S.acct[k];
-    inp.addEventListener("input", function () { var v = parseFloat(inp.value); if (isFinite(v) && v > 0) { S.acct[k] = v; ls.set("acct", S.acct); render(); } });
+    inp.addEventListener("input", function () { var v = parseFloat(inp.value); if (isFinite(v) && v > 0) { S.acct[k] = v; ls.set("acct", S.acct); riskNote(); render(); } });
   });
+  fetch("research/world/result.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    S.swing = d && d.out && d.out.pageMix && d.out.pageMix.trendAcct || null; riskNote();
+  }).catch(function () {});
   $("tr-refresh").addEventListener("click", scan);
   // the replay behind the page, from its own results file
   fetch("research/trend-daily/result.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {

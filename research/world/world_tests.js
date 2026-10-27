@@ -50,19 +50,19 @@ const line = (name, t, R) => { const a = stats(t, R), b = stats(t, R, 0, Y2010),
 // ---------- T1: RSI(2) mean reversion on stock indices (long only, as published) ----------
 function rsi2(c) { const o = new Float64Array(c.length).fill(NaN); let g = 0, l = 0; for (let i = 1; i < c.length; i++) { const d = c[i] - c[i - 1], up = Math.max(d, 0), dn = Math.max(-d, 0); if (i <= 2) { g += up / 2; l += dn / 2; if (i === 2) o[i] = l === 0 ? 100 : 100 - 100 / (1 + g / l); } else { g = (g + up) / 2; l = (l + dn) / 2; o[i] = l === 0 ? 100 : 100 - 100 / (1 + g / l); } } return o; }
 function sma(c, n) { const o = new Float64Array(c.length).fill(NaN); let s = 0; for (let i = 0; i < c.length; i++) { s += c[i]; if (i >= n) s -= c[i - n]; if (i >= n - 1) o[i] = s / n; } return o; }
-function meanRev(t, c, cost, both, sized, fin = 0) {
+function meanRev(t, c, cost, both, sized, fin = 0, stop = 0) {
   const n = c.length, r = c.map((v, i) => (i && c[i - 1] > 0 && v > 0 ? v / c[i - 1] - 1 : 0)), R = new Float64Array(n).fill(NaN);
-  const rs = rsi2(c), m200 = sma(c, 200), m5 = sma(c, 5), trades = [], P = new Float64Array(n); let pos = 0, w = 1, entry = 0, inDays = 0;
+  const rs = rsi2(c), m200 = sma(c, 200), m5 = sma(c, 5), trades = [], tradeAt = [], P = new Float64Array(n); let pos = 0, w = 1, entry = 0, inDays = 0;
   const vol = i => { let s = 0, s2 = 0; for (let k = i - 62; k <= i; k++) { s += r[k]; s2 += r[k] * r[k]; } return Math.sqrt(Math.max(s2 / 63 - (s / 63) ** 2, 1e-12)); };
   for (let i = 200; i < n; i++) {
     R[i] = pos * w * r[i] - (pos ? w * fin / 252 : 0); if (pos) inDays++;
     let next = pos;
-    if (pos > 0 && c[i] > m5[i]) next = 0; else if (pos < 0 && c[i] < m5[i]) next = 0;
+    if (pos > 0 && (c[i] > m5[i] || (stop && c[i] <= entry * (1 - stop)))) next = 0; else if (pos < 0 && (c[i] < m5[i] || (stop && c[i] >= entry * (1 + stop)))) next = 0;
     if (next === 0 && pos === 0) { if (c[i] > m200[i] && rs[i] < 10) next = 1; else if (both && c[i] < m200[i] && rs[i] > 90) next = -1; }
-    if (next !== pos) { R[i] -= cost / 10000 * w; if (pos) trades.push((c[i] / entry - 1) * pos - 2 * cost / 10000); if (next) { entry = c[i]; w = sized ? Math.min(4, 0.01 / vol(i)) : 1; } pos = next; }
+    if (next !== pos) { R[i] -= cost / 10000 * w; if (pos) trades.push((c[i] / entry - 1) * pos - 2 * cost / 10000); if (pos) tradeAt.push(t[i]); if (next) { entry = c[i]; w = sized ? Math.min(4, 0.01 / vol(i)) : 1; } pos = next; }
     P[i] = pos * w;
   }
-  return { R, trades, inMarket: inDays / (n - 200), P };
+  return { R, trades, tradeAt, inMarket: inDays / (n - 200), P };
 }
 console.log("==== T1 Connors RSI(2) on stock indices: long only, buy below RSI 10 above the 200-day, sell above the 5-day ====");
 const IDX = [["Nasdaq Composite", csv(TD, "NASDAQCOM")], ["Nasdaq 100", csv(TD, "NASDAQ100")], ["Nikkei 225", csv(WD, "NIKKEI225")]];
@@ -241,6 +241,69 @@ for (const [name, d] of [["Nasdaq Composite", nq], ["Nasdaq 100", nq100]]) {
   console.log("  gold 4-hour rule as a 4th part (monthly, from " + y0 + "): gold rule alone Sharpe " + f2(shM(mG)).trim() + " · the three-part mix " + f2(shM(mix3)).trim() + " · mix with the gold rule " + f2(shM(mix4)).trim());
   console.log("  monthly correlation of the gold rule with: trend " + cM(mG, mT).toFixed(2) + " · carry " + cM(mG, mC).toFixed(2) + " · Nasdaq MR " + cM(mG, mN).toFixed(2) + " · the mix " + cM(mG, mix3).toFixed(2));
   out.T5checks.gold4th = { from: y0, goldAlone: +shM(mG).toFixed(2), mix3: +shM(mix3).toFixed(2), mix4: +shM(mix4).toFixed(2), corrTrend: +cM(mG, mT).toFixed(2), corrMix: +cM(mG, mix3).toFixed(2) };
+}
+// ---------- the mix the 分散组合 page shows (information only): gold 4-hour rule + daily trend + Nasdaq 100 dip-buying ----------
+// The trend part is the page's own market list as far as the data here goes (12 currencies, gold, WTI, Brent, Nasdaq 100,
+// Bitcoin, Ethereum: 18 of the page's 19, no silver), each market sized like trend.html and the account holding all of
+// them. Sizing factors: how much one year swings the account, per unit of each part's own risk setting.
+{
+  const PAGE = ["DEXUSEU", "DEXUSUK", "DEXJPUS", "DEXUSAL", "DEXUSNZ", "DEXCAUS", "DEXSZUS", "DEXSDUS", "DEXNOUS", "DEXMXUS", "DEXSFUS", "DEXSIUS", "DCOILWTICO", "DCOILBRENTEU", "NASDAQ100"]
+    .map(id => ({ d: csv(TD, id), cost: /DEX(US|JP|CA|SZ|SD|NO)/.test(id) ? 1.5 : /NASDAQ/.test(id) ? 2 : 5 }))
+    .concat([{ d: fromBars(L.source("duk", 2010, 2026), "ny", L.spotClosed), cost: 1.5 }, { d: fromBars(L.source("btc", 2017, 2026), "utc"), cost: 5 }, { d: fromBars(L.source("bn15:ETHUSDT", 2017, 2026), "utc"), cost: 5 }]);
+  const acc = new Map();   // the account's trend P&L per weekday at 1% daily risk per market: the SUM over markets
+  for (const m of PAGE) {
+    const c = { t: m.d.map(r => r[0]), px: m.d.map(r => r[1]) }, n = c.t.length, rr = c.px.map((v, i) => (i && c.px[i - 1] > 0 && v > 0 ? v / c.px[i - 1] - 1 : 0)), stt = {};
+    let pos = 0, size = 0;
+    for (let i = 253; i < n; i++) {
+      let a = 0, a2 = 0; for (let k = i - 62; k <= i; k++) { a += rr[k]; a2 += rr[k] ** 2; } const vv = Math.sqrt(Math.max(a2 / 63 - (a / 63) ** 2, 1e-12));
+      let ret = pos * size * rr[i]; const p = trendRules(c, i, stt); if (p !== pos) { const ns = Math.min(4, 0.01 / vv); ret -= Math.abs(p * ns - pos * size) * m.cost / 10000; pos = p; size = ns; }
+      const dk = bday(c.t[i]); acc.set(dk, (acc.get(dk) || 0) + ret);
+    }
+  }
+  const aT = [...acc.keys()].sort((a, b) => a - b), aR = aT.map(k => acc.get(k)), aTs = aT.map(k => k * DAY);
+  const ndx = meanRev(nq100T, nq100.map(r => r[1]), 2, false, false);
+  const mon = t => mIdx(t), m0 = mIdx(Date.UTC(2011, 1, 1) / 1000), m1 = mIdx(tr[tr.length - 1].exitT), months = []; for (let m = m0; m <= m1; m++) months.push(m);
+  const byMonth = (t, R) => { const mm = new Map(); for (let i = 0; i < t.length; i++) if (!Number.isNaN(R[i])) mm.set(mon(t[i]), (mm.get(mon(t[i])) || 0) + R[i]); return months.map(m => mm.get(m) || 0); };
+  const gR = new Map(); for (const x of tr) gR.set(mon(x.exitT), (gR.get(mon(x.exitT)) || 0) + x.R * 0.01);   // 1% of the account per R
+  const G = months.map(m => gR.get(m) || 0), T = byMonth(aTs, aR), N = byMonth(nq100T, ndx.R);
+  const mu = a => a.reduce((x, y) => x + y, 0) / a.length, sd = a => { const m = mu(a); return Math.sqrt(a.reduce((x, y) => x + (y - m) ** 2, 0) / (a.length - 1)); };
+  const sh = a => mu(a) / sd(a) * Math.sqrt(12), cor = (a, b) => { const ma = mu(a), mb = mu(b); let s = 0, sa = 0, sb = 0; for (let i = 0; i < a.length; i++) { s += (a[i] - ma) * (b[i] - mb); sa += (a[i] - ma) ** 2; sb += (b[i] - mb) ** 2; } return s / Math.sqrt(sa * sb); };
+  const vG = sd(G) * Math.sqrt(12), vT = sd(T) * Math.sqrt(12), vN = sd(N) * Math.sqrt(12);   // yearly swing of the account per unit setting
+  // every series at the same 10% yearly swing, so falls and years compare like for like
+  const at10 = a => { const k = 0.10 / (sd(a) * Math.sqrt(12)); return a.map(v => v * k); }, G10 = at10(G), T10 = at10(T), N10 = at10(N);
+  const pair = at10(months.map((_, i) => G10[i] + N10[i])), three = at10(months.map((_, i) => G10[i] + T10[i] + N10[i]));
+  const fall = a => { let e = 0, p = 0, d = 0; for (const x of a) { e += x; p = Math.max(p, e); d = Math.max(d, p - e); } return d; };
+  const years = a => { const y = {}; months.forEach((m, i) => { const k = Math.floor(m / 12); y[k] = (y[k] || 0) + a[i]; }); return y; };
+  const card = a => { const y = Object.values(years(a)); return { sharpe: +sh(a).toFixed(2), worstFall: +(fall(a) * 100).toFixed(0), worstYear: +(Math.min(...y) * 100).toFixed(0), losingYears: y.filter(v => v < 0).length, years: y.length }; };
+  const C = { gold: card(G10), trend: card(T10), ndx: card(N10), goldNdx: card(pair), all3: card(three) };
+  console.log("\n==== the 分散组合 page's parts: gold 4-hour rule, daily trend (18 of its 19 markets), Nasdaq 100 dip-buying; monthly from 2011-02, all at the same 10% yearly swing (information only) ====");
+  for (const [k, name] of [["gold", "gold rule"], ["trend", "daily trend"], ["ndx", "Nasdaq 100 dip-buying"], ["goldNdx", "gold + Nasdaq (chosen after seeing these)"], ["all3", "all three"]]) console.log("  " + name.padEnd(42) + "Sharpe " + f2(C[k].sharpe) + "  worst fall " + String(C[k].worstFall).padStart(3) + "%  worst year " + String(C[k].worstYear).padStart(4) + "%  losing years " + C[k].losingYears + "/" + C[k].years);
+  console.log("  correlations: gold-trend " + cor(G, T).toFixed(2) + " · gold-Nasdaq " + cor(G, N).toFixed(2) + " · trend-Nasdaq " + cor(T, N).toFixed(2));
+  console.log("  one year swings the account by: gold rule " + (vG * 100).toFixed(1) + "% per 1% risk a trade · trend " + (vT * 100).toFixed(1) + "% per 1%/day risk a market (18 markets) · Nasdaq dip-buying " + (vN * 100).toFixed(1) + "% per 1x the account bought");
+  // trend.html's account: all markets held together, at 1% daily risk per market, from 2011 (daily, so a bad day shows)
+  const dv = aR.filter((_, i) => aTs[i] >= Date.UTC(2011, 0, 1) / 1000), dsd = Math.sqrt(dv.reduce((x, y) => x + y * y, 0) / dv.length - (mu(dv)) ** 2);
+  let de = 0, dp = 0, dd = 0; for (const x of dv) { de += x; dp = Math.max(dp, de); dd = Math.max(dd, dp - de); }
+  const trendAcct = { daySwingPer1pct: +(dsd * 100).toFixed(1), yearSwingPer1pct: +(dsd * Math.sqrt(252) * 100).toFixed(1), worstFallPer1pct: +(dd * 100).toFixed(0), worstDayPer1pct: +(Math.min(...dv) * 100).toFixed(1) };
+  console.log("  trend.html's account per 1%/day risk a market, from 2011: " + trendAcct.daySwingPer1pct + "% a day, " + trendAcct.yearSwingPer1pct + "% a year, worst day " + trendAcct.worstDayPer1pct + "%, worst fall " + trendAcct.worstFallPer1pct + "%");
+  const yg = years(G10), yn = years(N10), yp = years(pair);
+  console.log("  by year (gold / Nasdaq / both): " + Object.keys(yg).map(y => y + " " + Math.round(yg[y] * 100) + "/" + Math.round(yn[y] * 100) + "/" + Math.round(yp[y] * 100)).join("  "));
+  out.pageMix = { from: "2011-02", note: "information only: decided after T1-T5; the gold + Nasdaq pair was picked after seeing these numbers", swingAt: 10, parts: C,
+    corr: { goldTrend: +cor(G, T).toFixed(2), goldNdx: +cor(G, N).toFixed(2), trendNdx: +cor(T, N).toFixed(2) },
+    byYear: Object.keys(yg).map(y => ({ y: +y, gold: +(yg[y] * 100).toFixed(1), ndx: +(yn[y] * 100).toFixed(1), both: +(yp[y] * 100).toFixed(1) })),
+    swing: { goldPer1pctTrade: +(vG * 100).toFixed(2), trendPer1pctDay: +(vT * 100).toFixed(2), ndxPer1x: +(vN * 100).toFixed(2) }, trendAcct };
+}
+// ---------- the Nasdaq 100 dip-buy's tail (information only): its worst trades, and a protective stop on the close ----------
+{
+  const t = nq100T, c = nq100.map(r => r[1]), base = meanRev(t, c, 2, false, false), Yd = x => new Date(x * 1000).toISOString().slice(0, 7);
+  const worst = base.trades.map((r, i) => ({ r, t: base.tradeAt[i] })).sort((a, b) => a.r - b.r).slice(0, 4);
+  console.log("\n==== Nasdaq 100 dip-buying: worst trades and a stop on the close (information only) ====\n  worst trades (month closed): " + worst.map(x => Yd(x.t) + " " + (x.r * 100).toFixed(1) + "%").join(" · "));
+  out.ndxRisk = { worst: worst.map(x => ({ month: Yd(x.t), pct: +(x.r * 100).toFixed(1) })), stops: {} };
+  for (const st of [0, 0.08, 0.10]) { const r = meanRev(t, c, 2, false, false, 0, st), a = stats(t, r.R, 0, Y2010), b = stats(t, r.R, Y2010), w = Math.min(...r.trades);
+    console.log("  " + (st ? "stop " + st * 100 + "% on a close" : "no stop (the rule)").padEnd(22) + "before 2010 " + f2(a.sharpe) + " · from 2010 " + f2(b.sharpe) + " · worst trade " + (w * 100).toFixed(1) + "%");
+    out.ndxRisk.stops[st ? st * 100 + "%" : "none"] = { pre: +a.sharpe.toFixed(2), post: +b.sharpe.toFixed(2), worst: +(w * 100).toFixed(1) }; }
+  const all = base.trades, wins = all.filter(x => x > 0), loss = all.filter(x => x <= 0);
+  out.ndxRisk.trades = { n: all.length, winPct: +(wins.length / all.length * 100).toFixed(0), avgWin: +(wins.reduce((a, b) => a + b, 0) / wins.length * 100).toFixed(2), avgLoss: +(loss.reduce((a, b) => a + b, 0) / loss.length * 100).toFixed(2) };
+  console.log("  " + all.length + " trades, " + out.ndxRisk.trades.winPct + "% wins, average win " + out.ndxRisk.trades.avgWin + "%, average loss " + out.ndxRisk.trades.avgLoss + "%");
 }
 delete out.T2.ts.R; delete out.T2.xs.R; delete out.T3s; delete out.T3c;
 fs.writeFileSync(path.join(__dirname, "result.json"), JSON.stringify({ tested: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10), out }, null, 1) + "\n");

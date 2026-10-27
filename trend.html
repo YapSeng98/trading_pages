@@ -105,6 +105,9 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 .acct input{width:150px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--ink);font:600 15px var(--f-m);padding:9px 11px}
 .acct .note{font-size:12px;color:var(--dim);max-width:520px;line-height:1.6}
 .proof{margin-top:14px;font-size:13px;color:var(--text);line-height:1.75}
+.risknote{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:10px;font-size:13px;line-height:1.7;color:var(--text)}
+.risknote:empty{display:none}
+.risknote.hi{padding:10px 12px;border:1px solid rgba(248,113,113,.5);background:rgba(248,113,113,.07);border-radius:var(--r-md);color:var(--ink)}
 .tr-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .tr-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:15px 17px;display:flex;flex-direction:column;gap:9px;min-width:0;box-shadow:var(--shadow-sm)}
 .tr-c.long{border-color:rgba(52,211,153,.4)}.tr-c.short{border-color:rgba(248,113,113,.45)}
@@ -138,8 +141,9 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   <div class="acct">
     <label>账户余额（美元）<input id="tr-bal" type="number" inputmode="decimal" min="0" step="100"></label>
     <label>每个市场的风险（% / 天）<input id="tr-risk" type="number" inputmode="decimal" min="0" step="0.05"></label>
-    <span class="note">每个市场的仓位 = 账户 × 风险% ÷ 这个市场每天的平均波动；三条规则里有几条同意就用几成。默认 0.15%：19 个市场合起来，账户一天的波动大约 0.3–0.6%。只存在这个浏览器里。</span>
+    <span class="note">每个市场的仓位 = 账户 × 风险% ÷ 这个市场每天的平均波动；三条规则里有几条同意就用几成。很多货币对都对着美元，常常一起动，所以账户的总波动比单个市场大得多（见下一行）。默认 0.05%。只存在这个浏览器里。</span>
   </div>
+  <p class="risknote" id="tr-risknote"></p>
   <div class="bar">
     <span class="sum" id="tr-sum">读取中…</span>
     <span class="stamp" id="tr-stamp"></span>
@@ -160,6 +164,6 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   <footer>外汇、黄金、原油、纳斯达克的日线来自 Dukascopy 公开图表（买价），比特币和以太坊来自币安。回放工具和结果在 research/trend-daily/。只做计算和展示，不构成投资建议。</footer>
 </main>
 <script src="assets/xau-feed.js?v=7"></script>
-<script src="assets/trend-page.js?v=2"></script>
+<script src="assets/trend-page.js?v=3"></script>
 </body>
 </html>

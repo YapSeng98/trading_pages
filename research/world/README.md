@@ -54,6 +54,29 @@ unit of risk per year (0.5 is decent, 1.0 is very good); p is the chance of a re
 The Nasdaq dip-buying done a day late (decided at the US close, traded at the next close, as from Singapore) still
 held: Nasdaq 100 0.49 before 2010 and 0.50 from 2010 (p 0.04).
 
+## The parts you can trade (information only, added after the tests above)
+
+On MT5 the owner can trade the gold rule, the daily trend markets and US100, not interbank carry. Monthly from 2011-02,
+each at the same 10% yearly swing:
+
+| | Sharpe | worst fall | losing years |
+|---|---|---|---|
+| gold 4-hour rule | 0.55 | 35% | 5 of 16 |
+| daily trend on trend.html's markets (18 of its 19) | 0.11 | 25% | 9 of 16 |
+| Nasdaq 100 dip-buying | 0.76 | 20% | 4 of 16 |
+| gold + Nasdaq 100 (picked after seeing this table) | 0.93 | 28% | 2 of 16 |
+| all three | 0.76 | 26% | 2 of 16 |
+
+Gold and the Nasdaq rule barely move together (correlation -0.01); daily trend on these markets added nothing since
+2011. The Nasdaq rule has no stop: 71% of its 330 trades won (average +1.6%, losers -2.0%), but the worst lost 29%
+(October 1987), then 12% (1990) and 8% (1998, 2011). A stop on the close does not fix that, crashes gap through it
+(8%: worst trade -13%, and from 2010 0.51 instead of 0.57).
+
+trend.html's risk setting: with every market held together, the account swung 6.7% a day per 1% of daily risk per
+market (2011-2026), because most of its currency pairs move against the same dollar. At the old default of 0.15% that
+is about 1% a day, a worst day of -8.5% and a worst fall of 48%; the page had said 0.3-0.6% a day. The default is now
+0.05% (about 0.3% a day, 5% a year, worst fall 16%), and the page shows these figures for whatever the visitor sets.
+
 ## A bug found on the way, and what it changed
 
 The first run counted Bitcoin's weekend days as separate portfolio days and dated gold's daily bars one day early.

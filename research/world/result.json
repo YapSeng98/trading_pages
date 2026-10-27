@@ -134,6 +134,205 @@
     "corrTrend": 0.13,
     "corrMix": 0.04
    }
+  },
+  "pageMix": {
+   "from": "2011-02",
+   "note": "information only: decided after T1-T5; the gold + Nasdaq pair was picked after seeing these numbers",
+   "swingAt": 10,
+   "parts": {
+    "gold": {
+     "sharpe": 0.55,
+     "worstFall": 35,
+     "worstYear": -14,
+     "losingYears": 5,
+     "years": 16
+    },
+    "trend": {
+     "sharpe": 0.11,
+     "worstFall": 25,
+     "worstYear": -7,
+     "losingYears": 9,
+     "years": 16
+    },
+    "ndx": {
+     "sharpe": 0.76,
+     "worstFall": 20,
+     "worstYear": -9,
+     "losingYears": 4,
+     "years": 16
+    },
+    "goldNdx": {
+     "sharpe": 0.93,
+     "worstFall": 28,
+     "worstYear": -13,
+     "losingYears": 2,
+     "years": 16
+    },
+    "all3": {
+     "sharpe": 0.76,
+     "worstFall": 26,
+     "worstYear": -13,
+     "losingYears": 2,
+     "years": 16
+    }
+   },
+   "corr": {
+    "goldTrend": 0.14,
+    "goldNdx": -0.01,
+    "trendNdx": 0.1
+   },
+   "byYear": [
+    {
+     "y": 2011,
+     "gold": 11.5,
+     "ndx": -8.7,
+     "both": 2
+    },
+    {
+     "y": 2012,
+     "gold": 2.1,
+     "ndx": 13.9,
+     "both": 11.4
+    },
+    {
+     "y": 2013,
+     "gold": 11.5,
+     "ndx": 14,
+     "both": 18.1
+    },
+    {
+     "y": 2014,
+     "gold": 5.2,
+     "ndx": 11.2,
+     "both": 11.6
+    },
+    {
+     "y": 2015,
+     "gold": -2.1,
+     "ndx": 6.3,
+     "both": 3
+    },
+    {
+     "y": 2016,
+     "gold": -8.9,
+     "ndx": -9.1,
+     "both": -12.8
+    },
+    {
+     "y": 2017,
+     "gold": -14.3,
+     "ndx": 9.8,
+     "both": -3.2
+    },
+    {
+     "y": 2018,
+     "gold": 7,
+     "ndx": -2.6,
+     "both": 3.1
+    },
+    {
+     "y": 2019,
+     "gold": -3.2,
+     "ndx": 8.4,
+     "both": 3.7
+    },
+    {
+     "y": 2020,
+     "gold": 3,
+     "ndx": 4.6,
+     "both": 5.4
+    },
+    {
+     "y": 2021,
+     "gold": -6.2,
+     "ndx": 14.2,
+     "both": 5.7
+    },
+    {
+     "y": 2022,
+     "gold": 21.6,
+     "ndx": -6,
+     "both": 11.1
+    },
+    {
+     "y": 2023,
+     "gold": 11.9,
+     "ndx": 8.3,
+     "both": 14.4
+    },
+    {
+     "y": 2024,
+     "gold": 18.1,
+     "ndx": 29.7,
+     "both": 33.9
+    },
+    {
+     "y": 2025,
+     "gold": 29.2,
+     "ndx": 10.9,
+     "both": 28.5
+    },
+    {
+     "y": 2026,
+     "gold": 0.2,
+     "ndx": 14.6,
+     "both": 10.5
+    }
+   ],
+   "swing": {
+    "goldPer1pctTrade": 10.39,
+    "trendPer1pctDay": 122.52,
+    "ndxPer1x": 5.84
+   },
+   "trendAcct": {
+    "daySwingPer1pct": 6.7,
+    "yearSwingPer1pct": 105.9,
+    "worstFallPer1pct": 321,
+    "worstDayPer1pct": -57
+   }
+  },
+  "ndxRisk": {
+   "worst": [
+    {
+     "month": "1987-10",
+     "pct": -29.3
+    },
+    {
+     "month": "1990-08",
+     "pct": -11.6
+    },
+    {
+     "month": "1998-09",
+     "pct": -8.2
+    },
+    {
+     "month": "2011-08",
+     "pct": -8
+    }
+   ],
+   "stops": {
+    "none": {
+     "pre": 0.41,
+     "post": 0.57,
+     "worst": -29.3
+    },
+    "8%": {
+     "pre": 0.46,
+     "post": 0.51,
+     "worst": -13.1
+    },
+    "10%": {
+     "pre": 0.38,
+     "post": 0.54,
+     "worst": -23.6
+    }
+   },
+   "trades": {
+    "n": 330,
+    "winPct": 71,
+    "avgWin": 1.58,
+    "avgLoss": -2.01
+   }
   }
  }
 }
