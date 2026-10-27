@@ -72,7 +72,7 @@ Gold and the Nasdaq rule barely move together (correlation -0.01); daily trend o
 (October 1987), then 12% (1990) and 8% (1998, 2011). A stop on the close does not fix that, crashes gap through it
 (8%: worst trade -13%, and from 2010 0.51 instead of 0.57).
 
-trend.html's risk setting: with every market held together, the account swung 6.7% a day per 1% of daily risk per
+trend.html's risk setting (the page was removed on 2026-10-28, one page per market): with every market held together, the account swung 6.7% a day per 1% of daily risk per
 market (2011-2026), because most of its currency pairs move against the same dollar. At the old default of 0.15% that
 is about 1% a day, a worst day of -8.5% and a worst fall of 48%; the page had said 0.3-0.6% a day. The default is now
 0.05% (about 0.3% a day, 5% a year, worst fall 16%), and the page shows these figures for whatever the visitor sets.

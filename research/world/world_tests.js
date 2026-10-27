@@ -242,8 +242,8 @@ for (const [name, d] of [["Nasdaq Composite", nq], ["Nasdaq 100", nq100]]) {
   console.log("  monthly correlation of the gold rule with: trend " + cM(mG, mT).toFixed(2) + " · carry " + cM(mG, mC).toFixed(2) + " · Nasdaq MR " + cM(mG, mN).toFixed(2) + " · the mix " + cM(mG, mix3).toFixed(2));
   out.T5checks.gold4th = { from: y0, goldAlone: +shM(mG).toFixed(2), mix3: +shM(mix3).toFixed(2), mix4: +shM(mix4).toFixed(2), corrTrend: +cM(mG, mT).toFixed(2), corrMix: +cM(mG, mix3).toFixed(2) };
 }
-// ---------- the mix the 分散组合 page shows (information only): gold 4-hour rule + daily trend + Nasdaq 100 dip-buying ----------
-// The trend part is the page's own market list as far as the data here goes (12 currencies, gold, WTI, Brent, Nasdaq 100,
+// ---------- the parts the owner can trade on MT5 (information only): gold 4-hour rule + daily trend + Nasdaq 100 dip-buying ----------
+// The trend part is the market list trend.html had (removed 2026-10-28) as far as the data here goes (12 currencies, gold, WTI, Brent, Nasdaq 100,
 // Bitcoin, Ethereum: 18 of the page's 19, no silver), each market sized like trend.html and the account holding all of
 // them. Sizing factors: how much one year swings the account, per unit of each part's own risk setting.
 {
@@ -276,7 +276,7 @@ for (const [name, d] of [["Nasdaq Composite", nq], ["Nasdaq 100", nq100]]) {
   const years = a => { const y = {}; months.forEach((m, i) => { const k = Math.floor(m / 12); y[k] = (y[k] || 0) + a[i]; }); return y; };
   const card = a => { const y = Object.values(years(a)); return { sharpe: +sh(a).toFixed(2), worstFall: +(fall(a) * 100).toFixed(0), worstYear: +(Math.min(...y) * 100).toFixed(0), losingYears: y.filter(v => v < 0).length, years: y.length }; };
   const C = { gold: card(G10), trend: card(T10), ndx: card(N10), goldNdx: card(pair), all3: card(three) };
-  console.log("\n==== the 分散组合 page's parts: gold 4-hour rule, daily trend (18 of its 19 markets), Nasdaq 100 dip-buying; monthly from 2011-02, all at the same 10% yearly swing (information only) ====");
+  console.log("\n==== the parts the owner can trade: gold 4-hour rule, daily trend (18 of its 19 markets), Nasdaq 100 dip-buying; monthly from 2011-02, all at the same 10% yearly swing (information only) ====");
   for (const [k, name] of [["gold", "gold rule"], ["trend", "daily trend"], ["ndx", "Nasdaq 100 dip-buying"], ["goldNdx", "gold + Nasdaq (chosen after seeing these)"], ["all3", "all three"]]) console.log("  " + name.padEnd(42) + "Sharpe " + f2(C[k].sharpe) + "  worst fall " + String(C[k].worstFall).padStart(3) + "%  worst year " + String(C[k].worstYear).padStart(4) + "%  losing years " + C[k].losingYears + "/" + C[k].years);
   console.log("  correlations: gold-trend " + cor(G, T).toFixed(2) + " · gold-Nasdaq " + cor(G, N).toFixed(2) + " · trend-Nasdaq " + cor(T, N).toFixed(2));
   console.log("  one year swings the account by: gold rule " + (vG * 100).toFixed(1) + "% per 1% risk a trade · trend " + (vT * 100).toFixed(1) + "% per 1%/day risk a market (18 markets) · Nasdaq dip-buying " + (vN * 100).toFixed(1) + "% per 1x the account bought");
@@ -289,7 +289,7 @@ for (const [name, d] of [["Nasdaq Composite", nq], ["Nasdaq 100", nq100]]) {
   console.log("  by year (gold / Nasdaq / both): " + Object.keys(yg).map(y => y + " " + Math.round(yg[y] * 100) + "/" + Math.round(yn[y] * 100) + "/" + Math.round(yp[y] * 100)).join("  "));
   out.pageMix = { from: "2011-02", note: "information only: decided after T1-T5; the gold + Nasdaq pair was picked after seeing these numbers", swingAt: 10, parts: C,
     corr: { goldTrend: +cor(G, T).toFixed(2), goldNdx: +cor(G, N).toFixed(2), trendNdx: +cor(T, N).toFixed(2) },
-    byYear: Object.keys(yg).map(y => ({ y: +y, gold: +(yg[y] * 100).toFixed(1), ndx: +(yn[y] * 100).toFixed(1), both: +(yp[y] * 100).toFixed(1) })),
+    byYear: Object.keys(yg).map(y => ({ y: +y, gold: Math.round(yg[y] * 100), ndx: Math.round(yn[y] * 100), both: Math.round(yp[y] * 100) })),
     swing: { goldPer1pctTrade: +(vG * 100).toFixed(2), trendPer1pctDay: +(vT * 100).toFixed(2), ndxPer1x: +(vN * 100).toFixed(2) }, trendAcct };
 }
 // ---------- the Nasdaq 100 dip-buy's tail (information only): its worst trades, and a protective stop on the close ----------
