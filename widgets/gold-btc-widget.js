@@ -54,7 +54,8 @@ function block(parent, m, live, detail) {
     const o = m.odds, t = box.addText("先到：" + (o.dir < 0 ? "做空信号 " : "做多信号 ") + Math.round(o.back) + "% · 大方向转折 " + Math.round(o.brk) + "%");
     t.font = Font.regularSystemFont(10); t.textColor = C.dim; t.lineLimit = 1; t.minimumScaleFactor = 0.6;
   }
-  const age = ageMin(m.updated), ft = box.addText("结论 " + String(m.updated).slice(11, 16) + (age !== null && age > 120 ? " · 较旧" : "") + (live ? "" : " · 价格未更新"));
+  const now = new Date(), hm = ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2), age = ageMin(m.updated);
+  const ft = box.addText((live ? "价格 " + hm : "价格 " + m.priceTime + "（未更新）") + " · 结论 " + String(m.updated).slice(11, 16) + (age !== null && age > 120 ? " 较旧" : ""));
   ft.font = Font.regularSystemFont(9); ft.textColor = age !== null && age > 120 ? C.wait : C.dim;
 }
 

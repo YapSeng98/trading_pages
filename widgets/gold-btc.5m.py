@@ -7,6 +7,7 @@
 # SwiftBar plugin (macOS menu bar), refreshed every 5 minutes (the ".5m" in the file name). The answer, trend arrows
 # and levels come from the site's data/widget.json (market job, every 15 minutes); prices are fetched live here.
 # Setup: widgets/README.md.
+import datetime
 import json
 import urllib.request
 
@@ -76,7 +77,8 @@ def section(m, px, d):
     if m.get("odds"):
         o = m["odds"]
         print(f"先到：{'做空' if o['dir'] < 0 else '做多'}信号 {round(o['back'])}% · 大方向转折 {round(o['brk'])}%（历史比例，不是预测） | size=12")
-    print(f"结论按 {m['updated'][5:16]} | size=11 color=#8A857E")
+    now = datetime.datetime.now().strftime("%H:%M")
+    print((f"价格 {now} 实时" if px else f"价格 {m['priceTime']}（未更新）") + f" · 结论按 {m['updated'][11:16]} | size=11 color=#8A857E")
 
 
 try:
