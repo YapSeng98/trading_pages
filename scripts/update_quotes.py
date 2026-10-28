@@ -12,7 +12,11 @@ The stock list is read from the `.tk` tickers in stocks.html, so adding a card t
 
 Data source: Yahoo Finance chart API, one year of daily bars plus dividends (free, no key).
 Price and % change come from the last two non-null daily closes, never from the `meta` fields,
-which can carry a stale baseline. If a ticker fails, its previous entry is kept and marked stale.
+which can carry a stale baseline. A day still trading is left out until 10 minutes after its session ends
+(Yahoo's currentTradingPeriod), so a run during market hours never records a mid-session price as a close:
+on 2026-10-27 a late 23:32 SGT run had saved MSFT at +0.01% for a day that closed -0.24%.
+If a ticker fails, its previous entry is kept and marked stale; if Yahoo blanks a day it had before, the
+newer close already in the file is kept (a close never goes back in time).
 
 Runs in GitHub Actions on a schedule (.github/workflows/quotes.yml); also fine to run by hand:
     python3 scripts/update_quotes.py
@@ -73,6 +77,9 @@ def analyse(res):
     ts = res["timestamp"]
     q = res["indicators"]["quote"][0]
     bars = [(t, c, h, l) for t, c, h, l in zip(ts, q["close"], q["high"], q["low"]) if c is not None]
+    reg = (res["meta"].get("currentTradingPeriod") or {}).get("regular") or {}
+    if bars and reg.get("start") and reg.get("end") and bars[-1][0] >= reg["start"] and time.time() < reg["end"] + 600:
+        bars = bars[:-1]  # today's bar while the exchange is still trading: not a close yet
     if len(bars) < 30:
         raise ValueError("only %d daily bars" % len(bars))
     price, prev = bars[-1][1], bars[-2][1]
@@ -117,6 +124,9 @@ def main():
         try:
             row = analyse(fetch(symbol))
             row.update(symbol=symbol, market=market, cur=cur)
+            if tk in old and row["date"] < old[tk].get("date", ""):
+                print("%-12s %-9s Yahoo now ends at %s; keeping the newer close of %s" % (tk, symbol, row["date"], old[tk]["date"]))
+                row = dict(old[tk])  # a close never goes back in time (Yahoo sometimes blanks a day it had)
             quotes[tk] = row
             print("%-12s %-9s %10.3f %+6.2f%%  %s  52w %s%%  yield %s%%" % (tk, symbol, row["price"], row["chg"], row["date"], row["pos52"], row["yield"]))
         except Exception as e:  # noqa: BLE001 - keep the old value for this one ticker
