@@ -1,7 +1,7 @@
 // forex.html: the five-timeframe rule run on the major currency pairs, in the visitor's browser. Forex only.
-// The rule was chosen and replayed on gold only. It could not be replayed on forex (the only free intraday history,
-// Dukascopy's chart feed, turns away automated downloads) and it did not hold on seven other cryptocurrencies
-// (research/xau-replay/cross_check.js), so this page is a trend map with the rule's prices, labelled unproven.
+// The rule was chosen on gold. Replayed on these 11 pairs (research/forex, Yahoo hourly bars 2024-04 to 2026-10) it
+// lost money: -0.07R a trade over 688 trades, 4 pairs positive, while the same test made +0.66R on gold. So this page is
+// a trend map with the rule's prices, and says plainly that the replay found no money in them.
 // Alerts are off until switched on.
 // Prices are scaled to whole points before the engine sees them (EUR/USD 1.08345 -> 108345): the engine rounds to
 // two decimals, and the rule itself (structure, ATR multiples) does not care about the scale.
@@ -18,7 +18,7 @@
   var LSK = "fx.", ls = { get: function (k, d) { try { var v = localStorage.getItem(LSK + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }, set: function (k, v) { try { localStorage.setItem(LSK + k, JSON.stringify(v)); } catch (e) {} } };
   var S = { res: {}, busy: false, lastQ: -1, notify: !!ls.get("notify", false), base: null };
   // the forex words: never gold's replay
-  P.setMarket({ goText: "外汇上这个规则没有回放验证，只作趋势参考。", observe: true, health: null, noneText: "", lateText: "", patNote: "", patAgainst: "", shortText: "" });
+  P.setMarket({ goText: "回放里这个规则在外汇上不赚钱，只作趋势参考。", observe: true, health: null, noneText: "", lateText: "", patNote: "", patAgainst: "", shortText: "" });
   XAU_TFS.forEach(function (c) { c.bars = c.tf === "15M" ? 96 : 0; });
 
   function h(tag, attrs, kids) {
@@ -82,7 +82,7 @@
     var live = list.filter(function (r) { return r.state === "buy" || r.state === "sell"; }), ready = list.filter(function (r) { return r.state === "ready"; }), done = list.filter(function (r) { return r.state !== "load"; }).length;
     strip.className = "fx-sig" + (live.length ? " on" : "");
     if (live.length) {
-      strip.appendChild(h("b", { text: "现在可以做的（未验证）：" }));
+      strip.appendChild(h("b", { text: "规则现在的信号（外汇回放里不赚钱，只作参考）：" }));
       live.forEach(function (r) { strip.appendChild(h("a", { class: "fx-s " + r.state, href: "#sig-" + r.p.i.replace("/", ""), text: (r.state === "buy" ? "▲ 买入 " : "▼ 卖出 ") + r.p.i })); });
     } else if (done) {
       strip.appendChild(h("b", { text: "现在没有货币对出信号。" }));
@@ -90,7 +90,7 @@
     } else strip.appendChild(h("span", { text: "读取中…" }));
     if (done && done < list.length) strip.appendChild(h("span", { class: "fx-wait", text: "还在读 " + (list.length - done) + " 个…" }));
     var box = $("fx-list"); while (box.firstChild) box.removeChild(box.firstChild);
-    [["live", "可以做（未验证）"], ["ready", "大方向一致 · 等小周期"], ["none", "方向不一致 · 先不做"], [null, "读取中 / 读取失败"]].forEach(function (g) {
+    [["live", "有信号（回放里不赚钱）"], ["ready", "大方向一致 · 等小周期"], ["none", "方向不一致 · 先不做"], [null, "读取中 / 读取失败"]].forEach(function (g) {
       var rows = list.filter(function (r) { return (GROUP[r.state] || null) === g[0]; }); if (!rows.length) return;
       box.appendChild(h("h3", { class: "fx-grp" }, [g[1] + " ", h("span", { text: rows.length + " 个" })]));
       rows.forEach(function (r) { box.appendChild(card(r)); });
@@ -102,7 +102,7 @@
   function card(r) {
     var p = r.p, el = h("div", { class: "fx-c " + r.state });
     var counter = r.state === "ready" && (r.lag || []).some(function (g) { return r.dirs[g.tf] === -r.dir; });   // small timeframes running against the big three
-    var chip = { buy: "买入信号（未验证）", sell: "卖出信号（未验证）", ready: r.dir > 0 ? (counter ? "大方向向上 · 回调中" : "大方向向上 · 等小周期") : (counter ? "大方向向下 · 反弹中" : "大方向向下 · 等小周期"), none: "方向不一致", err: "读取失败", load: "读取中…" }[r.state];
+    var chip = { buy: "买入信号（回放不赚钱）", sell: "卖出信号（回放不赚钱）", ready: r.dir > 0 ? (counter ? "大方向向上 · 回调中" : "大方向向上 · 等小周期") : (counter ? "大方向向下 · 反弹中" : "大方向向下 · 等小周期"), none: "方向不一致", err: "读取失败", load: "读取中…" }[r.state];
     el.appendChild(h("div", { class: "fx-top" }, [h("div", null, [h("b", { class: "fx-i", text: p.i }), h("span", { class: "fx-n", text: p.n })]),
       h("div", { class: "fx-p" }, [h("b", { class: "mono", text: px(p, r.price) }), r.chg !== null && r.chg !== undefined ? h("span", { class: "mono " + (r.chg >= 0 ? "up" : "dn"), text: (r.chg >= 0 ? "+" : "") + r.chg.toFixed(2) + "%" }) : null,
         r.at ? h("small", { class: late(r.at) ? "late" : null, text: "价格 " + sgt(r.at).split(" ")[1] + (late(r.at) ? " · 延迟" : "") }) : null])]));
@@ -134,7 +134,7 @@
   function action(r) {
     var p = r.p, k = r.plan, buy = r.dir > 0, side = buy ? "buy" : "sell";
     var box = h("div", { class: "fx-act " + side, id: "sig-" + p.i.replace("/", "") });
-    box.appendChild(h("div", { class: "fx-act-h" }, [h("b", { text: buy ? "▲ 买入" : "▼ 卖出" }), h("span", { text: (buy ? "BUY" : "SELL") + " · 五个周期都" + (buy ? "向上" : "向下") }), h("span", { class: "fx-un", text: "未验证" })]));
+    box.appendChild(h("div", { class: "fx-act-h" }, [h("b", { text: buy ? "▲ 买入" : "▼ 卖出" }), h("span", { text: (buy ? "BUY" : "SELL") + " · 五个周期都" + (buy ? "向上" : "向下") }), h("span", { class: "fx-un", text: "回放不赚钱" })]));
     var g = h("div", { class: "fx-act-g" }), tile = function (k1, v, d, cls) { g.appendChild(h("div", { class: cls || "" }, [h("i", { text: k1 }), h("b", { class: "mono", text: v }), h("s", { text: d })])); };
     tile("入场", px(p, k.entry), "现价");
     tile("止损", px(p, k.stop), (buy ? "−" : "+") + pips(p, k.dist), "st");
@@ -142,7 +142,7 @@
     box.appendChild(g);
     box.appendChild(h("p", { text: "或者不设目标：每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + pips(p, k.trail) + "，三个大周期不再同向就离场（大趋势里更能拿住利润）。" }));
     if (r.since5) box.appendChild(h("p", { class: "fx-age", text: "信号 " + ago(r.since5) + "出现" + (r.sigPx ? "（当时 " + px(p, r.sigPx) + "）" : "") + (typeof r.movedR === "number" ? "，之后已走 " + (r.movedR >= 0 ? "+" : "−") + Math.abs(r.movedR).toFixed(1) + "R" : "") + "。上面的止损和目标已按现价重算。" }));
-    var plan = p.i + " " + (buy ? "买入" : "卖出") + " · 入场 " + px(p, k.entry) + " · 止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "）· 目标 " + px(p, k.tp1) + "（3R）· 或跟踪止损 " + pips(p, k.trail) + " · 信号 " + (r.since5 ? sgt(r.since5) + " SGT" : "") + " · 外汇上未经回放验证";
+    var plan = p.i + " " + (buy ? "买入" : "卖出") + " · 入场 " + px(p, k.entry) + " · 止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "）· 目标 " + px(p, k.tp1) + "（3R）· 或跟踪止损 " + pips(p, k.trail) + " · 信号 " + (r.since5 ? sgt(r.since5) + " SGT" : "") + " · 外汇回放里这个规则不赚钱";
     var btn = h("button", { type: "button", class: "btn sm", text: "复制计划", onclick: function () {
       var done = function () { btn.textContent = "已复制 ✓"; setTimeout(function () { btn.textContent = "复制计划"; }, 1600); };
       if (navigator.clipboard) navigator.clipboard.writeText(plan).then(done, function () { window.prompt("复制这段：", plan); }); else window.prompt("复制这段：", plan);
@@ -209,7 +209,7 @@
       var sent = ls.get("sent", {}); if (sent[p.i] === key) return; sent[p.i] = key; ls.set("sent", sent);
       var r = S.res[p.i], k = r.plan, buy = r.dir > 0;
       if (!S.notify || !("Notification" in window) || Notification.permission !== "granted" || !k) return;
-      try { new Notification((buy ? "🟢 " : "🔴 ") + p.i + " · " + (buy ? "买入" : "卖出") + "信号（未验证）", { body: (buy ? "买入约 " : "卖出约 ") + px(p, k.entry) + "，止损 " + px(p, k.stop) + "，目标 " + px(p, k.tp1) + "（3R）。外汇上这个规则没有回放验证，只作参考。", tag: "fx-" + p.i, renotify: true }); } catch (e) {}
+      try { new Notification((buy ? "🟢 " : "🔴 ") + p.i + " · " + (buy ? "买入" : "卖出") + "信号（回放不赚钱）", { body: (buy ? "买入约 " : "卖出约 ") + px(p, k.entry) + "，止损 " + px(p, k.stop) + "，目标 " + px(p, k.tp1) + "（3R）。回放里这个规则在外汇上不赚钱，只作参考。", tag: "fx-" + p.i, renotify: true }); } catch (e) {}
     });
     Object.keys(S.base).forEach(function (i) { if (!keys[i]) delete S.base[i]; });
   }
@@ -230,6 +230,13 @@
     var o = bt && bt.patterns && bt.patterns.own; if (!o || !o["1H"]) return;
     var sg = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; };
     S.patWords = "形态按自己的止损和目标做（黄金回放，" + o["1H"].n.toLocaleString("en-US") + " 个 1 小时形态）：胜率 " + Math.round(o["1H"].win) + "%，但平均每笔 " + sg(o["1H"].avgR) + "：赚的次数多、亏的时候亏得多。只作参考，不比上面的五周期信号可靠。"; render();
+  }).catch(function () {});
+  fetch("research/forex/result.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.n || !d.gold) return;
+    var el = $("fx-proof"), R = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; }, ym = function (s) { var p = String(s).split("-"); return p[0] + " 年 " + +p[1] + " 月"; };
+    while (el.firstChild) el.removeChild(el.firstChild);
+    el.appendChild(h("b", { text: d.passed ? "回放结果：这个规则在外汇上有小优势，但历史很短。" : "回放结果：这个规则在外汇上不赚钱。" }));
+    el.appendChild(document.createTextNode(" " + ym(d.from) + "到 " + ym(d.tested) + "，11 个货币对共 " + d.n + " 笔，平均每笔 " + R(d.avgR) + "，" + d.positive + " 个货币对是正的；同样的做法同期在黄金上一笔 " + R(d.gold.fourTfHourly.avgR) + "。" + (d.passed ? "" : "外汇信号只当趋势参考，不建议按它用真钱下单。")));
   }).catch(function () {});
   renderAlert(); render(); scan();
   // after every 15-minute close (+25 s for the feed); while hidden only when alerts are on

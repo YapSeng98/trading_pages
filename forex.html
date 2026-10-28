@@ -125,7 +125,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   <h1>外汇 <em>趋势扫描</em></h1>
   <p class="lead">黄金页的五周期规则，用在 11 个主要货币对上。</p>
   <div class="fx-sig" id="fx-sig"><span>读取中…</span></div>
-  <div class="warn"><b>外汇上这些信号没有被验证过。</b> 规则只在黄金上回放过；13 种货币的日线趋势规则 2010 年以后都不赚钱。真钱以黄金为主，外汇只用很小的仓位，或者只看不做。</div>
+  <div class="warn" id="fx-proof"><b>回放结果：这个规则在外汇上不赚钱。</b> 2024 年 4 月到 2026 年 10 月，11 个货币对共 688 笔，平均每笔 −0.07R，只有 4 个货币对是正的；同样的做法同期在黄金上一笔 +0.66R。外汇信号只当趋势参考，不建议按它用真钱下单。</div>
   <div class="bar">
     <span class="sum" id="fx-sum">读取中…</span>
     <span class="stamp" id="fx-stamp"></span>
@@ -145,11 +145,11 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
       <li>提醒默认关：打开后，任何一个市场出现新的买入或卖出信号都会弹通知（页面开着时）。</li>
     </ul>
   </section>
-  <footer>这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。回放和检验的工具在 research/xau-replay/（cross_check.js、proof_check.js）。</footer>
+  <footer>这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。外汇回放在 research/forex/（PLAN.md 是事先写好的检验，README.md 是结果）。</footer>
 </main>
 <script src="assets/xau-feed.js?v=7"></script>
 <script src="assets/xau-engine.js?v=5"></script>
 <script src="assets/xau-plan.js?v=16"></script>
-<script src="assets/fx-page.js?v=7"></script>
+<script src="assets/fx-page.js?v=8"></script>
 </body>
 </html>

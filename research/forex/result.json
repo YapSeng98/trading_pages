@@ -1,0 +1,93 @@
+{
+ "tested": "2026-10-28",
+ "from": "2024-04-01",
+ "pairs": {
+  "EURUSD": {
+   "n": 75,
+   "avgR": -0.085,
+   "win": 24,
+   "trailAvgR": 0.073
+  },
+  "GBPUSD": {
+   "n": 55,
+   "avgR": -0.124,
+   "win": 24,
+   "trailAvgR": -0.13
+  },
+  "USDJPY": {
+   "n": 61,
+   "avgR": -0.37,
+   "win": 16,
+   "trailAvgR": -0.481
+  },
+  "AUDUSD": {
+   "n": 66,
+   "avgR": -0.236,
+   "win": 20,
+   "trailAvgR": -0.202
+  },
+  "NZDUSD": {
+   "n": 62,
+   "avgR": -0.329,
+   "win": 18,
+   "trailAvgR": -0.275
+  },
+  "USDCAD": {
+   "n": 52,
+   "avgR": -0.211,
+   "win": 21,
+   "trailAvgR": -0.067
+  },
+  "USDCHF": {
+   "n": 52,
+   "avgR": 0.05,
+   "win": 27,
+   "trailAvgR": 0.253
+  },
+  "EURJPY": {
+   "n": 63,
+   "avgR": 0.631,
+   "win": 43,
+   "trailAvgR": 0.344
+  },
+  "GBPJPY": {
+   "n": 72,
+   "avgR": 0.031,
+   "win": 26,
+   "trailAvgR": -0.073
+  },
+  "AUDJPY": {
+   "n": 65,
+   "avgR": 0.144,
+   "win": 29,
+   "trailAvgR": 0.149
+  },
+  "EURGBP": {
+   "n": 65,
+   "avgR": -0.309,
+   "win": 18,
+   "trailAvgR": -0.398
+  }
+ },
+ "n": 688,
+ "avgR": -0.071,
+ "p": 0.818,
+ "positive": 4,
+ "passed": false,
+ "trail": {
+  "n": 736,
+  "avgR": -0.078,
+  "p": 0.823
+ },
+ "gold": {
+  "fourTfHourly": {
+   "n": 66,
+   "avgR": 0.661,
+   "trailAvgR": 0.711
+  },
+  "realRule": {
+   "n": 92,
+   "avgR": 0.524
+  }
+ }
+}

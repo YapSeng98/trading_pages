@@ -6,3 +6,6 @@ research/xau-replay/data/
 # daily trend-following test: FRED downloads, fetched again by research/trend-daily/fetch_fred.py
 research/trend-daily/data/
 research/world/data/
+
+# forex test: Yahoo downloads, fetched again by research/forex/fetch_fx.py
+research/forex/data/
