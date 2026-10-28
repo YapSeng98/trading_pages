@@ -36,7 +36,7 @@
   var GLOSS = {
     score: ["综合评分", "把五个周期的方向加权相加：周线、日线各 3 分，4 小时 2 分，1 小时和 15 分钟各 1 分。向上记正、向下记负，范围 −10 到 +10。越靠两端，各周期方向越一致。"],
     structure: ["方向（结构）", "价格不断创出更高的高点和低点，就是向上；不断创出更低的高点和低点，就是向下。本页每个周期的方向都按这条规则判断。"],
-    bos: ["突破：BOS 与 CHoCH", "BOS 是顺着原方向又破了一个前高或前低，说明趋势延续。CHoCH 是第一次朝反方向突破，是可能转向的第一个信号。本页每个周期的「方向」就是这样翻转的。"],
+    bos: ["突破：BOS 与 CHoCH", "BOS 是顺着原方向又破了一个前高或前低，说明趋势延续。CHoCH 是第一次朝反方向突破，是可能转向的第一个信号。本页每个周期的「方向」就是这样翻转的：向上的结构是更高的高点（HH）和更高的低点（HL），收盘跌破最近的 HL、走出第一个更低的低点（LL），就转向下；向下的结构是 LH 和 LL，收盘站上最近的 LH、走出 HH，就转向上。"],
     fvg: ["缺口（FVG）", "价格走得太急，三根 K 线中间留下一段没有成交重叠的空档。价格回到这里时常有反应，常被用来当入场区；回放里它没有带来额外优势，这里只作参考。"],
     zone: ["偏贵区和偏便宜区", "把最近一段行情从低点到高点当成一个区间：上半部算偏贵（溢价），下半部算偏便宜（折价）。常见的说法是买在偏便宜、卖在偏贵；但在黄金的回放里，顺势时在偏贵的一半进场反而更好，所以这页不把它当入场条件。"],
     atr: ["平均波幅（ATR）", "最近每根 K 线平均波动多少美元。止损如果比它近很多，正常的波动就可能把你扫出去。回放里，止损放在 3 倍 1 小时波幅之外才显出优势，1.5 倍以内没有。"],
@@ -1293,7 +1293,7 @@
   }
   // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
   // the weekly / daily / 4-hour trend turning, and (off by default: several times a day) the 1-hour / 15-minute
-  S.nopt = Object.assign({ signal: true, soon: true, verdict: true, big: true, small: false }, LS.get("notifyOpts", {}));
+  S.nopt = Object.assign({ signal: true, soon: true, verdict: true, big: true, h1: true, small: false }, LS.get("notifyOpts", {}));
   function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
   function renderAlert() {
     var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
@@ -1302,7 +1302,7 @@
     if (on) {
       t.appendChild(h("b", { text: "🔔 提醒已开，刷新或重开浏览器后也一直开着。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
       var opts = h("div", { class: "nopts" });
-      [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时转向"], ["small", "1 小时、15 分钟转向（一天可能好几次）"]].forEach(function (o) {
+      [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时结构转向（HH→LL 或 LL→HH）"], ["h1", "1 小时结构转向（一天一两次）"], ["small", "15 分钟结构转向（一天好几次）"]].forEach(function (o) {
         var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
         cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
         opts.appendChild(h("label", { class: "nopt", for: "nopt-" + o[0] }, [cb, o[1]]));
@@ -1428,6 +1428,8 @@
     fireAlert(M.sym + " 结论变了：" + V.tag, V.title + "。现在 " + arrowsNow() + "。" + (S.pos ? "你有持仓：看「我的持仓」里写的做法。" : ""), M.id + "-level");
   }
   var TW = { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
+  // HH→LL only when it really came from the opposite structure; out of an unclear stretch there was no HH to lose
+  function structWord(to, from) { return to === "bearish" ? "结构转空 " + (from === "bullish" ? "HH→LL" : "LL") : to === "bullish" ? "结构转多 " + (from === "bearish" ? "LL→HH" : "HH") : "结构不明"; }
   function arrowsNow() { return S.E ? P.votes(S.E).map(function (v) { return P.TF_S[v.tf] + (v.v > 0 ? "↑" : v.v < 0 ? "↓" : "–"); }).join(" ") : ""; }
   // ---------- trend changes ----------
   // Each recompute is compared with the one before (on the same data source): a timeframe whose trend has flipped
@@ -1446,9 +1448,9 @@
       S.liveChanges.push(ch);
       var key = "chg:" + tf + ":" + ch.ms; if (LS.get("notifiedChg", "") === key) return; LS.set("notifiedChg", key);
       var big = tf === "W" || tf === "D" || tf === "4H";
-      if (big ? !S.nopt.big : !S.nopt.small) return;
-      var V = P.verdict(E);
-      fireAlert(M.sym + "：" + P.TF_ZH[tf] + "转" + TW[b], "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? "，" + (b === "bearish" ? "跌破 " : "站上 ") + fmt(ch.level, 1) : "") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
+      if (big ? !S.nopt.big : tf === "1H" ? !S.nopt.h1 : !S.nopt.small) return;
+      var V = P.verdict(E), dn = b === "bearish";
+      fireAlert((dn ? "📉 " : b === "bullish" ? "📈 " : "") + M.name + " · " + P.TF_ZH[tf] + structWord(b, a), "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " 跌破上一个更高的低点（HL）" : " 站上上一个更低的高点（LH）") + fmt(ch.level, 1) : "") + "：" + P.TF_ZH[tf] + (dn ? (a === "bullish" ? "从 HH/HL 变成 LL，" : "走出 LL，") + "转向下" : b === "bullish" ? (a === "bearish" ? "从 LH/LL 变成 HH，" : "走出 HH，") + "转向上" : "结构不明") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
     });
     renderChanges();
   }
@@ -1472,7 +1474,7 @@
     clear(box);
     $("chg-span").textContent = S.rec && S.rec.changes ? "每根 15 分钟 K 线收盘后检查 · 记录从 " + sgt(S.rec.changes.length ? S.rec.changes[0].ms : S.rec.lastChecked, "d") + " 起" : "记录读取中";
     var head = h("div", { class: "cg-now" }); head.appendChild(h("b", { text: "现在 " + arrowsNow() })); 
-    if (list[0]) head.appendChild(document.createTextNode(" · 最近一次：" + P.TF_ZH[list[0].tf] + "转" + TW[list[0].to] + "（" + sgt(list[0].ms) + "，" + ago(list[0].ms) + "）"));
+    if (list[0]) head.appendChild(document.createTextNode(" · 最近一次：" + P.TF_ZH[list[0].tf] + structWord(list[0].to, list[0].from) + "（" + sgt(list[0].ms) + "，" + ago(list[0].ms) + "）"));
     var tg = h("button", { type: "button", class: "btn sm ghost", text: bigOnly ? "显示全部周期" : "只看周线、日线、4 小时", onclick: function () { S.chgBig = !S.chgBig; LS.set("chgBig", S.chgBig); renderChanges(); } });
     head.appendChild(tg); box.appendChild(head);
     if (!shown.length) { box.appendChild(h("p", { class: "note", text: bigOnly ? "这段时间周线、日线、4 小时都没有转向。" : "这段时间没有周期转向。" })); return; }
@@ -1483,8 +1485,8 @@
       ol.appendChild(h("li", { class: "cg" + (big ? " big" : "") }, [
         h("span", { class: "cg-t", text: sgt(c.ms) }),
         h("span", { class: "cg-tf " + (up ? "up" : "dn"), text: P.TF_S[c.tf] }),
-        h("span", { class: "cg-d " + (up ? "up" : "dn"), text: (TW[c.from] || "—") + " → " + TW[c.to] + (fresh ? " · 新" : "") }),
-        h("span", { class: "cg-p", text: (c.price !== null && c.price !== undefined ? "收盘 " + fmt(c.price, 1) : "") + (c.level !== null && c.level !== undefined ? (c.price !== null && c.price !== undefined ? "，" : "") + (up ? "站上 " : "跌破 ") + fmt(c.level, 1) : "") }),
+        h("span", { class: "cg-d " + (up ? "up" : "dn"), text: structWord(c.to, c.from) + (fresh ? " · 新" : "") }),
+        h("span", { class: "cg-p", text: (c.price !== null && c.price !== undefined ? "收盘 " + fmt(c.price, 1) : "") + (c.level !== null && c.level !== undefined ? (c.price !== null && c.price !== undefined ? "，" : "") + (up ? "站上上一个 LH " : "跌破上一个 HL ") + fmt(c.level, 1) : "") }),
         after ? h("span", { class: "cg-a" + (c.a5 ? " sig" : ""), text: after }) : null
       ]));
     });
