@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-28 21:57 SGT",
+ "updated": "2026-10-28 22:00 SGT",
  "gold": {
   "name": "黄金",
   "sym": "XAUUSD",
   "icon": "🥇",
   "url": "https://yapseng98.github.io/trading_pages/report.html",
   "observe": false,
-  "updated": "2026-10-28 19:29 SGT",
-  "price": 4046.5,
-  "priceTime": "19:15",
-  "chg": -13.5,
-  "chgPct": -0.33,
+  "updated": "2026-10-28 22:00 SGT",
+  "price": 4049.6,
+  "priceTime": "22:00",
+  "chg": -10.3,
+  "chgPct": -0.25,
   "level": "ready",
   "side": null,
   "bigDir": "down",
@@ -20,7 +20,7 @@
   "lines": [
    {
     "dir": "down",
-    "price": 3989,
+    "price": 4027.8,
     "text": "1H 收盘跌破"
    },
    {
@@ -30,7 +30,16 @@
    }
   ],
   "plan": null,
-  "odds": null
+  "odds": {
+   "dir": -1,
+   "extAtr": 0.51,
+   "atLeast": 0.5,
+   "n": 72,
+   "back": 30.6,
+   "brk": 69.4,
+   "backAt": 4027.8,
+   "breakAt": 4145.6
+  }
  },
  "btc": {
   "name": "比特币",
@@ -38,17 +47,17 @@
   "icon": "₿",
   "url": "https://yapseng98.github.io/trading_pages/btc.html",
   "observe": true,
-  "updated": "2026-10-28 19:29 SGT",
-  "price": 81368.8,
-  "priceTime": "19:15",
-  "chg": 459,
-  "chgPct": 0.57,
+  "updated": "2026-10-28 22:00 SGT",
+  "price": 80740,
+  "priceTime": "22:00",
+  "chg": -169.8,
+  "chgPct": -0.21,
   "level": "none",
   "side": null,
   "bigDir": null,
   "tag": "先观望",
   "title": "先观望：大周期方向不一致",
-  "arrows": "周↑ 日↓ 4H↓ 1H↑ 15M↑",
+  "arrows": "周↑ 日↓ 4H↓ 1H↑ 15M↓",
   "lines": [
    {
     "dir": "up",

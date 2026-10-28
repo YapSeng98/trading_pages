@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28 19:28 SGT",
+ "updated": "2026-10-28 22:00 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Metals Exploration shares fall as La India delay offsets strong Runruno quarter",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQRWNROXBNUW52eEE1R1VCWUdNT0FpRzFRaGtYcENPQXl2MUhacVN4RU1EUTNSdXM4M2JkTnNOVEtaV29GSVh1VTY3cnphdW9aTGxBN0ZMZGY5THczRzRkdlRuaUgxb3FWcmd0ZFNWOGtQYUZvSjAyYldzYWtkRVVadXA1X0gtQl9nSnc?oc=5",
+   "ms": 1793194200000,
+   "time": "10/28 21:30"
+  },
+  {
    "t": "Gold price today, Wednesday, October 28, 2026: Gold prices remain below $4,100 ahead of the Fed rate decision",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPQm51ZUp6UGU0ZzV3eXJESFRZdVEydS0zd2k0aDMwUXlUbXp3anhMMC1Jb1VwYi1wX0JMdlc1a3JCT2RINW5zY3lDTDNJX2tEWThWMzgyanFSUGkzZW1ETm50UTAxZVlCU3oyTURocENiMl9LT2phcjBsbV80RTlhRUhvYXJHSXdvOF84UGpjSU9PdnRxWFlOWHZFQUhURkpfUTVDQXZlNkFqUm9RMk9LRHJVOGZyTThxUXc0U2FDVzlRUURQN2xNSDNEYk1ZeWlwaW1qbng4cDVlNEh4OUc5bm1mbzE3dXlrdzZLaFk2TDNfUXB3R0pwMDFPa3dPQmJXWWVGb2hLT1lGRmM?oc=5",
    "ms": 1793185628000,
    "time": "10/28 19:07"
+  },
+  {
+   "t": "Gold Slips Near $4,040 as Investors Assess Fed Policy and US Dollar Strength",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1jWXJnM1dqbVIzVkwwa0ROSFY1X3podXlZekp6NmNta3ZRQmY1VDlpaUNUclNDUlJjMmp2ZDd1LXdDaG0ydl9WVDlvQms3RlN0RU1uV25HRlFJcHBCZERNaWoyZ3dxWmJrSkxJVjBnMkhPazBjb1gyemh3?oc=5",
+   "ms": 1793185363000,
+   "time": "10/28 19:02"
   },
   {
    "t": "Gold Price Forecast: XAU/USD recovery halts below previous support around $4,070",
@@ -21,28 +35,21 @@
    "time": "10/28 18:41"
   },
   {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1793182316000,
-   "time": "10/28 18:11"
-  },
-  {
-   "t": "Gold holds intraday losses below $4,050 as USD stays firm before FOMC",
+   "t": "Gold sticks to intraday losses below $4,050 as USD retains bullish bias ahead of FOMC",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMHlUZFlDWXp0MU85MG52dDRvTFYteU5fWXg3eEJrZ2dfUXN5VTVzRnUtbW5UanRtcFR5X1BkNUp0czVwYXg3NGJxQk5NU2tzWTVHaDhmd2k0c21WX2FvV2ZaLUZzbGsxdDdNUExrcjAzd1BoQjN0R2tibG81SEM1ZWh3YmRDQU1ZSG90dzlaUXhGdDBnWHdMX1dSMmYtNHU4VF9UVGFyU25xYkt6WFE?oc=5",
    "ms": 1793172761000,
    "time": "10/28 15:32"
   },
   {
-   "t": "Gold eases on higher oil prices ahead of Fed decision",
+   "t": "Gold slips on higher oil prices ahead of Fed decision",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNRUczTDEtcklEQks1UTM3TlZhanpWZ19RUUVMTnkzQTFXWHpmeEF0YWVST0gzamNJNG5KVFJIcUZMOUxnZnBRMkhXYjBkaGdER1Vkc2hQWmplZmluYkQ4YWNsbkwwY0N5ZzFDQldCTDJucHRZY3lOVHdPWEt0RnJmQVprXzBoQnFEZHM3OS13cGNrRFp6MjBuMXJrVTRpcGs3UkpN?oc=5",
    "ms": 1793168160000,
    "time": "10/28 14:16"
   },
   {
-   "t": "Gold slips on oil-fueled inflation fears ahead of Fed meeting",
+   "t": "Gold eases on higher oil prices ahead of Fed decision",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYU1kN1huemNIcHpJQUVNR1FGaXlwVXU1Rm53bld3Nnl6TGhoTjJ5Z09tRmx1TkhBM0hEaVl0NDJMRS0xdk5BNFd1dFBfVTdoam91OWpsci1XUUxTc004MGpmTWYyVEw5NUtySFo4V1RhNW5sN1lwelpKVzQzVTZRcmVvSUhCZEs2ZDBqUF9BZXJ6U3JOak16b2RKSWg0S0XSAaQBQVVfeXFMTUsweUFjR1V3UjZTNEJpN1MtWFB6bDc5bW9rRzJ3eHd0TzAxT2gybF9Cb1kwUVpHSi1QeDFJZTVjTWp3clRjNjBBT0ZXY1ZvUXBJRWxfUjlHYnJBdS0xZnVNNnBTUXdMZEZQeElYNVFHZjdxUE1Qb0FTclNUd085NGNDX3ZsNkpUZUdYeU0wMXQ1NzNGMHFBZ2o3MTVYb28xX2xtZjQ?oc=5",
    "ms": 1793162022000,
@@ -75,13 +82,6 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNSkRJWXZQR1IzRWpCSzFSS2NleXVtemhkbFhNVEhmTklUdTA1Z1ZaWG1UcWRDSFlDNmVUX05yR0VlMFBDU1BKeUFHaldoOGlxeFBuanl3eU1hSzIteUo0RlgxU2JNdU9uQkFmYS1xdEVxbzZ2czdqcGJzeWpWbElfMlNtSDJ3NkNNSEFiclhRT3A3RHUwZDgtRHNaRmtkTE9scDJuRXQ1cHlyV2ZjajBJ?oc=5",
    "ms": 1793132885000,
    "time": "10/28 04:28"
-  },
-  {
-   "t": "Tokenized Gold’s Next Growth Test Is Its Role in Collateralized Lending",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcVpvSGllVG5xekFTd2VYcUpydVQ2UDJJRkYzdUppZ1ZacThaUjBLTVE3dUJOUkQ0d0ZEcTNmUHEweFh5QVVzMTZxUEctWHFLelltQkZhQVN4SXlSRXlFem9Zc2prcVBWQ3Z6QkMyOHY1YlotelRIWmFyX0lOeEdzRWhjb1pKdEZ0NkpudWFmZXMzQnNQa1l2Z2QzbzF3MDU2emxXQ3Vva1VfRElTS3N4TS03MUVRQQ?oc=5",
-   "ms": 1793132474000,
-   "time": "10/28 04:21"
   },
   {
    "t": "Gold reclaims $4,060 as Oil retreats ahead of crucial Fed decision",

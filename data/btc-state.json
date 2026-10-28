@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-28 19:29 SGT",
+ "updated": "2026-10-28 22:00 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 81368.8,
- "priceTime": "2026-10-28 19:15 SGT",
+ "price": 80740,
+ "priceTime": "2026-10-28 22:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 80909.8,
   "high": 81823,
-  "low": 80621.2,
-  "changeFromPrevClose": 459,
-  "changePct": 0.57,
+  "low": 80397.1,
+  "changeFromPrevClose": -169.8,
+  "changePct": -0.21,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -84,7 +84,7 @@
    "text": "4 小时收盘站上这里（要转向上得走 2 步，这是其中一步）"
   }
  ],
- "score": 0,
+ "score": -2,
  "timeframes": [
   {
    "tf": "W",
@@ -111,8 +111,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 55.5,
-   "atr": 677.85,
+   "rsi": 58.7,
+   "atr": 682.36,
    "turnsUpAbove": 82060.9,
    "turnsDownBelow": 79368.7
   },
@@ -121,54 +121,27 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-10-28 00:00 SGT",
-   "rsi": 68,
-   "atr": 311.5,
-   "turnsUpAbove": null,
+   "rsi": 47.5,
+   "atr": 340.51,
+   "turnsUpAbove": 81823,
    "turnsDownBelow": 80621.2
   },
   {
    "tf": "15M",
    "name": "15 分钟",
-   "trend": "向上",
-   "since": "2026-10-27 20:30 SGT",
-   "rsi": 54.4,
-   "atr": 126.32,
-   "turnsUpAbove": 81823,
-   "turnsDownBelow": 80858.1
+   "trend": "向下",
+   "since": "2026-10-28 20:45 SGT",
+   "rsi": 34.7,
+   "atr": 172.44,
+   "turnsUpAbove": 81606.9,
+   "turnsDownBelow": null
   }
  ],
  "resistance": [
   {
-   "price": 81704.7,
-   "what": "4小时 200 均线",
+   "price": 80844.7,
+   "what": "4小时双底关键位",
    "strength": 2
-  },
-  {
-   "price": 81823,
-   "what": "1小时区间顶、1小时近期小高点",
-   "strength": 2
-  },
-  {
-   "price": 82060.9,
-   "what": "4小时前高、4小时区间顶",
-   "strength": 4
-  },
-  {
-   "price": 82320.7,
-   "what": "4小时双底目标",
-   "strength": 1
-  },
-  {
-   "price": 82563,
-   "what": "日线向下转折位",
-   "strength": 1
-  }
- ],
- "support": [
-  {
-   "price": 81300,
-   "what": "昨日高点、4小时近期小高点、1小时向上突破位",
-   "strength": 5
   },
   {
    "price": 80939.5,
@@ -176,19 +149,46 @@
    "strength": 1
   },
   {
-   "price": 80844.7,
-   "what": "4小时双底关键位、1小时近期小低点",
-   "strength": 3
+   "price": 81300,
+   "what": "昨日高点、1小时向上突破位",
+   "strength": 4
   },
   {
-   "price": 80621.2,
-   "what": "1小时前低、1小时区间底、4小时区间中点",
+   "price": 81700.8,
+   "what": "4小时 200 均线",
+   "strength": 2
+  },
+  {
+   "price": 81823,
+   "what": "1小时前高、1小时区间顶、1小时近期小高点",
    "strength": 3
+  }
+ ],
+ "support": [
+  {
+   "price": 80621.2,
+   "what": "1小时前低、4小时区间中点",
+   "strength": 2
+  },
+  {
+   "price": 80397.1,
+   "what": "1小时区间底",
+   "strength": 1
   },
   {
    "price": 79800,
    "what": "日线前低、日线双顶关键位",
    "strength": 5
+  },
+  {
+   "price": 79506,
+   "what": "昨日低点、4小时近期小低点",
+   "strength": 4
+  },
+  {
+   "price": 79368.7,
+   "what": "4小时前低",
+   "strength": 2
   }
  ],
  "record": {
