@@ -3,7 +3,6 @@
 #   data/xau-state.json    what the report page's engine says about gold right now (scripts/update_gold.js)
 #   data/xau-signals.json  the live record: every "go" signal as a paper trade, followed to its stop or target
 #   data/news.json         the latest gold headlines for news.html (scripts/update_news.py)
-#   data/widget.json       gold and Bitcoin in one small file for the phone and desktop widgets (scripts/update_widget.js)
 # report.html reads the calendar and the live record, the home page (assets/hub-live.js) fills its market summary
 # from the state and the calendar, and the daily Claude refresh reads them for its numbers: the cloud machine it
 # runs on cannot reach any price or calendar service; this runner can.
@@ -23,7 +22,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["scripts/update_calendar.py", "scripts/update_news.py", "scripts/update_gold.js", "scripts/xau_track.js", "scripts/update_btc.js", "scripts/update_widget.js", "assets/xau-*.js", "assets/btc-feed.js", "data/refresh-request.txt", ".github/workflows/market.yml"]
+    paths: ["scripts/update_calendar.py", "scripts/update_news.py", "scripts/update_gold.js", "scripts/xau_track.js", "scripts/update_btc.js", "assets/xau-*.js", "assets/btc-feed.js", "data/refresh-request.txt", ".github/workflows/market.yml"]
 
 permissions:
   contents: write
@@ -56,11 +55,9 @@ jobs:
         env:
           BTC_FORCE: ${{ github.event_name == 'push' && '1' || '' }}
         run: node scripts/update_btc.js || echo "::warning::bitcoin state not updated"
-      - name: Widget data
-        run: node scripts/update_widget.js || echo "::warning::widget data not updated"
       - name: Commit if the data changed
         run: |
-          git add data/calendar.json data/xau-state.json data/xau-signals.json data/news.json data/btc-state.json data/btc-signals.json data/widget.json 2>/dev/null || true
+          git add data/calendar.json data/xau-state.json data/xau-signals.json data/news.json data/btc-state.json data/btc-signals.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "No change."; exit 0; fi
           git config user.name "market-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
