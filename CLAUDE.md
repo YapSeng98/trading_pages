@@ -95,6 +95,8 @@ The written text is then marked against the live price in the browser, without b
 - At view time the page also reads `data/calendar.json` (falling back to `risk.html`'s `table.cal` rows: `.cal-date`, `.cal-time` as `HH:MM SGT`, `.imp`, `.cal-event`, a `✓` marking finished events) and `daily.html` (the two `.risk-list li` lines `多头入场方案：…` and `空头入场方案：…`). Keep those class names and that line shape when refreshing those pages.
 - `data/xau-report.json` is an old one-off snapshot of the "XAU 4-Hour Report" artifact (https://claude.ai/artifact/SLbPQauRyYqyvv3RVU9vHS). The page hides it once it is more than a day old.
 
+`strategy.html` (📖 策略, `assets/strategy-page.js`) explains the one rule the site trades and quotes every number about it from `data/xau-backtest.json`, `data/xau-signals.json`, `data/btc-backtest.json` and `research/forex/result.json`: the result by period, risk per trade turned into the account's worst fall, and the approaches tested without an edge (against the big three, early entries, tight stops, the old zone signal, chart patterns, three short-term rules, 8 indicators, forex, Bitcoin). It replaced, on 2026-10-28, a textbook handbook that the replay contradicted (patterns as "the most reliable" signals, range and Fibonacci entries, 1-2% risk a trade, which with the replay's 38R worst fall means up to 76%). Do not add trading advice to it that the replay has not tested.
+
 `journal.html` (盈亏日历) is the visitor's own profit and loss diary. Everything on it is typed in by the visitor and kept in their browser (localStorage key `pnl.v1`); the page has no data values to refresh.
 
 `btc.html` (比特币) is the same page for Bitcoin: `report.html` and `btc.html` both run `assets/market-page.js`, and
