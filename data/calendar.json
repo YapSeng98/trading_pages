@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27 05:34 SGT",
+ "updated": "2026-10-28 14:02 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -59,7 +59,7 @@
    "impact": "medium",
    "title": "Advance GDP Price Index q/q",
    "zh": "GDP 物价指数初值",
-   "forecast": "3.3%",
+   "forecast": "3.2%",
    "previous": "6.2%"
   },
   {

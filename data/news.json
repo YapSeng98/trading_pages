@@ -1,11 +1,32 @@
 {
- "updated": "2026-10-28 10:11 SGT",
+ "updated": "2026-10-28 14:02 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Holds Above $4,000 as Traders Look to Fed Rate Decision",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWUt1anRfa2s0VVI2NXlTQlJWaE5weVJJNlhlRWxZMzA4LTVRelVZU3ZRRzBYMXgxdEI1UjVBRE9GbmJROXdIS08tbE9OQ24tVFhDZjRvTEFPLWRNUHV1RzdhWEVpSWhXbGp5UUw3SVhJTk9UYmNLS0lvSXdVbjBETjFCY2pycF9HaDlSY2I0b2FHdlVKc0RIcEpVUUw2ZlhEbExwa3FrY20tcDY5dlNF?oc=5",
+   "ms": 1793161320000,
+   "time": "10/28 12:22"
+  },
+  {
+   "t": "Gold drifts lower as USD hits two-week high ahead of FOMC decision",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMHlUZFlDWXp0MU85MG52dDRvTFYteU5fWXg3eEJrZ2dfUXN5VTVzRnUtbW5UanRtcFR5X1BkNUp0czVwYXg3NGJxQk5NU2tzWTVHaDhmd2k0c21WX2FvV2ZaLUZzbGsxdDdNUExrcjAzd1BoQjN0R2tibG81SEM1ZWh3YmRDQU1ZSG90dzlaUXhGdDBnWHdMX1dSMmYtNHU4VF9UVGFyU25xYkt6WFE?oc=5",
+   "ms": 1793160954000,
+   "time": "10/28 12:15"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD drops as oil price rebounds, Fed’s policy eyed",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdXVmTThYOWhLRGZMbDE0N19iMnFBYXo4cVRtR2pHVWhuWG1Ub2hxX1Q3RWZ0cVhoa2JMNThwb05YVHhwYWtadWR6WWNfaE54V3FNWDZBTTBpckh5NnJiWTNha3dZcW8wbHlkVUkzRFdPVmtXVHVYcEtiaWowNTdtMkhDc0Q0dWJtMmI2SExIbmJuOEY5T2RVdUdOU1VsNmZjQUZCYUtLYzdHcVkzMDZhUnJCNnlKaHloN1JB?oc=5",
+   "ms": 1793158462000,
+   "time": "10/28 11:34"
+  },
   {
    "t": "Gold rises above $4,050 ahead of Fed rate decision",
    "src": "FXStreet",
@@ -14,25 +35,11 @@
    "time": "10/28 07:18"
   },
   {
-   "t": "XAU/USD price outlook: Gold spot / U.S. Dollar navigating between arc levels | Potential continuation toward 0.618 arc",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOc0o3eEVTQVVIamdPWktucGZHcUFpMjF2LV9CRldTSm5KbExoR1NuLWwtSkRzUUI2TVpxb1U5VlJERnhNUks1Q1ZjaUd3TXJfSVNQbFVycGd4NE1YYkZQem1KZ01lSDROd1dlTUE3aGdsRW9OVEx4Y3JsUDZBWlh0MVJoRWRGVHdxQlRYSGlTdnlfY1NKbThCWTBRMWNFM1NLaGh4YzRpNTRvdzg1em9yUmhtTlZWY2d1ZTlsekRvdlpkVElIZzRyOWN3ZVRudElxRHV2SFlGM1VOVGdhc2JsSHZUcUhSNmx0ekRzNG5n?oc=5",
-   "ms": 1793135152000,
-   "time": "10/28 05:05"
-  },
-  {
    "t": "Downside risks are building in gold, but prices still have a path to $5,000 - State Street’s Doshi",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObjN0RDRTM1otelljWXNTb0hFRU9mYzVZbGtaUkhKREE3OTc3MGFSS0pYUjFQcFZxNUQ2UmJ0WEhYN19ENGlSbkdRZElGRDlRb3UxUlVkM0NiOW1GNC1XTFQxU1NKZ3BvLUNGZXpVdWlkdmRIb1RRZHlYVjlwemFKLXNzVktKUENCZlROb3N2OGRoTnBuY1JfM3Z6UTZDWGpKMElwdmpZNDRnWXRhcUdwUFZ2X1RwU3QwNElqMQ?oc=5",
    "ms": 1793133460000,
    "time": "10/28 04:37"
-  },
-  {
-   "t": "What gold and platinum are telling us about the stock market’s direction",
-   "src": "MarketWatch",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQb0JpZk9naWRQV0pBRFJ1NTR6V01tVzdTYmNYZUQ1ZFZGdXYtcmhqMnhhWXZuOG9NZ3c3WVhqZU1UZ2hHcWlkczdVWkxfSGR2VU1jbHF2T2hqTHhaYjJGa3FzLTBreWNHcE04bi1PZkdQYVV5WENjYWtyMjJyeWlqNHlfNjZYa3pXQUFGMlo3ek9fcEFwYUhMUDZhUE9WY1dVT1JkSWpVVTAzeVhOSFg2VmJadEk?oc=5",
-   "ms": 1793133000000,
-   "time": "10/28 04:30"
   },
   {
    "t": "Gold and silver ALERT: The next rally is close but price drops are still possible",
@@ -45,8 +52,8 @@
    "t": "Tokenized Gold’s Next Growth Test Is Its Role in Collateralized Lending",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcVpvSGllVG5xekFTd2VYcUpydVQ2UDJJRkYzdUppZ1ZacThaUjBLTVE3dUJOUkQ0d0ZEcTNmUHEweFh5QVVzMTZxUEctWHFLelltQkZhQVN4SXlSRXlFem9Zc2prcVBWQ3Z6QkMyOHY1YlotelRIWmFyX0lOeEdzRWhjb1pKdEZ0NkpudWFmZXMzQnNQa1l2Z2QzbzF3MDU2emxXQ3Vva1VfRElTS3N4TS03MUVRQQ?oc=5",
-   "ms": 1793132100000,
-   "time": "10/28 04:15"
+   "ms": 1793132474000,
+   "time": "10/28 04:21"
   },
   {
    "t": "Gold reclaims $4,060 as Oil retreats ahead of crucial Fed decision",
@@ -68,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lWVN4NmI2V3dzWGFVOUF0OWtTX0tENlRLZlNtUm95ZnRaOTZrbUFZV1htNWU4Y05iaDVSR1pXbWNIU3dzNlZwZDZ5ZjBIWk1qOGdsWV9wNXdwcEM5ZWpwc1NEeTJ5a0Z4VEZhZVVZQnI?oc=5",
    "ms": 1793120148000,
    "time": "10/28 00:55"
+  },
+  {
+   "t": "Key tactics for handling gold today",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBjQ0U5ckhVV3pERHZNME9jWHdMVzJWaml2Q3JDN04yTWpZdDREVnhQSTAxMUtFVXY5cUQtbWhrRW5BSERtT29yck9FWllMTzBybWljc04wX25laW5MbVRxcmVNMVVTQmVhSk9RclZSWWNMTC1oYld5dlc0b1Y?oc=5",
+   "ms": 1793114972000,
+   "time": "10/27 23:29"
   },
   {
    "t": "Gold prices holding above $4,000 as U.S. new home sales fall",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOMXF2c0ZsV29ibmM3eUtKa3laV3lRbzVERG9aV3U5Zk9RTmxnQzU5MXNmVmFONzdMSC1Ic1pMVl9RRXR4dU5pRWFNajhpTnc4VW5GOXlMUkdGTHFmTGYxNEcyY29jTHpTYm41NWdJMnp2a3E0QVhPMnc5RG9ZX0QxX2ppVzMyeHByVnJpMy1qUVg?oc=5",
    "ms": 1793109597000,
    "time": "10/27 21:59"
-  },
-  {
-   "t": "POLL Strong dollar, high yields drag on gold outlook, but central-bank demand lends support",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNY2N0dGg4Q1VsMUJXaTJYb1J4cjJiQjRGYS16djR0Nnh5VGVsQmFRZXctU0w3UUpfclljaFp4ZW5DVFZTLVYzTUlSWDY5Q0JsQ0JLYjF5aFJoVDBpOGhrWnkxdEZKdUtpQzNPc1kxRGdGRkdTZENtM25LLUNYNTdlMjNnMHdUcU52VVlFTkNXRUJKMDFhWEhFalptcGZvQ0FZeUl1UHF5T3Z2UmpWOUR6ekJmMnlHblRWQU1MUzFUaXZiUzA?oc=5",
-   "ms": 1793107800000,
-   "time": "10/27 21:30"
-  },
-  {
-   "t": "Why gold miners fall even after record profits",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMUNkV1NqMFlxcU90bi12T1JsTHB5Mm1sUUtsbW9XNEppb092eTZiUHNwYVI0V1hXdUY3bzRPc2NfU2ZuQ0hNY2ZfeHROdEx1dG9BQUk3SHJOUDJxMlV5RjVnYjJmMlkwc25HVjhKbTVkSnBKZjI1VUN0dGxobnNsYWFDdGJpSlV3WEZ1LUZIeWI?oc=5",
-   "ms": 1793105679000,
-   "time": "10/27 20:54"
   }
  ]
 }
