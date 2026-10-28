@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28 06:22 SGT",
+ "updated": "2026-10-28 09:37 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "Gold Futures Streaming Chart",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
+   "ms": 1793146844000,
+   "time": "10/28 08:20"
+  },
+  {
+   "t": "Gold rises above $4,050 ahead of Fed rate decision",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxORkxjclBRWHkyNkpHUHJhQ0MwTGNhR0Y5aWNBWm0zMzVuRGZCWnRuYkRSMW5zRzBGbURJdExkclMxMUMyNThyZVctVl9qWEFTSTJaUG9yZlVELUx0a1hDUC03bGUteUNXZnl4VkIxMk1xZVFaelp0Y3I4MXF5eDVNSlpLVlZEdUIzNnFVM3NsOUNBVTFiRWtj?oc=5",
+   "ms": 1793143083000,
+   "time": "10/28 07:18"
+  },
+  {
    "t": "XAU/USD price outlook: Gold spot / U.S. Dollar navigating between arc levels | Potential continuation toward 0.618 arc",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOc0o3eEVTQVVIamdPWktucGZHcUFpMjF2LV9CRldTSm5KbExoR1NuLWwtSkRzUUI2TVpxb1U5VlJERnhNUks1Q1ZjaUd3TXJfSVNQbFVycGd4NE1YYkZQem1KZ01lSDROd1dlTUE3aGdsRW9OVEx4Y3JsUDZBWlh0MVJoRWRGVHdxQlRYSGlTdnlfY1NKbThCWTBRMWNFM1NLaGh4YzRpNTRvdzg1em9yUmhtTlZWY2d1ZTlsekRvdlpkVElIZzRyOWN3ZVRudElxRHV2SFlGM1VOVGdhc2JsSHZUcUhSNmx0ekRzNG5n?oc=5",
    "ms": 1793135152000,
    "time": "10/28 05:05"
+  },
+  {
+   "t": "Downside risks are building in gold, but prices still have a path to $5,000 - State Street’s Doshi",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObjN0RDRTM1otelljWXNTb0hFRU9mYzVZbGtaUkhKREE3OTc3MGFSS0pYUjFQcFZxNUQ2UmJ0WEhYN19ENGlSbkdRZElGRDlRb3UxUlVkM0NiOW1GNC1XTFQxU1NKZ3BvLUNGZXpVdWlkdmRIb1RRZHlYVjlwemFKLXNzVktKUENCZlROb3N2OGRoTnBuY1JfM3Z6UTZDWGpKMElwdmpZNDRnWXRhcUdwUFZ2X1RwU3QwNElqMQ?oc=5",
+   "ms": 1793133460000,
+   "time": "10/28 04:37"
   },
   {
    "t": "What gold and platinum are telling us about the stock market’s direction",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNY2N0dGg4Q1VsMUJXaTJYb1J4cjJiQjRGYS16djR0Nnh5VGVsQmFRZXctU0w3UUpfclljaFp4ZW5DVFZTLVYzTUlSWDY5Q0JsQ0JLYjF5aFJoVDBpOGhrWnkxdEZKdUtpQzNPc1kxRGdGRkdTZENtM25LLUNYNTdlMjNnMHdUcU52VVlFTkNXRUJKMDFhWEhFalptcGZvQ0FZeUl1UHF5T3Z2UmpWOUR6ekJmMnlHblRWQU1MUzFUaXZiUzA?oc=5",
    "ms": 1793107800000,
    "time": "10/27 21:30"
-  },
-  {
-   "t": "The price of gold today, Oct. 27, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1oT0kyVGlfMzFxTTdReEFna1Bza3AzaFlnZnFPb3VBSFRnUmNnVzk4RkxjRjB0dk5HcXlOZjg0SU9HSVo2Z0VYUjk3ZDFEZG1KSlR5S25SWnZySm9TUkJYRGVLU29JcW0xWnpCUU1qWnhvUdIBd0FVX3lxTE9uQ3JVSU9Td3AybVFtQ0JWLWo4UlNfR1RURWMzTTlIMVpiXzduU05fQmJ1dW5qZlU5YVRJWHJBNTZDYmdadVl4MV80aVRBMmI1TERKaWlNUUVlMkZTcG1BNUVWb2RFRG8zdktyemxpS3BvSVRkLTJF?oc=5",
-   "ms": 1793107541000,
-   "time": "10/27 21:25"
-  },
-  {
-   "t": "Why gold miners fall even after record profits",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMUNkV1NqMFlxcU90bi12T1JsTHB5Mm1sUUtsbW9XNEppb092eTZiUHNwYVI0V1hXdUY3bzRPc2NfU2ZuQ0hNY2ZfeHROdEx1dG9BQUk3SHJOUDJxMlV5RjVnYjJmMlkwc25HVjhKbTVkSnBKZjI1VUN0dGxobnNsYWFDdGJpSlV3WEZ1LUZIeWI?oc=5",
-   "ms": 1793105679000,
-   "time": "10/27 20:54"
-  },
-  {
-   "t": "Freeport beats Q3 estimates on higher copper, gold prices",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSWxHbV9qdWdTNTFEQTh3SUR1Ymh5YkZVeDUwbHMzVGxJSkF0NV96U19rU2N6RFg4TWhoN2V5bGFraDhOYzJVRThNZTROYVYyeENRbWtVNEtNRnppUHJYcnBGalY2ZEZUaFBIZzRmcUpVeXhtemJOem5acVR6TTNkOVBzZEdHOFZIUlNSdTEyUXphQ3Bka2hOZWFQM3RUM3duQUhTaGY5dw?oc=5",
-   "ms": 1793103891000,
-   "time": "10/27 20:24"
   }
  ]
 }
