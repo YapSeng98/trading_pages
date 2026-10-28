@@ -1,11 +1,53 @@
 {
- "updated": "2026-10-29 03:48 SGT",
+ "updated": "2026-10-29 07:58 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Kinross Gold (KGC) Beats Q3 Earnings Estimates",
+   "src": "Yahoo Finance Singapore",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4waVVQUXdmeHRLSVZPZEl5endIX0pLTWNsaXpJeDh4OXVqYWJDbjF4N29kUkhydXNqd29WYjd2QW5vS0plVXN6UEdxeXctMTBaa2lfUGtwVC1PdHJabkVYSGNYRC1QZmx4M20zNmlvZ1VtNS10VEFYVkVkaHJKaTg?oc=5",
+   "ms": 1793226608000,
+   "time": "10/29 06:30"
+  },
+  {
+   "t": "Agnico Eagle beats earnings expectations as higher gold prices offset rising mining costs",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPeHloSHVhUldSZmx5SWZ1LS1jOWotd2xtQlNLaXRZR0o4UExYcmJQQlhzd01WNjRFR1ZEbGV0OUVRU1p5b0NIeXlQNTlGQlVDMmhZVWFUVVRiQ3FwLXNNckJCRVlXR0h1aW9XdVNoeFRkU2w2YmVGX0JUOTBMYmxJOFE4ZDFManM2dGhteVc0RHV5RXg0d1otMUhPenkzRXZFQjhIUXBNMEVsSjhxUGszanhTOU4yY1FYUWdZ?oc=5",
+   "ms": 1793225972000,
+   "time": "10/29 06:19"
+  },
+  {
+   "t": "Canada’s Alamos Gold’s Q3 adjusted earnings rise on strong gold prices",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdXFqYVpvdjY2Q1ZHMXMzUVl1eTB6a2NFTHFLRUR4akVaQ0U5UXVIZkFUeFJyQU0tYUJIc0dlVllxU0hwWnpLRWZqSnZFX2I4enhqaVpycGN3VklqZUtScWNRbHM4Vk9TLWtyS2lJeV9DZkFEMl85X1VWVE1TVkg4cjNRLXd3QzNHWEE3bDYwUUlpTjFUN2E4dm9FV1ZqbDN5Y0Z1aGhwS0gxNGI4WDJKbWZIRUpndw?oc=5",
+   "ms": 1793225433000,
+   "time": "10/29 06:10"
+  },
+  {
+   "t": "Canada’s largest miner Agnico Eagle reports higher Q3 earnings as gold prices rise",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaVhjYldVdVh4eXdqaV9BUmZqTGxmSmRyQjZ5TjA2YURLNzBraThyVnNwT0VjS3pMYkhLN2Fya1FvTzJsbWxzRGNFNHBhRUloWVZmeW9JQ19wN3pGd1hUcTdIcy1tLWJaZGpwVWFkSThOSWhGdjJzVTIxenVHNHZ5NUV3ek05WDJ2dWtjV0g4OGxfS3BRMEZqWjBmaDdDNTVfZU12eGJFR1dMRE82Tnd6ZjgwSDZYTnJ4NHNsSDNxZ1dabmhMdkJJ?oc=5",
+   "ms": 1793223468000,
+   "time": "10/29 05:37"
+  },
+  {
+   "t": "Gold Holds Above $4,000 as Traders Look to Fed Rate Decision",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWUt1anRfa2s0VVI2NXlTQlJWaE5weVJJNlhlRWxZMzA4LTVRelVZU3ZRRzBYMXgxdEI1UjVBRE9GbmJROXdIS08tbE9OQ24tVFhDZjRvTEFPLWRNUHV1RzdhWEVpSWhXbGp5UUw3SVhJTk9UYmNLS0lvSXdVbjBETjFCY2pycF9HaDlSY2I0b2FHdlVKc0RIcEpVUUw2ZlhEbExwa3FrY20tcDY5dlNF?oc=5",
+   "ms": 1793218174000,
+   "time": "10/29 04:09"
+  },
+  {
+   "t": "Gold slips as Warsh questions tight Fed policy, defends 2% target",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU3JTdmtHTC16RXZVLWJaNGhBNXhmZDdhcEdhZ01RcTF1RTNsM0JfcURhY3VGWlR5UThMN0I1S0JNRWNtenF3dk1qSE1LYWM2MC10cm9xa1l6TDVyWFR5bG5kTHVHbHc1VXNWRmlIMnpRcnhLU2tydHhBcjhLbVpaelpHRVB2aHlCTXFFX09rQ3lnQXUwQ1lZR1VTS0p4VlJNaTVqaHhyLTRkeDQ?oc=5",
+   "ms": 1793217510000,
+   "time": "10/29 03:58"
+  },
   {
    "t": "Fed day playbook: A trader's guide to gold price action",
    "src": "Kitco",
@@ -26,20 +68,6 @@
    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdzcybndNSlFLQ29JVmM3NTl6U3VoQVJ5eDNXNWNBeFprbGxkV1JwYnRUV3FPX3Z0N01LSkl4U1JWYm9qSEpPQWZLR2ZjTHV1MUhQajgwSVMwS3RjS1h0d1BVcDdGN1FuVGluYklVazBXWFlnNm9Xa1NINXI0eWxJZnZwSEVHNm9nRnlQb3VlX1VBR3Y1QmFSM3VWeFhESmtkUDlfbHlfRWVweUZlYkFkTGpYcE1VbDRvTV9ta1N1UzMyLUR5QTdVdjZMUQ?oc=5",
    "ms": 1793209440000,
    "time": "10/29 01:44"
-  },
-  {
-   "t": "Gold slips toward $4,000 as Oil above $100 clouds Fed rate outlook",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU3JTdmtHTC16RXZVLWJaNGhBNXhmZDdhcEdhZ01RcTF1RTNsM0JfcURhY3VGWlR5UThMN0I1S0JNRWNtenF3dk1qSE1LYWM2MC10cm9xa1l6TDVyWFR5bG5kTHVHbHc1VXNWRmlIMnpRcnhLU2tydHhBcjhLbVpaelpHRVB2aHlCTXFFX09rQ3lnQXUwQ1lZR1VTS0p4VlJNaTVqaHhyLTRkeDQ?oc=5",
-   "ms": 1793208734000,
-   "time": "10/29 01:32"
-  },
-  {
-   "t": "Agnico Eagle earnings on deck: Can margins hold amid gold slump?",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWWMzd1BtVmlsTm5hY3Nxak5DOEJ2dzNqWjBPcG9Xc1BJcGxXSjA3OTFjcDFrcnI5d244MFY3TjVRLXVmWlpIaWJiZk4zaGlRMllITEhCSlVLT3U1ZENROXBYVTVzVWFKb1J4VXg0UjFydW8xV2NRMFNuN3JMWnJkRkdrSG1zRWFpUlZ2NGtqTWNUXzJBbjY2WEVxUmhwdVNVaE9TOEYxdkZaenBJX3Rhb09PS1BIaDhPSWFGX0JGbDg?oc=5",
-   "ms": 1793207025000,
-   "time": "10/29 01:03"
   },
   {
    "t": "Kinross Gold earnings in focus after production guidance cut By Investing.com",
@@ -82,34 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSGxPSDR3YmNvd0xKLTg2UnU0VHJpd3hfUHFiejFvNDVQdGw4ZjF2Nl9WVkdFdUFjT0oxbHRxRnRoYmZQRG5hbzdIbGY5c0Y1NkdRZEo2aWlEQ2dQR1E5LVVVb3AwcE9GRjVJWmpvZ2xUb1NBR2JsTkFLOElMMVl3TGc2REZfVzRsblNxZi16aGlac2c0cndYVkF6X0didlVnV0tQTlJLTi1jdXhfb3phamZ4ZjA2VzQyZ1dtVnVR?oc=5",
    "ms": 1793195150000,
    "time": "10/28 21:45"
-  },
-  {
-   "t": "Metals Exploration shares fall as La India delay offsets strong Runruno quarter",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQRWNROXBNUW52eEE1R1VCWUdNT0FpRzFRaGtYcENPQXl2MUhacVN4RU1EUTNSdXM4M2JkTnNOVEtaV29GSVh1VTY3cnphdW9aTGxBN0ZMZGY5THczRzRkdlRuaUgxb3FWcmd0ZFNWOGtQYUZvSjAyYldzYWtkRVVadXA1X0gtQl9nSnc?oc=5",
-   "ms": 1793194200000,
-   "time": "10/28 21:30"
-  },
-  {
-   "t": "Gold slips on higher oil prices ahead of Fed decision",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNUpNRHNTVTl3VlUyYkQyREstclhqc1JzWGNKZVBqY2dldnJGY2tDZTFiUVFXa0djNkdWZDhkS21RUXh1eXlObVVHY3o3NmhobzRmbVlCYjJieXZyRzVEaXpQazg3b1lZNG96djFhSGFZU0I1Y0hwUXJIbW5wejZ2Y3E5NDkwT3pTRzRLejYwaVZUanVxR3NYa3c1bGt4d0k?oc=5",
-   "ms": 1793193892000,
-   "time": "10/28 21:24"
-  },
-  {
-   "t": "Wall Street Analysts Predict a 27.33% Upside in Royal Gold (RGLD): Here's What You Should Know",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbWttb2l6c0FENlg0Q2FpdmdhUjlmUWoyT0o1UXFaTmVIdWJYTWJ1S250VERmY1luQ2JjQ3c0OUE0cGJDZUFGVDlvT2pheGEwTnlacUFGNGRObEpnSmFhdm9ZVkpERm1POUFJSWFjZS1xMTY1eG5Rc3JkeVdubkxMb0R3SzZJVVhyWXlJRllraW5RUFZoakhEenVQSmQ?oc=5",
-   "ms": 1793192102000,
-   "time": "10/28 20:55"
-  },
-  {
-   "t": "Gold price today, Wednesday, October 28, 2026: Gold prices remain below $4,100 ahead of the Fed rate decision",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxPQm51ZUp6UGU0ZzV3eXJESFRZdVEydS0zd2k0aDMwUXlUbXp3anhMMC1Jb1VwYi1wX0JMdlc1a3JCT2RINW5zY3lDTDNJX2tEWThWMzgyanFSUGkzZW1ETm50UTAxZVlCU3oyTURocENiMl9LT2phcjBsbV80RTlhRUhvYXJHSXdvOF84UGpjSU9PdnRxWFlOWHZFQUhURkpfUTVDQXZlNkFqUm9RMk9LRHJVOGZyTThxUXc0U2FDVzlRUURQN2xNSDNEYk1ZeWlwaW1qbng4cDVlNEh4OUc5bm1mbzE3dXlrdzZLaFk2TDNfUXB3R0pwMDFPa3dPQmJXWWVGb2hLT1lGRmM?oc=5",
-   "ms": 1793185628000,
-   "time": "10/28 19:07"
   }
  ]
 }
