@@ -37,6 +37,7 @@ The scripts:
 
 - `scripts/update_gold.js` runs the report page's own engine on real spot gold and writes `data/xau-state.json`: `price` (close of the last finished 15-minute candle, with `priceTime`), `today` (open, high, low and change since the previous close; the trading day rolls at 17:00 New York), `previousDay`, `thisWeek`, `previousWeek`, `verdict` (the same answer `report.html` shows), `plan` (only when the verdict is "go"), `watch` (the prices that would change the verdict), `timeframes` (per timeframe: `trend`, `since`, `rsi`, `atr`, EMAs, `range`, `lastBreak`, the price that would turn it), `resistance` and `support`.
 - `scripts/update_news.py` writes `data/news.json`: the latest gold headlines (FXStreet, Investing.com, Google News limited to market publishers), original language with links. news.html shows them under "实时头条" through `assets/news-live.js`. The refresh may use them as leads for its five news items, checking each with WebSearch.
+- `scripts/update_widget.js` (last step of the job) writes `data/widget.json`: gold and Bitcoin's answer, trend arrows, the two levels that change it, the plan when there is a signal, and gold's 哪个先到 odds (which `update_gold.js` now also writes into the state file as `odds`). The widgets in `widgets/` read it and fetch the live price themselves: `gold-btc-widget.js` (Scriptable on iPhone, also placeable on the Mac desktop as an iPhone widget) and `gold-btc.5m.py` (SwiftBar, the Mac menu bar). Setup in `widgets/README.md`.
 - `scripts/update_calendar.py` writes `data/calendar.json`: this week's US releases of medium or high impact, times already in Singapore time, with forecast and previous values.
 
 Rules for the refresh when it writes `daily.html` and `risk.html`:
@@ -110,7 +111,7 @@ that card and words its verdict from that file (`XauPlan.setMarket`, `BtcFeed.re
 signal with gold's replay. `scripts/update_btc.js` (market job) writes `data/btc-state.json` (home page tile) and
 `data/btc-signals.json` (Bitcoin's own paper record, started 2026-10-23 19:30 SGT).
 
-The refresh routine must NOT edit `report.html`, `btc.html`, `journal.html`, `assets/`, `data/` (except `data/refresh-request.txt`), `scripts/`, `research/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
+The refresh routine must NOT edit `report.html`, `btc.html`, `journal.html`, `assets/`, `data/` (except `data/refresh-request.txt`), `scripts/`, `research/`, `widgets/` or `.github/`. Every page's navbar links to `report.html` and `journal.html`; keep those links.
 
 ## Weekly deep refresh — Monday only
 

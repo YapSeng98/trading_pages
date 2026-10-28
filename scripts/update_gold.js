@@ -83,7 +83,8 @@ const WAY = { bullish: "向上", bearish: "向下", unclear: "不明" };
     previousWeek: wk ? { open: r1(wk[1]), high: r1(wk[2]), low: r1(wk[3]), close: r1(wk[4]) } : null,
     verdict: { level: V.level, tag: (V.closed ? "休市中 · " : "") + V.tag, title: V.title, text: V.text, reasons: V.reasons.map(r => ({ label: r.label, ok: r.ok, text: r.text })) },
     plan: V.plan && V.level === "go" ? { side: V.plan.side === "long" ? "做多" : "做空", entry: V.plan.entry, stop: V.plan.stop, target: V.plan.tp1, stopDistance: r1(V.plan.dist), trailDistance: V.plan.trailDist, rule: "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R" } : null,
-    watch: V.lines.map(l => ({ price: r1(l.price), text: l.text })),
+    watch: V.lines.map(l => ({ price: r1(l.price), dir: l.dir, text: l.text })),
+    odds: (() => { const o = P.bounceOdds(eng, K["15M"], K["1H"], readJson(path.join(ROOT, "data", "xau-scenarios.json"))); return o ? { dir: o.dir, extAtr: Math.round(o.extAtr * 100) / 100, atLeast: o.atLeast, n: o.n, back: o.back, brk: o.brk, backAt: r1(o.backAt), breakAt: r1(o.breakAt) } : null; })(),
     score: eng.overall.score,
     timeframes: P.TF_ORDER.map(tf => {
       const t = eng.tfs[tf]; if (!t || t.error) return { tf, name: P.TF_ZH[tf], error: (t && t.error) || "no data" };
