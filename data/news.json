@@ -1,18 +1,11 @@
 {
- "updated": "2026-10-28 09:37 SGT",
+ "updated": "2026-10-28 10:11 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
-  {
-   "t": "Gold Futures Streaming Chart",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
-   "ms": 1793146844000,
-   "time": "10/28 08:20"
-  },
   {
    "t": "Gold rises above $4,050 ahead of Fed rate decision",
    "src": "FXStreet",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNY2N0dGg4Q1VsMUJXaTJYb1J4cjJiQjRGYS16djR0Nnh5VGVsQmFRZXctU0w3UUpfclljaFp4ZW5DVFZTLVYzTUlSWDY5Q0JsQ0JLYjF5aFJoVDBpOGhrWnkxdEZKdUtpQzNPc1kxRGdGRkdTZENtM25LLUNYNTdlMjNnMHdUcU52VVlFTkNXRUJKMDFhWEhFalptcGZvQ0FZeUl1UHF5T3Z2UmpWOUR6ekJmMnlHblRWQU1MUzFUaXZiUzA?oc=5",
    "ms": 1793107800000,
    "time": "10/27 21:30"
+  },
+  {
+   "t": "Why gold miners fall even after record profits",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPMUNkV1NqMFlxcU90bi12T1JsTHB5Mm1sUUtsbW9XNEppb092eTZiUHNwYVI0V1hXdUY3bzRPc2NfU2ZuQ0hNY2ZfeHROdEx1dG9BQUk3SHJOUDJxMlV5RjVnYjJmMlkwc25HVjhKbTVkSnBKZjI1VUN0dGxobnNsYWFDdGJpSlV3WEZ1LUZIeWI?oc=5",
+   "ms": 1793105679000,
+   "time": "10/27 20:54"
   }
  ]
 }
