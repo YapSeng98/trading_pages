@@ -72,7 +72,7 @@ const down = eps.filter(e => e.b < 0), up = eps.filter(e => e.b > 0);
 const res = { tested: new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10), from: new Date(T(0) * 1000).toISOString().slice(0, 10), to: new Date(T(n - 1) * 1000).toISOString().slice(0, 10),
   downtrendBounce: summary(down), uptrendPullback: summary(up), both: summary(eps) };
 const fb = fwd(i => big(i) !== 0, i => big(i)), fa = fwd(() => true, () => 1);
-res.downtrendBounce.byExtent = byExtent(down); res.both.byExtent = byExtent(eps);
+res.downtrendBounce.byExtent = byExtent(down); res.uptrendPullback.byExtent = byExtent(up); res.both.byExtent = byExtent(eps);
 res.base = { bigThreeAgree: {}, anyTime: {} };
 for (const d of [1, 5, 10]) { res.base.bigThreeAgree["f" + d] = { median: r2(q(fb[d], 0.5)), withTrend: r1(share(fb[d], x => x > 0)) }; res.base.anyTime["f" + d] = { median: r2(q(fa[d], 0.5)), up: r1(share(fa[d], x => x > 0)) }; }
 
@@ -85,7 +85,7 @@ const show = (name, s) => {
 };
 console.log("Replayed gold states " + res.from + " to " + res.to + ". Situation: the big three agree, the 1-hour runs against them.");
 show("Bounce in a downtrend (now)", res.downtrendBounce); show("Pullback in an uptrend (mirror)", res.uptrendPullback); show("Both together", res.both);
-for (const [name, rows] of [["downtrend bounces", res.downtrendBounce.byExtent], ["both directions", res.both.byExtent]]) {
+for (const [name, rows] of [["downtrend bounces", res.downtrendBounce.byExtent], ["uptrend pullbacks", res.uptrendPullback.byExtent], ["both directions", res.both.byExtent]]) {
   console.log("\nOnce the bounce has gone this far against the trend (" + name + "): what came first, and price 5 / 10 days after that moment");
   for (const r of rows) console.log("  >= " + r.atr.toFixed(2) + " daily ATR: " + String(r.n).padStart(3) + " cases · big three break " + r.break + "% · 1-hour back " + r.back + "% · after 5 days with the trend " + r.f5.withTrend + "% (median " + r.f5.median + "%) · after 10 days " + r.f10.withTrend + "% (median " + r.f10.median + "%)");
 }

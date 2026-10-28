@@ -528,8 +528,34 @@ var XauPlan = (function () {
     return L.join("\n");
   }
 
+  // ---------- a bounce inside an aligned trend: which level tends to come first ----------
+  // odds: data/xau-scenarios.json (research/xau-replay/scenario_check.js; descriptive, no rule was fitted to it). The
+  // bounce starts at the later of the 1-hour turning against the big three and the big three lining up, and is measured
+  // as the research measured it: the furthest 15-minute close against the big direction since then, in daily ATR.
+  // K15 / K1: finished candles as the feed gives them ([startMs, o, h, l, c, v, endMs - 1]), oldest first.
+  function bounceOdds(E, K15, K1, odds) {
+    var R = regime(E), H1 = tfOk(E, "1H"), D = tfOk(E, "D");
+    if (!odds || !R.dir || R.dirs["1H"] !== -R.dir || !H1 || num(H1.since) === null || !D || !num(D.atr)) return null;
+    var dir = R.dir, start = Math.max(num(H1.since), num(R.since3) || 0);
+    function scan(K) {
+      var p0 = null, adv = 0;
+      for (var i = 0; i < (K || []).length; i++) {
+        var end = K[i][6] + 1; if (end < start) continue;
+        if (p0 === null) { if (end !== start) return null; p0 = +K[i][4]; continue; }
+        adv = Math.max(adv, (K[i][4] - p0) * -dir);
+      }
+      return p0 === null ? null : { p0: p0, adv: adv };
+    }
+    var got = scan(K15) || scan(K1), side = dir < 0 ? odds.downtrendBounce : odds.uptrendPullback;
+    if (!got || !side) return null;
+    var ext = got.adv / D.atr, row = null;
+    (side.byExtent || []).forEach(function (r) { if (ext >= r.atr) row = r; });
+    return { dir: dir, start: start, p0: got.p0, extAtr: ext, atLeast: row ? row.atr : 0, n: row ? row.n : side.n,
+      back: row ? row.back : side.back, brk: row ? row.break : side.break, backAt: flipLevel(E, "1H", dir), breakAt: flipLevel(E, "4H", -dir) };
+  }
+
   return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
     regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
-    patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, patternPlan: patternPlan, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
+    patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, patternPlan: patternPlan, bounceOdds: bounceOdds, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;

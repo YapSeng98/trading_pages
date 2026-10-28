@@ -5,7 +5,7 @@
   var M = Object.assign({
     id: "xau", ls: "xau4h.", sym: "XAUUSD", name: "黄金", contract: 100, unit: "盎司", weekend: true, calibrate: true,
     spotUrl: "https://api.gold-api.com/price/XAU", tick: "PAXGUSDT", ws: "paxgusdt",
-    state: "data/xau-state.json", signals: "data/xau-signals.json", news: "data/news.json",
+    state: "data/xau-state.json", signals: "data/xau-signals.json", news: "data/news.json", scenarios: "data/xau-scenarios.json",
     srcSpot: "数据：现货金 XAU/USD", srcBackup: "备用数据：PAXG 代币",
     basisSpot: "现货金 XAU/USD，Dukascopy 买价，纽约 17:00 换日", basisBackup: "PAXG 代币行情校准到现货（备用数据源）",
     calEmpty: "本周剩下的时间里，日历上没有会明显影响金价的美国数据。", newsWord: "影响金价的消息", overlapTip: "伦敦与纽约重叠：通常是黄金波动最大的时段",
@@ -232,6 +232,7 @@
     var lw = $("v-lines-wrap"), ll = clear($("v-lines")); lw.hidden = !V.lines.length && !V.other;
     V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", null, [l.text, l.dist !== null ? h("small", { text: "离现价 " + fmt(l.dist, 1) + " 美元" }) : null])])); });
     renderProofLine(V);
+    renderOdds();
 
     var chips = clear($("v-chips")), now = Date.now(), ss = sessionState(now), pm = posState();
     if (S.pos) chips.appendChild(h("button", { type: "button", class: "chip " + (pm && pm.pnlR > 0 ? "bull" : pm && pm.pnlR < 0 ? "bear" : "gold"), style: "cursor:pointer", text: "持仓中" + (pm && pm.pnlR !== null ? " " + sgn(pm.pnlR) + "R" : ""), onclick: function () { $("pos").scrollIntoView({ behavior: "smooth", block: "start" }); } }));
@@ -1556,6 +1557,23 @@
   // The question goes to claude.ai with this page's live state written out as plain facts, so the answer is about
   // the situation now. Nothing leaves the page until the button is pressed; the visitor's own Claude account answers.
   // claude.ai/new?q= fills in the message; the same text is also copied, in case the app opens without it.
+  // Which of the two levels tends to come first while the 1-hour runs against the big three (gold only): the odds from
+  // data/xau-scenarios.json, for how far this bounce has already gone (XauPlan.bounceOdds). History, not a forecast.
+  function loadOdds() { if (!M.scenarios) return; fetch(M.scenarios, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { S.odds = d; if (S.E) renderOdds(); }).catch(function () {}); }
+  function oddsNow() { return M.scenarios && S.odds && S.E && S.feed ? P.bounceOdds(S.E, S.feed.K["15M"], S.feed.K["1H"], S.odds) : null; }
+  function renderOdds() {
+    var box = $("v-odds"); if (!box) return;
+    var o = oddsNow(); box.hidden = !o; if (!o) return;
+    clear(box);
+    var dn = o.dir < 0, word = dn ? "反弹" : "回调", w = dn ? "down" : "up", ag = dn ? "up" : "down";
+    box.appendChild(h("div", { class: "oh" }, ["哪个先到？" + word + "已走 ", h("b", { text: o.extAtr.toFixed(2) }), " 个日波幅；以前" + (o.atLeast ? "走过 ≥" + o.atLeast + " 个日波幅的 " : "同样的 ") + o.n + " 次里："]));
+    box.appendChild(h("div", { class: "ob", role: "img", "aria-label": word + "先结束 " + Math.round(o.back) + "%，大方向先转折 " + Math.round(o.brk) + "%" }, [
+      h("span", { class: w, style: "flex:" + o.back, text: Math.round(o.back) + "%" }), h("span", { class: ag, style: "flex:" + o.brk, text: Math.round(o.brk) + "%" })]));
+    box.appendChild(h("div", { class: "ol" }, [
+      h("span", { text: (dn ? "▼ " : "▲ ") + (o.backAt !== null ? fmt(o.backAt, 1) + " " : "") + word + "结束，出" + (dn ? "做空" : "做多") + "信号" }),
+      h("span", { text: "大方向转折，观望" + (o.breakAt !== null ? " " + fmt(o.breakAt, 1) : "") + (dn ? " ▲" : " ▼") })]));
+    box.appendChild(h("p", { class: "oc", text: "2011–2026 年回放里的比例，不是预测；规则照样等收盘确认。" }));
+  }
   function loadNews() { if (!M.news) return; fetch(M.news, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.items) S.news = d.items; }).catch(function () {}); }
   var EN_TF = { W: "Weekly", D: "Daily", "4H": "4-hour", "1H": "1-hour", "15M": "15-min" };
   function f1(v) { return num(v) === null ? "—" : fmt(v, 1); }
@@ -1583,6 +1601,7 @@
     var k = R.dir ? P.systemPlan(E, R.dir) : null;
     if (k) L.push("Plan at the live price: " + (k.side === "short" ? "SELL" : "BUY") + " " + f1(k.entry) + ", stop " + f1(k.stop) + " (" + fmt(k.dist, 1) + " away = 3x 1-hour ATR), target 3R " + f1(k.tp1) + "; trailing-stop alternative keeps the stop " + fmt(k.trailDist, 0) + " behind the best price" + (R.full ? "" : " (not valid yet: the small timeframes have not turned)"));
     V.lines.forEach(function (l) { L.push("Level that changes the answer: " + f1(l.price) + " (" + l.text + ")"); });
+    var bo = oddsNow(); if (bo) L.push("History (2011-2026 replay, descriptive, not a forecast): the " + (bo.dir < 0 ? "bounce" : "pullback") + " has gone " + bo.extAtr.toFixed(2) + " daily ATR against the big trend; of " + bo.n + " similar cases" + (bo.atLeast ? " (at least " + bo.atLeast + " daily ATR)" : "") + ", the big three broke first " + bo.brk + "% and the 1-hour turned back first (the rule's signal) " + bo.back + "%. Price 1-10 days later moved with the trend about half the time.");
     var nr = P.nearest(E);
     if (nr.sup || nr.res) L.push("Nearest support " + (nr.sup ? f1(nr.sup.price) + " (" + (nr.sup.labels || []).slice(0, 2).join(", ") + ")" : "—") + " | nearest resistance " + (nr.res ? f1(nr.res.price) + " (" + (nr.res.labels || []).slice(0, 2).join(", ") + ")" : "—"));
     var ev = (S.events || []).filter(function (e) { return e.ms > now - 3600000; }).slice(0, 4);
@@ -1831,7 +1850,7 @@
   $("stale-clear").addEventListener("click", clearPlan);
   $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "按现在的行情重算"); });
   $("retry").addEventListener("click", refresh);
-  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); });
+  $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds(); });
   $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
@@ -1843,7 +1862,7 @@
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
   syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert();
-  refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews();
+  refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed
   // needs a few seconds to publish the candle; if it is not there yet, look again a minute later, three times at
