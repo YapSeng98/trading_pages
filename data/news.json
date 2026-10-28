@@ -1,11 +1,25 @@
 {
- "updated": "2026-10-28 22:00 SGT",
+ "updated": "2026-10-28 22:22 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Current price of gold as of October 28, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQa2I0dGY4OGxPWTg1aDhfbDZuYmJtMWQxdE1QaTFya3N1elZJanNzMjM2LXJ1REpCZHpYa1JZZzJVOGE3N2dpb2JVcGVwN3NWNzBMVnVaTVN3bmdKTklfSzhjLXVPOTMxZDIzR3BB?oc=5",
+   "ms": 1793196840000,
+   "time": "10/28 22:14"
+  },
+  {
+   "t": "Gold price at CAD$5,684/oz after Bank of Canada raises 25 bps, sees growth slowing in Q4 before rebounding in 2028",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSGxPSDR3YmNvd0xKLTg2UnU0VHJpd3hfUHFiejFvNDVQdGw4ZjF2Nl9WVkdFdUFjT0oxbHRxRnRoYmZQRG5hbzdIbGY5c0Y1NkdRZEo2aWlEQ2dQR1E5LVVVb3AwcE9GRjVJWmpvZ2xUb1NBR2JsTkFLOElMMVl3TGc2REZfVzRsblNxZi16aGlac2c0cndYVkF6X0didlVnV0tQTlJLTi1jdXhfb3phamZ4ZjA2VzQyZ1dtVnVR?oc=5",
+   "ms": 1793195150000,
+   "time": "10/28 21:45"
+  },
   {
    "t": "Metals Exploration shares fall as La India delay offsets strong Runruno quarter",
    "src": "Yahoo Finance UK",
@@ -35,7 +49,7 @@
    "time": "10/28 18:41"
   },
   {
-   "t": "Gold sticks to intraday losses below $4,050 as USD retains bullish bias ahead of FOMC",
+   "t": "Gold holds intraday losses below $4,050 as USD stays firm before FOMC",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMHlUZFlDWXp0MU85MG52dDRvTFYteU5fWXg3eEJrZ2dfUXN5VTVzRnUtbW5UanRtcFR5X1BkNUp0czVwYXg3NGJxQk5NU2tzWTVHaDhmd2k0c21WX2FvV2ZaLUZzbGsxdDdNUExrcjAzd1BoQjN0R2tibG81SEM1ZWh3YmRDQU1ZSG90dzlaUXhGdDBnWHdMX1dSMmYtNHU4VF9UVGFyU25xYkt6WFE?oc=5",
    "ms": 1793172761000,
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOSkFmQ3ZSYmFHZlZ5V055N3BTYU5FSzZWWmd3LWxfTFZwVmhsQWJTMzdBVjNvUVN6M19ZYzd3anFpQ0I4Rl9RWGdyaVo5a2JWUEpoUGctT20xdnpTOGdGVGZZX0p1dEw1RFR3VkpQbWQ2VUZlNUtsdjJiR0hJRk1zeV9nR0pqX3l2UnE3Wng0YmhFYzdyZjM1TVhQYWVQb2hWUWRmRktCZjZRSi0wNzV2ZTJJNGQ?oc=5",
    "ms": 1793122688000,
    "time": "10/28 01:38"
-  },
-  {
-   "t": "We don’t understand the gold price",
-   "src": "Financial Times",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lWVN4NmI2V3dzWGFVOUF0OWtTX0tENlRLZlNtUm95ZnRaOTZrbUFZV1htNWU4Y05iaDVSR1pXbWNIU3dzNlZwZDZ5ZjBIWk1qOGdsWV9wNXdwcEM5ZWpwc1NEeTJ5a0Z4VEZhZVVZQnI?oc=5",
-   "ms": 1793120148000,
-   "time": "10/28 00:55"
-  },
-  {
-   "t": "Gold prices holding above $4,000 as U.S. new home sales fall",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNcmVuTjI5Vi1CZko5WXA1ZWdubXkzaGtWTzd5dTB4M3RGSHJlaEQzMnh2cEVGdjl6RDdyRkk4bDk1cTNfaXVneUlKaVprTVFkNUpTNnl5MlFmMUl4Sm5oODBEU1BkZHA1V3lKWjFWSnluazA5YzYzLUFqcHNlLVZzaURLLUc3Q1haRWtDMjRuQlA1b2podll6Z3BJMWpBMmhh?oc=5",
-   "ms": 1793111175000,
-   "time": "10/27 22:26"
   }
  ]
 }
