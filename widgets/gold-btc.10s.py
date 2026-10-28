@@ -4,11 +4,14 @@
 # <swiftbar.hideRunInTerminal>true</swiftbar.hideRunInTerminal>
 # <swiftbar.hideLastUpdated>false</swiftbar.hideLastUpdated>
 #
-# SwiftBar plugin (macOS menu bar), refreshed every 5 minutes (the ".5m" in the file name). The answer, trend arrows
-# and levels come from the site's data/widget.json (market job, every 15 minutes); prices are fetched live here.
+# SwiftBar plugin (macOS menu bar), refreshed every 10 seconds (the ".10s" in the file name): the two prices are
+# fetched live on every run; the answer, trend arrows and levels come from the site's data/widget.json (market job,
+# every 15 minutes), re-read at most once a minute.
 # Setup: widgets/README.md.
 import datetime
 import json
+import os
+import time
 import urllib.request
 
 SITE = "https://yapseng98.github.io/trading_pages/"
@@ -77,12 +80,18 @@ def section(m, px, d):
     if m.get("odds"):
         o = m["odds"]
         print(f"先到：{'做空' if o['dir'] < 0 else '做多'}信号 {round(o['back'])}% · 大方向转折 {round(o['brk'])}%（历史比例，不是预测） | size=12")
-    now = datetime.datetime.now().strftime("%H:%M")
+    now = datetime.datetime.now().strftime("%H:%M:%S")
     print((f"价格 {now} 实时" if px else f"价格 {m['priceTime']}（未更新）") + f" · 结论按 {m['updated'][11:16]} | size=11 color=#8A857E")
 
 
+CACHE = os.path.expanduser("~/Library/Caches/gold-btc-widget.json")
 try:
-    data = get(SITE + "data/widget.json")
+    if os.path.exists(CACHE) and time.time() - os.path.getmtime(CACHE) < 60:
+        data = json.load(open(CACHE))
+    else:
+        data = get(SITE + "data/widget.json")
+        with open(CACHE, "w") as f:
+            json.dump(data, f)
 except Exception:
     print("🥇 — | color=#8A857E")
     print("---")
