@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29 15:38 SGT",
+ "updated": "2026-10-29 19:48 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,8 +7,22 @@
  ],
  "items": [
   {
+   "t": "Gold prices today, Thursday, October 29, 2026: Gold prices hardly budge after Fed holds rates steady",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNclRxb0szRExxazlPX1gtN19mcHUzQTBWWHdmUlpINGYzeGtRTlhoNzdRQzRBMm9aTDZzeHUzb0kxMl9BWGx0TWdxM1dZWEtuWUU0NTRhekU4QzRjR1FleXVTNTBqbFVqcnI3QjZxN2lMTlN0Sk9hNWs0a0J5dW16TVFXOXlTZWQ0NG9LYTZXa1htX3ZvbUR6YUFteXJUTFJrLTY2WG02R280TFl4T0lEQS1FLWhXMU5pdUxqUHBuSElfNTJxTTQzN2s1djV2blJOeUg2bVNKd0ZKRmh2S2JuQU5DQktYcURKcXlPVGg3UHRqcXhRWDNwalgycm1WRHl1M2c?oc=5",
+   "ms": 1793272517000,
+   "time": "10/29 19:15"
+  },
+  {
+   "t": "Gold weakens ahead of US PCE inflation amid hawkish Fed outlook",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcFNOVzAtejhZWTl2QlFRUG1kYkN5SzI3ZDZsZU1MS1dveGFKaW9vczFvZHF2REFGQ0JHX3hranA0eXJWR3paN1NQU21uZ3hXRV9HSDd2dVFfLTZnaWk5RUI2QkxSWVlvMXNla2luVXM5TTdIVHVhRklSbFNrMmFNRDJ0RkhRVGsyVDZaWGtPTEc3dWlzNmMyemR4MlBacFNqeGhXcTlxMmZZdw?oc=5",
+   "ms": 1793272345000,
+   "time": "10/29 19:12"
+  },
+  {
    "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
-   "src": "Bloomberg.com",
+   "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
    "ms": 1793256780000,
    "time": "10/29 14:53"
@@ -21,7 +35,14 @@
    "time": "10/29 14:52"
   },
   {
-   "t": "Gold drops 1% as markets assess Fed signals, await US inflation data",
+   "t": "Gold slips as markets assess Fed signals, await US inflation data",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYzFrQTVVSEVjZTloUV9YZGo2a09PdUZwblU3RkhwRGR4M1ZtcDB4WUhHSnRJZ2lFMFZRdm5oR1NlaFlVMWlYQlBTTFhLNGJyTFJTM3IzS1lBbUF6d1F4RWRBSjBJWjlvMG9zSG5mR2ZQeG5CSUNYMVpoaElfbmJWckJncDNmTkhzaV9sR3ZVZUswa0hSQzJPUTNEcTVIa21ReEdZ0gGoAUFVX3lxTE5pN0NzSHh5TjRZbjNoZ2wwR1J1bDdCOWdBaENFVGQ1U0NjeTBLTWlKY21pa2twRXdQTjhmQW84bUJ1amVWWGg3elJ5T2dINEdQZHkwcmxVb1ZZMHcxajE4ZHlIU3hrRDR6d1RURmVwY0RCQllidHc4RkxyUFFkSDBjVm9wWmdsTGRmMUlxNi1nMGphcEdBSl9mN1RSRmhjdWdRcmdIOVlNSg?oc=5",
+   "ms": 1793249343000,
+   "time": "10/29 12:49"
+  },
+  {
+   "t": "Gold slides 1% as Fed hike bets linger ahead of US inflation data",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYlhrT3hjaWJ0VXJlcHYxRUdvdVJsVEpGN2lzQXA4a1pLNW5SdklwTFpMYmRNTGRNQ2w2MTRTR2g0UUJfMkx0c21Ja1Fqbzd4eVk1U1gySHF5cnYwQ0FqUzFWWVVMVXpWaUMtQ3d2VGs1TERHQ0dtbFpMWWgxbVpoVS13bGRORTByVkZaS0piSjNxYTk0eUtoZ0ItV2wxbzNnOXhCM2R1bW1Sa1laZUE?oc=5",
    "ms": 1793247900000,
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTkVadUVFNW9aUUZEM1BhNnZBQ0k3M004YUdlemlZbldkZmN2ZXRaWjNnalI0VzZ3aC0tTERhWWxRR1RWZTlpaGZvTnFndnJxUEk1OUgyU3lKWkE3SVZFeUJNX2NCTWZ3WDA5TS01VTd0dmVIVFJ5akl0UHR4b3BVUzVnbVR4Sl90clRuY3FNdGF4Zmx3SnNpWVU5WHFVRGhqMFE?oc=5",
    "ms": 1793210480000,
    "time": "10/29 02:01"
-  },
-  {
-   "t": "Kinross Gold earnings in focus after production guidance cut By Investing.com",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTl9iblpZLUxkeEptdHl2NkhIZzlzQWs1OEpRZnRqaWZHWld5TGNwU0ZmNFFZOTBZNnpWejBPUEJSUnhleDlQQ0VNTVEwT0RNWFJqbnpma1htb1laQWxZRGxGR2gtQkdIdzZLc1VCS1FjUkhrSEYwSDBOMXhWX1VZT0ZOVlowYUxYNGlsNWRSOHhDSFpDZ2JVQXc3RlNmM0FEN3hCQXlpZUduT0hwSXM2aFVWem9rNl9aeGJ4OU93?oc=5",
-   "ms": 1793204938000,
-   "time": "10/29 00:28"
-  },
-  {
-   "t": "Gold stalls its recovery as markets brace for Fed interest rate decision",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSldnRWZXaXlGU0JoeTFCdEdLRFR3cURrdlg3SjhwQ3UxcjMtY2lYQjJFOVhlUUxDVF9mSjdESWZBbVZFS1ZVaXI1VTF1VW1faUFOZDBpN1ZOR19lc3VYSHZ3REEtQ25zQnh5VmRSekZoSHplNW1SYk5kZzh5eXNxVTVyTE5LUUhuampjaDV6U20yeWc1ZmZlajl0eTJnSllmQVphTA?oc=5",
-   "ms": 1793203622000,
-   "time": "10/29 00:07"
-  },
-  {
-   "t": "Gold prices could fall to $3,900, silver to $50 as Fed tightening pressures precious metals – Sucden Financial",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnF0bG92emZOM0VGZEhBbjRnLXkwTGpvbm9mU3ZHcXBqeVpkUmMxb2cxcVd6UWc1dENEMUtXaGphakxjTmtQY3lBVUFsZDdRY3E0UHBna1BYdl9QajFQLXJndzl5ZUttaWtISTZIbGhORE1kMGJ4UVZfQ19Ya1FHZVkxTU1rRXZiVEdvMUtBdGl5Q0ZMWFZRcEQwTGRkT09VbmQ5MjI0TEs1V0NXZUZ5eldURXBpenpr?oc=5",
-   "ms": 1793203504000,
-   "time": "10/29 00:05"
   }
  ]
 }
