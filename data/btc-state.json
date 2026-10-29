@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-29 10:11 SGT",
+ "updated": "2026-10-29 13:36 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 80019.6,
- "priceTime": "2026-10-29 10:00 SGT",
+ "price": 80385.9,
+ "priceTime": "2026-10-29 13:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 81343.5,
   "high": 81380,
-  "low": 79974.7,
-  "changeFromPrevClose": -1323.9,
-  "changePct": -1.63,
+  "low": 79710,
+  "changeFromPrevClose": -957.6,
+  "changePct": -1.18,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -69,7 +69,7 @@
    {
     "label": "形态",
     "ok": null,
-    "text": "4 小时双底（已向上突破）；1 小时双顶（已向下突破），只作参考"
+    "text": "1 小时双顶（已向下突破），只作参考"
    }
   ]
  },
@@ -111,8 +111,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 55.7,
-   "atr": 742.83,
+   "rsi": 41.7,
+   "atr": 809.06,
    "turnsUpAbove": 82060.9,
    "turnsDownBelow": 79368.7
   },
@@ -121,8 +121,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-10-28 23:00 SGT",
-   "rsi": 35.2,
-   "atr": 434.43,
+   "rsi": 41.7,
+   "atr": 432.58,
    "turnsUpAbove": 81788.6,
    "turnsDownBelow": null
   },
@@ -131,17 +131,17 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-28 20:45 SGT",
-   "rsi": 20.3,
-   "atr": 210.6,
+   "rsi": 49.5,
+   "atr": 196.11,
    "turnsUpAbove": 81380,
-   "turnsDownBelow": null
+   "turnsDownBelow": 79710
   }
  ],
  "resistance": [
   {
    "price": 80397.1,
-   "what": "昨日低点、1小时双顶关键位、4小时近期小低点、1小时向下突破位",
-   "strength": 7
+   "what": "昨日低点、1小时双顶关键位、1小时向下突破位",
+   "strength": 6
   },
   {
    "price": 80640.8,
@@ -159,21 +159,21 @@
    "strength": 1
   },
   {
-   "price": 81684.8,
+   "price": 81666.6,
    "what": "4小时 200 均线",
    "strength": 2
   }
  ],
  "support": [
   {
-   "price": 79974.7,
-   "what": "1小时区间底",
-   "strength": 1
-  },
-  {
    "price": 79800,
    "what": "日线前低、日线双顶关键位",
    "strength": 5
+  },
+  {
+   "price": 79710,
+   "what": "1小时区间底、1小时近期小低点",
+   "strength": 2
   },
   {
    "price": 79451.4,

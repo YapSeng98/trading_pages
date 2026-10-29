@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29 10:11 SGT",
+ "updated": "2026-10-29 13:36 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,46 @@
  ],
  "items": [
   {
+   "t": "Gold Price Forecast: XAU/USD corrects after three-day winning streak ahead of key US data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOdGVlUE56RXJDc1loTUo2c2t3aTRXM05ZOVN1UzlRZFcycGJQRjVienI5OUwwNGhOT3NGMVFJLW0xNEE4dkFWRGVfYTlfbW1zVVpnRFJLbkxKY0YyS2gwNUZ4eW9FbGZlZGRlbU53SURNbTJVdFBibEwtQ1YzS1ExMWJJT09mN0hRcGRTQ1hLZWZnSXpWTTFRNHhBbE5XWU51YlloakZXLXBXb05Ycm5kY2FXdHh3Y2EwWEZOdnRva2R5SUVPZFhWMm5Sa0pDbUVS?oc=5",
+   "ms": 1793246238000,
+   "time": "10/29 11:57"
+  },
+  {
+   "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
+   "ms": 1793241900000,
+   "time": "10/29 10:45"
+  },
+  {
    "t": "Gold slips after Fed holds rates, PCE inflation data in focus",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNejJNUlZIRzU4VEJ1LW5nMDJGTFhoZ1p5ajNuelpHWVdwN2lGTHR6aE84RnpBZGxxd0ZDMy1OY0REd1dwNWdXNWFZZUxNRERoZVdBLW1WTWg4eDFLZlJaM2ZaMFZHUlFncE8wcTV6Z1BnQVZiNEtjMVRpS2dLMXpiR0VVcDVTdGxoQ2FBS3FYOHgwZXdxYUFNMXhMMjdYMzZUTTlOU091dDliWmVVeFgwaUlkbHhnUQ?oc=5",
-   "ms": 1793237046000,
-   "time": "10/29 09:24"
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcUpsZi16cVBvbXg5bWFlS2ZDOUM1R1N2QnVTYUEzSzJQVFZqaWFCd1RKTFBTNTZjTl9IZFJfVmVPblpfRHdENlAwVVpFV3ZQbEJLcVlGOHJsWEFSeTduMk15V2t1UngwaVJzUnZYUnI1ejF1Y0QxY0FHYUdqLURVNTNoRmZRY0w1d1VOVkpQUERkU2hGMW81TmZ0dHhvcjU5cmgzdEtobzNPR0JrdjAwZjktbUFRYlU?oc=5",
+   "ms": 1793236956000,
+   "time": "10/29 09:22"
+  },
+  {
+   "t": "Carnavale Resources September quarter puts Kookynie Gold Project on pathway to 2027 production",
+   "src": "Yahoo Finance Australia",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPRDh3U20zMUdEdV9uaUxLREpfei0wdzdESk9mMGlXRHU0Wkh3QU9ZY01icl9Rd1IzTjRtVFFDVU40RVlaR3FKamlEUzRpQ29nLXdmX2YwWkNKa185UTVneDU4cjR3cUhjOXJ4eFF3OWNVclhfZVVnZVFtNExiR3JGLVhsR3loYUFWelU2allpUldEMUlLZkE?oc=5",
+   "ms": 1793233680000,
+   "time": "10/29 08:28"
+  },
+  {
+   "t": "Buy Equinox Gold Stock. It Looks Like a Diamond in the Rough.",
+   "src": "Barron's",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZHJRQkZ4aW94OGViVWxSRlJBb1lJZGR3U25SSHdfRmJNNFV2dklvNFRtS0psNDZmUGVVb2c5ZlpqMEN5OUZaenU0X0JQY2NQdEF4RlkzdHd2YUdvN2FMMkdBTHR5dmpDZDdvTU4zR2ZYWjdqTWEtVUgwZUVmVXhnZg?oc=5",
+   "ms": 1793232000000,
+   "time": "10/29 08:00"
+  },
+  {
+   "t": "Canada’s Alamos Gold’s Q3 adjusted earnings rise on strong gold prices",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdXFqYVpvdjY2Q1ZHMXMzUVl1eTB6a2NFTHFLRUR4akVaQ0U5UXVIZkFUeFJyQU0tYUJIc0dlVllxU0hwWnpLRWZqSnZFX2I4enhqaVpycGN3VklqZUtScWNRbHM4Vk9TLWtyS2lJeV9DZkFEMl85X1VWVE1TVkg4cjNRLXd3QzNHWEE3bDYwUUlpTjFUN2E4dm9FV1ZqbDN5Y0Z1aGhwS0gxNGI4WDJKbWZIRUpndw?oc=5",
+   "ms": 1793226755000,
+   "time": "10/29 06:32"
   },
   {
    "t": "Kinross Gold (KGC) Beats Q3 Earnings Estimates",
@@ -26,13 +61,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPeHloSHVhUldSZmx5SWZ1LS1jOWotd2xtQlNLaXRZR0o4UExYcmJQQlhzd01WNjRFR1ZEbGV0OUVRU1p5b0NIeXlQNTlGQlVDMmhZVWFUVVRiQ3FwLXNNckJCRVlXR0h1aW9XdVNoeFRkU2w2YmVGX0JUOTBMYmxJOFE4ZDFManM2dGhteVc0RHV5RXg0d1otMUhPenkzRXZFQjhIUXBNMEVsSjhxUGszanhTOU4yY1FYUWdZ?oc=5",
    "ms": 1793225972000,
    "time": "10/29 06:19"
-  },
-  {
-   "t": "Canada’s Alamos Gold’s Q3 adjusted earnings rise on strong gold prices",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdXFqYVpvdjY2Q1ZHMXMzUVl1eTB6a2NFTHFLRUR4akVaQ0U5UXVIZkFUeFJyQU0tYUJIc0dlVllxU0hwWnpLRWZqSnZFX2I4enhqaVpycGN3VklqZUtScWNRbHM4Vk9TLWtyS2lJeV9DZkFEMl85X1VWVE1TVkg4cjNRLXd3QzNHWEE3bDYwUUlpTjFUN2E4dm9FV1ZqbDN5Y0Z1aGhwS0gxNGI4WDJKbWZIRUpndw?oc=5",
-   "ms": 1793225433000,
-   "time": "10/29 06:10"
   },
   {
    "t": "Canada’s largest miner Agnico Eagle reports higher Q3 earnings as gold prices rise",
@@ -70,20 +98,6 @@
    "time": "10/29 02:01"
   },
   {
-   "t": "Galantas Gold at Emerging Growth Conference 97: Chile pivot takes shape",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdzcybndNSlFLQ29JVmM3NTl6U3VoQVJ5eDNXNWNBeFprbGxkV1JwYnRUV3FPX3Z0N01LSkl4U1JWYm9qSEpPQWZLR2ZjTHV1MUhQajgwSVMwS3RjS1h0d1BVcDdGN1FuVGluYklVazBXWFlnNm9Xa1NINXI0eWxJZnZwSEVHNm9nRnlQb3VlX1VBR3Y1QmFSM3VWeFhESmtkUDlfbHlfRWVweUZlYkFkTGpYcE1VbDRvTV9ta1N1UzMyLUR5QTdVdjZMUQ?oc=5",
-   "ms": 1793209440000,
-   "time": "10/29 01:44"
-  },
-  {
-   "t": "Kinross Gold earnings in focus after production guidance cut By Investing.com",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTl9iblpZLUxkeEptdHl2NkhIZzlzQWs1OEpRZnRqaWZHWld5TGNwU0ZmNFFZOTBZNnpWejBPUEJSUnhleDlQQ0VNTVEwT0RNWFJqbnpma1htb1laQWxZRGxGR2gtQkdIdzZLc1VCS1FjUkhrSEYwSDBOMXhWX1VZT0ZOVlowYUxYNGlsNWRSOHhDSFpDZ2JVQXc3RlNmM0FEN3hCQXlpZUduT0hwSXM2aFVWem9rNl9aeGJ4OU93?oc=5",
-   "ms": 1793204938000,
-   "time": "10/29 00:28"
-  },
-  {
    "t": "Gold stalls its recovery as markets brace for Fed interest rate decision",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSldnRWZXaXlGU0JoeTFCdEdLRFR3cURrdlg3SjhwQ3UxcjMtY2lYQjJFOVhlUUxDVF9mSjdESWZBbVZFS1ZVaXI1VTF1VW1faUFOZDBpN1ZOR19lc3VYSHZ3REEtQ25zQnh5VmRSekZoSHplNW1SYk5kZzh5eXNxVTVyTE5LUUhuampjaDV6U20yeWc1ZmZlajl0eTJnSllmQVphTA?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnF0bG92emZOM0VGZEhBbjRnLXkwTGpvbm9mU3ZHcXBqeVpkUmMxb2cxcVd6UWc1dENEMUtXaGphakxjTmtQY3lBVUFsZDdRY3E0UHBna1BYdl9QajFQLXJndzl5ZUttaWtISTZIbGhORE1kMGJ4UVZfQ19Ya1FHZVkxTU1rRXZiVEdvMUtBdGl5Q0ZMWFZRcEQwTGRkT09VbmQ5MjI0TEs1V0NXZUZ5eldURXBpenpr?oc=5",
    "ms": 1793203504000,
    "time": "10/29 00:05"
-  },
-  {
-   "t": "Current price of gold as of October 28, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQa2I0dGY4OGxPWTg1aDhfbDZuYmJtMWQxdE1QaTFya3N1elZJanNzMjM2LXJ1REpCZHpYa1JZZzJVOGE3N2dpb2JVcGVwN3NWNzBMVnVaTVN3bmdKTklfSzhjLXVPOTMxZDIzR3BB?oc=5",
-   "ms": 1793196840000,
-   "time": "10/28 22:14"
-  },
-  {
-   "t": "Gold price at CAD$5,684/oz after Bank of Canada raises 25 bps, sees growth slowing in Q4 before rebounding in 2028",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPSGxPSDR3YmNvd0xKLTg2UnU0VHJpd3hfUHFiejFvNDVQdGw4ZjF2Nl9WVkdFdUFjT0oxbHRxRnRoYmZQRG5hbzdIbGY5c0Y1NkdRZEo2aWlEQ2dQR1E5LVVVb3AwcE9GRjVJWmpvZ2xUb1NBR2JsTkFLOElMMVl3TGc2REZfVzRsblNxZi16aGlac2c0cndYVkF6X0didlVnV0tQTlJLTi1jdXhfb3phamZ4ZjA2VzQyZ1dtVnVR?oc=5",
-   "ms": 1793195150000,
-   "time": "10/28 21:45"
   }
  ]
 }
