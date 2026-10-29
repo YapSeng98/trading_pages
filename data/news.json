@@ -1,11 +1,32 @@
 {
- "updated": "2026-10-29 13:36 SGT",
+ "updated": "2026-10-29 15:38 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
+   "ms": 1793256780000,
+   "time": "10/29 14:53"
+  },
+  {
+   "t": "Gold falls toward $4,040 as Fed outlook leaves traders awaiting inflation data",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcUpsZi16cVBvbXg5bWFlS2ZDOUM1R1N2QnVTYUEzSzJQVFZqaWFCd1RKTFBTNTZjTl9IZFJfVmVPblpfRHdENlAwVVpFV3ZQbEJLcVlGOHJsWEFSeTduMk15V2t1UngwaVJzUnZYUnI1ejF1Y0QxY0FHYUdqLURVNTNoRmZRY0w1d1VOVkpQUERkU2hGMW81TmZ0dHhvcjU5cmgzdEtobzNPR0JrdjAwZjktbUFRYlU?oc=5",
+   "ms": 1793256766000,
+   "time": "10/29 14:52"
+  },
+  {
+   "t": "Gold drops 1% as markets assess Fed signals, await US inflation data",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYlhrT3hjaWJ0VXJlcHYxRUdvdVJsVEpGN2lzQXA4a1pLNW5SdklwTFpMYmRNTGRNQ2w2MTRTR2g0UUJfMkx0c21Ja1Fqbzd4eVk1U1gySHF5cnYwQ0FqUzFWWVVMVXpWaUMtQ3d2VGs1TERHQ0dtbFpMWWgxbVpoVS13bGRORTByVkZaS0piSjNxYTk0eUtoZ0ItV2wxbzNnOXhCM2R1bW1Sa1laZUE?oc=5",
+   "ms": 1793247900000,
+   "time": "10/29 12:25"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD corrects after three-day winning streak ahead of key US data",
    "src": "FXStreet",
@@ -14,25 +35,11 @@
    "time": "10/29 11:57"
   },
   {
-   "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
-   "ms": 1793241900000,
-   "time": "10/29 10:45"
-  },
-  {
    "t": "Gold slips after Fed holds rates, PCE inflation data in focus",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQcUpsZi16cVBvbXg5bWFlS2ZDOUM1R1N2QnVTYUEzSzJQVFZqaWFCd1RKTFBTNTZjTl9IZFJfVmVPblpfRHdENlAwVVpFV3ZQbEJLcVlGOHJsWEFSeTduMk15V2t1UngwaVJzUnZYUnI1ejF1Y0QxY0FHYUdqLURVNTNoRmZRY0w1d1VOVkpQUERkU2hGMW81TmZ0dHhvcjU5cmgzdEtobzNPR0JrdjAwZjktbUFRYlU?oc=5",
-   "ms": 1793236956000,
-   "time": "10/29 09:22"
-  },
-  {
-   "t": "Carnavale Resources September quarter puts Kookynie Gold Project on pathway to 2027 production",
-   "src": "Yahoo Finance Australia",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPRDh3U20zMUdEdV9uaUxLREpfei0wdzdESk9mMGlXRHU0Wkh3QU9ZY01icl9Rd1IzTjRtVFFDVU40RVlaR3FKamlEUzRpQ29nLXdmX2YwWkNKa185UTVneDU4cjR3cUhjOXJ4eFF3OWNVclhfZVVnZVFtNExiR3JGLVhsR3loYUFWelU2allpUldEMUlLZkE?oc=5",
-   "ms": 1793233680000,
-   "time": "10/29 08:28"
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOTjNLMV9wRWZhbDl2YVNPcURTZ3hWenpfa3RrVkRncnhDOUdwQ3Rmem1UeUdZMlQzQ2U4RER0SEZNLVRMdWlxbEdMSF90Q2QzTVM2Ykp4WHlaNFJ6TVotcUVfU3JwMlBTSXRaWG92R1JxQS1XQ3NVVmFtVG9fcTg4Wkl0MkRMeUdwNEtkR29RZWhQdmptSEhnZlR6Qjc?oc=5",
+   "ms": 1793238660000,
+   "time": "10/29 09:51"
   },
   {
    "t": "Buy Equinox Gold Stock. It Looks Like a Diamond in the Rough.",
@@ -63,20 +70,6 @@
    "time": "10/29 06:19"
   },
   {
-   "t": "Canada’s largest miner Agnico Eagle reports higher Q3 earnings as gold prices rise",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaVhjYldVdVh4eXdqaV9BUmZqTGxmSmRyQjZ5TjA2YURLNzBraThyVnNwT0VjS3pMYkhLN2Fya1FvTzJsbWxzRGNFNHBhRUloWVZmeW9JQ19wN3pGd1hUcTdIcy1tLWJaZGpwVWFkSThOSWhGdjJzVTIxenVHNHZ5NUV3ek05WDJ2dWtjV0g4OGxfS3BRMEZqWjBmaDdDNTVfZU12eGJFR1dMRE82Tnd6ZjgwSDZYTnJ4NHNsSDNxZ1dabmhMdkJJ?oc=5",
-   "ms": 1793223468000,
-   "time": "10/29 05:37"
-  },
-  {
-   "t": "Gold Holds Above $4,000 as Traders Look to Fed Rate Decision",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWUt1anRfa2s0VVI2NXlTQlJWaE5weVJJNlhlRWxZMzA4LTVRelVZU3ZRRzBYMXgxdEI1UjVBRE9GbmJROXdIS08tbE9OQ24tVFhDZjRvTEFPLWRNUHV1RzdhWEVpSWhXbGp5UUw3SVhJTk9UYmNLS0lvSXdVbjBETjFCY2pycF9HaDlSY2I0b2FHdlVKc0RIcEpVUUw2ZlhEbExwa3FrY20tcDY5dlNF?oc=5",
-   "ms": 1793218174000,
-   "time": "10/29 04:09"
-  },
-  {
    "t": "Gold slips as Warsh questions tight Fed policy, defends 2% target",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOU3JTdmtHTC16RXZVLWJaNGhBNXhmZDdhcEdhZ01RcTF1RTNsM0JfcURhY3VGWlR5UThMN0I1S0JNRWNtenF3dk1qSE1LYWM2MC10cm9xa1l6TDVyWFR5bG5kTHVHbHc1VXNWRmlIMnpRcnhLU2tydHhBcjhLbVpaelpHRVB2aHlCTXFFX09rQ3lnQXUwQ1lZR1VTS0p4VlJNaTVqaHhyLTRkeDQ?oc=5",
@@ -96,6 +89,13 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTkVadUVFNW9aUUZEM1BhNnZBQ0k3M004YUdlemlZbldkZmN2ZXRaWjNnalI0VzZ3aC0tTERhWWxRR1RWZTlpaGZvTnFndnJxUEk1OUgyU3lKWkE3SVZFeUJNX2NCTWZ3WDA5TS01VTd0dmVIVFJ5akl0UHR4b3BVUzVnbVR4Sl90clRuY3FNdGF4Zmx3SnNpWVU5WHFVRGhqMFE?oc=5",
    "ms": 1793210480000,
    "time": "10/29 02:01"
+  },
+  {
+   "t": "Kinross Gold earnings in focus after production guidance cut By Investing.com",
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTl9iblpZLUxkeEptdHl2NkhIZzlzQWs1OEpRZnRqaWZHWld5TGNwU0ZmNFFZOTBZNnpWejBPUEJSUnhleDlQQ0VNTVEwT0RNWFJqbnpma1htb1laQWxZRGxGR2gtQkdIdzZLc1VCS1FjUkhrSEYwSDBOMXhWX1VZT0ZOVlowYUxYNGlsNWRSOHhDSFpDZ2JVQXc3RlNmM0FEN3hCQXlpZUduT0hwSXM2aFVWem9rNl9aeGJ4OU93?oc=5",
+   "ms": 1793204938000,
+   "time": "10/29 00:28"
   },
   {
    "t": "Gold stalls its recovery as markets brace for Fed interest rate decision",
