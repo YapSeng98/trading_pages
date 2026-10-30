@@ -1,11 +1,39 @@
 {
- "updated": "2026-10-30 10:31 SGT",
+ "updated": "2026-10-30 15:42 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Steadies Near $4,000 as Inflation Keeps Rate-Hike Bets Firm",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbUN6SVNKYlRQbEVSTHhPbWNJZEltZHRnb2FKUU1ld285b0ZNaHhReVF5NmZPUkNXbEF6ekg2TU96VmJqbXlTVFlSeG9IN0I4bEt6RlljWlhYS05ITEs3dERHMDZia3ZVenRDaHNHc2hyNUhXaWhkNkJPOHNBTGlSNXJIMjhsMkRYODhBSlNLeGVHVTlQRE5mbzhJSEd0bXZFdjJfUDBfbmd1UGEyTlVzdUd6bGU?oc=5",
+   "ms": 1793343802000,
+   "time": "10/30 15:03"
+  },
+  {
+   "t": "Sovereign Gold Bond premature redemption today: Investors can gain over 270%",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNa2xFYXlWQTR3YXpyQTZRakNjMEJFSmxTWXhIdVlVVl9FRUVfdmRPLWJaSWNzclBEVDVfeGRQWmpWdVlBdk90ekw5Q09MSWdxRmlQV3B4aWF6VGxEb19tNVg3N2tmUFYtZU4wajd2SzF3TEhuTlhoSE5LX0xSMHI5TER6TGd2bEFDamFkWV9BNVI1dXo0MXB4N085eFQtTUc0RUNRWC1vSk1md0MzWXVqa3ZNSm55b3Qxc0xsRFViaXJ5T0ln0gHKAUFVX3lxTE9PY0ZfLTFmQWR3OHNPZ2xVVzR4S0s3YUcyajUzTlIzT2lYQXhpcUxwVG14UDJDQ1Uwc1Q0N3VNaEtWaWFpOFQ4QXdqUWt2cllCWG41SVBFTlNfM0N1VDFXcm51SkgtRWo4dExoUENkSjM2Rkk0cTdTTHpGVzVBbEM1UmlPWGdIRDVVZDE2V0pIMTBRQVI2TzRzUVQ0ZlRQTmp6VFNPUTQ4WDFZbXRoekJxMDA4UG5NMjNWVUdxTWJEU2RydGFxcHliMnc?oc=5",
+   "ms": 1793336650000,
+   "time": "10/30 13:04"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD falls below $4,000 as strong US data strengthen case for Fed rate hike",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONVpsdmwzb2toRUctX3ZYeWV3bU82aXo3VjltX1M0c1ZZenVGUkI4a1l5RW0yUEp5R2h1RWlvMEtlZ1RvVV92WmxLMVpsU3ZfUHVNcTlDUlhtenY1ZldFdmhzTzc0V0owRWRUWGNBUlRlaHlLbGtrbW52d29QYS1uV2c1MWxZVEVWUWJITmNfYlJXRXdYT2VQaFJFYUh6aWZtNTI4SjF0S3hDLWNESnFUWFl5TXdWeTdRelkxUGIxckFkQ3c3M0xjYmlwZlRmN2pWdmZkVmxyc1h4OE9o?oc=5",
+   "ms": 1793334331000,
+   "time": "10/30 12:25"
+  },
+  {
+   "t": "Gold slips as higher oil, US inflation data bolster Fed hike bets",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMFY2WEZOWHhyVDVPMkM2ZVUxM01TR09lcUZ0RlBWNF96QkJzWXhUZWpIbmlRSUlxN3FiZ0pEYWVXOW1YcVBQcHQ4cjU1NFpCQVlnS3pneWlKeTZIRjJzWkJuek9OeDhNSGxTU1ozV1g0czltbldNNkJORWRWS0ZBU25WdURjNWNpREdpdmZoV1c2ZzBnUmM5cm5HTG16OFpEdVhLWC13RkxHM3IxX1E?oc=5",
+   "ms": 1793330640000,
+   "time": "10/30 11:24"
+  },
   {
    "t": "Gold falls to near $4,000 as US PCE data reinforces December Fed hike odds",
    "src": "FXStreet",
@@ -19,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWHBwWFJJRkJZd3g3WUgtVGpucVRTSzNZRWJQN2ZjTTgtM1duX0xsT0lVU2tnR2RRRGFVSW0yUWlwa21aUXlmcG9RX1V4UjBQWld1NW5LbENOZ3VPd1RSX1BPTHc4MnQ1OWdwb2RfdDJUWXJKWUZ6blJ2MExLNEpvOXp3OGNQd1BvOUVqaGt2bVNOamFqWC1j?oc=5",
    "ms": 1793314293000,
    "time": "10/30 06:51"
-  },
-  {
-   "t": "Polymarket launches 15-minute 'Up or Down' contracts for the price of gold, plans to add stock and forex",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUlZlNHRoRm1rVldWTi1rQXNDNHZxLVdMY2o1OHA1dWFQdTJ0LW1ydlBQN3FMOGlyUmVrTDRkSXFXaVlhQ0NrUlFpWjJPSHZIcVNEcWphTzBlTHpZM2JGcXA3bmE4RVVVbHFubU92dGpHNTFXQzZqSUZXMjh5bjQ1aXJJdC1yak9ZTGNGdHRSXzY4bjNWeXlJbFJONVZvYzcyakJXTUlMdWRXa1hvT2Qzb1VnQng?oc=5",
-   "ms": 1793308020000,
-   "time": "10/30 05:07"
   },
   {
    "t": "Gold sinks as stock rout fails to spark haven demand",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcFNOVzAtejhZWTl2QlFRUG1kYkN5SzI3ZDZsZU1MS1dveGFKaW9vczFvZHF2REFGQ0JHX3hranA0eXJWR3paN1NQU21uZ3hXRV9HSDd2dVFfLTZnaWk5RUI2QkxSWVlvMXNla2luVXM5TTdIVHVhRklSbFNrMmFNRDJ0RkhRVGsyVDZaWGtPTEc3dWlzNmMyemR4MlBacFNqeGhXcTlxMmZZdw?oc=5",
    "ms": 1793286689000,
    "time": "10/29 23:11"
-  },
-  {
-   "t": "Earnings call transcript: Alamos Gold misses Q3 2026 estimates as shares slide",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPSnZKTldMWFNvQzZ5bFZUVmlCRGR6WWQtNVRmczQ5dkMxX2ZNNk0wVUxFYy1rQ2tBY21YcTlqNlpYVnp6U2VjVXVFejJuMVN5alg4NkdUc3lDdjUtQmYyc2M3c2xJSFRkeHN5Q0JvVlhvVGdROUlYWmNfRVhmcnpzM0IzUVBLVVQ2VUZjLWpKZVo5Nzh6eHZ3MEd6UjkzTXpOd2RkSUREd0Iya1VKc1NNb2cyb0xuZXdhNEpGem9aZTVBbzc3TDh2YWFzLTQxN2I1bnpsWA?oc=5",
-   "ms": 1793285160000,
-   "time": "10/29 22:46"
-  },
-  {
-   "t": "Current price of gold as of October 29, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5kdFNRVlY3Zmg4T0R2YkdXWjRDVEpkbkRvd1U2LVRiemd0ZnpEbnJaNkQ0bG80UlJpTTBFMXplMjFINEw1Y1hMSWFQOHdVTzZSOUx2UWJxTDdQaXJGMXdWLTduWkJVSTBkTjVHY3hR?oc=5",
-   "ms": 1793283360000,
-   "time": "10/29 22:16"
-  },
-  {
-   "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
-   "ms": 1793279520000,
-   "time": "10/29 21:12"
   }
  ]
 }
