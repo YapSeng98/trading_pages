@@ -1,11 +1,74 @@
 {
- "updated": "2026-10-30 23:49 SGT",
+ "updated": "2026-10-31 04:40 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold breaks $3,886 floor to new YTD low as Fed hawks press on",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQeUZvTm9sbDJ2d3R4bThZU2ZZTUx0VjNuUllYYm9UNjZ1WkVLQ1NraVhSRlNUNHpCSGRWMHVyazMzYmRvU3FpRTREbGI3RFlQLWFvaWplN1VUYnZ5dVFpRThTMl82NE9QUHdfZFZMUVJkbnhwUkdjWVllSmFJU0Vaa3VJR2NSRl9fTGp0RDF1VnZfY3hNeFlQalFDXzB6UHUtSHRvb3J3?oc=5",
+   "ms": 1793390961000,
+   "time": "10/31 04:09"
+  },
+  {
+   "t": "Gold Price Just Hit a Yearly Low. What Are Analysts Saying?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPU0pPZHhycWdjRDdEQ3NfYlRNbXhlTGEtSHRfQlcwWWFxdl9KU1VZOGdvNHA0RnJ3WTVlaTNYZ0ctQUdUODJWSlhOOC1RT25LZXhPZW5oV2JaMk85aWxmR0FZaHhIVXl3cGt4cnA4MXJfWl8td244TGdoNGhfMEdUZVN3aWdsTVdRYWU5QW1mNVM2TDR6Z3d6Qlc1NVE?oc=5",
+   "ms": 1793390093000,
+   "time": "10/31 03:54"
+  },
+  {
+   "t": "Gold and silver prices coming dangerously close to capitulation levels – Jesse Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPU1ozWE5aLWZzSlNRYUF6WU9lejA1YWRtSWtmcVBIMlZjbExNNTJqZWE0R1I4UUpHUmZ4dnRkM3lDdEp6b0lQRE9iY09uYmZoS240RmUzTk5kVlZIWjJtZ0R4MndRb3hoNThYT3ZqRlBKa2gydEtRdEFTZGJuZ3ZqMGtGcTdIbmREZFRnenZuZlNrQ1NMOTU4cmxUblBDTHFlZEFiQVlEc1h3MDdNX2ZITnpVXzhRRU5mT1dv?oc=5",
+   "ms": 1793389425000,
+   "time": "10/31 03:43"
+  },
+  {
+   "t": "Gold prices plunge to one-year low below $3,900 as higher oil prices fuel fears of more pain ahead",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRUZmdmJRRFN3bUxiblBxRUVkd3o3SmRSRjd3ZUt3Rm5DVlNUQ201LW9BOHZyMnVBUEtZaGlNRFk5dTJKTzNHVjNkWGdWU3YtdVVPU0txb1pFZWJ5ZVhUaDRaTERzV2h5QzJzYWM3TExZRWRxQlNJbFlrWTQwbU8tbjA4Sm5JTWxqWVlFTUVZZjNvTVZXblN3SVVmMVVyVF9iQk5GS1RWcjRrRHdNRXRnV0VhYmtLRTE2?oc=5",
+   "ms": 1793384281000,
+   "time": "10/31 02:18"
+  },
+  {
+   "t": "Gold’s $4,000 Support Could Trigger a Powerful Rally in Mining Stocks",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN2dYMVZKT0ZxcENBZmRMeG9nODl0ci1CYUdRSnVIZUQ1QkdDMUhZdkZGV0Jjb29DMFhBbWszU2dMWGNWNFgxSVFnbmZSeld3V1U3T0t0NjY1a1VVTHY0UENPUlZsT1RwZzFQMXAwLU5iTHhqZ3RoeVgyN3JBc19UdWpvME0wcUVoU1VGSzRsM0ZLalVNVExlRlFqSE80Vl9QbDc1YmtTWGJzS3RTV0ZZRA?oc=5",
+   "ms": 1793383904000,
+   "time": "10/31 02:11"
+  },
+  {
+   "t": "Gold price forecast: Buy below $4,000 or risk missing the next rally? [Video]",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQU3lVRUZVZWRBRTA2SXFra1hVQ1RPR0dlVkdzX1I3aTdCX0RqVEZmTXlrVnBOeThkWVFZY0FUX240VHZVM3JLVkhfNk9jMmYyX1BUYm5tV0xIQTF1aThRTnFZUl8ydUJRd1UtOWhjUGNTcERaRlRSeWtuLXNTa3psQkFDZFp1Qk1FZG5pNHdSSGl4ZVVKeFlnWmQwUUEyYzZKVlRQQlRFZVJvQTB5eVpod3puNHRkbTE4dXRN?oc=5",
+   "ms": 1793382387000,
+   "time": "10/31 01:46"
+  },
+  {
+   "t": "Gold tumbles nearly 3% to yearly lows as risk-off mood offers little support",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNc2ViYTVYRnltbDRIRHpqb0xTSUlYZU4wenVyVEhtR2Rjc093dm9FSXZxTG5fRHpSZjU0d3ZvXzVadFlQdWdOLW5BTjVHak1oS2I0SHhBdWFqNDlPM00xNXQ3X3psM0JtbkhkYnI3LVFlMkxld25FUXlQOERXVEVUR1lSbEdrWjlKMHp3VFJ3ck4wZlhoVmRIQlZ4RFo3Nmp3ZGJzYlE5RGJxcnRlUXhkMG9hUEZhUHBWWTF3NjF3?oc=5",
+   "ms": 1793376670000,
+   "time": "10/31 00:11"
+  },
+  {
+   "t": "Breaking: Gold crashes below $3,900 to hit a one-year low",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTGE0R21hUUNtQmtmZlFydmRmMm9VakFjakpSVmcxeE4xRmJzb2FPVDlkdm9oTFlCOHhBQVU3MkpXRE93N2xsQ2FNXzVQQld0aXJGZ29adGhJREplU1F6N21maksxTjBCY1R3cmtnX3pPMUxESDJUQ3VQa0V5RkdkbWdfNFRGNml3NHZWcXNHOGVSWVd3aVFV?oc=5",
+   "ms": 1793375143000,
+   "time": "10/30 23:45"
+  },
+  {
+   "t": "Current price of gold as of October 30, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE01azZCVG9fb2lmRjJJZE96ZmE2SkE2bzVpMG01b2tSVkZRSFZtRl9lUmJjbTl0QzZsbUxTeE1lXzEzOGs4cHZXaExDSWpvOWlaRWliXy1MVk40bko4RDhPYzEzMlpCVWdzM0FZbFJn?oc=5",
+   "ms": 1793374440000,
+   "time": "10/30 23:34"
+  },
   {
    "t": "Gold Weekly Forecast: Bears dominate even as US yields push lower ahead of midterm election",
    "src": "FXStreet",
@@ -14,11 +77,11 @@
    "time": "10/30 22:45"
   },
   {
-   "t": "Gold slides over 2.5% to yearly lows as risk-off mood offers little support",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNc2ViYTVYRnltbDRIRHpqb0xTSUlYZU4wenVyVEhtR2Rjc093dm9FSXZxTG5fRHpSZjU0d3ZvXzVadFlQdWdOLW5BTjVHak1oS2I0SHhBdWFqNDlPM00xNXQ3X3psM0JtbkhkYnI3LVFlMkxld25FUXlQOERXVEVUR1lSbEdrWjlKMHp3VFJ3ck4wZlhoVmRIQlZ4RFo3Nmp3ZGJzYlE5RGJxcnRlUXhkMG9hUEZhUHBWWTF3NjF3?oc=5",
-   "ms": 1793369755000,
-   "time": "10/30 22:15"
+   "t": "Silver Falls Thru' 1980 and 2011 Peak at $50 as Gold Sinks",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRUZjdXh3dUNCbmMxWGhNRzBsQlpzdDBnWGNXcHNPVndRVGFqbDNNVEFWTjlBUWZZVzQ1c3QzTGdwN1NlV1V1a0dFcm5NdG5QVjFVWFVmNUY0TG5ob1VaaWhVOE50bmh5ZW9ZdjBzNEdrek5SQ1M0OUlEZjJnYTlQcWItV0Q2MHp4LXpDU2E1bnlmR1U?oc=5",
+   "ms": 1793369364000,
+   "time": "10/30 22:09"
   },
   {
    "t": "BC-Gold Futures",
@@ -26,13 +89,6 @@
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBuWlE3T19xQkxjQXdqZmJna2FkQWpRLUxqZUktbGM2Zk5VZk1yTmFNXzFnVTVkU002YU5PaGI3REdEeThvMjc4VHgxeGtISEZadWlpbWRIWEFJbWs2U19FSXVyUHl5a0xfN2hCUEZkYTlmZw?oc=5",
    "ms": 1793368830000,
    "time": "10/30 22:00"
-  },
-  {
-   "t": "Silver Falls Thru' 1980 and 2011 Peak at $50 as Gold Sinks",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPRUZjdXh3dUNCbmMxWGhNRzBsQlpzdDBnWGNXcHNPVndRVGFqbDNNVEFWTjlBUWZZVzQ1c3QzTGdwN1NlV1V1a0dFcm5NdG5QVjFVWFVmNUY0TG5ob1VaaWhVOE50bmh5ZW9ZdjBzNEdrek5SQ1M0OUlEZjJnYTlQcWItV0Q2MHp4LXpDU2E1bnlmR1U?oc=5",
-   "ms": 1793366433000,
-   "time": "10/30 21:20"
   },
   {
    "t": "The price of gold today, Oct. 30, 2026 — and the best places to buy",
@@ -54,62 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOS3pTYTlUMjhETkN4SlA3QW1PMTVVSXhkbGc3dGFVTGVsWUZIMkZNc1RXbFRFdDBsTTVPOXFVYU1WVG1GZGN5MVBpMGN6QnVSeXVrMjJSNUFiNXRLWHRUNTUyMmdUemxpdncydWg0UG9LMDJqTkFEc0djSlhWMHlvZHE4U3Jub0pKbVRtQW5wOTNQUkpnaFYzVXloVjlxTk03Z1ZLQ2xscVRuMWdvdEJPSFVUOGwtS3M?oc=5",
    "ms": 1793363458000,
    "time": "10/30 20:30"
-  },
-  {
-   "t": "Gold price today, Friday, October 30, 2026: Gold slips below $4,000 as Mid-East concerns mount",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxONDZKVXFEUEtkWm8xRm1EWDNURkFBdjdQX212NzZGZk1lbHJwWEFUTkZFVWxnOG53MmstWTBwMmk1eUg3XzRMeXBpNFhKVUVMYmF5QWNwdFo4a3AwaWxkVXg4TmltM0QwSDMwTWJad2JBUnJaRXE1Qk5wTEI0OWNEQi1kZDFJRzRObHhLcVB5U3hXZ2czalI4a3BwLW43LVpDeEFpZ0tBRVNuMEE1Rk82RUtialg5aHc3UTctNzBPbmxTTkFOWFFLU1ByazNjLTBRSkR0Z0IyMjVteEktT1RJQVNQamttTHpPbDJjc0xWYlhodWxSZ3RB?oc=5",
-   "ms": 1793358891000,
-   "time": "10/30 19:14"
-  },
-  {
-   "t": "Gold Slips Below $4,000 as US Inflation Data Strengthens Fed Rate Hike Expectations",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9sUWJNTWdJWVZLMklEamZpRm5WYkdBRjlYOWlzMjlpTHdpQzUwbWhfLU8wSjcyU2YzazhTV0VJNUVYMzlkMTlaa3c1b3V6Z3dDN184MTk4Rm1hZVV4djQ5VllqYWNvOTFWWktmcVFuY25abnNTMWRtT0o0SQ?oc=5",
-   "ms": 1793354820000,
-   "time": "10/30 18:07"
-  },
-  {
-   "t": "Gold Drops Below $4,000 as US Inflation and Interest Rate Concerns Weigh on Precious Metals",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNaFM1eFNJRjBhakpQWnEwY2U1Z1B3UzBFMVVlM0xGZWpaUFZpR2FneTVOR0NXM04taUx3TWFTR3JPcE1CRkM0N0lFTk5nNFkxdWNFTFA2Zjh5aEpIS05YeWFXV1BxalpvaGY0cHVzVHQ0YmVXYzktYXhCcHU1OFJfbk5DUlNaUURKcnBOZGRuOFdYZUk5WHgw?oc=5",
-   "ms": 1793354683000,
-   "time": "10/30 18:04"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD falls below $4,000 as strong US data strengthen case for Fed rate hike",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONVpsdmwzb2toRUctX3ZYeWV3bU82aXo3VjltX1M0c1ZZenVGUkI4a1l5RW0yUEp5R2h1RWlvMEtlZ1RvVV92WmxLMVpsU3ZfUHVNcTlDUlhtenY1ZldFdmhzTzc0V0owRWRUWGNBUlRlaHlLbGtrbW52d29QYS1uV2c1MWxZVEVWUWJITmNfYlJXRXdYT2VQaFJFYUh6aWZtNTI4SjF0S3hDLWNESnFUWFl5TXdWeTdRelkxUGIxckFkQ3c3M0xjYmlwZlRmN2pWdmZkVmxyc1h4OE9o?oc=5",
-   "ms": 1793334331000,
-   "time": "10/30 12:25"
-  },
-  {
-   "t": "Gold hits one-year low, silver drops below $50 as higher-for-longer rate view firms",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMFY2WEZOWHhyVDVPMkM2ZVUxM01TR09lcUZ0RlBWNF96QkJzWXhUZWpIbmlRSUlxN3FiZ0pEYWVXOW1YcVBQcHQ4cjU1NFpCQVlnS3pneWlKeTZIRjJzWkJuek9OeDhNSGxTU1ozV1g0czltbldNNkJORWRWS0ZBU25WdURjNWNpREdpdmZoV1c2ZzBnUmM5cm5HTG16OFpEdVhLWC13RkxHM3IxX1E?oc=5",
-   "ms": 1793330640000,
-   "time": "10/30 11:24"
-  },
-  {
-   "t": "Gold falls below $4,000 as inflation concerns keep bullion under pressure",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZXZLWlhQby1GNWVYRk5KWWJBZ3Rqd20zU3cyRFNSY1dHdWhRYXVIcW5YMjdoLWtza1BHa1lEV0FKWUZFLU5NTXBFSkcyYi1uYXplLVpQWEYtU3Q3OF9IRnFpZnhkWnhRXzRjZ1ZJX01WQkVvcDFYbTlDVlpDY0Jlcks1bEk5cFdJTTJzbzFQRDdOcUpaa1hpdjMzWUxCSC1lZFdfVThueTlnU1BfMWVTYlJOMnhTRzRJTlhSM2tlNnIzZ2xFclA0Nw?oc=5",
-   "ms": 1793323094000,
-   "time": "10/30 09:18"
-  },
-  {
-   "t": "Gold falls to near $4,000 as US PCE data reinforces December Fed hike odds",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPV21WSjl6c1BWTC1UTmtKbkhXNXJHdlhTSEFqZmhxM1JvUFFiWS1YNlRWdlh3cGFLTFVleWIyTmJlZ0hza1dPNHBwT0FvbmxycS1FczVIbThueVVhVWYxeFJNdlBPZ2NTZE52Q1MzbE9ZQjJjU1JNZjgxbjFGY3BMSU82dm5kdndzTFdhdnJleEVoZmtPQTc0TWpEczVOZGVBeXl1aFJsdGEweDFLRXFvT2wwUFlnbkk?oc=5",
-   "ms": 1793315931000,
-   "time": "10/30 07:18"
-  },
-  {
-   "t": "Polymarket launches 15-minute 'Up or Down' contracts for the price of gold, plans to add stock and forex",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPUlZlNHRoRm1rVldWTi1rQXNDNHZxLVdMY2o1OHA1dWFQdTJ0LW1ydlBQN3FMOGlyUmVrTDRkSXFXaVlhQ0NrUlFpWjJPSHZIcVNEcWphTzBlTHpZM2JGcXA3bmE4RVVVbHFubU92dGpHNTFXQzZqSUZXMjh5bjQ1aXJJdC1yak9ZTGNGdHRSXzY4bjNWeXlJbFJONVZvYzcyakJXTUlMdWRXa1hvT2Qzb1VnQng?oc=5",
-   "ms": 1793308020000,
-   "time": "10/30 05:07"
   }
  ]
 }

@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1793375100000,
+ "lastChecked": 1793392200000,
  "a3": -1,
  "a5": -1,
- "open": 1,
+ "open": null,
  "nextId": 7,
  "signals": [
   {
@@ -19,7 +19,12 @@
    "risk": 52.92,
    "atr": 17.64,
    "spread": 0.61,
-   "status": "open"
+   "status": "target",
+   "exitTime": "2026-10-31 02:15 SGT",
+   "exitMs": 1793384100000,
+   "exitPrice": 3879.14,
+   "nights": 8,
+   "R": 3
   },
   {
    "id": 2,
@@ -134,16 +139,22 @@
    "time": "2026-10-30 09:00 SGT",
    "type": "skipped",
    "text": "信号 #6（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1793384100000,
+   "time": "2026-10-31 02:15 SGT",
+   "type": "closed",
+   "text": "做空 #1 到目标，+3.00R"
   }
  ],
  "summary": {
   "signals": 6,
   "taken": 1,
-  "closed": 0,
-  "wins": 0,
-  "totalR": 0,
-  "avgR": null,
-  "open": 1
+  "closed": 1,
+  "wins": 1,
+  "totalR": 3,
+  "avgR": 3,
+  "open": 0
  },
  "changes": [
   {
