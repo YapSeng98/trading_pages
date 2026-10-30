@@ -1,0 +1,202 @@
+{
+ "tested": "2026-10-30",
+ "monthEnd": {
+  "monthEnds": 32,
+  "slope": -0.002,
+  "paperSlope": -0.0142,
+  "tradeNetBp": -1.85,
+  "trades": 224,
+  "win": 47
+ },
+ "A1": {
+  "n": 125,
+  "from": "2011-01-26",
+  "to": "2026-09-16",
+  "avgBp": -9.2,
+  "grossBp": -5.99,
+  "win": 51,
+  "p": 0.8759,
+  "h1": -22.17,
+  "h2": 4.4,
+  "paperYears": {
+   "n": 136,
+   "avgBp": 12.78,
+   "grossBp": 16.03,
+   "p": 0.0541
+  },
+  "highRate3": {
+   "n": 125,
+   "avgBp": -16.96
+  },
+  "otherDays": {
+   "n": 3331,
+   "avgBp": -4.44,
+   "grossBp": -0.97
+  },
+  "byCurrency": {
+   "EUR": -4.95,
+   "JPY": 6.29,
+   "GBP": -0.15,
+   "CHF": 5.35,
+   "CAD": -6.81,
+   "AUD": -17.11,
+   "NZD": -12.03,
+   "NOK": -7.81,
+   "SEK": -16.67
+  },
+  "byYear": {
+   "2011": -67.46,
+   "2012": -0.58,
+   "2013": -43.21,
+   "2014": -44.37,
+   "2015": -29.14,
+   "2016": 24.11,
+   "2017": 10.69,
+   "2018": -27.43,
+   "2019": 16.63,
+   "2020": 31.01,
+   "2021": -2.43,
+   "2022": -20.36,
+   "2023": 67.43,
+   "2024": 8.33,
+   "2025": -57.94,
+   "2026": -7
+  },
+  "hourly4pm": {
+   "n": 22,
+   "grossBp": -15.86
+  },
+  "holmLimit": 0.025,
+  "holmOk": false,
+  "passed": false
+ },
+ "A2": {
+  "days": 722,
+  "from": "2024-01-12",
+  "to": "2026-10-27",
+  "avgBp": -0.82,
+  "grossBp": 1.18,
+  "p": 0.7318,
+  "h1": -2.34,
+  "h2": 0.71,
+  "at2bp": -2.82,
+  "breakEvenBpPerTrade": 0.59,
+  "legs": {
+   "europeShort": 0.78,
+   "usLong": 0.41
+  },
+  "yearly": -2.05,
+  "otherPairs": {
+   "GBPUSD": {
+    "days": 722,
+    "grossBp": 0.77,
+    "netBp": -2.23
+   },
+   "USDCHF": {
+    "days": 722,
+    "grossBp": 1.1,
+    "netBp": -1.9
+   },
+   "USDJPY": {
+    "days": 577,
+    "grossBp": 0.47,
+    "netBp": -2.53
+   },
+   "AUDUSD": {
+    "days": 656,
+    "grossBp": 1.96,
+    "netBp": -1.04
+   }
+  },
+  "holmLimit": 0.017,
+  "holmOk": false,
+  "passed": false
+ },
+ "A3": {
+  "months": 189,
+  "from": "2011-01",
+  "to": "2026-09",
+  "avgPct": -0.284,
+  "grossPct": -0.076,
+  "sharpe": -0.57,
+  "p": 0.9855,
+  "h1": -0.114,
+  "h2": -0.458,
+  "before2011": {
+   "months": 420,
+   "avgPct": 0.044,
+   "sharpe": 0.07
+  },
+  "holmLimit": 0.05,
+  "holmOk": false,
+  "passed": false
+ },
+ "B1": {
+  "pairs": {
+   "EURUSD": {
+    "n": 518,
+    "avgR": -0.062,
+    "win": 55
+   },
+   "GBPUSD": {
+    "n": 603,
+    "avgR": -0.065,
+    "win": 55
+   },
+   "USDJPY": {
+    "n": 407,
+    "avgR": 0.011,
+    "win": 54
+   },
+   "AUDUSD": {
+    "n": 403,
+    "avgR": -0.043,
+    "win": 49
+   },
+   "NZDUSD": {
+    "n": 445,
+    "avgR": -0.023,
+    "win": 51
+   },
+   "USDCAD": {
+    "n": 418,
+    "avgR": -0.16,
+    "win": 49
+   },
+   "USDCHF": {
+    "n": 559,
+    "avgR": -0.084,
+    "win": 52
+   },
+   "EURJPY": {
+    "n": 472,
+    "avgR": -0.105,
+    "win": 50
+   },
+   "GBPJPY": {
+    "n": 491,
+    "avgR": -0.134,
+    "win": 48
+   },
+   "AUDJPY": {
+    "n": 369,
+    "avgR": -0.129,
+    "win": 44
+   },
+   "EURGBP": {
+    "n": 620,
+    "avgR": -0.298,
+    "win": 53
+   }
+  },
+  "n": 5305,
+  "avgR": -0.105,
+  "win": 51,
+  "p": 1,
+  "positive": 1,
+  "h1": -0.102,
+  "h2": -0.108,
+  "passed": false
+ },
+ "passed": []
+}

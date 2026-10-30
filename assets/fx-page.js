@@ -1,7 +1,9 @@
 // forex.html: the five-timeframe rule run on the major currency pairs, in the visitor's browser. Forex only.
 // The rule was chosen on gold. Replayed on these 11 pairs (research/forex, Yahoo hourly bars 2024-04 to 2026-10) it
 // lost money: -0.07R a trade over 688 trades, 4 pairs positive, while the same test made +0.66R on gold. So this page is
-// a trend map with the rule's prices, and says plainly that the replay found no money in them.
+// a trend map with the rule's prices, and says plainly that the replay found no money in them. Round 2
+// (research/forex/edges: Fed days, time of day, strong against weak currencies, the London breakout) found no method
+// that makes money on currencies after costs either; the warning box quotes both result files.
 // Alerts are off until switched on.
 // Prices are scaled to whole points before the engine sees them (EUR/USD 1.08345 -> 108345): the engine rounds to
 // two decimals, and the rule itself (structure, ATR multiples) does not care about the scale.
@@ -231,13 +233,26 @@
     var sg = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; };
     S.patWords = "形态按自己的止损和目标做（黄金回放，" + o["1H"].n.toLocaleString("en-US") + " 个 1 小时形态）：胜率 " + Math.round(o["1H"].win) + "%，但平均每笔 " + sg(o["1H"].avgR) + "：赚的次数多、亏的时候亏得多。只作参考，不比上面的五周期信号可靠。"; render();
   }).catch(function () {});
-  fetch("research/forex/result.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+  var getJ = function (u) { return fetch(u, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
+  Promise.all([getJ("research/forex/result.json"), getJ("research/forex/edges/result.json")]).then(function (res) {
+    var d = res[0], e = res[1];
     if (!d || !d.n || !d.gold) return;
     var el = $("fx-proof"), R = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; }, ym = function (s) { var p = String(s).split("-"); return p[0] + " 年 " + +p[1] + " 月"; };
+    var bp = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + " bp"; };
     while (el.firstChild) el.removeChild(el.firstChild);
     el.appendChild(h("b", { text: d.passed ? "回放结果：这个规则在外汇上有小优势，但历史很短。" : "回放结果：这个规则在外汇上不赚钱。" }));
     el.appendChild(document.createTextNode(" " + ym(d.from) + "到 " + ym(d.tested) + "，11 个货币对共 " + d.n + " 笔，平均每笔 " + R(d.avgR) + "，" + d.positive + " 个货币对是正的；同样的做法同期在黄金上一笔 " + R(d.gold.fourTfHourly.avgR) + "。" + (d.passed ? "" : "外汇信号只当趋势参考，不建议按它用真钱下单。")));
-  }).catch(function () {});
+    // round 2: the effects documented for currencies, each after its paper's years, and the London breakout
+    if (!e || !e.A1 || !e.A2 || !e.A3 || !e.B1) return;
+    var t = [
+      ["美联储决议日做空美元", "2011 年起 " + e.A1.n + " 次，每次 " + bp(e.A1.avgBp) + "；论文那些年是 " + bp(e.A1.paperYears.avgBp) + "，公开后就没了", e.A1.passed],
+      ["欧美时段规律", "EUR/USD 每天 " + bp(e.A2.avgBp), e.A2.passed],
+      ["买最强卖最弱的货币", "每月 " + (e.A3.avgPct >= 0 ? "+" : "−") + Math.abs(e.A3.avgPct).toFixed(2) + "%", e.A3.passed],
+      ["伦敦开盘突破", e.B1.n.toLocaleString("en-US") + " 笔，每笔 " + R(e.B1.avgR), e.B1.passed]
+    ], none = t.every(function (x) { return !x[2]; });
+    el.appendChild(h("div", { class: "more" }, [h("b", { text: none ? "其他做法也测过了，扣点差后都不赚钱：" : "另外测过的做法：" }),
+      " " + t.map(function (x) { return x[0] + "（" + x[1] + (x[2] ? "，通过" : "") + "）"; }).join("、") + "。"]));
+  });
   renderAlert(); render(); scan();
   // after every 15-minute close (+25 s for the feed); while hidden only when alerts are on
   setInterval(function () {

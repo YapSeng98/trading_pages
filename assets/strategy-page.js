@@ -24,8 +24,8 @@
   // green only where there is an edge: the "no edge" table shows losses in red and the rest plain
   function cellR(v, extra, plain) { return h("td", { class: "n " + (v > 0 && !plain ? "up" : v < 0 ? "dn" : "") }, [R(v), extra ? h("small", { text: extra }) : null]); }
 
-  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json")]).then(function (res) {
-    var bt = res[0], rec = res[1], btc = res[2], fx = res[3];
+  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json")]).then(function (res) {
+    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4];
     if (!bt || !bt.rules || !bt.rules.go3r) { $("pf-main").textContent = "回放结果读取失败，刷新一下再试。"; return; }
     var g = bt.rules.go3r, t = bt.rules.gotrail, pr = bt.proof || {};
     // ---- the evidence ----
@@ -60,6 +60,13 @@
     if (st.ST3) row("短线：昨日高低点突破", st.ST3.avgR, st.ST3.n);
     rows.push(h("tr", null, [h("td", null, ["8 种常见指标做确认", h("small", { text: "均线排列、RSI、MACD、ADX 各两个周期" })]), h("td", { class: "n", text: "没有一个通过" })]));
     if (fx && fx.n) row("同一规则用在外汇（11 个货币对，" + ym(fx.from) + "起）", fx.avgR, fx.n, fx.positive + " 个货币对是正的；同期黄金 " + R(fx.gold.fourTfHourly.avgR));
+    // forex round 2 (research/forex/edges): results in bp or % per occasion, not in R
+    var bp = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + " bp"; };
+    var rowTxt = function (name, v, txt, extra) { rows.push(h("tr", null, [h("td", null, [name, extra ? h("small", { text: extra }) : null]), h("td", { class: "n " + (v < 0 ? "dn" : ""), text: txt })])); };
+    if (fe && fe.A1) rowTxt("外汇：美联储决议日做空美元（2011 年起）", fe.A1.avgBp, bp(fe.A1.avgBp) + " / 次", fe.A1.n + " 次；论文那些年（1994–2010）是 " + bp(fe.A1.paperYears.avgBp) + "，公开后就没了");
+    if (fe && fe.A2) rowTxt("外汇：欧美时段规律（EUR/USD 欧洲时段做空、美国时段做多）", fe.A2.avgBp, bp(fe.A2.avgBp) + " / 天", "扣点差前 " + bp(fe.A2.grossBp) + "，不够付点差");
+    if (fe && fe.A3) rowTxt("外汇：每月买最强、卖最弱的货币", fe.A3.avgPct, (fe.A3.avgPct >= 0 ? "+" : "−") + Math.abs(fe.A3.avgPct).toFixed(2) + "% / 月", fe.A3.months + " 个月");
+    if (fe && fe.B1) row("外汇：伦敦开盘突破（亚洲盘区间）", fe.B1.avgR, fe.B1.n, "11 个货币对只有 " + fe.B1.positive + " 个是正的");
     if (btc && btc.rules && btc.rules.go3r) row("同一规则用在比特币", btc.rules.go3r.avgR, btc.rules.go3r.n, "范围 " + R(btc.rules.go3r.lo) + " 到 " + R(btc.rules.go3r.hi) + "，含零：只作观察");
     if (Q.long) row("对照：不看任何条件，一直做多黄金", Q.long.avgR, Q.long.n, "说明规则赚的不只是金价上涨");
     table($("no-tab"), ["做法", "回放平均每笔"], rows);

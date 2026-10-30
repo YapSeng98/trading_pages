@@ -35,5 +35,11 @@ bars over the same dates, made +0.66R a trade (66 trades), and the gold page's r
 This agrees with the daily tests in `../world` (trend rules on 13 currencies negative since 2010). forex.html now says
 so instead of "unverified".
 
+Checked again on 2026-10-30 (`edges/`): Yahoo's daily forex bars, used here only as history before the hourly data
+begins (2024-01), have a close that is really a snapshot at the start of the London day (close and open differ by 0-1
+bp). With each close replaced by the next bar's open, the true close, the test gives exactly the same 688 trades and
+-0.071R (`edges/fx_recheck.js`, `edges/recheck.json`). Round 2 (`edges/`) then tested the effects documented for
+currencies (Fed days, time of day, strong against weak currencies) and the London breakout: none makes money after costs.
+
 Run again: `python3 fetch_fx.py`, then `node --max-old-space-size=12000 fx_test.js` (about 5 minutes; the gold
 yardstick needs research/xau-replay/data).
