@@ -1,11 +1,25 @@
 {
- "updated": "2026-10-30 06:56 SGT",
+ "updated": "2026-10-30 10:11 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold falls to near $4,000 as US PCE data reinforces December Fed hike odds",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPV21WSjl6c1BWTC1UTmtKbkhXNXJHdlhTSEFqZmhxM1JvUFFiWS1YNlRWdlh3cGFLTFVleWIyTmJlZ0hza1dPNHBwT0FvbmxycS1FczVIbThueVVhVWYxeFJNdlBPZ2NTZE52Q1MzbE9ZQjJjU1JNZjgxbjFGY3BMSU82dm5kdndzTFdhdnJleEVoZmtPQTc0TWpEczVOZGVBeXl1aFJsdGEweDFLRXFvT2wwUFlnbkk?oc=5",
+   "ms": 1793315931000,
+   "time": "10/30 07:18"
+  },
+  {
+   "t": "Gold falls even as the Dollar and yields drop",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWHBwWFJJRkJZd3g3WUgtVGpucVRTSzNZRWJQN2ZjTTgtM1duX0xsT0lVU2tnR2RRRGFVSW0yUWlwa21aUXlmcG9RX1V4UjBQWld1NW5LbENOZ3VPd1RSX1BPTHc4MnQ1OWdwb2RfdDJUWXJKWUZ6blJ2MExLNEpvOXp3OGNQd1BvOUVqaGt2bVNOamFqWC1j?oc=5",
+   "ms": 1793314293000,
+   "time": "10/30 06:51"
+  },
   {
    "t": "Polymarket launches 15-minute 'Up or Down' contracts for the price of gold, plans to add stock and forex",
    "src": "Fortune",
@@ -14,11 +28,11 @@
    "time": "10/30 05:07"
   },
   {
-   "t": "AI cybersecurity risks, physical Gold and Silver, and Gold’s value [Video]",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPWXVuWjRLaTZIWmJwOExoaDRDLUYtNy1FVHNUYVJ5TUpPQndUczZkU000NTR5T1NNVU9EVk5EMWNBOW5NU0NRMzBhUlBzVnFycFpLR3J6VTdKTFNrOWJYM1pwaVp6TDdaTnowVjFlSVd4ZlhNUUhSUnJIY2UwenFGTFFNYzR6OVRTYVZ1LXdjWVk3aFV1WHI4Y0VYYTFEQktRU3VtVzdaRGtjZGtTRm5aTGdjdl9HZ2M?oc=5",
-   "ms": 1793305961000,
-   "time": "10/30 04:32"
+   "t": "Gold dips, with spot prices just above $4k, as U.S. data hints at more rate hikes",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRTVxbWJvUF9QU3d1bXA2NHhMbFRfN0JwMUVfbm52T0Y1eENSbFM5SXdpVmZzMl9lcS1aaUFsREFBSTBTYlZQYUJPNllqUmJaV05BWVU2bE1KaGgzVE45TnpONVNmLUZVT2ZLbFlrSll5WHhfY2YtWDBZS1N2ajBMclJ0a3Qzc0FLZ04tXzg2dFpxLThKNDE0a0V6RFRFclYzUk1iMl90allsaTZFTWJvRzF3UjliZw?oc=5",
+   "ms": 1793307999000,
+   "time": "10/30 05:06"
   },
   {
    "t": "Gold sinks as stock rout fails to spark haven demand",
@@ -42,13 +56,6 @@
    "time": "10/30 02:06"
   },
   {
-   "t": "Does Gold Rise When Markets Crash? 16 Fear Events Analysed",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTUNKYTZGTmpjeHVxQW9zQVYxd19rcFkwRWRvbWNOMVhzeHVjc2JkMnlvM3M3dTRJYnpmVTExOXo1eXRVOGNxUUZFRnFCdkhJbjBqVlhzckJScUJGV2x3WnhtS1phMzJRV29YT0dCSHBVUnNfSEtLX1VraHpkTnZLMkp4bm1fbGtsQ1VxQ2xIc0FoU2pNWTdVS3o0bE9ELVJObHJLaUxkbkpsZXJYU1Uzay1n?oc=5",
-   "ms": 1793294946000,
-   "time": "10/30 01:29"
-  },
-  {
    "t": "Gold remains stuck as the Fed takes a hawkish pause - TDS’ Melek",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPUXc0WmY1cTBwYXd0OVhjejV6em9BWjc3VzBzQkc2cVVYamJ6MkVxNHN3ZzI5YWJkN2x0MkJocXk4LWtVRUVrdm9UaUJQbi1YWDg4ZjRLdVNiZWF0UFN6SGNrLWl0ZDB3MG1HWjNkbUxkcXFKV2ktUVV0ZXNPOWl3bmRGRlNrTzhrNy1qMFV1RGRwcFJCT0dYMGJoY08tUU0?oc=5",
@@ -56,18 +63,11 @@
    "time": "10/30 01:25"
   },
   {
-   "t": "Eldorado Gold Q3 2026 slides: Skouries milestone offset by cost overruns",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNbm5QTEk3ejlueWQxVE1tQ2Z6WFFBZ0RoaElLamlSOVZERlMxck9LZ1pkZVo3dEE5RGZEV1FrOFQyN1pGekQxSFBGX3FsbktGZTYzTzN0YmhiLXdOUEh0dW9zdDRjb0hjTG1mWDlDbFlyTHRjVEl3VDhQT09sUnVzMzQtUUJrbmNPNmFQWWJFbXlHUmJlQzNORmlDc0dKbXBwTDc4aFBmd2hCLTdNcmo2TUhQblFTX2VUYjZBc1l3dFpQSXJxbFktS3pkLUk?oc=5",
-   "ms": 1793288280000,
-   "time": "10/29 23:38"
-  },
-  {
-   "t": "Earnings call transcript: Eldorado Gold misses Q3 2026 estimates as stock falls",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxObFZrYTZQMGFYODVmUnI3RDFUbEdIY1NHbkRpZHdjYlNvV1EzXzl1RnU4WkJTdXpzaGZmQlEwQTZPTHl2MlRRX19MYk9mUy14UDNkbXR1M3hOajRvN2VySmpLYjNYLWhZOHljU1NQR1dyNE9mQ3EzRzc5TTFGeTh6cGx2emJLSVZaa2h4T0pWX1FDa3hMaWpXZFZTUXVZTC1UV2JmRVZxa0VzZE51b0xveGNVTy1KTzU1aG5nczI5NnBEcXBzZlV4MEYzaU9BQmdFSzhIa0JR?oc=5",
-   "ms": 1793287680000,
-   "time": "10/29 23:28"
+   "t": "TSX slips as gold miners tumble on earnings, US inflation data",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVElxNWRtN3VxM1RQbGIyclZ1SHhHWmFYTEFENzdDMWl0S3BsVG1lMnNQNVkwUFNuYlJqNFRRYU83VlJnZldkeXY5OC10cnZJdGpqVkc5ckh3dGQwcDFJbzhnaW1Ga3Q0dE9oZ0IxRzUyR2NQeWVUb1NZZXpmVFYtWXpueEstM0FFcWtJTjY1bXViMVZYRlpUbQ?oc=5",
+   "ms": 1793289610000,
+   "time": "10/30 00:00"
   },
   {
    "t": "Gold Prices Slip as Fed Rate Outlook Shifts; Silver Hits 11-Month Low",
@@ -98,18 +98,18 @@
    "time": "10/29 22:16"
   },
   {
+   "t": "High-Tech Metals signs ore purchase deal with Forrestania",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNMHhZb3FfVUJsMTVLNG1JbWNUblVyczczU3Y3ZzJJTnN3ZWNacVY3NjlSaUlaM0dfU2s5c3NTRmdnNHM5M0ZRVHVRZDdWY0xoSmRLdW9PT2tIQmo3eGVFV3BNZl9KdVNwcnhNU2tkLTJqN05tTk9HSDk3MVZ3NW55bEUwRGt4TlRnSklSajVQYUprY19fMXVJb3ZzMWs?oc=5",
+   "ms": 1793280674000,
+   "time": "10/29 21:31"
+  },
+  {
    "t": "Gold Edges Lower After Fed Holds Rates With Limited Guidance",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzc5eDBRUXkxOGFMamVVSDgwYW50VUV2anJjUGhKTzVTRjZpTDhoQWpTcXV6bXlWY19CMTF6cXBSenJMOGswaVFmVGtDeDNpcXowbG9XVExVN000aDMxMjZQWnJRbjQ0blBYTUwzclB6M3E3QS1zSEptcUR6elJZWUxVTHB2bFdJUWtrVjN3cDE1S2ZkRWhGWkhqbWh6VkJaTFIyN1BCZXpBd24xUEVrNw?oc=5",
    "ms": 1793279520000,
    "time": "10/29 21:12"
-  },
-  {
-   "t": "Gold prices feel the pressure as weekly jobless claims remain below 200k for sixth week",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNS282b2ctOHJDVE1Fa3p0MDF2c0w0R1FzMUZURGNGWVVsRUl5MjhScy11Z2U3bnFDZWFfbDhHcWM3NC1CcTJYUWR1M3VZdHo4R1FGNnA5cXM0YWhWeG1nNWJwU2Jxa1RxQW9EbmJzRVRqWXlmRWhSeUZTX1JNVmZ5amwxS0pXLXJ0X0k3WVQ2X2RPejktRlhTcXVOYkR3UVlDcU44OGRQejJVUDRneVJva0FZUVhXeGdy?oc=5",
-   "ms": 1793277350000,
-   "time": "10/29 20:35"
   }
  ]
 }

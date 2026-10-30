@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1793313900000,
+ "lastChecked": 1793325600000,
  "a3": -1,
- "a5": 0,
+ "a5": -1,
  "open": 1,
- "nextId": 6,
+ "nextId": 7,
  "signals": [
   {
    "id": 1,
@@ -76,6 +76,20 @@
    "spread": 0.6,
    "status": "skipped",
    "why": "已有纸面持仓"
+  },
+  {
+   "id": 6,
+   "time": "2026-10-30 09:00 SGT",
+   "ms": 1793322000000,
+   "side": "做空",
+   "entry": 4004.79,
+   "stop": 4049.46,
+   "target": 3870.78,
+   "risk": 44.67,
+   "atr": 14.89,
+   "spread": 0.6,
+   "status": "skipped",
+   "why": "已有纸面持仓"
   }
  ],
  "events": [
@@ -114,10 +128,16 @@
    "time": "2026-10-29 16:00 SGT",
    "type": "skipped",
    "text": "信号 #5（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1793322000000,
+   "time": "2026-10-30 09:00 SGT",
+   "type": "skipped",
+   "text": "信号 #6（做空）已有纸面持仓，按规则跳过"
   }
  ],
  "summary": {
-  "signals": 5,
+  "signals": 6,
   "taken": 1,
   "closed": 0,
   "wins": 0,
@@ -411,6 +431,17 @@
    "level": 4025.34,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1793322000000,
+   "time": "2026-10-30 09:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4004.79,
+   "level": 4005.15,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
@@ -418,6 +449,6 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bullish"
+  "15M": "bearish"
  }
 }
