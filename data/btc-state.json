@@ -1,16 +1,16 @@
 {
- "updated": "2026-10-30 15:42 SGT",
+ "updated": "2026-10-30 16:57 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 78500,
- "priceTime": "2026-10-30 15:30 SGT",
+ "price": 77962,
+ "priceTime": "2026-10-30 16:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 77991.9,
   "high": 78804,
   "low": 76500.1,
-  "changeFromPrevClose": 508.1,
-  "changePct": 0.65,
+  "changeFromPrevClose": -29.9,
+  "changePct": -0.04,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -69,7 +69,7 @@
    {
     "label": "形态",
     "ok": null,
-    "text": "日线双顶（已向下突破）；4 小时横盘区间（已向下突破），只作参考"
+    "text": "日线双顶（已向下突破）；4 小时双顶（已向下突破），只作参考"
    }
   ]
  },
@@ -107,8 +107,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-10-24 16:00 SGT",
-   "rsi": 37.1,
-   "atr": 1103.21,
+   "rsi": 36.9,
+   "atr": 1087.06,
    "turnsUpAbove": 81823,
    "turnsDownBelow": null
   },
@@ -117,19 +117,19 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-10-28 23:00 SGT",
-   "rsi": 43.7,
-   "atr": 718.31,
+   "rsi": 40,
+   "atr": 710.97,
    "turnsUpAbove": 81971,
-   "turnsDownBelow": null
+   "turnsDownBelow": 76500.1
   },
   {
    "tf": "15M",
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-10-30 04:15 SGT",
-   "rsi": 52.9,
-   "atr": 290.93,
-   "turnsUpAbove": 80954.7,
+   "rsi": 41.9,
+   "atr": 283.89,
+   "turnsUpAbove": 78804,
    "turnsDownBelow": 76500.1
   }
  ],
@@ -145,9 +145,9 @@
    "strength": 1
   },
   {
-   "price": 79800,
-   "what": "日线双顶关键位、1小时向下突破位、日线向下突破位",
-   "strength": 4
+   "price": 79710,
+   "what": "4小时双顶关键位、日线双顶关键位、1小时向下突破位、日线向下突破位",
+   "strength": 6
   },
   {
    "price": 81404,
@@ -155,7 +155,7 @@
    "strength": 1
   },
   {
-   "price": 81557.5,
+   "price": 81523.9,
    "what": "4小时 200 均线",
    "strength": 2
   }
@@ -167,24 +167,24 @@
    "strength": 6
   },
   {
+   "price": 77449,
+   "what": "4小时双顶目标",
+   "strength": 1
+  },
+  {
+   "price": 77325,
+   "what": "1小时熊旗关键位",
+   "strength": 2
+  },
+  {
    "price": 76437.7,
-   "what": "日线 200 均线、4小时区间底、1小时熊旗关键位、1小时区间底、1小时近期小低点",
-   "strength": 8
+   "what": "日线 200 均线、4小时区间底、1小时前低、1小时区间底、1小时近期小低点",
+   "strength": 7
   },
   {
    "price": 74968,
    "what": "周线前低",
    "strength": 3
-  },
-  {
-   "price": 74702,
-   "what": "日线双顶目标",
-   "strength": 1
-  },
-  {
-   "price": 72445.3,
-   "what": "1小时熊旗目标",
-   "strength": 1
   }
  ],
  "record": {

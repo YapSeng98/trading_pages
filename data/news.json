@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30 15:42 SGT",
+ "updated": "2026-10-30 16:57 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,11 @@
  ],
  "items": [
   {
-   "t": "Gold Steadies Near $4,000 as Inflation Keeps Rate-Hike Bets Firm",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbUN6SVNKYlRQbEVSTHhPbWNJZEltZHRnb2FKUU1ld285b0ZNaHhReVF5NmZPUkNXbEF6ekg2TU96VmJqbXlTVFlSeG9IN0I4bEt6RlljWlhYS05ITEs3dERHMDZia3ZVenRDaHNHc2hyNUhXaWhkNkJPOHNBTGlSNXJIMjhsMkRYODhBSlNLeGVHVTlQRE5mbzhJSEd0bXZFdjJfUDBfbmd1UGEyTlVzdUd6bGU?oc=5",
-   "ms": 1793343802000,
-   "time": "10/30 15:03"
-  },
-  {
-   "t": "Sovereign Gold Bond premature redemption today: Investors can gain over 270%",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNa2xFYXlWQTR3YXpyQTZRakNjMEJFSmxTWXhIdVlVVl9FRUVfdmRPLWJaSWNzclBEVDVfeGRQWmpWdVlBdk90ekw5Q09MSWdxRmlQV3B4aWF6VGxEb19tNVg3N2tmUFYtZU4wajd2SzF3TEhuTlhoSE5LX0xSMHI5TER6TGd2bEFDamFkWV9BNVI1dXo0MXB4N085eFQtTUc0RUNRWC1vSk1md0MzWXVqa3ZNSm55b3Qxc0xsRFViaXJ5T0ln0gHKAUFVX3lxTE9PY0ZfLTFmQWR3OHNPZ2xVVzR4S0s3YUcyajUzTlIzT2lYQXhpcUxwVG14UDJDQ1Uwc1Q0N3VNaEtWaWFpOFQ4QXdqUWt2cllCWG41SVBFTlNfM0N1VDFXcm51SkgtRWo4dExoUENkSjM2Rkk0cTdTTHpGVzVBbEM1UmlPWGdIRDVVZDE2V0pIMTBRQVI2TzRzUVQ0ZlRQTmp6VFNPUTQ4WDFZbXRoekJxMDA4UG5NMjNWVUdxTWJEU2RydGFxcHliMnc?oc=5",
-   "ms": 1793336650000,
-   "time": "10/30 13:04"
+   "t": "META_TITLE_QUOTE",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAyUjl3TDFqeXJOOE9qNm8tYXNFcUJJREpDdXFNaE9fU0d0d29zN0pkaExFZUZiZENwMVJIOW5UTGVGVmZJRlB0dUJhSEZLUQ?oc=5",
+   "ms": 1793344354000,
+   "time": "10/30 15:12"
   },
   {
    "t": "Gold Price Forecast: XAU/USD falls below $4,000 as strong US data strengthen case for Fed rate hike",
@@ -47,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNWHBwWFJJRkJZd3g3WUgtVGpucVRTSzNZRWJQN2ZjTTgtM1duX0xsT0lVU2tnR2RRRGFVSW0yUWlwa21aUXlmcG9RX1V4UjBQWld1NW5LbENOZ3VPd1RSX1BPTHc4MnQ1OWdwb2RfdDJUWXJKWUZ6blJ2MExLNEpvOXp3OGNQd1BvOUVqaGt2bVNOamFqWC1j?oc=5",
    "ms": 1793314293000,
    "time": "10/30 06:51"
+  },
+  {
+   "t": "AI cybersecurity risks, physical Gold and Silver, and Gold’s value [Video]",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPWXVuWjRLaTZIWmJwOExoaDRDLUYtNy1FVHNUYVJ5TUpPQndUczZkU000NTR5T1NNVU9EVk5EMWNBOW5NU0NRMzBhUlBzVnFycFpLR3J6VTdKTFNrOWJYM1pwaVp6TDdaTnowVjFlSVd4ZlhNUUhSUnJIY2UwenFGTFFNYzR6OVRTYVZ1LXdjWVk3aFV1WHI4Y0VYYTFEQktRU3VtVzdaRGtjZGtTRm5aTGdjdl9HZ2M?oc=5",
+   "ms": 1793305961000,
+   "time": "10/30 04:32"
   },
   {
    "t": "Gold sinks as stock rout fails to spark haven demand",
@@ -85,17 +85,10 @@
   },
   {
    "t": "TSX slips as gold miners tumble on earnings, US inflation data",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdXFhdFNfU3lIMkhKUzRheHMwdWJpM3FkYVRQSlJVRS16VUNhM1I5bVVSNWJKakJfWFc4VVVhcnlPM0RKWWgtaG5VNDVmZGlmeVhpbWl5MkZvSFVLRm90MkVDUnhVWUw4VGlKMHRqaHp6QkRfRXFTdHg1WW1FUktxX0RHdw?oc=5",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVElxNWRtN3VxM1RQbGIyclZ1SHhHWmFYTEFENzdDMWl0S3BsVG1lMnNQNVkwUFNuYlJqNFRRYU83VlJnZldkeXY5OC10cnZJdGpqVkc5ckh3dGQwcDFJbzhnaW1Ga3Q0dE9oZ0IxRzUyR2NQeWVUb1NZZXpmVFYtWXpueEstM0FFcWtJTjY1bXViMVZYRlpUbQ?oc=5",
    "ms": 1793289610000,
    "time": "10/30 00:00"
-  },
-  {
-   "t": "Eldorado Gold Q3 2026 slides: Skouries milestone offset by cost overruns By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOTHAtQlFqbi1UNUliblcyNWFGME5GOHJvZ1l6YTlrZU9RSkFuaU5WS0ZNMWl6WWxNSEdWY1VNQW82R1lCQTV5bHpCVjhTS044X2tuOWhGXzlmLUkzZUlrUkprYzlfbHdFYm16RFJ6THE4dDZnd0E0UFdaNmQ3ZWpZS29NTnpBdEdOcG1oSll5YU5uWFpld1lHbzI1ODFOdEFUdU1jSlpnNHlkUzZIWWZ6TXdQZlR0MVhUbndXYXZnckJKSVppd3VNMXp6ODQ?oc=5",
-   "ms": 1793288449000,
-   "time": "10/29 23:40"
   },
   {
    "t": "Gold Prices Slip as Fed Rate Outlook Shifts; Silver Hits 11-Month Low",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNcFNOVzAtejhZWTl2QlFRUG1kYkN5SzI3ZDZsZU1MS1dveGFKaW9vczFvZHF2REFGQ0JHX3hranA0eXJWR3paN1NQU21uZ3hXRV9HSDd2dVFfLTZnaWk5RUI2QkxSWVlvMXNla2luVXM5TTdIVHVhRklSbFNrMmFNRDJ0RkhRVGsyVDZaWGtPTEc3dWlzNmMyemR4MlBacFNqeGhXcTlxMmZZdw?oc=5",
    "ms": 1793286689000,
    "time": "10/29 23:11"
+  },
+  {
+   "t": "Current price of gold as of October 29, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5kdFNRVlY3Zmg4T0R2YkdXWjRDVEpkbkRvd1U2LVRiemd0ZnpEbnJaNkQ0bG80UlJpTTBFMXplMjFINEw1Y1hMSWFQOHdVTzZSOUx2UWJxTDdQaXJGMXdWLTduWkJVSTBkTjVHY3hR?oc=5",
+   "ms": 1793283360000,
+   "time": "10/29 22:16"
   }
  ]
 }
