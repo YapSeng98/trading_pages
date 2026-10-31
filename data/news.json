@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31 08:09 SGT",
+ "updated": "2026-10-31 10:11 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -98,18 +98,18 @@
    "time": "10/30 22:09"
   },
   {
-   "t": "BC-Gold Futures",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBuWlE3T19xQkxjQXdqZmJna2FkQWpRLUxqZUktbGM2Zk5VZk1yTmFNXzFnVTVkU002YU5PaGI3REdEeThvMjc4VHgxeGtISEZadWlpbWRIWEFJbWs2U19FSXVyUHl5a0xfN2hCUEZkYTlmZw?oc=5",
-   "ms": 1793368830000,
-   "time": "10/30 22:00"
-  },
-  {
    "t": "The price of gold today, Oct. 30, 2026 — and the best places to buy",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9JSDdJMnhmWWZaT25NZmxtc2NMelZVeTN0cElzUjhPSnFVSUdETjFCdWpBVzl6anhaOHQ3SVBlTllGemk2RmtCeUliMWpCQUtIRlFETENIWFUzd2RoNzAwYjZfMHFiRkdPT0lEYmVHWU5Vd9IBd0FVX3lxTE1PV1FNQ1pFUHY1Y3R6QzN5ZW9lZTVSUFlDdTBEam9tajlBSmo3UW1SQm1HRy02QlpRYzJMNVhrQ3FYNFcxdVBaYmZRTXFJbnRxejdWaUpJSDFCbktkZ3RLVGlNNGFTcjJNa0EtV1MwdnJ3azFoSEU4?oc=5",
    "ms": 1793366099000,
    "time": "10/30 21:14"
+  },
+  {
+   "t": "Gold drops below $4,000, silver tumbles as Hormuz attack lifts oil prices - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSmQ5alhCeHRlYUgzRWhfSmRhX3BUMGktZWtmMUxXaENCd0ZJRUFPdk55THVoWjNfUVByYzdRTHlsYVBQZm1za3dDQ19oMFJSM3o3VFl4Tlh6VS11MXpEdTFSdGZzU1hQMF9MY2pRbkJwQkJBNnpTdU9rZjh4eWh6bGRUX29Yb2l0QmY5Tkh4QnhBYmpQTVZBT01DWUJobFhKdTdVQ0pXSDVSeFFEQlJ5R1ZQc0luWXVpM2Zn?oc=5",
+   "ms": 1793364734000,
+   "time": "10/30 20:52"
   }
  ]
 }
