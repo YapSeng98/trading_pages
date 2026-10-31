@@ -96,6 +96,22 @@ h1 em{font-style:normal;color:var(--gold-lt)}
 .fx-pr-w{font-size:12px;color:var(--gold-lt)}.fx-pr-note{font-size:11.5px;color:var(--dim);line-height:1.6}
 @media(max-width:640px){.fx-pr-g{grid-template-columns:repeat(2,minmax(0,1fr))}}.fx-pat.warn{border-color:rgba(212,167,44,.55);background:rgba(212,167,44,.07)}.fx-pat.warn b{color:var(--gold-lt)}
 .fx-f{font-size:11.5px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:auto}
+.lots{margin-top:30px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;scroll-margin-top:70px}
+.lots h2{font-family:var(--f-d);font-size:17px;color:var(--ink);margin-bottom:8px}
+.lots-lead,.lots-sub,.lots-note{font-size:13px;line-height:1.75}.lots-lead b{color:var(--ink)}.lots-sub{color:var(--dim);margin-top:10px}.lots-note{font-size:12px;color:var(--dim);margin-top:10px}
+.lots-in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px;max-width:640px}
+.lots-in label{display:block;font-size:12px;color:var(--dim);margin-bottom:4px}
+.inp{display:flex;align-items:center;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.inp:focus-within{border-color:rgba(212,167,44,.6)}
+.inp input{flex:1;min-width:0;width:100%;background:transparent;border:0;outline:0;color:var(--ink);font:600 15px/1 var(--f-m);padding:10px 11px;-moz-appearance:textfield;appearance:textfield}
+.inp input::-webkit-outer-spin-button,.inp input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.inp .unit{font-family:var(--f-m);font-size:10px;color:var(--dim);padding:0 10px;white-space:nowrap}
+.lots-t{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.lots-t th{text-align:left;font-weight:500;font-size:12px;color:var(--dim);padding:0 10px 6px 0;white-space:nowrap}
+.lots-t td{padding:8px 10px 8px 0;border-top:1px solid var(--border);color:var(--ink);font-family:var(--f-m);font-variant-numeric:tabular-nums;vertical-align:top}
+.lots-t td small{display:block;font-family:'Noto Sans SC',sans-serif;font-size:11px;color:var(--dim);margin-top:2px}
+.lots-t td.dn{color:var(--bear)}.lots-t td.warn{color:var(--gold-lt)}
+.fx-act .fx-lot1{font-size:12.5px;color:var(--text)}.fx-act .fx-lot1 b{color:var(--ink);margin-left:4px}.fx-act .fx-lot1 a{color:var(--gold-lt);margin-left:4px}
 .how{margin-top:30px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px}
 .how h2{font-family:var(--f-d);font-size:17px;color:var(--ink);margin-bottom:8px}
 .how li{margin:6px 0 0 18px;font-size:13.5px;line-height:1.75}
@@ -108,6 +124,11 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   .fx-tf span{min-width:0;flex:1}
   .btn{min-height:36px}
   .fx-pat>summary{padding:8px 0}
+  .lots{padding:16px 14px}.lots-in{grid-template-columns:repeat(2,minmax(0,1fr))}.inp input{font-size:16px}
+  .lots-t thead{display:none}
+  .lots-t tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;padding:10px 0;border-top:1px solid var(--border)}
+  .lots-t td{border:0;padding:0}.lots-t td:first-child{grid-column:1/-1;font-size:15px}
+  .lots-t td:not(:first-child)::before{content:attr(data-l);display:block;font-family:'Noto Sans SC',sans-serif;font-size:11px;color:var(--dim)}
 }
 </style>
 </head>
@@ -132,8 +153,21 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
     <span class="stamp" id="fx-stamp"></span>
     <button class="btn" type="button" id="fx-refresh">⟳ 刷新</button>
     <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
+    <a class="btn" href="#fx-lots">🧮 手数换算</a>
   </div>
   <div class="fx-list" id="fx-list"></div>
+  <section class="lots" id="fx-lots">
+    <h2>🧮 手数换算：0.01 手等于多少</h2>
+    <p class="lots-lead"><b>1 手 = 10 万单位，0.01 手 = 1,000 单位</b>（货币对前面那个货币）。<b>1 点 = 0.0001</b>，日元对是 0.01。MT5 的报价多一位小数，图上的 10 points 就是这里的 1 点。</p>
+    <div class="lots-in">
+      <div class="f"><label for="fx-bal">账户余额</label><div class="inp"><input id="fx-bal" type="number" inputmode="decimal" min="0" step="100" placeholder="例如 5000"><span class="unit">USD</span></div></div>
+      <div class="f"><label for="fx-risk">每笔最多亏</label><div class="inp"><input id="fx-risk" type="number" inputmode="decimal" min="0" step="0.05" placeholder="0.5"><span class="unit">% 账户</span></div></div>
+      <div class="f"><label for="fx-lev">杠杆 1:</label><div class="inp"><input id="fx-lev" type="number" inputmode="decimal" min="1" step="1" placeholder="100"></div></div>
+    </div>
+    <p class="lots-sub" id="fx-lot-sub"></p>
+    <div id="fx-lot-tab"></div>
+    <p class="lots-note">手数 = 愿意亏的钱 ÷（止损点数 × 每点的钱 × 100）。实际还要加点差，大约 1–2 点。美分账户、或者平台合约不一样，以 MT5 为准（右键品种 → 规格）。外汇信号回放不赚钱：这张表只帮你把风险算清楚，不是下单建议。只保存在你的浏览器里。</p>
+  </section>
   <section class="how">
     <h2>怎么看</h2>
     <ul>
@@ -151,6 +185,6 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <script src="assets/xau-feed.js?v=7"></script>
 <script src="assets/xau-engine.js?v=5"></script>
 <script src="assets/xau-plan.js?v=17"></script>
-<script src="assets/fx-page.js?v=9"></script>
+<script src="assets/fx-page.js?v=10"></script>
 </body>
 </html>

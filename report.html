@@ -321,6 +321,14 @@ details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .inp .pick:hover{color:var(--gold-lt);background:var(--bg3)}
 .inp .pick[aria-pressed="true"]{background:rgba(212,167,44,.18);color:var(--gold-lt)}
 .inp .unit{font-family:var(--f-m);font-size:10px;color:var(--dim);padding:0 11px}
+.lotref{margin-top:12px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--bg3)}
+.lotref .lr-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:8px}.lotref .lr-t b{color:var(--ink);font-size:13.5px}.lotref .lr-t span{font-size:12px;color:var(--dim)}
+.lr-tab{width:100%;border-collapse:collapse;font-size:12.5px}
+.lr-tab th{text-align:left;font-weight:500;font-size:11.5px;color:var(--dim);padding:0 8px 5px 0;white-space:nowrap}
+.lr-tab td{padding:6px 8px 6px 0;border-top:1px solid var(--border);font-family:var(--f-m);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.lr-tab td.dn{color:var(--bear)}
+.lotref .lr-n{margin-top:7px;font-size:12px;line-height:1.65;color:var(--text)}
+@media(max-width:640px){.lotref{padding:11px 10px}.lr-tab{font-size:12px}.lr-tab th{white-space:normal;font-size:11px;padding-right:6px;vertical-align:bottom}.lr-tab td{padding-right:6px}}
 .f.e .inp{border-left:3px solid var(--m-blue)} .f.s .inp{border-left:3px solid var(--m-bear)} .f.t .inp{border-left:3px solid var(--m-bull)}
 .f.flash .inp{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,167,44,.25)}
 /* one plain line under each box: how far it is from the entry, or what is wrong with it */
@@ -866,11 +874,13 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
           <div class="f"><label for="in-bal">账户余额</label><div class="inp"><input id="in-bal" type="number" inputmode="decimal" step="100" min="0" placeholder="例如 5000" aria-describedby="fh-bal"><span class="unit">USD</span></div><div class="fh" id="fh-bal"></div></div>
           <div class="f"><label for="in-risk">这笔最多亏</label><div class="inp"><input id="in-risk" type="number" inputmode="decimal" step="0.05" min="0" placeholder="0.5" aria-describedby="fh-risk"><span class="unit">% 账户</span></div><span class="quick" id="riskq" role="group" aria-label="常用比例"><button type="button" data-r="0.25">0.25%</button><button type="button" data-r="0.5">0.5%</button><button type="button" data-r="1">1%</button></span><div class="fh" id="fh-risk"></div></div>
         </div>
+        <div class="lotref" id="lotref"></div>
         <details class="adv"><summary>合约设置（多数 MT5 平台不用改）</summary>
           <div class="fields">
             <div class="f"><label for="in-contract">每手盎司</label><div class="inp"><input id="in-contract" type="number" inputmode="decimal" step="1" min="1"></div></div>
             <div class="f"><label for="in-step">最小手数</label><div class="inp"><input id="in-step" type="number" inputmode="decimal" step="0.01" min="0.01"></div></div>
             <div class="f"><label for="in-spread">点差 $</label><div class="inp"><input id="in-spread" type="number" inputmode="decimal" step="0.05" min="0"></div></div>
+            <div class="f"><label for="in-lev">杠杆 1:</label><div class="inp"><input id="in-lev" type="number" inputmode="decimal" step="1" min="1"></div></div>
           </div>
         </details>
       </div>
@@ -919,6 +929,6 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-engine.js?v=5"></script>
 <script src="assets/xau-plan.js?v=17"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=19"></script>
+<script src="assets/market-page.js?v=20"></script>
 </body>
 </html>

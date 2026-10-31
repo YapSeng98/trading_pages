@@ -18,7 +18,7 @@
   var P = XauPlan, F = XauFeed, $ = function (id) { return document.getElementById(id); };
   var TFS = ["W", "D", "4H", "1H", "15M"], TFN = { W: "周线", D: "日线", "4H": "4小时", "1H": "1小时", "15M": "15分钟" };
   var LSK = "fx.", ls = { get: function (k, d) { try { var v = localStorage.getItem(LSK + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }, set: function (k, v) { try { localStorage.setItem(LSK + k, JSON.stringify(v)); } catch (e) {} } };
-  var S = { res: {}, busy: false, lastQ: -1, notify: !!ls.get("notify", false), base: null };
+  var S = { res: {}, busy: false, lastQ: -1, notify: !!ls.get("notify", false), base: null, acct: ls.get("acct", null) || { balance: null, riskPct: 0.5, lev: 100 } };
   // the forex words: never gold's replay
   P.setMarket({ goText: "回放里这个规则在外汇上不赚钱，只作趋势参考。", observe: true, health: null, noneText: "", lateText: "", patNote: "", patAgainst: "", shortText: "" });
   XAU_TFS.forEach(function (c) { c.bars = c.tf === "15M" ? 96 : 0; });
@@ -33,6 +33,41 @@
   function ago(ms) { var m = Math.max(0, Math.round((Date.now() - ms) / 60000)); return m < 60 ? m + " 分钟前" : m < 2880 ? Math.round(m / 60) + " 小时前" : Math.round(m / 1440) + " 天前"; }
   function px(p, v) { return typeof v === "number" && isFinite(v) ? v.toLocaleString("en-US", { minimumFractionDigits: p.d, maximumFractionDigits: p.d }) : "—"; }
   function pips(p, dist) { var pip = p.metal ? 0.01 : p.d === 3 ? 0.01 : 0.0001; return Math.round(dist / pip) + (p.metal ? " 美分" : " 点"); }
+
+  // ---------- lots: 0.01 lot = 1,000 units of the first currency; a pip is 0.0001 (0.01 on yen pairs) ----------
+  function rateOf(i) { var r = S.res[i]; return r && typeof r.price === "number" && isFinite(r.price) && r.price > 0 ? r.price : null; }
+  function toUsd(ccy) {                                                          // dollars for one unit of ccy, from the pairs on this page
+    if (ccy === "USD") return 1;
+    var d = rateOf(ccy + "/USD"); if (d) return d;
+    var v = rateOf("USD/" + ccy); return v ? 1 / v : null;
+  }
+  function usd(v, d) { return "$" + v.toLocaleString("en-US", { minimumFractionDigits: d === undefined ? 2 : d, maximumFractionDigits: d === undefined ? 2 : d }); }
+  function num(v) { return typeof v === "number" && isFinite(v) && v > 0 ? v : null; }
+  function lotInfo(r) {
+    var p = r.p, b = p.i.slice(0, 3), q = p.i.slice(4), pip = p.d === 3 ? 0.01 : 0.0001, qu = toUsd(q), bu = toUsd(b);
+    if (qu === null || bu === null) return null;
+    var o = { b: b, pip: pip, pipUsd: 1000 * pip * qu, notional: 1000 * bu, margin: 1000 * bu / (num(S.acct.lev) || 100) };
+    var dist = r.plan ? r.plan.dist : r.atr ? 3 * r.atr : null;                 // the rule's stop: 3 x the 1-hour ATR
+    if (dist) { o.stopPips = Math.round(dist / pip); o.stopUsd = o.stopPips * o.pipUsd; }
+    var bal = num(S.acct.balance), pct = num(S.acct.riskPct);
+    if (o.stopUsd && bal && pct) { o.risk = bal * pct / 100; o.lots = Math.floor(o.risk / o.stopUsd + 1e-9) / 100; o.lotsLoss = o.lots * 100 * o.stopUsd; }
+    return o;
+  }
+  function renderLots() {
+    var box = $("fx-lot-tab"); if (!box) return; while (box.firstChild) box.removeChild(box.firstChild);
+    var head = ["货币对", "0.01 手 =", "每动 1 点", "规则止损", "0.01 手到止损", "你的手数"];
+    var rows = PAIRS.map(function (p) {
+      var r = S.res[p.i], o = r && r.price ? lotInfo(r) : null;
+      var c = function (i, main, sub, cls) { return h("td", { "data-l": head[i], class: cls || null }, [main, sub ? h("small", { text: sub }) : null]); };
+      if (!o) return h("tr", null, [c(0, p.i), c(1, "读取中…"), c(2, "—"), c(3, "—"), c(4, "—"), c(5, "—")]);
+      var mine = o.lots === undefined ? c(5, "—", "填上面的余额") : o.lots >= 0.01 ? c(5, o.lots.toFixed(2) + " 手", "到止损亏 " + usd(o.lotsLoss)) : c(5, "开不了", "0.01 手亏 " + usd(o.stopUsd) + "，超过 " + usd(o.risk), "warn");
+      return h("tr", null, [c(0, p.i, p.n), c(1, "1,000 " + o.b, "约 " + usd(o.notional, 0) + " · 保证金 " + usd(o.margin)), c(2, usd(o.pipUsd, 3).replace(/0$/, "")),
+        o.stopPips ? c(3, o.stopPips + " 点", "3 倍小时波幅") : c(3, "—"), o.stopUsd ? c(4, "−" + usd(o.stopUsd), null, "dn") : c(4, "—"), mine]);
+    });
+    box.appendChild(h("table", { class: "lots-t" }, [h("thead", null, [h("tr", null, head.map(function (t) { return h("th", { text: t }); }))]), h("tbody", null, rows)]));
+    var lev = num(S.acct.lev) || 100;
+    $("fx-lot-sub").textContent = "按现价换成美元（美元账户），保证金按 1:" + lev + " 杠杆。";
+  }
 
   // ---------- one pair ----------
   function analyse(p, feed) {
@@ -97,6 +132,7 @@
       box.appendChild(h("h3", { class: "fx-grp" }, [g[1] + " ", h("span", { text: rows.length + " 个" })]));
       rows.forEach(function (r) { box.appendChild(card(r)); });
     });
+    renderLots();
   }
   function arrows(r) {
     return h("div", { class: "fx-tf" }, TFS.map(function (tf) { var v = r.dirs ? r.dirs[tf] : 0; return h("span", { class: v > 0 ? "up" : v < 0 ? "dn" : "", title: TFN[tf] }, [h("i", { text: { W: "周", D: "日", "4H": "4H", "1H": "1H", "15M": "15M" }[tf] }), h("b", { text: v > 0 ? "↑" : v < 0 ? "↓" : "–" })]); }));
@@ -143,6 +179,9 @@
     tile("目标 3R", px(p, k.tp1), (buy ? "+" : "−") + pips(p, 3 * k.dist), "tg");
     box.appendChild(g);
     box.appendChild(h("p", { text: "或者不设目标：每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + pips(p, k.trail) + "，三个大周期不再同向就离场（大趋势里更能拿住利润）。" }));
+    var o = lotInfo(r);
+    if (o && o.stopUsd) box.appendChild(h("p", { class: "fx-lot1" }, ["0.01 手：每点 " + usd(o.pipUsd, 3).replace(/0$/, "") + "，到止损亏 " + usd(o.stopUsd) + "。",
+      o.lots === undefined ? h("a", { href: "#fx-lots", text: "填账户余额算手数 →" }) : o.lots >= 0.01 ? h("b", { text: "按你的账户：" + o.lots.toFixed(2) + " 手（到止损亏 " + usd(o.lotsLoss) + "）" }) : h("b", { text: "按你的账户：0.01 手也超过你设的亏损上限，这笔开不了。" })]));
     if (r.since5) box.appendChild(h("p", { class: "fx-age", text: "信号 " + ago(r.since5) + "出现" + (r.sigPx ? "（当时 " + px(p, r.sigPx) + "）" : "") + (typeof r.movedR === "number" ? "，之后已走 " + (r.movedR >= 0 ? "+" : "−") + Math.abs(r.movedR).toFixed(1) + "R" : "") + "。上面的止损和目标已按现价重算。" }));
     var plan = p.i + " " + (buy ? "买入" : "卖出") + " · 入场 " + px(p, k.entry) + " · 止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "）· 目标 " + px(p, k.tp1) + "（3R）· 或跟踪止损 " + pips(p, k.trail) + " · 信号 " + (r.since5 ? sgt(r.since5) + " SGT" : "") + " · 外汇回放里这个规则不赚钱";
     var btn = h("button", { type: "button", class: "btn sm", text: "复制计划", onclick: function () {
@@ -227,6 +266,10 @@
     renderAlert();
   });
   $("fx-refresh").addEventListener("click", function () { scan(); });
+  [["fx-bal", "balance"], ["fx-risk", "riskPct"], ["fx-lev", "lev"]].forEach(function (m) {
+    var el = $(m[0]), v = S.acct[m[1]]; el.value = v === null || v === undefined ? "" : v;
+    el.addEventListener("input", function () { var x = parseFloat(this.value); S.acct[m[1]] = isFinite(x) && x > 0 ? x : null; ls.set("acct", S.acct); render(); });
+  });
   S.patWords = "形态按自己的止损和目标做：回放里胜率约六成，但赚的少、亏的多，平均每笔约 0R，只作参考。";
   fetch("data/xau-backtest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (bt) {
     var o = bt && bt.patterns && bt.patterns.own; if (!o || !o["1H"]) return;

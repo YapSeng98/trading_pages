@@ -4,6 +4,7 @@
   "use strict";
   var M = Object.assign({
     id: "xau", ls: "xau4h.", sym: "XAUUSD", name: "黄金", contract: 100, unit: "盎司", weekend: true, calibrate: true,
+    unitShort: "盎司", moveWord: "金价", moves: [1, 10], pxDec: 2,                // the lot table: what 0.01 lot makes on these moves
     spotUrl: "https://api.gold-api.com/price/XAU", tick: "PAXGUSDT", ws: "paxgusdt",
     state: "data/xau-state.json", signals: "data/xau-signals.json", news: "data/news.json", scenarios: "data/xau-scenarios.json",
     srcSpot: "数据：现货金 XAU/USD", srcBackup: "备用数据：PAXG 代币",
@@ -616,7 +617,7 @@
     FIELDS.forEach(function (f) { var v = num(S.plan[f]); $("in-" + f).value = v === null ? "" : String(Math.round(v * 100) / 100); });
     $("in-bal").value = num(S.acct.balance) === null ? "" : S.acct.balance;
     $("in-risk").value = num(S.acct.riskPct) === null ? "" : S.acct.riskPct;
-    $("in-contract").value = S.acct.contract; $("in-step").value = S.acct.lotStep; $("in-spread").value = S.acct.spread;
+    $("in-contract").value = S.acct.contract; $("in-step").value = S.acct.lotStep; $("in-spread").value = S.acct.spread; $("in-lev").value = num(S.acct.leverage) || 100;
     $("in-note").value = S.plan.note || "";
     all("[data-side]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-side") === S.plan.side)); });
   }
@@ -671,6 +672,31 @@
       card(k, d.side, "来自每日分析，没有回放过", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
     });
     S.cardState = !any ? "na" : picked ? "done" : "";
+  }
+  // What 0.01 lot is worth at the live price: the money each move makes, the loss at the stop (the plan's, else the
+  // rule's 3 x 1-hour ATR), the contract value and its margin, and the lots this account can take at that stop.
+  function renderLotRef() {
+    var el = $("lotref"); if (!el) return; clear(el);
+    var px = num(S.live) !== null ? S.live : S.E ? num(S.E.price) : null, c = num(S.acct.contract) || M.contract, lev = num(S.acct.leverage) || 100;
+    var step = num(S.acct.lotStep) || 0.01, spread = num(S.acct.spread) || 0, H1 = S.E && S.E.tfs["1H"], mine = hasPlan();
+    var dist = mine ? Math.abs(S.plan.entry - S.plan.stop) : H1 && H1.atr ? 3 * H1.atr : null, sw = mine ? "你的止损" : "规则止损";
+    var mv = M.moves || [1, 10], qty = function (l) { var q = Math.round(l * c * 1e6) / 1e6; return q.toLocaleString("en-US", { maximumFractionDigits: 4 }) + " " + M.unitShort; };
+    el.appendChild(h("div", { class: "lr-t" }, [h("b", { text: "0.01 手等于多少" }), px !== null ? h("span", { text: "按现价 " + fmt(px, M.pxDec) + " · 1 手 = " + qty(1) }) : null]));
+    var head = ["手数", "数量", M.moveWord + "动 $" + mv[0].toLocaleString("en-US"), "动 $" + mv[1].toLocaleString("en-US")].concat(dist !== null ? ["到止损"] : []);
+    var body = [0.01, 0.1, 1].map(function (l) {
+      var cells = [l.toFixed(2) + " 手", qty(l), "±" + P.usd(l * c * mv[0]), "±" + P.usd(l * c * mv[1])].concat(dist !== null ? ["−" + P.usd(l * c * (dist + spread)).replace("−", "")] : []);
+      return h("tr", null, cells.map(function (t, i) { return h("td", { "data-l": head[i], class: i === 4 ? "dn" : null, text: t }); }));
+    });
+    el.appendChild(h("table", { class: "lr-tab" }, [h("thead", null, [h("tr", null, head.map(function (t) { return h("th", { text: t }); }))]), h("tbody", null, body)]));
+    var lines = [];
+    if (dist !== null) lines.push(sw + "距离 $" + fmt(dist, M.pxDec) + (mine ? "" : "（3 倍 1 小时波幅，还没填计划时按规则算）") + (spread ? "，已加点差 $" + spread : ""));
+    var bal = num(S.acct.balance), pct = num(S.acct.riskPct);
+    if (dist !== null && bal && pct) {
+      var risk = bal * pct / 100, per = step * c * (dist + spread), n = Math.floor(risk / per + 1e-9);
+      lines.push("你每笔最多亏 " + P.usd(risk) + "，" + step + " 手到止损亏 " + P.usd(per) + " → " + (n ? "最多 " + (n * step).toFixed(Math.max(2, Math.round(-Math.log(step) / Math.LN10))) + " 手" : "连 " + step + " 手都超过上限，这笔开不了"));
+    } else if (dist !== null) lines.push("在上面填账户余额，这里直接告诉你最多做几手");
+    if (px !== null) lines.push("0.01 手的合约价值约 " + P.usd(0.01 * c * px) + "，按 1:" + lev + " 杠杆要占保证金约 " + P.usd(0.01 * c * px / lev) + "（杠杆在「合约设置」里改成你账户的）");
+    lines.forEach(function (t) { el.appendChild(h("p", { class: "lr-n", text: t })); });
   }
   function currentSize() { return P.size({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, balance: S.acct.balance, riskPct: S.acct.riskPct, contract: S.acct.contract, lotStep: S.acct.lotStep, spread: S.acct.spread }); }
   // Auto version of the "stay clear of big data" rule, when the risk calendar gives exact SGT times.
@@ -784,6 +810,7 @@
     return box;
   }
   function renderPlan() {
+    renderLotRef();
     var sz = currentSize(), tk = clear($("ticket")), E = S.E, H1 = E && E.tfs["1H"], has = hasPlan(), ok = has && sz.valid, sell = S.plan.side === "short";
     // where this plan stands against the answer, the hint under each box, and a flag on prices left from another day
     var ps = planState(sz), pe = $("pstate"); pe.hidden = !ps;
@@ -1833,7 +1860,7 @@
   }); });
   all("[data-pick]").forEach(function (b) { b.addEventListener("click", function () { var f = b.getAttribute("data-pick"); S.armed = S.armed === f ? null : f; renderArm(); if (S.armed) { var r = $("chart").getBoundingClientRect(); if (r.bottom < 120 || r.top > window.innerHeight - 120) $("chart").scrollIntoView({ behavior: "smooth", block: "center" }); } }); });
   FIELDS.forEach(function (f) { $("in-" + f).addEventListener("input", function () { var v = parseFloat(this.value); S.plan[f] = isFinite(v) ? v : null; touched(); persistPlan(); if (S.E) renderCands(); renderPlan(); drawChart(); }); });
-  [["in-bal", "balance"], ["in-risk", "riskPct"], ["in-contract", "contract"], ["in-step", "lotStep"], ["in-spread", "spread"]].forEach(function (m) {
+  [["in-bal", "balance"], ["in-risk", "riskPct"], ["in-contract", "contract"], ["in-step", "lotStep"], ["in-spread", "spread"], ["in-lev", "leverage"]].forEach(function (m) {
     $(m[0]).addEventListener("input", function () { var v = parseFloat(this.value); S.acct[m[1]] = isFinite(v) && v >= 0 ? v : null; persistPlan(); renderPlan(); });
   });
   all("#riskq button").forEach(function (b) { b.addEventListener("click", function () { S.acct.riskPct = parseFloat(b.getAttribute("data-r")); persistPlan(); syncInputs(); renderPlan(); }); });
