@@ -1702,6 +1702,12 @@
   }
   function busyUi() { return !!S.armed || S.overLadder || $("chart").querySelector(".tip:not([hidden])") !== null; }
 
+  // The gold page's live price, read by daily, news and risk when they are shown inside it (assets/gold-live.js), so a
+  // frame does not open a second price stream or calibrate again.
+  if (M.id === "xau") window.MarketLive = { now: function () {
+    var p = num(S.live); if (p === null) return null; var shut = !marketOpen();
+    return { price: p, at: Date.now(), how: shut ? "closed" : S.gapOk && S.feed && S.feed.source !== "paxg" ? "spot" : "gold-api", closed: shut };
+  } };
   // ---------- live price stream ----------
   // Binance pushes every trade and best bid/ask change, so the price is live to the second.
   // The polling loop below stays as the fallback when the socket is down or silent.
@@ -1717,12 +1723,12 @@
   }
   function connectStream() {
     if (!("WebSocket" in window) || WS) return;
-    var ws; try { ws = new WebSocket("wss://data-stream.binance.vision/stream?streams=" + M.ws + "@aggTrade/" + M.ws + "@bookTicker"); } catch (e) { return; }
+    var ws; try { ws = new WebSocket("wss://data-stream.binance.vision/stream?streams=" + (M.streams || M.ws + "@aggTrade/" + M.ws + "@bookTicker")); } catch (e) { return; }
     WS = ws;
     ws.onopen = function () { wsBack = 0; wsAt = Date.now(); setStamp(); };
     ws.onmessage = function (m) {
       var d; try { d = JSON.parse(m.data).data; } catch (e) { return; }
-      var p = d && d.p ? parseFloat(d.p) : d && d.b && d.a ? (parseFloat(d.b) + parseFloat(d.a)) / 2 : NaN;   // last trade, or the mid of the best quotes
+      var p = d && d.p ? parseFloat(d.p) : d && d.c ? parseFloat(d.c) : d && d.b && d.a ? (parseFloat(d.b) + parseFloat(d.a)) / 2 : NaN;   // last trade, the 1-second ticker's last price, or the mid of the best quotes
       if (!isFinite(p) || p <= 0) return;
       wsAt = Date.now(); if (p === S.raw || !S.E) return;
       livePrice(p); onPrice();

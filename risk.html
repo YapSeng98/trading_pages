@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="assets/icon-192.png">
 <script src="assets/embed.js?v=1"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--violet:#9B8CF0;
   --bear:#F87171;--bull:#34D399;--neut:#94A3B8;
@@ -25,19 +25,11 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(212,167,44,.12),transparent 65%);filter:blur(46px)}
 .mesh::after{content:'';position:absolute;top:38%;right:-200px;width:640px;height:520px;background:radial-gradient(ellipse,rgba(96,165,250,.08),transparent 65%);filter:blur(50px)}
 .mesh .orb-violet{position:absolute;top:8%;left:-160px;width:480px;height:480px;background:radial-gradient(circle,rgba(155,140,240,.08),transparent 68%);filter:blur(50px)}
-@keyframes orbFloatA{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(-26px) scale(1.06)}}
-@keyframes orbFloatB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-22px,18px) scale(1.08)}}
-@keyframes orbFloatC{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-20px) scale(1.1)}}
-.mesh::before{animation:orbFloatA 16s ease-in-out infinite}
-.mesh::after{animation:orbFloatB 20s ease-in-out infinite}
-.mesh .orb-violet{animation:orbFloatC 18s ease-in-out infinite}
 .ai-tag{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);padding:4px 10px;border-radius:999px;background:rgba(155,140,240,.10);border:1px solid rgba(155,140,240,.28)}
 .ai-tag::before{content:'✦';font-size:10px}
-@keyframes aiGlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .ai-frame{position:relative;isolation:isolate}
-.ai-frame::before{content:'';position:absolute;inset:-4px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,rgba(212,167,44,.5),rgba(155,140,240,.45),rgba(96,165,250,.4),rgba(212,167,44,.5));background-size:300% 300%;filter:blur(11px);opacity:.4;animation:aiGlow 9s ease-in-out infinite}
-.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
-@keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
+.ai-frame::before{content:'';position:absolute;inset:-4px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,rgba(212,167,44,.5),rgba(155,140,240,.45),rgba(96,165,250,.4),rgba(212,167,44,.5));background-size:300% 300%;filter:blur(11px);opacity:.4}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%}
 .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .navbar .brand{white-space:nowrap;flex:none;display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--white);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
 .navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
@@ -397,7 +389,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 <div class="topstrip"></div>
 
 <script src="assets/xau-feed.js?v=7" defer></script>
-<script src="assets/gold-live.js?v=1" defer></script>
+<script src="assets/gold-live.js?v=2" defer></script>
 <script src="assets/gold-bar.js?v=6" defer></script>
 <script src="assets/levels-live.js?v=1" defer></script>
 </body>

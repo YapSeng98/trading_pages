@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="assets/icon-192.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%23D4A72C'/%3E%3C/svg%3E">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
   --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--violet:#9B8CF0;--neut:#94A3B8;
@@ -37,8 +37,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 .mesh .orb-violet{position:absolute;top:8%;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(155,140,240,.09),transparent 68%);filter:blur(50px)}
 
 /* ── top accent + sticky glass nav ── */
-.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%;animation:strip 9s linear infinite}
-@keyframes strip{0%{background-position:0 0}100%{background-position:220% 0}}
+.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%}
 .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
 .navbar .brand{display:flex;align-items:center;gap:9px;font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto;white-space:nowrap;flex-shrink:0}
 .navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
@@ -133,8 +132,7 @@ body.refreshing .live-data{opacity:.72;transition:opacity .2s}
 
 /* ── verdict: the answer first ── */
 .verdict{--ga:rgba(148,163,184,.5);--gb:rgba(155,140,240,.42);position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);gap:26px 44px;padding:30px 32px 26px;border-radius:26px;background:linear-gradient(135deg,rgba(21,21,28,.9) 50%,rgba(26,22,17,.9) 100%);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border:1px solid var(--glass-brd);box-shadow:var(--shadow-md)}
-.verdict::before{content:'';position:absolute;inset:-3px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,var(--ga),var(--gb),var(--ga));background-size:300% 300%;filter:blur(14px);opacity:.4;animation:glow 9s ease-in-out infinite}
-@keyframes glow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.verdict::before{content:'';position:absolute;inset:-3px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,var(--ga),var(--gb),var(--ga));background-size:300% 300%;filter:blur(14px);opacity:.4}
 .verdict.go{--ga:rgba(10,176,116,.8);--gb:rgba(212,167,44,.5)}
 .verdict.ready,.verdict.wait{--ga:rgba(212,167,44,.75);--gb:rgba(245,178,62,.4)}
 @media(max-width:980px){.verdict{grid-template-columns:minmax(0,1fr);padding:24px 22px 22px}}
@@ -911,7 +909,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 window.MARKET = {
   id: "btc", ls: "btc4h.", sym: "BTCUSD", name: "比特币", feed: BtcFeed, contract: 1, unit: "个 BTC", weekend: false, calibrate: false,
   unitShort: "BTC", moveWord: "币价", moves: [100, 1000], pxDec: 0,
-  spotUrl: null, tick: "BTCUSDT", ws: "btcusdt", liveName: "币安 BTC/USDT", priceWord: "BTC/USDT",
+  spotUrl: null, tick: "BTCUSDT", ws: "btcusdt", streams: "btcusdt@miniTicker",   // one price a second: the page repaints once a second anyway liveName: "币安 BTC/USDT", priceWord: "BTC/USDT",
   state: null, signals: "data/btc-signals.json", news: null, scenarios: null, dailyPlans: false, snapshot: null,
   srcSpot: "数据：币安 BTC/USDT", srcBackup: "数据：币安 BTC/USDT",
   basisSpot: "币安 BTC/USDT，按 UTC 换日", basisBackup: "币安 BTC/USDT，按 UTC 换日",
@@ -971,6 +969,6 @@ XauPlan.setMarket({ goText: "这个规则是在黄金上选出来的，在比特
   }).catch(function () { var b = document.getElementById("rp-body"); if (b) b.innerHTML = '<p class="note">读不到回放结果（data/btc-backtest.json）。</p>'; });
 })();
 </script>
-<script src="assets/market-page.js?v=20"></script>
+<script src="assets/market-page.js?v=21"></script>
 </body>
 </html>

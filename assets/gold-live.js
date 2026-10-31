@@ -10,6 +10,16 @@
 (function () {
   "use strict";
   if (window.GoldLive) return;
+  // Inside the gold page (report.html shows daily, news and risk in frames) the page already has the live price: read
+  // it every 2 seconds instead of opening another price stream and calibrating again.
+  var host = null; try { if (window.parent !== window && window.parent.location.origin === location.origin && window.parent.MarketLive) host = window.parent.MarketLive; } catch (e) { host = null; }
+  if (host) {
+    var hs = [], hl = null;
+    var pull = function () { var p = null; try { p = host.now(); } catch (e) {} if (!p || (hl && p.price === hl.price && p.how === hl.how)) return; hl = p; hs.forEach(function (f) { try { f(p); } catch (e) {} }); };
+    window.GoldLive = { on: function (f) { hs.push(f); if (hl) try { f(hl); } catch (e) {} }, now: function () { return hl; } };
+    pull(); setInterval(pull, 2000);
+    return;
+  }
   var BIN1M = "https://data-api.binance.vision/api/v3/klines?symbol=PAXGUSDT&interval=1m&limit=30";
   var WSURL = "wss://data-stream.binance.vision/stream?streams=paxgusdt@aggTrade/paxgusdt@bookTicker";
   var S = { raw: null, gap: null, gapAt: 0, spot: null, spotAt: 0, last: null, closedPx: null }, subs = [], emitT = null, ws = null, back = 0;

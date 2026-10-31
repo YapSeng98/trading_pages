@@ -57,6 +57,8 @@ and still open on their own; each loads `assets/embed.js` in `<head>`, which hid
 they are inside the gold page. Keep that script tag. The home page's news and calendar tiles open
 `report.html#read-news` and `report.html#read-risk`.
 
+Speed (2026-11-01, owner: "looks so heavy and got performance issue"): no page downloads a Chinese web font; the Google Fonts import carries only IBM Plex Mono and Space Grotesk, and Chinese text uses the device's own font through the `sans-serif` fallback after 'Noto Sans SC' (PingFang on iPhone and Mac, YaHei on Windows, Noto on Android). That removed about 1 MB a page. Decorative effects stay but do not move: the endless background-position and float animations (top strip, floating orbs, card glows) made each page repaint 60 times a second, about 12% of a phone's CPU while idle; only the small pulsing live dots and the loading skeleton still animate. Do not add `infinite` animations on large or blurred areas. Inside the gold page the daily, news and risk frames read the page's live price (`window.MarketLive`, read by `assets/gold-live.js`) instead of opening their own price stream; Bitcoin's stream is Binance's one-a-second `btcusdt@miniTicker` (`streams` in `window.MARKET`) instead of every trade and quote change (about 19 messages a second). The brief frames load only when scrolled near.
+
 Phones (checked 2026-10-26 at 360 and 390 px wide, no page scrolls sideways): each page's `<style>` ends with phone rules
 (`max-width:640px`): nothing under 11px, the navbar on one line, buttons about 36px tall, inputs 16px so iOS does not zoom.
 `risk.html`'s `table.cal` becomes one card per row on phones, so every calendar row keeps its three cells (date and time,
