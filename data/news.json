@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 05:38 SGT",
+ "updated": "2026-11-01 16:04 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,11 @@
  ],
  "items": [
   {
-   "t": "What Bears Saw Before Galiano Gold Slid",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOcFFsNHlLSDQxcTBkZkJNazhjNXE5ci10MWFFRXh1dkxVWFBDQ2R4RjFPSWxqUDJEV0puVU9FVFRuWnl6RGFTQ3ZqYkpVRzdRWkROaDNPVEQtdlUtMHpKWlgzQTVzaGtrVy10T3JvamxLZjBsOGZJWnJ3UVk0OXE5ZUVyTEloLXVwdjMtM3h6S3RMQmFCMURV?oc=5",
-   "ms": 1793420520000,
-   "time": "10/31 12:22"
+   "t": "Gold Futures Streaming Chart",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
+   "ms": 1793504543000,
+   "time": "11/01 11:42"
   }
  ]
 }
