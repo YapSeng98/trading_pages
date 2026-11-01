@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 16:04 SGT",
+ "updated": "2026-11-02 06:05 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Gold Futures Streaming Chart",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aeTFoLWFsUHNUX24yTVZlQm03eU5lbWJIM3VwX3hnY0JkZW9mWXB2Z2ROaEkyazZrSEI5UGlDM2p3MEE2R2pDeEYtM0liVkNRN1ZJdHZ5SWs0R3BhNnpsX1A2TlpybEdRbUE?oc=5",
-   "ms": 1793504543000,
-   "time": "11/01 11:42"
+   "t": "Gold price outlook: Gold sliding along the 0.786 arc. Eyes on 3,720",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN1FUbGhvLUpObU1XQXZ2VTh0S191dDdNRlRZZ0JlTkVDWjBaODJuQ2FrRzlfakx2MXJwTGZSX0tCRS1wWWtNbmF3MFBnUTE2Nk85QVhFcWxRQ1ZDQWNQQ01zMVE5YWFBMndEMU5OWU1Cb0doVW9VM2ViRTI4RUJFYllCcnlsem5EMW1NOERLT3hldzVkZklPR2xpUUppYVdNajZoTWJPa2pSZ1QxNGlWUw?oc=5",
+   "ms": 1793560117000,
+   "time": "11/02 03:08"
+  },
+  {
+   "t": "Down 15% in a month! I think this is the best UK growth stock for me to buy in November",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5ndm40T3JMbElwaFpvY2Vqc1JTRFJDMXJNSW40OGgyUXhMZlk3bHBPZGJwNnlhYXhPOHhoeUJVYWp5TzlmRFB0NTVQSDhuQlp0MGE4bGJUanluYzVOaW5rWXlWQjJqaE5YbE0wVU1INnB2ZUtWaUhhZDRhcTJnQQ?oc=5",
+   "ms": 1793552276000,
+   "time": "11/02 00:57"
   }
  ]
 }

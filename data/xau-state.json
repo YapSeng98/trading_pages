@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 21:30 SGT",
+ "updated": "2026-11-02 06:05 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": false,
@@ -51,10 +51,7 @@
    "close": 3874.6
   }
  ],
- "thisWeek": {
-  "high": 4082,
-  "low": 3870
- },
+ "thisWeek": null,
  "previousWeek": {
   "open": 3998.5,
   "high": 4082,
