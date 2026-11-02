@@ -50,10 +50,11 @@ var XauPlan = (function () {
   };
 
   function num(v) { return typeof v === "number" && isFinite(v) ? v : null; }
+  var NF = {};                                                                   // one formatter per precision: creating one per number is slow
   function fmt(v, d) {
     v = num(v); if (v === null) return "—";
     d = d === undefined ? 2 : d;
-    return v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+    return (NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }))).format(v);
   }
   // Dollars for a sentence: whole dollars from $100 up, cents below that (a $0.35 risk must not read as "$0").
   function usd(v) {

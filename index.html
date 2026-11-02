@@ -7,8 +7,10 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A0A0F">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
   --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--violet:#9B8CF0;--neut:#94A3B8;
@@ -91,7 +93,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .mp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:8px}
 .mp-num{font-family:'Space Grotesk',monospace;font-size:50px;font-weight:700;letter-spacing:-2.5px;line-height:1;font-variant-numeric:tabular-nums;background:linear-gradient(120deg,var(--gold-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .mp-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:10px;display:flex;align-items:center;gap:6px}
-.mp-dot{color:var(--bull);animation:pulse 2s ease-in-out infinite}
+.mp-dot{display:inline-block;color:var(--bull);animation:pulse 2s ease-in-out infinite}
 @media(max-width:860px){.tile.main{flex-direction:column;gap:22px;padding:28px 26px}.main-right{width:auto}.mp-num{font-size:42px}}
 
 .feats{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
@@ -147,6 +149,8 @@ footer .disc strong{color:var(--text)}
 @media(max-width:480px){.pulse-stats{grid-template-columns:1fr}}
 /* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
 @media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
+@media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
+*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
 </style>
 </head>
 <body>
@@ -355,9 +359,9 @@ footer .disc strong{color:var(--text)}
 
 <div class="topstrip"></div>
 
-<script src="assets/xau-feed.js?v=7"></script>
+<script src="assets/xau-feed.js?v=8"></script>
 <script src="assets/gold-live.js?v=2"></script>
-<script src="assets/hub-live.js?v=5"></script>
+<script src="assets/hub-live.js?v=6"></script>
 <script>
 // The TradingView chart near the bottom is the heaviest thing on this page: load it only when it is about to be seen.
 (function () {

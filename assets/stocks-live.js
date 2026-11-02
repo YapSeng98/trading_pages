@@ -28,7 +28,8 @@
     return e;
   }
   function isNum(v) { return typeof v === "number" && isFinite(v); }
-  function money(q, v) { var d = Math.abs(v) < 1 ? 3 : 2; return q.cur + v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  var NF = {};                                                                   // one formatter per precision: creating one per number is slow
+  function money(q, v) { var d = Math.abs(v) < 1 ? 3 : 2; return q.cur + (NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d }))).format(v); }
   function pct(v, d) { return !isNum(v) ? "—" : (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d === undefined ? 2 : d) + "%"; }
   function dir(v) { return v > 0 ? "up" : v < 0 ? "down" : "flat"; }
   function md(date) { var p = String(date || "").split("-"); return p.length === 3 ? +p[1] + "/" + +p[2] : ""; }

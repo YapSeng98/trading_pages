@@ -110,16 +110,62 @@ var XauFeed = (function () {
     var last = K["15M"][K["15M"].length - 1];
     return { source: "spot", K: K, price: last[4], priceAt: last[6] + 1, asOf: nowMs, gap: null, warn: null };
   }
-  var cache = { h1: null, d1: null, m15: null, at: 0 }, spotFails = 0;
-  function loadSpot(nowMs) {
-    var full = !cache.h1 || nowMs - cache.at > 6 * 3600000;
-    return Promise.all([duk("1HOUR", full ? NEED.h1 : 48, full ? 25000 : 12000), duk("1DAY", full ? NEED.d1 : 12), duk("15MIN", full ? NEED.m15 : 96)]).then(function (res) {
-      if (res[0].length < (full ? 2000 : 2) || res[2].length < (full ? 200 : 2)) throw new Error("spot feed: too little data");
-      cache.h1 = merge(full ? null : cache.h1, res[0], NEED.h1); cache.d1 = merge(full ? null : cache.d1, res[1], NEED.d1); cache.m15 = merge(full ? null : cache.m15, res[2], NEED.m15);
-      if (full) cache.at = nowMs;
-      return spotCandles(cache.h1, cache.d1, cache.m15, nowMs);
+  // ---------- finished bars kept in this browser (IndexedDB) ----------
+  // Old bars do not change, so a visit asks the feed only for the bars since the newest one held, with an overlap: about
+  // 250 rows instead of 17,000 for gold and 250 instead of 8,700 for each forex pair. The whole history is downloaded
+  // the first time, once a week, and whenever a finished bar in the overlap comes back at another price. Without
+  // storage (private window, blocked) every visit simply downloads it all, as it did before.
+  var FULL_EVERY = 7 * 86400000, dbOpen = null;
+  function waitAtMost(start) {                                                   // a browser whose storage hangs must not hold the page up
+    return new Promise(function (ok) { var t = setTimeout(function () { ok(null); }, 1500); try { start(function (v) { clearTimeout(t); ok(v); }); } catch (e) { clearTimeout(t); ok(null); } });
+  }
+  function db() {
+    return dbOpen || (dbOpen = waitAtMost(function (ok) {
+      var q = indexedDB.open("xau-feed", 1);
+      q.onupgradeneeded = function () { q.result.createObjectStore("bars"); };
+      q.onsuccess = function () { ok(q.result); }; q.onerror = q.onblocked = function () { ok(null); };
+    }));
+  }
+  function pack(rows) { var a = new Float64Array(rows.length * 5), i = 0; rows.forEach(function (r) { a[i++] = r[0]; a[i++] = r[1]; a[i++] = r[2]; a[i++] = r[3]; a[i++] = r[4]; }); return a; }
+  function unpack(a) { var o = new Array(a.length / 5); for (var i = 0, j = 0; i < a.length; i += 5, j++) o[j] = [a[i], a[i + 1], a[i + 2], a[i + 3], a[i + 4]]; return o; }
+  function recall(key) {
+    return db().then(function (d) {
+      return !d ? null : waitAtMost(function (ok) {
+        var q = d.transaction("bars").objectStore("bars").get(key);
+        q.onsuccess = function () { var v = q.result; ok(v && v.h1 && v.d1 && v.m15 ? { h1: unpack(v.h1), d1: unpack(v.d1), m15: unpack(v.m15), at: v.at, got: v.got || v.at } : null); }; q.onerror = function () { ok(null); };
+      });
     });
   }
+  function remember(key, c) { db().then(function (d) { if (d) try { d.transaction("bars", "readwrite").objectStore("bars").put({ h1: pack(c.h1), d1: pack(c.d1), m15: pack(c.m15), at: c.at, got: c.got }, key); } catch (e) {} }); }
+  // A bar that had finished when it was last read and now comes back at another price means the history changed: the
+  // held copy is not to be trusted. A bar still forming at that read (today's daily bar, say) is expected to differ.
+  function changed(old, add, step, gotMs) {
+    var m = {}, i, o, tail = old.slice(-(add.length + 5)), upto = gotMs / 1000 - 1800 - step;
+    for (i = 0; i < tail.length; i++) m[tail[i][0]] = tail[i];
+    for (i = 0; i < add.length; i++) { o = m[add[i][0]]; if (o && add[i][0] < upto && Math.abs(add[i][4] - o[4]) > o[4] * 0.0001) return true; }
+    return false;
+  }
+  // one instrument's bars: what the browser holds, then what the feed has added since
+  function loadBars(c, name, need, minFull, inst, nowMs) {
+    var key = name + ":" + need.h1, ready = c.read ? Promise.resolve() : recall(key).then(function (s) {
+      c.read = true; if (s && !c.h1 && s.h1.length >= minFull && s.m15.length >= 200) { c.h1 = s.h1; c.d1 = s.d1; c.m15 = s.m15; c.at = s.at; c.got = s.got; }
+    });
+    return ready.then(function () {
+      var full = !c.h1 || nowMs - c.at > FULL_EVERY, nowSec = nowMs / 1000;
+      var since = function (rows, step, more, keep) { return Math.min(keep, Math.ceil((nowSec - rows[rows.length - 1][0]) / step) + more); };    // the gap since the newest bar held, and an overlap
+      var nH = full ? need.h1 : since(c.h1, 3600, 48, need.h1), nD = full ? need.d1 : since(c.d1, 86400, 12, need.d1), nM = full ? need.m15 : since(c.m15, 900, 96, need.m15);
+      return Promise.all([duk("1HOUR", nH, nH > 1000 ? 25000 : 12000, inst), duk("1DAY", nD, 15000, inst), duk("15MIN", nM, 15000, inst)]).then(function (res) {
+        if (res[0].length < (full ? minFull : 2) || res[2].length < (full ? 200 : 2)) throw new Error(name + "：数据太少");
+        if (!full && (changed(c.h1, res[0], 3600, c.got) || changed(c.d1, res[1], 86400, c.got) || changed(c.m15, res[2], 900, c.got))) { c.h1 = null; return loadBars(c, name, need, minFull, inst, nowMs); }
+        c.h1 = merge(full ? null : c.h1, res[0], need.h1); c.d1 = merge(full ? null : c.d1, res[1], need.d1); c.m15 = merge(full ? null : c.m15, res[2], need.m15);
+        if (full) c.at = nowMs;
+        c.got = nowMs; remember(key, c);
+        return spotCandles(c.h1, c.d1, c.m15, nowMs);
+      });
+    });
+  }
+  var cache = { h1: null, d1: null, m15: null, at: 0 }, spotFails = 0;
+  function loadSpot(nowMs) { return loadBars(cache, "XAU/USD", NEED, 2000, undefined, nowMs); }
 
   // ---------- source 2: PAXG on Binance, moved onto the spot price ----------
   function getJson(url) { return fetch(url, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }); }
@@ -152,17 +198,9 @@ var XauFeed = (function () {
 
   // ---------- any other Dukascopy instrument (the forex page) ----------
   // Same feed, same broker-day candles; a lighter history (250 broker days of hourly bars is plenty for the trends)
-  // and one cache per instrument: a full load every 6 hours, otherwise only the newest bars.
+  // and its own bars per instrument, kept in the browser like gold's.
   var NEED_FX = { h1: 6000, d1: 1900, m15: 820 }, caches = {};
-  function loadInst(inst) {
-    var nowMs = Date.now(), c = caches[inst] || (caches[inst] = { h1: null, d1: null, m15: null, at: 0 }), full = !c.h1 || nowMs - c.at > 6 * 3600000;
-    return Promise.all([duk("1HOUR", full ? NEED_FX.h1 : 48, full ? 25000 : 12000, inst), duk("1DAY", full ? NEED_FX.d1 : 12, 15000, inst), duk("15MIN", full ? NEED_FX.m15 : 96, 15000, inst)]).then(function (res) {
-      if (res[0].length < (full ? 1500 : 2) || res[2].length < (full ? 200 : 2)) throw new Error(inst + "：数据太少");
-      c.h1 = merge(full ? null : c.h1, res[0], NEED_FX.h1); c.d1 = merge(full ? null : c.d1, res[1], NEED_FX.d1); c.m15 = merge(full ? null : c.m15, res[2], NEED_FX.m15);
-      if (full) c.at = nowMs;
-      return spotCandles(c.h1, c.d1, c.m15, nowMs);
-    });
-  }
+  function loadInst(inst) { return loadBars(caches[inst] || (caches[inst] = { h1: null, d1: null, m15: null, at: 0 }), inst, NEED_FX, 1500, inst, Date.now()); }
 
   // Daily bars (UTC days) of any instrument, for the daily trend page: rows of [tSec, o, h, l, c], oldest first.
   function daily(inst, limit) { return duk("1DAY", limit || 420, 20000, inst); }

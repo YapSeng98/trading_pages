@@ -7,8 +7,10 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A0A0F">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
   --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--violet:#9B8CF0;--neut:#94A3B8;
@@ -315,10 +317,12 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 @media(max-width:640px){.rv-seg button{min-height:36px}th button{min-height:34px}.rv-chk{position:relative}.rv-chk::after{content:"";position:absolute;inset:-9px}#w52Host .vrow>span{font-size:11px!important}span.ty{font-size:11px!important}}
 /* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
 @media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
+@media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
+*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
 </style>
 <link rel="stylesheet" href="assets/stocks-live.css">
 <script src="data/quotes.js"></script>
-<script src="assets/stocks-live.js"></script>
+<script src="assets/stocks-live.js?v=2"></script>
 </head>
 <body>
 <div class="mesh"><div class="orb-violet"></div></div>
@@ -701,7 +705,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
   <div class="chart-card">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+      <script type="application/json" data-tv-lazy="embed-widget-market-overview">
       {"colorTheme":"dark","dateRange":"3M","showChart":true,"locale":"en","width":"100%","height":"440","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":true,"tabs":[{"title":"🚀 成长股","symbols":[{"s":"NASDAQ:NVDA","d":"Nvidia"},{"s":"NASDAQ:AVGO","d":"Broadcom"},{"s":"NASDAQ:MSFT","d":"Microsoft"},{"s":"NASDAQ:PLTR","d":"Palantir"},{"s":"NASDAQ:SNDK","d":"SanDisk"}]},{"title":"💰 股息股","symbols":[{"s":"NYSE:ABBV","d":"AbbVie"},{"s":"NYSE:CVX","d":"Chevron"},{"s":"NYSE:O","d":"Realty Income"},{"s":"NYSE:MO","d":"Altria"},{"s":"NASDAQ:MPWR","d":"Monolithic Power"}]}]}
       </script>
     </div>
@@ -848,7 +852,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       <div class="mini-card"><div class="cap">成长代表 · Growth Pick</div>
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          <script type="application/json" data-tv-lazy="embed-widget-mini-symbol-overview">
           {"symbol":"NASDAQ:NVDA","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
           </script>
         </div>
@@ -856,7 +860,7 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
       <div class="mini-card"><div class="cap">股息代表 · Dividend Pick</div>
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          <script type="application/json" data-tv-lazy="embed-widget-mini-symbol-overview">
           {"symbol":"NYSE:ABBV","width":"100%","height":"200","locale":"en","dateRange":"6M","colorTheme":"dark","isTransparent":true,"autosize":false}
           </script>
         </div>
@@ -1354,5 +1358,6 @@ main{max-width:1120px;margin:0 auto;padding:24px 24px 64px}
 </script>
 
 <div class="topstrip"></div>
+<script src="assets/tv-lazy.js?v=1"></script>
 </body>
 </html>

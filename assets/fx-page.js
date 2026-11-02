@@ -31,7 +31,8 @@
   }
   function sgt(ms) { var d = new Date(ms + 8 * 3600000); return (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + " " + ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2); }
   function ago(ms) { var m = Math.max(0, Math.round((Date.now() - ms) / 60000)); return m < 60 ? m + " 分钟前" : m < 2880 ? Math.round(m / 60) + " 小时前" : Math.round(m / 1440) + " 天前"; }
-  function px(p, v) { return typeof v === "number" && isFinite(v) ? v.toLocaleString("en-US", { minimumFractionDigits: p.d, maximumFractionDigits: p.d }) : "—"; }
+  var NF = {}, nf = function (d) { return NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d })); };   // one formatter per precision: creating one per number is slow
+  function px(p, v) { return typeof v === "number" && isFinite(v) ? nf(p.d).format(v) : "—"; }
   function pips(p, dist) { var pip = p.metal ? 0.01 : p.d === 3 ? 0.01 : 0.0001; return Math.round(dist / pip) + (p.metal ? " 美分" : " 点"); }
 
   // ---------- lots: 0.01 lot = 1,000 units of the first currency; a pip is 0.0001 (0.01 on yen pairs) ----------
@@ -41,7 +42,7 @@
     var d = rateOf(ccy + "/USD"); if (d) return d;
     var v = rateOf("USD/" + ccy); return v ? 1 / v : null;
   }
-  function usd(v, d) { return "$" + v.toLocaleString("en-US", { minimumFractionDigits: d === undefined ? 2 : d, maximumFractionDigits: d === undefined ? 2 : d }); }
+  function usd(v, d) { return "$" + nf(d === undefined ? 2 : d).format(v); }
   function num(v) { return typeof v === "number" && isFinite(v) && v > 0 ? v : null; }
   function lotInfo(r) {
     var p = r.p, b = p.i.slice(0, 3), q = p.i.slice(4), pip = p.d === 3 ? 0.01 : 0.0001, qu = toUsd(q), bu = toUsd(b);

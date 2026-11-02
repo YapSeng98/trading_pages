@@ -10,7 +10,8 @@
   function $(id) { return document.getElementById(id); }
   function set(id, text) { var e = $(id); if (e) e.textContent = text; }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
-  function fmt(v, d) { return typeof v === "number" && isFinite(v) ? v.toLocaleString("en-US", { minimumFractionDigits: d === undefined ? 1 : d, maximumFractionDigits: d === undefined ? 1 : d }) : "—"; }
+  var NF = {}, nf = function (d) { return NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d })); };   // one formatter per precision: creating one per number is slow
+  function fmt(v, d) { return typeof v === "number" && isFinite(v) ? nf(d === undefined ? 1 : d).format(v) : "—"; }
   function sgn(v, d) { var t = fmt(Math.abs(v), d); return (v > 0 ? "+" : v < 0 ? "−" : "") + t; }
   function mk(t, at, parent) { var e = document.createElementNS(NS, t); for (var k in at) e.setAttribute(k, at[k]); if (parent) parent.appendChild(e); return e; }
   function chips(id, list) { var box = $(id); if (!box) return; while (box.firstChild) box.removeChild(box.firstChild); list.forEach(function (c) { if (c) box.appendChild(el("span", "chip " + c[0], c[1])); }); }
