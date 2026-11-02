@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 13:48 SGT",
+ "updated": "2026-11-02 16:13 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,7 +7,14 @@
  ],
  "items": [
   {
-   "t": "Gold rises on softer oil; Markets parse Fed signals",
+   "t": "Gold struggles to extend rebound above $3,900 as Fed risks loom",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZGFyd3hZNzhJVXNscmtPdC1XVDJXX3Q0YW9TN25yWnNudTRSR1NrM0EzeVF6TEY1TE1GMmxtRjBXMTRZRldUMkJpam5XdWp4UTlqNjExQmdpSTZUNkoyUmpjU0F6MWRnMEN0NWVEbDRhNUtqUW5Fb1NQTUpqcUUzLUlyX3pVQkZnWEUxVDFOcndYaEhZYWtEZEZpbzZkYVJrNFltb3pQamNlOGpWSTZ2bkExUkdhSmFkamF5N1JCUkFfX1FlNzUzMzNuSQ?oc=5",
+   "ms": 1793596457000,
+   "time": "11/02 13:14"
+  },
+  {
+   "t": "Gold rises on softer oil; markets parse Fed signals",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNOXFkdElkaE5fVGZ6eUVZUFZnZjNuaUFoM2pPZ1ZJeEY4bmN0Wm9zSTRwLWpHcjNjLWRLRklsOV95a21mWjZWckhUam5qTVZVUzVDdWEwQXVOVWlpaHpCMktPLU41TGNkZjI3MFM1azNvSEtUai1pUGFpNi1mZFhISlB3TXFUSWtseGlhYmRISUpuWXdlVU5mLTJPRQ?oc=5",
    "ms": 1793595840000,
@@ -19,13 +26,6 @@
    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNS1c4Ui10WDBxa3JVdzltc0U1WlZaUWJXOS1hSzBtS1V4RUw5UklUQkVNYWRoa0F3VUtqc1d6TkliRzdWbnV3S0F2STVlYmtKYzM4bjItVUhnQ0lPbUdZbEtjSHlOZVUwaVROczJhb2pVcXNDX3ZQQTRqVVc0YWJIQ1FCWk5mS24tMmxGTU1jbXRnUmhmTWZGYTJDcFdSYXNBM3ZIYkJEdnZwUUExNUxReG8xMUJjWGFjSDVHd1VTQ0lZUlJfRnBrTDR1SlU2UWg3RUE?oc=5",
    "ms": 1793590667000,
    "time": "11/02 11:37"
-  },
-  {
-   "t": "Gold, silver prices rebound after weekly rout: Is the worst over for bullion",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQzhBLW8tVzJ3ejV5TzloR096cUJGRG5TVUNHOEFBVVZoSDRmMXJac0RhSl9oY20zTG5KU085QUpuQkFYNUZZME5MZGN4S2gwazBfQUd3dUtDSmI2eW45eUpqclpjNlh6aXAtZHZGVUtubzRBWnpTTWtBbUFXS0RwLXc2NUVhNVRtWlZCRnF1MC1KX3RwZWJIM2RQbFgxX0lrc1JoTDkza0x2UC1nTzJkRTd6V3JFanlXcWxSN2loU0TSAcYBQVVfeXFMT29SRmJtWUU2S09LUnM2b0pQQ3ZiOWI4VGdjdVRmUWhwamRObEhCZGNOalEzRUpIV2xiTWNCaUNEelptMWZTeXpLSEVYa2EtWjlMeGVvMy1vZDd6RnJQWHVHMGxmdXBTdWpJbEJwYXRuWGJjT0JxSENIUlY1TWNMUlVIa3RZMkpiQzdYejNEQmNtR2lIeDRPaVQ2V3ZOSFk1SGFZYXVrZ1BjRkplOFpxTmJhT191VE42Nk01WG44bUh2aGE4N2RR?oc=5",
-   "ms": 1793585483000,
-   "time": "11/02 10:11"
   },
   {
    "t": "Gold rebounds to near $3,900 despite inflation worries",
