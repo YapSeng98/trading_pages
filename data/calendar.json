@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01 14:12 SGT",
+ "updated": "2026-11-02 13:48 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -23,7 +23,7 @@
    "impact": "medium",
    "title": "ISM Manufacturing PMI",
    "zh": "ISM 制造业 PMI",
-   "forecast": "54.7",
+   "forecast": "54.5",
    "previous": "54.5"
   },
   {

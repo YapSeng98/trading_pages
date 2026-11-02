@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 06:05 SGT",
+ "updated": "2026-11-02 13:48 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,46 @@
  ],
  "items": [
   {
+   "t": "Gold rises on softer oil; Markets parse Fed signals",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNOXFkdElkaE5fVGZ6eUVZUFZnZjNuaUFoM2pPZ1ZJeEY4bmN0Wm9zSTRwLWpHcjNjLWRLRklsOV95a21mWjZWckhUam5qTVZVUzVDdWEwQXVOVWlpaHpCMktPLU41TGNkZjI3MFM1azNvSEtUai1pUGFpNi1mZFhISlB3TXFUSWtseGlhYmRISUpuWXdlVU5mLTJPRQ?oc=5",
+   "ms": 1793595840000,
+   "time": "11/02 13:04"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD recovers modestly as oil prices decline, US elections in focus",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNS1c4Ui10WDBxa3JVdzltc0U1WlZaUWJXOS1hSzBtS1V4RUw5UklUQkVNYWRoa0F3VUtqc1d6TkliRzdWbnV3S0F2STVlYmtKYzM4bjItVUhnQ0lPbUdZbEtjSHlOZVUwaVROczJhb2pVcXNDX3ZQQTRqVVc0YWJIQ1FCWk5mS24tMmxGTU1jbXRnUmhmTWZGYTJDcFdSYXNBM3ZIYkJEdnZwUUExNUxReG8xMUJjWGFjSDVHd1VTQ0lZUlJfRnBrTDR1SlU2UWg3RUE?oc=5",
+   "ms": 1793590667000,
+   "time": "11/02 11:37"
+  },
+  {
+   "t": "Gold, silver prices rebound after weekly rout: Is the worst over for bullion",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOQzhBLW8tVzJ3ejV5TzloR096cUJGRG5TVUNHOEFBVVZoSDRmMXJac0RhSl9oY20zTG5KU085QUpuQkFYNUZZME5MZGN4S2gwazBfQUd3dUtDSmI2eW45eUpqclpjNlh6aXAtZHZGVUtubzRBWnpTTWtBbUFXS0RwLXc2NUVhNVRtWlZCRnF1MC1KX3RwZWJIM2RQbFgxX0lrc1JoTDkza0x2UC1nTzJkRTd6V3JFanlXcWxSN2loU0TSAcYBQVVfeXFMT29SRmJtWUU2S09LUnM2b0pQQ3ZiOWI4VGdjdVRmUWhwamRObEhCZGNOalEzRUpIV2xiTWNCaUNEelptMWZTeXpLSEVYa2EtWjlMeGVvMy1vZDd6RnJQWHVHMGxmdXBTdWpJbEJwYXRuWGJjT0JxSENIUlY1TWNMUlVIa3RZMkpiQzdYejNEQmNtR2lIeDRPaVQ2V3ZOSFk1SGFZYXVrZ1BjRkplOFpxTmJhT191VE42Nk01WG44bUh2aGE4N2RR?oc=5",
+   "ms": 1793585483000,
+   "time": "11/02 10:11"
+  },
+  {
+   "t": "Gold rebounds to near $3,900 despite inflation worries",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSHBFTXFaaDRMZWt5VEVYeC1PZU9zQ0E3OU1TV3lhZDJZelBJSUswZkxTblFSMHVRaVl3WnZtSmJvR3djRkttaVd1S3NBRk9VT1J6OVVEQTVqWDhKVDRxNkF0akxXOVYwcWhLNDhVRUhmRWtYcG1KWEQxcnJxM0M0NXFNd2k4QTh0NUdqZzFIcENOUlpiQTJqLWUyVTQ?oc=5",
+   "ms": 1793580301000,
+   "time": "11/02 08:45"
+  },
+  {
+   "t": "Gold Had Its Worst October Since 2008: Will It Crash Further This Week?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQeG5MTkZBU2VmcXM1Zm00QkVLRHRqaEpNMFZZcVpkSDQwRTE3WUczTFhKQWMwU3NvNWhCZGJwbDdBRUtKMTE4MDAyaDJvZVplRHZBMmFsbExtZVJBNG9GLUFpcC1CdE9XdUlpbWhhQ0dtX1hxMmJLV1BiejlCOXJKXzJESXNBOXNEMFVja2lDVzhmUFkwNTRrTFdpRzVVR1k?oc=5",
+   "ms": 1793570298000,
+   "time": "11/02 05:58"
+  },
+  {
    "t": "Gold price outlook: Gold sliding along the 0.786 arc. Eyes on 3,720",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN1FUbGhvLUpObU1XQXZ2VTh0S191dDdNRlRZZ0JlTkVDWjBaODJuQ2FrRzlfakx2MXJwTGZSX0tCRS1wWWtNbmF3MFBnUTE2Nk85QVhFcWxRQ1ZDQWNQQ01zMVE5YWFBMndEMU5OWU1Cb0doVW9VM2ViRTI4RUJFYllCcnlsem5EMW1NOERLT3hldzVkZklPR2xpUUppYVdNajZoTWJPa2pSZ1QxNGlWUw?oc=5",
    "ms": 1793560117000,
    "time": "11/02 03:08"
-  },
-  {
-   "t": "Down 15% in a month! I think this is the best UK growth stock for me to buy in November",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5ndm40T3JMbElwaFpvY2Vqc1JTRFJDMXJNSW40OGgyUXhMZlk3bHBPZGJwNnlhYXhPOHhoeUJVYWp5TzlmRFB0NTVQSDhuQlp0MGE4bGJUanluYzVOaW5rWXlWQjJqaE5YbE0wVU1INnB2ZUtWaUhhZDRhcTJnQQ?oc=5",
-   "ms": 1793552276000,
-   "time": "11/02 00:57"
   }
  ]
 }
