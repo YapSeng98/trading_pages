@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 13:48 SGT",
+ "updated": "2026-11-03 07:14 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -35,7 +35,7 @@
    "impact": "medium",
    "title": "JOLTS Job Openings",
    "zh": "JOLTS 职位空缺",
-   "forecast": "7.11M",
+   "forecast": "7.15M",
    "previous": "7.08M"
   },
   {
@@ -59,7 +59,7 @@
    "impact": "medium",
    "title": "ISM Services PMI",
    "zh": "ISM 服务业 PMI",
-   "forecast": "54.9",
+   "forecast": "54.8",
    "previous": "54.9"
   },
   {
@@ -95,7 +95,7 @@
    "impact": "high",
    "title": "Non-Farm Employment Change",
    "zh": "非农就业人数",
-   "forecast": "63K",
+   "forecast": "65K",
    "previous": "29K"
   },
   {
@@ -119,7 +119,7 @@
    "impact": "medium",
    "title": "Prelim UoM Consumer Sentiment",
    "zh": "密歇根消费者信心初值",
-   "forecast": "47.8",
+   "forecast": "48.1",
    "previous": "46.3"
   },
   {

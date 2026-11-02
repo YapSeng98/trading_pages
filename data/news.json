@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02 23:34 SGT",
+ "updated": "2026-11-03 07:14 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
+   "t": "i-80 Gold Reports Third Quarter 2026 Results; Archimedes Underground on Track to Begin Production Mining by Year-End – Company Announcement - FT.com",
+   "src": "Financial Times",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdEh5eXRHNnY4X3QzUUdyRmwzNjIwM1pBY1VfXzhQak1ta3g0ME1vVWRuNnBHQ29YTDBadndKQnVZOGk3bnlNSjI3NjR0Sm14dXNVel9ZYjlyWWZvczRMM2t2OEhoVWtZTEwzTUl5alVFei02NHZKWXBOaFhqMGRiaWd4VDlGR0lfX0N0SV9jZklLVkc3OWVNdw?oc=5",
+   "ms": 1793659980000,
+   "time": "11/03 06:53"
+  },
+  {
+   "t": "Gold prices push above $3,900 but still face significant headwinds - Pepperstone’s Wu",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdjh4dmNGSTktempWNGs5QWtDYWJwRzZ1OW9nUExXTnVtNXo2OGpSeXJsTTFaeThmLW1lcFpHZDZGSjcyVlR2aUl3UUZFLW13YWtwVDJ5S0VkX0c4YU1ESl9fdC1BN2JYRjR6RHhzM3JWZ1RTVEtXNGEyTEplNXFGQjFwaTUzTWp2bFlOMUNXLXlZYVBvY2JoSV9jak1DZ2xjV196NUhfbEU1bXJmOFZMdmJEbDJZSHpLZ1c4?oc=5",
+   "ms": 1793656206000,
+   "time": "11/03 05:50"
+  },
+  {
+   "t": "Gold’s Close Below $3,900: Why Some Breakdowns Don’t Pause",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQVk9oVmlaZmdXb2IwUnRSY29sMXpkYWItaDhuclBqYXlDek9VV0lPbF9nRGpCRUY4d19NalF3dTFua1FPSm56Q25sZGhQbktfSmZmalpZdElvSENHVm42MnpiY3g2Rmh6UTUwbWxGWnNtM1psUDQ4UHJpNXRjWW12S1R0N2FUZm1qTzNmaTY3dDNVOGw1T2dFYmFQTWlYTlU?oc=5",
+   "ms": 1793642758000,
+   "time": "11/03 02:05"
+  },
+  {
+   "t": "Gold and silver prices surge after sharp selloff, India set to ramp up silver imports into 2027 – Heraeus",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSW8yekFiaVlpY0t1QllHd3hxZW5YNk0weU9CU0dqZ01YWHVXV01RWlluZUtFR080TzhLd3AyMFdpSlI0bzBQVFhmMVJuUE1ycUd4X0d1Wk5oaEJVU29kT2dVMUpUNlhNSlA4eHdKNnRSODM3Z3Z3aVAtTmNhUlBXSTBCNHFiR3Eya2dzYnQxM3ZsN3RaenZyb2s2Z18wUUphSWJOSEUwZU1DSEZQejhEZG5PMjFhYXM?oc=5",
+   "ms": 1793635923000,
+   "time": "11/03 00:12"
+  },
+  {
    "t": "Gold Rallies Nearly $75 After 11% Pre-Midterm Plunge; Silver Rebounds",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaDdqTXpvMUhqdGpTWlpfSzNLMkg1UEVULWFLM05LOWRmaVFvb1pJdUdBZlpVZ3doaHBLQlJrR01sM0pIQmtIajkyVTR3WGZ2SmlkRUhULVZ4bkVHVEFBMTJkX0QzU0diRmNzVFhUZlMzVTNXSUQ5MC1uVmV5NWJ3U05vN2JTYVpRUmVMUU5VMWg?oc=5",
    "ms": 1793631886000,
    "time": "11/02 23:04"
+  },
+  {
+   "t": "AEM Q3 Earnings Beat Estimates on Higher Gold Prices",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaDJyQ3lxYkMwVDZpUWpyeE5ZdUFNVXA2N080UWdULWVPYlNnS0ZwQU13YjJBa01aRU9lc2xQRW9OczVvbmVzVUxKUGIxS1cyQ09paDduYUZ2MXd3V3prR2RsZjIzUFhETG11OXRNS3RlYkNCYjRtdWxHYjRSZVhOZjhGYldZRFFQMEJwLVF5ZGJVdzZSQ2VJMkg2Qm1mWmZQbmc?oc=5",
+   "ms": 1793630760000,
+   "time": "11/02 22:46"
+  },
+  {
+   "t": "Gold SWOT: BMO believes lower gold prices are starting to attract physical buyers",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSWI2VXhYZXJYRjE1LTVVaHd5bmg2QzA5RFdtTUd0UFF4eURFcmxNSlRkb3ptcEh4RGZXR25jSmwxbGNlOXllQXZHdk1JeVN1cHRCaHA2eHE0SXhDUXBjMXBfcnNLX19VN243RXo5Ti1PLUsxRXMzMGQ3d2d2LXpIY2dTdHdyMXBXX3h0Z1RkN2xMeXg1SVU5SmxXUGdsTWNXOThCb2NxQzFNaTdBcml0QjZ0Z3gyM2dyZEE?oc=5",
+   "ms": 1793630183000,
+   "time": "11/02 22:36"
   },
   {
    "t": "Gold price today: Two analysts see more downside near $3,900, but one warns an overbought US Dollar could spark a rebound",
@@ -49,13 +91,6 @@
    "time": "11/02 17:01"
   },
   {
-   "t": "Gold rebounds from one-year low as oil slides ahead of U.S. midterms",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOZEFyaHlIS09zM3U3UEJjanBfMjhFd1hueWtlZjAwdFdBb1dQV3dGb1JjaGRzTjlZUmtFV3p1QmxCY0VSaS1LT0xwZ1ZyTk9idXZLQlVTQzY0LU1IZU51REhEQ3FCSXpVVGllbFFWckc2d0FTZ0duR1JycW9idXV2eVpSblJzQlB1dmpNUGM2SjXSAZYBQVVfeXFMTjQ0SmZSckhreXRTdTJYUEc4SHgxS3hLWGtaMDlvZmF1Y1hOd25TaDJ0bldXXzlRZVRDcWFxTXpnMHBvUkNiaHRrYVgxMzMzSDhJRUwyV3ducDd0d05BZXA1N3ZmT1p3UDRCZ0RlVXcyV2lYdnY1MDV4eFZuNUNyeUdHSUNGNHJUQjBYLVRaTU1ranBtX25B?oc=5",
-   "ms": 1793597000000,
-   "time": "11/02 13:23"
-  },
-  {
    "t": "Gold Price Forecast: XAU/USD recovers modestly as oil prices decline, US elections in focus",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNS1c4Ui10WDBxa3JVdzltc0U1WlZaUWJXOS1hSzBtS1V4RUw5UklUQkVNYWRoa0F3VUtqc1d6TkliRzdWbnV3S0F2STVlYmtKYzM4bjItVUhnQ0lPbUdZbEtjSHlOZVUwaVROczJhb2pVcXNDX3ZQQTRqVVc0YWJIQ1FCWk5mS24tMmxGTU1jbXRnUmhmTWZGYTJDcFdSYXNBM3ZIYkJEdnZwUUExNUxReG8xMUJjWGFjSDVHd1VTQ0lZUlJfRnBrTDR1SlU2UWg3RUE?oc=5",
@@ -63,32 +98,11 @@
    "time": "11/02 11:37"
   },
   {
-   "t": "Gold rebounds above $3,900 as dip buyers return after October rout",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxON2xBdm1pSzBPd1FKZXI4WWZ3YjZsWjJOaERJRVF2YUJRaHR6QkpIZC1jd3NHcER1RUtjMEhJaXJMVFAtMDYtNWhodmJrV3ZrZ2xLN0hXUGRtWVNpVW1ZNUR3OG1TbGtzLVB3b094Qm5EbmIySWZ3aUZKRUZmN0hlQ0RodzdaY3k2WmlHUG9ydmZXNkNQLUlhd05RU0E?oc=5",
-   "ms": 1793583300000,
-   "time": "11/02 09:35"
-  },
-  {
    "t": "Gold rebounds to near $3,900 despite inflation worries",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSHBFTXFaaDRMZWt5VEVYeC1PZU9zQ0E3OU1TV3lhZDJZelBJSUswZkxTblFSMHVRaVl3WnZtSmJvR3djRkttaVd1S3NBRk9VT1J6OVVEQTVqWDhKVDRxNkF0akxXOVYwcWhLNDhVRUhmRWtYcG1KWEQxcnJxM0M0NXFNd2k4QTh0NUdqZzFIcENOUlpiQTJqLWUyVTQ?oc=5",
    "ms": 1793580301000,
    "time": "11/02 08:45"
-  },
-  {
-   "t": "Gold Had Its Worst October Since 2008: Will It Crash Further This Week?",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQeG5MTkZBU2VmcXM1Zm00QkVLRHRqaEpNMFZZcVpkSDQwRTE3WUczTFhKQWMwU3NvNWhCZGJwbDdBRUtKMTE4MDAyaDJvZVplRHZBMmFsbExtZVJBNG9GLUFpcC1CdE9XdUlpbWhhQ0dtX1hxMmJLV1BiejlCOXJKXzJESXNBOXNEMFVja2lDVzhmUFkwNTRrTFdpRzVVR1k?oc=5",
-   "ms": 1793570298000,
-   "time": "11/02 05:58"
-  },
-  {
-   "t": "Gold price outlook: Gold sliding along the 0.786 arc. Eyes on 3,720",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN1FUbGhvLUpObU1XQXZ2VTh0S191dDdNRlRZZ0JlTkVDWjBaODJuQ2FrRzlfakx2MXJwTGZSX0tCRS1wWWtNbmF3MFBnUTE2Nk85QVhFcWxRQ1ZDQWNQQ01zMVE5YWFBMndEMU5OWU1Cb0doVW9VM2ViRTI4RUJFYllCcnlsem5EMW1NOERLT3hldzVkZklPR2xpUUppYVdNajZoTWJPa2pSZ1QxNGlWUw?oc=5",
-   "ms": 1793560117000,
-   "time": "11/02 03:08"
   }
  ]
 }
