@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03 16:32 SGT",
+ "updated": "2026-11-03 19:49 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,18 @@
  ],
  "items": [
   {
-   "t": "India's gold demand falls 29% in Q3; WGC sees 2026 demand at six-year low",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNdWtTUHdjeXZIWU9tTXFyM1UydVNFeTN3VWhhTHFXZTNGUnFua191ODhFZkF1QktQQVJWNVFOLUtjdGhLaGRxN1RHcDBUek1OeVY4M3BIWGs0czF4YkZJRDJiYjk4MUd3QTFjR1hBUmxrb1p2WENZcm5PaEtBWUdSRmJ1YmhQZkxUMVhITXZua2pDZER5bEhRQ3BBS2F5N3lyUHdkODNtSDZHU1pnUHQzVU1CRlFQOVY4NXFyUktyQm7SAcYBQVVfeXFMTXBQMEtTLUxfcDR0NW54OXFTaVg0MWdMSGlySGw1bnR5b0FWOU9oRkFVd2hCT1dFeHgzN3ZKMTNqUkV5ckFvUXFoMkJubm1iSS1yR28yRnZ1VTF4WXBza3ZKcGZWbUZRR1BzbTBwOGstNTk0NW14eFRtaVQwLW5PQmk1UFkxWkN4aUZRNFQwZmNsSG9iZHpTbm1aLW03N2EteGQ2WmpVeF9QNVNBUkszcUxxa1JZMEtpZWluSzdDVGt1TGlPSnVR?oc=5",
-   "ms": 1793693925000,
-   "time": "11/03 16:18"
+   "t": "Gold struggles near $3,900 as traders assess Middle East developments,US election risks",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOcy1hX2IwSlYtRkVIdDMtTDJPLXdHckRBYklaR0piRjI2eWhfd3pNaWpKNFFzLTZsckRzdjRRYmc4elFVVVJXZ3ZUYk9KbzFGTjROU2l3NFlZbFNjRVNkaEdocmVXOUVYX0F6WXQtNjVWWENHRnJNQlF3bmVtX0oyT0FlUEZTUVU4NzRWVG8tbjVMY1IyR2NKdzhCbGNSU1QwdFFoNDcwd1FQRFFjbzRZa0o4VzBWWXJDYURVTktUUjNXdVRFSFZrcQ?oc=5",
+   "ms": 1793704358000,
+   "time": "11/03 19:12"
   },
   {
-   "t": "Gold loses its shine for Indian buyers as demand plunges 29%",
-   "src": "Fortune India",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMGg4cVdfeEZDbmZkY3podXA5enkzaGgxajdFaVc3aWc5VnFoN0g3MnJsaTBSR2FzYXlVcmR5a3ppcEZyZFQyZUZKbDVwVEctYlUzam4xYlhFUUpJVWFpV19EUmFFRUpTa3RrTjhMUmhIaUtRYUI1QktzbDdHTkktaC1zcFVERjl3aG5VVVNFRXdNamVRTzdIc3V4dXhVeHc1MkR6VEhUUkFOS2xJbVHSAbsBQVVfeXFMTXVaTEtpWVBoNkxkTHVQZmdBWEJEM29wYVV3LV9jV1JmRTduQ2lmV3NTbHRkQVVOd1ZHQVlXRjZPYzlWbUMyX1ExSEFvOHEtMDRISl9ISlNtM2tmZVYyTGMwUlUwZ1NVX3ViekhCM0xIbkdPYmhrSVNxV19hdzNmeEN6VGl2NG4xMjYtcTJDRVdQNGU4Y1dMSTZPQ1VaS2V5NnRrSXJ2c2JwQU9mSDVwcUZEV0oxWkRjZ3lTdw?oc=5",
-   "ms": 1793693028000,
-   "time": "11/03 16:03"
+   "t": "Gold holds near $3,950 as Iran peace hopes ease oil, U.S. vote in focus",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZU03WmxCbnZzNXBLNmlNTXc3MUtDWDBsQ1dIOU1yVHRzR1NKWUw5eXFjMEJINm9hRmNCSEc2WF8zeTR3MmZaYkF1YW1kSWpEeGFHV2p0RmFsWE5Pby1aRWZxTmNxYUZGRUF6T2Q2WWhyYXdjSjcyYnlVaEY0dmtxYmtRYm9uRVpaVDlSY3Q4SjlHd2x2U2d1YnBUYTB0c0xsOTl0YTFqemcwTF9VR0k5ZHBzRHA5X3YxZFlleGsyZw?oc=5",
+   "ms": 1793688387000,
+   "time": "11/03 14:46"
   },
   {
    "t": "WGC lowers outlook for gold investment demand growth as bar buying slows",
@@ -28,7 +28,14 @@
    "time": "11/03 14:06"
   },
   {
-   "t": "Gold slips as Mideast attacks fan inflation concerns; US midterms in focus",
+   "t": "Gold eases ahead of U.S. midterm elections",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORmVXQnJ1T1AybkRsWGxtd2JKdjNHZGNaRGExRmpPckg4LW9HRkZjS2V4RXhEM1hjSjJLS3FHeGVvMEJydXY2ZDZzb0JnZWdjejNvLXVLTkNzcTFIajRpODF3bE55ci04SENUN3pYMVVKNmlfX2tNOXlLZ3ZndEVla2VsZ9IBiAFBVV95cUxNQXNhZ21PY1RSSEFPM2thRVlGamhxZWFfTkY0V3BjTVNEWXJBMTlZeDlxYzVKcEtLd3JGblBMMlRQeG14bEdaeDdZUFVWMmEtZUZDeWhzYXlZMlg1TG9lQUdrbFlqUnFvX1NOWFJ2ekp5MmdRazRoU0hpRW54QWlBVG9wUFZ4OUZf?oc=5",
+   "ms": 1793679780000,
+   "time": "11/03 12:23"
+  },
+  {
+   "t": "Gold falls as higher oil stokes inflation fears ahead of US midterms",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObE01SnNzQnotYkNRamJYejZ1LXh6N0Z0ck5Uc2xfbWFZVmg0MTZSdEhIT2RUNE85bjJUallIcEZIb3l4QVpPeVhoeDVLVjBrNWhWaGxzcy1vdmJVSHI4b0xKRzlvRzdhWWVRZlJBM055cnZQWjUyZnZBRlBrN1ZieFVJV3pOYjktNHNnelBR?oc=5",
    "ms": 1793679360000,
@@ -49,13 +56,6 @@
    "time": "11/03 07:19"
   },
   {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1793659850000,
-   "time": "11/03 06:50"
-  },
-  {
    "t": "Gold prices push above $3,900 but still face significant headwinds - Pepperstone’s Wu",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdjh4dmNGSTktempWNGs5QWtDYWJwRzZ1OW9nUExXTnVtNXo2OGpSeXJsTTFaeThmLW1lcFpHZDZGSjcyVlR2aUl3UUZFLW13YWtwVDJ5S0VkX0c4YU1ESl9fdC1BN2JYRjR6RHhzM3JWZ1RTVEtXNGEyTEplNXFGQjFwaTUzTWp2bFlOMUNXLXlZYVBvY2JoSV9jak1DZ2xjV196NUhfbEU1bXJmOFZMdmJEbDJZSHpLZ1c4?oc=5",
@@ -68,13 +68,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSW8yekFiaVlpY0t1QllHd3hxZW5YNk0weU9CU0dqZ01YWHVXV01RWlluZUtFR080TzhLd3AyMFdpSlI0bzBQVFhmMVJuUE1ycUd4X0d1Wk5oaEJVU29kT2dVMUpUNlhNSlA4eHdKNnRSODM3Z3Z3aVAtTmNhUlBXSTBCNHFiR3Eya2dzYnQxM3ZsN3RaenZyb2s2Z18wUUphSWJOSEUwZU1DSEZQejhEZG5PMjFhYXM?oc=5",
    "ms": 1793635923000,
    "time": "11/03 00:12"
-  },
-  {
-   "t": "Gold rises over 1% from one-year low on softer oil prices; US midterms in focus",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdGExZmU2bk1uR3p3eWhJV0JXSzBPcmtkbmZITEpsOEdUMEppNmJYTmNGU0wyaWRoVHRBa3BDR083ZFBFRVRjVDJZc0ZzMWxzYXRaS1RVaHRMQVc1blBEU1ZPZ19ZVndGa0NyeGx6eTFlWDhyMTdMU3pkaktNbnR4WkU3Y3NEY284ZHg3NHkwU2lmRV9EWlo2V21hVjBsSW4yQUZ3UGNuUFJGajItdGR6T2lkcDlUV1Bp?oc=5",
-   "ms": 1793635104000,
-   "time": "11/02 23:58"
   },
   {
    "t": "Gold Rallies Nearly $75 After 11% Pre-Midterm Plunge; Silver Rebounds",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1OVmpCYVRwci16TGxDSkxJQV9mTjlWb3dnVTdFWkFFeHlqY1hMSmFCZ3VaaWx4dHh4X3ZfbVdVTjdmbWhJU2xCRDNhU24wMjdyc2ZRYjN5OG1fZzBaT3J2VkpmM0VaVXVlQzZCVDh3?oc=5",
    "ms": 1793628300000,
    "time": "11/02 22:05"
+  },
+  {
+   "t": "Gold prices today, Monday, November 2, 2026: Gold opens at its lowest point in over a year ahead of midterms",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNWmw0N1kyZk96NzBTeWlXTENwYWVQTW5QcEpTWlBiOVljejB4SEtpMElJeG9xLThHLTdwLURTSnVTWW13eVM0R1VXSDlhWnk3T2hZbzVvMkxXTWxLcmJBX3BWOVZqQ3dRbjlQSkprcjdZd0d5X091VnptUGE4ZnhjSi1tNzM2ZE1TVDhNa3R5TFVPQVEtc3p3Z21oVWlVQkZEbTNlRUhjWld4by1oaXBNSGJrN0tvZHhnZ0M4aTdIN1cwQWU5RDFxdHdoeHBvUDF2cmlVekRyUVRVeHBwU3ZTNkM5ZFJPZzRmbVJyMVRVbHdBTkdFM1NYSS1leWd3YmRTZk5maWFLLXhRanRn?oc=5",
+   "ms": 1793621844000,
+   "time": "11/02 20:17"
   }
  ]
 }

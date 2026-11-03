@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-03 16:32 SGT",
+ "updated": "2026-11-03 19:49 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 76660.8,
- "priceTime": "2026-11-03 16:30 SGT",
+ "price": 77095.5,
+ "priceTime": "2026-11-03 19:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 76816,
   "high": 77314,
   "low": 76388.9,
-  "changeFromPrevClose": -155.2,
-  "changePct": -0.2,
+  "changeFromPrevClose": 279.5,
+  "changePct": 0.36,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -80,7 +80,7 @@
    "text": "周线收盘跌破这里，就三周期同向向下"
   }
  ],
- "score": -4,
+ "score": -2,
  "timeframes": [
   {
    "tf": "W",
@@ -117,28 +117,23 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-03 00:00 SGT",
-   "rsi": 40.7,
-   "atr": 393.43,
+   "rsi": 49,
+   "atr": 378.07,
    "turnsUpAbove": 77314,
    "turnsDownBelow": null
   },
   {
    "tf": "15M",
    "name": "15 分钟",
-   "trend": "向下",
-   "since": "2026-11-03 14:15 SGT",
-   "rsi": 44.3,
-   "atr": 196.55,
-   "turnsUpAbove": 77156,
-   "turnsDownBelow": 76388.9
+   "trend": "向上",
+   "since": "2026-11-03 17:45 SGT",
+   "rsi": 57.1,
+   "atr": 161.4,
+   "turnsUpAbove": null,
+   "turnsDownBelow": 76512
   }
  ],
  "resistance": [
-  {
-   "price": 76705,
-   "what": "昨日低点",
-   "strength": 3
-  },
   {
    "price": 77156,
    "what": "1小时近期小高点",
@@ -158,18 +153,28 @@
    "price": 78878,
    "what": "昨日高点、4小时前高、1小时区间顶、4小时近期小高点",
    "strength": 7
+  },
+  {
+   "price": 79148.5,
+   "what": "4小时区间中点",
+   "strength": 1
   }
  ],
  "support": [
   {
-   "price": 76493.6,
-   "what": "日线 200 均线、1小时近期小低点",
+   "price": 76705,
+   "what": "昨日低点",
    "strength": 3
   },
   {
+   "price": 76493.6,
+   "what": "日线 200 均线",
+   "strength": 2
+  },
+  {
    "price": 76388.9,
-   "what": "4小时熊旗关键位、1小时区间底",
-   "strength": 3
+   "what": "4小时熊旗关键位、1小时区间底、1小时近期小低点",
+   "strength": 4
   },
   {
    "price": 76326,
@@ -180,11 +185,6 @@
    "price": 74968,
    "what": "周线前低",
    "strength": 3
-  },
-  {
-   "price": 71979.9,
-   "what": "4小时熊旗目标",
-   "strength": 1
   }
  ],
  "record": {
