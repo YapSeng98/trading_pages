@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1793677500000,
+ "lastChecked": 1793694600000,
  "a3": -1,
- "a5": 0,
- "open": null,
- "nextId": 8,
+ "a5": -1,
+ "open": 8,
+ "nextId": 9,
  "signals": [
   {
    "id": 1,
@@ -113,6 +113,19 @@
    "exitPrice": 3948.82,
    "nights": 0,
    "R": -1
+  },
+  {
+   "id": 8,
+   "time": "2026-11-03 12:00 SGT",
+   "ms": 1793678400000,
+   "side": "做空",
+   "entry": 3926.14,
+   "stop": 3973.09,
+   "target": 3785.29,
+   "risk": 46.95,
+   "atr": 15.65,
+   "spread": 0.59,
+   "status": "open"
   }
  ],
  "events": [
@@ -175,16 +188,22 @@
    "time": "2026-11-02 21:45 SGT",
    "type": "closed",
    "text": "做空 #7 止损，−1.00R"
+  },
+  {
+   "ms": 1793678400000,
+   "time": "2026-11-03 12:00 SGT",
+   "type": "go",
+   "text": "信号 #8：做空 3,926.1"
   }
  ],
  "summary": {
-  "signals": 7,
-  "taken": 2,
+  "signals": 8,
+  "taken": 3,
   "closed": 2,
   "wins": 1,
   "totalR": 2,
   "avgR": 1,
-  "open": 0
+  "open": 1
  },
  "changes": [
   {
@@ -538,13 +557,24 @@
    "level": 3937.29,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1793678400000,
+   "time": "2026-11-03 12:00 SGT",
+   "tf": "1H",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 3926.14,
+   "level": 3937.29,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
   "W": "bearish",
   "D": "bearish",
   "4H": "bearish",
-  "1H": "bullish",
+  "1H": "bearish",
   "15M": "bearish"
  }
 }
