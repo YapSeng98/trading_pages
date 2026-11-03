@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-03 07:14 SGT",
+ "updated": "2026-11-03 11:57 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Price Forecast: XAU/USD holds Monday’s gains near $3,950 on US-Iran deal hopes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNWhFcjl6a1Jsd3NEUFc5R3dnRDhMaFhDRm9CODlsMFVhdzdxY1E2ZG5SNWY1UGFXM2c1aW9qQTBNYUZLdnc4NE5vVTJpSlEwdFRRZ0h0VVpTSkFOR3dQaWJteEptYnQtWHdDSVhwNFVxRGdMR3g0b1ZIanItM3g3V0dkeXZnRElHN3RrWDlmQWwxdEZXMVllS2VqeFNiSm1HR0RnNGZaU3hfbVlneVIxMXJxSFNpajF0OEpvQTFkMmY?oc=5",
+   "ms": 1793676960000,
+   "time": "11/03 11:36"
+  },
+  {
+   "t": "Gold rises to near $3,950 as traders brace for US midterm election",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNUGxVcjZWTmxkSF93VUJXZ3R4dTg3bkY3Qi0xbU1OQlFMZHdxZDQtVFFjVGN1a1Q2NnZYNmpjQlpMQXFBVEFjSHYwdExlVmJNUVRQT1F5ZWxib3lLb293WjNJdDRBM0lJd3lPeS1lRGU5VG1DdEdobG5Yd0FhZ1paRU9DVVMzdDczU2VKLTVFS0NLb0FEQ1RXc2gzdXdsZktnRlU0S0pSYVRLWEhq?oc=5",
+   "ms": 1793661550000,
+   "time": "11/03 07:19"
+  },
   {
    "t": "i-80 Gold Reports Third Quarter 2026 Results; Archimedes Underground on Track to Begin Production Mining by Year-End – Company Announcement - FT.com",
    "src": "Financial Times",
@@ -21,11 +35,11 @@
    "time": "11/03 05:50"
   },
   {
-   "t": "Gold’s Close Below $3,900: Why Some Breakdowns Don’t Pause",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQVk9oVmlaZmdXb2IwUnRSY29sMXpkYWItaDhuclBqYXlDek9VV0lPbF9nRGpCRUY4d19NalF3dTFua1FPSm56Q25sZGhQbktfSmZmalpZdElvSENHVm42MnpiY3g2Rmh6UTUwbWxGWnNtM1psUDQ4UHJpNXRjWW12S1R0N2FUZm1qTzNmaTY3dDNVOGw1T2dFYmFQTWlYTlU?oc=5",
-   "ms": 1793642758000,
-   "time": "11/03 02:05"
+   "t": "META_TITLE_QUOTE",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
+   "ms": 1793642681000,
+   "time": "11/03 02:04"
   },
   {
    "t": "Gold and silver prices surge after sharp selloff, India set to ramp up silver imports into 2027 – Heraeus",
@@ -33,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSW8yekFiaVlpY0t1QllHd3hxZW5YNk0weU9CU0dqZ01YWHVXV01RWlluZUtFR080TzhLd3AyMFdpSlI0bzBQVFhmMVJuUE1ycUd4X0d1Wk5oaEJVU29kT2dVMUpUNlhNSlA4eHdKNnRSODM3Z3Z3aVAtTmNhUlBXSTBCNHFiR3Eya2dzYnQxM3ZsN3RaenZyb2s2Z18wUUphSWJOSEUwZU1DSEZQejhEZG5PMjFhYXM?oc=5",
    "ms": 1793635923000,
    "time": "11/03 00:12"
+  },
+  {
+   "t": "Gold's close below $3,900: Why some breakdowns don't pause",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNnVGeFU3c2Vxbm9PUTdPekNjcVp2Skp2ZkhhclVnajZyN2FmZHBDd0lQUGZSWlMxNGM3NVVUUzV3OHRNUU9EYlRXRVpVNWVaSkRvOXM1c041b2xVRUJid3JjTG1mSXRoLXJSc1VKYXhVWXhtTlcwQ1BIQldUN0t0QU5jN0JRemNxTjlJSXZLby1ucHh6MVk4SU5tai1IS1ZhTkRV?oc=5",
+   "ms": 1793633902000,
+   "time": "11/02 23:38"
   },
   {
    "t": "Gold Rallies Nearly $75 After 11% Pre-Midterm Plunge; Silver Rebounds",
@@ -82,27 +103,6 @@
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA0M0pIWFB5ZmZzVXhIblkyUFpDU2xIY0dnUnpqajdHREo5dmJFV2JOQjEyRXU5RzdKeXJyZHJmN1Rzckh6TVhPbjNiQ0kxYUswQmczZTBFSUt0NENnRUE2bkdlMXd5UEZRMHpnWXM0bUp5MHJGcndCeUxLeWRyR1E?oc=5",
    "ms": 1793615298000,
    "time": "11/02 18:28"
-  },
-  {
-   "t": "Gold bulls seem hesitant below $3,900 as Fed hike bets offset weak USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPZGFyd3hZNzhJVXNscmtPdC1XVDJXX3Q0YW9TN25yWnNudTRSR1NrM0EzeVF6TEY1TE1GMmxtRjBXMTRZRldUMkJpam5XdWp4UTlqNjExQmdpSTZUNkoyUmpjU0F6MWRnMEN0NWVEbDRhNUtqUW5Fb1NQTUpqcUUzLUlyX3pVQkZnWEUxVDFOcndYaEhZYWtEZEZpbzZkYVJrNFltb3pQamNlOGpWSTZ2bkExUkdhSmFkamF5N1JCUkFfX1FlNzUzMzNuSQ?oc=5",
-   "ms": 1793610104000,
-   "time": "11/02 17:01"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD recovers modestly as oil prices decline, US elections in focus",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNS1c4Ui10WDBxa3JVdzltc0U1WlZaUWJXOS1hSzBtS1V4RUw5UklUQkVNYWRoa0F3VUtqc1d6TkliRzdWbnV3S0F2STVlYmtKYzM4bjItVUhnQ0lPbUdZbEtjSHlOZVUwaVROczJhb2pVcXNDX3ZQQTRqVVc0YWJIQ1FCWk5mS24tMmxGTU1jbXRnUmhmTWZGYTJDcFdSYXNBM3ZIYkJEdnZwUUExNUxReG8xMUJjWGFjSDVHd1VTQ0lZUlJfRnBrTDR1SlU2UWg3RUE?oc=5",
-   "ms": 1793590667000,
-   "time": "11/02 11:37"
-  },
-  {
-   "t": "Gold rebounds to near $3,900 despite inflation worries",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSHBFTXFaaDRMZWt5VEVYeC1PZU9zQ0E3OU1TV3lhZDJZelBJSUswZkxTblFSMHVRaVl3WnZtSmJvR3djRkttaVd1S3NBRk9VT1J6OVVEQTVqWDhKVDRxNkF0akxXOVYwcWhLNDhVRUhmRWtYcG1KWEQxcnJxM0M0NXFNd2k4QTh0NUdqZzFIcENOUlpiQTJqLWUyVTQ?oc=5",
-   "ms": 1793580301000,
-   "time": "11/02 08:45"
   }
  ]
 }
