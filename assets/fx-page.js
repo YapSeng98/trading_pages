@@ -112,8 +112,8 @@
   var ORDER = { buy: 0, sell: 0, ready: 1, none: 2, err: 3 }, GROUP = { buy: "live", sell: "live", ready: "ready", none: "none" };
   function render() {
     var list = PAIRS.map(function (p) { return S.res[p.i] || { p: p, state: "load" }; });
-    var n = { buy: 0, sell: 0, ready: 0, none: 0 }; list.forEach(function (r) { if (n[r.state] !== undefined) n[r.state]++; });
-    $("fx-sum").textContent = "买入信号 " + n.buy + " · 卖出信号 " + n.sell + " · 等小周期 " + n.ready + " · 方向不一致 " + n.none;
+    var n = { buy: 0, sell: 0, ready: 0, none: 0, err: 0 }; list.forEach(function (r) { if (n[r.state] !== undefined) n[r.state]++; });
+    $("fx-sum").textContent = "买入信号 " + n.buy + " · 卖出信号 " + n.sell + " · 等小周期 " + n.ready + " · 方向不一致 " + n.none + (n.err ? " · 读取失败 " + n.err : "");
     list.sort(function (a, b) { return (ORDER[a.state] === undefined ? 4 : ORDER[a.state]) - (ORDER[b.state] === undefined ? 4 : ORDER[b.state]) || (b.since5 || 0) - (a.since5 || 0); });
     // the one line that answers "anything to do now?"
     var strip = $("fx-sig"); while (strip.firstChild) strip.removeChild(strip.firstChild);
@@ -122,10 +122,14 @@
     if (live.length) {
       strip.appendChild(h("b", { text: "规则现在的信号（外汇回放里不赚钱，只作参考）：" }));
       live.forEach(function (r) { strip.appendChild(h("a", { class: "fx-s " + r.state, href: "#sig-" + r.p.i.replace("/", ""), text: (r.state === "buy" ? "▲ 买入 " : "▼ 卖出 ") + r.p.i })); });
-    } else if (done) {
+    } else if (done > n.err) {
       strip.appendChild(h("b", { text: "现在没有货币对出信号。" }));
       strip.appendChild(h("span", { text: ready.length ? "大方向一致、在等小周期转过来的：" + ready.map(function (r) { return r.p.i + (r.dir > 0 ? "（向上）" : "（向下）"); }).join("、") + "。" : "也没有大方向一致的货币对，先不做。" }));
+    } else if (n.err === list.length) {                                         // a feed that failed is not "no signal"
+      strip.appendChild(h("b", { text: "外汇数据没有读到，现在没有答案。" }));
+      strip.appendChild(h("span", { text: "这不等于没有信号。点“⟳ 刷新”再试；页面开着，下一根 15 分钟 K 线收盘后也会自动再读。" }));
     } else strip.appendChild(h("span", { text: "读取中…" }));
+    if (n.err && n.err < list.length && done > n.err) strip.appendChild(h("span", { class: "fx-wait", text: "另有 " + n.err + " 个没读到，上面这句不包括它们：" + list.filter(function (r) { return r.state === "err"; }).map(function (r) { return r.p.i; }).join("、") + "。" }));
     if (done && done < list.length) strip.appendChild(h("span", { class: "fx-wait", text: "还在读 " + (list.length - done) + " 个…" }));
     var box = $("fx-list"); while (box.firstChild) box.removeChild(box.firstChild);
     [["live", "有信号（回放里不赚钱）"], ["ready", "大方向一致 · 等小周期"], ["none", "方向不一致 · 先不做"], [null, "读取中 / 读取失败"]].forEach(function (g) {
@@ -236,7 +240,8 @@
       }
       next(); next();
     }).then(function () {
-      S.busy = false; $("fx-stamp").textContent = "按 " + sgt(Date.now() - (Date.now() % 900000)) + " SGT 收盘的 15 分钟 K 线计算 · 每 15 分钟自动重算" + (F.closed(Date.now() / 1000) ? " · 周末休市" : "");
+      var bad = PAIRS.filter(function (p) { return S.res[p.i].state === "err"; }).length;
+      S.busy = false; $("fx-stamp").textContent = (bad === PAIRS.length ? "这次没有读到数据 · 每 15 分钟自动再读" : "按 " + sgt(Date.now() - (Date.now() % 900000)) + " SGT 收盘的 15 分钟 K 线计算 · 每 15 分钟自动重算" + (bad ? " · " + bad + " 个没读到" : "")) + (F.closed(Date.now() / 1000) ? " · 周末休市" : "");
       alerts();
     });
   }
