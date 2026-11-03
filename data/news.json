@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03 19:49 SGT",
+ "updated": "2026-11-04 03:25 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,88 @@
  ],
  "items": [
   {
-   "t": "Gold struggles near $3,900 as traders assess Middle East developments,US election risks",
+   "t": "Gold falls near $3,900 amid rising US yields and Fed hawkish bets",
    "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOcy1hX2IwSlYtRkVIdDMtTDJPLXdHckRBYklaR0piRjI2eWhfd3pNaWpKNFFzLTZsckRzdjRRYmc4elFVVVJXZ3ZUYk9KbzFGTjROU2l3NFlZbFNjRVNkaEdocmVXOUVYX0F6WXQtNjVWWENHRnJNQlF3bmVtX0oyT0FlUEZTUVU4NzRWVG8tbjVMY1IyR2NKdzhCbGNSU1QwdFFoNDcwd1FQRFFjbzRZa0o4VzBWWXJDYURVTktUUjNXdVRFSFZrcQ?oc=5",
-   "ms": 1793704358000,
-   "time": "11/03 19:12"
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUFZPdHRrT2xwVTk5SW41ZUFGY2lELW4yNTk5aXg2amIxUkhOdmNhUThNZndWX0pLTk9yUmNEcmFJRC0wVFpnOFpweDQ2UzZmZGpWdl9GX1ZCdmxvc0FOZmlVWG1MMThrOHhOQnJvaGg4SHlwSmw5S05WeEtrUWhYb2R4ZDN0T09QRFlaUVJQYlRTc1JsTWdNV0NRTlBobXpyWXJvZzJuTUlCYnc?oc=5",
+   "ms": 1793732972000,
+   "time": "11/04 03:09"
   },
   {
-   "t": "Gold holds near $3,950 as Iran peace hopes ease oil, U.S. vote in focus",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZU03WmxCbnZzNXBLNmlNTXc3MUtDWDBsQ1dIOU1yVHRzR1NKWUw5eXFjMEJINm9hRmNCSEc2WF8zeTR3MmZaYkF1YW1kSWpEeGFHV2p0RmFsWE5Pby1aRWZxTmNxYUZGRUF6T2Q2WWhyYXdjSjcyYnlVaEY0dmtxYmtRYm9uRVpaVDlSY3Q4SjlHd2x2U2d1YnBUYTB0c0xsOTl0YTFqemcwTF9VR0k5ZHBzRHA5X3YxZFlleGsyZw?oc=5",
-   "ms": 1793688387000,
-   "time": "11/03 14:46"
+   "t": "Gold’s October correction was overdone - Commerzbank",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcGhPUDBqWU54d0ZrTmFmREFLN0lXb19zNjRZVVpENFJUQUViX3Q0azBpOWNBZEVRc04yZDVEbnFKTzdjeW1ZUGRMU0s4cEVZN3ZTMXh3ZnF2cDZUSVZtRU5VWm1iTnNiMHpXSy1KNzlDR2Fud3lCRHFBdjBxVmVDd2NvbTdMOEpfekJCTGk0NHRtQlBfSjRmSEVpYw?oc=5",
+   "ms": 1793732094000,
+   "time": "11/04 02:54"
+  },
+  {
+   "t": "Gold turns lower again as volatile Oil prices keep traders cautious",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOcy1hX2IwSlYtRkVIdDMtTDJPLXdHckRBYklaR0piRjI2eWhfd3pNaWpKNFFzLTZsckRzdjRRYmc4elFVVVJXZ3ZUYk9KbzFGTjROU2l3NFlZbFNjRVNkaEdocmVXOUVYX0F6WXQtNjVWWENHRnJNQlF3bmVtX0oyT0FlUEZTUVU4NzRWVG8tbjVMY1IyR2NKdzhCbGNSU1QwdFFoNDcwd1FQRFFjbzRZa0o4VzBWWXJDYURVTktUUjNXdVRFSFZrcQ?oc=5",
+   "ms": 1793719065000,
+   "time": "11/03 23:17"
+  },
+  {
+   "t": "US Midterm Elections See Gold and Silver Try to Rebound Again",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYWc3cGc5aEM5UDc3Nl9lcWVLNzkwRkxrdWxnSkM4ZGRmT2ZOSkNNMVV0eE93Y0JlaHU1RXFDVzlBcE1kTkM1WGE4N3l1V3RjWWpJNk1ueHRuSUhsME9lRGhGVERqOXU3NzFyWlNrcElvY3NVRkkxdHpqWlB3SFJHaWhlXzgtQzZDa1E?oc=5",
+   "ms": 1793718882000,
+   "time": "11/03 23:14"
+  },
+  {
+   "t": "Current price of gold as of November 3, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1TSllURHVXdVZuc0tKQVRUaDRteExUQktUUkpXdjltSzZTWFpKMDBNR1V6RklTTnAzQXVjcUQ4MjFOcjRvTUdNZV94MkNFTjFxLWJFY29EM0lyaUV4WEVIb20zaW03TGJHcUlPdHRB?oc=5",
+   "ms": 1793715720000,
+   "time": "11/03 22:22"
+  },
+  {
+   "t": "Gold gained 8 of 13 times after midterms, average +14%: The full history as America votes",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQcUUzYTBlX0lLNXNCVGdBQkhiVFhMbXpQTmdqc0VEQ1Mtd2xWMUNHZ2dUTTlvQ2RQVzBIUlNUckhON0ZFdWlQalZ4dXozRU16M2dxTjdXdGdmazFHMmtqWnVFblBDWXNVdnNuMDNjbEhJUlcyX0l0Y0RqNWdWelM3YWpydHZkSW1zcmt2Um5Bb3RQTWZIOGxabTJLSGRhOTBtUWJCZ3ZJWUwzN2Z1b0RwWk56YnRaWW9ZY1Zkb293?oc=5",
+   "ms": 1793715347000,
+   "time": "11/03 22:15"
+  },
+  {
+   "t": "Gold matched 2013's 17.5% slide, here's what came next",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNbzlYRlpZa0FRamFuZUFFTkl6MVBZbjZKNWw3VTAyUUlGZTRJNGh3N0trbHFLbF82SjRWSlpQbWNvcXpGb0N4aGM4UTNGQzdsQ0RwUURKMFNBdkp1OFc2M2IzVTMxNVMwTHR2SmxibHBVTGZuNGZ4RVctMGhyUkd2cTRDTFBEdWJwRHdXRHc5dGxZVmpncGIxYzRKLTA?oc=5",
+   "ms": 1793714725000,
+   "time": "11/03 22:05"
+  },
+  {
+   "t": "Gold: Price decline seen as excessive – Commerzbank",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVXJSZWt6b1hRY0t6Zmd1T2xLSXFXbEpLRlRJTjVKTk9LTDU5QVpOVF9OVXpFVHdVMGpiWm1wV1FLcm1KY3FnWDBuWkFiLTk5RWdyWWRpNURWWkJPbjdxeTNTNHBLZFNQSVRYdEt3dWhNdm85blA5aVV4a3ZmRmxGekZmLUZ3WVk3NkJoYnBiSFBLSGJzQmc?oc=5",
+   "ms": 1793714218000,
+   "time": "11/03 21:56"
+  },
+  {
+   "t": "Gold gains, silver slips as U.S. midterms and Iran strikes unsettle markets - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPRnA5S0hlcXVfc0h5V0dlanBjU2hJdm80cUE1eGEyQXhmb1R0WnNoOGF5LW1ySlFtMi1aaXEwQnZWbGxTV1RSSDQ0c19TN3AxN2VMV0l3SFBMRHN5S29Yc0pvOTFxSjNSUzhYWVh0ei10b0hxQk82azVIV21oWFVGSTgzUGxhVUU5aHhoWHZ3S2ZjbC1QWHNQd05IU0g4cE1xeDdSaFNvWG1kQkx1MXBQQVZ0MVFPU0JOS3RSR1Vn?oc=5",
+   "ms": 1793714131000,
+   "time": "11/03 21:55"
+  },
+  {
+   "t": "What sparked Gold's off selloff?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONWRfYk9QTmVVNnl1bGMzYVBOMkFiR1dtM0pOdjYySTRjb0lkaDlwdkVNR2kyV0dIUEJsZElzTTM0MkdmQ2tCc0NsaDg3SmJyay1rZDhibVpXbEUzMU92bHA0aFhLVEZWSEJGT1ZBZ29iMzc0X2RQeHpEQy1rUkdxdkRTWQ?oc=5",
+   "ms": 1793713055000,
+   "time": "11/03 21:37"
+  },
+  {
+   "t": "Gold price today, Tuesday, November 3, 2026: Gold prices open below $4,000 for the second straight day",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQZENFZHVBUDBYc0NBeFlvODEyeTFPRC1QLVpyUHNqeFFlbDM5bnZ6RGhHeEVTejUtUEZ3R1VtNDhQUmJVY2pwcTBubGYwZE1rNzdZc05DQnEySmNjNGZGYXZCSVBoMk43T1NtdFVGaTNqZm8zbGd0SDFGanF1elRwN05iSFhaQ0hqcWhoWWdCT1JFdV93QUJqM0NsbHNaNVkxMVZmZVBCT0t3UkNYWFA1Unk3YkN6dGJmemxwa0dTTjZvZkxSS2ZTTmtYNC1EdTJqaHdWWVdaVnBXbUlMUTZtNWxpUk1WY3R0a3RkSm1UZEhpeFphMC13d2JKa3VGMzJxekE?oc=5",
+   "ms": 1793709127000,
+   "time": "11/03 20:32"
+  },
+  {
+   "t": "Videos",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOLWowWlRDZ1lhU1JmeDRKNFJrRU5aM1dNN0o5ZVBGd1pVLWJWaVJQYURFbGtuVXpHTUxjR091MkpvWnB6c2Rfa0dwRUtfd0RtSmFIWl9pUExMQVBoODctbzRwRHBYUWwwX0VodHZsV3pLa29PSmNNc3N3WTQ2QWdMU1hBM0Y4eFlyVEtGWHpiRmMxb2RNemxNaUJhMVViRVdjTmU1WG5n?oc=5",
+   "ms": 1793709000000,
+   "time": "11/03 20:30"
   },
   {
    "t": "WGC lowers outlook for gold investment demand growth as bar buying slows",
@@ -28,88 +98,18 @@
    "time": "11/03 14:06"
   },
   {
-   "t": "Gold eases ahead of U.S. midterm elections",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxORmVXQnJ1T1AybkRsWGxtd2JKdjNHZGNaRGExRmpPckg4LW9HRkZjS2V4RXhEM1hjSjJLS3FHeGVvMEJydXY2ZDZzb0JnZWdjejNvLXVLTkNzcTFIajRpODF3bE55ci04SENUN3pYMVVKNmlfX2tNOXlLZ3ZndEVla2VsZ9IBiAFBVV95cUxNQXNhZ21PY1RSSEFPM2thRVlGamhxZWFfTkY0V3BjTVNEWXJBMTlZeDlxYzVKcEtLd3JGblBMMlRQeG14bEdaeDdZUFVWMmEtZUZDeWhzYXlZMlg1TG9lQUdrbFlqUnFvX1NOWFJ2ekp5MmdRazRoU0hpRW54QWlBVG9wUFZ4OUZf?oc=5",
-   "ms": 1793679780000,
-   "time": "11/03 12:23"
+   "t": "India's 2026 gold demand seen falling to six-year low on price rise",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaUE0SkF5VEdGaDktM2p1UmtpczI2QnFrSGFYU2VrNl9FSkFBZWxDb05oU0dYWDN4SXpIYUxyVzc4Si1iNG9QcGJLTXhzUHlKMTljSFhTSHdCMG5FZkx3WU5SN2R3bUFscjV1YzNYdk80YU5taEQtUUEyam04RVlvOExYWk51YVhZRnUxb3J2bjlsQ0VCeTJmbXpMMGYtLUxGckVqM0tZNjB1ZFI3?oc=5",
+   "ms": 1793685840000,
+   "time": "11/03 14:04"
   },
   {
-   "t": "Gold falls as higher oil stokes inflation fears ahead of US midterms",
+   "t": "Gold edges higher on softer oil prices; US midterms in focus",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObE01SnNzQnotYkNRamJYejZ1LXh6N0Z0ck5Uc2xfbWFZVmg0MTZSdEhIT2RUNE85bjJUallIcEZIb3l4QVpPeVhoeDVLVjBrNWhWaGxzcy1vdmJVSHI4b0xKRzlvRzdhWWVRZlJBM055cnZQWjUyZnZBRlBrN1ZieFVJV3pOYjktNHNnelBR?oc=5",
    "ms": 1793679360000,
    "time": "11/03 12:16"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD holds Monday’s gains near $3,950 on US-Iran deal hopes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNWhFcjl6a1Jsd3NEUFc5R3dnRDhMaFhDRm9CODlsMFVhdzdxY1E2ZG5SNWY1UGFXM2c1aW9qQTBNYUZLdnc4NE5vVTJpSlEwdFRRZ0h0VVpTSkFOR3dQaWJteEptYnQtWHdDSVhwNFVxRGdMR3g0b1ZIanItM3g3V0dkeXZnRElHN3RrWDlmQWwxdEZXMVllS2VqeFNiSm1HR0RnNGZaU3hfbVlneVIxMXJxSFNpajF0OEpvQTFkMmY?oc=5",
-   "ms": 1793676960000,
-   "time": "11/03 11:36"
-  },
-  {
-   "t": "Gold rises to near $3,950 as traders brace for US midterm election",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNUGxVcjZWTmxkSF93VUJXZ3R4dTg3bkY3Qi0xbU1OQlFMZHdxZDQtVFFjVGN1a1Q2NnZYNmpjQlpMQXFBVEFjSHYwdExlVmJNUVRQT1F5ZWxib3lLb293WjNJdDRBM0lJd3lPeS1lRGU5VG1DdEdobG5Yd0FhZ1paRU9DVVMzdDczU2VKLTVFS0NLb0FEQ1RXc2gzdXdsZktnRlU0S0pSYVRLWEhq?oc=5",
-   "ms": 1793661550000,
-   "time": "11/03 07:19"
-  },
-  {
-   "t": "Gold prices push above $3,900 but still face significant headwinds - Pepperstone’s Wu",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdjh4dmNGSTktempWNGs5QWtDYWJwRzZ1OW9nUExXTnVtNXo2OGpSeXJsTTFaeThmLW1lcFpHZDZGSjcyVlR2aUl3UUZFLW13YWtwVDJ5S0VkX0c4YU1ESl9fdC1BN2JYRjR6RHhzM3JWZ1RTVEtXNGEyTEplNXFGQjFwaTUzTWp2bFlOMUNXLXlZYVBvY2JoSV9jak1DZ2xjV196NUhfbEU1bXJmOFZMdmJEbDJZSHpLZ1c4?oc=5",
-   "ms": 1793656206000,
-   "time": "11/03 05:50"
-  },
-  {
-   "t": "Gold and silver prices surge after sharp selloff, India set to ramp up silver imports into 2027 – Heraeus",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOSW8yekFiaVlpY0t1QllHd3hxZW5YNk0weU9CU0dqZ01YWHVXV01RWlluZUtFR080TzhLd3AyMFdpSlI0bzBQVFhmMVJuUE1ycUd4X0d1Wk5oaEJVU29kT2dVMUpUNlhNSlA4eHdKNnRSODM3Z3Z3aVAtTmNhUlBXSTBCNHFiR3Eya2dzYnQxM3ZsN3RaenZyb2s2Z18wUUphSWJOSEUwZU1DSEZQejhEZG5PMjFhYXM?oc=5",
-   "ms": 1793635923000,
-   "time": "11/03 00:12"
-  },
-  {
-   "t": "Gold Rallies Nearly $75 After 11% Pre-Midterm Plunge; Silver Rebounds",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaDdqTXpvMUhqdGpTWlpfSzNLMkg1UEVULWFLM05LOWRmaVFvb1pJdUdBZlpVZ3doaHBLQlJrR01sM0pIQmtIajkyVTR3WGZ2SmlkRUhULVZ4bkVHVEFBMTJkX0QzU0diRmNzVFhUZlMzVTNXSUQ5MC1uVmV5NWJ3U05vN2JTYVpRUmVMUU5VMWg?oc=5",
-   "ms": 1793631886000,
-   "time": "11/02 23:04"
-  },
-  {
-   "t": "AEM Q3 Earnings Beat Estimates on Higher Gold Prices",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaDJyQ3lxYkMwVDZpUWpyeE5ZdUFNVXA2N080UWdULWVPYlNnS0ZwQU13YjJBa01aRU9lc2xQRW9OczVvbmVzVUxKUGIxS1cyQ09paDduYUZ2MXd3V3prR2RsZjIzUFhETG11OXRNS3RlYkNCYjRtdWxHYjRSZVhOZjhGYldZRFFQMEJwLVF5ZGJVdzZSQ2VJMkg2Qm1mWmZQbmc?oc=5",
-   "ms": 1793630760000,
-   "time": "11/02 22:46"
-  },
-  {
-   "t": "Gold SWOT: BMO believes lower gold prices are starting to attract physical buyers",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQSWI2VXhYZXJYRjE1LTVVaHd5bmg2QzA5RFdtTUd0UFF4eURFcmxNSlRkb3ptcEh4RGZXR25jSmwxbGNlOXllQXZHdk1JeVN1cHRCaHA2eHE0SXhDUXBjMXBfcnNLX19VN243RXo5Ti1PLUsxRXMzMGQ3d2d2LXpIY2dTdHdyMXBXX3h0Z1RkN2xMeXg1SVU5SmxXUGdsTWNXOThCb2NxQzFNaTdBcml0QjZ0Z3gyM2dyZEE?oc=5",
-   "ms": 1793630183000,
-   "time": "11/02 22:36"
-  },
-  {
-   "t": "Gold price today: Two analysts see more downside near $3,900, but one warns an overbought US Dollar could spark a rebound",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNcF9yX1l2TnQ0V00yMWJ2S00zX0pxeWtkVWFVNEdQM3hCcDItZmhNSUt3VzhBZURHTEdWZDl3enFISWhvd05LdDhqc1d6ZGxaLXMwRmFoZno2QkU0NWZTRFdfVGp6ZFprSGlzOHNjTm9WZkdrREhJZGpiQXBESktWYW90dTAtaVJBWndDdFZtTUd1TklqV3pSdHZ0UEFkcE54anhFT0hKNVgyVlRUa0hZNjNjV0pRRkFlTUh2TlAyajBsRm5Rbm95Qzg0U1hWNWVHbTRDdWUxQkZzTU5rSXJIOUVMUjR6SVZuV0RPcVBWbVdhdjRPbWtzaA?oc=5",
-   "ms": 1793629790000,
-   "time": "11/02 22:29"
-  },
-  {
-   "t": "Current price of gold as of November 2, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1OVmpCYVRwci16TGxDSkxJQV9mTjlWb3dnVTdFWkFFeHlqY1hMSmFCZ3VaaWx4dHh4X3ZfbVdVTjdmbWhJU2xCRDNhU24wMjdyc2ZRYjN5OG1fZzBaT3J2VkpmM0VaVXVlQzZCVDh3?oc=5",
-   "ms": 1793628300000,
-   "time": "11/02 22:05"
-  },
-  {
-   "t": "Gold prices today, Monday, November 2, 2026: Gold opens at its lowest point in over a year ahead of midterms",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNWmw0N1kyZk96NzBTeWlXTENwYWVQTW5QcEpTWlBiOVljejB4SEtpMElJeG9xLThHLTdwLURTSnVTWW13eVM0R1VXSDlhWnk3T2hZbzVvMkxXTWxLcmJBX3BWOVZqQ3dRbjlQSkprcjdZd0d5X091VnptUGE4ZnhjSi1tNzM2ZE1TVDhNa3R5TFVPQVEtc3p3Z21oVWlVQkZEbTNlRUhjWld4by1oaXBNSGJrN0tvZHhnZ0M4aTdIN1cwQWU5RDFxdHdoeHBvUDF2cmlVekRyUVRVeHBwU3ZTNkM5ZFJPZzRmbVJyMVRVbHdBTkdFM1NYSS1leWd3YmRTZk5maWFLLXhRanRn?oc=5",
-   "ms": 1793621844000,
-   "time": "11/02 20:17"
   }
  ]
 }
