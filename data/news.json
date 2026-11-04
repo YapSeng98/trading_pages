@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04 22:54 SGT",
+ "updated": "2026-11-05 05:14 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
-   "t": "Gold prices holding $4,000 as ADP says US economy created 86k jobs in October",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPN3JJQ0JVcFViZEdtMnFab3NIX05UeUN6OHRBOTV4ajZqemplQldMd2IyZURDeFJSUS1FR296YWVrbzd3X01jd0NJRE1QNE1hUTUzd3c1b19vLTBwbC1SdlVDNldmRGZsV3NzM2NKaGlQb0FpNUdjTk1lUjFqOUZ5OFNlR2FCdFBtNksyQ21HUDFtU2hoNzI0eGZuTjJaQ0FVcmxzaDVLc2R4d1U3RExobWJMUmFUdw?oc=5",
-   "ms": 1793798145000,
-   "time": "11/04 21:15"
+   "t": "Gold Prices Are Above $4,000 After Democrats Win Big in Midterm Elections",
+   "src": "Barron's",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZzRvQUY2bjZ0RUJ0ZFBYeVlOMENhblZBWWNxRThLbnE2UG84aFNpcGdfMTYwaDJ0aTl3Z053UWxvVURod0ZHdzVQSE0wX0E3LXVnWUpQR1hIYUF5WFpoS2doUzVCcFFzN2ZuY1gwRGxidWwyR2MwVks0RkpsdUQwUFZqdjhUTzEwUkgyY3NEVmZQTTA?oc=5",
+   "ms": 1793823780000,
+   "time": "11/05 04:23"
+  },
+  {
+   "t": "Aura Minerals earnings up next: Can margins weather gold slide? By Investing.com",
+   "src": "Investing.com Australia",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNZ2t6RFpQRHNETzd4TENQSW0xUzdJeWZjTEUwZ29RWXN5TzA2SUN1NjM4ejdEUVdIMWI1bWFJRTZzVWROcWM3bExNNTB0eDd0VXVxUDM0cWtIR3hNTGsxUUNaZEtlckhycEdVei00Zm9nUE96bGxQNFdEVHg1VEVXX210Rm9yZ3NiLTlMQ2ZoSUNHSDlGclIzVGpQTVZfMEFhVXJtUTluQ0dlQVdzUzRPOXMteDZPT0FMVGROYlM3UQ?oc=5",
+   "ms": 1793818689000,
+   "time": "11/05 02:58"
+  },
+  {
+   "t": "Gold reclaims $4,000 as US midterm sweep sinks USD, Oil plunges",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNTkhmRGx0eFBNNm1xbmFaa2V3RmlIVHpIMGxRUS1MV0todGQ4cFdzak1ONC10R3p3WUVRRkNwbXdJN3NFWWZUd2I1dEdva2dYaUItR1NoMWNrNDZHeXVUdU9qUmE0ejhZT1BiemZfcVdma3BxemJGaUZiTm1KWlVCYmxtTHMtM2xTa3FENHZVbmJ4a2lWTDBYcHRDSmNTRkZjdW9UckhKNA?oc=5",
+   "ms": 1793815428000,
+   "time": "11/05 02:03"
+  },
+  {
+   "t": "Earnings call transcript: Artemis Gold beats Q3 EPS forecast, shares jump 13% on growth outlook By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOS0Q5Wk9RSFlqb0VZdFdla0FaYnN6bGlUVTA4NDNjQ3FfejMwRDdXZWk2R2FWTWlwdGhGdTlacVRfbEZpRGk4RVBtelhzTC1nZ1JLSEVoQjRQYXNZQmFvYlM4VzAzUkJGWF9YZHVvaC1ORzBsMENvX0M2dTlXZ1B4dmx6elpEZHBvV3RIQTd2Wk9GS3BUanFjVUdyY3gtOTJKMzFzS3JCODlIcmVJSnJIYzJGTFl4YlJzTllTeWpYdXY3TEtCTWlLcFNfWEx4YXQ2V3dRZmtqQnVkQzdQSXBEREhiWUwyMm9y?oc=5",
+   "ms": 1793814512000,
+   "time": "11/05 01:48"
+  },
+  {
+   "t": "Gold Steadies as Traders Track Iran Talk Prospects, US Midterms",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWVB3Y2J3bG9Ed1BDRjVvY1dIZUFhd0JzRWJ6VTRtRWdLNm13R294UVNEejBhTVVuNkdvWXNQRzZzYTV5ZV9nRWwydHRjQ3BfaTJkMFFVSGNmcTNlQVlfNUtld2xjaDVHNHpKQkdXS19jQnZ0ZzNWTUxuejUzemVBOHNGOGktaExwaExwaXJ6bGd4eUZUWkw0a29OWkZMc1E1QVFVWFJVR1NaU1dLaC1NeUZsYw?oc=5",
+   "ms": 1793812993000,
+   "time": "11/05 01:23"
+  },
+  {
+   "t": "The price of gold today, Nov. 4, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1rUFE4SXltWFJtR3h2S2VfRFhDQlNkbHgzMWRPUlRZeThkSFRxcTJNMjlOYk1NTFZLb2xzWm1hMFZiNXo4b2NMdFNKYU5ReGtqakY4aENOQ214VnBnZ1lON1l4NVpQVEZUdExHcGVIWG3SAXZBVV95cUxPSjJmUEQ0TkhNNzJSQlRmaXZIRmUtekpaTFBwNmlqUFdTTGo3OWo0RkdzU082c2wzTEJKN282RjlVZXJ3Z0FkVDM3SVdmYnp2Q0lDVndidVhuY0JyQzBNUUNCYmpScUZ5c0pGSDZldUV6bDBxdmJR?oc=5",
+   "ms": 1793802716000,
+   "time": "11/04 22:31"
+  },
+  {
+   "t": "Current price of gold as of November 4, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42RGx3NTQyam9zcHNVQXliQjFsMnY5Q3l6SFMzXzVvYWxMNDN6TnVTbk5EaV8wdXZ2SFl4TE80VFFLQTNBOWVMQ0RaaEtLZExWNXRfRHo3Rm9RRmNra0hyTU5UcHhQN1FfT1FFMDZn?oc=5",
+   "ms": 1793800260000,
+   "time": "11/04 21:51"
   },
   {
    "t": "Gold price today, Wednesday, November 4, 2026: Gold prices rise in early trading, but limited gains expected",
@@ -26,20 +68,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZkQ5OFV6V3RWZFpTLWxRbGJTMEZtZldrZDJOVU13NnZRaFpFajdJQkxQdUNLMTkxTE9nZ2s1WjVfM2Z5cHpXajdaQURQN1BSWmY2MXVhdXk0LWlJcU9zbUIycThqLVh1UXBmbTZRamNVRmdfbThGcFhfTHZZOUhQZUk5MGFFVnA1QTNLV1RORTZOckU1X2Z2VjFpUzh1MWcxcUlxQm9QVlI?oc=5",
    "ms": 1793793778000,
    "time": "11/04 20:02"
-  },
-  {
-   "t": "Gold Steadies as Traders Track Iran Talk Prospects, US Midterms",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWVB3Y2J3bG9Ed1BDRjVvY1dIZUFhd0JzRWJ6VTRtRWdLNm13R294UVNEejBhTVVuNkdvWXNQRzZzYTV5ZV9nRWwydHRjQ3BfaTJkMFFVSGNmcTNlQVlfNUtld2xjaDVHNHpKQkdXS19jQnZ0ZzNWTUxuejUzemVBOHNGOGktaExwaExwaXJ6bGd4eUZUWkw0a29OWkZMc1E1QVFVWFJVR1NaU1dLaC1NeUZsYw?oc=5",
-   "ms": 1793793711000,
-   "time": "11/04 20:01"
-  },
-  {
-   "t": "Gold gains 3% as dollar slides after Democratic midterm gains",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQNjFnYVo4X1FMeGlvS1RObFF2bEgxSThJWlU1THFSUjE3NFFDVjluUGlWX3lOUGdobV8xVmxmSzNPdmp2TWVDQlNZX2duOU5va2pPMU5fZ0pvVWV6c2E4bEg2VkFNdmRLTmJmczl1dkxUenZUWExrT0U2QklFcE1KQktKdWpicmdPa180LVhmeVFrTFoyaERJVmVrMkh0QU95Qnhv?oc=5",
-   "ms": 1793791019000,
-   "time": "11/04 19:16"
   },
   {
    "t": "Gold rises as Dollar weakens ahead of US jobs data",
@@ -63,7 +91,7 @@
    "time": "11/04 17:00"
   },
   {
-   "t": "Gold, silver and precious metals prices jump, dollar dips as Democrats take control of Congress",
+   "t": "Gold and silver prices jump, dollar dips as Democrats take control of Congress",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1vZWlTQ2F2aWtGb012RVY2UHM5WlgtMDhpWU5FVFRtQTQ0Yld1NURka05Zd054LWFveWFJV3JwSThqNzg5NTR5Z0RhTUVDWkhQOXFNNVNJb29vSHFLMmZNUnB4TF9rVldRRG9VQ2MzTEJNRUdrcHZyN014aFNaZ9IBgwFBVV95cUxNUExBejVyMG8zamR1cjA4VXpSbkc1UE41dXMwd1JKLTVpSTRVNDJFUDRFWWc3U1FuT2tPV05qMUlMMDRUNnJwRlBxYXRHLVBLTW44RTc2Vzcta1BHZ19BWnNPY0kzcEp2LW5iMzN3ZUJKM19vRE8wZjVlUEgtb3ZaSENiNA?oc=5",
    "ms": 1793778223000,
@@ -82,34 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPTUVoZzlVSmd6a1oxRXc4ajVuUDBUeU9KUEtBaXltMWhhVFFneTg4TUR3Sm82TlRPV1hPRnVBNDBDS3VTbV9WLVJPNGgwVlJ4cm04TmU2OHRvX3ctVWpHbjZKb2ZLWjFtUzBTX1RKamhDQ0ZrU004YkwwM1dvckUxY0xIbFYwakQtcXU0UlBDOEpDeVdQcjF3VGhXRDM0Ym5lWG1WUV9kd0ZNc2gxRWtqYTlBLThfU0QxMVZSd05ySzZMR1o1U0dJTWNkN2VYZWplUE0yNTIzZWo?oc=5",
    "ms": 1793763072000,
    "time": "11/04 11:31"
-  },
-  {
-   "t": "The midterm elections could move silver far more than gold",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQUjNSajh0dnREOE9TYmJxZFlPeXd5S21WS01ocDRYa2o4LTlYVGZzYmMyLWJxcEdFUS16TFlXQk5QVDUyVDVFdnhiX3lrWVBDSHl0cWw2ME45ckI0VWhPcXNPaEo3ZVFibHdzTU0zZ0Y5c1dJSy0wOUxHVzM5X1Z5Uks0Z1kxR0RqSGE5ZUd0UU5YTkFo?oc=5",
-   "ms": 1793750285000,
-   "time": "11/04 07:58"
-  },
-  {
-   "t": "Gold declines below $3,950 on stronger US Dollar, US midterm elections in focus",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaE5NX2Q4QzNJNHlPdHNWOWNnT0VxdFE4dTdQLUg5UGQ5elNCbHVkb2ZpQXZjNGlDYnVUMHRsVFRkYk1fQW1hVWYwWlAtTmpHQUVsdVFmNGZuUHRtbTRmZUV1dDdDUE04OVlMMGFkdl82QzFrLXNKV3U5eGxwZEozMjBwZFJWVkdQamcyNXVwNGVPLUoyZEdvV05KVC1ySXRFS2gwTExHcEdxZkF5Qk1EbGJ0aDgyZXMwN1Z0Rw?oc=5",
-   "ms": 1793748706000,
-   "time": "11/04 07:31"
-  },
-  {
-   "t": "Gold’s October correction was overdone - Commerzbank",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcGhPUDBqWU54d0ZrTmFmREFLN0lXb19zNjRZVVpENFJUQUViX3Q0azBpOWNBZEVRc04yZDVEbnFKTzdjeW1ZUGRMU0s4cEVZN3ZTMXh3ZnF2cDZUSVZtRU5VWm1iTnNiMHpXSy1KNzlDR2Fud3lCRHFBdjBxVmVDd2NvbTdMOEpfekJCTGk0NHRtQlBfSjRmSEVpYw?oc=5",
-   "ms": 1793732094000,
-   "time": "11/04 02:54"
-  },
-  {
-   "t": "Gold demand remains near record highs as central bank buying surges 42% – WGC",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdXMzWmhCTThSSlhBcHFsbjY2VEdWdUN3WjRxQmE3YnpENklGckNZeXhUakpielZ0MUVnOV9CZlM3dHdTdXZ4OWMwdkVXTkY0Vk9PbDhKNnBybTJuMFlxQTk1dGE1MDZTUTFYX2x1NXZlYzkyUFYxV0NHNW5oNFJHWGhyTW1mdTFfTEtqdDNPMzQ5RmNpSWJ1eTJnZGNvWFRmNDk2YU41OG5VYmhSTUpUVHlRNVFKQ1NS?oc=5",
-   "ms": 1793728997000,
-   "time": "11/04 02:03"
   }
  ]
 }
