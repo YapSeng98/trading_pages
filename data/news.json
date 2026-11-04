@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-04 14:38 SGT",
+ "updated": "2026-11-04 15:58 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -42,7 +42,7 @@
    "time": "11/04 10:43"
   },
   {
-   "t": "Gold rises as dollar weakens; Democrats score early wins in US midterm elections",
+   "t": "Gold jumps over 2% on softer dollar after Democratic midterm wins",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQd0lHOUFsbExIR3lscDNTRy14T012UWd6UlBSLUtySlpjSTdFaEtYLW1hbnpOTHdrSm1fM1RGU2V0WmxNSWJGU3AxeV9PUDVRVm1BRjBBNXQxZVVacElvaE5IbGJFU2FZbnN1Tmg4dlVTZ3prY0U0SEh5X1VzWmxUYnQ3VWhtZGpGOXloc1R6X3BvNlprVmw0UGppaFE2VFcyYkl3SzJ3?oc=5",
    "ms": 1793753880000,
@@ -77,6 +77,13 @@
    "time": "11/04 07:31"
   },
   {
+   "t": "Videos",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOLWowWlRDZ1lhU1JmeDRKNFJrRU5aM1dNN0o5ZVBGd1pVLWJWaVJQYURFbGtuVXpHTUxjR091MkpvWnB6c2Rfa0dwRUtfd0RtSmFIWl9pUExMQVBoODctbzRwRHBYUWwwX0VodHZsV3pLa29PSmNNc3N3WTQ2QWdMU1hBM0Y4eFlyVEtGWHpiRmMxb2RNemxNaUJhMVViRVdjTmU1WG5n?oc=5",
+   "ms": 1793733346000,
+   "time": "11/04 03:15"
+  },
+  {
    "t": "Gold falls near $3,900 amid rising US yields and Fed hawkish bets",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUFZPdHRrT2xwVTk5SW41ZUFGY2lELW4yNTk5aXg2amIxUkhOdmNhUThNZndWX0pLTk9yUmNEcmFJRC0wVFpnOFpweDQ2UzZmZGpWdl9GX1ZCdmxvc0FOZmlVWG1MMThrOHhOQnJvaGg4SHlwSmw5S05WeEtrUWhYb2R4ZDN0T09QRFlaUVJQYlRTc1JsTWdNV0NRTlBobXpyWXJvZzJuTUlCYnc?oc=5",
@@ -98,18 +105,11 @@
    "time": "11/04 02:03"
   },
   {
-   "t": "Gold turns lower again as volatile Oil prices keep traders cautious",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOcy1hX2IwSlYtRkVIdDMtTDJPLXdHckRBYklaR0piRjI2eWhfd3pNaWpKNFFzLTZsckRzdjRRYmc4elFVVVJXZ3ZUYk9KbzFGTjROU2l3NFlZbFNjRVNkaEdocmVXOUVYX0F6WXQtNjVWWENHRnJNQlF3bmVtX0oyT0FlUEZTUVU4NzRWVG8tbjVMY1IyR2NKdzhCbGNSU1QwdFFoNDcwd1FQRFFjbzRZa0o4VzBWWXJDYURVTktUUjNXdVRFSFZrcQ?oc=5",
-   "ms": 1793719065000,
-   "time": "11/03 23:17"
-  },
-  {
-   "t": "US Midterm Elections See Gold and Silver Try to Rebound Again",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPYWc3cGc5aEM5UDc3Nl9lcWVLNzkwRkxrdWxnSkM4ZGRmT2ZOSkNNMVV0eE93Y0JlaHU1RXFDVzlBcE1kTkM1WGE4N3l1V3RjWWpJNk1ueHRuSUhsME9lRGhGVERqOXU3NzFyWlNrcElvY3NVRkkxdHpqWlB3SFJHaWhlXzgtQzZDa1E?oc=5",
-   "ms": 1793718882000,
-   "time": "11/03 23:14"
+   "t": "Five Metals Producers Trade Higher as Gold, Silver and Copper Futures Pull Back",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQWXpQU3FJQ1BpandqTFl2RFVLS2RTN3JPUGsxNjJhZzlVWFVvaUFOZ3BHaHNDUWVOWlBiQ015ektUWnZIU2dYcnNuV29FVTlWYW4ySGxaWlJtcjFVVnZ1VGpYNndUZ2M2ZnJqRnpnUWdzeC1SU19aTXlVVjRpaFF1YUZNT2FwZ0pIZ1RTalZLWDJVYVdndEQ1cHBvRl9CUlFtSF9yTHVRWQ?oc=5",
+   "ms": 1793724720000,
+   "time": "11/04 00:52"
   }
  ]
 }
