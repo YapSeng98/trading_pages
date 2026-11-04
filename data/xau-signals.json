@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1793750400000,
+ "lastChecked": 1793773800000,
  "a3": -1,
  "a5": 0,
- "open": 8,
+ "open": null,
  "nextId": 10,
  "signals": [
   {
@@ -125,7 +125,12 @@
    "risk": 46.95,
    "atr": 15.65,
    "spread": 0.59,
-   "status": "open"
+   "status": "stop",
+   "exitTime": "2026-11-04 13:45 SGT",
+   "exitMs": 1793771100000,
+   "exitPrice": 3973.09,
+   "nights": 1,
+   "R": -1
   },
   {
    "id": 9,
@@ -214,16 +219,22 @@
    "time": "2026-11-04 04:00 SGT",
    "type": "skipped",
    "text": "信号 #9（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1793771100000,
+   "time": "2026-11-04 13:45 SGT",
+   "type": "closed",
+   "text": "做空 #8 止损，−1.00R"
   }
  ],
  "summary": {
   "signals": 9,
   "taken": 3,
-  "closed": 2,
+  "closed": 3,
   "wins": 1,
-  "totalR": 2,
-  "avgR": 1,
-  "open": 1
+  "totalR": 1,
+  "avgR": 0.33,
+  "open": 0
  },
  "changes": [
   {
@@ -621,13 +632,24 @@
    "level": 3935.06,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1793772000000,
+   "time": "2026-11-04 14:00 SGT",
+   "tf": "1H",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 3997.54,
+   "level": 3970.88,
+   "a3": -1,
+   "a5": 0
   }
  ],
  "trends": {
   "W": "bearish",
   "D": "bearish",
   "4H": "bearish",
-  "1H": "bearish",
+  "1H": "bullish",
   "15M": "bullish"
  }
 }
