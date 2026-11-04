@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-04 03:25 SGT",
+ "updated": "2026-11-04 08:10 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold declines below $3,950 on stronger US Dollar, US midterm elections in focus",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaE5NX2Q4QzNJNHlPdHNWOWNnT0VxdFE4dTdQLUg5UGQ5elNCbHVkb2ZpQXZjNGlDYnVUMHRsVFRkYk1fQW1hVWYwWlAtTmpHQUVsdVFmNGZuUHRtbTRmZUV1dDdDUE04OVlMMGFkdl82QzFrLXNKV3U5eGxwZEozMjBwZFJWVkdQamcyNXVwNGVPLUoyZEdvV05KVC1ySXRFS2gwTExHcEdxZkF5Qk1EbGJ0aDgyZXMwN1Z0Rw?oc=5",
+   "ms": 1793748706000,
+   "time": "11/04 07:31"
+  },
   {
    "t": "Gold falls near $3,900 amid rising US yields and Fed hawkish bets",
    "src": "FXStreet",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQcGhPUDBqWU54d0ZrTmFmREFLN0lXb19zNjRZVVpENFJUQUViX3Q0azBpOWNBZEVRc04yZDVEbnFKTzdjeW1ZUGRMU0s4cEVZN3ZTMXh3ZnF2cDZUSVZtRU5VWm1iTnNiMHpXSy1KNzlDR2Fud3lCRHFBdjBxVmVDd2NvbTdMOEpfekJCTGk0NHRtQlBfSjRmSEVpYw?oc=5",
    "ms": 1793732094000,
    "time": "11/04 02:54"
+  },
+  {
+   "t": "Gold demand remains near record highs as central bank buying surges 42% – WGC",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdXMzWmhCTThSSlhBcHFsbjY2VEdWdUN3WjRxQmE3YnpENklGckNZeXhUakpielZ0MUVnOV9CZlM3dHdTdXZ4OWMwdkVXTkY0Vk9PbDhKNnBybTJuMFlxQTk1dGE1MDZTUTFYX2x1NXZlYzkyUFYxV0NHNW5oNFJHWGhyTW1mdTFfTEtqdDNPMzQ5RmNpSWJ1eTJnZGNvWFRmNDk2YU41OG5VYmhSTUpUVHlRNVFKQ1NS?oc=5",
+   "ms": 1793728997000,
+   "time": "11/04 02:03"
   },
   {
    "t": "Gold turns lower again as volatile Oil prices keep traders cautious",
@@ -91,25 +105,11 @@
    "time": "11/03 20:30"
   },
   {
-   "t": "WGC lowers outlook for gold investment demand growth as bar buying slows",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNbXNhd2d5cnZVajh5dGZkbnVvc3daNEtvT3NWekFmajVxZ0FfWFRlUGVFb0Z3UWsyWFpVYmN4YmNNdXFkM3gtV0FxcFNjUGtHYVFrNFBoUV9JZl83REU3SmlRTU54bXVSS2NubW1nOEJCVXpyVjdCcnNTUmRmNV9YX05UMDVSTG5zaFA2XzRIMDFZU1kyUVlxVzBfeG9MQjhWdUU5ZEI4bkRUbjEwS3QwTXVGNA?oc=5",
-   "ms": 1793685960000,
-   "time": "11/03 14:06"
-  },
-  {
-   "t": "India's 2026 gold demand seen falling to six-year low on price rise",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaUE0SkF5VEdGaDktM2p1UmtpczI2QnFrSGFYU2VrNl9FSkFBZWxDb05oU0dYWDN4SXpIYUxyVzc4Si1iNG9QcGJLTXhzUHlKMTljSFhTSHdCMG5FZkx3WU5SN2R3bUFscjV1YzNYdk80YU5taEQtUUEyam04RVlvOExYWk51YVhZRnUxb3J2bjlsQ0VCeTJmbXpMMGYtLUxGckVqM0tZNjB1ZFI3?oc=5",
-   "ms": 1793685840000,
-   "time": "11/03 14:04"
-  },
-  {
-   "t": "Gold edges higher on softer oil prices; US midterms in focus",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxObE01SnNzQnotYkNRamJYejZ1LXh6N0Z0ck5Uc2xfbWFZVmg0MTZSdEhIT2RUNE85bjJUallIcEZIb3l4QVpPeVhoeDVLVjBrNWhWaGxzcy1vdmJVSHI4b0xKRzlvRzdhWWVRZlJBM055cnZQWjUyZnZBRlBrN1ZieFVJV3pOYjktNHNnelBR?oc=5",
-   "ms": 1793679360000,
-   "time": "11/03 12:16"
+   "t": "Kinross Gold's Q3 Earnings Beat Estimates on Higher Gold Prices",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOcEM1UmtnOF9JdHZaSXNUS3Z0dnowT0ltVWxmQ1ZwZktNRWJ0cGtPQ0p6c1BnenpxY3o4VTdybURGUERnM0dnQnJuRXNITW51LTBuNE9HWVNZT25FY0JobUxyNzJCSGZUWVZBLVBJWUxoYjdiY0JSVW5tZWtxa1Y2akczT3BpR0hhclhjNmMtU0lqdmNjVkRnM0dsbw?oc=5",
+   "ms": 1793708040000,
+   "time": "11/03 20:14"
   }
  ]
 }
