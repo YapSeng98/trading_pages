@@ -89,15 +89,17 @@
     }
     var dayWord = shut ? "上一交易日" + (pdKey ? "（" + pdKey + "）" : "") : "今日";
     // say plainly when the data file is old: the job that writes it runs on GitHub's timer, which can fall hours behind
-    var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 2;
+    var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 1, w0 = (st.watch || [])[0];
+    // the verdict below is as old as the file; the live price can already have crossed the level that changes it
+    var crossed = !!(w0 && S.live !== null && st.marketOpen && (/跌破/.test(w0.text) ? S.live < w0.price : S.live > w0.price)), ageTxt = old ? Math.round(ageH) + " 小时前" : "";
     set("pulse-updated", "⟳ 数据 " + st.updated + (old ? "（" + Math.round(ageH) + " 小时前，自动更新晚了）" : " · 自动更新") + " · 价格实时");
     set("hub-upd", "⟳ 数据文件 " + st.updated + (old ? "，已是 " + Math.round(ageH) + " 小时前；方向和价位请以 4H 报告为准" : "") + " · 金价与图表实时");
     set("pulse-gold", dayWord + (chg === null ? "" : " " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "，区间 " + fmt(dayLo) + "–" + fmt(dayHi) + "。" + (shut ? "" : "昨日收 " + fmt(pd.close) + "，区间 " + fmt(pd.low) + "–" + fmt(pd.high) + "。") + "上周区间 " + fmt(pw.low) + "–" + fmt(pw.high) + "。");
-    set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", (v.title || "") + "。" + ((st.watch || [])[0] ? "关注 " + fmt(st.watch[0].price) + "：" + st.watch[0].text + "。" : ""));
+    set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", (old ? "这是 " + ageTxt + "算的。" : "") + (v.title || "") + "。" + (w0 ? "关注 " + fmt(w0.price) + "：" + w0.text + "。" + (crossed ? "现价已经越过它，结论可能已变，打开黄金页看实时结论。" : "") : ""));
     set("pulse-tf", dirs); set("pulse-tf-d", "周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：" + big + "。");
     chips("hub-main-chips", [
       [chg === null ? "gold" : chg >= 0 ? "bull" : "bear", (st.marketOpen ? "今日 " : (pdKey ? pdKey + " " : "") + "收盘 ") + (chg === null ? "" : sgn(chg) + "（" + sgn(pct, 2) + "%）· ") + "区间 " + fmt(dayLo, 0) + "–" + fmt(dayHi, 0)],
-      [go ? "bull" : "gold", "系统结论：" + (v.tag || "—") + " · " + dirs],
+      [go ? "bull" : "gold", "系统结论" + (old ? "（" + ageTxt + "）" : "") + "：" + (v.tag || "—") + " · " + dirs],
       hi[0] ? ["gold", "下一个大数据：" + hi[0].name + " " + hi[0].when] : null
     ]);
     chips("hub-news-chips", [["gold", "昨日收 " + fmt(pd.close) + " · 上周区间 " + fmt(pw.low, 0) + "–" + fmt(pw.high, 0)]]);

@@ -1189,22 +1189,21 @@
   }
 
   // ---------- the early word before a signal ----------
-  // The big three agree and the live price already stands beyond every close the small timeframes still need. The rule
-  // decides on closed candles only, so this says which close to watch and what the trade would look like. Once per
-  // deciding candle, across tabs; never on the backup feed or with the market shut.
-  var soonAt = 0;
+  // The live price already stands beyond every close still needed for all five timeframes to agree, whichever
+  // timeframes those are (a 4-hour or daily close can keep a signal waiting for hours). The rule decides on closed
+  // candles only, so this says which close to watch and what the trade would look like. Once per deciding candle,
+  // across tabs; never on the backup feed or with the market shut.
+  var soonAt = 0, TF_SEC = { W: 604800, D: 86400, "4H": 14400, "1H": 3600, "15M": 900 };
   function soonCheck() {
     if (!S.E || !S.nopt.soon || !alertsOn() || Date.now() - soonAt < 5000) return; soonAt = Date.now();
     if (!marketOpen() || (S.feed && S.feed.source === "paxg")) return;
-    var R = P.regime(S.E), px = num(S.live); if (!R.dir || R.full || px === null) return;
-    var need = R.lagging.map(function (tf) { return { tf: tf, p: P.flipLevel(S.E, tf, R.dir) }; });
-    if (!need.length || need.some(function (g) { return g.p === null || (px - g.p) * R.dir <= 0; })) return;
-    var tf = need.some(function (g) { return g.tf === "1H"; }) ? "1H" : "15M", start = Feed.bucket(Date.now() / 1000, tf), end = (start + (tf === "1H" ? 3600 : 900)) * 1000;
-    var key = "soon:" + R.dir + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
-    var k = sysPlanNow(false), buy = R.dir > 0, wd = P.words();
+    var px = num(S.live), sn = P.soonNeed(S.E, px); if (!sn) return;
+    var dir = sn.dir, tf = sn.tf, start = Feed.bucket(Date.now() / 1000, tf), end = (start + TF_SEC[tf]) * 1000;
+    var key = "soon:" + dir + ":" + tf + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
+    var k = P.systemPlan(S.E, dir), buy = dir > 0, wd = P.words(), when = tf === "W" ? "本周收盘" : sgt(end, tf === "D" ? "" : "t") + " 收盘";
     fireAlert("⏳ " + M.name + " · 可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
-      need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + fmt(g.p, 1); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + fmt(px, 1) + " 已经在这边，" + sgt(end, "t") + " 收盘时还在才算。" +
-      (k ? "到时约：" + (buy ? "买入 " : "卖出 ") + fmt(px, 1) + "，止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "。" : ""), M.id + "-soon");
+      sn.need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + fmt(g.p, 1); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + fmt(px, 1) + " 已经在这边，" + when + "时还在才算，现在还不是信号。" +
+      (k ? "到时约：" + (buy ? "买入 " : "卖出 ") + fmt(px, 1) + "，止损 " + fmt(px - dir * k.dist, 1) + "，目标 " + fmt(px + dir * 3 * k.dist, 1) + "。" : ""), M.id + "-soon");
   }
 
   // ---------- records: only what really happened ----------
@@ -1821,7 +1820,11 @@
   function refresh() {
     if (S.busy) return; S.busy = true; S.lastTry = Date.now(); document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });
-    Promise.all([Feed.load(), fetchSpot(), num(S.raw) === null ? fetchTick() : null]).then(function (res) {
+    // The candles decide the answer; a quote only fine-tunes the live price. A slow quote service must not hold the
+    // answer back (it did, for as long as it took to reply): after 1.5 s the answer goes out, and the quote joins when it comes.
+    var quotes = Promise.all([fetchSpot(), num(S.raw) === null ? fetchTick() : null]), wait = new Promise(function (ok) { setTimeout(ok, 1500); });
+    Promise.all([Feed.load(), Promise.race([quotes, wait])]).then(function (res) {
+      quotes.then(function () { if (S.E) { calibrate(); setLive(); paintLive(); } }, function () {});
       var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error("行情接口没有返回数据");
       S.feed = feed; S.E = E; S.lastRun = Date.now(); S.lastQ = Math.floor((Date.now() - 25000) / 900000);
       calibrate(); setLive();

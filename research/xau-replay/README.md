@@ -157,6 +157,63 @@ gold's 2019-2023, p 0.03; the daily EMA stack and daily MACD helped on gold and 
 them would raise the hit rate on paper and lower it in use. The page shows RSI and the EMA stack in 各周期明细 as
 information only.
 
+## Can the signal come sooner? (2026-11-05)
+
+Owner: "the market will not wait". `SPEED-PLAN.md` fixed 13 faster versions and five pass marks before the run;
+`speed_states.js` adds each timeframe's turning prices to the replay, `speed_check.js [--write]` keeps the numbers in
+`speed-result.json` (results and, under `exploratory`, what was looked at afterwards). It reproduces the rule first:
+495 trades, +0.182R, 38R. **None of the 13 passed. The rule did not change.**
+
+Being late costs little. The same signals entered later, stop 3 x ATR from the later price:
+
+| Minutes after the close | 2 | 5 | 15 | 30 | 60 | 120 | 240 | 480 |
+|---|---|---|---|---|---|---|---|---|
+| Average a trade | +0.18R | +0.18R | +0.17R | +0.17R | +0.13R | +0.20R | +0.14R | +0.12R |
+| 2011-2018 only | +0.07R | +0.03R | +0.04R | +0.06R | −0.02R | +0.00R | −0.04R | −0.01R |
+
+All within chance of each other, though from an hour on the untouched 2011-2018 period is about zero.
+
+The faster versions, target 3R:
+
+| Version | Trades | Average | Worst fall | What it gained |
+|---|---|---|---|---|
+| The rule | 495 | +0.182R | 38R | |
+| A1 15M before its close | 535 | +0.137R | 45.8R | about 8 min |
+| A2 + 1H | 563 | +0.120R | 46.5R | about 9 min |
+| A3 + 4H | 629 | +0.074R | 61.3R | about 9 min |
+| A4 all five | 689 | +0.090R | 42.5R | about 10 min |
+| A5 resting stop order at the level | 535 | +0.166R | 38.8R | about 17 min |
+| B1 no 15M | 356 | +0.169R | 33.3R | not earlier: fewer signals |
+| B2 no 1H | 567 | +0.072R | 68.6R | |
+| B3 no weekly | 709 | +0.141R | 40.8R | big moves, below |
+| B4 no weekly, no daily | 1,037 | +0.037R | 41.1R | big moves; 2019-2023 negative |
+| C1 / C2 2-bar swings | 557 / 579 | +0.099R / +0.093R | 59.6R / 48.6R | 2011-2018 negative |
+| C3 / C4 3-bar swings | 547 / 546 | +0.143R / +0.093R | 51.2R / 55.9R | 2011-2018 negative |
+
+Waiting for the close saves money: price moves about +0.1R further while you wait, but entering before the close takes
+the false breaks as well, which cost more than that. Stopping the same re-fire within a stretch (`noRefire`) did not
+rescue it (A1 +0.155R, A2 +0.133R, 2011-2018 about zero).
+
+A5 came closest and failed only "not worse" (raw 0.108 against the 0.10 / 13 needed). It saves about 17 minutes, and
+the level moves about 5 times a day while waiting, so someone has to keep moving the order. With 3 bp of slippage it
+falls to +0.133R.
+
+Where the time really goes (descriptive): 64% of signals are settled by a 15-minute close (median wait 8 minutes from
+first crossing the level), 22% by the 1-hour (35), 12% by the 4-hour (154), the rest by the daily (435) and weekly.
+On big moves, 48 legs of at least 5 daily ATR on daily closes, the rule has a signal in 35, the first a median 62 days
+in with 57% of the leg gone. That lag is the weekly trend, not the candle close: only B3 and B4 change it (B3: 46 legs,
+20 days, 42%; B4: all 48, 4 days, 15%).
+
+B3 is therefore the one worth another look, but it failed as written: "faster" (by the plan's 48-hour measure) and "not
+worse" (a 40% chance of being over 0.05R below). Exploratory only: with the trailing exit it made 9.7R a year with a
+26.1R worst fall against the rule's 6.9R and 31.8R, and more R than the rule in 69% of resampled histories on 3R; each
+year's results are in `exploratory.b3`. All of gold's history has now been looked at, so only a forward record can test it.
+
+What did change on the site, none of it the rule: the early word now covers any timeframe still needed, not only the
+small two (`XauPlan.soonNeed`); the answer no longer waits for slow price quotes, which held it until they replied (32 s
+to 1.9 s with the quotes slowed to 30 s); the home tile and live bar state the age of the verdict in `data/xau-state.json`
+(median 4.5 hours between runs, on 2026-11-05). `strategy.html` quotes `speed-result.json`.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

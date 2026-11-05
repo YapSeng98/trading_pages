@@ -24,8 +24,8 @@
   // green only where there is an edge: the "no edge" table shows losses in red and the rest plain
   function cellR(v, extra, plain) { return h("td", { class: "n " + (v > 0 && !plain ? "up" : v < 0 ? "dn" : "") }, [R(v), extra ? h("small", { text: extra }) : null]); }
 
-  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json")]).then(function (res) {
-    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4];
+  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json"), get("research/xau-replay/speed-result.json")]).then(function (res) {
+    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4], sp = res[5];
     if (!bt || !bt.rules || !bt.rules.go3r) { $("pf-main").textContent = "回放结果读取失败，刷新一下再试。"; return; }
     var g = bt.rules.go3r, t = bt.rules.gotrail, pr = bt.proof || {};
     // ---- the evidence ----
@@ -38,6 +38,12 @@
     add("胜率只有三成左右：靠少数几笔赚到 3R，大多数是小亏（赚的那些平均 " + R(g.avgWin) + "，亏的那些平均 " + R(g.avgLoss) + "）。");
     if (pr.pValue) add("检验：随机进场 400 次，" + (pr.randomBeat ? Math.round(pr.randomBeat * 100) + "% 比它好" : "没有一次比它好") + "；只随机选方向，" + Math.round(pr.sideBeat * 100) + "% 比它好；只随机选时机，" + Math.round(pr.timingBeat * 100) + "% 比它好。p = " + pr.pValue + "。考虑到一共看过约 50 个变体，可信度约 " + Math.round(pr.deflatedSharpe * 100) + "%：小优势，没有完全证明。");
     add("优势主要来自强趋势的年份：定规则前没看过的 " + g.segments[0].label.split("（")[0] + " 只有 " + R(g.segments[0].avgR) + "，不显著；2024–2026 年金价大涨，这条规则赚得最多。");
+    // how late the rule is, and what being later still costs (research/xau-replay/speed_check.js)
+    if (sp && sp.part2 && sp.baseline) {
+      var late = function (m) { return sp.part2.filter(function (p) { return p.lateMin === m; })[0]; }, cp = sp.baseline.capture;
+      add("晚一点进场的代价很小：收盘后 2 分钟进平均每笔 " + R(late(2).avgR) + "，晚到 15 分钟 " + R(late(15).avgR) + "，30 分钟 " + R(late(30).avgR) + "，差别在误差之内。晚到 1 小时以上时，定规则前没看过的 2011–2018 就只剩零左右了。");
+      add("这条规则进大行情很晚：" + cp.legs + " 段大行情（日线收盘走了至少 5 倍日波幅）里 " + cp.caught + " 段有信号，第一个信号在行情开始后约 " + Math.round(cp.medianHours / 24) + " 天（中位数），这时行情已走了约 " + Math.round(cp.medianUsedPct) + "%。这是等周线转向的代价。");
+    }
     if (rec && rec.summary) { var z = rec.summary; add("实盘纸面记录（" + String(rec.since).slice(0, 10) + " 起，没有回放的事后之明）：" + z.signals + " 个信号，" + z.taken + " 笔开仓，" + z.closed + " 笔已结束" + (z.closed ? "，合计 " + R(z.totalR) : "") + (z.open ? "，" + z.open + " 笔持有中" : "") + "。" ); }
     // ---- risk per trade ----
     $("rk-main").textContent = "回放里最深回撤 " + g.maxDD + "R、最长连亏 " + g.streak + " 笔。按每笔冒的风险，换算成账户会经历的回撤：";
@@ -53,6 +59,16 @@
     if (Q.early) row("大方向一致就进，不等小周期转过来", Q.early.avgR, Q.early.n);
     if (Q.tight) row("止损放小（1.5 倍小时波幅）", Q.tight.avgR, Q.tight.n, "笔数多了，平均几乎是零");
     if (Q.d4) row("只看日线和 4 小时，不管周线", Q.d4.avgR, Q.d4.n);
+    // the faster versions (research/xau-replay/SPEED-PLAN.md): 13 tried, none passed; each compared with the rule itself
+    var V = sp && sp.versions, near = sp && sp.exploratory && sp.exploratory.nearest;
+    if (V && near) {
+      var vs = " 这条规则 " + R(g.avgR) + "。";
+      row("不等 15 分钟收盘，价格一过线就进", V.A1.r3.avgR, V.A1.r3.n, "早约 " + Math.round(near.A1.medianMin) + " 分钟，假突破亏掉的比省下的多；提前看的周期越多越差（1 小时 " + R(V.A2.r3.avgR) + "，4 小时 " + R(V.A3.r3.avgR) + "）。" + vs);
+      row("在价位上挂止损单，不用盯盘", V.A5.r3.avgR, V.A5.r3.n, "早约 " + Math.round(near.A5.medianMin) + " 分钟，最接近这条规则，但没通过测试，价位一天要改约 " + Math.round(sp.exploratory.orderMoves.perDay) + " 次。" + vs);
+      row("1 小时和 15 分钟用更快的转折（2 根摆动）", V.C1.r3.avgR, V.C1.r3.n, "最深回撤 " + V.C1.r3.maxDD + "R；3 根摆动 " + R(V.C3.r3.avgR) + "，2011–2018 也是负的。");
+      row("不看周线，其余四个周期同向", V.B3.r3.avgR, V.B3.r3.n, "大行情第一个信号提前到约 " + Math.round(V.B3.capture.medianHours / 24) + " 天，" + Math.round(V.B3.capture.caughtPct) + "% 的大行情有信号，但每笔少赚，没通过测试；这个方向之后还要单独验证。");
+      row("连周线和日线都不看（4 小时、1 小时、15 分钟）", V.B4.r3.avgR, V.B4.r3.n, "最快，但 2019–2023 是负的。");
+    }
     if (Q.old) row("区间 / 缺口回调 + 15 分钟转折（网站以前的信号）", Q.old.avgR, Q.old.n, "胜率 " + pct(Q.old.win) + "，照样亏");
     if (own) row("图表形态，按形态自己的入场、止损和目标", own.avgR, own.n, "胜率 " + pct(own.win) + "，赚得少、亏得多");
     if (st.ST1) row("短线：15 分钟顺势", st.ST1.avgR, st.ST1.n);

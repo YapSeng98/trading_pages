@@ -224,6 +224,18 @@ var XauPlan = (function () {
   }
   // The price a timeframe has to close beyond for its trend to turn `to` (1 up, -1 down), if the engine has one.
   function flipLevel(E, tf, to) { var t = tfOk(E, tf); if (!t) return null; return to > 0 ? num(t.swingHigh) : num(t.swingLow); }
+  // The early word: all five would agree if every candle still needed closed at this price. A warning, never a signal:
+  // entering on it did worse than waiting for the close (research/xau-replay/SPEED-PLAN.md). tf: the biggest candle
+  // still needed, the last one that can settle it. Any of the five can be the one missing, not only the small two.
+  function soonNeed(E, px) {
+    var R = regime(E), out = null; px = num(px); if (R.full || px === null) return null;
+    [1, -1].forEach(function (dir) {
+      if (out) return;
+      var miss = TF_ORDER.filter(function (tf) { return R.dirs[tf] !== dir; }), need = miss.map(function (tf) { return { tf: tf, p: flipLevel(E, tf, dir) }; });
+      if (need.length && !need.some(function (g) { return g.p === null || (px - g.p) * dir <= 0; })) out = { dir: dir, tf: miss[0], need: need };
+    });
+    return out;
+  }
 
   // ---------- chart patterns ----------
   // Which way a finished pattern points: a double top / bottom or head and shoulders that closed through its neckline,
@@ -348,6 +360,7 @@ var XauPlan = (function () {
     var closes = function (list, to) { return list.map(function (g) { return zh(g.tf) + "收盘" + cross(to) + " " + fmt(g.price, 1); }); };
     var andAlso = function (list) { return list.map(function (x, i) { return i ? "，以及" + (/^\d/.test(x) ? " " : "") + x : x; }).join(""); };
     var waitWord = function (n) { return n === 1 ? "等这一步：" : n === 2 ? "等这两步：" : "等这几步："; };
+    var alarm = "不开这页的时候，可以在 MT5 给这里的价位设价格提醒；到价只是提醒，还要看收盘。";
 
     if (!R.dir) {
       v.tag = "先观望"; v.title = "先观望：大周期方向不一致";
@@ -359,7 +372,7 @@ var XauPlan = (function () {
       if (first) {
         first.steps.forEach(function (g) { add(first.to > 0 ? "up" : "down", g.price, zh(g.tf) + "收盘" + cross(first.to) + "这里" + (first.steps.length === 1 ? "，就三周期同向" + say(first.to) : "（要转" + say(first.to) + "得走 " + first.steps.length + " 步，这是其中一步）")); });
         var g0 = first.steps[0], past = first.steps.length === 1 && price !== null && (g0.price - price) * first.to < 0;
-        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (past ? "现价已经" + (first.to < 0 ? "低于" : "高于") + "它 " + fmt(Math.abs(price - g0.price), 1) + " 美元，但要看 " + zh(g0.tf) + " K 线收盘：收盘时还在" + (first.to < 0 ? "下方" : "上方") + "才算。" : first.steps.length === 1 ? away(g0.price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。");
+        step(waitWord(first.steps.length) + andAlso(closes(first.steps, first.to)), (past ? "现价已经" + (first.to < 0 ? "低于" : "高于") + "它 " + fmt(Math.abs(price - g0.price), 1) + " 美元，但要看 " + zh(g0.tf) + " K 线收盘：收盘时还在" + (first.to < 0 ? "下方" : "上方") + "才算。" : first.steps.length === 1 ? away(g0.price) : "") + "那时周线、日线、4 小时就同向" + say(first.to) + "了。" + alarm);
         step("然后：等 1 小时和 15 分钟也" + say(first.to), "五个周期同向才是" + act(first.to) + "信号，到时这里会直接给出入场价、止损和目标。" + (room ? "按现在的波动，止损会离入场价 " + fmt(room, 0) + " 美元左右。" : ""));
       } else step("等周线、日线、4 小时走到同一个方向", "现在还算不出哪个价位会让它们同向；有了以后会列在「会改变局面的价位」里。");
       step("手上已经有单", "按这页规则开的顺势单：用跟踪止损的，三个大周期已经不再同向，规则是离场；用目标 3R 的，止损和目标都不动，等价格碰到其中一个。");
@@ -404,7 +417,7 @@ var XauPlan = (function () {
         step(against.length ? "现在：不追" + swing + "，也先不" + (buy ? "买" : "卖") : "现在：先不进", against.length ? "价格在" + swing + "（" + against.map(zh).join("、") + other + "）。逆着三个大周期做在回放里长期亏损；等" + swing + "结束再" + act(R.dir) + "。" : "大方向对了，小周期还没转回来。可以先把计划准备好。");
         var got = [];
         R.lagging.forEach(function (tf) { var p = add(buy ? "up" : "down", flipLevel(E, tf, R.dir), zh(tf) + "收盘" + cross(R.dir) + "这里，就转回" + way); if (p !== null) got.push({ tf: tf, price: p }); });
-        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。");
+        if (got.length && got.length === R.lagging.length) step(waitWord(got.length) + andAlso(closes(got, R.dir)), (got.length === 1 ? away(got[0].price) : "") + "转回来以后五个周期同向，就是" + act(R.dir) + "信号。" + alarm);
         else step("等" + lag + "转回" + way, "页面每 15 分钟重算一次，转回来时这里的结论会变成「可以顺势" + act(R.dir) + "」。");
         // the trade the signal would give if it fired at the last close still needed: concrete prices, worked out now
         var trig = got.length ? got.slice().sort(function (a, b) { return (a.price - b.price) * R.dir; })[got.length - 1].price : null;
@@ -556,7 +569,7 @@ var XauPlan = (function () {
   }
 
   return { SYS: SYS, TF_ORDER: TF_ORDER, TF_WEIGHT: TF_WEIGHT, TF_ZH: TF_ZH, TF_S: TF_S, ZH: ZH, num: num, fmt: fmt, usd: usd, mirror: mirror, manage: manage, levels: levels, candidate: candidate, candidates: candidates,
-    regime: regime, flipLevel: flipLevel, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
+    regime: regime, flipLevel: flipLevel, soonNeed: soonNeed, systemPlan: systemPlan, size: size, checks: checks, votes: votes, headline: headline, summary: summary, eventText: eventText,
     patternText: patternText, statusText: statusText, patternWay: patternWay, patternsNow: patternsNow, patternPlan: patternPlan, bounceOdds: bounceOdds, words: function () { return MK; }, planText: planText, scoreWord: scoreWord, verdict: verdict, nearest: nearest, sentence: sentence, setMarket: setMarket };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauPlan;

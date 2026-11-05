@@ -79,7 +79,8 @@ function trade(sg, X, o) {
   const te = sg.t + (o.delay || 0) * 60, e = L.lowerBound(X.t, te);
   if (e >= X.n || X.t[e] - te > 300) return null;                       // market shut at entry time
   const sp = o.spreadBp ? X.o[e] * o.spreadBp / 10000 : o.spread, aB = o.mid ? sp / 2 : 0, aA = o.mid ? sp / 2 : sp;   // spreadBp: spread as a share of price
-  const entry = dir > 0 ? X.o[e] + aA : X.o[e] - aB;
+  const px0 = sg.fill === undefined ? X.o[e] : sg.fill;                  // sg.fill: a resting order filled inside that bar
+  const entry = dir > 0 ? px0 + aA : px0 - aB;
   let stop = (o.stopAtr ? (dir > 0 ? entry - o.stopAtr * sg.atr : entry + o.stopAtr * sg.atr) : sg.stop + off);
   const risk = (entry - stop) * dir;
   if (!(risk > 0)) return null;                                          // price already through the stop
