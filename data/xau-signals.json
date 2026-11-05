@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1793866500000,
+ "lastChecked": 1793883600000,
  "a3": 0,
  "a5": 0,
  "open": null,
@@ -660,6 +660,17 @@
    "level": 4081.96,
    "a3": 0,
    "a5": 0
+  },
+  {
+   "ms": 1793882700000,
+   "time": "2026-11-05 20:45 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 4119.51,
+   "level": 4122.05,
+   "a3": 0,
+   "a5": 0
   }
  ],
  "trends": {
@@ -667,6 +678,6 @@
   "D": "bearish",
   "4H": "bullish",
   "1H": "bullish",
-  "15M": "bullish"
+  "15M": "bearish"
  }
 }
