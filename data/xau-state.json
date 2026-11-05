@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-05 21:13 SGT",
+ "updated": "2026-11-05 21:33 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4119.6,
- "priceTime": "2026-11-05 21:00 SGT",
+ "price": 4115.2,
+ "priceTime": "2026-11-05 21:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4063.2,
   "high": 4146.8,
   "low": 4057.5,
-  "changeFromPrevClose": 58.5,
-  "changePct": 1.44,
+  "changeFromPrevClose": 54.2,
+  "changePct": 1.33,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -200,28 +200,33 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-05 20:45 SGT",
-   "rsi": 43.4,
-   "atr": 7.2,
-   "ema20": 4126.4,
-   "ema50": 4116.3,
-   "ema200": 4046.2,
+   "rsi": 39.5,
+   "atr": 7.26,
+   "ema20": 4124.8,
+   "ema50": 4116.4,
+   "ema200": 4047.6,
    "emaOrder": "交错",
    "range": {
     "top": 4138.1,
-    "bottom": 4116.4,
-    "positionPct": 15
+    "bottom": 4113.9,
+    "positionPct": 6
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4122.1,
-    "barsAgo": 1
+    "barsAgo": 3
    },
    "turnsUpAbove": 4138.1,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
+  {
+   "price": 4119.5,
+   "what": "4小时 200 均线",
+   "strength": 2
+  },
   {
    "price": 4140.6,
    "what": "1小时牛旗关键位",
@@ -241,19 +246,9 @@
    "price": 4216.9,
    "what": "日线前高、日线区间顶",
    "strength": 6
-  },
-  {
-   "price": 4223.4,
-   "what": "1小时牛旗目标",
-   "strength": 1
   }
  ],
  "support": [
-  {
-   "price": 4119.5,
-   "what": "4小时 200 均线",
-   "strength": 2
-  },
   {
    "price": 4108.8,
    "what": "1小时近期小低点",
@@ -272,6 +267,11 @@
   {
    "price": 4065.6,
    "what": "日线向下突破位",
+   "strength": 1
+  },
+  {
+   "price": 4043,
+   "what": "日线区间中点",
    "strength": 1
   }
  ],
