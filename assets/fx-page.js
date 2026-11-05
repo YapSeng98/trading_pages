@@ -303,8 +303,8 @@
     S.patWords = "形态按自己的止损和目标做（黄金回放，" + o["1H"].n.toLocaleString("en-US") + " 个 1 小时形态）：胜率 " + Math.round(o["1H"].win) + "%，但平均每笔 " + sg(o["1H"].avgR) + "：赚的次数多、亏的时候亏得多。只作参考，不比上面的五周期信号可靠。"; render();
   }).catch(function () {});
   var getJ = function (u) { return fetch(u, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
-  Promise.all([getJ("research/forex/result.json"), getJ("research/forex/edges/result.json")]).then(function (res) {
-    var d = res[0], e = res[1];
+  Promise.all([getJ("research/forex/result.json"), getJ("research/forex/edges/result.json"), getJ("research/forex/speed-result.json")]).then(function (res) {
+    var d = res[0], e = res[1], sp = res[2] && res[2].versions;
     if (!d || !d.n || !d.gold) return;
     var el = $("fx-proof"), R = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; }, ym = function (s) { var p = String(s).split("-"); return p[0] + " 年 " + +p[1] + " 月"; };
     var bp = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + " bp"; };
@@ -318,7 +318,7 @@
       ["欧美时段规律", "EUR/USD 每天 " + bp(e.A2.avgBp), e.A2.passed],
       ["买最强卖最弱的货币", "每月 " + (e.A3.avgPct >= 0 ? "+" : "−") + Math.abs(e.A3.avgPct).toFixed(2) + "%", e.A3.passed],
       ["伦敦开盘突破", e.B1.n.toLocaleString("en-US") + " 笔，每笔 " + R(e.B1.avgR), e.B1.passed]
-    ], none = t.every(function (x) { return !x[2]; });
+    ].concat(sp ? [["更快的信号", "4 小时不等收盘每笔 " + R(sp.pre4h.avgR) + "，不看周线 " + R(sp.noW.avgR), sp.pre4h.passed || sp.noW.passed]] : []), none = t.every(function (x) { return !x[2]; });
     el.appendChild(h("div", { class: "more" }, [h("b", { text: none ? "其他做法也测过了，扣点差后都不赚钱：" : "另外测过的做法：" }),
       " " + t.map(function (x) { return x[0] + "（" + x[1] + (x[2] ? "，通过" : "") + "）"; }).join("、") + "。"]));
   });

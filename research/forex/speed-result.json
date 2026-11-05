@@ -1,0 +1,191 @@
+{
+ "tested": "2026-11-05",
+ "from": "2024-04-01",
+ "versions": {
+  "base": {
+   "name": "这条规则（四个周期）",
+   "n": 688,
+   "win": 24.3,
+   "avgR": -0.071,
+   "totalR": -48.9,
+   "p": 0.818,
+   "positive": 4,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.085,
+    "GBPUSD": -0.124,
+    "USDJPY": -0.37,
+    "AUDUSD": -0.236,
+    "NZDUSD": -0.329,
+    "USDCAD": -0.211,
+    "USDCHF": 0.05,
+    "EURJPY": 0.631,
+    "GBPJPY": 0.031,
+    "AUDJPY": 0.144,
+    "EURGBP": -0.309
+   }
+  },
+  "noW": {
+   "name": "不看周线（日线、4 小时、1 小时）",
+   "n": 1047,
+   "win": 23.4,
+   "avgR": -0.101,
+   "totalR": -105.2,
+   "p": 0.95,
+   "positive": 4,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.062,
+    "GBPUSD": 0.194,
+    "USDJPY": -0.22,
+    "AUDUSD": -0.428,
+    "NZDUSD": -0.294,
+    "USDCAD": -0.151,
+    "USDCHF": 0.092,
+    "EURJPY": 0.328,
+    "GBPJPY": -0.142,
+    "AUDJPY": 0.041,
+    "EURGBP": -0.345
+   }
+  },
+  "noWD": {
+   "name": "不看周线和日线（4 小时、1 小时）",
+   "n": 1532,
+   "win": 23,
+   "avgR": -0.124,
+   "totalR": -189.7,
+   "p": 0.982,
+   "positive": 1,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.098,
+    "GBPUSD": 0.042,
+    "USDJPY": -0.025,
+    "AUDUSD": -0.307,
+    "NZDUSD": -0.126,
+    "USDCAD": -0.213,
+    "USDCHF": -0.043,
+    "EURJPY": -0.044,
+    "GBPJPY": -0.184,
+    "AUDJPY": -0.073,
+    "EURGBP": -0.308
+   }
+  },
+  "pre4h": {
+   "name": "4 小时不等收盘",
+   "n": 705,
+   "win": 25.4,
+   "avgR": -0.028,
+   "totalR": -19.9,
+   "p": 0.66,
+   "positive": 4,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.039,
+    "GBPUSD": -0.117,
+    "USDJPY": -0.108,
+    "AUDUSD": -0.236,
+    "NZDUSD": -0.196,
+    "USDCAD": -0.21,
+    "USDCHF": 0.03,
+    "EURJPY": 0.472,
+    "GBPJPY": 0.172,
+    "AUDJPY": 0.152,
+    "EURGBP": -0.291
+   }
+  },
+  "late1": {
+   "name": "晚 1 小时进",
+   "n": 676,
+   "win": 24,
+   "avgR": -0.081,
+   "totalR": -54.9,
+   "p": 0.895,
+   "positive": 3,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.09,
+    "GBPUSD": -0.288,
+    "USDJPY": -0.171,
+    "AUDUSD": -0.174,
+    "NZDUSD": -0.311,
+    "USDCAD": -0.242,
+    "USDCHF": -0.026,
+    "EURJPY": 0.358,
+    "GBPJPY": 0.143,
+    "AUDJPY": 0.062,
+    "EURGBP": -0.266
+   }
+  },
+  "late2": {
+   "name": "晚 2 小时进",
+   "n": 666,
+   "win": 25.2,
+   "avgR": -0.034,
+   "totalR": -22.9,
+   "p": 0.703,
+   "positive": 3,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.1,
+    "GBPUSD": -0.01,
+    "USDJPY": -0.268,
+    "AUDUSD": -0.182,
+    "NZDUSD": -0.357,
+    "USDCAD": -0.033,
+    "USDCHF": -0.009,
+    "EURJPY": 0.478,
+    "GBPJPY": 0.049,
+    "AUDJPY": 0.19,
+    "EURGBP": -0.217
+   }
+  },
+  "late4": {
+   "name": "晚 4 小时进",
+   "n": 668,
+   "win": 25.6,
+   "avgR": -0.017,
+   "totalR": -11.4,
+   "p": 0.589,
+   "positive": 4,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.027,
+    "GBPUSD": 0.063,
+    "USDJPY": -0.328,
+    "AUDUSD": -0.102,
+    "NZDUSD": -0.264,
+    "USDCAD": -0.096,
+    "USDCHF": -0.012,
+    "EURJPY": 0.484,
+    "GBPJPY": 0.061,
+    "AUDJPY": 0.102,
+    "EURGBP": -0.188
+   }
+  },
+  "late8": {
+   "name": "晚 8 小时进",
+   "n": 648,
+   "win": 23.3,
+   "avgR": -0.102,
+   "totalR": -66.4,
+   "p": 0.904,
+   "positive": 3,
+   "passed": false,
+   "pairs": {
+    "EURUSD": -0.03,
+    "GBPUSD": -0.173,
+    "USDJPY": -0.374,
+    "AUDUSD": -0.29,
+    "NZDUSD": -0.249,
+    "USDCAD": -0.124,
+    "USDCHF": 0.032,
+    "EURJPY": 0.366,
+    "GBPJPY": -0.051,
+    "AUDJPY": 0.153,
+    "EURGBP": -0.477
+   }
+  }
+ },
+ "passed": []
+}

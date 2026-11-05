@@ -1,0 +1,1770 @@
+{
+ "updated": "2026-11-05",
+ "from": "2018-10-08 00:00",
+ "to": "2026-10-23 11:15",
+ "years": 8,
+ "baseline": {
+  "r3": {
+   "n": 254,
+   "win": 29.9,
+   "avgR": 0.134,
+   "lo": -0.077,
+   "hi": 0.355,
+   "totalR": 34.2,
+   "rPerYear": 4.248,
+   "maxDD": 28.2,
+   "streak": 19,
+   "pf": 1.185,
+   "seg": [
+    {
+     "label": "2018-2020",
+     "n": 71,
+     "avgR": 0.537
+    },
+    {
+     "label": "2021-2023",
+     "n": 83,
+     "avgR": 0.053
+    },
+    {
+     "label": "2024-2026",
+     "n": 100,
+     "avgR": -0.083
+    }
+   ]
+  },
+  "trail": {
+   "n": 281,
+   "win": 32.7,
+   "avgR": 0.176,
+   "lo": -0.055,
+   "hi": 0.431,
+   "totalR": 49.5,
+   "rPerYear": 6.149,
+   "maxDD": 25.9,
+   "streak": 9,
+   "pf": 1.298,
+   "seg": [
+    {
+     "label": "2018-2020",
+     "n": 68,
+     "avgR": 0.737
+    },
+    {
+     "label": "2021-2023",
+     "n": 108,
+     "avgR": 0.042
+    },
+    {
+     "label": "2024-2026",
+     "n": 105,
+     "avgR": -0.05
+    }
+   ]
+  },
+  "capture": {
+   "legs": 34,
+   "caught": 22,
+   "caughtPct": 64.7,
+   "medianHours": 829.6,
+   "medianUsedPct": 58.7
+  }
+ },
+ "part1": {
+  "signals": 922,
+  "decidedBy": {
+   "D": 18,
+   "15M": 598,
+   "1H": 207,
+   "4H": 91,
+   "W": 8
+  },
+  "waitByTf": {
+   "W": {
+    "n": 8,
+    "medianMin": 6260.5,
+    "p90Min": 8986.1,
+    "medianR": 3.144,
+    "meanR": 3.588
+   },
+   "D": {
+    "n": 18,
+    "medianMin": 493,
+    "p90Min": 1378.1,
+    "medianR": 0.511,
+    "meanR": 0.772
+   },
+   "4H": {
+    "n": 91,
+    "medianMin": 144,
+    "p90Min": 230,
+    "medianR": 0.208,
+    "meanR": 0.303
+   },
+   "1H": {
+    "n": 207,
+    "medianMin": 34,
+    "p90Min": 56,
+    "medianR": 0.094,
+    "meanR": 0.148
+   },
+   "15M": {
+    "n": 598,
+    "medianMin": 7,
+    "p90Min": 14,
+    "medianR": 0.029,
+    "meanR": 0.05
+   }
+  },
+  "waitAll": {
+   "medianMin": 11,
+   "p90Min": 78.9,
+   "medianR": 0.046,
+   "meanR": 0.142
+  },
+  "goneR": {
+   "median": 2.169,
+   "p25": 1.452,
+   "p75": 3.529
+  },
+  "afterMfeR": {
+   "median": 1.073,
+   "p75": 3.008
+  }
+ },
+ "part2": [
+  {
+   "lateMin": 2,
+   "n": 254,
+   "win": 29.9,
+   "avgR": 0.134,
+   "lo": -0.077,
+   "hi": 0.355,
+   "maxDD": 28.2,
+   "rPerYear": 4.248,
+   "seg": [
+    0.537,
+    0.053,
+    -0.083
+   ]
+  },
+  {
+   "lateMin": 5,
+   "n": 260,
+   "win": 30.4,
+   "avgR": 0.154,
+   "lo": -0.065,
+   "hi": 0.377,
+   "maxDD": 28.2,
+   "rPerYear": 4.99,
+   "seg": [
+    0.688,
+    0.004,
+    -0.062
+   ]
+  },
+  {
+   "lateMin": 15,
+   "n": 254,
+   "win": 30.7,
+   "avgR": 0.162,
+   "lo": -0.048,
+   "hi": 0.381,
+   "maxDD": 27.2,
+   "rPerYear": 5.124,
+   "seg": [
+    0.583,
+    0.031,
+    -0.012
+   ]
+  },
+  {
+   "lateMin": 30,
+   "n": 253,
+   "win": 29.6,
+   "avgR": 0.119,
+   "lo": -0.088,
+   "hi": 0.337,
+   "maxDD": 29.1,
+   "rPerYear": 3.743,
+   "seg": [
+    0.472,
+    0.007,
+    -0.012
+   ]
+  },
+  {
+   "lateMin": 60,
+   "n": 253,
+   "win": 29.6,
+   "avgR": 0.117,
+   "lo": -0.102,
+   "hi": 0.338,
+   "maxDD": 26.2,
+   "rPerYear": 3.679,
+   "seg": [
+    0.486,
+    -0.071,
+    0.029
+   ]
+  },
+  {
+   "lateMin": 120,
+   "n": 248,
+   "win": 31,
+   "avgR": 0.18,
+   "lo": -0.038,
+   "hi": 0.414,
+   "maxDD": 26.1,
+   "rPerYear": 5.544,
+   "seg": [
+    0.532,
+    0.062,
+    0.043
+   ]
+  },
+  {
+   "lateMin": 240,
+   "n": 237,
+   "win": 29.5,
+   "avgR": 0.113,
+   "lo": -0.119,
+   "hi": 0.352,
+   "maxDD": 28.3,
+   "rPerYear": 3.318,
+   "seg": [
+    0.478,
+    0.095,
+    -0.124
+   ]
+  },
+  {
+   "lateMin": 480,
+   "n": 241,
+   "win": 30.7,
+   "avgR": 0.161,
+   "lo": -0.057,
+   "hi": 0.398,
+   "maxDD": 27.3,
+   "rPerYear": 4.811,
+   "seg": [
+    0.455,
+    0.215,
+    -0.082
+   ]
+  }
+ ],
+ "versions": {
+  "A1": {
+   "id": "A1",
+   "name": "15M 按 1 分钟收盘提前算",
+   "signals": 2770,
+   "r3": {
+    "n": 267,
+    "win": 30,
+    "avgR": 0.129,
+    "lo": -0.084,
+    "hi": 0.349,
+    "totalR": 34.6,
+    "rPerYear": 4.298,
+    "maxDD": 31.5,
+    "streak": 20,
+    "pf": 1.178,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 73,
+      "avgR": 0.548
+     },
+     {
+      "label": "2021-2023",
+      "n": 88,
+      "avgR": 0.102
+     },
+     {
+      "label": "2024-2026",
+      "n": 106,
+      "avgR": -0.136
+     }
+    ]
+   },
+   "trail": {
+    "n": 278,
+    "win": 33.1,
+    "avgR": 0.183,
+    "lo": -0.052,
+    "hi": 0.445,
+    "totalR": 50.9,
+    "rPerYear": 6.333,
+    "maxDD": 25.1,
+    "streak": 9,
+    "pf": 1.313,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 67,
+      "avgR": 0.762
+     },
+     {
+      "label": "2021-2023",
+      "n": 109,
+      "avgR": 0.031
+     },
+     {
+      "label": "2024-2026",
+      "n": 102,
+      "avgR": -0.034
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 74.1,
+   "medianLeadMin": 342,
+   "meanGainR": 0.204,
+   "confirmedPct": 85.9,
+   "diff": -0.005,
+   "diffLo": -0.036,
+   "diffHi": 0.036,
+   "pWorse": 0.0076,
+   "pHolm": 0.076,
+   "tests": {
+    "faster": true,
+    "notWorse": true,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "A2": {
+   "id": "A2",
+   "name": "15M、1H 提前算",
+   "signals": 3258,
+   "r3": {
+    "n": 270,
+    "win": 30.4,
+    "avgR": 0.145,
+    "lo": -0.065,
+    "hi": 0.37,
+    "totalR": 39.1,
+    "rPerYear": 4.858,
+    "maxDD": 30.7,
+    "streak": 21,
+    "pf": 1.2,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 73,
+      "avgR": 0.546
+     },
+     {
+      "label": "2021-2023",
+      "n": 94,
+      "avgR": 0.115
+     },
+     {
+      "label": "2024-2026",
+      "n": 103,
+      "avgR": -0.113
+     }
+    ]
+   },
+   "trail": {
+    "n": 282,
+    "win": 33.3,
+    "avgR": 0.211,
+    "lo": -0.035,
+    "hi": 0.455,
+    "totalR": 59.5,
+    "rPerYear": 7.394,
+    "maxDD": 25.2,
+    "streak": 9,
+    "pf": 1.363,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 69,
+      "avgR": 0.789
+     },
+     {
+      "label": "2021-2023",
+      "n": 110,
+      "avgR": 0.066
+     },
+     {
+      "label": "2024-2026",
+      "n": 103,
+      "avgR": -0.022
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.3,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 86.6,
+   "medianLeadMin": 294.5,
+   "meanGainR": 0.202,
+   "confirmedPct": 84.2,
+   "diff": 0.011,
+   "diffLo": -0.02,
+   "diffHi": 0.045,
+   "pWorse": 0.0018,
+   "pHolm": 0.0216,
+   "tests": {
+    "faster": true,
+    "notWorse": true,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "A3": {
+   "id": "A3",
+   "name": "15M、1H、4H 提前算",
+   "signals": 3685,
+   "r3": {
+    "n": 309,
+    "win": 29.1,
+    "avgR": 0.107,
+    "lo": -0.102,
+    "hi": 0.311,
+    "totalR": 32.9,
+    "rPerYear": 4.097,
+    "maxDD": 32.4,
+    "streak": 15,
+    "pf": 1.145,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 82,
+      "avgR": 0.472
+     },
+     {
+      "label": "2021-2023",
+      "n": 107,
+      "avgR": 0.065
+     },
+     {
+      "label": "2024-2026",
+      "n": 120,
+      "avgR": -0.106
+     }
+    ]
+   },
+   "trail": {
+    "n": 368,
+    "win": 28.5,
+    "avgR": 0.156,
+    "lo": -0.049,
+    "hi": 0.374,
+    "totalR": 57.5,
+    "rPerYear": 7.148,
+    "maxDD": 30.5,
+    "streak": 13,
+    "pf": 1.291,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 81,
+      "avgR": 0.691
+     },
+     {
+      "label": "2021-2023",
+      "n": 152,
+      "avgR": 0.002
+     },
+     {
+      "label": "2024-2026",
+      "n": 135,
+      "avgR": 0.009
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.3,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 95.9,
+   "medianLeadMin": 257.5,
+   "meanGainR": 0.215,
+   "confirmedPct": 81.8,
+   "diff": -0.027,
+   "diffLo": -0.083,
+   "diffHi": 0.031,
+   "pWorse": 0.2204,
+   "pHolm": 1,
+   "tests": {
+    "faster": true,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "A4": {
+   "id": "A4",
+   "name": "五个周期都提前算",
+   "signals": 4398,
+   "r3": {
+    "n": 358,
+    "win": 31.6,
+    "avgR": 0.204,
+    "lo": 0.013,
+    "hi": 0.401,
+    "totalR": 73.1,
+    "rPerYear": 9.088,
+    "maxDD": 23.4,
+    "streak": 11,
+    "pf": 1.288,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 85,
+      "avgR": 0.511
+     },
+     {
+      "label": "2021-2023",
+      "n": 133,
+      "avgR": 0.148
+     },
+     {
+      "label": "2024-2026",
+      "n": 140,
+      "avgR": 0.072
+     }
+    ]
+   },
+   "trail": {
+    "n": 386,
+    "win": 32.4,
+    "avgR": 0.237,
+    "lo": 0.015,
+    "hi": 0.464,
+    "totalR": 91.4,
+    "rPerYear": 11.36,
+    "maxDD": 30.3,
+    "streak": 11,
+    "pf": 1.392,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 92,
+      "avgR": 0.734
+     },
+     {
+      "label": "2021-2023",
+      "n": 148,
+      "avgR": -0.004
+     },
+     {
+      "label": "2024-2026",
+      "n": 146,
+      "avgR": 0.167
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 29,
+    "caughtPct": 85.3,
+    "medianHours": 939.7,
+    "medianUsedPct": 57.3
+   },
+   "beatShare": 98.8,
+   "medianLeadMin": 294,
+   "meanGainR": 0.24,
+   "confirmedPct": 71.4,
+   "diff": 0.07,
+   "diffLo": -0.01,
+   "diffHi": 0.164,
+   "pWorse": 0.0016,
+   "pHolm": 0.0208,
+   "tests": {
+    "faster": true,
+    "notWorse": true,
+    "everyPeriod": true,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": true,
+   "spread3": {
+    "n": 360,
+    "win": 31.4,
+    "avgR": 0.198,
+    "lo": 0.004,
+    "hi": 0.389,
+    "totalR": 71.2,
+    "rPerYear": 8.851,
+    "maxDD": 23.4,
+    "streak": 11,
+    "pf": 1.278,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 85,
+      "avgR": 0.511
+     },
+     {
+      "label": "2021-2023",
+      "n": 133,
+      "avgR": 0.148
+     },
+     {
+      "label": "2024-2026",
+      "n": 142,
+      "avgR": 0.057
+     }
+    ]
+   }
+  },
+  "A5": {
+   "id": "A5",
+   "name": "A2 改成挂在价位上的止损单",
+   "signals": 1938,
+   "r3": {
+    "n": 259,
+    "win": 30.5,
+    "avgR": 0.158,
+    "lo": -0.056,
+    "hi": 0.379,
+    "totalR": 40.8,
+    "rPerYear": 5.076,
+    "maxDD": 26.2,
+    "streak": 20,
+    "pf": 1.219,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 70,
+      "avgR": 0.558
+     },
+     {
+      "label": "2021-2023",
+      "n": 88,
+      "avgR": 0.082
+     },
+     {
+      "label": "2024-2026",
+      "n": 101,
+      "avgR": -0.054
+     }
+    ]
+   },
+   "trail": {
+    "n": 280,
+    "win": 33.9,
+    "avgR": 0.241,
+    "lo": -0.007,
+    "hi": 0.504,
+    "totalR": 67.5,
+    "rPerYear": 8.392,
+    "maxDD": 21.6,
+    "streak": 9,
+    "pf": 1.423,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 67,
+      "avgR": 0.851
+     },
+     {
+      "label": "2021-2023",
+      "n": 110,
+      "avgR": 0.098
+     },
+     {
+      "label": "2024-2026",
+      "n": 103,
+      "avgR": -0.003
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.2,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 87.5,
+   "medianLeadMin": 24,
+   "meanGainR": 0.099,
+   "confirmedPct": 96.7,
+   "diff": 0.024,
+   "diffLo": -0.019,
+   "diffHi": 0.067,
+   "pWorse": 0.0028,
+   "pHolm": 0.0308,
+   "tests": {
+    "faster": true,
+    "notWorse": true,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "B1": {
+   "id": "B1",
+   "name": "不等 15M",
+   "signals": 337,
+   "r3": {
+    "n": 224,
+    "win": 29.5,
+    "avgR": 0.118,
+    "lo": -0.108,
+    "hi": 0.357,
+    "totalR": 26.4,
+    "rPerYear": 3.288,
+    "maxDD": 21,
+    "streak": 17,
+    "pf": 1.162,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 58,
+      "avgR": 0.276
+     },
+     {
+      "label": "2021-2023",
+      "n": 79,
+      "avgR": 0.063
+     },
+     {
+      "label": "2024-2026",
+      "n": 87,
+      "avgR": 0.063
+     }
+    ]
+   },
+   "trail": {
+    "n": 246,
+    "win": 32.1,
+    "avgR": 0.163,
+    "lo": -0.09,
+    "hi": 0.427,
+    "totalR": 40.2,
+    "rPerYear": 4.996,
+    "maxDD": 16.6,
+    "streak": 9,
+    "pf": 1.271,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 58,
+      "avgR": 0.413
+     },
+     {
+      "label": "2021-2023",
+      "n": 99,
+      "avgR": 0.108
+     },
+     {
+      "label": "2024-2026",
+      "n": 89,
+      "avgR": 0.062
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 1.4,
+   "medianLeadMin": 150,
+   "meanGainR": 0.34,
+   "confirmedPct": 100,
+   "diff": -0.016,
+   "diffLo": -0.157,
+   "diffHi": 0.126,
+   "pWorse": 0.345,
+   "pHolm": 1,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": true,
+    "drawdown": true,
+    "perYear": false
+   },
+   "pass": false
+  },
+  "B2": {
+   "id": "B2",
+   "name": "不等 1H",
+   "signals": 1184,
+   "r3": {
+    "n": 255,
+    "win": 29,
+    "avgR": 0.098,
+    "lo": -0.115,
+    "hi": 0.317,
+    "totalR": 25,
+    "rPerYear": 3.106,
+    "maxDD": 26,
+    "streak": 16,
+    "pf": 1.133,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 66,
+      "avgR": 0.529
+     },
+     {
+      "label": "2021-2023",
+      "n": 93,
+      "avgR": 0.023
+     },
+     {
+      "label": "2024-2026",
+      "n": 96,
+      "avgR": -0.126
+     }
+    ]
+   },
+   "trail": {
+    "n": 299,
+    "win": 31.1,
+    "avgR": 0.152,
+    "lo": -0.082,
+    "hi": 0.392,
+    "totalR": 45.5,
+    "rPerYear": 5.657,
+    "maxDD": 34.7,
+    "streak": 13,
+    "pf": 1.26,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 64,
+      "avgR": 0.913
+     },
+     {
+      "label": "2021-2023",
+      "n": 118,
+      "avgR": -0.005
+     },
+     {
+      "label": "2024-2026",
+      "n": 117,
+      "avgR": -0.105
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 819.5,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 21.9,
+   "medianLeadMin": 720,
+   "meanGainR": 0.476,
+   "confirmedPct": 85.5,
+   "diff": -0.036,
+   "diffLo": -0.109,
+   "diffHi": 0.037,
+   "pWorse": 0.3768,
+   "pHolm": 1,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": false
+   },
+   "pass": false
+  },
+  "B3": {
+   "id": "B3",
+   "name": "不看周线",
+   "signals": 1624,
+   "r3": {
+    "n": 441,
+    "win": 31.7,
+    "avgR": 0.202,
+    "lo": 0.031,
+    "hi": 0.37,
+    "totalR": 89,
+    "rPerYear": 11.063,
+    "maxDD": 15.4,
+    "streak": 12,
+    "pf": 1.282,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 126,
+      "avgR": 0.373
+     },
+     {
+      "label": "2021-2023",
+      "n": 143,
+      "avgR": 0.135
+     },
+     {
+      "label": "2024-2026",
+      "n": 172,
+      "avgR": 0.131
+     }
+    ]
+   },
+   "trail": {
+    "n": 484,
+    "win": 33.5,
+    "avgR": 0.325,
+    "lo": 0.104,
+    "hi": 0.557,
+    "totalR": 157.5,
+    "rPerYear": 19.587,
+    "maxDD": 14.9,
+    "streak": 12,
+    "pf": 1.554,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 130,
+      "avgR": 0.68
+     },
+     {
+      "label": "2021-2023",
+      "n": 176,
+      "avgR": 0.126
+     },
+     {
+      "label": "2024-2026",
+      "n": 178,
+      "avgR": 0.264
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 33,
+    "caughtPct": 97.1,
+    "medianHours": 312,
+    "medianUsedPct": 37.1
+   },
+   "beatShare": 1.6,
+   "medianLeadMin": 2220,
+   "meanGainR": 0.711,
+   "confirmedPct": 57.1,
+   "diff": 0.068,
+   "diffLo": -0.046,
+   "diffHi": 0.182,
+   "pWorse": 0.0446,
+   "pHolm": 0.3568,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": true,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "B4": {
+   "id": "B4",
+   "name": "不看周线和日线",
+   "signals": 2770,
+   "r3": {
+    "n": 648,
+    "win": 30.1,
+    "avgR": 0.138,
+    "lo": 0.002,
+    "hi": 0.275,
+    "totalR": 89.5,
+    "rPerYear": 11.133,
+    "maxDD": 22.7,
+    "streak": 16,
+    "pf": 1.189,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 167,
+      "avgR": 0.212
+     },
+     {
+      "label": "2021-2023",
+      "n": 217,
+      "avgR": 0.081
+     },
+     {
+      "label": "2024-2026",
+      "n": 264,
+      "avgR": 0.139
+     }
+    ]
+   },
+   "trail": {
+    "n": 809,
+    "win": 31.6,
+    "avgR": 0.162,
+    "lo": 0.015,
+    "hi": 0.329,
+    "totalR": 131.4,
+    "rPerYear": 16.333,
+    "maxDD": 27,
+    "streak": 10,
+    "pf": 1.267,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 201,
+      "avgR": 0.486
+     },
+     {
+      "label": "2021-2023",
+      "n": 297,
+      "avgR": 0.01
+     },
+     {
+      "label": "2024-2026",
+      "n": 311,
+      "avgR": 0.099
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 34,
+    "caughtPct": 100,
+    "medianHours": 50,
+    "medianUsedPct": 12.5
+   },
+   "beatShare": 4.2,
+   "medianLeadMin": 2010,
+   "meanGainR": 1.402,
+   "confirmedPct": 33.8,
+   "diff": 0.004,
+   "diffLo": -0.172,
+   "diffHi": 0.201,
+   "pWorse": 0.346,
+   "pHolm": 1,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": true,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "C1": {
+   "id": "C1",
+   "name": "1H、15M 用 2 根摆动",
+   "signals": 1609,
+   "r3": {
+    "n": 272,
+    "win": 29.8,
+    "avgR": 0.133,
+    "lo": -0.088,
+    "hi": 0.35,
+    "totalR": 36.3,
+    "rPerYear": 4.51,
+    "maxDD": 28,
+    "streak": 17,
+    "pf": 1.183,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 78,
+      "avgR": 0.498
+     },
+     {
+      "label": "2021-2023",
+      "n": 97,
+      "avgR": 0.107
+     },
+     {
+      "label": "2024-2026",
+      "n": 97,
+      "avgR": -0.134
+     }
+    ]
+   },
+   "trail": {
+    "n": 287,
+    "win": 32.1,
+    "avgR": 0.182,
+    "lo": -0.052,
+    "hi": 0.42,
+    "totalR": 52.2,
+    "rPerYear": 6.494,
+    "maxDD": 30.8,
+    "streak": 10,
+    "pf": 1.309,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 62,
+      "avgR": 0.938
+     },
+     {
+      "label": "2021-2023",
+      "n": 119,
+      "avgR": 0.021
+     },
+     {
+      "label": "2024-2026",
+      "n": 106,
+      "avgR": -0.08
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 818.5,
+    "medianUsedPct": 59.3
+   },
+   "beatShare": 58.6,
+   "medianLeadMin": 847.5,
+   "meanGainR": 0.338,
+   "confirmedPct": 73.9,
+   "diff": -0.001,
+   "diffLo": -0.077,
+   "diffHi": 0.063,
+   "pWorse": 0.1368,
+   "pHolm": 0.9576,
+   "tests": {
+    "faster": true,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "C2": {
+   "id": "C2",
+   "name": "4H、1H、15M 用 2 根摆动",
+   "signals": 1703,
+   "r3": {
+    "n": 307,
+    "win": 28.7,
+    "avgR": 0.089,
+    "lo": -0.115,
+    "hi": 0.281,
+    "totalR": 27.2,
+    "rPerYear": 3.385,
+    "maxDD": 35.3,
+    "streak": 16,
+    "pf": 1.12,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 84,
+      "avgR": 0.39
+     },
+     {
+      "label": "2021-2023",
+      "n": 110,
+      "avgR": 0.156
+     },
+     {
+      "label": "2024-2026",
+      "n": 113,
+      "avgR": -0.201
+     }
+    ]
+   },
+   "trail": {
+    "n": 391,
+    "win": 29.2,
+    "avgR": 0.07,
+    "lo": -0.124,
+    "hi": 0.268,
+    "totalR": 27.2,
+    "rPerYear": 3.388,
+    "maxDD": 42.4,
+    "streak": 12,
+    "pf": 1.115,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 88,
+      "avgR": 0.612
+     },
+     {
+      "label": "2021-2023",
+      "n": 162,
+      "avgR": -0.009
+     },
+     {
+      "label": "2024-2026",
+      "n": 141,
+      "avgR": -0.178
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 836,
+    "medianUsedPct": 59.3
+   },
+   "beatShare": 57,
+   "medianLeadMin": 960,
+   "meanGainR": 0.4,
+   "confirmedPct": 62.9,
+   "diff": -0.045,
+   "diffLo": -0.178,
+   "diffHi": 0.074,
+   "pWorse": 0.473,
+   "pHolm": 1,
+   "tests": {
+    "faster": true,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": false,
+    "perYear": false
+   },
+   "pass": false
+  },
+  "C3": {
+   "id": "C3",
+   "name": "1H、15M 用 3 根摆动",
+   "signals": 1239,
+   "r3": {
+    "n": 261,
+    "win": 30.7,
+    "avgR": 0.165,
+    "lo": -0.04,
+    "hi": 0.38,
+    "totalR": 43,
+    "rPerYear": 5.346,
+    "maxDD": 26.1,
+    "streak": 17,
+    "pf": 1.229,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 69,
+      "avgR": 0.58
+     },
+     {
+      "label": "2021-2023",
+      "n": 95,
+      "avgR": 0.131
+     },
+     {
+      "label": "2024-2026",
+      "n": 97,
+      "avgR": -0.098
+     }
+    ]
+   },
+   "trail": {
+    "n": 282,
+    "win": 31.9,
+    "avgR": 0.21,
+    "lo": -0.032,
+    "hi": 0.453,
+    "totalR": 59.3,
+    "rPerYear": 7.375,
+    "maxDD": 25.7,
+    "streak": 11,
+    "pf": 1.361,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 63,
+      "avgR": 0.911
+     },
+     {
+      "label": "2021-2023",
+      "n": 116,
+      "avgR": 0.054
+     },
+     {
+      "label": "2024-2026",
+      "n": 103,
+      "avgR": -0.042
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 42.1,
+   "medianLeadMin": 765,
+   "meanGainR": 0.331,
+   "confirmedPct": 80.9,
+   "diff": 0.031,
+   "diffLo": -0.034,
+   "diffHi": 0.091,
+   "pWorse": 0.0204,
+   "pHolm": 0.1836,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": true,
+    "perYear": true
+   },
+   "pass": false
+  },
+  "C4": {
+   "id": "C4",
+   "name": "4H、1H、15M 用 3 根摆动",
+   "signals": 1261,
+   "r3": {
+    "n": 300,
+    "win": 28.3,
+    "avgR": 0.08,
+    "lo": -0.118,
+    "hi": 0.276,
+    "totalR": 24,
+    "rPerYear": 2.98,
+    "maxDD": 38.9,
+    "streak": 21,
+    "pf": 1.108,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 74,
+      "avgR": 0.473
+     },
+     {
+      "label": "2021-2023",
+      "n": 112,
+      "avgR": 0.101
+     },
+     {
+      "label": "2024-2026",
+      "n": 114,
+      "avgR": -0.196
+     }
+    ]
+   },
+   "trail": {
+    "n": 330,
+    "win": 30.6,
+    "avgR": 0.159,
+    "lo": -0.067,
+    "hi": 0.393,
+    "totalR": 52.5,
+    "rPerYear": 6.527,
+    "maxDD": 34.3,
+    "streak": 13,
+    "pf": 1.268,
+    "seg": [
+     {
+      "label": "2018-2020",
+      "n": 73,
+      "avgR": 0.882
+     },
+     {
+      "label": "2021-2023",
+      "n": 142,
+      "avgR": 0.02
+     },
+     {
+      "label": "2024-2026",
+      "n": 115,
+      "avgR": -0.129
+     }
+    ]
+   },
+   "capture": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "beatShare": 41.8,
+   "medianLeadMin": 840,
+   "meanGainR": 0.372,
+   "confirmedPct": 71.5,
+   "diff": -0.054,
+   "diffLo": -0.151,
+   "diffHi": 0.037,
+   "pWorse": 0.5114,
+   "pHolm": 1,
+   "tests": {
+    "faster": false,
+    "notWorse": false,
+    "everyPeriod": false,
+    "drawdown": false,
+    "perYear": false
+   },
+   "pass": false
+  }
+ },
+ "passed": [
+  "A4"
+ ],
+ "exploratory": {
+  "note": "after the results were seen; cannot pass or fail a version",
+  "nearest": {
+   "A1": {
+    "beatPct": 74.1,
+    "medianMin": 7,
+    "meanGainR": 0.09
+   },
+   "A2": {
+    "beatPct": 86.6,
+    "medianMin": 8,
+    "meanGainR": 0.087
+   },
+   "A3": {
+    "beatPct": 95.9,
+    "medianMin": 9,
+    "meanGainR": 0.106
+   },
+   "A4": {
+    "beatPct": 98.8,
+    "medianMin": 9,
+    "meanGainR": 0.116
+   },
+   "A5": {
+    "beatPct": 87.5,
+    "medianMin": 17,
+    "meanGainR": 0.115
+   },
+   "B1": {
+    "beatPct": 1.4,
+    "medianMin": 150,
+    "meanGainR": 0.34
+   },
+   "B2": {
+    "beatPct": 21.9,
+    "medianMin": 210,
+    "meanGainR": 0.485
+   },
+   "B3": {
+    "beatPct": 1.6,
+    "medianMin": 615,
+    "meanGainR": 0.415
+   },
+   "B4": {
+    "beatPct": 4.2,
+    "medianMin": 660,
+    "meanGainR": 1.009
+   },
+   "C1": {
+    "beatPct": 58.6,
+    "medianMin": 330,
+    "meanGainR": 0.197
+   },
+   "C2": {
+    "beatPct": 57,
+    "medianMin": 367.5,
+    "meanGainR": 0.217
+   },
+   "C3": {
+    "beatPct": 42.1,
+    "medianMin": 375,
+    "meanGainR": 0.238
+   },
+   "C4": {
+    "beatPct": 41.8,
+    "medianMin": 420,
+    "meanGainR": 0.255
+   }
+  },
+  "noRefire": {
+   "A1x": {
+    "signals": 1632,
+    "r3": {
+     "n": 252,
+     "win": 30.2,
+     "avgR": 0.144,
+     "lo": -0.066,
+     "hi": 0.359,
+     "totalR": 36.2,
+     "rPerYear": 4.501,
+     "maxDD": 28.2,
+     "streak": 20,
+     "pf": 1.198,
+     "seg": [
+      {
+       "label": "2018-2020",
+       "n": 69,
+       "avgR": 0.582
+      },
+      {
+       "label": "2021-2023",
+       "n": 83,
+       "avgR": 0.1
+      },
+      {
+       "label": "2024-2026",
+       "n": 100,
+       "avgR": -0.123
+      }
+     ]
+    }
+   },
+   "A2x": {
+    "signals": 2086,
+    "r3": {
+     "n": 256,
+     "win": 30.1,
+     "avgR": 0.14,
+     "lo": -0.081,
+     "hi": 0.363,
+     "totalR": 35.8,
+     "rPerYear": 4.447,
+     "maxDD": 28.2,
+     "streak": 21,
+     "pf": 1.192,
+     "seg": [
+      {
+       "label": "2018-2020",
+       "n": 70,
+       "avgR": 0.558
+      },
+      {
+       "label": "2021-2023",
+       "n": 88,
+       "avgR": 0.082
+      },
+      {
+       "label": "2024-2026",
+       "n": 98,
+       "avgR": -0.107
+      }
+     ]
+    }
+   }
+  },
+  "costs": {
+   "baseSpread3": 0.107,
+   "a5Spread3": 0.138,
+   "a5Slip1": {
+    "avgR": 0.153,
+    "rPerYear": 4.952,
+    "maxDD": 27.2
+   },
+   "a5Slip2": {
+    "avgR": 0.158,
+    "rPerYear": 5.085,
+    "maxDD": 27.2
+   },
+   "a5Slip3": {
+    "avgR": 0.158,
+    "rPerYear": 5.085,
+    "maxDD": 27.2
+   },
+   "a5Slip5": {
+    "avgR": 0.162,
+    "rPerYear": 5.21,
+    "maxDD": 27.2
+   }
+  },
+  "orderMoves": {
+   "perDay": 5.3,
+   "medianHoursLevelStays": 3.3,
+   "waitingSharePct": 19
+  },
+  "b3": {
+   "trail": {
+    "base": {
+     "n": 281,
+     "avgR": 0.176,
+     "rPerYear": 6.149,
+     "maxDD": 25.9
+    },
+    "b3": {
+     "n": 484,
+     "avgR": 0.325,
+     "rPerYear": 19.587,
+     "maxDD": 14.9,
+     "seg": [
+      0.68,
+      0.126,
+      0.264
+     ]
+    }
+   },
+   "spread3": 0.176,
+   "long": {
+    "n": 256,
+    "avgR": 0.317
+   },
+   "short": {
+    "n": 185,
+    "avgR": 0.042
+   },
+   "baseLong": {
+    "n": 161,
+    "avgR": 0.243
+   },
+   "baseShort": {
+    "n": 93,
+    "avgR": -0.053
+   },
+   "losingYears": {
+    "base": 2,
+    "b3": 3
+   },
+   "moreRPct": 99.9,
+   "years": [
+    {
+     "y": 2018,
+     "base": 1.7,
+     "b3": -3.7
+    },
+    {
+     "y": 2019,
+     "base": 14.7,
+     "b3": 18
+    },
+    {
+     "y": 2020,
+     "base": 21.7,
+     "b3": 32.7
+    },
+    {
+     "y": 2021,
+     "base": 4,
+     "b3": 7.9
+    },
+    {
+     "y": 2022,
+     "base": -7.4,
+     "b3": -5.1
+    },
+    {
+     "y": 2023,
+     "base": 7.8,
+     "b3": 16.6
+    },
+    {
+     "y": 2024,
+     "base": 9.5,
+     "b3": 14
+    },
+    {
+     "y": 2025,
+     "base": -19.4,
+     "b3": -6.2
+    },
+    {
+     "y": 2026,
+     "base": 1.6,
+     "b3": 14.8
+    }
+   ]
+  },
+  "captures": {
+   "A1": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "A2": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.3,
+    "medianUsedPct": 58.7
+   },
+   "A3": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.3,
+    "medianUsedPct": 58.7
+   },
+   "A4": {
+    "legs": 34,
+    "caught": 29,
+    "caughtPct": 85.3,
+    "medianHours": 939.7,
+    "medianUsedPct": 57.3
+   },
+   "A5": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.2,
+    "medianUsedPct": 58.7
+   },
+   "B1": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "B2": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 819.5,
+    "medianUsedPct": 58.7
+   },
+   "B3": {
+    "legs": 34,
+    "caught": 33,
+    "caughtPct": 97.1,
+    "medianHours": 312,
+    "medianUsedPct": 37.1
+   },
+   "B4": {
+    "legs": 34,
+    "caught": 34,
+    "caughtPct": 100,
+    "medianHours": 50,
+    "medianUsedPct": 12.5
+   },
+   "C1": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 818.5,
+    "medianUsedPct": 59.3
+   },
+   "C2": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 836,
+    "medianUsedPct": 59.3
+   },
+   "C3": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   },
+   "C4": {
+    "legs": 34,
+    "caught": 22,
+    "caughtPct": 64.7,
+    "medianHours": 828.5,
+    "medianUsedPct": 58.7
+   }
+  }
+ }
+}

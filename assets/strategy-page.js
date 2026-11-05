@@ -24,8 +24,8 @@
   // green only where there is an edge: the "no edge" table shows losses in red and the rest plain
   function cellR(v, extra, plain) { return h("td", { class: "n " + (v > 0 && !plain ? "up" : v < 0 ? "dn" : "") }, [R(v), extra ? h("small", { text: extra }) : null]); }
 
-  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json"), get("research/xau-replay/speed-result.json")]).then(function (res) {
-    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4], sp = res[5];
+  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json"), get("research/xau-replay/speed-result.json"), get("research/xau-replay/speed-result-btc.json"), get("research/forex/speed-result.json")]).then(function (res) {
+    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4], sp = res[5], spB = res[6], spF = res[7];
     if (!bt || !bt.rules || !bt.rules.go3r) { $("pf-main").textContent = "回放结果读取失败，刷新一下再试。"; return; }
     var g = bt.rules.go3r, t = bt.rules.gotrail, pr = bt.proof || {};
     // ---- the evidence ----
@@ -83,7 +83,9 @@
     if (fe && fe.A2) rowTxt("外汇：欧美时段规律（EUR/USD 欧洲时段做空、美国时段做多）", fe.A2.avgBp, bp(fe.A2.avgBp) + " / 天", "扣点差前 " + bp(fe.A2.grossBp) + "，不够付点差");
     if (fe && fe.A3) rowTxt("外汇：每月买最强、卖最弱的货币", fe.A3.avgPct, (fe.A3.avgPct >= 0 ? "+" : "−") + Math.abs(fe.A3.avgPct).toFixed(2) + "% / 月", fe.A3.months + " 个月");
     if (fe && fe.B1) row("外汇：伦敦开盘突破（亚洲盘区间）", fe.B1.avgR, fe.B1.n, "11 个货币对只有 " + fe.B1.positive + " 个是正的");
+    if (spF && spF.versions && spF.versions.pre4h) row("外汇：更快的版本里最好的（4 小时不等收盘）", spF.versions.pre4h.avgR, spF.versions.pre4h.n, "不看周线 " + R(spF.versions.noW.avgR) + "，连日线也不看 " + R(spF.versions.noWD.avgR) + "，全部亏损");
     if (btc && btc.rules && btc.rules.go3r) row("同一规则用在比特币", btc.rules.go3r.avgR, btc.rules.go3r.n, "范围 " + R(btc.rules.go3r.lo) + " 到 " + R(btc.rules.go3r.hi) + "，含零：只作观察");
+    if (spB && spB.versions && V) row("比特币：五个周期都不等收盘", spB.versions.A4.r3.avgR, spB.versions.A4.r3.n, "13 个更快的版本里只有它过了预设标准，但同样做法在黄金只有 " + R(V.A4.r3.avgR) + "，比特币规则本身也没被证明，所以不改");
     if (Q.long) row("对照：不看任何条件，一直做多黄金", Q.long.avgR, Q.long.n, "说明规则赚的不只是金价上涨");
     table($("no-tab"), ["做法", "回放平均每笔"], rows);
     if (own) $("pat-num").textContent = "回放里形态本身没有优势：按形态自己的价位做，" + own.n.toLocaleString("en-US") + " 个 1 小时形态胜率 " + pct(own.win) + "，平均每笔 " + R(own.avgR) + "。";

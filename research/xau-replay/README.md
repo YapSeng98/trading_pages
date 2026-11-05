@@ -214,6 +214,24 @@ small two (`XauPlan.soonNeed`); the answer no longer waits for slow price quotes
 to 1.9 s with the quotes slowed to 30 s); the home tile and live bar state the age of the verdict in `data/xau-state.json`
 (median 4.5 hours between runs, on 2026-11-05). `strategy.html` quotes `speed-result.json`.
 
+**Bitcoin** (`MARKET=btc`, `speed-result-btc.json`, reproduces 254 trades, +0.134R, 28.2R first). Information only, as
+written down before the run. Being late shows no pattern: +0.11R to +0.18R from 2 minutes to 8 hours. One version passed:
+A4, all five timeframes before their close, 358 trades, +0.204R, worst fall 23.4R. Nothing changes on the page, because
+the same version was fourth from the bottom of the 13 on gold (+0.09R), and one pass in 13 on a market whose rule is
+itself unproven may be chance. No weekly failed the marks again (+0.202R, 441 trades, 15.4R, but raw 0.045 against the
+0.10 / 13 for "not worse", and "faster" by the 48-hour measure); on big moves it has 97% of legs at 37% used against the
+rule's 65% and 59%, and with the trailing exit 19.6R a year against 6.1R.
+
+**Forex** (`../forex/fx_speed.js`, `../forex/speed-result.json`, reproduces 688 trades, −0.071R first). Every version
+loses and none passes: no weekly −0.10R, no weekly or daily −0.12R, the 4-hour before its close −0.03R, late by 1, 2, 4
+and 8 hours −0.08R, −0.03R, −0.02R and −0.10R, with 1 to 4 pairs of 11 positive. So no weekly helped on gold and Bitcoin
+and hurt on forex, where the rule has no edge to begin with.
+
+Same delivery fixes on all three: `forex.html` looks again a minute after a candle published late or a pair that failed
+(it waited for the next quarter hour) and gives the early word from each 15-minute close, the soonest it can, since it
+has no live forex price; candle requests for Bitcoin and for gold's backup have a 20-second limit, so a stall ends in the
+retry banner; the home page's Bitcoin tile states its verdict's age.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.
