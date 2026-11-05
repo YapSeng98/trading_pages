@@ -168,7 +168,11 @@ var XauFeed = (function () {
   function loadSpot(nowMs) { return loadBars(cache, "XAU/USD", NEED, 2000, undefined, nowMs); }
 
   // ---------- source 2: PAXG on Binance, moved onto the spot price ----------
-  function getJson(url) { return fetch(url, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }); }
+  function getJson(url) {                                                        // with a time limit, like the spot feed: a stalled backup must not hold the answer
+    var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 20000);
+    return fetch(url, { cache: "no-store", signal: ctl.signal }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error("备用行情 20 秒没有回应") : e; });
+  }
   function spotNow() { return getJson(SPOT).then(function (d) { var p = d && +d.price; return isFinite(p) && p > 0 ? p : null; }).catch(function () { return null; }); }
   // Candles from Binance klines (4h and 1d asked for in broker time), shifted by the gap to the spot quote.
   function paxgCandles(m15, h1, h4, d1, spot, nowMs, why) {

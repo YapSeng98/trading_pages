@@ -12,9 +12,11 @@ var BtcFeed = (function () {
   var LIM = { W: 400, D: 700, "4H": 900, "1H": 900, "15M": 900 };           // a little over what the engine reads
   var cache = null;
   function kl(iv, limit) {
-    return fetch(API + "&interval=" + iv + "&limit=" + limit, { cache: "no-store" }).then(function (r) {
+    // a stalled request must end in an error the page can show and retry, not in an answer that never comes
+    var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 20000);
+    return fetch(API + "&interval=" + iv + "&limit=" + limit, { cache: "no-store", signal: ctl.signal }).then(function (r) {
       if (!r.ok) throw new Error("币安行情 " + r.status); return r.json();
-    });
+    }).then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error("币安 20 秒没有回应") : e; });
   }
   function done(rows, nowMs) {
     return (rows || []).filter(function (x) { return x[6] < nowMs; }).map(function (x) { return [x[0], +x[1], +x[2], +x[3], +x[4], +x[5], x[6]]; });

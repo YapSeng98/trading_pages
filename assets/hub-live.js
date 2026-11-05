@@ -140,7 +140,8 @@
     get("data/btc-state.json").then(function (b) {
       if (!b || !b.verdict) return;
       var arrows = (b.timeframes || []).map(function (t) { return (t.name || t.tf).replace(" ", "") + (t.trend === "向上" ? "↑" : t.trend === "向下" ? "↓" : "–"); }).join(" ");
-      chips("hub-btc-chips", [[b.verdict.level === "go" ? "bull" : "gold", "结论：" + b.verdict.tag + " · " + arrows]]);
+      var at = Date.parse(String(b.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (Date.now() - at) / 3600000 : 0;   // written by the same late job as gold's file
+      chips("hub-btc-chips", [[b.verdict.level === "go" ? "bull" : "gold", "结论" + (ageH >= 1 ? "（" + Math.round(ageH) + " 小时前）" : "") + "：" + b.verdict.tag + " · " + arrows]]);
     }).catch(function () {});
     fetch("https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) {
       var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) set("hub-btc-price", "$" + fmt(p, 0));

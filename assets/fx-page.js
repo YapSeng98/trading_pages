@@ -94,6 +94,10 @@
         return { to: to, steps: steps, ok: steps.every(function (s) { return s.price !== null; }), far: steps.reduce(function (m, s) { return s.price === null ? m : Math.max(m, Math.abs(s.price - feed.price)); }, 0) };
       }).filter(function (w) { return w.ok && w.steps.length; }).sort(function (a, b) { return a.far - b.far; });
     }
+    // the early word: this close already stands beyond every close still needed for all five to agree. This page sees
+    // prices only at 15-minute closes (no live forex feed, no extra requests), so a close is the soonest it can say so.
+    var sn = P.soonNeed(E, E.price);
+    out.soon = sn ? { dir: sn.dir, tf: sn.tf, need: sn.need.map(function (g) { return { tf: g.tf, price: un(g.p) }; }) } : null;
     out.state = R.full ? (R.dir > 0 ? "buy" : "sell") : R.dir ? "ready" : "none";
     // chart patterns, as on the gold page: finished ones on the daily, 4-hour and 1-hour charts, and any still forming
     out.pats = P.patternsNow(E);
@@ -130,6 +134,9 @@
       strip.appendChild(h("span", { text: "这不等于没有信号。点“⟳ 刷新”再试；页面开着，下一根 15 分钟 K 线收盘后也会自动再读。" }));
     } else strip.appendChild(h("span", { text: "读取中…" }));
     if (n.err && n.err < list.length && done > n.err) strip.appendChild(h("span", { class: "fx-wait", text: "另有 " + n.err + " 个没读到，上面这句不包括它们：" + list.filter(function (r) { return r.state === "err"; }).map(function (r) { return r.p.i; }).join("、") + "。" }));
+    var soon = list.filter(function (r) { return r.soon && r.state !== "err"; });
+    if (soon.length) strip.appendChild(h("span", { class: "fx-wait", text: "⏳ 最新收盘已到位、只等大周期收盘的（还不是信号）：" + soon.map(function (r) { return r.p.i + (r.soon.dir > 0 ? "（买入）" : "（卖出）"); }).join("、") + "。" }));
+    if (done > n.err && (ready.length || soon.length)) strip.appendChild(h("span", { class: "fx-wait", text: "这页只在每根 15 分钟 K 线收盘后看一次价格。想更早知道，可以在 MT5 给卡片上的价位设价格提醒；外汇回放里不赚钱，只作参考。" }));
     if (done && done < list.length) strip.appendChild(h("span", { class: "fx-wait", text: "还在读 " + (list.length - done) + " 个…" }));
     var box = $("fx-list"); while (box.firstChild) box.removeChild(box.firstChild);
     [["live", "有信号（回放里不赚钱）"], ["ready", "大方向一致 · 等小周期"], ["none", "方向不一致 · 先不做"], [null, "读取中 / 读取失败"]].forEach(function (g) {
@@ -164,6 +171,7 @@
       line = "周线" + way(r.dirs.W) + "、日线" + way(r.dirs.D) + "、4 小时" + way(r.dirs["4H"]) + "，不一致。" + (w ? "最近的一步：" + w.steps.map(function (s) { return TFN[s.tf] + "收盘" + (w.to > 0 ? "站上 " : "跌破 ") + px(p, s.price); }).join("、") + " → 三个大周期同向" + way(w.to) + "。" : "");
     }
     if (line) el.appendChild(h("p", { class: "fx-l", text: line }));
+    if (r.soon) el.appendChild(h("p", { class: "fx-l", text: soonLine(r) }));
     if (r.state !== "none") { var pl = patLine(r); if (pl) el.appendChild(pl); }
     var foot = [];
     if (r.dir && r.since3) foot.push("大方向已持续 " + Math.max(0, Math.round((Date.now() - r.since3) / 86400000)) + " 天");
@@ -172,6 +180,11 @@
     foot.push("K 线到 " + sgt(r.at));
     el.appendChild(h("p", { class: "fx-f", text: foot.join(" · ") }));
     return el;
+  }
+  var TF_SEC = { W: 604800, D: 86400, "4H": 14400, "1H": 3600, "15M": 900 };
+  function soonLine(r) {
+    var o = r.soon, buy = o.dir > 0, p = r.p, end = (F.bucket(Date.now() / 1000, o.tf) + TF_SEC[o.tf]) * 1000;
+    return "⏳ 最新收盘已到位：" + o.need.map(function (g) { return TFN[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + px(p, g.price); }).join("、") + " → " + (buy ? "买入" : "卖出") + "信号。" + (o.tf === "W" ? "本周收盘" : sgt(end) + " 收盘") + "时还在才算，现在还不是信号。";
   }
   // A pair you can trade now: which way, the three prices, and a plan to copy into MT5.
   function action(r) {
@@ -228,7 +241,7 @@
 
   // ---------- loading: two pairs at a time; newest bars only after the first load ----------
   function scan() {
-    if (S.busy) return; S.busy = true; S.lastQ = Math.floor((Date.now() - 25000) / 900000);
+    if (S.busy) return; S.busy = true; S.lastTry = Date.now(); S.lastQ = Math.floor((Date.now() - 25000) / 900000);
     $("fx-stamp").textContent = "正在读取 " + PAIRS.length + " 个市场…";
     var queue = PAIRS.slice(), running = 0;
     return new Promise(function (done) {
@@ -249,7 +262,14 @@
   // ---------- alerts: a new buy / sell signal on any pair, only when switched on ----------
   function alerts() {
     var keys = {}; PAIRS.forEach(function (p) { var r = S.res[p.i]; if (r && (r.state === "buy" || r.state === "sell")) keys[p.i] = r.state + ":" + (r.since5 || ""); });
-    if (S.base === null) { S.base = keys; return; }                             // what the page opened with is already on screen
+    var opening = S.base === null;
+    PAIRS.forEach(function (p) {                                                // the early word, once per deciding candle
+      var r = S.res[p.i], o = r && r.soon; if (!o || r.state === "err") return;
+      var key = o.dir + ":" + o.tf + ":" + F.bucket(Date.now() / 1000, o.tf), sent = ls.get("sentSoon", {}); if (sent[p.i] === key) return; sent[p.i] = key; ls.set("sentSoon", sent);
+      if (opening || !S.notify || !("Notification" in window) || Notification.permission !== "granted") return;
+      try { new Notification("⏳ " + p.i + " · 可能出" + (o.dir > 0 ? "买入" : "卖出") + "信号（回放不赚钱）", { body: soonLine(r), tag: "fx-soon-" + p.i, renotify: true }); } catch (e) {}
+    });
+    if (opening) { S.base = keys; return; }                                     // what the page opened with is already on screen
     PAIRS.forEach(function (p) {
       var key = keys[p.i]; if (!key || S.base[p.i] === key) return;
       S.base[p.i] = key;
@@ -303,10 +323,18 @@
       " " + t.map(function (x) { return x[0] + "（" + x[1] + (x[2] ? "，通过" : "") + "）"; }).join("、") + "。"]));
   });
   renderAlert(); render(); scan();
-  // after every 15-minute close (+25 s for the feed); while hidden only when alerts are on
+  // after every 15-minute close (+25 s for the feed); while hidden only when alerts are on. If the feed has not published
+  // that candle yet, or a pair failed, look again a minute later, three times at most, as the gold page does: before,
+  // a candle published late waited for the next quarter hour.
+  var qSeen = null, qTries = 0;
   setInterval(function () {
-    var q = Math.floor((Date.now() - 25000) / 900000);
-    if (q !== S.lastQ && (document.visibilityState === "visible" || S.notify)) scan();
-  }, 30000);
+    if (document.visibilityState !== "visible" && !S.notify) return;
+    var now = Date.now(), q = Math.floor((now - 25000) / 900000);
+    if (q !== qSeen) { qSeen = q; qTries = 0; }
+    if (q !== S.lastQ) { scan(); return; }
+    if (S.busy || now - S.lastTry < 55000 || qTries >= 3 || F.closed(now / 1000)) return;
+    var behind = PAIRS.some(function (p) { var r = S.res[p.i]; return !r || r.state === "err" || !r.at || r.at < q * 900000; });
+    if (behind) { qTries++; scan(); }
+  }, 20000);
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && Math.floor((Date.now() - 25000) / 900000) !== S.lastQ) scan(); });
 })();
