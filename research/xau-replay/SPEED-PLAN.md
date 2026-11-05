@@ -83,6 +83,21 @@ on Bitcoin.
 Part 1 and 2 cannot change the rule by themselves. Anything else tried after seeing these results gets called
 exploratory, in the same write-up.
 
+## Bitcoin and forex (added 2026-11-05 after gold's result, before running either)
+
+Owner: "make sure gold, bitcoin and forex also". Neither market has seen these versions, but gold's results were known
+when this was written, so what gold showed cannot be re-chosen here.
+
+Bitcoin: the same 13 versions and pass marks, on the costs and periods of `report_btc.js` (spread 3 bp, financing 15% a
+year on both sides; 2018-2020, 2021-2023, 2024-2026), drawdown limit = its baseline's + 25%. It must first reproduce
+`data/btc-backtest.json`. A pass changes nothing on the page: Bitcoin is observe-only because its rule is unproven.
+
+Forex: `research/forex` has hourly bars only, 2024-04 to 2026-10, so the baseline is the four-timeframe version (W, D,
+4H, 1H) with the costs in `fx_test.js`, which it must first reproduce (688 trades, −0.07R). Tested together on the 11
+pairs: no weekly (D, 4H, 1H), no weekly or daily (4H, 1H), the 4-hour counted at the first hourly close beyond its
+level, and the baseline entered 1, 2, 4 and 8 hours late. Pass mark as in forex round 1: average above 0, p < 0.05,
+at least 7 of 11 pairs positive. Nothing that loses goes on the page as a reason to trade.
+
 ## Delivery delay (no replay needed)
 
 Measured from the code and the commit log, reported beside the above: the answer on `report.html` after a close, an

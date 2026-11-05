@@ -4,10 +4,11 @@
 // usage: node speed_states.js <y0> <y1>            -> data/speed_states.bin (the page's swing lengths)
 //        SWING=3 node speed_states.js <y0> <y1>    -> data/speed_states_s3.bin (4H, 1H, 15M on 3-bar swings)
 const L = require("./lib"), fs = require("fs");
-const [y0s, y1s] = process.argv.slice(2), y0 = +y0s, y1 = +y1s, SW = +process.env.SWING || 0, tag = SW ? "speed_states_s" + SW : "speed_states";
+//        MARKET=btc node speed_states.js 2017 2026 -> data/speed_states_btc.bin (Bitcoin: UTC candles, no minute skipped)
+const [y0s, y1s] = process.argv.slice(2), y0 = +y0s, y1 = +y1s, SW = +process.env.SWING || 0, BTC = process.env.MARKET === "btc", tag = "speed_states" + (BTC ? "_btc" : "") + (SW ? "_s" + SW : "");
 const ctx = L.loadEngine(L.REPO + "/assets/xau-engine.js");
 ctx.xPatterns = () => []; ctx.xFvgs = () => [];
-const B = L.source("duk", y0, y1), skip = L.spotClosed, align = "ny";
+const B = L.source(BTC ? "btc" : "duk", y0, y1), skip = BTC ? null : L.spotClosed, align = BTC ? "utc" : "ny";
 const TFS = ctx.XAU_TFS.map(c => Object.assign({}, c, { bars: 0 }, SW && ["4H", "1H", "15M"].includes(c.tf) ? { swing: SW } : {}));
 const K = {}, ptr = {}, res = {};
 TFS.forEach(c => { K[c.tf] = L.aggregate(B, c.tf, align, skip); ptr[c.tf] = 0; res[c.tf] = { tf: c.tf, error: "no data" }; });
@@ -37,7 +38,7 @@ const out = new Float64Array(rows.length * COLS); rows.forEach((r, i) => out.set
 fs.writeFileSync(L.DATA + "/" + tag + ".bin", Buffer.from(out.buffer));
 console.log("wrote", tag, "rows", rows.length, ((Date.now() - t0) / 1000).toFixed(0) + "s");
 if (!SW) {                                                       // the stubs must not have changed a single trend
-  const b = fs.readFileSync(L.DATA + "/states_full.bin"), a = new Float64Array(b.buffer.slice(b.byteOffset, b.byteOffset + b.length)), n = a.length / 40; let bad = 0, cmp = 0, j = 0;
+  const b = fs.readFileSync(L.DATA + "/states_" + (BTC ? "btc" : "full") + ".bin"), a = new Float64Array(b.buffer.slice(b.byteOffset, b.byteOffset + b.length)), n = a.length / 40; let bad = 0, cmp = 0, j = 0;
   for (let i = 0; i < n; i++) { const T = a[i * 40]; while (j < rows.length && rows[j][0] < T) j++; if (j >= rows.length || rows[j][0] !== T) { bad++; continue; } cmp++; for (let q = 1; q <= 5; q++) { const u = a[i * 40 + q], v = rows[j][q]; if (!(u === v || (Number.isNaN(u) && Number.isNaN(v)))) { bad++; break; } } }
   console.log("trend check against states_full.bin: rows compared", cmp, "different", bad);
 }
