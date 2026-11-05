@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05 21:33 SGT",
+ "updated": "2026-11-06 00:43 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
-   "t": "Gold stalls below $4,150 as US Dollar regains ground, US jobs data in focus",
+   "t": "Gold and Silver Trim Post-Midterms Rebound as AI Tech Stocks Slump",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUFZEY3RNT0Qxd0xyeTB6SlB5ZXZRSnBZMTFWUXd6M1AwVEZvNDFnclczeGUxRWZuWS1TQmotMVhpUm1nUU0tdHpwMy12dUhRa0FzVERza3h6aWFDNG5hQ3ZQQkxSU0YwSllSMHpXMFR2VUhGaUtnNUlwUVNmc19IdFVNSjBicUN6LU1HLXI5bDdFX2pFY0dHdUxmRQ?oc=5",
+   "ms": 1793896160000,
+   "time": "11/06 00:29"
+  },
+  {
+   "t": "The price of gold today, Nov. 5, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5wVDN1ZXVpUlRya3I2RURyMzdFd3NpdXd5VFhDOVlrNXZEYXZ5TmxNbHJWaGM3UDFHTVlNaThoWGJpQ3kzNHlZTXdRMmZ2bVhzRjhUamtyTG53M1NraDJ4a1Z2NjlKQWxZMF9mTTZQV23SAXZBVV95cUxOYUJMcHY2T1JJd1puTGJIYjJIRzB1OWFTZ1hXNXBySmNiMnlZSFN4S1FwQzliM2NTUnZOeTFFcS15UHRXNWhubnJHWlV2aGRyTnNiLVlTbE5kY240bnUzQ210QjBvYWtTaHZ1V2dtSDVNVVBZc2t3?oc=5",
+   "ms": 1793891201000,
+   "time": "11/05 23:06"
+  },
+  {
+   "t": "AngloGold to invest $900 million in mine expansions",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMnJyRzlhdHZMTlQyOEhyNUZRajg1Rkg4anhpZmM1UGhMNEkyTDlUZDgwNjhZdnhSaEdTWVNYS1d3LUw5bHVHVTBpVk5QWHZyMkJtZjFIejdqc0dtMGhMRi0wUjN6aUxWcW1OSTdWcmppOFEyOUdZT1I0Qmg4RTVGOHJ4bGw2Y1lmX0lHYjRpeml2c3VQUnBqMg?oc=5",
+   "ms": 1793888865000,
+   "time": "11/05 22:27"
+  },
+  {
+   "t": "Gold prices today, Thursday, November 5, 2026: Did one of 2026's worst assets just get a boost?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOTGVHTnl0Y3ZuczE2NDMtZUVNNDVFMUZEWjlJYkp3Tk4yQzRLdlVYQmlTUGFqRVVuLTU3U01mXzlDNWV1VlhZQVN0bFNlcUw1SkpsTGVlVkJ1Mzk2ZkthOXZ1VkxpNHBWZ1RYYmliWmFvbnRPQzVPeFlDNmNXVF85TzdYaTJZY2F1Vy1idzlxakRWcmpqWWpKdmhaMjR1Qi12ZWJkUXhUVUtFUnY3NWMxelZJZDBxTS1ESWFzc3NyTTVmUlRZSEpWX2lldXcybkVXRGRncFVUUW51OC1PMEFHMF8waDhwNnNBa2UtYmU3RVJyREJBY1hfNQ?oc=5",
+   "ms": 1793888642000,
+   "time": "11/05 22:24"
+  },
+  {
+   "t": "Current price of gold as of November 5, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9zVDZMd2tLZE1UZnc1cUNtNEI2eU5pcnUzRHVJUjF0WDFPclpfS0lVS1N4YmJPY2dzdUZZZGZ5U3A4TUpSU0Z6YzBEV2pQLUJMUC0xSnAtSGFTdHhoVS00Sng3QjNoMTc0V0poSFln?oc=5",
+   "ms": 1793888040000,
+   "time": "11/05 22:14"
+  },
+  {
+   "t": "Gold stalls below $4,150 as US Dollar regains ground, NFP looms",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNMVE0VHd0eUdFbFJ5SzlEV2xKajVxQ296YlR3dm1HOGNoTktqSkl3WGJYd01CT1BjRGhaT3Y4V3hEOUtiXzk1WUxnUFN1emFQaHMya1NyWlZLRVVickVNd1BWaTA5cHpTMmNlZERGUTdOZHlmRDRON2hvUUdiTXQ0eEZlYmxUTnZSRFhrTUdzcDVHZEttQnhWY0g5Y3FTMnNwZ3FudUYyTlotbHJMeEJTblRZZGVHeWs?oc=5",
-   "ms": 1793883259000,
-   "time": "11/05 20:54"
+   "ms": 1793887949000,
+   "time": "11/05 22:12"
+  },
+  {
+   "t": "gold prices holding above $4,100 as weekly jobless claims rise by 189k",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTnNibWhHTUdLNHZrNmlZdVpjOTJrTkpvRExZVjduWGF3MGJQcEhIVUxWZld1U1NpZ0VnaWxJR0VJWUJCNWl6a1BhanNMYjlITmIyYWtlcWU4amJlbzVrVld4allreXhzN0E5Ui1FSmwyU0ZMREU4TjNZMndLb1gtUjBYVlJFUEFDYXdTM01tZVFwbjQtUGx2NTZtMmpSakRYM0hCSzlsODhkc2ZF?oc=5",
+   "ms": 1793885546000,
+   "time": "11/05 21:32"
   },
   {
    "t": "Gold market holding solid gains even as BoE raises interest rates due to rising inflation",
@@ -21,32 +63,11 @@
    "time": "11/05 20:12"
   },
   {
-   "t": "Gold hits 2-week high as dollar, yields, oil fall after US midterms",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRGw2bTVBSnBUN1BZcDhwQ0dVSmFIUVhDdGZLazVPNnV2NG5iYkVxXzg5QmRyY21IOWZOcFVRVXJBSU5PT1pXQWh3UHVmVWxhSm15bVh2NTVQZzJGVHpPT2dSSHc2NXlaLUYyQmVGX24xdW84cVN2NXpGcUhGZ0xrNDZSODR1NDNtNW9vc2JJSUVRcGZIMkprZHNONm4wN2VxUzdBX3B1NWxxcDBsWjNnZ05tUzdMRHJNaEJja2oxNC1QLWQt?oc=5",
-   "ms": 1793879370000,
-   "time": "11/05 19:49"
-  },
-  {
-   "t": "Gold gains as oil, dollar, Treasury yields tumble after U.S. midterms",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPR1MxRGVnd2pXLXhLV1VsSDhRV3JNUlQycWZBa1BjOUZDRElvcUVTX1VidjFFRXBZMUdGZ2MxdGMwWTd3ZlNfeS13ZXBDTFVjU1FvQnB2QUVCeU03WU1aWnFoZHNxejRUWlhQN1FfYkFfbU1TZ0Q2VU9mOHJRVktsazNjMl9mc3JYUHpuLUJqYk9udUtzRlpPOExtZHRXQVl4Q3g4WkZFQUJnQ1F4VmgyNHJTMmJwYlFvc1p4a0tYcHhKQkItVGdiMmNn?oc=5",
-   "ms": 1793877177000,
-   "time": "11/05 19:12"
-  },
-  {
-   "t": "XAU/USD price outlook: Gold tests 0.786 resistance Arc – Medium-term outlook remains bearish toward 3,720",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPRTZLYjdKYXE3bmdUbTRNRS1GaWNpd09TdXFTMThwM3Q2aGJpelZWU0VCai13ZzVFMnJmZHVpbUtIV2hYSUtGX2tMcFR5ZGF2SUp2ZkU2WXJvY3hxa0daOGVzbG1NVi1tZzV4Sk1MeVBiRkhBcHdZTllzN2Q4TVQ4NmNrVExfNS1LdUg2djNHaVJPbVgtNlVCa2pUeEJOUkF1YkQ5SFdDSmZvMVl5dDVJNWNpVmxGNUtSSnJhdmxvZlFhTEppYVdyTWZTUll0U2hRTWFvR25wZUpDVUR1aGVDZ2ZR?oc=5",
-   "ms": 1793874056000,
-   "time": "11/05 18:20"
-  },
-  {
-   "t": "Gold consolidates near two-week top as modest USD bounce and Fed hike bets cap upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd0dlMmhBWmNUMkhIZHh2ZFNfd1R1ME1LeVlWSDlWYmNFcGhMZDRQeU1oYWpnTGo5elNya1VDZ01VSnE5OE52dXp5aThwam5ORWE0NWhxZkw3aTQ3ZGNoUUpWT3F4dFV3X0l0Wll1WlZBdVd6RlJfeGNrM1RaWV82eEMtTzRldzZlRndWNHVfT2JCNlNKTi1lZjJhd2gwUXUzM1lxMGgtY0xyMjBFUDVCQi1YRkw?oc=5",
-   "ms": 1793868803000,
-   "time": "11/05 16:53"
+   "t": "Live Gold Prices | Gold News And Analysis | Mining News | KITCO",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiOkFVX3lxTE1MSHpVaXo3MDFUeWJjUmJ0NlB6NkktRGxIcDBqMW1vaVlSc3pUbmJ6OTl3cUgzTHUtemc?oc=5",
+   "ms": 1793871712000,
+   "time": "11/05 17:41"
   },
   {
    "t": "Gold vs silver this Dhanteras: Price outlook, buying trends and key risks",
@@ -54,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQaGx1Si1TaUtJRkVDc2loNVlBMW9SUkFKTFVoT2pqc0JQbnpJbkpaMHdSWEJOZ2ozaklEWXpuemJDanhFeC1PVmdWYU9UNHV5eUR3dkUwb2dGY0EzVjdIdHdjUkpWNnNZdWJqUGhJTjRLWkRoamtvenJySVNvREpyUUFzOXpJUFRQRlhiOXZQZExQeUEtSGFCWTdSbEVybGM1LTc1SUZnNUNTeHlGV245OE8wdzI4WkM3eEcyWdIBwgFBVV95cUxPUGVIQVpZMDNyRGZLRFNtMFl6dnlCM0Vhc2FQcEthODRrOW9oM1hVX0JEN0FoRDRrcmZwVzRTcVlqb3pXMmRpZjNZSjFsODl5dHNrUzNJUnBYaENBbTBPUUxpQjRZZDJWT0R5RkJIVU0zVHp3bkhhVnJfdkt6WWw2NkFZc0tMY1VwcWtmM2VaNVZNSEk3RURrZ0RMeFRudmxUN3VYMlQzaGpuQkdkZ3hCVDgzbWR0bUZJcVM3T3R2b2M1Zw?oc=5",
    "ms": 1793867537000,
    "time": "11/05 16:32"
+  },
+  {
+   "t": "Gold hits 2-week high as dollar, oil, yields fall after U.S. midterms",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNT0lNbWJsNm9BQkZObjdwTWNBbTQwd093S1c1dV9PTjZmNEQxVmtwNTZwQUROOXJTRFJndXVzVUJJMGloUGdsTjhfN3ctWTdrWFFvME1RbU10OU9MRjFsVElxd0djQTh6YzVKRVhURjA2U1haNEE3ZlVsSXo0VUxNS2F6cnNvQ2RVc0psX3dLck1iNklSLTdRLVE1ZWNSZ2x3MVHSAacBQVVfeXFMTUQta0lIa2tjODZlMzc5Y1hWN3Jpb2YzUVByM3dTNWFsNkdSVmVMT0tVck96cER4VW1jckVUX3VKTG9kVllod0VnTy1Vcy13MVoydnU3NWp1aVBEZjVSY3BVQTNOMUw0V0JmX3p0ZWFSVUNGZ3FZWC1ydW9uakQ4S3dUYTVCUkRPZ2pmWWJISzRZbmxRWEI1UXR1LVZtWVVTNVd2R0U5ZjQ?oc=5",
+   "ms": 1793854983000,
+   "time": "11/05 13:03"
   },
   {
    "t": "Gold Price Forecast: XAU/USD extends rally as Democrats’ victory weakens US yields",
@@ -82,34 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPZzRvQUY2bjZ0RUJ0ZFBYeVlOMENhblZBWWNxRThLbnE2UG84aFNpcGdfMTYwaDJ0aTl3Z053UWxvVURod0ZHdzVQSE0wX0E3LXVnWUpQR1hIYUF5WFpoS2doUzVCcFFzN2ZuY1gwRGxidWwyR2MwVks0RkpsdUQwUFZqdjhUTzEwUkgyY3NEVmZQTTA?oc=5",
    "ms": 1793823780000,
    "time": "11/05 04:23"
-  },
-  {
-   "t": "Is gold's recovery above $4,000 enough to fix a broken market? asks Michele Schneider",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNUphMnBRYi1GcmE5QmZ1ejRGVmZ2VmZCR1ZwQlJvM1hhalhIeWZhVjhub29OV1hWTW0xOWZsakxfZDF5NlQ4VS1KQWhDR0wxNEN1MVNVTGFNTDQtYzlIUlpvRTVabFZBVVhJV1BSc19lcFFPdHJ5X3FJMTBlQURMTTdaYnVCdk5qNzhOMktXY210Q1doNWVabTBNcE5VSi14WDNDX1d6a2JyUmlwMnplQmE4X2hpck9sMDNz?oc=5",
-   "ms": 1793815154000,
-   "time": "11/05 01:59"
-  },
-  {
-   "t": "Gold is being treated ‘like an AI stock, which it’s not,’ says Peter Boockvar",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOeG1GS3pHc2hfZW1sNVgzcWRjWW5reXd5RUFKWll2YVVkdzhzNU1pTVVwTDVXWlRnRFNBUUt0aWg5N2hWSHM3Y19TdFA1cGhSRkl3SUhQclhkOGNCMEY4RVJvUWVQbV9YTFJxUmc3M3VZY1hGR05OZk5rS0dVNkQ2UVJfc1ZoTEpEUnp2V1l6Yy1jeUdrcmJ3RzNkcVZTaXROenNyWVVhVGRCR0E?oc=5",
-   "ms": 1793804956000,
-   "time": "11/04 23:09"
-  },
-  {
-   "t": "Gold and silver surge as Democratic midterm sweep drives dollar, yields lower - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZTIzc1F2ZWpzTG5Va1ZsY0RIMEVabFJBSlY0ZFBDb2RDYW5mNW5iTXZRb0owR2xINi1uNTUxakhDeHdvYjBLSWc2U281RlE4eXlTZVVGLUtTWHAyX2NXMUVEVXhzUzdMdXppUTF4dkRCZzBhREx6YVhtcUd5M1d0Z3M3VzZTRkFOWTRGU0RxWUZpZ3EzaUpwcXZ3UG82NmN4bk5lRzZObDZta2dMS1hfMDRxWUZXWGFFUl9F?oc=5",
-   "ms": 1793800541000,
-   "time": "11/04 21:55"
-  },
-  {
-   "t": "Current price of gold as of November 4, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42RGx3NTQyam9zcHNVQXliQjFsMnY5Q3l6SFMzXzVvYWxMNDN6TnVTbk5EaV8wdXZ2SFl4TE80VFFLQTNBOWVMQ0RaaEtLZExWNXRfRHo3Rm9RRmNra0hyTU5UcHhQN1FfT1FFMDZn?oc=5",
-   "ms": 1793800260000,
-   "time": "11/04 21:51"
   }
  ]
 }
