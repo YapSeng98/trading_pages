@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06 06:23 SGT",
+ "updated": "2026-11-06 10:46 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
-   "t": "Gold price surges back above $4,000 - Start of a much bigger rally? [Video]",
+   "t": "World Gold Council: Gold nears potential floor as recovery signals build",
+   "src": "Yahoo Finance Australia",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZi1jdWcxcDItNUdHWEZjRmlJLTNCcHRuMW1SRlR3SUJDUUVXQ3ZOdEpDTnIzcHJqa0JxbzJxd1dWSlh5MExXOUVjZUloakFEWVROUzVOblZqbTNfeE5zUmFodUxhdnpfQlhqWEJtRjFZVjUtZ0cyTlRpRzZ4ZGd0QVEydFM?oc=5",
+   "ms": 1793923800000,
+   "time": "11/06 08:10"
+  },
+  {
+   "t": "Gold rises to near $4,100 ahead of US NFP data",
    "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYzJRRzB3WG5YUDFTS0NZSnlXdUdOY2oxMUFycXVnZWhUUE1ZWmt6djBISGpBMlVOTmIwU292Y3c0RGlmNjRXMmxIMHUtSG1tVkIzaXJGZmZxLXA0LXFoREVMQjBnZy16dGRheFkxSVlZdVNTMW1pMnVERm05eWVYckM1WnpBOVFWc0tJd2h0QnppRG52QXVFaFR0TXVnQUd3cmNIUFd3SF9TQ2p6S0ZuMUg2cEhCcTQ?oc=5",
-   "ms": 1793916132000,
-   "time": "11/06 06:02"
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOVDhaSDh2bEFpeFJUWjBhOHJWNTdBRVlYaERsWVQ1Nl84cGVLTTdOUTJOaGtqTzhWbHh3TE1TTUNwc3NnOVkwV3VmNjd6UklFeFoyR1lUM3M2Q2pwZXlBQ2ZHN21uRzVENzE4TW56al9VNW9yRXdXWnBFdmRWbFFjNjFFOHNDRFU1Z2ZFaGN3ekRnQQ?oc=5",
+   "ms": 1793921412000,
+   "time": "11/06 07:30"
+  },
+  {
+   "t": "Gold holds gains, silver slips as Wall Street plunges, Fed hike bets ease - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOdktNV1ItcEw3anlLMXJFSHJGbk9tQ01jMFV1a2tJTVRxZDRlejVEWmFTMWw3T1ZvLWc1LVpNYk9jSHRtcEh6MWJHU0lOZE5PVkpPNm1oYzRUeTdrOUc0U1hKeXg0MWdvUDNwTjJKb09XQV9ZX0QteXl3Z2VnTUhsQUZtRE5abzV1dll3QURpdHZkajVfVFUyWnktNFl2dGdoSlozNk1Xby14Nk1fczlpakEtTlpKTVhKdHFPdQ?oc=5",
+   "ms": 1793916760000,
+   "time": "11/06 06:12"
   },
   {
    "t": "World Bank sees gold holding above $4,000 through 2028, but warns silver faces steeper correction",
@@ -84,32 +98,18 @@
    "time": "11/05 18:37"
   },
   {
+   "t": "XAU/USD price outlook: Gold tests 0.786 resistance Arc – Medium-term outlook remains bearish toward 3,720",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPRTZLYjdKYXE3bmdUbTRNRS1GaWNpd09TdXFTMThwM3Q2aGJpelZWU0VCai13ZzVFMnJmZHVpbUtIV2hYSUtGX2tMcFR5ZGF2SUp2ZkU2WXJvY3hxa0daOGVzbG1NVi1tZzV4Sk1MeVBiRkhBcHdZTllzN2Q4TVQ4NmNrVExfNS1LdUg2djNHaVJPbVgtNlVCa2pUeEJOUkF1YkQ5SFdDSmZvMVl5dDVJNWNpVmxGNUtSSnJhdmxvZlFhTEppYVdyTWZTUll0U2hRTWFvR25wZUpDVUR1aGVDZ2ZR?oc=5",
+   "ms": 1793874056000,
+   "time": "11/05 18:20"
+  },
+  {
    "t": "Gold consolidates near two-week top as modest USD bounce and Fed hike bets cap upside",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd0dlMmhBWmNUMkhIZHh2ZFNfd1R1ME1LeVlWSDlWYmNFcGhMZDRQeU1oYWpnTGo5elNya1VDZ01VSnE5OE52dXp5aThwam5ORWE0NWhxZkw3aTQ3ZGNoUUpWT3F4dFV3X0l0Wll1WlZBdVd6RlJfeGNrM1RaWV82eEMtTzRldzZlRndWNHVfT2JCNlNKTi1lZjJhd2gwUXUzM1lxMGgtY0xyMjBFUDVCQi1YRkw?oc=5",
    "ms": 1793868803000,
    "time": "11/05 16:53"
-  },
-  {
-   "t": "Gold at more than two-week high as dollar, yields weaken; U.S. payrolls data awaited",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNT0lNbWJsNm9BQkZObjdwTWNBbTQwd093S1c1dV9PTjZmNEQxVmtwNTZwQUROOXJTRFJndXVzVUJJMGloUGdsTjhfN3ctWTdrWFFvME1RbU10OU9MRjFsVElxd0djQTh6YzVKRVhURjA2U1haNEE3ZlVsSXo0VUxNS2F6cnNvQ2RVc0psX3dLck1iNklSLTdRLVE1ZWNSZ2x3MVHSAacBQVVfeXFMTUQta0lIa2tjODZlMzc5Y1hWN3Jpb2YzUVByM3dTNWFsNkdSVmVMT0tVck96cER4VW1jckVUX3VKTG9kVllod0VnTy1Vcy13MVoydnU3NWp1aVBEZjVSY3BVQTNOMUw0V0JmX3p0ZWFSVUNGZ3FZWC1ydW9uakQ4S3dUYTVCUkRPZ2pmWWJISzRZbmxRWEI1UXR1LVZtWVVTNVd2R0U5ZjQ?oc=5",
-   "ms": 1793854983000,
-   "time": "11/05 13:03"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD extends rally as Democrats’ victory weakens US yields",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQ0RyZVZVbS0wT0JnSXhHYU9NT1Yxd0gxTVBkV2g5Y0toYXNtcEZqZnlES0I5ZmhIdnJyR1V6ZlYtakJhc1BBRUx0VFpKcWFZeVpVRjB5NFFQXzgzR1dlNTJNQXJLUTdYNzhwQk50TlhFQWEzeEE2V0RWdU1OdDZmZTBDMFU1OGtEd20tSVBtOXdaT09xYkF4NTZ4a1J5bTFBaHR2X1JuYzR6UWg5UHVSdFppbFJVRWFybWpLdnNucXJiMnVEeUE?oc=5",
-   "ms": 1793850579000,
-   "time": "11/05 11:49"
-  },
-  {
-   "t": "Gold surges above $4,050 as Democrats take control of Congress",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNMVFPV2hZNmItMV9qeVNmdkRhMWxPZXNCeWc3TG1fc3hWc25ZLVlqN2hyXzNoMThRUTNfZjlMZHJmSXlBbUFlRlpSNXJQd1RiRk5vNE44V3A4b3pmRDZwOV9CRTE2QVZzTXFPVFNCVXZPdEFuOWNocS0zbnBYUFRTSjNjb3hlbGJRM090Znc2eXV4SXItemo1Q1FzSjQ0RUY0ZVlDZXZjRQ?oc=5",
-   "ms": 1793834480000,
-   "time": "11/05 07:21"
   }
  ]
 }
