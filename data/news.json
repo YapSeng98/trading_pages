@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06 10:46 SGT",
+ "updated": "2026-11-06 16:28 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,39 @@
  ],
  "items": [
   {
-   "t": "World Gold Council: Gold nears potential floor as recovery signals build",
-   "src": "Yahoo Finance Australia",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZi1jdWcxcDItNUdHWEZjRmlJLTNCcHRuMW1SRlR3SUJDUUVXQ3ZOdEpDTnIzcHJqa0JxbzJxd1dWSlh5MExXOUVjZUloakFEWVROUzVOblZqbTNfeE5zUmFodUxhdnpfQlhqWEJtRjFZVjUtZ0cyTlRpRzZ4ZGd0QVEydFM?oc=5",
-   "ms": 1793923800000,
-   "time": "11/06 08:10"
+   "t": "Gold Royalty Corp (GROY) Q3 2026 Earnings Call Highlights: Record Revenue, Tripled EBITDA and a ... By GuruFocus",
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPMjVUYnVFNUVMdWVFTWFGdXdxeXpPLVVNYjlVUVVPMW85VllnbGhoOEdvQ3I4U3dILVVwSE5KMjI5aVlVY3gwX3Z1SURLWDViNDhXcEczUHhxcjE1SGNwM3c5TkZxSnhRVG5Jd1A0U2dhVl9yVnhwcklGeklZV1lzcEdpbnhOZFp0OU1UM2dxTkVoODk1RGkxUzE5LUNadWJlaG96MVAySmZPR2gwUmt1Z0xuNWdjbEd4aE9EMzd4SFI2U3J0UFRpWnFCMHpMamUwZ1lKNldBQXlZX1k?oc=5",
+   "ms": 1793950499000,
+   "time": "11/06 15:34"
+  },
+  {
+   "t": "Gold drops over 1% on higher oil prices; US payrolls data in focus",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQVNBUlY0RkQ3Vm5qcDFmbS12Nlo0Wjd4RWNEWkROOFRSX0hha1VobWJkTW82YTM1QzNMUXlzX1V5bktiSHJDYklFR2ZDUnN4aEhGM3U0UmlRT3pDcjVFRkR5ak9IZ1NVbG4wempaX1Y0R2JXb0U2THRLcE80d0l1NFppQ3l5b2M4c3RQZU1sS1RNRHdiYmFsYmw0czRoUnVJRVJLNTl0VmVNODg3NWVR?oc=5",
+   "ms": 1793936760000,
+   "time": "11/06 11:46"
+  },
+  {
+   "t": "India Gold Demand Gets Festive Boost After Price Pullback",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaFBoUTVNMERxc1FZRjZJYUZJVkl6UFYtLUtLNzRPZG1TcHZuemppWmxCZ2VjV2dBMEdKZ1ZqbVg1YnV2R2pzZWJ1MjJKeWZvbVZZSXB4dXBxTUpBZlNZTG53MHVCeEcxa2dfWGZ4UVowS1hCaVpodXJxSXVaMXplVHA5Z19PYXJrYmJINXkzcnRmcFozajQwak5BSzJqWDhCWTdpZDgzaVJxdUJp?oc=5",
+   "ms": 1793936460000,
+   "time": "11/06 11:41"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD corrects to near $4,060 amid caution ahead of US NFP data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNZGhTWnFEQkJ2TS1VT2JlTUFoeXhhNEhlMjNockhnVHNwOFhmOTl0X1ppa1BkdjNqWnowdGgzeG9rNG1kLThiMHI4a1dXemE2M3AwYWRKR1ZLYTRuV0dfTngzVlhIRFdQbnZERW9ZWUtJSHlCeXVwNFBnbW0yYjZBWjJKZHl5VzAyNXJUSDUwMFhRa3pSd0VPTEE5ZGNKa281MlMwVENJV3RFZUNZU0s1NE80aE5NTk9lU24xdUh3NTNMRExuOWF1M280RQ?oc=5",
+   "ms": 1793936350000,
+   "time": "11/06 11:39"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1793930905000,
+   "time": "11/06 10:08"
   },
   {
    "t": "Gold rises to near $4,100 ahead of US NFP data",
@@ -56,13 +84,6 @@
    "time": "11/05 23:23"
   },
   {
-   "t": "AngloGold to invest $900 million in mine expansions",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMnJyRzlhdHZMTlQyOEhyNUZRajg1Rkg4anhpZmM1UGhMNEkyTDlUZDgwNjhZdnhSaEdTWVNYS1d3LUw5bHVHVTBpVk5QWHZyMkJtZjFIejdqc0dtMGhMRi0wUjN6aUxWcW1OSTdWcmppOFEyOUdZT1I0Qmg4RTVGOHJ4bGw2Y1lmX0lHYjRpeml2c3VQUnBqMg?oc=5",
-   "ms": 1793888865000,
-   "time": "11/05 22:27"
-  },
-  {
    "t": "Gold prices today, Thursday, November 5, 2026: Did one of 2026's worst assets just get a boost?",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOTGVHTnl0Y3ZuczE2NDMtZUVNNDVFMUZEWjlJYkp3Tk4yQzRLdlVYQmlTUGFqRVVuLTU3U01mXzlDNWV1VlhZQVN0bFNlcUw1SkpsTGVlVkJ1Mzk2ZkthOXZ1VkxpNHBWZ1RYYmliWmFvbnRPQzVPeFlDNmNXVF85TzdYaTJZY2F1Vy1idzlxakRWcmpqWWpKdmhaMjR1Qi12ZWJkUXhUVUtFUnY3NWMxelZJZDBxTS1ESWFzc3NyTTVmUlRZSEpWX2lldXcybkVXRGRncFVUUW51OC1PMEFHMF8waDhwNnNBa2UtYmU3RVJyREJBY1hfNQ?oc=5",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQNXFiWE5sMHpSWTZBdVpnb0F4X3IyQTlKS2V2bzl5anpxTTJxYjFCeEFlM3hFeldYd3RHNFVfaHJ6WXpUeFFraVdYaklEYVlMajlHWF92WGEtMUpkYWpnYzRqdUJEOWRGRUotdlpkVmhUdGl0eS11MmMwcENSWVN5WTU4U1J5Z3g4WDkydmpuYjBqc2F2eGx1eFlXcHV6WTBWOVdpVGxkQk53a0c1SE13N1EwMUQ3WnRPc20w?oc=5",
    "ms": 1793880723000,
    "time": "11/05 20:12"
-  },
-  {
-   "t": "Gold Prices Rise as Weaker Dollar and Treasury Yields Follow US Midterm Elections",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQ1VsMmlYd2lHdm1aOE9HOE52THkxOVBFTGlaZkptTHpqSDVyVzJUcTZqb3BUa3lIUmJmV25XWlh5RFdHaFZpS0lROERkRkdiWWhlOFJpeFNKUXpVTEZvbEYzbGJDUlRoQkJEaTFnWVpYRmRjSzJFMTZ0MUhRcHBSRS1FN2dMMnN6TGROUjVNajRJUnRTc0tnNGwtMGJQZUQ3cEE?oc=5",
-   "ms": 1793875034000,
-   "time": "11/05 18:37"
-  },
-  {
-   "t": "XAU/USD price outlook: Gold tests 0.786 resistance Arc – Medium-term outlook remains bearish toward 3,720",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPRTZLYjdKYXE3bmdUbTRNRS1GaWNpd09TdXFTMThwM3Q2aGJpelZWU0VCai13ZzVFMnJmZHVpbUtIV2hYSUtGX2tMcFR5ZGF2SUp2ZkU2WXJvY3hxa0daOGVzbG1NVi1tZzV4Sk1MeVBiRkhBcHdZTllzN2Q4TVQ4NmNrVExfNS1LdUg2djNHaVJPbVgtNlVCa2pUeEJOUkF1YkQ5SFdDSmZvMVl5dDVJNWNpVmxGNUtSSnJhdmxvZlFhTEppYVdyTWZTUll0U2hRTWFvR25wZUpDVUR1aGVDZ2ZR?oc=5",
-   "ms": 1793874056000,
-   "time": "11/05 18:20"
-  },
-  {
-   "t": "Gold consolidates near two-week top as modest USD bounce and Fed hike bets cap upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd0dlMmhBWmNUMkhIZHh2ZFNfd1R1ME1LeVlWSDlWYmNFcGhMZDRQeU1oYWpnTGo5elNya1VDZ01VSnE5OE52dXp5aThwam5ORWE0NWhxZkw3aTQ3ZGNoUUpWT3F4dFV3X0l0Wll1WlZBdVd6RlJfeGNrM1RaWV82eEMtTzRldzZlRndWNHVfT2JCNlNKTi1lZjJhd2gwUXUzM1lxMGgtY0xyMjBFUDVCQi1YRkw?oc=5",
-   "ms": 1793868803000,
-   "time": "11/05 16:53"
   }
  ]
 }
