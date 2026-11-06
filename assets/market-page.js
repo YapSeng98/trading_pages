@@ -1287,6 +1287,9 @@
     }
     var ev = (r.events || []).slice(-4).reverse();
     if (ev.length) el.appendChild(h("p", { class: "note", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。" + (num(r.lastChecked) !== null ? "已经检查到 " + sgt(r.lastChecked, "dt") + " SGT 收盘的 K 线；" : "") + "它不知道你自己有没有下单。" }));
+    // candidate books (scripts/xau_track.js, research/xau-replay/FORWARD-PLAN.md): totals only, never a signal
+    var sh = r.shadow && r.shadow.books;
+    if (sh) el.appendChild(h("p", { class: "note", text: "同一台机器也在记几个候选做法（" + String(r.shadow.since).slice(0, 10) + " 起，只记录，不提醒，不是信号）：" + Object.keys(sh).map(function (id) { var b = sh[id], z = b.summary || {}; return b.name + " " + (z.closed ? z.closed + " 笔，合计 " + sgn(z.totalR, 1) + "R" : "0 笔") + (z.open ? "，1 笔持有中" : ""); }).join("；") + "。回放和其他市场都没证明它们比现在的规则好；每个攒满 100 笔才拿来和规则比（黄金要两三年）。" }));
   }
   // One line under the answer: the rule's live record so far.
   function renderProofLine(V) {

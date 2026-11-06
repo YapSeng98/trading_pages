@@ -50,6 +50,7 @@
       add("这条规则进大行情很晚：" + cp.legs + " 段大行情（日线收盘走了至少 5 倍日波幅）里 " + cp.caught + " 段有信号，第一个信号在行情开始后约 " + Math.round(cp.medianHours / 24) + " 天（中位数），这时行情已走了约 " + Math.round(cp.medianUsedPct) + "%。这是等周线转向的代价。");
     }
     if (rec && rec.summary) { var z = rec.summary; add("实盘纸面记录（" + String(rec.since).slice(0, 10) + " 起，没有回放的事后之明）：" + z.signals + " 个信号，" + z.taken + " 笔开仓，" + z.closed + " 笔已结束" + (z.closed ? "，合计 " + R(z.totalR) : "") + (z.open ? "，" + z.open + " 笔持有中" : "") + "。" ); }
+    if (rec && rec.shadow && rec.shadow.books) { var sb = rec.shadow.books; add("候选做法也在纸面记录（" + String(rec.shadow.since).slice(0, 10) + " 起，只记录，不是信号）：" + Object.keys(sb).map(function (id) { var y = sb[id].summary || {}; return sb[id].name + " " + (y.closed ? y.closed + " 笔 " + R(y.totalR) : "0 笔"); }).join("；") + "。每个攒满 100 笔、并且明显好过规则自己的记录，才会重新考虑规则。"); }
     // ---- risk per trade ----
     $("rk-main").textContent = "回放里最深回撤 " + g.maxDD + "R、最长连亏 " + g.streak + " 笔。按每笔冒的风险，换算成账户会经历的回撤：";
     table($("rk-tab"), ["每笔风险", "连亏 " + g.streak + " 笔", "最深回撤", ""], [0.25, 0.5, 1, 2].map(function (r) {

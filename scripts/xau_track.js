@@ -49,6 +49,51 @@ function changesBetween(before, eng, T, price) {
   });
   return { now, out };
 }
+// Candidate books (2026-11-07, research/xau-replay/FORWARD-PLAN.md): the same walk keeps paper records of versions the
+// replay could not settle, from the first run after they were added (no look back): the rule's own trailing exit, and
+// the version without the weekly trend with each exit. Recorded only: no alerts, nothing on the page's answer changes.
+// Trailing exit as replayed: no target; at the first candle of each UTC day (08:00 SGT) the stop moves to 2R behind the
+// best price since entry, never back; out at the close where the book's big trends stop agreeing with the trade.
+const TRAIL_R = 2, WAYS = { bullish: 1, bearish: -1 };
+function sameDir(eng, tfs) { let d = 0; for (const tf of tfs) { const t = eng.tfs[tf], v = t && !t.error ? WAYS[t.trend] || 0 : 0; if (!v || (d && v !== d)) return 0; d = v; } return d; }
+const BOOKS = {
+  trail: { name: "同一信号，跟踪止损出场", go: e => e.overall.agree5, big: e => e.overall.agree3, trail: true },
+  noW: { name: "不看周线，目标 3R", go: e => sameDir(e, ["D", "4H", "1H", "15M"]), big: e => sameDir(e, ["D", "4H"]), trail: false },
+  noWtrail: { name: "不看周线，跟踪止损出场", go: e => sameDir(e, ["D", "4H", "1H", "15M"]), big: e => sameDir(e, ["D", "4H"]), trail: true },
+};
+function bookSummary(trades) {
+  const done = trades.filter(s => s.status !== "open"), total = done.reduce((a, s) => a + s.R, 0);
+  return { taken: trades.length, closed: done.length, wins: done.filter(s => s.R > 0).length, totalR: r2(total), avgR: done.length ? r2(total / done.length) : null, open: trades.length - done.length };
+}
+function closeBook(b, s, exit, why, T, cfg) {
+  const dir = s.side === "做多" ? 1 : -1, n = cfg.nights(s.ms, T), cost = n * s.entry * (dir > 0 ? cfg.finLong : cfg.finShort) / 360;
+  s.status = why; s.exitTime = SGT(T); s.exitMs = T; s.exitPrice = r2(exit); s.nights = n; s.R = r2(((exit - s.entry) * dir - cost) / s.risk); b.open = null;
+}
+// the open book trade lives through candle k (bid prices; the ask is one spread above), as the main record's does
+function bookCandle(b, k, T, cfg, trail) {
+  const s = b.open ? b.trades.find(x => x.id === b.open) : null; if (!s) return;
+  const dir = s.side === "做多" ? 1 : -1, sp = s.spread, day = Math.floor(k[0] / 86400000); let exit = null, why = null;
+  if (trail && day > s.day) { const to = r2(s.best - dir * TRAIL_R * s.risk); if ((to - s.stop) * dir > 0) s.stop = to; s.day = day; }
+  if (dir > 0) { if (k[1] <= s.stop) { exit = k[1]; why = "stop"; } else if (k[3] <= s.stop) { exit = s.stop; why = "stop"; } else if (s.target !== null && k[2] >= s.target) { exit = s.target; why = "target"; } }
+  else { if (k[1] + sp >= s.stop) { exit = k[1] + sp; why = "stop"; } else if (k[2] + sp >= s.stop) { exit = s.stop; why = "stop"; } else if (s.target !== null && k[3] + sp <= s.target) { exit = s.target; why = "target"; } }
+  if (why) return closeBook(b, s, exit, why, T, cfg);
+  if (trail) s.best = dir > 0 ? Math.max(s.best, k[2]) : Math.min(s.best, k[3] + sp);
+}
+// after the engine has read the candles closed by T: the trailing books' big-trend exit, then new entries
+function bookClose(b, def, eng, k, T, cfg, H1) {
+  const s = b.open ? b.trades.find(x => x.id === b.open) : null;
+  if (s && def.trail && def.big(eng) !== (s.side === "做多" ? 1 : -1)) closeBook(b, s, s.side === "做多" ? k[4] : k[4] + s.spread, "regime", T, cfg);
+  const d = def.go(eng);
+  if (b.prev !== null && d !== 0 && d !== b.prev && H1 && H1.atr) {
+    if (b.open || cfg.shut(T)) b.skipped++;
+    else {
+      const px = k[4], sp = r2(px * cfg.spreadBp / 10000), entry = d > 0 ? px + sp : px, risk = STOP_ATR * H1.atr;
+      const s = { id: b.nextId++, time: SGT(T), ms: T, side: d > 0 ? "做多" : "做空", entry: r2(entry), stop: r2(entry - d * risk), initStop: r2(entry - d * risk), target: def.trail ? null : r2(entry + d * TARGET_R * risk), risk: r2(risk), spread: sp, best: r2(entry), day: Math.floor(T / 86400000), status: "open" };
+      b.trades.push(s); b.open = s.id;
+    }
+  }
+  b.prev = d;
+}
 function track(K, log, deps) {
   const { E, F } = deps, m15 = K["15M"] || [], alerts = [];
   const cfg = Object.assign({ spreadBp: SPREAD_BP, finLong: FINANCING, finShort: 0, nights: (a, b) => nights(F, a, b),
@@ -76,10 +121,13 @@ function track(K, log, deps) {
   }
   const start = upto(m15, log.lastChecked);
   if (m15.length - start > MAX_CATCHUP) {                       // too long a gap to walk through with full history: start again from now, keep what is on record
-    const f = fresh("记录中断后重新开始（中间一段没有数据）"); f.since = log.since; f.sinceMs = log.sinceMs; f.nextId = log.nextId; f.signals = log.signals; f.open = log.open; f.events = log.events.concat(f.events).slice(-80); f.summary = summary(f.signals); f.changes = log.changes || [];
+    const f = fresh("记录中断后重新开始（中间一段没有数据）"); f.since = log.since; f.sinceMs = log.sinceMs; f.nextId = log.nextId; f.signals = log.signals; f.open = log.open; f.events = log.events.concat(f.events).slice(-80); f.summary = summary(f.signals); f.changes = log.changes || []; f.shadow = log.shadow;
     return { log: f, alerts };
   }
   const note = (ms, type, text) => { log.events.push({ ms, time: SGT(ms), type, text }); };
+  if (!log.shadow) log.shadow = { since: SGT(log.lastChecked), sinceMs: log.lastChecked, books: {} };
+  const books = log.shadow.books;
+  for (const id of Object.keys(BOOKS)) if (!books[id]) books[id] = { name: BOOKS[id].name, open: null, nextId: 1, skipped: 0, prev: null, trades: [], summary: bookSummary([]) };
   for (let i = start; i < m15.length; i++) {
     const k = m15[i], T = k[6] + 1;
     // 1. the open paper trade lives through this candle (bid prices; the ask is one spread above)
@@ -94,9 +142,11 @@ function track(K, log, deps) {
         alerts.push((why === "target" ? "✅" : "❌") + " 纸面记录 #" + s.id + "（" + s.side + "）" + (why === "target" ? "到目标 " : "止损 ") + money(exit) + "，结果 " + (s.R >= 0 ? "+" : "−") + Math.abs(s.R).toFixed(2) + "R。上线以来合计 " + (() => { const z = summary(log.signals); return (z.totalR >= 0 ? "+" : "−") + Math.abs(z.totalR).toFixed(1) + "R（" + z.closed + " 笔）"; })() + "。");
       }
     }
+    for (const id of Object.keys(BOOKS)) bookCandle(books[id], k, T, cfg, BOOKS[id].trail);
     // 2. what the engine says with the candles closed by now
     const eng = evalAt(T), ov = eng.overall, a3 = ov.agree3, a5 = ov.agree5, H1 = eng.tfs["1H"], way = d => (d > 0 ? "向上" : "向下");
     { const r = changesBetween(log.trends, eng, T, k[4]); log.changes.push(...r.out); log.trends = r.now; }
+    for (const id of Object.keys(BOOKS)) bookClose(books[id], BOOKS[id], eng, k, T, cfg, H1);
     // 3. the big three coming into line, or falling out of it
     if (a3 !== log.a3) {
       if (a3 !== 0 && !(a5 !== 0 && a5 !== log.a5)) { note(T, "ready", "周线、日线、4 小时同向" + way(a3)); alerts.push("🟡 周线、日线、4 小时都" + way(a3) + "了（" + SGT(T) + "，现货金 " + money(k[4]) + "）。还差 1 小时和 15 分钟也转成" + way(a3) + "，到时会再提醒。"); }
@@ -119,6 +169,7 @@ function track(K, log, deps) {
     log.a3 = a3; log.a5 = a5; log.lastChecked = T;
   }
   log.events = log.events.slice(-80); log.changes = log.changes.slice(-KEEP_CHANGES); log.summary = summary(log.signals);
+  for (const id of Object.keys(BOOKS)) books[id].summary = bookSummary(books[id].trades);
   return { log, alerts };
 }
-module.exports = { track, summary, SGT, SPREAD_BP, FINANCING, STOP_ATR, TARGET_R };
+module.exports = { track, summary, bookSummary, BOOKS, SGT, SPREAD_BP, FINANCING, STOP_ATR, TARGET_R };
