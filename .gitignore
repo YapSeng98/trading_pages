@@ -12,3 +12,6 @@ research/forex/data/
 
 # forex round 2: FRED, Yahoo and Fed downloads, fetched again by research/forex/edges/fetch_edges.py
 research/forex/edges/data/
+
+# futures test: Yahoo downloads, fetched again by research/futures/fetch_fut.py
+research/futures/data/
