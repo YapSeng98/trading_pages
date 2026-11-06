@@ -1,31 +1,27 @@
 {
- "updated": "2026-11-07 01:42 SGT",
+ "updated": "2026-11-07 06:19 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
- "marketOpen": true,
- "price": 4059.9,
- "priceTime": "2026-11-07 01:30 SGT",
+ "marketOpen": false,
+ "price": 4069.6,
+ "priceTime": "2026-11-07 06:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
-  "open": 4083.3,
-  "high": 4106.7,
-  "low": 4027.2,
-  "changeFromPrevClose": -27.4,
-  "changePct": -0.67,
+  "open": null,
+  "high": null,
+  "low": null,
+  "changeFromPrevClose": 0,
+  "changePct": 0,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
-  "date": "2026-11-05",
-  "open": 4063.2,
-  "high": 4146.8,
-  "low": 4057.5,
-  "close": 4087.3
+  "date": "2026-11-06",
+  "open": 4083.3,
+  "high": 4106.7,
+  "low": 4027.2,
+  "close": 4069.5
  },
  "recentDays": [
-  {
-   "date": "10/28",
-   "close": 4066.9
-  },
   {
    "date": "10/29",
    "close": 4020.8
@@ -49,6 +45,10 @@
   {
    "date": "11/5",
    "close": 4087.3
+  },
+  {
+   "date": "11/6",
+   "close": 4069.5
   }
  ],
  "thisWeek": {
@@ -56,14 +56,14 @@
   "low": 3869.1
  },
  "previousWeek": {
-  "open": 3998.5,
-  "high": 4082,
-  "low": 3870,
-  "close": 3874.6
+  "open": 3869.1,
+  "high": 4146.8,
+  "low": 3869.1,
+  "close": 4085.5
  },
  "verdict": {
   "level": "none",
-  "tag": "先观望",
+  "tag": "休市中 · 先观望",
   "title": "先观望：大周期方向不一致",
   "text": "周线向下、日线向下、4 小时向上。回放里只有三个大周期同向时才有优势，其余时间进场和抛硬币差不多，逆着它们做则是长期亏损。",
   "reasons": [
@@ -93,7 +93,7 @@
   }
  ],
  "odds": null,
- "score": -6,
+ "score": -4,
  "timeframes": [
   {
    "tf": "W",
@@ -104,7 +104,7 @@
    "atr": 212.38,
    "ema20": 4240.8,
    "ema50": 4226.5,
-   "ema200": 3303.6,
+   "ema200": 3301.5,
    "emaOrder": "交错",
    "range": {
     "top": 4696.6,
@@ -125,22 +125,22 @@
    "name": "日线",
    "trend": "向下",
    "since": "2026-09-17 05:00 SGT",
-   "rsi": 49.6,
-   "atr": 84.99,
-   "ema20": 4064.9,
-   "ema50": 4157,
-   "ema200": 4261.6,
+   "rsi": 48.3,
+   "atr": 84.6,
+   "ema20": 4065.3,
+   "ema50": 4153.6,
+   "ema200": 4259.7,
    "emaOrder": "交错",
    "range": {
     "top": 4216.9,
     "bottom": 3869.1,
-    "positionPct": 63
+    "positionPct": 58
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 4065.6,
-    "barsAgo": 10
+    "barsAgo": 11
    },
    "turnsUpAbove": 4216.9,
    "turnsDownBelow": null
@@ -150,22 +150,22 @@
    "name": "4 小时",
    "trend": "向上",
    "since": "2026-11-05 10:00 SGT",
-   "rsi": 51.2,
-   "atr": 40.23,
-   "ema20": 4047.1,
-   "ema50": 4030.6,
-   "ema200": 4116.5,
+   "rsi": 55.3,
+   "atr": 38.68,
+   "ema20": 4050.3,
+   "ema50": 4033.3,
+   "ema200": 4115.5,
    "emaOrder": "交错",
    "range": {
     "top": 4146.8,
     "bottom": 3869.1,
-    "positionPct": 63
+    "positionPct": 72
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4082,
-    "barsAgo": 9
+    "barsAgo": 11
    },
    "turnsUpAbove": 4146.8,
    "turnsDownBelow": 3869.1
@@ -175,70 +175,65 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-06 10:00 SGT",
-   "rsi": 49.3,
-   "atr": 19.3,
-   "ema20": 4066.1,
-   "ema50": 4062.2,
-   "ema200": 4031,
+   "rsi": 50.6,
+   "atr": 17.5,
+   "ema20": 4066.6,
+   "ema50": 4063.1,
+   "ema200": 4032.8,
    "emaOrder": "多头排列",
    "range": {
     "top": 4128,
     "bottom": 4027.2,
-    "positionPct": 39
+    "positionPct": 42
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4075.9,
-    "barsAgo": 15
+    "barsAgo": 20
    },
    "turnsUpAbove": 4081,
-   "turnsDownBelow": 4035.7
+   "turnsDownBelow": 4027.2
   },
   {
    "tf": "15M",
    "name": "15 分钟",
-   "trend": "向下",
-   "since": "2026-11-06 22:30 SGT",
-   "rsi": 52,
-   "atr": 9.52,
-   "ema20": 4057.1,
-   "ema50": 4060.4,
-   "ema200": 4062,
-   "emaOrder": "交错",
+   "trend": "向上",
+   "since": "2026-11-07 02:45 SGT",
+   "rsi": 57.6,
+   "atr": 6.39,
+   "ema20": 4064.2,
+   "ema50": 4063,
+   "ema200": 4062.5,
+   "emaOrder": "多头排列",
    "range": {
-    "top": 4081,
-    "bottom": 4029.8,
-    "positionPct": 59
+    "top": 4078.5,
+    "bottom": 4053.7,
+    "positionPct": 64
    },
    "lastBreak": {
     "kind": "转折",
-    "direction": "向下",
-    "level": 4035.7,
-    "barsAgo": 12
+    "direction": "向上",
+    "level": 4068.3,
+    "barsAgo": 13
    },
-   "turnsUpAbove": 4073.1,
-   "turnsDownBelow": 4027.2
+   "turnsUpAbove": 4078.5,
+   "turnsDownBelow": 4060.3
   }
  ],
  "resistance": [
   {
-   "price": 4065.6,
-   "what": "日线向下突破位",
-   "strength": 1
+   "price": 4081,
+   "what": "1小时前高、1小时向下转折位、1小时近期小高点、4小时向上转折位",
+   "strength": 4
   },
   {
-   "price": 4075.9,
-   "what": "1小时向下转折位",
-   "strength": 1
+   "price": 4106.7,
+   "what": "昨日高点",
+   "strength": 3
   },
   {
-   "price": 4082,
-   "what": "上周高点、1小时前高、1小时近期小高点、4小时向上转折位",
-   "strength": 7
-  },
-  {
-   "price": 4116.5,
+   "price": 4115.5,
    "what": "4小时 200 均线",
    "strength": 2
   },
@@ -246,13 +241,18 @@
    "price": 4128,
    "what": "1小时区间顶",
    "strength": 1
+  },
+  {
+   "price": 4146.8,
+   "what": "上周高点、4小时前高、4小时区间顶、4小时等高点（止损密集）、4小时近期小高点",
+   "strength": 11
   }
  ],
  "support": [
   {
-   "price": 4057.5,
-   "what": "昨日低点",
-   "strength": 3
+   "price": 4065.6,
+   "what": "日线向下突破位",
+   "strength": 1
   },
   {
    "price": 4043,
@@ -260,18 +260,18 @@
    "strength": 1
   },
   {
-   "price": 4035.7,
-   "what": "1小时前低",
-   "strength": 1
-  },
-  {
    "price": 4027.2,
-   "what": "1小时区间底、1小时近期小低点",
-   "strength": 2
+   "what": "昨日低点、1小时等低点（止损密集）、1小时前低、1小时区间底、4小时近期小低点、1小时近期小低点",
+   "strength": 9
   },
   {
    "price": 4007.9,
    "what": "4小时区间中点",
+   "strength": 1
+  },
+  {
+   "price": 3941.5,
+   "what": "周线向下突破位",
    "strength": 1
   }
  ],

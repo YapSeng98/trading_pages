@@ -1,11 +1,39 @@
 {
- "updated": "2026-11-07 01:25 SGT",
+ "updated": "2026-11-07 06:19 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Set for Biggest Weekly Gain Since August After US Midterms",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQX3hSNk9RRDhKMmNvdkhnQnN4VkVLaUgwUGJ1dGc5czdxeWI1cHBVNVIwSHlMUWZQekRtd3Q2S2NxVGxwWVU0RUhma1kzLVNoal9BeUllSzMwbUZqaklRRDdKZUd6Q0tVXzBTQ2Y4UEtyUGZodXZHYXBtS1hLYms0S28ycVBtWUpET0JXOHpRRVNmOUx4UXBjYWFSV1N3Y0xmUkRaQkRZV2VfRjFCNzFqdldFZHQ?oc=5",
+   "ms": 1794000388000,
+   "time": "11/07 05:26"
+  },
+  {
+   "t": "Gold price holds critical $4,000 support, but strong U.S. jobs data and inflation risks threaten recovery",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPMVFrY1hheExQaDduSlBRcndvS2FkcW84Y0UwRnVZUGRKSnJ5eW9keHNzemhJNEpadVQxRlJXMHNxYzhOVXVLakZNNTBBNmNsYTFadkpvN0Z4RnFwWUtYcVoxRlZjV3pNaWphd2FZRGt5eGp4Z20wc2xkeTN3dXFpa0xodkIwdGlQTHhCc05PQTBISkNjVjE1LTZSMUR0UV91SlFNR0x5STlSeEt6R2lOR0JsUXBURzk3V2c?oc=5",
+   "ms": 1793997941000,
+   "time": "11/07 04:45"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1793995790000,
+   "time": "11/07 04:09"
+  },
+  {
+   "t": "Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNdEVMS3FrcWJxVmh1WTFxdlhieWtrMGRab3Q5UzEweDFwMklMQjVyU1JZTzF0X18zVEhmQlFSR21LUlE1MlhscFNlMF85ZGFaTVV6MjRJLUpoa2xrUW53eWNTaTlvakp5ZXlFY3hBaVR3cmhSNkstNGJmYVNuUVpSVWI1ejBJelhjR2RMdEZHUkFmeFJYS0ZiOEI1aGYwX3ZoQTdNdnZqNA?oc=5",
+   "ms": 1793990382000,
+   "time": "11/07 02:39"
+  },
   {
    "t": "Gold and Silver Rise for the Week as Tech, Crude and Copper Fall",
    "src": "BullionVault",
@@ -28,11 +56,25 @@
    "time": "11/06 23:29"
   },
   {
+   "t": "Gold slips following hotter-than-expected jobs report, but on pace for weekly gain",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNC15eThsLWJvMkJ4WnNmT1V1TzdOTHRWY0VrZjBhajYtNExPMEhqZ3dZRmlaS0hxcWRLbzZ1SUphMFNpR2IxMkpTemhWR3hwWUtOSmVsM2E4WGNXdXNXa3RTWm1JaDlkVmZjLXB6bEE5WWxkemRVTlFnQS1CejhFLWRXZ2lYNWlnZ0puYmlVMmZoX0ZKbkZTazh0ekpfWUhOOVRTYUEyY2VtWTRxRTRrcmZWUVdPcUN1blFydnBCOHV0VS1F?oc=5",
+   "ms": 1793977959000,
+   "time": "11/06 23:12"
+  },
+  {
    "t": "Gold price trades near $4,050/oz after preliminary Consumer Sentiment rises to 51, inflation expectations ease",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOYjhxOEY3ZkZleHZYYWktQVBVVVlnb2N3UFNibGhvVnlIXzBYdHN6MjJreFdKOWNYU3NrWGRDMENLQUk4LVV2OEM4SDFPcWJyMzBUd1RMNFVmMWpJclBWV01Rai1hME9pNi1SVW9jSmRURV9ha3VYQ0VKemVfVWdicXU5N2cyM19wNWlueVNzZ2JYNGZMSDA4NWJtdTZlSTY2WEFGemxMbEwwcl9jWU5QX0Y4YmZHOXNqZ3ZqTnd3?oc=5",
    "ms": 1793977216000,
    "time": "11/06 23:00"
+  },
+  {
+   "t": "What the gold price doesn’t tell you about physical buyers",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOcHlNSU1YSGt0Q1JBNl9CSGw4WkUzRUI2MDFPQ2RvQ1JOdHRsUHl6d3FINExyR0c1X3A5MmhoTWMxUWk0N1RzZDNmeHdSbEtRTHdCQUpXYjhCdXJQRkJaekpGejl6V1QxczNFbkFWTVB1ZUh1QmctWVRoeEtBMUlfaU5EU0paNFhSQWVGaWFyTEN1cmRHd1I0azFB?oc=5",
+   "ms": 1793976885000,
+   "time": "11/06 22:54"
   },
   {
    "t": "India's gold demand picks up as Diwali coincides with price dip",
@@ -68,48 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNTXI2NUgwV2RLMm5RUVJVVW9ESHRPZ0dCT3lPRHpnZG03UUpsZFU2MW9vdHduRS1Mb1h2V29xZm5WVVpzN1dWdmJSY1ZnMHhDcndyT2FGSGdYOWZLTHJZWXQwUXdIaWNKU1hyQlZXMWlMT0R4ZGdRUWtBRDQ4MUc2dzBFZmxlRmtYaTNMcFdRVVU0YjlPYTdUV19kSlVmWktXX2VycmV1ZjJ1NjNUdS1zYmFWbU5PS21vWFE?oc=5",
    "ms": 1793973305000,
    "time": "11/06 21:55"
-  },
-  {
-   "t": "Private Investing Jumps on Gold and Silver Price Drop",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPaW4yZlBlVkNZbkFQS3VTTzl2SXd3aWR5U1dQNHVRS1VUaXN4TDNqWlc4cjBfbG1mU204d3JNY2NVZGY4TE1nZDRwUUUyM2llYUQxVEV3Z2Z4Yzg3QnZZX3RfZXNubDZmTmVkZGVSWERVOHhpWUpidGpudXV1V092bnFhWldZd2d1MVkzV3pWNmpsN1UxTDZVZHhXVUdLTHBEeFZJ?oc=5",
-   "ms": 1793968686000,
-   "time": "11/06 20:38"
-  },
-  {
-   "t": "Gold Price Today: One analyst sees 20% more upside, two warn the post-election bounce may not last",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQcXBKcjVPQi1QMWw3R0FpVDZpa0YxWUdUaDFqWS1WeTg3UEU4ODhkMDZxSGZ0UG0tNkJUamhndmNHZ2I3SUtVaVg5SjdEb00wNW1tTzREb1NVVGlROUNvaWFXTm5TQURxd09xVUFvTk9ISEdZemZvblI1X2EtUzRacW84LUVxSWFMMDBMeERYdEd0emVKZ2hhT1JVaDRkbmFKRi1La0dPZGFmdnBwaG9YTDZZc2R6bHgyU25NeExkbnIxVjN2RWlZaDAtaTB4T0pFd1Fudlk0WDFHdw?oc=5",
-   "ms": 1793968392000,
-   "time": "11/06 20:33"
-  },
-  {
-   "t": "Gold price today, Friday, November 6, 2026: Gold hovers above $4,000 ahead of jobs report",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQZVdYenA1bFg5NlRGRWlVSG90cWRjeG54aXJXSWstYkZwbEN5X3FLT2ZTQ2VTNVlMZzVvOVpQYUZFYzg3NWZRYVY5dHNqeFJpa1dPT2ZmbnVaemswUWxPNlFwZTl1QnNpbWlPM1NJWUJkYllJdDRpN0RPUzVvN0dpZ0s2TF9uUWxtR051eVduTkhaaE1nbjZ0N3haWWFoT25Cb3FLWWE4d1MtYWp2TjdjZEZsMC1vTENvVW5RZXcwTVBNS2dQZDJSOUF3Z3MxQW95WDg1aWw5WDZTUmpDUDVJcFJGOVFHSkNqUGxLNVJlcjA?oc=5",
-   "ms": 1793967890000,
-   "time": "11/06 20:24"
-  },
-  {
-   "t": "Gold price dip gives Dhanteras buying a shine, but consumers are spending lighter",
-   "src": "Fortune India",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOa01JckFBZ1JqUi1acFNZak5fcHNVYlNud1hHOF8xbVpKYU9tNmZfVU5wdWRFNHhfZ3F5TU5RYWZYTGthNUR2ZkZpNTBzVmZtTzltandqOVNIX3J1TzB3S1hRbFk1MUdZVHZuanFXV1h0NWpNb0JNelI1NS1LTlNXcmdFdEJTeFZCM0k4UjFUWTlWR05DWXJlZXhHaFdveURhRU9QMkNDbVN6TFNPclZJSGtmbzVOb094SmVrdm1yc0FRMzl0M2dKcW1n0gHXAUFVX3lxTFB5YTJneVJYcGFSV2toWmtZSkI0TzJlQk5MSGREWG9wZk5VYk41a3B6TldOWGtNMjdkS2w1enhZUm4xd3JBMm8xdEJrSGhoTjNSbDg5dlZoUHJvMGxKQmdMLUJuSExwWk1reVkwTHdoYXBCeVNGTDd5WHRkOFIwYU5uNGdqRFNmdFdfNWprQ1hrblhPN1N2UGJBT2Zkcm5uSk5IOWRydmY0aGVzZjdfYkE3ODA0dHExZ1IwSHNWclVoR3duREZHWFZ6bUZ6UFZEVWRPcHc4NHg0?oc=5",
-   "ms": 1793964523000,
-   "time": "11/06 19:28"
-  },
-  {
-   "t": "Goldman lowers year-end gold price forecast on hawkish Fed shift",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQYzl2eThFLVlBWHhOSl9FVk51Z0h2NXhZNXNRTVNlMi0takFQNThCYmY2ekl0dzRXdkU3MkVmcTdPdDBlRWE5N2Y3bG01SFE0dG43LW1CMGlmYmJDSkphX21EZ0M2SlBBUU9PNU81LWk0MXdlR013dGdZakVrUERvWi1SekhhbE10dGhrVW50OTk5d2pCWmRBcFpxMWZaM3Z3OG5KYmhVWV80YzJpSzBkZ2tEbVhKTjEwR3Zv?oc=5",
-   "ms": 1793954217000,
-   "time": "11/06 16:36"
-  },
-  {
-   "t": "Gold Royalty Corp (GROY) Q3 2026 Earnings Call Highlights: Record Revenue, Tripled EBITDA and a ...",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONmdDTWZTRzZlWDhwMTZhamk5OVYyaDd3NU02ZHNYNEFLNDVINFFqd3RvX3Jhd1k3ckU3alVUVy14WmNYdDNDempMSzY3VmRVSWQ2SjIydEtFeVByeDRMS2RXWlNOU2tPUm5sZVFXd1czaUNSa0JYdHptNTlXcWtPeUNpVng3bUpLbDRnamtZOWRBYW00a2VmbjgzNA?oc=5",
-   "ms": 1793949240000,
-   "time": "11/06 15:14"
   }
  ]
 }
