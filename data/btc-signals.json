@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1793985300000,
+ "lastChecked": 1793986200000,
  "a3": 0,
  "a5": 0,
  "open": null,
@@ -682,5 +682,59 @@
   "4H": "bearish",
   "1H": "bullish",
   "15M": "bearish"
+ },
+ "shadow": {
+  "since": "2026-11-07 01:15 SGT",
+  "sinceMs": 1793985300000,
+  "books": {
+   "trail": {
+    "name": "同一信号，跟踪止损出场",
+    "open": null,
+    "nextId": 1,
+    "skipped": 0,
+    "prev": 0,
+    "trades": [],
+    "summary": {
+     "taken": 0,
+     "closed": 0,
+     "wins": 0,
+     "totalR": 0,
+     "avgR": null,
+     "open": 0
+    }
+   },
+   "noW": {
+    "name": "不看周线，目标 3R",
+    "open": null,
+    "nextId": 1,
+    "skipped": 0,
+    "prev": 0,
+    "trades": [],
+    "summary": {
+     "taken": 0,
+     "closed": 0,
+     "wins": 0,
+     "totalR": 0,
+     "avgR": null,
+     "open": 0
+    }
+   },
+   "noWtrail": {
+    "name": "不看周线，跟踪止损出场",
+    "open": null,
+    "nextId": 1,
+    "skipped": 0,
+    "prev": 0,
+    "trades": [],
+    "summary": {
+     "taken": 0,
+     "closed": 0,
+     "wins": 0,
+     "totalR": 0,
+     "avgR": null,
+     "open": 0
+    }
+   }
+  }
  }
 }

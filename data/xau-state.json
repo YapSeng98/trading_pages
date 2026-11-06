@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-07 01:25 SGT",
+ "updated": "2026-11-07 01:42 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4060.5,
- "priceTime": "2026-11-07 01:15 SGT",
+ "price": 4059.9,
+ "priceTime": "2026-11-07 01:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4083.3,
   "high": 4106.7,
   "low": 4027.2,
-  "changeFromPrevClose": -26.8,
-  "changePct": -0.66,
+  "changeFromPrevClose": -27.4,
+  "changePct": -0.67,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -200,22 +200,22 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-06 22:30 SGT",
-   "rsi": 52.6,
-   "atr": 9.9,
-   "ema20": 4056.8,
-   "ema50": 4060.5,
+   "rsi": 52,
+   "atr": 9.52,
+   "ema20": 4057.1,
+   "ema50": 4060.4,
    "ema200": 4062,
    "emaOrder": "交错",
    "range": {
     "top": 4081,
     "bottom": 4029.8,
-    "positionPct": 60
+    "positionPct": 59
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4035.7,
-    "barsAgo": 11
+    "barsAgo": 12
    },
    "turnsUpAbove": 4073.1,
    "turnsDownBelow": 4027.2
