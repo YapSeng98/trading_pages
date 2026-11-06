@@ -1,0 +1,488 @@
+{
+ "tested": "2026-11-07",
+ "from": "2024-09-16",
+ "markets": {
+  "SI": {
+   "name": "白银",
+   "group": "金属",
+   "spreadBp": 4,
+   "jumps": 69,
+   "raw_rule": {
+    "n": 52,
+    "avgR": 0.227,
+    "trailN": 56,
+    "trailAvgR": 0.3
+   },
+   "raw_noW": {
+    "n": 68,
+    "avgR": 0.172,
+    "trailN": 71,
+    "trailAvgR": 0.33
+   },
+   "adj_rule": {
+    "n": 49,
+    "avgR": 0.302,
+    "trailN": 52,
+    "trailAvgR": 0.271
+   },
+   "adj_noW": {
+    "n": 68,
+    "avgR": 0.172,
+    "trailN": 71,
+    "trailAvgR": 0.189
+   }
+  },
+  "HG": {
+   "name": "铜",
+   "group": "金属",
+   "spreadBp": 4,
+   "jumps": 20,
+   "raw_rule": {
+    "n": 42,
+    "avgR": 0.042,
+    "trailN": 39,
+    "trailAvgR": 0.187
+   },
+   "raw_noW": {
+    "n": 64,
+    "avgR": 0.023,
+    "trailN": 59,
+    "trailAvgR": 0.16
+   },
+   "adj_rule": {
+    "n": 42,
+    "avgR": 0.041,
+    "trailN": 39,
+    "trailAvgR": 0.281
+   },
+   "adj_noW": {
+    "n": 67,
+    "avgR": -0.023,
+    "trailN": 62,
+    "trailAvgR": 0.121
+   }
+  },
+  "CL": {
+   "name": "WTI 原油",
+   "group": "能源",
+   "spreadBp": 3,
+   "jumps": 27,
+   "raw_rule": {
+    "n": 43,
+    "avgR": -0.266,
+    "trailN": 49,
+    "trailAvgR": -0.394
+   },
+   "raw_noW": {
+    "n": 66,
+    "avgR": -0.111,
+    "trailN": 74,
+    "trailAvgR": -0.286
+   },
+   "adj_rule": {
+    "n": 41,
+    "avgR": -0.518,
+    "trailN": 47,
+    "trailAvgR": -0.431
+   },
+   "adj_noW": {
+    "n": 65,
+    "avgR": -0.206,
+    "trailN": 75,
+    "trailAvgR": -0.312
+   }
+  },
+  "BZ": {
+   "name": "布伦特原油",
+   "group": "能源",
+   "spreadBp": 3,
+   "jumps": 24,
+   "raw_rule": {
+    "n": 35,
+    "avgR": -0.322,
+    "trailN": 49,
+    "trailAvgR": -0.334
+   },
+   "raw_noW": {
+    "n": 51,
+    "avgR": 0.09,
+    "trailN": 64,
+    "trailAvgR": -0.053
+   },
+   "adj_rule": {
+    "n": 35,
+    "avgR": -0.094,
+    "trailN": 48,
+    "trailAvgR": -0.278
+   },
+   "adj_noW": {
+    "n": 48,
+    "avgR": -0.008,
+    "trailN": 64,
+    "trailAvgR": -0.208
+   }
+  },
+  "ES": {
+   "name": "标普 500",
+   "group": "股指",
+   "spreadBp": 1,
+   "jumps": 31,
+   "raw_rule": {
+    "n": 39,
+    "avgR": -0.21,
+    "trailN": 43,
+    "trailAvgR": -0.18
+   },
+   "raw_noW": {
+    "n": 66,
+    "avgR": -0.234,
+    "trailN": 70,
+    "trailAvgR": -0.181
+   },
+   "adj_rule": {
+    "n": 39,
+    "avgR": -0.047,
+    "trailN": 46,
+    "trailAvgR": -0.288
+   },
+   "adj_noW": {
+    "n": 62,
+    "avgR": -0.018,
+    "trailN": 70,
+    "trailAvgR": -0.026
+   }
+  },
+  "NQ": {
+   "name": "纳指 100",
+   "group": "股指",
+   "spreadBp": 1.5,
+   "jumps": 17,
+   "raw_rule": {
+    "n": 52,
+    "avgR": -0.317,
+    "trailN": 49,
+    "trailAvgR": -0.24
+   },
+   "raw_noW": {
+    "n": 74,
+    "avgR": -0.421,
+    "trailN": 69,
+    "trailAvgR": -0.22
+   },
+   "adj_rule": {
+    "n": 40,
+    "avgR": -0.012,
+    "trailN": 39,
+    "trailAvgR": 0.347
+   },
+   "adj_noW": {
+    "n": 69,
+    "avgR": -0.206,
+    "trailN": 69,
+    "trailAvgR": -0.226
+   }
+  },
+  "YM": {
+   "name": "道指",
+   "group": "股指",
+   "spreadBp": 1.5,
+   "jumps": 39,
+   "raw_rule": {
+    "n": 49,
+    "avgR": -0.201,
+    "trailN": 49,
+    "trailAvgR": -0.229
+   },
+   "raw_noW": {
+    "n": 61,
+    "avgR": -0.034,
+    "trailN": 61,
+    "trailAvgR": -0.168
+   },
+   "adj_rule": {
+    "n": 39,
+    "avgR": 0.113,
+    "trailN": 41,
+    "trailAvgR": -0.056
+   },
+   "adj_noW": {
+    "n": 62,
+    "avgR": -0.046,
+    "trailN": 66,
+    "trailAvgR": -0.233
+   }
+  },
+  "RTY": {
+   "name": "罗素 2000",
+   "group": "股指",
+   "spreadBp": 2,
+   "jumps": 29,
+   "raw_rule": {
+    "n": 46,
+    "avgR": -0.158,
+    "trailN": 50,
+    "trailAvgR": -0.395
+   },
+   "raw_noW": {
+    "n": 59,
+    "avgR": -0.419,
+    "trailN": 64,
+    "trailAvgR": -0.452
+   },
+   "adj_rule": {
+    "n": 44,
+    "avgR": -0.191,
+    "trailN": 49,
+    "trailAvgR": -0.241
+   },
+   "adj_noW": {
+    "n": 64,
+    "avgR": -0.264,
+    "trailN": 69,
+    "trailAvgR": -0.3
+   }
+  },
+  "NKD": {
+   "name": "日经",
+   "group": "股指",
+   "spreadBp": 2,
+   "jumps": 13,
+   "raw_rule": {
+    "n": 46,
+    "avgR": 0.289,
+    "trailN": 44,
+    "trailAvgR": 0.348
+   },
+   "raw_noW": {
+    "n": 74,
+    "avgR": 0.23,
+    "trailN": 75,
+    "trailAvgR": 0.314
+   },
+   "adj_rule": {
+    "n": 47,
+    "avgR": 0.015,
+    "trailN": 46,
+    "trailAvgR": 0.085
+   },
+   "adj_noW": {
+    "n": 74,
+    "avgR": 0.019,
+    "trailN": 75,
+    "trailAvgR": 0.197
+   }
+  },
+  "ZN": {
+   "name": "10 年美债",
+   "group": "债券",
+   "spreadBp": 1,
+   "jumps": 15,
+   "raw_rule": {
+    "n": 44,
+    "avgR": -0.257,
+    "trailN": 49,
+    "trailAvgR": -0.249
+   },
+   "raw_noW": {
+    "n": 68,
+    "avgR": -0.157,
+    "trailN": 74,
+    "trailAvgR": -0.284
+   },
+   "adj_rule": {
+    "n": 46,
+    "avgR": -0.097,
+    "trailN": 52,
+    "trailAvgR": -0.232
+   },
+   "adj_noW": {
+    "n": 71,
+    "avgR": -0.066,
+    "trailN": 78,
+    "trailAvgR": -0.293
+   }
+  },
+  "ZB": {
+   "name": "30 年美债",
+   "group": "债券",
+   "spreadBp": 1,
+   "jumps": 12,
+   "raw_rule": {
+    "n": 34,
+    "avgR": -0.09,
+    "trailN": 41,
+    "trailAvgR": -0.326
+   },
+   "raw_noW": {
+    "n": 62,
+    "avgR": -0.194,
+    "trailN": 69,
+    "trailAvgR": -0.271
+   },
+   "adj_rule": {
+    "n": 38,
+    "avgR": -0.084,
+    "trailN": 45,
+    "trailAvgR": -0.238
+   },
+   "adj_noW": {
+    "n": 62,
+    "avgR": -0.259,
+    "trailN": 68,
+    "trailAvgR": -0.271
+   }
+  },
+  "ZF": {
+   "name": "5 年美债",
+   "group": "债券",
+   "spreadBp": 1,
+   "jumps": 19,
+   "raw_rule": {
+    "n": 38,
+    "avgR": -0.136,
+    "trailN": 38,
+    "trailAvgR": -0.057
+   },
+   "raw_noW": {
+    "n": 60,
+    "avgR": -0.018,
+    "trailN": 60,
+    "trailAvgR": -0.049
+   },
+   "adj_rule": {
+    "n": 42,
+    "avgR": -0.01,
+    "trailN": 42,
+    "trailAvgR": 0.096
+   },
+   "adj_noW": {
+    "n": 59,
+    "avgR": -0.051,
+    "trailN": 59,
+    "trailAvgR": -0.01
+   }
+  }
+ },
+ "series": {
+  "raw": {
+   "n": 520,
+   "win": 22.9,
+   "avgR": -0.11,
+   "totalR": -57.2,
+   "p": 0.952,
+   "groupsPositive": 1,
+   "passed": false,
+   "groups": {
+    "金属": {
+     "n": 94,
+     "avgR": 0.144,
+     "noW": 0.1
+    },
+    "能源": {
+     "n": 78,
+     "avgR": -0.291,
+     "noW": -0.023
+    },
+    "股指": {
+     "n": 232,
+     "avgR": -0.123,
+     "noW": -0.169
+    },
+    "债券": {
+     "n": 116,
+     "avgR": -0.168,
+     "noW": -0.125
+    }
+   },
+   "trail": {
+    "n": 556,
+    "avgR": -0.134,
+    "p": 0.975
+   },
+   "noW": {
+    "n": 773,
+    "avgR": -0.09,
+    "p": 0.904,
+    "trailN": 810,
+    "trailAvgR": -0.096,
+    "trailP": 0.939,
+    "pBetterFix": 0.69,
+    "pBetterTrail": 0.816
+   }
+  },
+  "adj": {
+   "n": 502,
+   "win": 24.5,
+   "avgR": -0.043,
+   "totalR": -21.7,
+   "p": 0.727,
+   "groupsPositive": 1,
+   "passed": false,
+   "groups": {
+    "金属": {
+     "n": 91,
+     "avgR": 0.181,
+     "noW": 0.076
+    },
+    "能源": {
+     "n": 76,
+     "avgR": -0.323,
+     "noW": -0.122
+    },
+    "股指": {
+     "n": 209,
+     "avgR": -0.027,
+     "noW": -0.102
+    },
+    "债券": {
+     "n": 126,
+     "avgR": -0.064,
+     "noW": -0.124
+    }
+   },
+   "trail": {
+    "n": 546,
+    "avgR": -0.068,
+    "p": 0.853
+   },
+   "noW": {
+    "n": 771,
+    "avgR": -0.079,
+    "p": 0.921,
+    "trailN": 826,
+    "trailAvgR": -0.117,
+    "trailP": 0.979,
+    "pBetterFix": 0.267,
+    "pBetterTrail": 0.083
+   }
+  }
+ },
+ "verdict": "fails",
+ "gold": {
+  "futures_raw": {
+   "n": 39,
+   "avgR": 0.632,
+   "trailAvgR": 0.823,
+   "noW": 0.469,
+   "noWtrail": 0.615
+  },
+  "futures_adj": {
+   "n": 36,
+   "avgR": 0.767,
+   "trailAvgR": 0.775,
+   "noW": 0.753,
+   "noWtrail": 0.788
+  },
+  "spot4tf": {
+   "n": 50,
+   "avgR": 0.584,
+   "trailAvgR": 0.647,
+   "noW": 0.491,
+   "noWtrail": 0.427
+  },
+  "realRule": {
+   "n": 71,
+   "avgR": 0.49
+  }
+ }
+}

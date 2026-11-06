@@ -24,8 +24,8 @@
   // green only where there is an edge: the "no edge" table shows losses in red and the rest plain
   function cellR(v, extra, plain) { return h("td", { class: "n " + (v > 0 && !plain ? "up" : v < 0 ? "dn" : "") }, [R(v), extra ? h("small", { text: extra }) : null]); }
 
-  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json"), get("research/xau-replay/speed-result.json"), get("research/xau-replay/speed-result-btc.json"), get("research/forex/speed-result.json")]).then(function (res) {
-    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4], sp = res[5], spB = res[6], spF = res[7];
+  Promise.all([get("data/xau-backtest.json"), get("data/xau-signals.json"), get("data/btc-backtest.json"), get("research/forex/result.json"), get("research/forex/edges/result.json"), get("research/xau-replay/speed-result.json"), get("research/xau-replay/speed-result-btc.json"), get("research/forex/speed-result.json"), get("research/futures/result.json")]).then(function (res) {
+    var bt = res[0], rec = res[1], btc = res[2], fx = res[3], fe = res[4], sp = res[5], spB = res[6], spF = res[7], fu = res[8];
     if (!bt || !bt.rules || !bt.rules.go3r) { $("pf-main").textContent = "回放结果读取失败，刷新一下再试。"; return; }
     var g = bt.rules.go3r, t = bt.rules.gotrail, pr = bt.proof || {};
     // ---- the evidence ----
@@ -38,6 +38,11 @@
     add("胜率只有三成左右：靠少数几笔赚到 3R，大多数是小亏（赚的那些平均 " + R(g.avgWin) + "，亏的那些平均 " + R(g.avgLoss) + "）。");
     if (pr.pValue) add("检验：随机进场 400 次，" + (pr.randomBeat ? Math.round(pr.randomBeat * 100) + "% 比它好" : "没有一次比它好") + "；只随机选方向，" + Math.round(pr.sideBeat * 100) + "% 比它好；只随机选时机，" + Math.round(pr.timingBeat * 100) + "% 比它好。p = " + pr.pValue + "。考虑到一共看过约 50 个变体，可信度约 " + Math.round(pr.deflatedSharpe * 100) + "%：小优势，没有完全证明。");
     add("优势主要来自强趋势的年份：定规则前没看过的 " + g.segments[0].label.split("（")[0] + " 只有 " + R(g.segments[0].avgR) + "，不显著；2024–2026 年金价大涨，这条规则赚得最多。");
+    // the rule away from gold (research/futures, research/forex): if it were a general trend effect it would repeat
+    if (fu && fu.series && fx && fx.n) {
+      var fr = fu.series.raw, fa = fu.series.adj, si = fu.markets.SI;
+      add("换到别的市场没有重现：12 个期货市场（原油、股指、美债、白银、铜，" + ym(fu.from) + "起）合计每笔 " + R(fr.avgR) + "（" + fr.n + " 笔；按换月调整后 " + R(fa.avgR) + "），只有白银（" + R(si.raw_rule.avgR) + "）和铜是正的；外汇 " + R(fx.avgR) + "；7 个其他币种也不赚。同期黄金期货 " + R(fu.gold.futures_raw.avgR) + "。所以这个优势更像是贵金属这几年的大趋势，不是到处都有的规律：仓位要小，盯住纸面记录和停用线。");
+    }
     // how late the rule is, and what being later still costs (research/xau-replay/speed_check.js)
     if (sp && sp.part2 && sp.baseline) {
       var late = function (m) { return sp.part2.filter(function (p) { return p.lateMin === m; })[0]; }, cp = sp.baseline.capture;
@@ -66,7 +71,7 @@
       row("不等 15 分钟收盘，价格一过线就进", V.A1.r3.avgR, V.A1.r3.n, "早约 " + Math.round(near.A1.medianMin) + " 分钟，假突破亏掉的比省下的多；提前看的周期越多越差（1 小时 " + R(V.A2.r3.avgR) + "，4 小时 " + R(V.A3.r3.avgR) + "）。" + vs);
       row("在价位上挂止损单，不用盯盘", V.A5.r3.avgR, V.A5.r3.n, "早约 " + Math.round(near.A5.medianMin) + " 分钟，最接近这条规则，但没通过测试，价位一天要改约 " + Math.round(sp.exploratory.orderMoves.perDay) + " 次。" + vs);
       row("1 小时和 15 分钟用更快的转折（2 根摆动）", V.C1.r3.avgR, V.C1.r3.n, "最深回撤 " + V.C1.r3.maxDD + "R；3 根摆动 " + R(V.C3.r3.avgR) + "，2011–2018 也是负的。");
-      row("不看周线，其余四个周期同向", V.B3.r3.avgR, V.B3.r3.n, "大行情第一个信号提前到约 " + Math.round(V.B3.capture.medianHours / 24) + " 天，" + Math.round(V.B3.capture.caughtPct) + "% 的大行情有信号，但每笔少赚，没通过测试；这个方向之后还要单独验证。");
+      row("不看周线，其余四个周期同向", V.B3.r3.avgR, V.B3.r3.n, "大行情第一个信号提前到约 " + Math.round(V.B3.capture.medianHours / 24) + " 天，" + Math.round(V.B3.capture.caughtPct) + "% 的大行情有信号，但每笔少赚，没通过测试" + (fu && fu.series ? "；在 12 个期货市场上也没有比原规则好（换月调整后 " + R(fu.series.adj.noW.avgR) + " 对 " + R(fu.series.adj.avgR) + "）" : "") + "。");
       row("连周线和日线都不看（4 小时、1 小时、15 分钟）", V.B4.r3.avgR, V.B4.r3.n, "最快，但 2019–2023 是负的。");
     }
     if (Q.old) row("区间 / 缺口回调 + 15 分钟转折（网站以前的信号）", Q.old.avgR, Q.old.n, "胜率 " + pct(Q.old.win) + "，照样亏");
@@ -76,6 +81,7 @@
     if (st.ST3) row("短线：昨日高低点突破", st.ST3.avgR, st.ST3.n);
     rows.push(h("tr", null, [h("td", null, ["8 种常见指标做确认", h("small", { text: "均线排列、RSI、MACD、ADX 各两个周期" })]), h("td", { class: "n", text: "没有一个通过" })]));
     if (fx && fx.n) row("同一规则用在外汇（11 个货币对，" + ym(fx.from) + "起）", fx.avgR, fx.n, fx.positive + " 个货币对是正的；同期黄金 " + R(fx.gold.fourTfHourly.avgR));
+    if (fu && fu.series) row("同一规则用在其他期货（12 个市场，" + ym(fu.from) + "起）", fu.series.raw.avgR, fu.series.raw.n, "按换月调整后 " + R(fu.series.adj.avgR) + "；金属是正的（白银 " + R(fu.markets.SI.raw_rule.avgR) + "），原油、股指、美债都亏；同期黄金期货 " + R(fu.gold.futures_raw.avgR));
     // forex round 2 (research/forex/edges): results in bp or % per occasion, not in R
     var bp = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + " bp"; };
     var rowTxt = function (name, v, txt, extra) { rows.push(h("tr", null, [h("td", null, [name, extra ? h("small", { text: extra }) : null]), h("td", { class: "n " + (v < 0 ? "dn" : ""), text: txt })])); };
