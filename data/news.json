@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07 06:19 SGT",
+ "updated": "2026-11-07 10:18 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
-   "t": "Gold Set for Biggest Weekly Gain Since August After US Midterms",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQX3hSNk9RRDhKMmNvdkhnQnN4VkVLaUgwUGJ1dGc5czdxeWI1cHBVNVIwSHlMUWZQekRtd3Q2S2NxVGxwWVU0RUhma1kzLVNoal9BeUllSzMwbUZqaklRRDdKZUd6Q0tVXzBTQ2Y4UEtyUGZodXZHYXBtS1hLYms0S28ycVBtWUpET0JXOHpRRVNmOUx4UXBjYWFSV1N3Y0xmUkRaQkRZV2VfRjFCNzFqdldFZHQ?oc=5",
-   "ms": 1794000388000,
-   "time": "11/07 05:26"
+   "t": "Wall Street split on gold following Dems’ midterm rout, Main Street bulls emboldened after post-election price rally",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWHVsMFNpWElRdW9uMnNaWURPNm1xNktGOTNYeWppWXhJWnJqVEg0bW12R2pnUTJ1NEt0N1psUkc1S1d4NkNIZ2NxdktkV2YwVW1kTXBWNXpjVkcwUlZmRG5hdTZvNzVJZjVJNzNpU3RTWUhtTHZHSEpHbFV3QmN2a2JxMTE0VXUwR0JockJJaFlnc3dyLTUxMmdyczAxWkVzZS1KTkN6dW9ydS0xSjBONm8xRnI?oc=5",
+   "ms": 1794004416000,
+   "time": "11/07 06:33"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1794003122000,
+   "time": "11/07 06:12"
+  },
+  {
+   "t": "Gold prices fall as blowout U.S. jobs report boosts Fed rate hike bets",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNC15eThsLWJvMkJ4WnNmT1V1TzdOTHRWY0VrZjBhajYtNExPMEhqZ3dZRmlaS0hxcWRLbzZ1SUphMFNpR2IxMkpTemhWR3hwWUtOSmVsM2E4WGNXdXNXa3RTWm1JaDlkVmZjLXB6bEE5WWxkemRVTlFnQS1CejhFLWRXZ2lYNWlnZ0puYmlVMmZoX0ZKbkZTazh0ekpfWUhOOVRTYUEyY2VtWTRxRTRrcmZWUVdPcUN1blFydnBCOHV0VS1F?oc=5",
+   "ms": 1794003120000,
+   "time": "11/07 06:12"
   },
   {
    "t": "Gold price holds critical $4,000 support, but strong U.S. jobs data and inflation risks threaten recovery",
@@ -19,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPMVFrY1hheExQaDduSlBRcndvS2FkcW84Y0UwRnVZUGRKSnJ5eW9keHNzemhJNEpadVQxRlJXMHNxYzhOVXVLakZNNTBBNmNsYTFadkpvN0Z4RnFwWUtYcVoxRlZjV3pNaWphd2FZRGt5eGp4Z20wc2xkeTN3dXFpa0xodkIwdGlQTHhCc05PQTBISkNjVjE1LTZSMUR0UV91SlFNR0x5STlSeEt6R2lOR0JsUXBURzk3V2c?oc=5",
    "ms": 1793997941000,
    "time": "11/07 04:45"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1793995790000,
-   "time": "11/07 04:09"
   },
   {
    "t": "Gold dives below $4,100 as blowout NFP underpins Fed hike odds",
@@ -56,13 +63,6 @@
    "time": "11/06 23:29"
   },
   {
-   "t": "Gold slips following hotter-than-expected jobs report, but on pace for weekly gain",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPNC15eThsLWJvMkJ4WnNmT1V1TzdOTHRWY0VrZjBhajYtNExPMEhqZ3dZRmlaS0hxcWRLbzZ1SUphMFNpR2IxMkpTemhWR3hwWUtOSmVsM2E4WGNXdXNXa3RTWm1JaDlkVmZjLXB6bEE5WWxkemRVTlFnQS1CejhFLWRXZ2lYNWlnZ0puYmlVMmZoX0ZKbkZTazh0ekpfWUhOOVRTYUEyY2VtWTRxRTRrcmZWUVdPcUN1blFydnBCOHV0VS1F?oc=5",
-   "ms": 1793977959000,
-   "time": "11/06 23:12"
-  },
-  {
    "t": "Gold price trades near $4,050/oz after preliminary Consumer Sentiment rises to 51, inflation expectations ease",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOYjhxOEY3ZkZleHZYYWktQVBVVVlnb2N3UFNibGhvVnlIXzBYdHN6MjJreFdKOWNYU3NrWGRDMENLQUk4LVV2OEM4SDFPcWJyMzBUd1RMNFVmMWpJclBWV01Rai1hME9pNi1SVW9jSmRURV9ha3VYQ0VKemVfVWdicXU5N2cyM19wNWlueVNzZ2JYNGZMSDA4NWJtdTZlSTY2WEFGemxMbEwwcl9jWU5QX0Y4YmZHOXNqZ3ZqTnd3?oc=5",
@@ -84,13 +84,6 @@
    "time": "11/06 22:34"
   },
   {
-   "t": "The price of gold today, Nov. 6, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1RVEpOeVhlS24zdU9Md2xWdGt2WVN6ZFhrdDZ3VmpHb1gzUjhHRE9LT2g2aFFXWmFOWEozYm5OVUxGRHRrYkxrN092Sld1WDM1QXhabVBPYUNMVXhLbVZ6ekp3Rng0LUZuS0lqeTVjTGLSAXZBVV95cUxONUZMS0JSNE9RNDZCM1BvU3BETkV3bjZ5V0Y3YzVfM2doQ3hFdlY5dC1EQjUzUnAtN3FBSmxoNkliZzFMZXlnUUg2dzlaeG1JVjNqV1hwaUFhSlltSTliazhEZWk2SDhEblFlV1YybEJDcXEyd0F3?oc=5",
-   "ms": 1793975500000,
-   "time": "11/06 22:31"
-  },
-  {
    "t": "B2Gold Q3 Earnings Beat Estimates on Strong Gold Prices",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOZ1pRTnRZclc1UndpQnlkLUtJbGNGalZkVlFxWEMxdjRnaXhnSlZYNGFlQ2xzTnNIemhrczJBWVFzcGRPWmc1Nk9jSktFVDE3OTNzYVo5Rk44U19YNzdaQldDQXRYTERua1BkNDNDM2dWbjJxSENRaW5Ba3BVOUNMa3BQNENFZTFLZlZFLXJzVzI4Nko4a3RoRk9rV1ZDcHoyLTZUbEFB?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNTXI2NUgwV2RLMm5RUVJVVW9ESHRPZ0dCT3lPRHpnZG03UUpsZFU2MW9vdHduRS1Mb1h2V29xZm5WVVpzN1dWdmJSY1ZnMHhDcndyT2FGSGdYOWZLTHJZWXQwUXdIaWNKU1hyQlZXMWlMT0R4ZGdRUWtBRDQ4MUc2dzBFZmxlRmtYaTNMcFdRVVU0YjlPYTdUV19kSlVmWktXX2VycmV1ZjJ1NjNUdS1zYmFWbU5PS21vWFE?oc=5",
    "ms": 1793973305000,
    "time": "11/06 21:55"
+  },
+  {
+   "t": "Gold on track for weekly rise amid AI jitters; U.S. jobs report ahead By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPVTJpUUlEek9NaEJhTTNMbW9KWUR6aEdLLXdWbEtxS0hlZmx0bGRmaVk1elhGb0pQMmNKMzY4SnZ6TmQxUVBQekYtYThES0t4eUs0NC1oUGNYREJVcG1qZjlBcldpZ2V3M3FOMWtfQjdkV1NUZ2dQcy12YkJLY3M5dTZGNmZRMVpLaDZZMlF3VFpqZ29aYnh3SFNGSkVIM2dHZV9WYXdETnV1dDBTUk5ramlfMHMzTzJhbmZzWEI5RGZiLS1i?oc=5",
+   "ms": 1793969759000,
+   "time": "11/06 20:55"
   }
  ]
 }
