@@ -1,11 +1,60 @@
 {
- "updated": "2026-11-09 06:09 SGT",
+ "updated": "2026-11-09 14:00 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "$4,100 reclaimed: Will Gold buyers succeed ahead of US inflation test?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOQjVXTTJJdE4wQWRoRFFXUlMzX3ViU2xfZWVLYVdXbUFCSmxkZ3ZMNlBtd2NqWG13bVRXTHFKZnFjZW9BVlVtRTFsTWRlZHZ5c3dzZFA2Sjg1YkoyR2hjVUZhNkJSUVZLeUcyNXh3TDgwWW50d1ZNeXdORmpzSk4tMXlRMXFxQ2g4QVdIREJDdWF5ZkxzalhRQTJSd0ZzNzE1VW1GRXlPV1ZQZjJxaG5laVNmdlA?oc=5",
+   "ms": 1794196537000,
+   "time": "11/09 11:55"
+  },
+  {
+   "t": "Gold jumps as soft US Dollar counters Fed rate hike expectations",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZ2FaV1pieGFhUlJfajAwMzlfLW5mVFRjTzNqaVVrT2drZmFDUnVla3hNMzljY3htaVRQbURvTERSdkktZHVMb25SWXVCVE5EYVhyVWxab0NwZE5XZkZLWV9RODN6bTdIbzRQWHFGQktxbXlMakIzTno5cEtQYWpFcFQ1U09qVVNvS3Rub1dFVl9ZYnEzU0plTDNVaw?oc=5",
+   "ms": 1794195892000,
+   "time": "11/09 11:44"
+  },
+  {
+   "t": "Gold rises over 1% as softer oil prices ease inflation worries",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbEdIVXlJc2RaUEw2RmFrR2FZcXYzYlBKUG9Cdl9WUVFfalVxT0hGcGFCdW1DS3JMT2daanhDYktBeXVGNGt5TGlsOGZJVWVSMFpnT3ZVa2RBUjZYakRlVlQ3SXd1ZkpTQVNXVkpoNUZoemdycWY0MG02dVk0cWRuWG4taG5VMm9kbEluSHctTVZVMXJwWXNWSWdVcmxQeWtRSW1EWDQ2dTJ6QVV2TzhoeQ?oc=5",
+   "ms": 1794193260000,
+   "time": "11/09 11:01"
+  },
+  {
+   "t": "Gold, silver prices rise up to 2.6% on COMEX; what investors are watching this week",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNRUdyXzRGQ3FBVHdOREVXLTVZR0VnQURJWTJDbE5FajI2X1JlMTd3SmVKbHhCMk93ejcyOVZNQ2hsSF9CUHNKZ1lVWEZmem1OMWhWdHhVdjN1anA2cFY0UThxTzM0WXBPNlktWlNPQnUtNmh4NldwaHd3cmU2U0Fid2FZeUtnSVYtdlVjdjFaaEFqa25tQ01xNlRqbDZJbjdfYUxDVzNiZkNqbE1zZGNDR1lWSmhmYkF3NHBlVkNpR09MNE9I0gHKAUFVX3lxTFBISGd1U3B2dUR3NzR0Q2R1T0oyOW9GZjZyR09EQWpNb1FFX2NFTVBBellJMGZqOHRUY3pLRDhJQmxBSWpzajRWLWRQVno5U0JZYTVpaDJkQWRiOFpJRzdZRGtiZlRQOU5la1ZJdzhHaTBNZWpRZjZUTlJvaW1vMzJveUJjR1VNaG1KeEFEc1RYWGdfX0M2V0J1MjBlNnhwWC1Db0M4X090NkF6VEVNd1o4STNBeU1EUFFDSXZPWHVOYXJZVkY4QzNJOWc?oc=5",
+   "ms": 1794190472000,
+   "time": "11/09 10:14"
+  },
+  {
+   "t": "Gold Holds Decline as US Jobs Data Fan December Rate Hike Bets",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOalBuZXBLSkx6bEJtdVU0djlRbHRwdlVRNWdTbWJDM2NrRmZVcGg4SV9mdEVONXVWeml3OFgxZWRKMEoxenRCLXVaSXhDdUdRNG55V3ZWS0drMzJwaUJYN3A5cFlpWEt5anBMMEtoa0R1LTIxa3BnS3luNUdPWFIweTY0NEJhS2thcnpqY0YyVEJwZHhxclFyQ3c0OTNETy1aQlFaeHN2R1A3dXg1T0NDU21ycw?oc=5",
+   "ms": 1794189180000,
+   "time": "11/09 09:53"
+  },
+  {
+   "t": "Gold rebounds above $4,100 as traders await U.S. inflation data after jobs beat",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1lTDVNUHNBMU0zMDlQSVdzSzJtWHJGS19JLWFHU2FUbkYzNkVvNVBYc3VQOE0xdGQtaHVsWnBSUm5BR1BzZ1BQMnJkQTQwekNSYkNuX1RHam9zS0h2Y0hlNlc2NEo0eWhVTnRFa1lJcmJVQmpSSW5zb2J5bGpyWGs?oc=5",
+   "ms": 1794189000000,
+   "time": "11/09 09:50"
+  },
+  {
+   "t": "COMMENTARY: Gold's short-term volatility contrasts with long-term bullishness",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPckFmSmFBN0lNeTlPeWtKck51aVVZVW5qeXEwVXRxT1Z1MHV1NjYxa0F1ekZPeWxWUHNydG1JU2ZKZzQyazFidjlrc25wVHY0TVZkWFk2eFJDSDNaOTNiQkNlVXdmUEF1QzNSeHliUm1pcmstRW9vZXNqNVAweGpMWnBaTlZWSFBmX2pxTVdwdzlJbmczZFpIeko4RWVNVlE0QUVOUHZYTVgyOWdBdUFxR3BiWko2cEtpOEowZDhkWlo3Q1RaUGFFend2bHdHUQ?oc=5",
+   "ms": 1794182390000,
+   "time": "11/09 07:59"
+  },
   {
    "t": "ETF Gold flows slow in October but remain positive",
    "src": "FXStreet",
@@ -14,11 +63,11 @@
    "time": "11/09 05:40"
   },
   {
-   "t": "Titan eyes record festive sales as gold exchange gains traction: Arun Narayan",
-   "src": "CNBC TV18",
-   "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPMk1VelBoUnp6cm1vbVhmV2ZJUVB4ODM3bFFoWEtvb09hRjZldmN1NUV1eXpSYVFQdjNMb0tRRjdaNXJ5eVdwTDAyMUpKV08tTU1kLWdZSUltRWJOdnNSLXZPSHZGV2xpOExCN0hNWjZIUnpQZXhpUUJhODFNTU5vUEl0cVhTUE9NUjdYT0xTUmRFSkl0bmFMZm91ejNJbXBBRWdQS0FxZmNWd2xwMWlOWGZmU0pEbUtvQU9taVU0UzNiVDZyU1M1MW9rMk91VWR2TTdYNUVvVmhVOGNWY1pfZ9IB5gFBVV95cUxPT2IzN0l3Tm0ySXowR2hfZ2N1ZHd0SDdrNU15U0dQWTYtZXl1b0c4eHVFdFhXc0lSZTJvUUM3UU5NM3FDOFVyb0JRd0pHdWRmMG03LW1xeHM0dl9iMnU3Y3BxVkZGcEZ5VXFKRDBndlhZY1FnR0l3cWFUOGxiSGUtb0F4OXpELWpVZG9uMHFVeUdnQ19KdG5zNHVWNlk0TDBuV0tPRXBxUENOc0F0TmJTX3VKaEl5NTIxV1F2X1NDNjFDSjFVTGhGNzlWMXk3amVmYVlhMUhPS2lwbWFhX3dfU0w0Ykh1dw?oc=5",
-   "ms": 1794137702000,
-   "time": "11/08 19:35"
+   "t": "Where Gold and Copper Prices Go From Here -- and 3 Mining Stocks to Own Either Way",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSzFnZEhkNVU0eFlvRmtKR04zakdkdE5RY2puSHhmUFp5RFdhSk1DeFUySnlkbDZwNm03V1ZFaXNlX1h1R25saFRnSjI1NHljazljbkdSaG0yWW5JcmdlLWRNZUF6UDhJM3BmYUQtY3JwUUUxbWdZWUM0QmktNUdEZk15aXNnMExPZDBTOTNjMjRLYTRubmdodW1yLXU?oc=5",
+   "ms": 1794162000000,
+   "time": "11/09 02:20"
   }
  ]
 }
