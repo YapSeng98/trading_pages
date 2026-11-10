@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10 15:41 SGT",
+ "updated": "2026-11-10 16:48 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold remains depressed above $4,100 as traders eye US CPI for Fed rate cues",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPV0puSlB2QU9SbnZZMzZxOEltSVB1QVI5dm55d0hkLWxZZXh5VGFiaDNyNVZxaWVCVlJNV1hTWnR0MkFOZFVvWWZnNFdHeFZUeUZIX3VQa1lybExnMzdnTzI0Qm5qTkc4dE95clJrSmV3UDBGZlBmZko3SXV0LWdvY3A1bEx4NEtmWm1TMm1NVWlWbHNBWFprWURlTTNDLXg2Sjc1Z0RxMDYxV1lKaC1wZ0ZqVVQ5ei1fMng4emRxMHhJT1BGUGM3TFFhSjRGQQ?oc=5",
+   "ms": 1794298595000,
+   "time": "11/10 16:16"
+  },
+  {
+   "t": "XAU/USD price outlook: Gold faces rejection at 0.786 Arc – Awaiting directional confirmation",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcmwzaGxhdC1Gb1V0WFZlX1Zsc0FWV2hma2RkMEVkdWZSQWZpMzFLbGtrRkhQeGpOUTBGMk5VUExId3hnRXh0SEtIZmdYUkg0N1F5Z1FsT1c2Mk00dHBjNXk0cTRoQlJBMkpWLTBiZXJQa1FTNzFjNjhjSDdOeUxpSFhiVjF5TGJkazVPeVhLbnVJWWlHYUh1bXhCUHRPNzcwVDNNOWJrbU9WaHQ0bXFGYnFRNzBIbDJ1V2xnRVVNbGR1aE0xckpTY2lPQVZGNVQ1?oc=5",
+   "ms": 1794294931000,
+   "time": "11/10 15:15"
+  },
+  {
    "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
    "ms": 1794288252000,
    "time": "11/10 13:24"
-  },
-  {
-   "t": "Gold drifts lower as traders eye US CPI and dip-buying support",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPV0puSlB2QU9SbnZZMzZxOEltSVB1QVI5dm55d0hkLWxZZXh5VGFiaDNyNVZxaWVCVlJNV1hTWnR0MkFOZFVvWWZnNFdHeFZUeUZIX3VQa1lybExnMzdnTzI0Qm5qTkc4dE95clJrSmV3UDBGZlBmZko3SXV0LWdvY3A1bEx4NEtmWm1TMm1NVWlWbHNBWFprWURlTTNDLXg2Sjc1Z0RxMDYxV1lKaC1wZ0ZqVVQ5ei1fMng4emRxMHhJT1BGUGM3TFFhSjRGQQ?oc=5",
-   "ms": 1794288152000,
-   "time": "11/10 13:22"
   },
   {
    "t": "$4,150 remains a tough nut to crack for Gold as US CPI report looms",
@@ -70,6 +77,13 @@
    "time": "11/10 03:23"
   },
   {
+   "t": "Gold and silver prices extend post-election rebound, central banks on pace to beat 2025 purchases – Heraeus",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbjlfT0RwLTdkTFh2ZFY2TklJYUFHZ2JFYjZtR1JaQldGOFJrSXVFUS1hUXFyMVEwaUhSRm1mdzEyMm1NeUhVQjUtTEZobWFtQ0FoUkxWMHE1WDFFOVVLQlM2c1FXMHhCSU83QWxVUkM2UU1XdnZ6THMtNmtudGlNajBEb1VNczdZUmdZRERfWWROUkJYaTNoeDhheFd6cHBnX0toOUVuS2pDNXZxVXJPdnBFMkNCUG5SMG1iX0NR?oc=5",
+   "ms": 1794236531000,
+   "time": "11/09 23:02"
+  },
+  {
    "t": "Gold SWOT: Central bank gold buying remains strong in 2026",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRUsxVTBXQzNxLTE5V05PMGpBdTU0VmhHQjhXUTdUWjlBcDlwQUxrTWJFVVZNN0F4NTNWOVlvWVJZZXcyeUxFb2xmYml6eHRfaTlGb0dJcFYySUR4QmxRTGM2Y2xFU1lRaENONHNPejUycHVYUEF3YU11LW4taU1QNkwzR3lNNHZjZVM1Y0gxdHdSZl9LeUo2eEJpdw?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQLXVOVVNqUmhRc2xIbTdLT3dUUnBDcFNmYXV5X1ZpQ09HSWx2cXJBRGxoX3lOUkhrSWpCZjUwaF9kOGRFMnI0aWlaVUV5Q3BEelA1NlpRODltc2E4dzZ1aTlwZnZwZGJweTZ6aW9VV2NmaVA5YV9wTTJhcXJjaXJwR0ZhekJuSjlvLUZIRWQ5LTU3RGVXTGRhSmNCdThmV0Yw?oc=5",
    "ms": 1794229995000,
    "time": "11/09 21:13"
-  },
-  {
-   "t": "Gold prices today, Monday, November 9, 2026: Gold prices steady following Oct. jobs report",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPc19tZHFDQ0pocDEyTzdiUmJlUGdWQTlCX2FqTTFOX0lCSGNnZkU5RDZnaEhYSDZCTEFKQ1ZDRmNMRkZ2X3F4cVVIcHhNQWxRZFFBZVhtY3VIdHRkOUlvQ1UtN2Z4UnR5SmFab0hhQ2pZRXZSZWF2aF9DY1A4YTVJZi0xR3JtaVFkWU10LUlSTGJ6S2EwaW1JaEd5eWdROXFFOXJORGZvVWdUekRNTDkwRWtGcUdXV09Ealg0aHcyU2hTNVozbUZsbHdZX0l2UXNvVHpINzg3eXhZT1hNcUpHYkhmS0dSb3ZYNG1nR25YQUJDbEE?oc=5",
-   "ms": 1794227190000,
-   "time": "11/09 20:26"
-  },
-  {
-   "t": "Barrick profit rises on higher gold prices",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQXJORDRuZ3VfcF8yOGNRaTlUSXkyR3gxWVM1VUpKLUxSaWhHeGJMSWhiaE1hQmpfdVdhR0ZHSHhSMURKa01WbjVSOVJZeHctYW9QZk5xeDRsMkNub21SMUF4Zm50YU5UNldoNnV2TnpUSnpHbkgta2t0clBrZzdZYW42c3Z2UUJEQzlhWg?oc=5",
-   "ms": 1794223071000,
-   "time": "11/09 19:17"
   }
  ]
 }

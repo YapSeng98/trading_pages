@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-10 15:41 SGT",
+ "updated": "2026-11-10 16:48 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4117.9,
- "priceTime": "2026-11-10 15:30 SGT",
+ "price": 4116.7,
+ "priceTime": "2026-11-10 16:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4137.9,
   "high": 4146.4,
   "low": 4107.9,
-  "changeFromPrevClose": -22.2,
-  "changePct": -0.54,
+  "changeFromPrevClose": -23.3,
+  "changePct": -0.56,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -175,22 +175,22 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-11-09 09:00 SGT",
-   "rsi": 53.7,
-   "atr": 15.35,
-   "ema20": 4117.1,
-   "ema50": 4101.4,
-   "ema200": 4054.7,
-   "emaOrder": "多头排列",
+   "rsi": 49.5,
+   "atr": 15.28,
+   "ema20": 4116.6,
+   "ema50": 4101.8,
+   "ema200": 4055.3,
+   "emaOrder": "交错",
    "range": {
     "top": 4148.6,
     "bottom": 4084.5,
-    "positionPct": 57
+    "positionPct": 44
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 4133.9,
-    "barsAgo": 10
+    "barsAgo": 11
    },
    "turnsUpAbove": 4148.6,
    "turnsDownBelow": 4100.3
@@ -200,22 +200,22 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-10 10:45 SGT",
-   "rsi": 46,
-   "atr": 6.88,
-   "ema20": 4120.3,
-   "ema50": 4120.7,
-   "ema200": 4101.8,
+   "rsi": 46.3,
+   "atr": 6.52,
+   "ema20": 4118.6,
+   "ema50": 4119.8,
+   "ema200": 4102.5,
    "emaOrder": "交错",
    "range": {
     "top": 4141.2,
     "bottom": 4107.9,
-    "positionPct": 30
+    "positionPct": 27
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 4121.4,
-    "barsAgo": 19
+    "barsAgo": 24
    },
    "turnsUpAbove": 4127.6,
    "turnsDownBelow": 4107.9
@@ -223,14 +223,19 @@
  ],
  "resistance": [
   {
+   "price": 4127.6,
+   "what": "1小时近期小高点",
+   "strength": 1
+  },
+  {
    "price": 4133.9,
    "what": "1小时向上突破位",
    "strength": 1
   },
   {
    "price": 4146.8,
-   "what": "上周高点、昨日高点、4小时前高、4小时区间顶、1小时等高点（止损密集）、1小时前高、1小时区间顶、4小时近期小高点、1小时近期小高点",
-   "strength": 17
+   "what": "上周高点、昨日高点、4小时前高、4小时区间顶、1小时等高点（止损密集）、1小时前高、1小时区间顶、4小时近期小高点",
+   "strength": 16
   },
   {
    "price": 4200.2,
@@ -241,11 +246,6 @@
    "price": 4216.9,
    "what": "日线前高、日线区间顶",
    "strength": 6
-  },
-  {
-   "price": 4258.6,
-   "what": "日线 200 均线",
-   "strength": 2
   }
  ],
  "support": [
