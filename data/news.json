@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10 16:48 SGT",
+ "updated": "2026-11-10 23:49 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,25 +7,67 @@
  ],
  "items": [
   {
-   "t": "Gold remains depressed above $4,100 as traders eye US CPI for Fed rate cues",
+   "t": "Gold, Silver Fall as Rate-Hike Betting Jumps on Strong Inflation Data",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOT3E1cENvS0llMVhqSFJMNEJINTFEbkNINmFyV2ZwdUlYY3pVWUdtTG1iQnRXS1J5TllpNExsVDZjSDNmU3pPdUllUE5wdGVLcUxRc1QtajVtWWJYQ1Q3MWNBMWY4eGxzdHowVGR2c285MFcxM053Zmd3ZDM2UDhaMTZJaGdGZ1Y0aENlUHpWcVRuTG5FRXNwRk00TQ?oc=5",
+   "ms": 1794323586000,
+   "time": "11/10 23:13"
+  },
+  {
+   "t": "BC-Gold Futures",
+   "src": "Yahoo Finance Singapore",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9BdXhXSzcydUZEbHU0YS1RSHV2c01wM0Q2dmU0bjl2aWFKTW9DZ0Rqb3JmbjZlRS1OV0Rlbm1VWHVsX1U4QkhFR013bUp3d01UYlNiN2MzOHNySVNnNVVlUnRrelNaa0NiWk9JcXV1RU9iUQ?oc=5",
+   "ms": 1794322832000,
+   "time": "11/10 23:00"
+  },
+  {
+   "t": "Gold prices down 2% on the day as US CPI rises more than expected",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPOV9mS1BKa1d2YmFyNkpBcmVzdzQwbF82bFh5RjRZSVcyeDZ0V1QyQ0xiSUY4SW9pQUZfbkpaWW1wbkVfb3pWcEY5bzFiX29VenI1X2hiQk02V00zSElkS015bDVxWkNJX3dFbjlMNWJVdVNMeGNzSWFlRFdlYzVqQ2Z0MHcybG1CUExJR3dOLVQ1Vm44ZExPWFBlYw?oc=5",
+   "ms": 1794317446000,
+   "time": "11/10 21:30"
+  },
+  {
+   "t": "Gold price today, Tuesday, November 10, 2026: Gold opens above $4,100 for the first time in three weeks",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQTUs2ekJ6eldWUXZyUHlFNndxRGphaG4wSDY4UzdOUHhjbE1sQ1NEelZkdlFTbUsxV0xUZHhTUXRkYXpaRzBUNm55WFdoMGd4V1VaZHN1UFZwa2h4SmhybXVFaVZMRjVELVBaLWs2ZEpVYjhjVnIzcTY5VzBBWWhRUEFteGR5cXBvRl9pMzdFSmVNdFRPSnlFMDE2Q2NJRTlhU3ZCZzhhQjYzbzZGV2F3ZjBoRVRFLTBMN1I3WkZpSnVrVnM2LU9EdExhSlh4ZzVLYkFhOU1pUXpGT0loUTlSQWo1Ny13Ti04YUdkbW1BWXdGVjNQMW1EZ0piQmRWTUFzUmgw?oc=5",
+   "ms": 1794313054000,
+   "time": "11/10 20:17"
+  },
+  {
+   "t": "Gold Retreats From Recent Gains as US Inflation Report and Fed Rate Outlook Take Centre Stage",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRkFlUzBtNmFhTWgzWkxnWXNKVWRQVXlvYlVMUDRVaHhYV1NxVVFxOUI4czNzWjVpWUJfd3JJVklLZXBDZTEtYkVFM3NpQjd0YldyUnlZbTVNd0pBaUMyXy1xa18wOHhzakQ1WXI1LTZOS0UzMU1xdVY3Wk16ZEZQMENSS2s?oc=5",
+   "ms": 1794305821000,
+   "time": "11/10 18:17"
+  },
+  {
+   "t": "Why Gold Miners Rose on Yellow Metal’s Down Day",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaUlORHVDdVZCX1JkU2N1YXZiNE9mNWZIRWFQRGN4OUtJYngtVE5rdm02UkxnY2FhX3ZCYjNUYk0wYXhuU3VpUmhjc0NYU0lHa0RQN3hoWkc3OGE4T2gzTzEzWWtERURULWxQYUQwNllhQ2FGZ1M0Q0tCTDgwSlJsMmZqd0ZIbHJhWTFuemIydkZDLVIwWEE?oc=5",
+   "ms": 1794303819000,
+   "time": "11/10 17:43"
+  },
+  {
+   "t": "October’s US CPI rates eyed",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1tcVlmZHlyc2dqTVF4RDFxS2lvc1BQS2ROU3V0NWlLVHFNcFU2RGxzM3N1NHA0ZkpPdDl1NzAzdWZOUS1US1Z6UW5jQlpWWGVVZ19QbERId001R2tRMmZpaGlKaXNyQm9IbzFjMmdTVDZ0X0dfV0h5UjFJRU9sUQ?oc=5",
+   "ms": 1794302711000,
+   "time": "11/10 17:25"
+  },
+  {
+   "t": "Gold slides below $4,100 as Fed hike bets exert pressure ahead of US CPI",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPV0puSlB2QU9SbnZZMzZxOEltSVB1QVI5dm55d0hkLWxZZXh5VGFiaDNyNVZxaWVCVlJNV1hTWnR0MkFOZFVvWWZnNFdHeFZUeUZIX3VQa1lybExnMzdnTzI0Qm5qTkc4dE95clJrSmV3UDBGZlBmZko3SXV0LWdvY3A1bEx4NEtmWm1TMm1NVWlWbHNBWFprWURlTTNDLXg2Sjc1Z0RxMDYxV1lKaC1wZ0ZqVVQ5ei1fMng4emRxMHhJT1BGUGM3TFFhSjRGQQ?oc=5",
-   "ms": 1794298595000,
-   "time": "11/10 16:16"
+   "ms": 1794301703000,
+   "time": "11/10 17:08"
   },
   {
-   "t": "XAU/USD price outlook: Gold faces rejection at 0.786 Arc – Awaiting directional confirmation",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcmwzaGxhdC1Gb1V0WFZlX1Zsc0FWV2hma2RkMEVkdWZSQWZpMzFLbGtrRkhQeGpOUTBGMk5VUExId3hnRXh0SEtIZmdYUkg0N1F5Z1FsT1c2Mk00dHBjNXk0cTRoQlJBMkpWLTBiZXJQa1FTNzFjNjhjSDdOeUxpSFhiVjF5TGJkazVPeVhLbnVJWWlHYUh1bXhCUHRPNzcwVDNNOWJrbU9WaHQ0bXFGYnFRNzBIbDJ1V2xnRVVNbGR1aE0xckpTY2lPQVZGNVQ1?oc=5",
-   "ms": 1794294931000,
-   "time": "11/10 15:15"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794288252000,
-   "time": "11/10 13:24"
+   "t": "Gold drops 1% on hawkish Fed comments ahead of U.S. inflation data",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZGItVzRMT1dpY19zRm5oSlJwTXRwQTZpMFNYaUJEVFZfbmZmUjVfZWluWEZRVUt5Q0ZDa21tcHJObUdCLXNkTmVRajh6SDRkYS1Zc24zZ3pWNFFEdGZBM0Y0MHV5TWZPcnZhZkYxdVpuYTQ0amp4aUZtR052SHRlVjZoampxbDgwYlZabkxtTDl4dk1z?oc=5",
+   "ms": 1794289619000,
+   "time": "11/10 13:46"
   },
   {
    "t": "$4,150 remains a tough nut to crack for Gold as US CPI report looms",
@@ -35,11 +77,18 @@
    "time": "11/10 12:28"
   },
   {
-   "t": "Gold prices ease as focus shifts to US inflation data",
+   "t": "Gold falls more than 2% as CPI tops forecasts, lifting dollar and yields",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUUt5d0NsOEFXZzVGWU5qOFFwbGtuT0pyM3RMcTR3ZDRXYzFqV1NkM1VadUV0VzdNUFpZREVYLU1mdWFpSDE5V0w3Qlo5X1luTXVXRkZKNHQ1bXY1X0VCNHRienZVbnhQdE93UWFYRk41T0Fhd2tiQ2dpZzF2WEZmM0hVTFpjMVFzR2JhNlpWN0R5ZkFCY0JkRUVuYw?oc=5",
    "ms": 1794281460000,
    "time": "11/10 11:31"
+  },
+  {
+   "t": "Gold declines below $4,150 as rising Fed hike expectations outweigh US-Iran deal hopes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdXg2RHh0WXNmNGNnNmFlVlJqMUxkdEtJUGM4dUxQeGR2VGxFQzk0aWplXzNkQnB3aGJKcDJMVlNhRzlhM2oyM2ZVSnRSQU9hbVg5azQtbkpHUjlpTWxnQWZBYlY3XzZaQy03UW93VXBYOTNxN1d4M1AtT1hVUUd2ZHNZaWVrVjEycmhiZ2tNa3RoUzdyczZFUEZtdFVRR2ZHbHFQSGptc2JDWXhFS0VObkVvWG0tbE9OYmJRZTBrZUZCV21SQjV3?oc=5",
+   "ms": 1794272446000,
+   "time": "11/10 09:00"
   },
   {
    "t": "Gold, silver advance as dollar weakens, Fed rate expectations face inflation test - Kitco PM Report",
@@ -49,13 +98,6 @@
    "time": "11/10 06:03"
   },
   {
-   "t": "Barrick Gold earnings analysis: questions answered and next catalysts",
-   "src": "Yahoo Finance Singapore",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdTUtYXBvaTh3V0RrZ1AwMkRYazdJRlB5dk92MmlNRTRyZm55OWswUTdyWEFJSlU0U2trUzFHYkJVQWtJcGdZNzVKQjNubFFDeUpBQTloYmwxak83UHJiMHBLX2NfRXNRUnZZc3pnQkFqaXBXX3EyaFN6LVVsandwSE1zcUxXYjJJOGFqWTFhREdWZ3c?oc=5",
-   "ms": 1794256615000,
-   "time": "11/10 04:36"
-  },
-  {
    "t": "Gold defies Fed hike bets, tops $4,100 as Oil rout hits the USD",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUU1IN0FEVnQxbzhTTlU1cGU2WnFQUGN0bV9KdkZBUVFudHFMd3hvV1JDdWVXemRCYS1oRzZHa3psWF9GNEFEUXV2SlRrRENHUHlsYmVXb1diaWRpM3k4LVNQU1FHeXRoXzAyZDQ3Y21SODc5Z3o1dmxnQ3h3SUp2Sms4bHAwWGlOOU94cVVKbXNXOVl0YWQ3VmZKVHFJR1Z1MkZlaF9hYw?oc=5",
@@ -63,53 +105,11 @@
    "time": "11/10 04:26"
   },
   {
-   "t": "BC-Gold-Silver",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mc2IyUldPT0xVYmpoZ1o4LTR3c0FwNGhuVi14TUNlZDJTcFVPQ2pSckdyUmxrd25CaGhvYXJrRU85cHhPS0ROd3VOcHBXcnVJb0IyMlpoRkJ6OFdtV2NlWC1BcXBwVVlzR1B2OHJJdk4?oc=5",
-   "ms": 1794254414000,
-   "time": "11/10 04:00"
-  },
-  {
    "t": "Gold climbs more than 1% as inflation fears ease on lower crude prices",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQOGdqQUJqT3hVR200bUdiTXBNdzdXNTBKbVJDMzl6STdYVUFTZy1ZNUhoQVBWMlZBMmZPQlgtXzZsVjFiU2RmN3otTTB4MnE4SHRRdlFvdlhKVWV4QTRzNmhac3JldXRwenpSUlRXcnc0ak05M2YxTjJ5Zi1vMjk2RWJNd0J5dy1oeHVmVUNMVDlBbVVPVmtDR2dUaHRDd1MxdTByWU9xYlRZRmU5WlE?oc=5",
    "ms": 1794252180000,
    "time": "11/10 03:23"
-  },
-  {
-   "t": "Gold and silver prices extend post-election rebound, central banks on pace to beat 2025 purchases – Heraeus",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbjlfT0RwLTdkTFh2ZFY2TklJYUFHZ2JFYjZtR1JaQldGOFJrSXVFUS1hUXFyMVEwaUhSRm1mdzEyMm1NeUhVQjUtTEZobWFtQ0FoUkxWMHE1WDFFOVVLQlM2c1FXMHhCSU83QWxVUkM2UU1XdnZ6THMtNmtudGlNajBEb1VNczdZUmdZRERfWWROUkJYaTNoeDhheFd6cHBnX0toOUVuS2pDNXZxVXJPdnBFMkNCUG5SMG1iX0NR?oc=5",
-   "ms": 1794236531000,
-   "time": "11/09 23:02"
-  },
-  {
-   "t": "Gold SWOT: Central bank gold buying remains strong in 2026",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQRUsxVTBXQzNxLTE5V05PMGpBdTU0VmhHQjhXUTdUWjlBcDlwQUxrTWJFVVZNN0F4NTNWOVlvWVJZZXcyeUxFb2xmYml6eHRfaTlGb0dJcFYySUR4QmxRTGM2Y2xFU1lRaENONHNPejUycHVYUEF3YU11LW4taU1QNkwzR3lNNHZjZVM1Y0gxdHdSZl9LeUo2eEJpdw?oc=5",
-   "ms": 1794233547000,
-   "time": "11/09 22:12"
-  },
-  {
-   "t": "Current price of gold as of November 9, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9pX0k3RWtfSkJZTGt1SWtnZVhUcjRoYjFCTmVsTS1xaW1saXgzOFRrLVlKMDIwNmNkelo4ZEp5TGdxLWxmM2R0SWZKZmxpbzYtUkp3X3BZSmU1N0Q5eXNQZGJSOFBZQlQ5VkJBRVFB?oc=5",
-   "ms": 1794233280000,
-   "time": "11/09 22:08"
-  },
-  {
-   "t": "Gold Gains as NVDA 'Spy' Scandal Extends Nasdaq Tech Stock Sell-Off",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbWhwcVM5LTBSLWtBOERoSjRDSUZBdkpReEtuakJ4eUFqX2VlcE9qZXZoMlBfVUhjOXBZSG5fVWktVXMwd0gybllnb2RhYlloallDZlRnME5xeHE1cXNBNjVQSHBvQ0FreUNuVmRTeUU4cHdRNzBndUloYldweWhwOXU3VFBHZFl5?oc=5",
-   "ms": 1794230645000,
-   "time": "11/09 21:24"
-  },
-  {
-   "t": "Gold gains as lower oil prices ease inflation fears",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQLXVOVVNqUmhRc2xIbTdLT3dUUnBDcFNmYXV5X1ZpQ09HSWx2cXJBRGxoX3lOUkhrSWpCZjUwaF9kOGRFMnI0aWlaVUV5Q3BEelA1NlpRODltc2E4dzZ1aTlwZnZwZGJweTZ6aW9VV2NmaVA5YV9wTTJhcXJjaXJwR0ZhekJuSjlvLUZIRWQ5LTU3RGVXTGRhSmNCdThmV0Yw?oc=5",
-   "ms": 1794229995000,
-   "time": "11/09 21:13"
   }
  ]
 }

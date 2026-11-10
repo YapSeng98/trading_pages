@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-10 16:48 SGT",
+ "updated": "2026-11-10 23:49 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 4116.7,
- "priceTime": "2026-11-10 16:45 SGT",
+ "price": 4045.5,
+ "priceTime": "2026-11-10 23:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 4137.9,
   "high": 4146.4,
-  "low": 4107.9,
-  "changeFromPrevClose": -23.3,
-  "changePct": -0.56,
+  "low": 4032.7,
+  "changeFromPrevClose": -94.5,
+  "changePct": -2.28,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -53,7 +53,7 @@
  ],
  "thisWeek": {
   "high": 4148.6,
-  "low": 4054.1
+  "low": 4032.7
  },
  "previousWeek": {
   "open": 3869.1,
@@ -93,7 +93,7 @@
   }
  ],
  "odds": null,
- "score": -4,
+ "score": -6,
  "timeframes": [
   {
    "tf": "W",
@@ -150,22 +150,22 @@
    "name": "4 小时",
    "trend": "向上",
    "since": "2026-11-05 10:00 SGT",
-   "rsi": 58.5,
-   "atr": 36.94,
-   "ema20": 4089.3,
-   "ema50": 4057.1,
-   "ema200": 4115.9,
+   "rsi": 46,
+   "atr": 38.35,
+   "ema20": 4085.5,
+   "ema50": 4058.1,
+   "ema200": 4115,
    "emaOrder": "交错",
    "range": {
     "top": 4148.6,
     "bottom": 3869.1,
-    "positionPct": 91
+    "positionPct": 65
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 4082,
-    "barsAgo": 19
+    "barsAgo": 21
    },
    "turnsUpAbove": 4146.8,
    "turnsDownBelow": 4027.2
@@ -173,105 +173,105 @@
   {
    "tf": "1H",
    "name": "1 小时",
-   "trend": "向上",
-   "since": "2026-11-09 09:00 SGT",
-   "rsi": 49.5,
-   "atr": 15.28,
-   "ema20": 4116.6,
-   "ema50": 4101.8,
-   "ema200": 4055.3,
+   "trend": "向下",
+   "since": "2026-11-10 18:00 SGT",
+   "rsi": 27.5,
+   "atr": 17.47,
+   "ema20": 4093.2,
+   "ema50": 4094.7,
+   "ema200": 4056.6,
    "emaOrder": "交错",
    "range": {
-    "top": 4148.6,
-    "bottom": 4084.5,
-    "positionPct": 44
+    "top": 4127.6,
+    "bottom": 4032.7,
+    "positionPct": 7
    },
    "lastBreak": {
-    "kind": "延续",
-    "direction": "向上",
-    "level": 4133.9,
-    "barsAgo": 11
+    "kind": "转折",
+    "direction": "向下",
+    "level": 4107.9,
+    "barsAgo": 5
    },
    "turnsUpAbove": 4148.6,
-   "turnsDownBelow": 4100.3
+   "turnsDownBelow": null
   },
   {
    "tf": "15M",
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-10 10:45 SGT",
-   "rsi": 46.3,
-   "atr": 6.52,
-   "ema20": 4118.6,
-   "ema50": 4119.8,
-   "ema200": 4102.5,
-   "emaOrder": "交错",
+   "rsi": 28.9,
+   "atr": 10.33,
+   "ema20": 4062.7,
+   "ema50": 4083.3,
+   "ema200": 4094.4,
+   "emaOrder": "空头排列",
    "range": {
-    "top": 4141.2,
-    "bottom": 4107.9,
+    "top": 4079.7,
+    "bottom": 4032.7,
     "positionPct": 27
    },
    "lastBreak": {
-    "kind": "转折",
+    "kind": "延续",
     "direction": "向下",
-    "level": 4121.4,
-    "barsAgo": 24
+    "level": 4068.6,
+    "barsAgo": 8
    },
-   "turnsUpAbove": 4127.6,
-   "turnsDownBelow": 4107.9
+   "turnsUpAbove": 4079.7,
+   "turnsDownBelow": null
   }
  ],
  "resistance": [
   {
-   "price": 4127.6,
-   "what": "1小时近期小高点",
-   "strength": 1
+   "price": 4054.1,
+   "what": "昨日低点",
+   "strength": 3
   },
   {
-   "price": 4133.9,
-   "what": "1小时向上突破位",
-   "strength": 1
-  },
-  {
-   "price": 4146.8,
-   "what": "上周高点、昨日高点、4小时前高、4小时区间顶、1小时等高点（止损密集）、1小时前高、1小时区间顶、4小时近期小高点",
-   "strength": 16
-  },
-  {
-   "price": 4200.2,
-   "what": "4小时等高点（止损密集）",
-   "strength": 2
-  },
-  {
-   "price": 4216.9,
-   "what": "日线前高、日线区间顶",
-   "strength": 6
-  }
- ],
- "support": [
-  {
-   "price": 4115.9,
-   "what": "4小时 200 均线",
-   "strength": 2
-  },
-  {
-   "price": 4107.9,
-   "what": "1小时近期小低点",
-   "strength": 1
-  },
-  {
-   "price": 4100.3,
-   "what": "1小时前低",
-   "strength": 1
-  },
-  {
-   "price": 4084.5,
-   "what": "1小时区间底",
+   "price": 4065.6,
+   "what": "日线向下突破位",
    "strength": 1
   },
   {
    "price": 4082,
    "what": "4小时向上转折位",
+   "strength": 1
+  },
+  {
+   "price": 4107.9,
+   "what": "1小时向下转折位",
+   "strength": 1
+  },
+  {
+   "price": 4115,
+   "what": "4小时 200 均线",
+   "strength": 2
+  }
+ ],
+ "support": [
+  {
+   "price": 4043,
+   "what": "日线区间中点",
+   "strength": 1
+  },
+  {
+   "price": 4032.7,
+   "what": "1小时区间底",
+   "strength": 1
+  },
+  {
+   "price": 4027.2,
+   "what": "4小时前低、4小时双顶关键位、1小时等低点（止损密集）、4小时近期小低点",
+   "strength": 7
+  },
+  {
+   "price": 4008.8,
+   "what": "4小时区间中点",
+   "strength": 1
+  },
+  {
+   "price": 3941.5,
+   "what": "周线向下突破位",
    "strength": 1
   }
  ],
