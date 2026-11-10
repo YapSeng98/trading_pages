@@ -1,11 +1,46 @@
 {
- "updated": "2026-11-10 08:18 SGT",
+ "updated": "2026-11-10 15:41 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1794288252000,
+   "time": "11/10 13:24"
+  },
+  {
+   "t": "Gold drifts lower as traders eye US CPI and dip-buying support",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPV0puSlB2QU9SbnZZMzZxOEltSVB1QVI5dm55d0hkLWxZZXh5VGFiaDNyNVZxaWVCVlJNV1hTWnR0MkFOZFVvWWZnNFdHeFZUeUZIX3VQa1lybExnMzdnTzI0Qm5qTkc4dE95clJrSmV3UDBGZlBmZko3SXV0LWdvY3A1bEx4NEtmWm1TMm1NVWlWbHNBWFprWURlTTNDLXg2Sjc1Z0RxMDYxV1lKaC1wZ0ZqVVQ5ei1fMng4emRxMHhJT1BGUGM3TFFhSjRGQQ?oc=5",
+   "ms": 1794288152000,
+   "time": "11/10 13:22"
+  },
+  {
+   "t": "$4,150 remains a tough nut to crack for Gold as US CPI report looms",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOa1FQY3ZLdGgyeG9uRmhBelBZV1AxcGo4VXVVYjdmYjZLR2VVWGhfSG80TW1xdWM1RUM5LVc2X0h5dnZveGQybTlCTlNpQ0lSZHVBMUhsbl8zOW91bXlOZFlOZ3RBYUstbjVPeklLM0o1QXdrVlZJVGtKNk43Y3U5bF93RVpWOWR5R25NdFZQRzM3d3pFT0IyekFkMEcyVENhWDY5ejZibXZPdmo3bGJhbVpGUQ?oc=5",
+   "ms": 1794284917000,
+   "time": "11/10 12:28"
+  },
+  {
+   "t": "Gold prices ease as focus shifts to US inflation data",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNUUt5d0NsOEFXZzVGWU5qOFFwbGtuT0pyM3RMcTR3ZDRXYzFqV1NkM1VadUV0VzdNUFpZREVYLU1mdWFpSDE5V0w3Qlo5X1luTXVXRkZKNHQ1bXY1X0VCNHRienZVbnhQdE93UWFYRk41T0Fhd2tiQ2dpZzF2WEZmM0hVTFpjMVFzR2JhNlpWN0R5ZkFCY0JkRUVuYw?oc=5",
+   "ms": 1794281460000,
+   "time": "11/10 11:31"
+  },
+  {
+   "t": "Gold, silver advance as dollar weakens, Fed rate expectations face inflation test - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPUlc5eDBpY1JadW5RdE9SaTdxSjZGY01md213N3VBLV9Najd0R2ljWFl1cG85RlNSaThWc1poa1VEclRUdnFKOUo3T0cyR0hYMVZrY180bFhvWW10X1pqRDMxeW8zMTFVZEN6ZVc5RHJoQlV1Z3VjWkdOU2cwRjRpT3UtQ0trNGxSRDZJcExveUZrbm1kU1RGcDc1TTRYRzJiWTRmZi1aTEd1R1NERmppcW5IMENuUVR1?oc=5",
+   "ms": 1794261795000,
+   "time": "11/10 06:03"
+  },
   {
    "t": "Barrick Gold earnings analysis: questions answered and next catalysts",
    "src": "Yahoo Finance Singapore",
@@ -28,11 +63,11 @@
    "time": "11/10 04:00"
   },
   {
-   "t": "Gold and silver prices extend post-election rebound, central banks on pace to beat 2025 purchases – Heraeus",
+   "t": "Gold climbs more than 1% as inflation fears ease on lower crude prices",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbjlfT0RwLTdkTFh2ZFY2TklJYUFHZ2JFYjZtR1JaQldGOFJrSXVFUS1hUXFyMVEwaUhSRm1mdzEyMm1NeUhVQjUtTEZobWFtQ0FoUkxWMHE1WDFFOVVLQlM2c1FXMHhCSU83QWxVUkM2UU1XdnZ6THMtNmtudGlNajBEb1VNczdZUmdZRERfWWROUkJYaTNoeDhheFd6cHBnX0toOUVuS2pDNXZxVXJPdnBFMkNCUG5SMG1iX0NR?oc=5",
-   "ms": 1794236531000,
-   "time": "11/09 23:02"
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQOGdqQUJqT3hVR200bUdiTXBNdzdXNTBKbVJDMzl6STdYVUFTZy1ZNUhoQVBWMlZBMmZPQlgtXzZsVjFiU2RmN3otTTB4MnE4SHRRdlFvdlhKVWV4QTRzNmhac3JldXRwenpSUlRXcnc0ak05M2YxTjJ5Zi1vMjk2RWJNd0J5dy1oeHVmVUNMVDlBbVVPVmtDR2dUaHRDd1MxdTByWU9xYlRZRmU5WlE?oc=5",
+   "ms": 1794252180000,
+   "time": "11/10 03:23"
   },
   {
    "t": "Gold SWOT: Central bank gold buying remains strong in 2026",
@@ -75,41 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOQXJORDRuZ3VfcF8yOGNRaTlUSXkyR3gxWVM1VUpKLUxSaWhHeGJMSWhiaE1hQmpfdVdhR0ZHSHhSMURKa01WbjVSOVJZeHctYW9QZk5xeDRsMkNub21SMUF4Zm50YU5UNldoNnV2TnpUSnpHbkgta2t0clBrZzdZYW42c3Z2UUJEQzlhWg?oc=5",
    "ms": 1794223071000,
    "time": "11/09 19:17"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD holds gains near $4,100 as risk appetite hits the USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPZmhsaUFaTE9EYmFXU081RGVPWER3N1Fsb1BEVC1aOWVRWEZGc2Y3SHNjMkRkdHNQaVVLVi1uWTdycEM3UndUT2dfdlU0TnF4Q003NFdfU0NBWmdtaTI4Qms3MmoxLXZiMmt6ejlXTVFCRl83SVZCU29GN2pmYTNSRzNUampibjZVdmJJZkVGcVVPMDRud3lIQlBDcFl4d2U5SVR2a2JJc3JqaEF1TVZLZzVGaEhYWkpHbTFLcXM2MFk?oc=5",
-   "ms": 1794217967000,
-   "time": "11/09 17:52"
-  },
-  {
-   "t": "Gold rises amid US-Iran peace deal hopes, softer US Dollar",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZ2FaV1pieGFhUlJfajAwMzlfLW5mVFRjTzNqaVVrT2drZmFDUnVla3hNMzljY3htaVRQbURvTERSdkktZHVMb25SWXVCVE5EYVhyVWxab0NwZE5XZkZLWV9RODN6bTdIbzRQWHFGQktxbXlMakIzTno5cEtQYWpFcFQ1U09qVVNvS3Rub1dFVl9ZYnEzU0plTDNVaw?oc=5",
-   "ms": 1794203822000,
-   "time": "11/09 13:57"
-  },
-  {
-   "t": "$4,100 reclaimed: Will Gold buyers succeed ahead of US inflation test?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOQjVXTTJJdE4wQWRoRFFXUlMzX3ViU2xfZWVLYVdXbUFCSmxkZ3ZMNlBtd2NqWG13bVRXTHFKZnFjZW9BVlVtRTFsTWRlZHZ5c3dzZFA2Sjg1YkoyR2hjVUZhNkJSUVZLeUcyNXh3TDgwWW50d1ZNeXdORmpzSk4tMXlRMXFxQ2g4QVdIREJDdWF5ZkxzalhRQTJSd0ZzNzE1VW1GRXlPV1ZQZjJxaG5laVNmdlA?oc=5",
-   "ms": 1794196537000,
-   "time": "11/09 11:55"
-  },
-  {
-   "t": "Gold climbs more than 1% as inflation fears ease on lower crude prices",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbEdIVXlJc2RaUEw2RmFrR2FZcXYzYlBKUG9Cdl9WUVFfalVxT0hGcGFCdW1DS3JMT2daanhDYktBeXVGNGt5TGlsOGZJVWVSMFpnT3ZVa2RBUjZYakRlVlQ3SXd1ZkpTQVNXVkpoNUZoemdycWY0MG02dVk0cWRuWG4taG5VMm9kbEluSHctTVZVMXJwWXNWSWdVcmxQeWtRSW1EWDQ2dTJ6QVV2TzhoeQ?oc=5",
-   "ms": 1794193260000,
-   "time": "11/09 11:01"
-  },
-  {
-   "t": "Gold rebounds above $4,100 as traders await U.S. inflation data after jobs beat",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMUpFaVpEbWh2dlJiOG81V1dYR3o3MVpzMXVUV3R3T2ZFajB0cXdNRkxEZUVkLWJnYVAwT0tBM01TdGlULWsxcWtnWTRNTmJNS2VLY01zZjhXUHhFMUhTT185dkFTMHZnNjc3Yk4xNTZKOXFoakFiaUVsQ2gtZnU4dzkxT1pKY3BSa3lqc1RBNFYxeHp2eS15cXB3OA?oc=5",
-   "ms": 1794188760000,
-   "time": "11/09 09:46"
   }
  ]
 }
