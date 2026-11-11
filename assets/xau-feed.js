@@ -165,6 +165,9 @@ var XauFeed = (function () {
     });
   }
   var cache = { h1: null, d1: null, m15: null, at: 0 }, spotFails = 0;
+  // true when this browser holds gold's candles and they do not need the weekly full download yet: then a load asks
+  // the feed only for the bars since (the home page uses this to work out the answer live without a heavy first visit)
+  function hasCache() { return recall("XAU/USD:" + NEED.h1).then(function (s) { return !!(s && s.h1.length >= 2000 && Date.now() - s.at < FULL_EVERY - 3600000); }).catch(function () { return false; }); }
   function loadSpot(nowMs) { return loadBars(cache, "XAU/USD", NEED, 2000, undefined, nowMs); }
 
   // ---------- source 2: PAXG on Binance, moved onto the spot price ----------
@@ -224,7 +227,7 @@ var XauFeed = (function () {
   // second opinion on the live price
   function minutes(n) { return duk("1MIN", n || 20, 8000); }
 
-  return { load: load, loadInst: loadInst, daily: daily, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
+  return { load: load, hasCache: hasCache, loadInst: loadInst, daily: daily, minutes: minutes, closed: closed, serverOff: serverOff, usDst: usDst, bucket: bucket, build: build, DUR: DUR,
     spotCandles: spotCandles, paxgCandles: paxgCandles, clean: clean, NEED: NEED, DUK: DUK, BIN: BIN, SPOT: SPOT };   // the pure parts, for scripts/update_gold.js
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = XauFeed;

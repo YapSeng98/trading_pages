@@ -667,7 +667,9 @@
         el.appendChild(row);
       }
     }
+    var pxNow = num(S.live) !== null ? S.live : num(E.price);
     S.daily.forEach(function (d) {
+      if (pxNow !== null && (pxNow - d.stop) * (d.side === "short" ? -1 : 1) <= 0) return;   // price already through its stop
       var buy = d.side === "long", k = { side: d.side, entry: r1(d.entry), stop: r1(d.stop), tp1: d.tp1 === null ? null : r1(d.tp1), tp2: d.tp2 === null ? null : r1(d.tp2) };
       card(k, d.side, "来自每日分析，没有回放过", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
     });
@@ -1046,6 +1048,7 @@
     renderSessions(); renderPlan(); if (S.E) renderVerdict();
   }
   // Fallback: the calendar table the daily refresh writes on the risk page.
+  function calWeek(ms) { return Math.floor((ms - 5 * 3600000 - 3 * 86400000) / 604800000); }   // weeks from Sunday 00:00 New York (EST; an hour off in summer does not matter here)
   function eventsFromRisk() {
     return getDoc("risk.html").then(function (doc) {
       var now = Date.now(), np = parts(now);
@@ -1055,7 +1058,7 @@
         if (m) { var y = +np.year, mo = +m[1]; if (mo < +np.month - 6) y += 1; ms = Date.UTC(y, mo - 1, +m[2], t ? +t[1] : 0, t ? +t[2] : 0) - 8 * 3600000; }
         return { date: date.replace(/[✓✔▲△⚠️]/g, "").trim(), time: time, name: name.replace(/^[✓★\s]+/, ""), imp: imp ? txt(imp) : "", hi: !!(imp && /\bh\b/.test(imp.className)), ms: ms, timed: !!(m && t), done: date.indexOf("✓") >= 0 || name.indexOf("✓") === 0 };
       }).filter(function (e) { return e.date; });
-      if (!rowsAll.length) throw new Error("no rows");
+      if (!rowsAll.some(function (e) { return e.ms !== null && calWeek(e.ms) === calWeek(now); })) throw new Error("not this week");
       showEvents(rowsAll, "自动日历暂时读不到，这里取自风险计划页（每天更新一次）");
     });
   }
@@ -1064,10 +1067,10 @@
       if (st && st.verdict) { S.srv = { updated: st.updated || "", tag: st.verdict.tag, level: st.verdict.level, side: st.plan ? (st.plan.side === "做多" ? "long" : "short") : st.verdict.level === "none" ? "none" : null, source: st.source || "" }; if (S.E) renderVerdict(); }
     }).catch(function () {});
     // 1. the calendar file a scheduled job refreshes several times a day; 2. the risk page's table
+    // the file is rewritten only when the week's events change, so its age says nothing: what counts is whether its
+    // events are this week's (ForexFactory's week, Sunday to Saturday in New York)
     fetch("data/calendar.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (cal) {
-      var up = Date.parse(String(cal.updated || "").replace(" SGT", ":00+08:00").replace(" ", "T")), last = 0;
-      (cal.events || []).forEach(function (e) { last = Math.max(last, e.ms); });
-      if (!cal.events || !cal.events.length || !(Date.now() - up < 3 * 86400000) || Date.now() - last > 4 * 86400000) throw new Error("stale");
+      if (!cal.events || !cal.events.some(function (e) { return calWeek(e.ms) === calWeek(Date.now()); })) throw new Error("not this week");
       var by = {}, rows = [];
       cal.events.forEach(function (e) {                                           // one row per release time: CPI m/m, y/y and core land together
         var key = e.ms + "|" + e.impact, g = by[key];
@@ -1075,15 +1078,27 @@
         g.names.push(e.zh || e.title); if (e.forecast) g.fc.push((e.zh || e.title) + " 预期 " + e.forecast + (e.previous ? "（前值 " + e.previous + "）" : ""));
       });
       rows.forEach(function (g) { g.name = g.names.slice(0, 3).join("、") + (g.names.length > 3 ? " 等 " + g.names.length + " 项" : ""); g.extra = g.fc.slice(0, 2).join("；"); });
-      showEvents(rows, "本周美国数据，每天自动更新几次 · 上次 " + cal.updated);
+      showEvents(rows, "本周美国数据（ForexFactory，服务器每次运行都会检查）· 内容上次变化 " + cal.updated);
     }).catch(function () {
-      eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: "这里读不到日历，请直接打开风险计划页。" })); });
+      eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: "这一周的日历暂时读不到：进场前自己在 ForexFactory 看一眼有没有大数据。" })); });
     });
 
     (M.dailyPlans === false ? Promise.reject(new Error("none")) : getDoc("daily.html")).then(function (doc) {
       var items = [].slice.call(doc.querySelectorAll(".risk-list li")).map(txt).filter(function (t) { return t.indexOf("入场方案") >= 0; }).slice(0, 2);
+      // when the brief was written: older than 30 hours (the daily refresh did not run), its plans are not offered
+      var hdt = txt(doc.querySelector(".hdate")), dm = hdt.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/), tm = hdt.match(/(\d{1,2}):(\d{2})\s*SGT/);
+      var wAt = dm && tm ? Date.UTC(+dm[1], +dm[2] - 1, +dm[3], +tm[1] - 8, +tm[2]) : null, ageH = wAt === null ? null : (Date.now() - wAt) / 3600000, old = ageH !== null && ageH > 30;
+      var agoTxt = ageH === null ? "" : ageH < 48 ? Math.round(ageH) + " 小时前" : Math.floor(ageH / 24) + " 天前", wTxt = wAt === null ? "" : sgt(wAt, "dt");
+      var chip = document.querySelector("#read .card-head .chip");
+      if (chip && wAt !== null) { chip.textContent = "文字写于 " + wTxt + " SGT（" + agoTxt + "）" + (old ? " · 已过期，先看上面的实时结论" : " · 价位按实时价格标注"); chip.className = "chip " + (old ? "bear" : "neut"); }
       var el = clear($("dplans")); if (!items.length) throw new Error("none");
       S.daily = [];
+      if (old) {
+        items.forEach(function (t) { el.appendChild(h("div", { class: "dplan", style: "opacity:.55", text: t })); });
+        el.appendChild(h("p", { class: "note" }, ["这两条是 " + wTxt + " SGT 写的（" + agoTxt + "），每日更新没有运行，价位已经过期，不能再用，也不放进计划器。现在按规则算的方案在上面。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })]));
+        if (S.E) renderCands();
+        return;
+      }
       items.forEach(function (t) {
         el.appendChild(h("div", { class: "dplan", text: t }));
         var side = t.indexOf("空头") >= 0 ? "short" : t.indexOf("多头") >= 0 ? "long" : null, n = function (m) { return m ? parseFloat(m[1].replace(/,/g, "")) : null; };

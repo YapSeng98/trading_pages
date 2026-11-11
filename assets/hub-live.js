@@ -4,9 +4,12 @@
 // The live price comes from assets/gold-live.js (PAXG ticks calibrated on spot one-minute candles), or from
 // api.gold-api.com once a minute when that is missing; today's change is measured from the previous close in
 // the state file. If a file cannot be read, the block says so instead of showing an old figure.
+// The verdict: the state file is written by a job GitHub runs about every 5 hours, so when this browser already holds
+// gold's candles (it has opened the gold page this week) the page loads the gold page's engine and works the answer
+// out itself from the newest closed candles, again after each 15-minute close; otherwise it shows the file's, with its age.
 (function () {
   "use strict";
-  var NS = "http://www.w3.org/2000/svg", S = { state: null, cal: null, live: null };
+  var NS = "http://www.w3.org/2000/svg", S = { state: null, cal: null, live: null, lv: null };
   function $(id) { return document.getElementById(id); }
   function set(id, text) { var e = $(id); if (e) e.textContent = text; }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
@@ -76,8 +79,8 @@
     }
     var pd = st.previousDay || {}, pw = st.previousWeek || {}, td = st.today || {}, price = S.live !== null && st.marketOpen ? S.live : st.price;
     var chg = typeof pd.close === "number" ? price - pd.close : null, pct = chg === null ? null : chg / pd.close * 100;
-    var tfs = (st.timeframes || []).filter(function (t) { return !t.error; }), dirs = tfs.map(function (t) { return SHORT[t.tf] + (ARROW[t.trend] || "–"); }).join(" ");
-    var big = tfs.slice(0, 3).map(function (t) { return t.name.replace(" ", "") + t.trend; }).join("、"), v = st.verdict || {}, go = v.level === "go";
+    var L = S.lv, tfs = ((L ? L.timeframes : st.timeframes) || []).filter(function (t) { return !t.error; }), dirs = tfs.map(function (t) { return SHORT[t.tf] + (ARROW[t.trend] || "–"); }).join(" ");
+    var big = tfs.slice(0, 3).map(function (t) { return t.name.replace(" ", "") + t.trend; }).join("、"), v = (L ? L.verdict : st.verdict) || {}, go = v.level === "go";
     var dayHi = Math.max(td.high || price, price), dayLo = Math.min(td.low || price, price), dayOpen = td.open;
     // weekend: the day to show is the last full one (previousDay, Friday), measured against the day before it
     var shut = !st.marketOpen, rd = st.recentDays || [], pdKey = typeof pd.date === "string" ? (+pd.date.slice(5, 7)) + "/" + (+pd.date.slice(8, 10)) : null;
@@ -89,27 +92,32 @@
     }
     var dayWord = shut ? "上一交易日" + (pdKey ? "（" + pdKey + "）" : "") : "今日";
     // say plainly when the data file is old: the job that writes it runs on GitHub's timer, which can fall hours behind
-    var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 1, w0 = (st.watch || [])[0];
+    var at = Date.parse(String(st.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (now - at) / 3600000 : 0, old = ageH >= 1, w0 = ((L ? L.watch : st.watch) || [])[0];
     // the verdict below is as old as the file; the live price can already have crossed the level that changes it
     var crossed = !!(w0 && S.live !== null && st.marketOpen && (/跌破/.test(w0.text) ? S.live < w0.price : S.live > w0.price)), ageTxt = old ? Math.round(ageH) + " 小时前" : "";
     set("pulse-updated", "⟳ 数据 " + st.updated + (old ? "（" + Math.round(ageH) + " 小时前，自动更新晚了）" : " · 自动更新") + " · 价格实时");
     set("hub-upd", "⟳ 数据文件 " + st.updated + (old ? "，已是 " + Math.round(ageH) + " 小时前；方向和价位请以 4H 报告为准" : "") + " · 金价与图表实时");
     set("pulse-gold", dayWord + (chg === null ? "" : " " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "，区间 " + fmt(dayLo) + "–" + fmt(dayHi) + "。" + (shut ? "" : "昨日收 " + fmt(pd.close) + "，区间 " + fmt(pd.low) + "–" + fmt(pd.high) + "。") + "上周区间 " + fmt(pw.low) + "–" + fmt(pw.high) + "。");
-    set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", (old ? "这是 " + ageTxt + "算的。" : "") + (v.title || "") + "。" + (w0 ? "关注 " + fmt(w0.price) + "：" + w0.text + "。" + (crossed ? "现价已经越过它，结论可能已变，打开黄金页看实时结论。" : "") : ""));
+    var vOld = !L && old, vWhen = L ? "按 " + L.at + " 收盘的 K 线实时算的。" : vOld ? "这是 " + ageTxt + "算的。" : "";
+    set("pulse-verdict", v.tag || "—"); set("pulse-verdict-d", vWhen + (v.title || "") + "。" + (w0 ? "关注 " + fmt(w0.price) + "：" + w0.text + "。" + (crossed ? "现价已经越过它，" + (L ? "要看那根 K 线收盘。" : "结论可能已变，打开黄金页看实时结论。") : "") : ""));
     set("pulse-tf", dirs); set("pulse-tf-d", "周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：" + big + "。");
     chips("hub-main-chips", [
       [chg === null ? "gold" : chg >= 0 ? "bull" : "bear", (st.marketOpen ? "今日 " : (pdKey ? pdKey + " " : "") + "收盘 ") + (chg === null ? "" : sgn(chg) + "（" + sgn(pct, 2) + "%）· ") + "区间 " + fmt(dayLo, 0) + "–" + fmt(dayHi, 0)],
-      [go ? "bull" : "gold", "系统结论" + (old ? "（" + ageTxt + "）" : "") + "：" + (v.tag || "—") + " · " + dirs],
+      [go ? "bull" : "gold", "系统结论" + (L ? "（实时）" : vOld ? "（" + ageTxt + "）" : "") + "：" + (v.tag || "—") + " · " + dirs],
       hi[0] ? ["gold", "下一个大数据：" + hi[0].name + " " + hi[0].when] : null
     ]);
     chips("hub-news-chips", [["gold", "昨日收 " + fmt(pd.close) + " · 上周区间 " + fmt(pw.low, 0) + "–" + fmt(pw.high, 0)]]);
-    drawDays(st); drawScore(typeof st.score === "number" ? st.score : 0);
+    drawDays(st); drawScore(L && typeof L.score === "number" ? L.score : typeof st.score === "number" ? st.score : 0);
     var ul = $("pulse-list");
     if (ul) {
       while (ul.firstChild) ul.removeChild(ul.firstChild);
+      // the file's levels were sorted around the price at its run; the price now may have passed some of them
+      var lvAll = (st.resistance || []).concat(st.support || []), lvUp = null, lvDn = null;
+      lvAll.forEach(function (l) { if (typeof l.price !== "number") return; if (l.price > price && (!lvUp || l.price < lvUp.price)) lvUp = l; if (l.price < price && (!lvDn || l.price > lvDn.price)) lvDn = l; });
       var li = function (head, text) { var x = el("li"); x.appendChild(el("strong", "", head)); x.appendChild(document.createTextNode("：" + text)); ul.appendChild(x); };
-      li("黄金", (shut ? "休市中，收盘价 " : "现价 ") + fmt(price) + "。" + dayWord + "开 " + fmt(dayOpen) + "，最高 " + fmt(dayHi) + "，最低 " + fmt(dayLo) + (chg === null ? "" : "，较" + (shut ? "前一日" : "昨日") + "收盘 " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "。上方最近的阻力 " + ((st.resistance || [])[0] ? fmt(st.resistance[0].price) + "（" + st.resistance[0].what + "）" : "—") + "，下方最近的支撑 " + ((st.support || [])[0] ? fmt(st.support[0].price) + "（" + st.support[0].what + "）" : "—") + "。");
-      li("结论", (v.text || "") + (go && st.plan ? " 方案：" + st.plan.side + "，止损 " + fmt(st.plan.stop) + "，目标 " + fmt(st.plan.target) + "。" : ""));
+      li("黄金", (shut ? "休市中，收盘价 " : "现价 ") + fmt(price) + "。" + dayWord + "开 " + fmt(dayOpen) + "，最高 " + fmt(dayHi) + "，最低 " + fmt(dayLo) + (chg === null ? "" : "，较" + (shut ? "前一日" : "昨日") + "收盘 " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "。上方最近的阻力 " + (lvUp ? fmt(lvUp.price) + "（" + lvUp.what + "）" : "—") + "，下方最近的支撑 " + (lvDn ? fmt(lvDn.price) + "（" + lvDn.what + "）" : "—") + "。");
+      var pl = L ? L.plan : st.plan;
+      li("结论", (v.text || "") + (go && pl ? " 方案：" + pl.side + "，止损 " + fmt(pl.stop) + "，目标 " + fmt(pl.target) + "。" : ""));
       li("接下来", (hi.length ? hi.slice(0, 3).map(function (e) { return e.when + " " + e.name; }).join("；") + "。数据公布前后 30 分钟不开新仓。" : "本周日历上没有剩下的大数据。"));
     }
   }
@@ -125,6 +133,26 @@
     }).catch(function () {});
   }
   function loadFiles() { return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; paint(); }); }
+  // the gold page's own engine, loaded only for a browser that holds the candles; same versions as report.html
+  function script(src) { return new Promise(function (ok, no) { var e = document.createElement("script"); e.src = src; e.onload = ok; e.onerror = no; document.head.appendChild(e); }); }
+  var WAY = { bullish: "向上", bearish: "向下" }, TFN = { W: "周线", D: "日线", "4H": "4 小时", "1H": "1 小时", "15M": "15 分钟" };
+  function liveVerdict() {
+    if (!window.XauFeed || !XauFeed.hasCache) return;
+    XauFeed.hasCache().then(function (has) {
+      if (!has) return;
+      return (window.XauPlan && window.runXauEngine ? Promise.resolve() : script("assets/xau-engine.js?v=5").then(function () { return script("assets/xau-plan.js?v=19"); })).then(function () {
+        return XauFeed.load({ source: "spot" });                                // spot only: the backup feed's answer can differ, the file's is then the better one
+      }).then(function (feed) {
+        var now = Date.now(), E = runXauEngine(feed, now), V = XauPlan.verdict(E, now), P = V.plan && V.level === "go" ? V.plan : null, d = new Date(feed.priceAt + 8 * 3600000);
+        S.lv = { at: ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2), score: E.overall.score,
+          verdict: { level: V.level, tag: (V.closed ? "休市中 · " : "") + V.tag, title: V.title, text: V.text },
+          plan: P ? { side: P.side === "long" ? "做多" : "做空", stop: P.stop, target: P.tp1 } : null,
+          watch: (V.lines || []).map(function (l) { return { price: l.price, text: l.text }; }),
+          timeframes: ["W", "D", "4H", "1H", "15M"].map(function (tf) { var t = E.tfs[tf]; return !t || t.error ? { tf: tf, error: true } : { tf: tf, name: TFN[tf], trend: WAY[t.trend] || "不明" }; }) };
+        paint();
+      });
+    }).catch(function () { S.lv = null; paint(); });                            // the file's answer, with its age, as before
+  }
   // With assets/gold-live.js on the page the price is live (PAXG ticks calibrated on spot minutes); the summary
   // around it is repainted at most every 10 seconds.
   var lastPaint = 0;
@@ -149,8 +177,10 @@
   }
   function start() {
     btc(); setInterval(btc, 60000);
-    loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } });
+    loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } liveVerdict(); });
     setInterval(loadFiles, 15 * 60000);
+    // again after each 15-minute close (plus a minute for the feed), as the gold page asks
+    (function next() { var q = 900000, w = q - Date.now() % q + 60000; setTimeout(function () { liveVerdict(); next(); }, w); })();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();

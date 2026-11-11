@@ -180,7 +180,7 @@ footer .disc strong{color:var(--text)}
 <section class="hero">
   <div class="eyebrow">XAUUSD · Gold Spot · Trading Intelligence</div>
   <h1>黄金交易<em>中心</em></h1>
-  <div class="sub">每日深度盘面分析 + 完整策略与形态手册。技术结构、关键价位、基本面驱动、操作场景与风险纪律，一站集成。</div>
+  <div class="sub">一条用 2011–2026 年真实现货金回放过的规则：周线、日线、4 小时、1 小时、15 分钟同向才进场。黄金页实时算出结论和计划，策略页写清它的证据、风险和没通过的做法。</div>
   <!-- Live single quote (TradingView) -->
   <div class="tradingview-widget-container" style="max-width:420px;margin:26px auto 0">
     <div class="tradingview-widget-container__widget"></div>
@@ -203,7 +203,7 @@ footer .disc strong{color:var(--text)}
         <ul class="feats">
           <li>周线 → 15 分钟五周期结论，每 15 分钟重算</li>
           <li>入场、止损、目标、手数一步算好，持仓跟踪</li>
-          <li>每日分析 · 快讯 · 日历与风险（10:10 SGT 更新）</li>
+          <li>每日分析 · 快讯 · 日历与风险（文字每天 10:10 SGT 写；过期会标出并收起）</li>
           <li>问 Claude：带着此刻的行情一起问</li>
           <li>规则上线以来的纸面记录，和你自己的交易</li>
         </ul>
@@ -246,16 +246,16 @@ footer .disc strong{color:var(--text)}
 
     <!-- Strategy Handbook -->
     <a class="tile" href="strategy.html">
-      <div class="tag">参考手册</div>
+      <div class="tag">规则与证据</div>
       <div class="ico">📖</div>
-      <h2>策略与形态手册</h2>
-      <p>9 种形态识别图鉴、4 套交易策略框架、K 线进场信号与交易心法。交互式查阅进场 / 止损 / 目标规则。</p>
+      <h2>策略：这条规则凭什么</h2>
+      <p>网站只做一条规则：五个周期同向才进场，止损 3 倍小时波幅，目标 3R 或跟踪止损。回放成绩分年份写出，每笔冒多大风险换算成账户回撤，测过但没有优势的做法（形态、短线、指标、更快的版本、外汇和其他期货）一并列出。</p>
       <div class="meta">
-        <span class="chip gold">9 形态</span>
-        <span class="chip gold">4 策略</span>
-        <span class="chip gold">心法规则</span>
+        <span class="chip gold">回放证据</span>
+        <span class="chip gold">风险换算</span>
+        <span class="chip gold">没通过的做法</span>
       </div>
-      <div class="go">打开手册 <span class="arr">→</span></div>
+      <div class="go">打开策略 <span class="arr">→</span></div>
     </a>
 
     <!-- Latest market news -->
@@ -263,7 +263,7 @@ footer .disc strong{color:var(--text)}
       <div class="tag">实时更新 · Live</div>
       <div class="ico">📰</div>
       <h2>市场快讯</h2>
-      <p>最新黄金消息聚合：美联储加息预期、核心 PCE、美伊地缘、机构目标价。附明日关键价位与来源链接。</p>
+      <p>最新黄金头条（服务器每次取数时自动抓取，英文原文带链接），和每天 10:10 写的要闻解读与关键价位。</p>
       <div class="meta">
         <span class="chip bear">现价 <span class="js-live-price">—</span></span>
         <span id="hub-news-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
@@ -276,7 +276,7 @@ footer .disc strong{color:var(--text)}
       <div class="tag">前瞻 · 经济日历</div>
       <div class="ico">🗓</div>
       <h2>未来风险与计划</h2>
-      <p>ForexFactory 高影响事件日历（PCE / NFP / CPI / FOMC）、三大前瞻情景、分阶段交易计划与重大数据期风险铁律。</p>
+      <p>本周美国中高影响数据（ForexFactory，新加坡时间，每天自动更新几次），和每天 10:10 写的前瞻情景与数据期风险提示。</p>
       <div class="meta">
         <span id="hub-risk-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
       </div>
@@ -359,9 +359,9 @@ footer .disc strong{color:var(--text)}
 
 <div class="topstrip"></div>
 
-<script src="assets/xau-feed.js?v=9"></script>
+<script src="assets/xau-feed.js?v=10"></script>
 <script src="assets/gold-live.js?v=2"></script>
-<script src="assets/hub-live.js?v=8"></script>
+<script src="assets/hub-live.js?v=9"></script>
 <script>
 // The TradingView chart near the bottom is the heaviest thing on this page: load it only when it is about to be seen.
 (function () {
