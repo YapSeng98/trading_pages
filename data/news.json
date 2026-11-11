@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-11 05:45 SGT",
+ "updated": "2026-11-11 09:30 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold Holds Loss Near $4,000 on Hot US Inflation, Fed Remarks",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPX2tORWxkdHRBenRxSW9hSW4wekZsa3Y5VTA0d3A3NTNzTVhMazhTWnNEWlJvMlMzUFIyenNRVl8xWWJaOTdMN2NQVmNsWjhRYUJKWmplRU8zbGthZGQ0R0NlRzFSWmZObzBRSnVNSHFGM3owd2JpTmZHVEkyaEVIS2dLclc3cGZkWXBUSlFoRnpCUTRKdTFrNzNCb2xwUVJic0RoaGgwZzF0ZktCMWc?oc=5",
+   "ms": 1794353584000,
+   "time": "11/11 07:33"
+  },
   {
    "t": "Will Democrats make gold shine again?",
    "src": "Kitco",
@@ -49,6 +56,13 @@
    "time": "11/11 00:24"
   },
   {
+   "t": "Gold Prices Slide as Delayed Iran Diplomacy and Fed Rate Risks Weigh on Buyers",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNTTNyU1Q5SndQaHpKa3d2WkltbEM1MWtXRnJqRmZNbGtXekVYSHVleXVONEVmbU05YUlMeW53YW9iU2N4LU81ejhkZUdnUFJBSUUxMTNrNVR3ZVNFZ2k1NjBHNWo4dDRCRDZGV2J6cElpSm55NlBfMXFHX2hVb08wTThqZlhpSUh3YmoxRGlwUkE4TWxNUzA1ejgzclZZekRkR3B3UHVRMktBc2VjRUs5QmFkd2E3ckRBWkNqek53cw?oc=5",
+   "ms": 1794327810000,
+   "time": "11/11 00:23"
+  },
+  {
    "t": "Gold reserve repatriations don’t mean central banks are de-dollarizing – Fed’s Weiss",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPV1dmX2w5RWs0ZHd3cEtEVmFDZ1VKOXNVdmJFb0QtV2hKX282RmMxTldrNlVoam5XUmJBR0NxWHNCeXVtUHhMR2l4S0N0bWhFZnJ4bl9aWUpGbTBIR1FzWXlBb3BQc0ZUUnhRejVDTTJJejdVcGxYY2J5ZEFwSGdpTU9Ub3RrT3RYTU41NjZ4QmlmOVZ1SFJaVG1BMHNwXy1jYzZZVWVQdHplME1ZaGdGV29wM1kwSjUtSHlFMg?oc=5",
@@ -84,32 +98,18 @@
    "time": "11/10 22:32"
   },
   {
+   "t": "Gold, silver retreat as high core CPI lifts December Fed hike odds- Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVFVQeklvWERhQ2FQMVNKaDhvRVN2dHNKQ1Bib0piZkZxMS1WaWhRVm1wRmpFUTJ6aXJxVXlHUHFfU2VPRW1VZ0RaZk1rZzh0Z2E5empNTVB4X3czTDBIcXVnOV9jVGJScHlQNGRscEZXazlwY1ZNVWVNWkhYMlAzWFEtRjNobEJUSWlJa0JrUmVXY3FpdGlPLWpobTdTY0poQjlSVkhFcl9YZWZyd0ZOb3lsWm9LdDJu?oc=5",
+   "ms": 1794320424000,
+   "time": "11/10 22:20"
+  },
+  {
    "t": "Current price of gold as of November 10, 2026",
    "src": "Fortune",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9VUGFHQl84ZXg1MjdhVnAwSU8zd0VwRE5nallpZXhELVpGOUVBNVJhQ3ZKWFVXRGJsYV9OeG1MWjQ1ME1QcVg1OXRLWnpIUjBiVDZ4WHVPMmc1LVRkOWdhcUZ5bDI0YVRldTNCTnN3?oc=5",
    "ms": 1794320280000,
    "time": "11/10 22:18"
-  },
-  {
-   "t": "Gold prices down 2% on the day as US CPI rises more than expected",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPOV9mS1BKa1d2YmFyNkpBcmVzdzQwbF82bFh5RjRZSVcyeDZ0V1QyQ0xiSUY4SW9pQUZfbkpaWW1wbkVfb3pWcEY5bzFiX29VenI1X2hiQk02V00zSElkS015bDVxWkNJX3dFbjlMNWJVdVNMeGNzSWFlRFdlYzVqQ2Z0MHcybG1CUExJR3dOLVQ1Vm44ZExPWFBlYw?oc=5",
-   "ms": 1794317446000,
-   "time": "11/10 21:30"
-  },
-  {
-   "t": "Gold price today, Tuesday, November 10, 2026: Gold opens above $4,100 for the first time in three weeks",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxQTUs2ekJ6eldWUXZyUHlFNndxRGphaG4wSDY4UzdOUHhjbE1sQ1NEelZkdlFTbUsxV0xUZHhTUXRkYXpaRzBUNm55WFdoMGd4V1VaZHN1UFZwa2h4SmhybXVFaVZMRjVELVBaLWs2ZEpVYjhjVnIzcTY5VzBBWWhRUEFteGR5cXBvRl9pMzdFSmVNdFRPSnlFMDE2Q2NJRTlhU3ZCZzhhQjYzbzZGV2F3ZjBoRVRFLTBMN1I3WkZpSnVrVnM2LU9EdExhSlh4ZzVLYkFhOU1pUXpGT0loUTlSQWo1Ny13Ti04YUdkbW1BWXdGVjNQMW1EZ0piQmRWTUFzUmgw?oc=5",
-   "ms": 1794313054000,
-   "time": "11/10 20:17"
-  },
-  {
-   "t": "Gold Retreats From Recent Gains as US Inflation Report and Fed Rate Outlook Take Centre Stage",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRkFlUzBtNmFhTWgzWkxnWXNKVWRQVXlvYlVMUDRVaHhYV1NxVVFxOUI4czNzWjVpWUJfd3JJVklLZXBDZTEtYkVFM3NpQjd0YldyUnlZbTVNd0pBaUMyXy1xa18wOHhzakQ1WXI1LTZOS0UzMU1xdVY3Wk16ZEZQMENSS2s?oc=5",
-   "ms": 1794305821000,
-   "time": "11/10 18:17"
   }
  ]
 }
