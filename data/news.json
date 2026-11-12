@@ -1,11 +1,39 @@
 {
- "updated": "2026-11-12 11:45 SGT",
+ "updated": "2026-11-12 16:48 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "If You'd Put $10,000 in Gold a Year Ago, Here's What You'd Have Today",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPamJ1eXlMYUFZWkRlc2piQTA5ZDJ6b2VNRGNxY2FhcHpHRVp0b3lsS0swZ0dfeV9WX2ZMcEZIOTdjNV9SeXFlbHVZbEh1VUJOYnJUQm9jYmZlYmxlYWdBZ3BaX2UxbEFic05PTEIzRHVJR0ZpZVczZ0tDYmQ5NXh5UG5GcjdVVjFpUVAtY3FiUnl0YzNj?oc=5",
+   "ms": 1794469800000,
+   "time": "11/12 15:50"
+  },
+  {
+   "t": "Gold hits fresh one-week low, eyes $3,950 amid sustained USD buying and Fed hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQZXB6blZYQXlneG4zcE1BSHpobnhNMm94QkNkbHpWd0NyU0ZodmdyRE5pTExKRDA3enZyaEVCU1Rtck5iZEFDemlYWjI1N0hhaTl1dHhqbWpGc2ROaFExdFVIVGFjQ0ZHR0dha3FPUTdLZ0xaSk5faFIwYVBLMEh4RzJUTlJuS0xNaF9MRVVUTGtnRzdxc2pGSjBEWUhwUDRqT1o2ZzhMYXlTeWs1NVNjZVAxRnJvV0FtUEF2YWhHYXNDU3JuR0l2Y1pB?oc=5",
+   "ms": 1794468344000,
+   "time": "11/12 15:25"
+  },
+  {
+   "t": "Gold falls to over one-week low on firm dollar, Fed rate hike bets",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNOHlpb0xtblhxMVdhVkM0ZWtJb19QV1hGbGN4UHh6YnVmZ01HcjVXTDZzUVcwbWhzdGt5TmtPM08xclJ4N1hyclFtMUJ1Yjk5Q1NsWF9Bc2ZYTjNzX0xpN0ZkbjFmekV0SS1GUmphX29XTkdQSHRNd2h6ZVhUeG9mMlNsbVVaZ3VjblVVOVN3V05DVTVZSTVXWU1JelNqekh2QmxXSg?oc=5",
+   "ms": 1794455820000,
+   "time": "11/12 11:57"
+  },
+  {
+   "t": "Gold hits over one-week low on firm dollar, Fed hike bets",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPc09mRGRCVmlxTnVTdDR2Y0ktNjVkZE1xUHhyTnZWUGZvbFZFS2hsTFk1SkVfNE82SVZlMTFXbUFtckZMaDIwbzA5RlgxWUxKbE5ZMGhrRkl1UWFrVG9ibW9mdWlGM0NYRTVlQnZramhHSTVadmtEaFhWMDRFY1dYVWRPX1RzNm9YNURTVUVzeGo2aEo4UzZReXRCVlQ0amhjVGFWTU1BVFVQR1k?oc=5",
+   "ms": 1794454800000,
+   "time": "11/12 11:40"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD remains a sell-on-rise trade amid steeper Fed hike bets",
    "src": "FXStreet",
@@ -19,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9rS0hLU2VhNkNDMFdNbWJvX3F5di1rTGk4MUFuY0dVQjZ2SXk4NkhsYjJzS1RwMkh2enhOUWdKTHo5TjBUZy1tb1JRbTc4bVp5QjlsT1VwOFlvSWlLV2pxbFozSEVIV2o5ZGlKTzNvVUh3QkdKT05YSUNoMXU?oc=5",
    "ms": 1794447660000,
    "time": "11/12 09:41"
-  },
-  {
-   "t": "Is Royal Gold Stock Paying You Enough For The Swings?",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUmZCUHI0R0dJYUoyNko5SHEweXJKMWl5WmM4OTUtYnRzWFBvTklWTlhKa1lUb1NSb21yYkJwdWE1dGdMVHhDbVlicnhpbDZJNk9mdkRpbmo4aU1jRUEtQUxkRExOUThPaFpFS0xMYUhTUXUyanVLbG5BVnpuYmg2Z1JTUTk0bnVORWV0YjFKWmFEeUw0SGZ0clY0SQ?oc=5",
-   "ms": 1794445601000,
-   "time": "11/12 09:06"
   },
   {
    "t": "Gold falls below $4,000 as Fed rate hike bets grow",
@@ -63,25 +84,11 @@
    "time": "11/12 02:38"
   },
   {
-   "t": "Gold steadies after selloff as central-bank demand offsets Fed rate hike concerns By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOQ3l0OXNtTElDcmhaUWNHUjhPSmdCS2tSY0RESjdqWng3WjB0ZVQ5cVdsSVhZS3ZBT0l2OW1lQkUxczRuMkdPYjB0UjkzeTlqWFpOc3NkQmtHVjJId05ac2IzeXA1Y3pCMVJrQU9HVWkydFpTNjdGN1A3WTRENDRuV0hrbVdLd3FRVzIyYlBocWxsR3Q4NENtWWJTeTRTZDhFc2NmYnpoYnZRV1BPX1VPYjRBNVZPRU1ueWUzSll6X0NWcE5Ddk5pSy1R?oc=5",
-   "ms": 1794412910000,
-   "time": "11/12 00:01"
-  },
-  {
    "t": "Gold struggles below $4,050 as Fed rate-hike bets boost US Dollar",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWnBKQTBxWDhUZkNMZ2IwUUwwTTM1OXNuemNfRUEtb1FTVFcwcnlHVGJZbk5vLUttZU54LV9lVmx6LUR3dWFCMFI2MncwX09EQU5XampvUk52N0lybmdkczVIVzBpNzg4YWxfMUpxUVA0MTNTYjJ4QUtPbDRUTVZ0LW9qRTZ0d1ZQcFd1N1JUNDgtbWZNcFdUeVRQMkdfeEpLV2c?oc=5",
    "ms": 1794409978000,
    "time": "11/11 23:12"
-  },
-  {
-   "t": "The Price of Gold Today, Nov. 11, 2026 — and the Best Places to Buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1TNEphb3ZsTndqUTJqRkpPVjBtZHhJMVJvZ0dPcW5qV1pEUE1qZTE5QTE0dXlZV2d2QVhiTkFCZ1ktdDRWck1kd3ZmRnNfS2IxSzNnYTRLZGRvdHZxaURXcGlCcGJiQVNZb2RmaDdPZm1mQQ?oc=5",
-   "ms": 1794409321000,
-   "time": "11/11 23:02"
   },
   {
    "t": "Gold prices find solid support at $4,000 as Standard Chartered sees rally to $4,650 by year-end",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPOUp0cFVSZ2RUU2QxeDJYaklxUVk5UTdNT2dyU0RYRHhoR0ZiUzRWTWZQc01pSUFKdzZEa3YzWU5EOFA0MEs2NnVnV2tON1IwOWw5UzgyOXktcGtzVUpkSHVjVlhlXzBTYkNEaEotQUlha01iZkpNWktaUUdVMzhuZHM2RkxiMzg5THBfUjFRSUpFUDZKcGhoX21BTXZEVGlKcGljWUhhZkQwRldhTmQ3cVVBX0VaUWR2SVJCYWFR?oc=5",
    "ms": 1794404021000,
    "time": "11/11 21:33"
-  },
-  {
-   "t": "Gold gains after steep drop, but hawkish central bank signals weigh",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVENmb2FBaGQxQWZacy1HMmpGNk52N1JUV1VBaW54UFFHTG9wOTVSeVo1MFF6MVVXMklhWGkyaHRWbk5JLTRwYXNBRFJKRG5JVGMxYjRjVHQ3aDlURlFFdWxldHZEdEFNUzdnb3ZDakhPY2dfMGlOdnIzR01mdk43M0hSRENMaGNLY2lkWGlqSndvTVNxZkI0Ql82ZFdxVnItUTgyWk82cUhiQXpiczM3NGJXOA?oc=5",
-   "ms": 1794401890000,
-   "time": "11/11 20:58"
   }
  ]
 }
