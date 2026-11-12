@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-12 06:59 SGT",
+ "updated": "2026-11-12 11:45 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,39 @@
  ],
  "items": [
   {
+   "t": "Gold Price Forecast: XAU/USD remains a sell-on-rise trade amid steeper Fed hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNbkdsdUVvTzFKcjMwMERvUGFzN3lvcmVEbVBtTElueEpiX243UjdPZEdmbkZDeHVSdmJLNFd2SnFLQ1ppWU5weVd2ZmZhSnd2N1pBclZuTkIxLVNzTUpxUFlkZmpWalRKQVFUNnNVa0NXZjJsVmptbnNqblJqYWRCdU1pNkFXeks4cnppd1ljTXl0VE5KWVNNZU9tUWZOV2VkOVhzdGdqUzltRlB5WGRRRHV6blBOcF9EWkpKLWt3RV9mSTBfenR4N1hn?oc=5",
+   "ms": 1794454799000,
+   "time": "11/12 11:39"
+  },
+  {
+   "t": "Gold clings below $4,000 as inflation fears fuel bets on bigger Fed hikes",
+   "src": "Yahoo Finance Singapore",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9rS0hLU2VhNkNDMFdNbWJvX3F5di1rTGk4MUFuY0dVQjZ2SXk4NkhsYjJzS1RwMkh2enhOUWdKTHo5TjBUZy1tb1JRbTc4bVp5QjlsT1VwOFlvSWlLV2pxbFozSEVIV2o5ZGlKTzNvVUh3QkdKT05YSUNoMXU?oc=5",
+   "ms": 1794447660000,
+   "time": "11/12 09:41"
+  },
+  {
+   "t": "Is Royal Gold Stock Paying You Enough For The Swings?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUmZCUHI0R0dJYUoyNko5SHEweXJKMWl5WmM4OTUtYnRzWFBvTklWTlhKa1lUb1NSb21yYkJwdWE1dGdMVHhDbVlicnhpbDZJNk9mdkRpbmo4aU1jRUEtQUxkRExOUThPaFpFS0xMYUhTUXUyanVLbG5BVnpuYmg2Z1JTUTk0bnVORWV0YjFKWmFEeUw0SGZ0clY0SQ?oc=5",
+   "ms": 1794445601000,
+   "time": "11/12 09:06"
+  },
+  {
+   "t": "Gold falls below $4,000 as Fed rate hike bets grow",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZldWOUt2Z1JKQ1p0YjAzN01pM251MUNjenJScUVMOFk4UmY3NkYyMTRERDhteWZ2c1VhMmpfY0tscEZJVjZVZW9GQkNOT0FhTnFFeVNIdjZva09BdHMwQm1NTjVWQXNNUHJZTVRqdnJ3Qkh3MElPWktqMW5CYTRCLVRTME1IMXIzU25fQ2VBSWQ0UjVSSDZN?oc=5",
+   "ms": 1794439583000,
+   "time": "11/12 07:26"
+  },
+  {
    "t": "Gold falls below $4,000 as dollar surges, Fed hike bets rise - Kitco PM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQkRUZVFwS0pNb3NBQjg1aUNMcjQ5Y0pVU0NLUjU4M3pJLXh5WFYtd3ZFMXhzM2I2Y3RDd25WeXhvaWY4ZHh1TzhrRVJIRzRFT2JJRWE3Tkc2MkVTOFNSZnUzQTVTMFltZXl1cVZRSXdmR0h4ekJUdEhHYjNGTmpnbU5ZTnhyZzlJVGxlc3F2NUhCa3pxd1UtRnd1Yk1UblE2Y05TdmNOR0xMbjhyQkhLZ0hCUFJwYUE?oc=5",
    "ms": 1794434414000,
    "time": "11/12 06:00"
-  },
-  {
-   "t": "Canada’s OR Royalties revenue rises 26% on higher gold prices",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOQzBsOFo0aW91TlNOMWVxVmswZXlGZXRlcWJCTHFYalc4aXNUZ2hIYVJYYllIMWNsYjRPWlNJUkI0SURNSklpSVA0UzVyZ2RPVFpIMzVFODV6TUxJM1Nnd2xIRktLdXJyX0FtMVpidGZKRnc1UEFhb2gtQlY2VUt6cGxHNWNjQV9pNVFTcGFBVG04UnAwR1NVVXQtWUNXSENwVTYtN0hhUllNUQ?oc=5",
-   "ms": 1794432642000,
-   "time": "11/12 05:30"
   },
   {
    "t": "Gold prices fall below $4,000 as analysts warn of further losses toward $3,900",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVENmb2FBaGQxQWZacy1HMmpGNk52N1JUV1VBaW54UFFHTG9wOTVSeVo1MFF6MVVXMklhWGkyaHRWbk5JLTRwYXNBRFJKRG5JVGMxYjRjVHQ3aDlURlFFdWxldHZEdEFNUzdnb3ZDakhPY2dfMGlOdnIzR01mdk43M0hSRENMaGNLY2lkWGlqSndvTVNxZkI0Ql82ZFdxVnItUTgyWk82cUhiQXpiczM3NGJXOA?oc=5",
    "ms": 1794401890000,
    "time": "11/11 20:58"
-  },
-  {
-   "t": "Silver and Palladium lead Gold's rebound: A warning sign",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQa0Iya0RtMFJaNjNDMkZOR3RlVmFpOXdkZTdwV2ZFdDhRNFhBcW00NTdMS05TNDdhZzkzMkdhZFphOWpqbmdnVDY1YWhwR1gwVGJwZk5VS1ZsRkV5N0UzZzVhcDJkUTVWOWU5WENJOTA2azlCaVlNN3ByekxScjFvblJfWjMwS2xyUE9ubXR4eE1ITUJTajEyNURjVUktTEY0MUJn?oc=5",
-   "ms": 1794400182000,
-   "time": "11/11 20:29"
-  },
-  {
-   "t": "Silver price today, Wednesday, November 11, 2026: Silver prices open lower as the Fed signals they're prepared to raise rates",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQblg4am5jSm1RazdOX2RwcWtTLThUdnM3LVlCTEtESUFhbGZPbEZBX1RaOW5OZFcwdEhMSlNoYTFKdkpFUjRtenh3YXZDTF9yR2FNdnJvbDQ5c29fTmJjY0hza1FSZVFFbFNGZ0FwR3A2N1BMUUtVcnNSaE1nSU41MzN0aV80dXBTaEpSLV9EZG0wX19TNE1vOEZoUU1ZUFNkdnI4NHF5QXRWQm5rMllSSGpkTmhhS3k2U2c3a3NFS3A1UkJtQ3FHdEZDdTZTdngxbmNjbzRyMkdJM3hVWFZqajU3dWZMaS1kSkN4WlRHaVE2OEZWNG1BZ0E5VzNJSFN0Y3hXWjdoZmpud25jYVlINGtLVjNsTFd0TG5BWnlScU41QQ?oc=5",
-   "ms": 1794399893000,
-   "time": "11/11 20:24"
-  },
-  {
-   "t": "Gold price today, Wednesday, November 11, 2026: Gold prices fall back as inflation concerns broaden",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPa2ZWdnE1NlJaSFUzNWdvMnF5NXpwQzlKUFZ5MUczdFU1ZTNGZkRlRzNoUTFweTZ1aEVRVzR1cHEwWjJ4VS10R2dQYWJiaXk4a2F5UDZFLU1PX2JINGh0dnNBQ0Z1a1I4WXRiTTV5dFhPRWZaR1YxYWxJYzdoVTNCS0dWQ3pjZmJfMmlyX0ZFMk1rNXZEeGxRdWVXWlZmelR0RDA1WGtrbjZRU1FJMmMzaTI3cnJYaXBDVjF5cHJwNjZtTTY2dkpoLWprT2dOb1RENGhld3RBSjE4TU95YWNReGczOWZmYmxYLUc5cWlNQVVmOE9DRXJHRWJIbnpUa3Et?oc=5",
-   "ms": 1794399108000,
-   "time": "11/11 20:11"
   }
  ]
 }
