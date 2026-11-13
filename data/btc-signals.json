@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1794558600000,
+ "lastChecked": 1794585600000,
  "a3": -1,
  "a5": -1,
- "open": null,
- "nextId": 4,
+ "open": 4,
+ "nextId": 5,
  "signals": [
   {
    "id": 1,
@@ -53,6 +53,19 @@
    "spread": 22.04,
    "status": "skipped",
    "why": "已有纸面持仓"
+  },
+  {
+   "id": 4,
+   "time": "2026-11-13 22:30 SGT",
+   "ms": 1794580200000,
+   "side": "做空",
+   "entry": 69171.88,
+   "stop": 71095,
+   "target": 63402.52,
+   "risk": 1923.12,
+   "atr": 641.04,
+   "spread": 20.75,
+   "status": "open"
   }
  ],
  "events": [
@@ -85,16 +98,22 @@
    "time": "2026-11-13 08:45 SGT",
    "type": "closed",
    "text": "做空 #1 到目标，+2.90R"
+  },
+  {
+   "ms": 1794580200000,
+   "time": "2026-11-13 22:30 SGT",
+   "type": "go",
+   "text": "信号 #4：做空 69,171.9"
   }
  ],
  "summary": {
-  "signals": 3,
-  "taken": 1,
+  "signals": 4,
+  "taken": 2,
   "closed": 1,
   "wins": 1,
   "totalR": 2.9,
   "avgR": 2.9,
-  "open": 0
+  "open": 1
  },
  "changes": [
   {
@@ -921,6 +940,28 @@
    "level": 73480,
    "a3": -1,
    "a5": -1
+  },
+  {
+   "ms": 1794564900000,
+   "time": "2026-11-13 18:15 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 69416.57,
+   "level": 69371.19,
+   "a3": -1,
+   "a5": 0
+  },
+  {
+   "ms": 1794580200000,
+   "time": "2026-11-13 22:30 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 69171.88,
+   "level": 69180,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
@@ -938,7 +979,7 @@
     "name": "同一信号，跟踪止损出场",
     "open": 1,
     "nextId": 2,
-    "skipped": 2,
+    "skipped": 3,
     "prev": -1,
     "trades": [
      {
@@ -968,8 +1009,8 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": null,
-    "nextId": 3,
+    "open": 3,
+    "nextId": 4,
     "skipped": 2,
     "prev": -1,
     "trades": [
@@ -1012,22 +1053,37 @@
       "exitPrice": 70083.93,
       "nights": 1,
       "R": 2.97
+     },
+     {
+      "id": 3,
+      "time": "2026-11-13 22:30 SGT",
+      "ms": 1794580200000,
+      "side": "做空",
+      "entry": 69171.88,
+      "stop": 71095,
+      "initStop": 71095,
+      "target": 63402.52,
+      "risk": 1923.12,
+      "spread": 20.75,
+      "best": 69171.88,
+      "day": 20770,
+      "status": "open"
      }
     ],
     "summary": {
-     "taken": 2,
+     "taken": 3,
      "closed": 2,
      "wins": 2,
      "totalR": 5.84,
      "avgR": 2.92,
-     "open": 0
+     "open": 1
     }
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
     "open": 2,
     "nextId": 3,
-    "skipped": 2,
+    "skipped": 3,
     "prev": -1,
     "trades": [
      {
