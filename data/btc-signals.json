@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1794512700000,
+ "lastChecked": 1794530700000,
  "a3": -1,
  "a5": -1,
- "open": 1,
+ "open": null,
  "nextId": 4,
  "signals": [
   {
@@ -19,7 +19,12 @@
    "risk": 1252.44,
    "atr": 417.48,
    "spread": 22.46,
-   "status": "open"
+   "status": "target",
+   "exitTime": "2026-11-13 08:45 SGT",
+   "exitMs": 1794530700000,
+   "exitPrice": 71094.12,
+   "nights": 4,
+   "R": 2.9
   },
   {
    "id": 2,
@@ -74,16 +79,22 @@
    "time": "2026-11-12 19:00 SGT",
    "type": "skipped",
    "text": "信号 #3（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1794530700000,
+   "time": "2026-11-13 08:45 SGT",
+   "type": "closed",
+   "text": "做空 #1 到目标，+2.90R"
   }
  ],
  "summary": {
   "signals": 3,
   "taken": 1,
-  "closed": 0,
-  "wins": 0,
-  "totalR": 0,
-  "avgR": null,
-  "open": 1
+  "closed": 1,
+  "wins": 1,
+  "totalR": 2.9,
+  "avgR": 2.9,
+  "open": 0
  },
  "changes": [
   {
@@ -936,13 +947,13 @@
       "ms": 1794182400000,
       "side": "做空",
       "entry": 74851.44,
-      "stop": 75254.61,
+      "stop": 73640.4,
       "initStop": 76103.88,
       "target": null,
       "risk": 1252.44,
       "spread": 22.46,
-      "best": 71277.48000000001,
-      "day": 20769,
+      "best": 70710.46,
+      "day": 20770,
       "status": "open"
      }
     ],
@@ -1040,13 +1051,13 @@
       "ms": 1794302100000,
       "side": "做空",
       "entry": 74335.59,
-      "stop": 75378.53,
+      "stop": 73764.32,
       "initStop": 75650.07,
       "target": null,
       "risk": 1314.48,
       "spread": 22.3,
-      "best": 71277.32,
-      "day": 20769,
+      "best": 70710.3,
+      "day": 20770,
       "status": "open"
      }
     ],

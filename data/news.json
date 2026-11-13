@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13 03:49 SGT",
+ "updated": "2026-11-13 08:59 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,46 @@
  ],
  "items": [
   {
+   "t": "Gold falls to over one-year low below $3,900 amid inflation concerns, US PPI data looms",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNdkV5d0lUbjJCUUotSldTVlFjTlR4SUd2SHNEaTQ0M3l3eWNwVkVUTFlkajZmb0h1clhlSndiTENzd3VEZHRHR1Nzakg5VlNoOVpXZEtLVXEzMzdhM2RaRUtMYmVualZuMDVzdFRENkdZVXRnbHhiT24wZmM1ZXhrMWs5eHlXbWpFMlQzV0g0RVJsUFVRYVRrWHZyd3pqeGtpLXhoY1g3LXkwS3hWREthZmNaaXJ4bk9HTDBJbW9ZOUpGTjBGS0pN?oc=5",
+   "ms": 1794525714000,
+   "time": "11/13 07:21"
+  },
+  {
+   "t": "Aris Mining Announces Positive PFS Results for the Toroparu Gold Project",
+   "src": "Financial Times",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxObk1OWmI0YktpeWt0OExteG5qRzRWLXJOT19iYkV4WWdONTh4RlN3c0FaODJOOGNCcU9NWkZ3cWRRVHEwNkcyM012VElyYjFmY3BMWXlIMlZZWUdldGlQcTBvckZxRF82dktSLXBMQWxCWXFqcGxMNlNPcXlscC0wZVFKY1Vfb28yNWo4ZjFGT2VxWkdMRDE3ZVpORTFCSnpQa1NTejR3?oc=5",
+   "ms": 1794520800000,
+   "time": "11/13 06:00"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1794516828000,
+   "time": "11/13 04:53"
+  },
+  {
+   "t": "Gold plunges to one-year low near $3,850 as Fed hawks take charge",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOaDlSRlowSWFReG9obW9kYkR2em1YTzVHc2FnRWZiT2E0RDRWN3g1b0JHTUVmZEFURzdoRzFYaDRrVDNmdk85T3hLYXlCcUZmR1JDd29vZUpRaExaSFVkYnB0MGgyMWl4eU9PYy1LRlVhSmk5S3RIalhyQzVKM2hIdVhMOV9ncVZlLXJwWV90OGllYU1lTDF6OEVaWWtETF8tRHU4UzNXR1JIM3M?oc=5",
+   "ms": 1794514417000,
+   "time": "11/13 04:13"
+  },
+  {
+   "t": "‘We believe gold and silver are not simply defensive assets’ – BlackRock’s Akullian",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQY2lPdXhYZUxpMXE1eUd1S01pNVVpZWMzdGxiRnhrWnZOS2xyWTUwcTZDSjB2WmJrM3IxNVpPZGRGNVhqcmY4TXIxNVVJWWd5RlpyNTNxQkxpa0NrYWlqcnRQZE4tWWhtM05rSl91amhsOEhYdDhYTU1FQjdpMks2UGNlbTJ0VHp0RlU2V0s1Sm9UOWlka29kMUxLT2lCUFlYV1NHaWJKV0Zia2t1VmhIU08wbzNBQQ?oc=5",
+   "ms": 1794512737000,
+   "time": "11/13 03:45"
+  },
+  {
    "t": "Fed Rate Hawks Crush Gold Price $150 to New 13-Month Low",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONHNlTHE4ZEI3YmxnQXFOaEl5TnVLVGpGZGR5Rkp3cWdSTTdCbU5rS2lJbFJqOUZvRFE3bTNtZkk5cXVDeFNsai1fNUluckNqMVhXVXgtZzNKd2F1cW9weXdxQVN3VXBWQ3pJYzlvRDRlRXprUG1uM3ZUN3k0ZGdzRm42RTJSSkZxZEZPOThpWmwyR05wZm5RVkR3?oc=5",
-   "ms": 1794500185000,
-   "time": "11/13 00:16"
+   "ms": 1794505605000,
+   "time": "11/13 01:46"
   },
   {
    "t": "Gold slips to fresh yearly low as Fed hike bets build and US stocks slide",
@@ -28,18 +63,18 @@
    "time": "11/12 23:13"
   },
   {
-   "t": "The Price of Gold Today, Nov. 12, 2026 — and the Best Places to Buy",
+   "t": "The price of gold today, Nov. 12, 2026 — and the best places to buy",
    "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1kRHZWWDR4NDRxeXQwaVVOOF9MQkdCc2I3SEZFeFFlOUkyQmxqTXJiY2dna2dKTTVEcnRsbFNtMjF0UURIY3poM3VyLXFhMUJFNWZudkdhNW56RExBRTJnX01qUFJvWDRWdzBSWjNNaDZJUQ?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1kRHZWWDR4NDRxeXQwaVVOOF9MQkdCc2I3SEZFeFFlOUkyQmxqTXJiY2dna2dKTTVEcnRsbFNtMjF0UURIY3poM3VyLXFhMUJFNWZudkdhNW56RExBRTJnX01qUFJvWDRWdzBSWjNNaDZJUdIBd0FVX3lxTE12dnpscVpZV2NlSkhKWGJjMWdVUUVlc196cEpQWEUyRXFkNEI0WkVNTUlCbVdRYlVKa1NkRXFrdFZHRE5wSDFpX2pJaHptZTFpbklPZzdad1B0SFZxQjd6X3VfSTc0a290NWRUN29EOGxkSFhraENn?oc=5",
    "ms": 1794495789000,
    "time": "11/12 23:03"
   },
   {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794495516000,
-   "time": "11/12 22:58"
+   "t": "Current price of gold as of November 12, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
+   "ms": 1794492000000,
+   "time": "11/12 22:00"
   },
   {
    "t": "Gold price tests $3,900/oz after U.S. weekly jobless claims rise to 200k",
@@ -75,41 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPamJ1eXlMYUFZWkRlc2piQTA5ZDJ6b2VNRGNxY2FhcHpHRVp0b3lsS0swZ0dfeV9WX2ZMcEZIOTdjNV9SeXFlbHVZbEh1VUJOYnJUQm9jYmZlYmxlYWdBZ3BaX2UxbEFic05PTEIzRHVJR0ZpZVczZ0tDYmQ5NXh5UG5GcjdVVjFpUVAtY3FiUnl0YzNj?oc=5",
    "ms": 1794469800000,
    "time": "11/12 15:50"
-  },
-  {
-   "t": "Gold drops to over one-year low as fading Middle East peace hopes fan inflation fears",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPc09mRGRCVmlxTnVTdDR2Y0ktNjVkZE1xUHhyTnZWUGZvbFZFS2hsTFk1SkVfNE82SVZlMTFXbUFtckZMaDIwbzA5RlgxWUxKbE5ZMGhrRkl1UWFrVG9ibW9mdWlGM0NYRTVlQnZramhHSTVadmtEaFhWMDRFY1dYVWRPX1RzNm9YNURTVUVzeGo2aEo4UzZReXRCVlQ0amhjVGFWTU1BVFVQR1k?oc=5",
-   "ms": 1794454800000,
-   "time": "11/12 11:40"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD remains a sell-on-rise trade amid steeper Fed hike bets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNbkdsdUVvTzFKcjMwMERvUGFzN3lvcmVEbVBtTElueEpiX243UjdPZEdmbkZDeHVSdmJLNFd2SnFLQ1ppWU5weVd2ZmZhSnd2N1pBclZuTkIxLVNzTUpxUFlkZmpWalRKQVFUNnNVa0NXZjJsVmptbnNqblJqYWRCdU1pNkFXeks4cnppd1ljTXl0VE5KWVNNZU9tUWZOV2VkOVhzdGdqUzltRlB5WGRRRHV6blBOcF9EWkpKLWt3RV9mSTBfenR4N1hn?oc=5",
-   "ms": 1794454799000,
-   "time": "11/12 11:39"
-  },
-  {
-   "t": "Current price of gold as of November 12, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
-   "ms": 1794451898000,
-   "time": "11/12 10:51"
-  },
-  {
-   "t": "Gold falls below $4,000 as Fed rate hike bets grow",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZldWOUt2Z1JKQ1p0YjAzN01pM251MUNjenJScUVMOFk4UmY3NkYyMTRERDhteWZ2c1VhMmpfY0tscEZJVjZVZW9GQkNOT0FhTnFFeVNIdjZva09BdHMwQm1NTjVWQXNNUHJZTVRqdnJ3Qkh3MElPWktqMW5CYTRCLVRTME1IMXIzU25fQ2VBSWQ0UjVSSDZN?oc=5",
-   "ms": 1794439583000,
-   "time": "11/12 07:26"
-  },
-  {
-   "t": "Gold falls below $4,000 as dollar surges, Fed hike bets rise - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPQkRUZVFwS0pNb3NBQjg1aUNMcjQ5Y0pVU0NLUjU4M3pJLXh5WFYtd3ZFMXhzM2I2Y3RDd25WeXhvaWY4ZHh1TzhrRVJIRzRFT2JJRWE3Tkc2MkVTOFNSZnUzQTVTMFltZXl1cVZRSXdmR0h4ekJUdEhHYjNGTmpnbU5ZTnhyZzlJVGxlc3F2NUhCa3pxd1UtRnd1Yk1UblE2Y05TdmNOR0xMbjhyQkhLZ0hCUFJwYUE?oc=5",
-   "ms": 1794434414000,
-   "time": "11/12 06:00"
   }
  ]
 }
