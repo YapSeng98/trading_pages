@@ -1,11 +1,53 @@
 {
- "updated": "2026-11-14 00:07 SGT",
+ "updated": "2026-11-14 06:00 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQW5oTmxPNVRQbUZPc2NmOC1VeG5uOGJkSTM1MktnX1NDUWxnSHVRU2FYdGxFMlJrSDdGWkZOSW5WaUgtUVdXdkEtM1VWM0hlcnBQeXZJaXB0aUgzRUIyLWZld0dyUFRCc2ZLcy1aWURRcTh4NTRTOHBRakpDZXpyMUJ0N2p2bGhvbDJocjhmZmNKQTlYZGlfRklYVE5HNHRPTnAwZWN1SDdnb19mRXA4WGlZWWx2LUFOTTdB?oc=5",
+   "ms": 1794605209000,
+   "time": "11/14 05:26"
+  },
+  {
+   "t": "Gold's drop below $4,000 offers long-term value as WisdomTree sees potential for $4,800 by 2027",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTTBfZngzcHEwdE1RQ3hVcWI2Rndhb2c1MUVxVElnN1RQb3l6NzNrazk5X0VwVWk2cko5M1VmZzVOYVNfc2tJcGtjYnVVdktuaHZYSzFsU2xPZUM4d1RlRHJ2bWZuZHZaLWFCaU83WmN4bW8xTXlQQk1HdTNkNEdnZ3FMMXdwWWlzLXhZRnNjRFFvenlVTFY0OFNvWG8tNVVPNjlMbU1FOWVPY2g4UWllV2o0dUNsaWQ4NlluYm9R?oc=5",
+   "ms": 1794604316000,
+   "time": "11/14 05:11"
+  },
+  {
+   "t": "Price bounces may be traps as Fed rate hikes could drive gold down to $3,200/oz – StoneX’s Pavilonis",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVTRSTldzM0ZRZjRNM2ktRnZjenYwSG5nUkFCdzZQNFlBcDlqcUxJalBxOFJwaGZaX1RldkJrMFl1VUxFdU5iV2RFN2xqMTlqQlk4UGtpVklxVDVYT0VXTHhCTUN0cTFOWXVJcTNqa3ZETnprRXJpQ0lDTXpjUzdBV0t4WUstWDZwRTgtV0NsMGNMRVZWcEJQM2JfVE9oU29OZERJOHR3a3dmVV9nU0ZhUnFKb3ZGRXM?oc=5",
+   "ms": 1794602715000,
+   "time": "11/14 04:45"
+  },
+  {
+   "t": "Gold faces weekly rout as high US yields fuel Fed rate hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVkZkMHgwOHYxaW1lNy00SV94aTBhLXZXaEp1YXgwXzNVVWJQRXB4TVVVZEQzRm9QUGRoVVhEWmpOQzM5UEpvbENRVUpvOEFkUzZhNzZWY0hseTk2UTA4NDZYOUY2aUFHLWlYeXdoRUhIajdxM1hPcDVIZVZGeEx4LXJmN1JzMGE2SHd5LV9DaU05UFY1RUxra21LOFc1WFJGVWpvQmIyTlVuU3M?oc=5",
+   "ms": 1794601433000,
+   "time": "11/14 04:23"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1794592944000,
+   "time": "11/14 02:02"
+  },
+  {
+   "t": "Gold Makes Worst Losing Run in 4 Decades, Silver Plunge Tests $50 Again",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNV3pPdHZWTGJvazFWazE1VnEzZlR3OXpmYUZhYXozOHlTcW1YR1JsWnRGTkNkSzJiOFpueTdjcjhJQ1A4RXI4b0x2NzZWSlVaTWVrWEtyRGFPcGZJTDVObENIYXpiNjRic0k4NFRiNG5SYnF3ZnlEdEEycmc5SG1hcFM4LTN5Vk5GYmtQTGJ4Wjk?oc=5",
+   "ms": 1794589337000,
+   "time": "11/14 01:02"
+  },
   {
    "t": "Goldman Sachs cuts year-end gold price target to $4,150/oz, 2027 target to $4,800/oz",
    "src": "Kitco",
@@ -14,11 +56,11 @@
    "time": "11/13 23:25"
   },
   {
-   "t": "Gold Weekly Forecast: Sellers dominate on hawkish repricing of Fed interest rate outlook",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQV1hGbVNPVHlySWJ0S096OERhQ24zaUtvcThJQWh3Tm50NWMzcEhQV3pMSVdqU0ZWZTBmMXBsV2lFTG9JSU9FU2xLbWRZdDhSaTNuaFZoSmFiU3d3S0F1Y1JVTldaZlNrT1JLT3VFbko1M2psTzlQR2xaNVI3THB2RjlqWV9XWGVOUUpTbVVPMWZjOWRaMWVaSmhwWTROOUdpQlQ2WEV4bkhQZjNEdWg5dzBfYkltOEpfZWZWMnVDTXIwdW1NY0FpejJRc2pwNEU?oc=5",
-   "ms": 1794580902000,
-   "time": "11/13 22:41"
+   "t": "The price of gold today, Nov. 13, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9oMl9PZEU0VktTR3Bub3dpNkxXTklxVDFBLTBnUzBXbGtOX0psRkpDbGxlWmY3MG0ycE8zWUU1N1FfVm9kV2poUFpNM0c3bUozTGNTWVZ5dTFGZkxLR251UmxJeXN6dGxsYkxvS2VLTXR2Z9IBd0FVX3lxTE91MjdIVXFjZ29hblhWTUhKeEZlMWI1UzU4d2d3VmtKSkk4Q29wMXVHWlVqZkJseHNMMzFYSnFhR3ZDLV91aWRRcVJDTkRQZ2prWjF6cUkxUktXaU1CdWlod3BBWU5tWUthZWhNdDZsU1ViYnBYU0RF?oc=5",
+   "ms": 1794582110000,
+   "time": "11/13 23:01"
   },
   {
    "t": "Current price of gold as of November 13, 2026",
@@ -56,20 +98,6 @@
    "time": "11/13 20:38"
   },
   {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794572477000,
-   "time": "11/13 20:21"
-  },
-  {
-   "t": "Current price of gold as of November 12, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
-   "ms": 1794568895000,
-   "time": "11/13 19:21"
-  },
-  {
    "t": "Gold sticks to modest gains below $3,900 as Fed hike bets cap upside ahead of US PPI",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQRGE3UHNvcXhqdy0zNXRVVFlVVVNja2JBZkFVaVd1YXZ4eXh1Mks3dHROM2RDWkxkY0c4NHMtTEktcnp0RWEwNnd6WXo5M2ZrcXRFLWNRRjZaQkhaUWlLdzRXQkgydEVOa2U1eWpSVWo4UUxLd3FUM090TDFQeENsR0VuSnNfbndTRnlBdWVpSXdtMTFMR3RERGU3MG16cU50MG9BUHFnUjhJNkZqbllPd2pmM1RBVjJ6c0xtaW9VUUxaQzBj?oc=5",
@@ -77,39 +105,11 @@
    "time": "11/13 16:22"
   },
   {
-   "t": "Richemont shares slide 8% as gold costs offset H1 operating profit jump",
-   "src": "Yahoo Finance Singapore",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNWnk2V2R0dTJWUXZZOXhQT3FORkpDeldfeVVkc1N0NjdYLTNIUTNPT21tX214Z0djZ19id0FwWmFuMHpFbFdIUEhYTTBVbGw1ZV82RkVWbERfU1R0X1dHT29yVUhjcTh3SGhzY2treVlKbUZOR1FXVHFkaU9JalRNbQ?oc=5",
-   "ms": 1794555425000,
-   "time": "11/13 15:37"
-  },
-  {
    "t": "Gold rebounds but heads for weekly fall before US inflation data",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONDhBMUxOVE5NNmVSclhvRGR3NlVvdUJ2NWtHMGZxaHJuTTNSN0NlU1EyWlhMeWlkc0NPOVB4UFZrUUFleFBwZnRMdGxQYWxoR1BkYWsxYmxNSDRadTdFckpCd3JZN0FOVENFNEJzbDVQb2xwSk93VnBYajd5U3ozQm9NN3ZnbDdfcThJSjhuV29MREZ6RXhJS3ZLMNIBoAFBVV95cUxPazNRNjRId2p0TWh6RGEyMGhScDdSN05xb1BPQllZMWxNWmNmVmFJdHJGbnIwcnllQXphX1FRa2QxcnJtZUxISmgwaXpRWFVtV3hSNGRkUElzQnlHYzNHZ0xEXzFiSnZfaHNkc3ViOFBTTjZfVVNkTkVHRmFhYjI0SVZsVzJHNW43bXdfcm9sdjFMTUd5ZEZHbi13UkdHbnlC?oc=5",
    "ms": 1794544980000,
    "time": "11/13 12:43"
-  },
-  {
-   "t": "Rate hike bets keep gold on track for its worst week in four months",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONmtMVVBHZGEyX3I4eWRfOFQwaW8zUHZDNXg1N0UxbW9jX1lhdmpuRkpZZ2hDZUEyNzZCTktodzFxUEt3NWJtN0JkU2NUa1VRLUJwVGR1bjVDR0Npak1lbk9xLXhOVmI3Y1BMRGkwTXBRb3lNVE1wMFdFb1JQWXBucV9tbF8tclNrRm1FTTNhVnpjSTlfVndYbVdqaw?oc=5",
-   "ms": 1794541380000,
-   "time": "11/13 11:43"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD finds temporary floor near $3,850, downside risks persist",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPN2o0bGFjWHM1R19zczQzNHRzeWRsamFkNXhnNnN6c29CWVR6UjNValNiZHBJcFVqdEQ2Z0V1VlBxM1hqQVZCSjYteEhZUC1KVTYwYnc4aDFrMGRscWMtR3dEd3hnS2xGbDFCRmFuZU9wM3FMb2ZFelpHQWNsSEd5RkkxS1JPcUhOUnlzZzZBWXdST2FTUmZPWVI0YzlNb2I1UUFSRzFyRmY0TzhLWGFCeTNCNk1FaEVYdXZxc094cFdvZGJiY3QyTDRR?oc=5",
-   "ms": 1794540512000,
-   "time": "11/13 11:28"
-  },
-  {
-   "t": "Gold falls to over one-year low below $3,900 amid inflation concerns, US PPI data looms",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNdkV5d0lUbjJCUUotSldTVlFjTlR4SUd2SHNEaTQ0M3l3eWNwVkVUTFlkajZmb0h1clhlSndiTENzd3VEZHRHR1Nzakg5VlNoOVpXZEtLVXEzMzdhM2RaRUtMYmVualZuMDVzdFRENkdZVXRnbHhiT24wZmM1ZXhrMWs5eHlXbWpFMlQzV0g0RVJsUFVRYVRrWHZyd3pqeGtpLXhoY1g3LXkwS3hWREthZmNaaXJ4bk9HTDBJbW9ZOUpGTjBGS0pN?oc=5",
-   "ms": 1794525714000,
-   "time": "11/13 07:21"
   }
  ]
 }
