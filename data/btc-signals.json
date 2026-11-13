@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1794530700000,
+ "lastChecked": 1794555900000,
  "a3": -1,
  "a5": -1,
  "open": null,
@@ -952,7 +952,7 @@
       "target": null,
       "risk": 1252.44,
       "spread": 22.46,
-      "best": 70710.46,
+      "best": 67590.46,
       "day": 20770,
       "status": "open"
      }
@@ -968,7 +968,7 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 2,
     "prev": -1,
@@ -1006,16 +1006,21 @@
       "spread": 22.04,
       "best": 73463.52,
       "day": 20769,
-      "status": "open"
+      "status": "target",
+      "exitTime": "2026-11-13 11:00 SGT",
+      "exitMs": 1794538800000,
+      "exitPrice": 70083.93,
+      "nights": 1,
+      "R": 2.97
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 2.87,
-     "avgR": 2.87,
-     "open": 1
+     "closed": 2,
+     "wins": 2,
+     "totalR": 5.84,
+     "avgR": 2.92,
+     "open": 0
     }
    },
    "noWtrail": {
@@ -1056,7 +1061,7 @@
       "target": null,
       "risk": 1314.48,
       "spread": 22.3,
-      "best": 70710.3,
+      "best": 67590.3,
       "day": 20770,
       "status": "open"
      }
