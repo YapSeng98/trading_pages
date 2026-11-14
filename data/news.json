@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14 12:08 SGT",
+ "updated": "2026-11-14 15:58 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -14,11 +14,18 @@
    "time": "11/14 11:14"
   },
   {
+   "t": "This Week’s Sell Off in Gold Brought November Into the Red",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPR2x3VTlCVUhXVnRSMWJCNDlIcFNWeWx6WVU4UmdNX0o1TDl2R3dYOEl1Q3hQYWJTZXdJaHhIb0NWQWt3MllmM3I5THBYd2xBc2hnNmdOanNwdThuRk11aVdqNUJHSUdFQVhSTXFFRXQ3cTVDUnpySzZZTzFYY3BlZ050aw?oc=5",
+   "ms": 1794616878000,
+   "time": "11/14 08:41"
+  },
+  {
    "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794610349000,
-   "time": "11/14 06:52"
+   "ms": 1794606890000,
+   "time": "11/14 05:54"
   },
   {
    "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNLVRObm1EUEJJdTdaTm1Vd1pYTS1pZjJaLTRJY1JKWlltRl9jalhnZ3d3NmNHdGNUVHVfUmhUYVE0dTg4QjdCd28ybUhZS3hWeFlreXlBNDdaazdmazU1aU9sdWtFd09wWThuN0lWQ0xPZ3l5YU9fSWZjY1NBNDNvUVlHUDQxazF0UUVQT2dhSFlmZkRKam1jYkcwalpqUHBYOTBZS25LbVJ0R0x5UGJiZEJKOUxCYjZOZUJ3NjRxenJkNEdDaElaM1JnMHNaVWN3TVRkRVlqV2hLTUlTRWdKVnR1ZHp4M2xDUjZnVw?oc=5",
    "ms": 1794573521000,
    "time": "11/13 20:38"
-  },
-  {
-   "t": "Current price of gold as of November 12, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
-   "ms": 1794568895000,
-   "time": "11/13 19:21"
   }
  ]
 }
