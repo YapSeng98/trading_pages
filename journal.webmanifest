@@ -1,0 +1,17 @@
+{
+  "name": "盈亏日历 · 目标与提现",
+  "short_name": "盈亏日历",
+  "description": "记每一笔交易的赚亏，看离目标还差多少，记下从哪个平台提了多少钱。",
+  "id": "./journal.html",
+  "start_url": "./journal.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#0A0A0F",
+  "lang": "zh",
+  "icons": [
+    { "src": "assets/icon-journal-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-journal-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-journal-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

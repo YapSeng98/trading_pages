@@ -1231,15 +1231,16 @@
       if (d && d.summary) { S.rec = d; renderProof(); renderChanges(); if (S.E) renderVerdict(); }
     }).catch(function () {});
   }
-  // The visitor's own trades: the P&L calendar (journal.html keeps them in localStorage "pnl.v1"; same site, so this
-  // page can read them). Shown first, so they are not mistaken for the rule's automatic record below.
+  // The visitor's own trades: the P&L calendar (journal.html keeps them in localStorage "pnl.v1", and in Supabase once
+  // the visitor signs in there; same site, so this page reads the local copy). Shown first, so they are not mistaken
+  // for the rule's automatic record below.
   function ownBlock(el) {
     var J = null; try { J = JSON.parse(localStorage.getItem("pnl.v1")); } catch (e) {}
     var items = J && Array.isArray(J.items) ? J.items.filter(function (x) { return x && /^\d{4}-\d{2}-\d{2}$/.test(x.d) && num(x.amt) !== null; }) : [];
     var cur = J && typeof J.cur === "string" && J.cur ? J.cur : "$", done = S.saved.filter(function (p) { return p.status === "已止盈" || p.status === "已止损"; });
     var cash = function (v) { var a = Math.abs(v); return (v > 0 ? "+" : v < 0 ? "−" : "") + cur + a.toLocaleString("en-US", { maximumFractionDigits: a < 100 ? 2 : 0 }); };
     var link = h("a", { href: "journal.html", style: "color:var(--gold-lt)", text: "打开盈亏日历 →" });
-    el.appendChild(h("div", { class: "sub-h", text: "你自己的交易（只存在这台设备的浏览器里）" }));
+    el.appendChild(h("div", { class: "sub-h", text: "你自己的交易（来自盈亏日历）" }));
     if (!items.length) {
       el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, ["你还没有在「盈亏日历」里记过交易" + (done.length ? "（「已保存」里有 " + done.length + " 笔标成已结束的计划）" : "") + "。每做完一笔记一下金额，最好也填「原本最多打算亏多少」和「是不是按规则做的」，这里就会自动显示。 ", link]));
       return;

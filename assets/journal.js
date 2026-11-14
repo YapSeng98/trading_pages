@@ -1,0 +1,892 @@
+/* 盈亏日历 (journal.html): the visitor's own trades, withdrawals and profit goal.
+   Kept in this browser (localStorage "pnl.v1": the gold page reads it and adds closed positions to `items`) and, once
+   the visitor signs in, in the owner's Supabase project (tables from supabase/journal.sql; each user sees only their
+   own rows). Every change is saved here first and marked `dirty`; the cloud copy catches up a moment later. */
+(function () {
+  "use strict";
+  var KEY = "pnl.v1", AUTH = "pnl.auth", CKEY = "pnl.cloud", CHEER = "pnl.cheered", NS = "http://www.w3.org/2000/svg";
+  var CFG = window.JOURNAL_CLOUD || {};
+  var DAY = /^\d{4}-\d{2}-\d{2}$/;
+  function $(id) { return document.getElementById(id); }
+  function h(tag, attrs, kids) {
+    var e = document.createElement(tag), k;
+    for (k in (attrs || {})) { var v = attrs[k]; if (v === null || v === undefined || v === false) continue; if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), v); else e.setAttribute(k, v === true ? "" : v); }
+    (kids || []).forEach(function (c) { if (c === null || c === undefined || c === false) return; e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return e;
+  }
+  function sv(name, attrs, parent) { var e = document.createElementNS(NS, name); for (var a in attrs) e.setAttribute(a, attrs[a]); if (parent) parent.appendChild(e); return e; }
+  function clear(e) { while (e.firstChild) e.removeChild(e.firstChild); return e; }
+  var toastT;
+  function toast(msg, act, fn) {
+    var t = $("toast"); clear(t).appendChild(document.createTextNode(msg));
+    if (act) t.appendChild(h("button", { type: "button", text: act, onclick: function () { t.classList.remove("show", "act"); fn(); } }));
+    t.classList.toggle("act", !!act); t.classList.add("show");
+    clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show", "act"); }, act ? 5500 : 2200);
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function ymd(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+  function dOf(t) { var x = new Date(t); return ymd(x.getFullYear(), x.getMonth(), x.getDate()); }
+  function midnight(d) { return new Date(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)).getTime(); }
+  function num(v) { return typeof v === "number" && isFinite(v) ? v : null; }
+  function str(v, n) { return typeof v === "string" ? v.trim().slice(0, n) : ""; }
+  function r2(v) { return Math.round(v * 100) / 100; }
+  function uid(p) { return p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  var WD = ["日", "一", "二", "三", "四", "五", "六"];
+  function weekday(d) { return "周" + WD[new Date(+d.slice(0, 4), +d.slice(5, 7) - 1, +d.slice(8, 10)).getDay()]; }
+  function md(d) { return (+d.slice(5, 7)) + "月" + (+d.slice(8, 10)) + "日"; }
+  function ms(d) { return (+d.slice(5, 7)) + "/" + (+d.slice(8, 10)); }
+  function hm(t) { var x = new Date(t); return pad(x.getHours()) + ":" + pad(x.getMinutes()); }
+  function spanDays(a, b) { return Math.round((midnight(b) - midnight(a)) / 864e5) + 1; }
+  var TODAY = dOf(Date.now());
+
+  // ---------- data ----------
+  // Ids carry the time they were made ("r" / "x" + Date.now() in base 36), so older records without `t` still know it.
+  function tOf(x) { if (num(x.t) !== null) return x.t; var t = parseInt(String(x.id).slice(1, 9), 36); return isFinite(t) && t > 1.5e12 && t < 4e12 ? t : 0; }
+  function base(x, p) {        // id, change time, and "not in the cloud yet" (a record without `u` never reached it)
+    var o = { id: x.id ? String(x.id).slice(0, 64) : uid(p), u: num(x.u) };
+    if (x.dirty || o.u === null) o.dirty = true;
+    return o;
+  }
+  function cleanItem(x) {
+    if (!x || !DAY.test(x.d) || num(x.amt) === null) return null;
+    var o = base(x, "r");
+    o.d = x.d; o.amt = r2(x.amt); o.sym = str(x.sym, 16); o.side = x.side === "long" || x.side === "short" ? x.side : "";
+    o.lots = num(x.lots); o.risk = num(x.risk); o.rule = x.rule === true ? true : x.rule === false ? false : null;
+    o.plat = str(x.plat, 40); o.note = str(x.note, 140); o.t = tOf(x) || null;
+    return o;
+  }
+  function cleanCash(x) {
+    if (!x || !DAY.test(x.d) || num(x.amt) === null || x.amt < 0) return null;
+    var o = base(x, "c");
+    o.d = x.d; o.kind = x.kind === "deposit" ? "deposit" : "withdraw"; o.amt = r2(x.amt); o.plat = str(x.plat, 40); o.note = str(x.note, 140); o.t = tOf(x) || null;
+    return o;
+  }
+  function cleanGoal(x) {
+    if (!x || !(num(x.target) > 0) || !DAY.test(x.start_d)) return null;
+    var o = base(x, "g");
+    o.name = str(x.name, 40); o.target = r2(x.target); o.start_d = x.start_d; o.at = num(x.at) || midnight(x.start_d);
+    o.done_d = DAY.test(x.done_d) ? x.done_d : null; o.done_at = num(x.done_at); o.reached = num(x.reached);
+    return o;
+  }
+  var CLEAN = { items: cleanItem, cash: cleanCash, goals: cleanGoal };
+  function load() {
+    var d = null; try { d = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (!d || typeof d !== "object") d = {};
+    var o = { cur: typeof d.cur === "string" && d.cur ? d.cur.slice(0, 4) : "$", start: num(d.start), su: num(d.su), sdirty: !!d.sdirty,
+      plats: Array.isArray(d.plats) ? d.plats.filter(function (p) { return typeof p === "string" && p.trim(); }).map(function (p) { return p.trim().slice(0, 40); }).slice(0, 40) : [],
+      owner: typeof d.owner === "string" ? d.owner : null, synced: num(d.synced),
+      gone: Array.isArray(d.gone) ? d.gone.filter(function (g) { return g && CLEAN[g.c] && g.id; }).slice(-500) : [] };
+    Object.keys(CLEAN).forEach(function (c) { o[c] = (Array.isArray(d[c]) ? d[c] : []).map(CLEAN[c]).filter(Boolean); });
+    return o;
+  }
+  var D = load();
+  function save(quiet) {
+    try { localStorage.setItem(KEY, JSON.stringify(D)); } catch (e) { toast("保存失败：浏览器不允许存储"); return false; }
+    if (!quiet) Cloud.soon();
+    return true;
+  }
+  function touch(x) { x.u = Date.now(); x.dirty = true; return x; }
+  function find(c, id) { for (var i = 0; i < D[c].length; i++) if (D[c][i].id === id) return D[c][i]; return null; }
+  function put(c, x) {
+    var i = D[c].map(function (y) { return y.id; }).indexOf(x.id);
+    if (i >= 0) D[c][i] = x; else D[c].push(x);
+    D.gone = D.gone.filter(function (g) { return !(g.c === c && g.id === x.id); });
+  }
+  function drop(c, id) {
+    var x = find(c, id); D[c] = D[c].filter(function (y) { return y.id !== id; });
+    if (x && D.owner) D.gone.push({ c: c, id: id });       // the cloud copy is removed at the next sync
+    return x;
+  }
+  function settingsChanged() { D.su = Date.now(); D.sdirty = true; }
+
+  // ---------- numbers ----------
+  var NF = {};
+  function nf(d) { return NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: 0, maximumFractionDigits: d })); }
+  function money(v, d) { var a = Math.abs(v); return nf(d === undefined ? (a < 100 ? 2 : 0) : d).format(a); }
+  function signed(v, d) { return (v > 0 ? "+" : v < 0 ? "−" : "") + D.cur + money(v, d); }
+  function plain(v, d) { return (v < 0 ? "−" : "") + D.cur + money(v, d); }
+  function short(v) { var a = Math.abs(v), t = a >= 10000 ? Math.round(a / 1000) + "k" : a >= 1000 ? (a / 1000).toFixed(1) + "k" : a >= 100 ? String(Math.round(a)) : String(Math.round(a * 10) / 10); return (v > 0 ? "+" : v < 0 ? "−" : "") + t; }
+  function cls(v) { return v > 0 ? "up" : v < 0 ? "dn" : ""; }
+  function pct(a, b) { return Math.round(a / b * 100); }
+  function tstats(list) {
+    var s = { n: list.length, sum: 0, w: 0, l: 0, z: 0, ws: 0, ls: 0 };
+    list.forEach(function (x) { s.sum += x.amt; if (x.amt > 0) { s.w++; s.ws += x.amt; } else if (x.amt < 0) { s.l++; s.ls += x.amt; } else s.z++; });
+    s.sum = r2(s.sum); return s;
+  }
+  var IDX = { day: {}, cash: {} };
+  function index() {
+    IDX.day = {}; IDX.cash = {};
+    D.items.forEach(function (x) { var o = IDX.day[x.d] || (IDX.day[x.d] = { sum: 0, n: 0, w: 0, l: 0, items: [] }); o.sum = r2(o.sum + x.amt); o.n++; if (x.amt > 0) o.w++; else if (x.amt < 0) o.l++; o.items.push(x); });
+    D.cash.forEach(function (x) { if (x.kind === "withdraw") (IDX.cash[x.d] || (IDX.cash[x.d] = [])).push(x); });
+    Object.keys(IDX.day).forEach(function (k) { IDX.day[k].items.sort(function (a, b) { return tOf(a) - tOf(b); }); });
+  }
+  function cashSum(list) { return r2(list.reduce(function (a, x) { return a + x.amt; }, 0)); }
+  function withdrawals() { return D.cash.filter(function (x) { return x.kind === "withdraw"; }); }
+  function plats() {           // the owner's list first, then any other platform a record names, most used first
+    var cnt = {};
+    D.plats.forEach(function (p) { cnt[p] = (cnt[p] || 0) + 1e6; });
+    D.items.concat(D.cash).forEach(function (x) { if (x.plat) cnt[x.plat] = (cnt[x.plat] || 0) + 1; });
+    return Object.keys(cnt).sort(function (a, b) { return cnt[b] - cnt[a] || (a < b ? -1 : 1); });
+  }
+
+  // ---------- view state ----------
+  var now0 = new Date();
+  var V = { y: now0.getFullYear(), m: now0.getMonth(), sel: TODAY, date: TODAY, tab: "trade", sign: 1, edit: null, tplat: "", cplat: "", goalForm: null, lastFill: null, cashAll: false };
+  var REC = null;
+
+  // ---------- goal ----------
+  // The bar counts trades from the goal's start: days after start_d, and on start_d those written from `at` on (so a
+  // new goal started right after claiming one does not count the trades that finished the old one). Withdrawals do
+  // not move it: they are money taken out, not money lost.
+  function activeGoal() { return D.goals.filter(function (g) { return !g.done_at; }).sort(function (a, b) { return b.at - a.at; })[0] || null; }
+  function inGoal(x, g) { return x.d > g.start_d || (x.d === g.start_d && (tOf(x) || Infinity) >= g.at); }
+  function goalProgress(g) {
+    var list = D.items.filter(function (x) { return inGoal(x, g); }).sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : tOf(a) - tOf(b); });
+    var run = 0, hit = null, days = {}, today = 0;
+    list.forEach(function (x) { run += x.amt; if (hit === null && run >= g.target - 0.004) hit = x.d; days[x.d] = 1; if (x.d === TODAY) today += x.amt; });
+    var s = tstats(list);
+    return { sum: s.sum, n: s.n, w: s.w, l: s.l, days: Object.keys(days).length, today: r2(today), hit: s.sum >= g.target ? hit : null, pct: s.sum / g.target * 100 };
+  }
+  function cheered(id) { try { return (JSON.parse(localStorage.getItem(CHEER)) || []).indexOf(id) >= 0; } catch (e) { return false; } }
+  function cheer(id) { try { var l = JSON.parse(localStorage.getItem(CHEER)) || []; l.push(id); localStorage.setItem(CHEER, JSON.stringify(l.slice(-50))); } catch (e) {} }
+  function renderGoal() {
+    var el = clear($("goal")), g = activeGoal(), past = D.goals.filter(function (x) { return x.done_at; }).sort(function (a, b) { return b.done_at - a.done_at; });
+    el.classList.remove("done");
+    if (!g || V.goalForm) { goalForm(el, g, past[0]); trophies(el, past); return; }
+    var p = goalProgress(g), done = p.sum >= g.target, fillW = Math.max(0, Math.min(100, p.pct)), left = r2(g.target - p.sum);
+    el.classList.toggle("done", done);
+    el.appendChild(h("div", { class: "g-k", text: done ? "目标达成 · Goal reached" : "这一轮的目标 · Goal" }));
+    el.appendChild(h("div", { class: "g-name", text: g.name || "赚到 " + D.cur + money(g.target, 2) }));
+    el.appendChild(h("div", { class: "g-row" }, [
+      h("div", { class: "g-amt" + (p.sum < 0 ? " dn" : "") }, [plain(p.sum, 2), h("small", { text: "/ " + D.cur + money(g.target, 2) })]),
+      h("div", { class: "g-pct", text: Math.max(0, Math.floor(p.pct)) + "%" })]));
+    var bar = h("div", { class: "bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": "100", "aria-valuenow": String(Math.round(fillW)), "aria-label": "目标进度 " + Math.floor(Math.max(0, p.pct)) + "%" });
+    var fill = h("div", { class: "fill" }); bar.appendChild(fill);
+    var tw = p.today > 0 ? Math.min(fillW, p.today / g.target * 100) : 0, moved = V.lastFill !== fillW;
+    if (tw >= 0.6) bar.appendChild(h("div", { class: "tdy" + (moved ? " late" : ""), style: "left:" + (fillW - tw).toFixed(2) + "%;width:" + tw.toFixed(2) + "%", title: "今天 " + signed(p.today) }));
+    [25, 50, 75].forEach(function (m) { bar.appendChild(h("i", { class: "ms" + (p.pct >= m ? " on" : ""), style: "left:" + m + "%" })); });
+    bar.appendChild(h("span", { class: "cup", "aria-hidden": "true", text: "🏆" }));
+    el.appendChild(bar);
+    var marks = h("div", { class: "marks", "aria-hidden": "true" });
+    [25, 50, 75].forEach(function (m) { marks.appendChild(h("span", { class: "mid" + (p.pct >= m ? " on" : ""), style: "left:" + m + "%" }, [h("b", { text: m + "%" }), D.cur + money(g.target * m / 100, 0)])); });
+    marks.appendChild(h("span", { class: "end" + (done ? " on" : ""), style: "left:100%" }, [h("b", { text: "100%" }), D.cur + money(g.target, 0)]));
+    el.appendChild(marks);
+    // the fill grows from where it last stood (first paint: from zero)
+    fill.style.width = (V.lastFill === null ? 0 : V.lastFill) + "%";
+    requestAnimationFrame(function () { requestAnimationFrame(function () { fill.style.width = fillW + "%"; }); });
+    V.lastFill = fillW;
+    var since = spanDays(g.start_d, TODAY);
+    el.appendChild(h("div", { class: "g-info" }, [
+      h("span", { text: "📅 " + ms(g.start_d) + " 开始 · 第 " + since + " 天" }),
+      h("span", { text: "🧾 " + p.n + " 笔 · " + p.w + " 赚 " + p.l + " 亏" }),
+      p.today ? h("span", { text: "📍 今天 " + signed(p.today) }) : null]));
+    var say;
+    if (done) say = ["这一轮用了 ", h("b", { text: spanDays(g.start_d, p.hit || TODAY) + " 天、" + p.n + " 笔" }), "，在 " + md(p.hit || TODAY) + "到达目标" + (p.sum > g.target ? "，还多出 " + plain(p.sum - g.target) : "") + "。收下它，进度条从零开始下一轮。"];
+    else if (!p.n) say = ["从 " + md(g.start_d) + "开始算，还没有记交易。做完一笔就在右边记下来，进度条会跟着走。"];
+    else if (p.sum <= 0) say = ["目前合计 ", h("b", { class: "dn", text: plain(p.sum) }), "，比起点还低 " + D.cur + money(-p.sum) + "；离目标还差 " + D.cur + money(left) + "。"];
+    else {
+      var per = p.sum / p.days, need = Math.ceil(left / per);
+      say = ["还差 ", h("b", { text: D.cur + money(left) }), "。这一轮 " + p.days + " 个交易日平均每天 " + signed(per) + "，照这个平均还要大约 ", h("b", { text: need + " 个交易日" }), "（只是按平均算，不是预测）。"];
+    }
+    el.appendChild(h("p", { class: "g-say" }, say));
+    var acts = h("div", { class: "g-acts" });
+    if (done) acts.appendChild(h("button", { class: "btn pri", type: "button", text: "🏆 收下，开始下一轮", onclick: function () { claim(g); } }));
+    acts.appendChild(h("button", { class: "btn sm" + (done ? " ghost" : ""), type: "button", text: "调整目标", onclick: function () { V.goalForm = "edit"; renderGoal(); } }));
+    el.appendChild(acts);
+    trophies(el, past);
+    if (done && !cheered(g.id)) { cheer(g.id); confetti(); }
+  }
+  function goalForm(el, g, prev) {
+    var editing = V.goalForm === "edit" && g, next = V.goalForm === "next";
+    el.appendChild(h("div", { class: "g-k", text: editing ? "调整目标" : next ? "下一轮 · Next goal" : "设一个目标 · Goal" }));
+    el.appendChild(h("div", { class: "g-name", text: editing ? "改金额、名字或开始的日子" : next ? "上一轮已经收下。这一轮想赚多少？" : "这一轮想赚多少？" }));
+    el.appendChild(h("p", { class: "g-say", text: "进度条从开始那天算起，只算交易盈亏；提现不会让进度变少。到了目标就收下，再开新的一轮。" }));
+    var amt = h("input", { id: "g-amt", type: "number", inputmode: "decimal", min: "0", step: "any", placeholder: "例如 1000" });
+    var name = h("input", { id: "g-name", type: "text", maxlength: "40", placeholder: "可不填，例如 11 月目标" });
+    var start = h("input", { id: "g-start", type: "date" });
+    amt.value = editing ? g.target : prev ? prev.target : ""; name.value = editing ? g.name : ""; start.value = editing ? g.start_d : TODAY;
+    var picks = prev ? [prev.target, prev.target * 1.5, prev.target * 2] : [300, 500, 1000, 2000];
+    var nice = function (v) { var m = v >= 1000 ? 100 : v >= 100 ? 50 : 10; return Math.round(v / m) * m; };
+    var chips = h("div", { class: "chips" }, picks.map(function (v, i) { v = i ? nice(v) : v; return h("button", { type: "button", class: "chip", text: D.cur + money(v, 2) + (prev && i ? (i === 1 ? " ×1.5" : " ×2") : prev ? " 一样" : ""), onclick: function () { amt.value = v; amt.focus(); } }); }));
+    var err = h("div", { class: "err", role: "alert", hidden: true });
+    var form = h("form", { class: "g-form", novalidate: true }, [
+      h("div", { class: "f1" }, [h("label", { for: "g-amt", text: "目标金额" }), h("div", { class: "inp big" }, [h("span", { class: "cur", text: D.cur }), amt])]),
+      chips,
+      h("div", { class: "f2" }, [
+        h("div", {}, [h("label", { for: "g-name", text: "名字" }), h("div", { class: "inp t" }, [name])]),
+        h("div", {}, [h("label", { for: "g-start", text: "从哪天开始算" }), h("div", { class: "inp" }, [start])])]),
+      err,
+      h("div", { class: "acts" }, [
+        h("button", { class: "btn pri", type: "submit", text: editing ? "保存修改" : "开始这一轮" }),
+        editing || (next && g) ? h("button", { class: "btn ghost", type: "button", text: "取消", onclick: function () { V.goalForm = null; renderGoal(); } }) : null,
+        editing ? h("button", { class: "btn ghost", type: "button", text: "删除这个目标", onclick: function () {
+          if (!window.confirm("删除这个目标？交易记录不受影响。")) return;
+          drop("goals", g.id); V.goalForm = null; save(); renderAll(); toast("已删除目标", "撤销", function () { put("goals", touch(g)); save(); renderAll(); });
+        } }) : null])]);
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var t = parseFloat(amt.value), sd = DAY.test(start.value) ? start.value : TODAY;
+      if (!(t > 0)) { err.textContent = "填一个大于 0 的金额。"; err.hidden = false; amt.focus(); return; }
+      if (sd > TODAY) { err.textContent = "开始的日子不能在今天之后。"; err.hidden = false; return; }
+      if (editing) { g.target = r2(t); g.name = name.value.trim().slice(0, 40); if (sd !== g.start_d) { g.start_d = sd; g.at = midnight(sd); } touch(g); }
+      else put("goals", touch({ id: uid("g"), name: name.value.trim().slice(0, 40), target: r2(t), start_d: sd, at: next && sd === TODAY ? Date.now() : midnight(sd), done_d: null, done_at: null, reached: null }));
+      V.goalForm = null; V.lastFill = null; save(); renderAll(); toast(editing ? "目标已更新" : "新的一轮开始了：目标 " + D.cur + money(t, 2));
+    });
+    el.appendChild(form);
+  }
+  function claim(g) {
+    var p = goalProgress(g);
+    g.done_at = Date.now(); g.done_d = p.hit || TODAY; g.reached = p.sum; touch(g);
+    V.goalForm = "next"; V.lastFill = null; save(); renderAll();
+    toast("🏆 已收下：" + (g.name || D.cur + money(g.target, 2)), "撤销", function () { g.done_at = null; g.done_d = null; g.reached = null; touch(g); V.goalForm = null; save(); renderAll(); });
+  }
+  function trophies(el, past) {
+    if (!past.length) return;
+    var row = h("div", { class: "tro-row" });
+    past.slice(0, 8).forEach(function (g) {
+      var d = g.done_d || dOf(g.done_at);
+      row.appendChild(h("span", { class: "tro", title: (g.name ? g.name + "：" : "") + "目标 " + D.cur + money(g.target, 2) + "，收下时合计 " + plain(num(g.reached) || 0, 2) }, ["🏆 ", h("b", { text: D.cur + money(g.target, 0) }), " · " + ms(g.start_d) + "→" + ms(d) + " · " + spanDays(g.start_d, d) + " 天"]));
+    });
+    if (past.length > 8) row.appendChild(h("span", { class: "tro", text: "还有 " + (past.length - 8) + " 个" }));
+    el.appendChild(h("div", { class: "troph" }, [h("div", { class: "g-k", text: "已经达成 · " + past.length + " 轮" }), row]));
+  }
+  // A short burst of confetti when a goal is reached (once per goal, skipped when the device asks for less motion).
+  function confetti() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var cv = h("canvas", { id: "confetti", "aria-hidden": "true" }); document.body.appendChild(cv);
+    var W = cv.width = window.innerWidth, H = cv.height = window.innerHeight, x = cv.getContext("2d"), cols = ["#E8C96D", "#D4A72C", "#F5B23E", "#34D399", "#F6F5F3"], P = [], t0 = performance.now();
+    for (var i = 0; i < 150; i++) P.push({ x: W * (0.2 + Math.random() * 0.6), y: H * 0.25, vx: (Math.random() - 0.5) * 9, vy: -4 - Math.random() * 9, r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.3, w: 5 + Math.random() * 6, c: cols[i % cols.length] });
+    (function step(ts) {
+      var k = (ts - t0) / 1000; x.clearRect(0, 0, W, H);
+      P.forEach(function (p) { p.vy += 0.28; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.r += p.vr; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.globalAlpha = Math.max(0, 1 - k / 2.6); x.fillStyle = p.c; x.fillRect(-p.w / 2, -p.w / 4, p.w, p.w / 2); x.restore(); });
+      if (k < 2.6) requestAnimationFrame(step); else cv.remove();
+    })(t0);
+  }
+
+  // ---------- write one down ----------
+  function setTab(t) {
+    V.tab = t; $("tab-trade").setAttribute("aria-selected", String(t === "trade")); $("tab-cash").setAttribute("aria-selected", String(t === "cash"));
+    $("f-trade").hidden = t !== "trade"; $("f-cash").hidden = t !== "cash";
+  }
+  function setDate(d) {
+    V.date = d; $("q-date").value = d; $("q-date").max = TODAY;
+    var y = dOf(Date.now() - 864e5);
+    $("q-wd").textContent = weekday(d) + (d === TODAY ? " · 今天" : d === y ? " · 昨天" : "");
+    $("q-today").hidden = d === TODAY;
+    $("q-date").parentNode.parentNode.classList.toggle("past", d !== TODAY);
+    saveLabel();
+  }
+  function setSign(s) { V.sign = s; $("s-win").setAttribute("aria-pressed", String(s > 0)); $("s-loss").setAttribute("aria-pressed", String(s < 0)); saveLabel(); }
+  function saveLabel() {
+    var a = parseFloat($("t-amt").value), b = $("t-save"), c = parseFloat($("c-amt").value), on = V.date !== TODAY ? " · " + ms(V.date) + " " + weekday(V.date) : "";
+    b.textContent = (V.edit && V.edit.c === "items" ? "保存修改 " : "保存 ") + (isFinite(a) && a > 0 ? (V.sign > 0 ? "+" : "−") + D.cur + money(a, 2) : "") + on;
+    b.className = "btn pri wide" + (V.sign < 0 ? " neg" : "");
+    $("c-save").textContent = (V.edit && V.edit.c === "cash" ? "保存修改 " : "记下提现 ") + (isFinite(c) && c > 0 ? D.cur + money(c, 2) : "") + (V.cplat ? " · " + V.cplat : "") + on;
+  }
+  function chipRow(el, sel, pick) {
+    clear(el);
+    plats().forEach(function (p) { el.appendChild(h("button", { type: "button", class: "chip", "aria-pressed": String(p === sel), text: p, onclick: function () { pick(p === sel ? "" : p); } })); });
+    el.appendChild(h("button", { type: "button", class: "chip add", text: "＋ 新平台", onclick: function () { newPlat(el, pick); } }));
+  }
+  function newPlat(el, pick) {
+    clear(el);
+    var inp = h("input", { type: "text", maxlength: "40", placeholder: "平台名，例如 Exness", "aria-label": "新平台的名字" });
+    var ok = function () {
+      var v = inp.value.trim().slice(0, 40); if (!v) { paintPlats(); return; }
+      if (D.plats.indexOf(v) < 0) { D.plats.push(v); settingsChanged(); save(); }
+      pick(v);
+    };
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); ok(); } else if (e.key === "Escape") paintPlats(); });
+    el.appendChild(h("div", { class: "chip-new" }, [inp, h("button", { type: "button", class: "chip", "aria-pressed": "true", text: "添加", onclick: ok }), h("button", { type: "button", class: "chip", text: "取消", onclick: paintPlats })]));
+    inp.focus();
+  }
+  function paintPlats() {
+    var all = plats(); if (V.tplat && all.indexOf(V.tplat) < 0) V.tplat = ""; if (V.cplat && all.indexOf(V.cplat) < 0) V.cplat = "";
+    chipRow($("t-plats"), V.tplat, function (p) { V.tplat = p; paintPlats(); });
+    chipRow($("c-plats"), V.cplat, function (p) { V.cplat = p; $("c-err").hidden = true; paintPlats(); saveLabel(); });
+    var s = clear($("s-plats"));
+    D.plats.forEach(function (p) { s.appendChild(h("button", { type: "button", class: "chip", title: "从列表里删掉 " + p, "aria-label": "删掉平台 " + p, onclick: function () { D.plats = D.plats.filter(function (q) { return q !== p; }); settingsChanged(); save(); paintPlats(); } }, [p, h("span", { class: "x", text: "×" })])); });
+    s.appendChild(h("button", { type: "button", class: "chip add", text: "＋ 新平台", onclick: function () { newPlat(s, function () { paintPlats(); }); } }));
+  }
+  var TF = ["t-amt", "t-sym", "t-lots", "t-risk", "t-note"];
+  function endEdit() {
+    var wasEdit = !!V.edit; V.edit = null;
+    TF.concat(["c-amt", "c-note"]).forEach(function (id) { $(id).value = ""; });
+    $("t-side").value = ""; $("t-rule").value = ""; $("t-cancel").hidden = true; $("c-cancel").hidden = true; $("t-err").hidden = true; $("c-err").hidden = true;
+    if (wasEdit) { $("more").open = false; setSign(1); }
+    saveLabel();
+  }
+  function goQuick(focusId) {
+    var q = $("quick"), r = q.getBoundingClientRect();
+    if (r.top < 60 || r.top > window.innerHeight * 0.5) q.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (focusId && window.matchMedia && window.matchMedia("(pointer:fine)").matches) $(focusId).focus({ preventScroll: true });
+  }
+  function editTrade(x) {
+    setTab("trade"); V.edit = { c: "items", id: x.id }; setDate(x.d); setSign(x.amt < 0 ? -1 : 1);
+    $("t-amt").value = Math.abs(x.amt); $("t-sym").value = x.sym || ""; $("t-side").value = x.side || ""; $("t-lots").value = num(x.lots) === null ? "" : x.lots;
+    $("t-risk").value = num(x.risk) === null ? "" : x.risk; $("t-rule").value = x.rule === true ? "yes" : x.rule === false ? "no" : ""; $("t-note").value = x.note || "";
+    $("more").open = !!(x.sym || x.side || num(x.lots) !== null || num(x.risk) !== null || x.rule !== null || x.note);
+    V.tplat = x.plat || ""; $("t-cancel").hidden = false; paintPlats(); saveLabel(); goQuick("t-amt");
+  }
+  function editCash(x) {
+    setTab("cash"); V.edit = { c: "cash", id: x.id }; setDate(x.d); $("c-amt").value = x.amt; $("c-note").value = x.note || ""; V.cplat = x.plat || "";
+    $("c-cancel").hidden = false; paintPlats(); saveLabel(); goQuick("c-amt");
+  }
+  function del(c, x) {
+    drop(c, x.id); if (V.edit && V.edit.id === x.id) endEdit();
+    save(); renderAll(); toast("已删除 " + (c === "cash" ? "提现 " + plain(x.amt) : signed(x.amt)), "撤销", function () { put(c, touch(x)); save(); renderAll(); });
+  }
+  function showDay(d) {           // the calendar and the day card follow a record that was just written
+    V.sel = d; var y = +d.slice(0, 4), m = +d.slice(5, 7) - 1; if (y !== V.y || m !== V.m) { V.y = y; V.m = m; }
+  }
+  $("f-trade").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var amt = parseFloat($("t-amt").value), err = $("t-err");
+    if (!isFinite(amt) || amt < 0) { err.textContent = "请填金额（一个不小于 0 的数字）。"; err.hidden = false; $("t-amt").focus(); return; }
+    var d = DAY.test($("q-date").value) ? $("q-date").value : TODAY;
+    if (d > TODAY) { err.textContent = "日期不能在今天之后。"; err.hidden = false; return; }
+    var f = function (id) { var v = parseFloat($(id).value); return isFinite(v) && v >= 0 ? v : null; }, r = $("t-rule").value;
+    var old = V.edit && V.edit.c === "items" ? find("items", V.edit.id) : null, g = activeGoal(), before = g ? goalProgress(g).sum : 0;
+    var it = touch({ id: old ? old.id : uid("r"), d: d, amt: r2(amt * V.sign), sym: $("t-sym").value.trim().slice(0, 16), side: $("t-side").value, lots: f("t-lots"), risk: f("t-risk"),
+      rule: r === "yes" ? true : r === "no" ? false : null, plat: V.tplat, note: $("t-note").value.trim().slice(0, 140), t: old ? old.t : Date.now() });
+    put("items", it);
+    if (!save()) return;
+    endEdit(); showDay(d); renderAll();
+    var after = g ? goalProgress(g).sum : 0, msg = (old ? "已修改：" : "已记下：") + md(d) + " " + signed(it.amt);
+    if (g && before < g.target && after >= g.target) msg = "🎉 目标达成！" + msg;
+    else if (g && it.amt > 0 && after < g.target) msg += " · 目标 " + Math.max(0, Math.floor(after / g.target * 100)) + "%";
+    toast(msg, "撤销", function () { if (old) put("items", touch(old)); else drop("items", it.id); save(); renderAll(); });
+  });
+  $("f-cash").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var amt = parseFloat($("c-amt").value), err = $("c-err");
+    if (!isFinite(amt) || amt <= 0) { err.textContent = "请填提了多少（大于 0 的数字）。"; err.hidden = false; $("c-amt").focus(); return; }
+    if (!V.cplat) { err.textContent = "选一下是从哪个平台提的；列表里没有就点「＋ 新平台」。"; err.hidden = false; return; }
+    var d = DAY.test($("q-date").value) ? $("q-date").value : TODAY;
+    if (d > TODAY) { err.textContent = "日期不能在今天之后。"; err.hidden = false; return; }
+    var old = V.edit && V.edit.c === "cash" ? find("cash", V.edit.id) : null;
+    var it = touch({ id: old ? old.id : uid("c"), d: d, kind: "withdraw", amt: r2(amt), plat: V.cplat, note: $("c-note").value.trim().slice(0, 140), t: old ? old.t : Date.now() });
+    put("cash", it);
+    if (!save()) return;
+    endEdit(); showDay(d); renderAll();
+    toast((old ? "已修改：" : "已记下提现：") + md(d) + " " + plain(it.amt) + " · " + it.plat, "撤销", function () { if (old) put("cash", touch(old)); else drop("cash", it.id); save(); renderAll(); });
+  });
+  function renderToday() {
+    var x = IDX.day[TODAY], c = IDX.cash[TODAY], el = clear($("todayline"));
+    el.appendChild(document.createTextNode("今天 " + md(TODAY) + " " + weekday(TODAY) + "："));
+    if (x) { el.appendChild(document.createTextNode(x.n + " 笔，" + x.w + " 赚 " + x.l + " 亏，合计 ")); el.appendChild(h("b", { class: cls(x.sum), text: signed(x.sum) })); }
+    else el.appendChild(document.createTextNode("还没有记交易"));
+    if (c) { el.appendChild(document.createTextNode("；提现 ")); el.appendChild(h("b", { style: "color:var(--gold-lt)", text: plain(cashSum(c)) })); }
+    el.appendChild(document.createTextNode("。"));
+  }
+
+  // ---------- the month at a glance ----------
+  function streaks() {          // by trading day: the run the latest days are on, and the longest winning run
+    var ks = Object.keys(IDX.day).sort(), cur = 0, sign = 0, best = 0, run = 0;
+    ks.forEach(function (k) { var s = IDX.day[k].sum; if (s > 0) { run++; best = Math.max(best, run); } else run = 0; });
+    for (var i = ks.length - 1; i >= 0; i--) { var s = Math.sign(IDX.day[ks[i]].sum); if (!s) break; if (!sign) sign = s; if (s !== sign) break; cur++; }
+    return { cur: cur, sign: sign, best: best, last: ks[ks.length - 1] };
+  }
+  function renderSum() {
+    var el = clear($("sum")), pre = V.y + "-" + pad(V.m + 1), mlab = (V.m + 1) + " 月", start = num(D.start);
+    var list = D.items.filter(function (x) { return x.d.indexOf(pre) === 0; }), s = tstats(list);
+    var days = Object.keys(IDX.day).filter(function (k) { return k.indexOf(pre) === 0; }), wd = days.filter(function (k) { return IDX.day[k].sum > 0; }).length, ld = days.filter(function (k) { return IDX.day[k].sum < 0; }).length;
+    var tile = function (big, k, v, c, d, extra) { el.appendChild(h("div", { class: "st" + (big ? " big" : "") }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (c || ""), text: v }), extra || null, h("div", { class: "d", text: d })])); };
+    var sys = "";
+    if (REC) { var done = (REC.signals || []).filter(function (x) { return typeof x.R === "number" && x.exitMs && new Date(x.exitMs + 8 * 3600000).toISOString().slice(0, 7) === pre; }), rr = done.reduce(function (a, x) { return a + x.R; }, 0); sys = done.length ? " 同一个月，4H 报告的纸面记录是 " + done.length + " 笔、合计 " + (rr >= 0 ? "+" : "−") + Math.abs(rr).toFixed(1) + "R。" : ""; }
+    tile(true, V.y + " 年 " + mlab + "净盈亏", s.n ? signed(s.sum, 2) : "还没有记录", cls(s.sum), s.n ? (start ? "相当于月初余额的 " + (s.sum >= 0 ? "+" : "−") + Math.abs(s.sum / start * 100).toFixed(1) + "%。" : "") + days.length + " 个交易日：" + wd + " 天赚、" + ld + " 天亏。" + sys : "在上面「记一笔」，或点月历里的某一天。" + sys);
+    var split = null;
+    if (s.n) { split = h("div", { class: "split", "aria-hidden": "true" }); if (s.w) split.appendChild(h("i", { class: "w", style: "flex:" + s.w })); if (s.z) split.appendChild(h("i", { class: "z", style: "flex:" + s.z })); if (s.l) split.appendChild(h("i", { class: "l", style: "flex:" + s.l })); }
+    tile(false, mlab + "交易", s.n ? s.n + " 笔" : "—", "", s.n ? s.w + " 赚 · " + s.l + " 亏" + (s.z ? " · " + s.z + " 平" : "") + (s.w + s.l ? "，胜率 " + pct(s.w, s.w + s.l) + "%" : "") : "有记录后显示", split);
+    var aw = s.w ? s.ws / s.w : 0, al = s.l ? s.ls / s.l : 0;
+    tile(false, "平均每笔赚 / 亏", s.w || s.l ? (s.w ? signed(aw, 0) : "—") + " / " + (s.l ? signed(al, 0) : "—") : "—", "", s.w && s.l ? "赚的总额是亏的总额的 " + (s.ws / Math.abs(s.ls)).toFixed(2) + " 倍" + (aw < Math.abs(al) ? "；平均亏得比赚得多" : "") : "赚和亏都有了才能比");
+    var k = streaks();
+    tile(false, "最近连续（按天）", k.cur ? (k.sign > 0 ? "🔥 连赚 " : "连亏 ") + k.cur + " 天" : "—", k.cur ? (k.sign > 0 ? "up" : "dn") : "", k.last ? "截至 " + md(k.last) + "；最长连赚 " + k.best + " 天" : "有记录后显示");
+    var cw = withdrawals().filter(function (x) { return x.d.indexOf(pre) === 0; }), cp = {};
+    cw.forEach(function (x) { cp[x.plat || "未填平台"] = 1; });
+    tile(false, mlab + "提现", cw.length ? plain(cashSum(cw)) : "—", "", cw.length ? cw.length + " 笔 · " + Object.keys(cp).join("、") : "提了钱就切到「💸 提现」记一笔");
+  }
+
+  // ---------- calendar ----------
+  function renderCal() {
+    $("mlabel").textContent = V.y + " 年 " + (V.m + 1) + " 月";
+    var grid = clear($("grid")), first = (new Date(V.y, V.m, 1).getDay() + 6) % 7, n = new Date(V.y, V.m + 1, 0).getDate(), max = 0, d;
+    for (d = 1; d <= n; d++) { var o = IDX.day[ymd(V.y, V.m, d)]; if (o) max = Math.max(max, Math.abs(o.sum)); }
+    for (var b = 0; b < first; b++) grid.appendChild(h("div", { class: "day blank" }));
+    var weeks = [], wk = null;
+    for (d = 1; d <= n; d++) {
+      var key = ymd(V.y, V.m, d), x = IDX.day[key], cw = IDX.cash[key], col = (first + d - 1) % 7;
+      if (col === 0 || d === 1) { wk = { from: d, to: d, sum: 0, n: 0 }; weeks.push(wk); }
+      wk.to = d; if (x) { wk.sum += x.sum; wk.n += x.n; }
+      var c = "day" + (x ? (x.sum > 0 ? " pos" : x.sum < 0 ? " neg" : "") : "") + (cw ? " cash" : "") + (key === TODAY ? " today" : "") + (key === V.sel ? " sel" : "") + (key > TODAY ? " fut" : "");
+      var dots = null;
+      if (x) { dots = h("span", { class: "dots", "aria-hidden": "true" }); x.items.slice(0, 8).forEach(function (it) { dots.appendChild(h("i", { class: it.amt > 0 ? "w" : it.amt < 0 ? "l" : "z" })); }); }
+      var btn = h("button", { type: "button", class: c, "data-d": key, "aria-pressed": String(key === V.sel),
+        "aria-label": md(key) + weekday(key) + (x ? "，" + (x.sum > 0 ? "净赚 " : x.sum < 0 ? "净亏 " : "持平 ") + D.cur + money(x.sum) + "，" + x.n + " 笔（" + x.w + " 赚 " + x.l + " 亏）" : "，没有交易") + (cw ? "，提现 " + plain(cashSum(cw)) : "") },
+        [h("span", { class: "n", text: String(d) }), x ? h("span", { class: "a", text: short(x.sum) }) : null, dots]);
+      if (x && max > 0) btn.style.setProperty("--a", (0.12 + 0.36 * Math.abs(x.sum) / max).toFixed(2));
+      grid.appendChild(btn);
+    }
+    var wl = clear($("weeks"));
+    weeks.forEach(function (w) { if (!w.n) return; wl.appendChild(h("span", { class: "wk" }, [(V.m + 1) + "/" + w.from + (w.to > w.from ? "–" + w.to : "") + " 这周 ", h("b", { class: cls(w.sum), text: signed(w.sum, 0) }), " · " + w.n + " 笔"])); });
+  }
+
+  // ---------- one day ----------
+  function renderDay() {
+    var x = IDX.day[V.sel], cw = IDX.cash[V.sel] || [], list = clear($("recs"));
+    $("dlabel").textContent = V.sel.slice(0, 4) + " 年 " + md(V.sel) + " " + weekday(V.sel) + (V.sel === TODAY ? " · 今天" : "");
+    var tot = $("dtotal"); tot.textContent = x ? signed(x.sum) + " · " + x.n + " 笔" : ""; tot.className = "tot " + (x ? cls(x.sum) : "");
+    if (!x && !cw.length) list.appendChild(h("p", { class: "note", text: "这一天没有记录。点下面的按钮，在这一天记一笔。" }));
+    (x ? x.items : []).forEach(function (it) {
+      var bits = [];
+      if (it.sym) bits.push(it.sym); if (it.side) bits.push(it.side === "long" ? "做多" : "做空"); if (num(it.lots) !== null) bits.push(it.lots + " 手");
+      if (num(it.risk) !== null && it.risk > 0) bits.push((it.amt / it.risk >= 0 ? "+" : "−") + Math.abs(it.amt / it.risk).toFixed(1) + "R");
+      if (it.rule === true) bits.push("按规则"); if (it.rule === false) bits.push("没按规则"); if (it.note) bits.push(it.note);
+      list.appendChild(h("div", { class: "rec" }, [h("span", { class: "amt " + cls(it.amt) }, [signed(it.amt), it.plat ? h("span", { class: "tag", text: it.plat }) : null]),
+        h("span", { class: "ops" }, [h("button", { type: "button", text: "改", "aria-label": "修改这一笔 " + signed(it.amt), onclick: function () { editTrade(it); } }), h("button", { type: "button", text: "删", "aria-label": "删除这一笔 " + signed(it.amt), onclick: function () { del("items", it); } })]),
+        bits.length ? h("span", { class: "meta", text: bits.join(" · ") }) : null]));
+    });
+    cw.forEach(function (it) {
+      list.appendChild(h("div", { class: "rec cashrec" }, [h("span", { class: "amt", style: "color:var(--gold-lt)" }, ["💸 提现 " + plain(it.amt), it.plat ? h("span", { class: "tag", text: it.plat }) : null]),
+        h("span", { class: "ops" }, [h("button", { type: "button", text: "改", "aria-label": "修改这笔提现", onclick: function () { editCash(it); } }), h("button", { type: "button", text: "删", "aria-label": "删除这笔提现", onclick: function () { del("cash", it); } })]),
+        it.note ? h("span", { class: "meta", text: it.note }) : null]));
+    });
+  }
+
+  // ---------- withdrawals ----------
+  function renderCash() {
+    var el = clear($("cashbody")), all = withdrawals().slice().sort(function (a, b) { return a.d < b.d ? 1 : a.d > b.d ? -1 : tOf(b) - tOf(a); }), tot = cashSum(all), y = TODAY.slice(0, 4), m = TODAY.slice(0, 7);
+    $("cashtotal").textContent = all.length ? "合计 " + plain(tot) + " · " + all.length + " 笔" : "";
+    if (!all.length) { el.appendChild(h("p", { class: "note", text: "还没有提现记录。提了钱就在上面切到「💸 提现」：填金额、点是哪个平台，保存。这里会按平台加总，还会算出赚到的钱里有多少已经提出来了。" })); return; }
+    var inY = all.filter(function (x) { return x.d.slice(0, 4) === y; }), inM = all.filter(function (x) { return x.d.slice(0, 7) === m; });
+    var ct = function (k, v) { return h("div", { class: "ct" }, [h("div", { class: "k", text: k }), h("div", { class: "v", text: v })]); };
+    el.appendChild(h("div", { class: "cash-tiles" }, [ct("全部提现", plain(tot)), ct(y + " 年", inY.length ? plain(cashSum(inY)) : "—"), ct("这个月", inM.length ? plain(cashSum(inM)) : "—")]));
+    var net = tstats(D.items).sum;
+    el.appendChild(h("div", { class: "kept" }, net > 0
+      ? ["全部记录净赚 ", h("b", { text: plain(net) }), "，其中 ", h("b", { text: plain(tot) + "（" + pct(tot, net) + "%）" }), tot >= net ? " 已经提出来了：赚到的钱都落袋了。" : " 已经提出来，落袋为安。"]
+      : ["全部交易记录合计 " + plain(net) + "；提现合计 " + plain(tot) + "。（如果有些盈亏没记在这里，这两个数就对不上。）"]));
+    var by = {};
+    all.forEach(function (x) { var k = x.plat || "未填平台", o = by[k] || (by[k] = { sum: 0, n: 0, last: x.d }); o.sum = r2(o.sum + x.amt); o.n++; if (x.d > o.last) o.last = x.d; });
+    var names = Object.keys(by).sort(function (a, b) { return by[b].sum - by[a].sum; }), top = by[names[0]].sum;
+    var bars = h("div", { class: "pbars", role: "list", "aria-label": "按平台的提现合计" });
+    names.forEach(function (k) {
+      var o = by[k];
+      bars.appendChild(h("div", { class: "pb", role: "listitem", title: k + "：" + plain(o.sum) + "，" + o.n + " 笔，最近一次 " + md(o.last) }, [h("span", { class: "nm", text: k }),
+        h("span", { class: "tr" }, [h("i", { style: "width:" + Math.max(3, o.sum / top * 100).toFixed(1) + "%" })]),
+        h("span", { class: "vv" }, [plain(o.sum), h("small", { text: o.n + " 笔 · 最近 " + ms(o.last) })])]));
+    });
+    el.appendChild(bars);
+    var shown = V.cashAll ? all : all.slice(0, 6), recs = h("div", { class: "recs" });
+    shown.forEach(function (it) {
+      recs.appendChild(h("div", { class: "rec cashrec" }, [h("span", { class: "amt", style: "color:var(--gold-lt)" }, [plain(it.amt), it.plat ? h("span", { class: "tag", text: it.plat }) : null]),
+        h("span", { class: "ops" }, [h("button", { type: "button", text: "改", "aria-label": "修改这笔提现", onclick: function () { editCash(it); } }), h("button", { type: "button", text: "删", "aria-label": "删除这笔提现", onclick: function () { del("cash", it); } })]),
+        h("span", { class: "meta", text: md(it.d) + " " + weekday(it.d) + (it.note ? " · " + it.note : "") })]));
+    });
+    el.appendChild(recs);
+    if (all.length > 6) el.appendChild(h("button", { class: "btn sm ghost", type: "button", text: V.cashAll ? "只看最近 6 笔" : "看全部 " + all.length + " 笔", onclick: function () { V.cashAll = !V.cashAll; renderCash(); } }));
+  }
+
+  // ---------- year ----------
+  function renderYear() {
+    $("ylabel").textContent = V.y + " 年"; var el = clear($("months")), tot = 0, any = false;
+    for (var m = 0; m < 12; m++) (function (m) {
+      var pre = V.y + "-" + pad(m + 1), s = tstats(D.items.filter(function (x) { return x.d.indexOf(pre) === 0; })); tot += s.sum; if (s.n) any = true;
+      el.appendChild(h("button", { type: "button", class: "mo" + (s.sum > 0 ? " pos" : s.sum < 0 ? " neg" : "") + (m === V.m ? " cur" : ""), "aria-label": (m + 1) + " 月" + (s.n ? " " + signed(s.sum, 0) + "，" + s.n + " 笔" : " 没有记录"), onclick: function () { V.m = m; renderAll(); } },
+        [h("div", { class: "mn", text: (m + 1) + " 月" }), h("div", { class: "mv " + cls(s.sum), text: s.n ? short(s.sum) : "—" })]));
+    })(m);
+    var t = $("ytotal"); t.textContent = any ? "全年合计 " + signed(tot, 0) : "这一年还没有记录"; t.className = "note " + (any ? cls(tot) : "");
+  }
+
+  // ---------- running total ----------
+  function renderCurve() {
+    var box = clear($("chart")), ks = Object.keys(IDX.day).sort(), cum = 0, pts = ks.map(function (k) { cum = r2(cum + IDX.day[k].sum); return { d: k, v: cum, day: IDX.day[k].sum }; });
+    var ct = $("ctotal"); ct.textContent = pts.length ? "全部记录合计 " + signed(cum, 0) + "，共 " + pts.length + " 天" : ""; ct.className = "note " + cls(cum);
+    if (pts.length < 2) { box.appendChild(h("p", { class: "note", text: "记了两天以上，这里会画出一条累计曲线：往上走是在赚，往下走是在亏。" })); return; }
+    var W = 520, H = 200, L = 8, R = 62, T = 12, B = 30, vs = pts.map(function (p) { return p.v; }).concat([0]), lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs), padv = (hi - lo) * 0.1 || 1; lo -= padv; hi += padv;
+    var X = function (i) { return L + i * (W - L - R) / (pts.length - 1); }, Y = function (v) { return T + (hi - v) * (H - T - B) / (hi - lo); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "累计盈亏曲线，最新 " + signed(cum, 0) });
+    sv("line", { x1: L, x2: W - R, y1: Y(0), y2: Y(0), stroke: "var(--border)", "stroke-width": 1 }, svg);
+    sv("text", { x: W - R + 6, y: Y(0) + 3 }, svg).textContent = "0";
+    var col = cum >= 0 ? "var(--m-bull)" : "var(--m-bear)";
+    sv("polyline", { points: pts.map(function (p, i) { return X(i).toFixed(1) + "," + Y(p.v).toFixed(1); }).join(" "), fill: "none", stroke: col, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    var lastY = Y(cum); sv("circle", { cx: X(pts.length - 1), cy: lastY, r: 4, fill: col, stroke: "var(--bg2)", "stroke-width": 2 }, svg);
+    var lt = sv("text", { x: W - R + 6, y: Math.abs(lastY - Y(0)) < 12 ? lastY - 9 : lastY + 3, style: "fill:var(--ink);font-weight:600" }, svg); lt.textContent = short(cum);
+    // withdrawals: a gold mark under the trading day they fall on (or the last one before it)
+    var cashAt = {};
+    Object.keys(IDX.cash).forEach(function (k) { var i = -1; pts.forEach(function (p, j) { if (p.d <= k) i = j; }); if (i < 0) i = 0; cashAt[i] = r2((cashAt[i] || 0) + cashSum(IDX.cash[k])); });
+    Object.keys(cashAt).forEach(function (i) { var x = X(+i), y = H - B + 4; sv("path", { d: "M" + (x - 4) + "," + (y + 7) + "L" + x + "," + y + "L" + (x + 4) + "," + (y + 7) + "Z", fill: "var(--m-gold)" }, svg); });
+    sv("text", { x: L, y: H - 4 }, svg).textContent = pts[0].d.slice(5).replace("-", "/");
+    sv("text", { x: W - R, y: H - 4, "text-anchor": "end" }, svg).textContent = pts[pts.length - 1].d.slice(5).replace("-", "/");
+    var vl = sv("line", { y1: T, y2: H - B, stroke: "var(--dim)", "stroke-width": 1, visibility: "hidden" }, svg), dot = sv("circle", { r: 4, fill: "var(--ink)", visibility: "hidden" }, svg);
+    sv("rect", { x: L, y: T, width: W - L - R, height: H - T, fill: "transparent" }, svg);
+    box.appendChild(svg); var tip = h("div", { class: "tip", hidden: true }); box.appendChild(tip);
+    if (Object.keys(cashAt).length) box.appendChild(h("p", { class: "note", style: "margin-top:6px", text: "金色小三角：那几天有提现。曲线只算交易盈亏，提现不会让它往下走。" }));
+    var show = function (ev) {
+      var r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width, i = Math.max(0, Math.min(pts.length - 1, Math.round((px - L) / ((W - L - R) / (pts.length - 1))))), p = pts[i];
+      vl.setAttribute("x1", X(i)); vl.setAttribute("x2", X(i)); vl.setAttribute("visibility", "visible"); dot.setAttribute("cx", X(i)); dot.setAttribute("cy", Y(p.v)); dot.setAttribute("visibility", "visible");
+      tip.hidden = false; tip.textContent = md(p.d) + "：当天 " + signed(p.day, 0) + "，累计 " + signed(p.v, 0) + (cashAt[i] ? "，提现 " + plain(cashAt[i], 0) : "");
+      var x = X(i) * r.width / W, w = tip.offsetWidth; tip.style.left = Math.max(0, Math.min(r.width - w, x - w / 2)) + "px"; tip.style.top = Math.max(0, Y(p.v) * r.height / H - 38) + "px";
+    };
+    svg.addEventListener("pointermove", show); svg.addEventListener("pointerdown", show);
+    svg.addEventListener("pointerleave", function () { vl.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); tip.hidden = true; });
+  }
+
+  // ---------- with the rules and without ----------
+  function renderCmp() {
+    var el = clear($("cmp")), g = { yes: [], no: [], na: [] };
+    D.items.forEach(function (x) { (x.rule === true ? g.yes : x.rule === false ? g.no : g.na).push(x); });
+    var row = function (name, list) { var s = tstats(list); el.appendChild(h("div", { class: "row" }, [h("span", { text: name + "：" + s.n + " 笔" + (s.n ? "，" + s.w + " 赚 " + s.l + " 亏" : "") }), h("b", { class: cls(s.sum), text: s.n ? signed(s.sum, 0) : "—" })])); };
+    if (!g.yes.length && !g.no.length) { el.appendChild(h("p", { class: "note", text: "记一笔的时候，在「更多」里选一下这笔是不是按 4H 报告的规则做的。攒上几十笔以后，这里会告诉你：守规则的单子和凭感觉的单子，哪一种真的在赚钱。" })); return; }
+    row("按规则做的", g.yes); row("没按规则做的", g.no); if (g.na.length) row("没有标注的", g.na);
+    el.appendChild(h("p", { class: "note", text: "笔数少的时候差别说明不了什么，至少看二三十笔。" }));
+  }
+
+  function renderSettings() {
+    if (document.activeElement !== $("s-cur")) $("s-cur").value = D.cur;
+    if (document.activeElement !== $("s-start")) $("s-start").value = num(D.start) === null ? "" : D.start;
+  }
+  function renderAll() {
+    TODAY = dOf(Date.now()); index();
+    Array.prototype.forEach.call(document.querySelectorAll(".cur"), function (e) { e.textContent = D.cur; });
+    if (!V.edit && V.date > TODAY) V.date = TODAY;
+    setDate(V.date); renderGoal(); renderToday(); paintPlats(); saveLabel(); renderSum(); renderCal(); renderDay(); renderCash(); renderCurve(); renderYear(); renderCmp(); renderSettings(); Cloud.paint();
+  }
+
+  // ---------- cloud (Supabase) ----------
+  // Auth and data go straight to Supabase's REST endpoints: no library. The session (access and refresh token) is kept
+  // in this browser. A sync sends deletions, then every record marked dirty (upsert by id, so sending one twice is
+  // harmless), then reads the whole cloud copy back: a record changed here and not sent yet wins, everything else
+  // follows the cloud, and a record the cloud no longer has was deleted on another device.
+  var Cloud = (function () {
+    var TABLE = { items: "pnl_trades", cash: "pnl_cash", goals: "pnl_goals" };
+    var COLS = { items: ["d", "amt", "sym", "side", "lots", "risk", "rule", "plat", "note", "t"], cash: ["d", "kind", "amt", "plat", "note", "t"], goals: ["name", "target", "start_d", "at", "done_d", "done_at", "reached"] };
+    var NUMS = { amt: 1, lots: 1, risk: 1, t: 1, target: 1, at: 1, done_at: 1, reached: 1, u: 1, start: 1 };
+    var st = { busy: false, again: false, err: "", missing: false, recovery: false, note: "", formErr: "", mode: null, timer: null, auth: null, retried: false };
+    function ref() { var m = /^https:\/\/([a-z0-9]+)\.supabase\.co/.exec(CFG.url || ""); return m ? m[1] : ""; }
+    function key() { var k = CFG.key || ""; if (!k) try { k = localStorage.getItem(CKEY) || ""; } catch (e) {} return k; }
+    function conf() { var k = key(); return CFG.url && k ? { url: CFG.url.replace(/\/+$/, ""), key: k } : null; }
+    function sess() { try { var s = JSON.parse(localStorage.getItem(AUTH)); return s && s.refresh_token && s.user && s.user.id ? s : null; } catch (e) { return null; } }
+    function setSess(s) { try { if (s) localStorage.setItem(AUTH, JSON.stringify(s)); else localStorage.removeItem(AUTH); } catch (e) {} }
+    function keep(r, old) {
+      var u = r.user || (old && old.user) || {};
+      return { access_token: r.access_token, refresh_token: r.refresh_token, expires_at: num(r.expires_at) || Math.floor(Date.now() / 1000) + (num(r.expires_in) || 3600), user: { id: u.id, email: u.email } };
+    }
+    function call(path, o) {
+      var c = conf(); o = o || {};
+      var hd = { apikey: c.key, "Content-Type": "application/json" };
+      if (o.token) hd.Authorization = "Bearer " + o.token;
+      if (o.prefer) hd.Prefer = o.prefer;
+      return fetch(c.url + path, { method: o.method || "GET", headers: hd, body: o.body === undefined ? undefined : JSON.stringify(o.body), cache: "no-store" }).then(function (r) {
+        return r.text().then(function (t) {
+          var j = null; try { j = t ? JSON.parse(t) : null; } catch (e) {}
+          if (!r.ok) { var e = new Error((j && (j.msg || j.message || j.error_description || j.error)) || "HTTP " + r.status); e.status = r.status; e.code = j && (j.code || j.error_code || j.error); throw e; }
+          return j;
+        });
+      });
+    }
+    function token(force) {
+      var s = sess(); if (!s) { var e = new Error("未登录"); e.status = 401; return Promise.reject(e); }
+      if (!force && s.expires_at - 90 > Date.now() / 1000) return Promise.resolve(s.access_token);
+      return call("/auth/v1/token?grant_type=refresh_token", { method: "POST", body: { refresh_token: s.refresh_token } }).then(function (r) { var n = keep(r, s); setSess(n); return n.access_token; }, function (e) {
+        if (e.status === 400 || e.status === 401 || e.status === 403) { setSess(null); st.note = ""; st.formErr = "登录已过期，请重新登录（记录还在这台设备上）。"; }
+        throw e;
+      });
+    }
+    function pending() { var n = D.gone.length + (D.sdirty ? 1 : 0); Object.keys(TABLE).forEach(function (c) { D[c].forEach(function (x) { if (x.dirty) n++; }); }); return n; }
+    function toRow(c, x, uid) {
+      var o = { user_id: uid, id: x.id, u: x.u };
+      COLS[c].forEach(function (k) { var v = x[k]; o[k] = v === "" || v === undefined ? null : v; });
+      return o;
+    }
+    function fromRow(c, r) {
+      var o = { id: r.id, u: +r.u || Date.now() };
+      COLS[c].forEach(function (k) { var v = r[k]; o[k] = v === null || v === undefined ? (NUMS[k] ? null : k === "rule" ? null : "") : NUMS[k] ? +v : v; });
+      var x = CLEAN[c](o); if (x) delete x.dirty;
+      return x;
+    }
+    function chunks(a, n) { var out = []; for (var i = 0; i < a.length; i += n) out.push(a.slice(i, i + n)); return out; }
+    function seq(fns) { return fns.reduce(function (p, f) { return p.then(f); }, Promise.resolve()); }
+    function pullAll(t, table, order) {
+      var out = [], page = 1000;
+      function next(off) { return call("/rest/v1/" + table + "?select=*" + (order ? "&order=" + order : "") + "&limit=" + page + "&offset=" + off, { token: t }).then(function (rows) { rows = rows || []; out = out.concat(rows); return rows.length === page ? next(off + page) : out; }); }
+      return next(0);
+    }
+    function quote(id) { return '"' + String(id).replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"'; }
+    function words(e) {
+      var m = String(e && e.message || ""), code = String(e && e.code || "");
+      if (code === "PGRST205" || code === "42P01" || /schema cache|does not exist/i.test(m)) return "云端还没有建表。";
+      if (e instanceof TypeError || /failed to fetch|networkerror|load failed/i.test(m)) return "连不上 Supabase：检查网络。免费项目一周没人用会被暂停，要去 Supabase 后台点 Restore。";
+      if (e && e.status === 401) return "登录失效了，请重新登录。";
+      return "同步没成功：" + m;
+    }
+    function sync() {
+      var c = conf(), s = sess();
+      if (!c || !s) return Promise.resolve(false);
+      if (st.busy) { st.again = true; return Promise.resolve(false); }
+      st.busy = true; st.err = ""; paint();
+      var uid = s.user.id, tk, sentGone = D.gone.slice(), sent = {};
+      return token().then(function (t) {
+        tk = t;
+        var jobs = [];
+        Object.keys(TABLE).forEach(function (cn) {
+          var ids = sentGone.filter(function (g) { return g.c === cn; }).map(function (g) { return g.id; });
+          chunks(ids, 60).forEach(function (part) { jobs.push(function () { return call("/rest/v1/" + TABLE[cn] + "?id=in.(" + encodeURIComponent(part.map(quote).join(",")) + ")", { method: "DELETE", token: tk, prefer: "return=minimal" }); }); });
+          var recs = D[cn].filter(function (x) { return x.dirty || !x.u; });
+          recs.forEach(function (x) { if (!x.u) x.u = Date.now(); });
+          sent[cn] = {}; recs.forEach(function (x) { sent[cn][x.id] = x.u; });
+          chunks(recs, 400).forEach(function (part) { jobs.push(function () { return call("/rest/v1/" + TABLE[cn] + "?on_conflict=user_id,id", { method: "POST", token: tk, prefer: "resolution=merge-duplicates,return=minimal", body: part.map(function (x) { return toRow(cn, x, uid); }) }); }); });
+        });
+        var su = D.sdirty ? D.su || Date.now() : null;
+        if (su) jobs.push(function () { return call("/rest/v1/pnl_settings?on_conflict=user_id", { method: "POST", token: tk, prefer: "resolution=merge-duplicates,return=minimal", body: [{ user_id: uid, cur: D.cur, start: num(D.start), plats: D.plats, u: su }] }); });
+        return seq(jobs).then(function () {
+          // sent: no longer dirty, unless changed again while the requests were out
+          D.gone = D.gone.filter(function (g) { return !sentGone.some(function (s0) { return s0.c === g.c && s0.id === g.id; }); });
+          Object.keys(TABLE).forEach(function (cn) { D[cn].forEach(function (x) { if (sent[cn][x.id] === x.u) delete x.dirty; }); });
+          if (su && D.su === su) D.sdirty = false;
+          return Promise.all(Object.keys(TABLE).map(function (cn) { return pullAll(tk, TABLE[cn], "id.asc"); }).concat([pullAll(tk, "pnl_settings")]));
+        });
+      }).then(function (got) {
+        var gone = {}; D.gone.forEach(function (g) { gone[g.c + ":" + g.id] = 1; });
+        Object.keys(TABLE).forEach(function (cn, i) {
+          var local = {}, out = [];
+          D[cn].forEach(function (x) { local[x.id] = x; });
+          got[i].forEach(function (r) {
+            if (gone[cn + ":" + r.id]) return;
+            var l = local[r.id]; delete local[r.id];
+            if (l && l.dirty) { out.push(l); return; }
+            var x = fromRow(cn, r); if (x) out.push(x);
+          });
+          Object.keys(local).forEach(function (id) { if (local[id].dirty) out.push(local[id]); });    // the rest were deleted elsewhere
+          D[cn] = out;
+        });
+        var row = got[3][0];
+        if (row && !D.sdirty) { D.cur = typeof row.cur === "string" && row.cur ? row.cur : "$"; D.start = row.start === null || row.start === undefined ? null : +row.start; D.plats = Array.isArray(row.plats) ? row.plats.filter(function (p) { return typeof p === "string"; }) : []; D.su = +row.u || null; }
+        D.owner = uid; D.synced = Date.now(); st.missing = false; st.retried = false;
+        save(true); st.busy = false; renderAll();
+        if (st.again) { st.again = false; sync(); }
+        return true;
+      }).catch(function (e) {
+        st.busy = false;
+        if (e && e.status === 401 && !st.retried && sess()) { st.retried = true; return token(true).then(function () { return sync(); }, function () { st.err = words(e); paint(); return false; }); }
+        st.err = words(e); st.missing = st.err === "云端还没有建表。"; save(true); paint();
+        return false;
+      });
+    }
+    function soon() { if (!conf() || !sess()) { paint(); return; } clearTimeout(st.timer); st.timer = setTimeout(sync, 1200); paint(); }
+
+    // --- signing in ---
+    function adopt(r) {
+      var s = keep(r); if (!s.user.id || !s.refresh_token) { st.formErr = "登录没成功：Supabase 没有返回账号。"; paint(); return; }
+      var mine = D.items.length + D.cash.length + D.goals.length;
+      if (D.owner && D.owner !== s.user.id && mine) {
+        if (window.confirm("这台设备上的记录属于另一个账号。\n\n确定：把这些记录也并进 " + (s.user.email || "这个账号") + "。\n取消：清掉本机这份副本，只用这个账号在云端的记录。")) {
+          Object.keys(TABLE).forEach(function (c) { D[c].forEach(function (x) { x.dirty = true; }); }); D.sdirty = true;
+        } else { D.items = []; D.cash = []; D.goals = []; D.gone = []; D.sdirty = false; D.su = null; }
+      }
+      setSess(s); st.err = ""; st.formErr = ""; st.note = ""; st.missing = false; st.mode = null;
+      save(true); renderAll(); sync();
+    }
+    function authWords(e) {
+      var m = String(e && e.message || "") + " " + String(e && e.code || "");
+      if (/invalid login credentials|invalid_credentials/i.test(m)) return "邮箱或密码不对。";
+      if (/email not confirmed|email_not_confirmed/i.test(m)) return "这个邮箱还没确认：去邮箱点确认链接，再回来登录。";
+      if (/already registered|user_already_exists/i.test(m)) return "这个邮箱已经注册过：直接登录。";
+      if (/signups? not allowed|signup_disabled/i.test(m)) return "这个项目关掉了新用户注册：用已有的账号登录。";
+      if (/weak_password|password should|at least/i.test(m)) return "密码太短或太简单：至少 6 位，最好字母加数字。";
+      if ((e && e.status === 429) || /rate limit/i.test(m)) return "太频繁了（Supabase 限制发信次数），过一会儿再试。";
+      if (e instanceof TypeError || /failed to fetch|networkerror|load failed/i.test(m)) return "连不上 Supabase：检查网络。免费项目一周没人用会被暂停，要去 Supabase 后台点 Restore。";
+      return "没成功：" + m.trim();
+    }
+    function here() { return location.origin + location.pathname; }
+    function auth(kind) {
+      var email = ($("cl-email") || {}).value || "", pw = ($("cl-pw") || {}).value || "";
+      email = email.trim();
+      st.formErr = ""; st.note = "";
+      if (!/^\S+@\S+\.\S+$/.test(email)) { st.formErr = "请填邮箱。"; paintMsg(); return; }
+      if (kind !== "recover" && pw.length < 6) { st.formErr = "密码至少 6 位。"; paintMsg(); return; }
+      var btns = document.querySelectorAll("#cl-body button"); Array.prototype.forEach.call(btns, function (b) { b.disabled = true; });
+      var red = encodeURIComponent(here());
+      var p = kind === "in" ? call("/auth/v1/token?grant_type=password", { method: "POST", body: { email: email, password: pw } })
+        : kind === "up" ? call("/auth/v1/signup?redirect_to=" + red, { method: "POST", body: { email: email, password: pw } })
+        : call("/auth/v1/recover?redirect_to=" + red, { method: "POST", body: { email: email } });
+      p.then(function (r) {
+        Array.prototype.forEach.call(btns, function (b) { b.disabled = false; });
+        if (kind === "recover") { st.note = "重设密码的邮件已发到 " + email + "：点邮件里的链接，会回到这一页让你设新密码。"; paintMsg(); return; }
+        if (r && r.access_token) { adopt(r); toast(kind === "up" ? "注册好了，已登录" : "已登录"); return; }
+        var u = r && (r.user || r);
+        if (u && Array.isArray(u.identities) && !u.identities.length) { st.formErr = "这个邮箱已经注册过：直接登录（忘了密码就点「忘记密码」）。"; paintMsg(); return; }
+        st.note = "确认邮件已发到 " + email + "。点邮件里的链接（会回到这一页并自动登录）；如果打开的是空白页或 localhost，也没关系，邮箱已经确认了，回来点「登录」。"; paintMsg();
+      }, function (e) { Array.prototype.forEach.call(btns, function (b) { b.disabled = false; }); st.formErr = authWords(e); paintMsg(); });
+    }
+    function signOut() {
+      var s = sess(); if (s) call("/auth/v1/logout", { method: "POST", token: s.access_token }).catch(function () {});
+      setSess(null); st.err = ""; st.missing = false; st.recovery = false; st.mode = null; paint(); toast("已退出：记录还留在这台设备上");
+    }
+    function setPassword() {
+      var pw = ($("cl-newpw") || {}).value || "";
+      if (pw.length < 6) { st.formErr = "新密码至少 6 位。"; paintMsg(); return; }
+      token().then(function (t) { return call("/auth/v1/user", { method: "PUT", token: t, body: { password: pw } }); }).then(function () { st.recovery = false; st.formErr = ""; st.mode = null; paint(); toast("新密码已设好"); }, function (e) { st.formErr = authWords(e); paintMsg(); });
+    }
+    function jwtRole(k) { var p = k.split("."); if (p.length !== 3) return null; try { return JSON.parse(atob(p[1].replace(/-/g, "+").replace(/_/g, "/"))).role || null; } catch (e) { return null; } }
+    function connect() {
+      var k = (($("cl-key") || {}).value || "").trim(); st.formErr = "";
+      if (/^sb_secret_/.test(k) || jwtRole(k) === "service_role") { st.formErr = "这是管理员用的 secret key，不能放进网页：请复制 Publishable key（sb_publishable_ 开头）。也建议到 Supabase 里把这把 secret key 换掉（Rotate）。"; paintMsg(); return; }
+      if (!/^sb_publishable_[A-Za-z0-9_-]+$/.test(k) && jwtRole(k) !== "anon") { st.formErr = "看起来不是 Publishable key：应该以 sb_publishable_ 开头（旧项目叫 anon public key，一长串以 eyJ 开头）。"; paintMsg(); return; }
+      fetch(CFG.url.replace(/\/+$/, "") + "/auth/v1/settings", { headers: { apikey: k } }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      }).then(function (j) { try { localStorage.setItem(CKEY, k); } catch (e) {} st.auth = j; st.mode = null; paint(); toast("已连上 Supabase：现在注册或登录"); }, function () { st.formErr = "Supabase 不认这个 key：再复制一次，注意不要多复制空格。"; paintMsg(); });
+    }
+    function authSettings() {       // whether sign-up is open and whether it needs an e-mail confirmation
+      var c = conf(); if (!c || st.auth) return;
+      st.auth = {};
+      fetch(c.url + "/auth/v1/settings", { headers: { apikey: c.key } }).then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) { st.auth = j || {}; st.mode = null; paint(); }).catch(function () {});
+    }
+    // Links in Supabase's e-mails come back here with the session (or an error) after "#".
+    function fromHash() {
+      var hs = location.hash.slice(1); if (!/(^|&)(access_token|error_description)=/.test(hs)) return;
+      var q = {}; hs.split("&").forEach(function (p) { var i = p.indexOf("="); if (i > 0) q[decodeURIComponent(p.slice(0, i))] = decodeURIComponent(p.slice(i + 1).replace(/\+/g, " ")); });
+      try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+      if (q.error_description) { st.formErr = "邮件里的链接没用上：" + q.error_description + "（过期了就再发一次）"; return; }
+      if (!conf()) { st.formErr = "先连上 Supabase，再点一次邮件里的链接。"; return; }
+      call("/auth/v1/user", { token: q.access_token }).then(function (user) {
+        if (q.type === "recovery") st.recovery = true;
+        adopt({ access_token: q.access_token, refresh_token: q.refresh_token, expires_at: +q.expires_at || null, expires_in: +q.expires_in || 3600, user: user });
+        toast(q.type === "recovery" ? "已登录：现在设一个新密码" : "邮箱已确认，已登录");
+      }, function (e) { st.formErr = authWords(e); paint(); });
+    }
+
+    // --- the card ---
+    function link(href, text) { return h("a", { href: href, target: "_blank", rel: "noopener", text: text }); }
+    function sqlLinks() { return [link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), "，把 ", link("https://github.com/YapSeng98/trading_pages/blob/main/supabase/journal.sql", "supabase/journal.sql"), " 整段贴进去，点 Run（只做一次）"]; }
+    function state() {
+      var c = conf(), s = sess(), n = pending();
+      if (!c) return { k: "", t: "只存在本机" };
+      if (!s) return { k: "", t: "未登录云端" };
+      if (st.busy) return { k: "busy", t: "同步中…" };
+      if (st.err) return { k: "err", t: st.missing ? "云端未建表" : "同步没成功" };
+      if (n) return { k: "busy", t: n + " 条待上传" };
+      return { k: "ok", t: "已同步" + (D.synced ? " " + hm(D.synced) : "") };
+    }
+    function paintMsg() {
+      var m = $("cl-msg"); if (!m) return; clear(m);
+      if (st.formErr) m.appendChild(h("div", { class: "warn", role: "alert", text: st.formErr }));
+      if (st.note) m.appendChild(h("div", { class: "okmsg", text: st.note }));
+      if (st.err && sess()) m.appendChild(h("div", { class: "warn" }, st.missing ? ["云端还没有建表：打开 Supabase 的 "].concat(sqlLinks(), ["，再点「立即同步」。"]) : [st.err]));
+    }
+    function paint() {
+      var c = conf(), s = sess(), sx = state(), pill = $("syncpill");
+      pill.className = "sync " + sx.k; pill.textContent = "☁ " + sx.t;
+      var cs = $("cl-state"); cs.className = "pill " + sx.k; cs.textContent = sx.t;
+      var mode = !c ? "key" : !s ? "login" : st.recovery ? "recovery" : "acct", body = $("cl-body");
+      if (mode !== st.mode) {
+        st.mode = mode; clear(body);
+        if (mode === "key") {
+          body.appendChild(h("p", { class: "note", text: "现在记录只存在这台设备的浏览器里。连上你的 Supabase 项目后，手机和电脑看到的是同一份记录，换设备、清浏览器也不会丢。准备一次就好：" }));
+          body.appendChild(h("ol", { class: "steps" }, [
+            h("li", {}, ["打开 Supabase 的 "].concat(sqlLinks(), ["。"])),
+            h("li", {}, ["打开 ", link("https://supabase.com/dashboard/project/" + ref() + "/settings/api-keys", "Project Settings → API Keys"), "，复制 ", h("b", { text: "Publishable key" }), "（sb_publishable_ 开头；旧项目叫 anon public），贴在下面。"])]));
+          body.appendChild(h("div", { class: "inp t" }, [h("input", { id: "cl-key", type: "text", autocomplete: "off", spellcheck: "false", placeholder: "sb_publishable_…", "aria-label": "Supabase publishable key" })]));
+          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: "连接", onclick: connect })]));
+          body.appendChild(h("p", { class: "note", text: "不要贴 secret key 或 service_role key：那是管理员钥匙，放进网页谁都能拿去。Publishable key 本来就是给网页用的，配合登录，每个人只能读写自己的记录。" }));
+        } else if (mode === "login") {
+          var a = st.auth || {}, open = !a.disable_signup;
+          body.appendChild(h("p", { class: "note", text: "登录后，每次保存都会自动传到云端；在另一台设备登录同一个账号，就能看到同一份记录。" + (open ? "第一次用就点「注册」：一个邮箱加一个密码（至少 6 位）。" : "") }));
+          body.appendChild(h("div", { class: "f2" }, [
+            h("div", {}, [h("label", { for: "cl-email", text: "邮箱" }), h("div", { class: "inp t" }, [h("input", { id: "cl-email", type: "email", autocomplete: "email", inputmode: "email", placeholder: "you@example.com" })])]),
+            h("div", {}, [h("label", { for: "cl-pw", text: "密码" }), h("div", { class: "inp t" }, [h("input", { id: "cl-pw", type: "password", autocomplete: "current-password", placeholder: "至少 6 位" })])])]));
+          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: "登录", onclick: function () { auth("in"); } }),
+            open ? h("button", { class: "btn", type: "button", text: "注册", onclick: function () { auth("up"); } }) : null,
+            h("button", { class: "btn ghost", type: "button", text: "忘记密码", onclick: function () { auth("recover"); } })]));
+          if (open && a.mailer_autoconfirm !== true) body.appendChild(h("p", { class: "note", text: "注册后 Supabase 会发一封确认邮件，点里面的链接就能用。" }));
+          if (!CFG.key) body.appendChild(h("p", { class: "note" }, [h("a", { href: "#cloud", text: "换一个 Supabase key", onclick: function (e) { e.preventDefault(); try { localStorage.removeItem(CKEY); } catch (x) {} st.auth = null; st.mode = null; paint(); } })]));
+          var pw = $("cl-pw"); pw.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); auth("in"); } });
+        } else if (mode === "recovery") {
+          body.appendChild(h("p", { class: "note", text: "你是从「重设密码」的邮件过来的：设一个新密码。" }));
+          body.appendChild(h("div", { class: "inp t" }, [h("input", { id: "cl-newpw", type: "password", autocomplete: "new-password", placeholder: "新密码，至少 6 位", "aria-label": "新密码" })]));
+          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: "设好新密码", onclick: setPassword }), h("button", { class: "btn ghost", type: "button", text: "以后再说", onclick: function () { st.recovery = false; st.mode = null; paint(); } })]));
+        } else {
+          body.appendChild(h("dl", { class: "kv" }, [h("dt", { text: "账号" }), h("dd", { id: "cl-who" }), h("dt", { text: "状态" }), h("dd", { id: "cl-st" }), h("dt", { text: "云端" }), h("dd", { id: "cl-n" })]));
+          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", text: "立即同步", onclick: function () { st.retried = false; sync().then(function (ok) { if (ok) toast("已同步"); }); } }), h("button", { class: "btn sm ghost", type: "button", text: "退出登录", onclick: signOut })]));
+          body.appendChild(h("p", { class: "note", text: "每次保存几秒后自动上传；打开这一页、切回这一页时也会同步。没网的时候照样能记，连上后补传。" }));
+        }
+        body.appendChild(h("div", { id: "cl-msg", class: "cl" }));
+      }
+      if (mode === "acct") {
+        $("cl-who").textContent = s.user.email || s.user.id;
+        var n = pending();
+        $("cl-st").textContent = st.busy ? "同步中…" : st.err ? "上次没成功" : D.synced ? "上次同步 " + dOf(D.synced).slice(5).replace("-", "/") + " " + hm(D.synced) + (n ? "；本机还有 " + n + " 条待上传" : "") : "还没同步过";
+        $("cl-n").textContent = D.items.length + " 笔交易 · " + withdrawals().length + " 笔提现 · " + D.goals.length + " 个目标";
+      }
+      paintMsg();
+    }
+    function init() {
+      fromHash(); authSettings();
+      if (sess()) sync();
+      document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && sess() && conf() && (!D.synced || Date.now() - D.synced > 30000)) sync(); });
+      window.addEventListener("online", function () { if (sess()) sync(); });
+    }
+    return { paint: paint, soon: soon, sync: sync, init: init };
+  })();
+
+  // ---------- wiring ----------
+  $("tab-trade").addEventListener("click", function () { if (V.edit && V.edit.c === "cash") endEdit(); setTab("trade"); });
+  $("tab-cash").addEventListener("click", function () { if (V.edit && V.edit.c === "items") endEdit(); setTab("cash"); });
+  $("q-date").addEventListener("change", function () { if (DAY.test(this.value)) { setDate(this.value); showDay(this.value); renderCal(); renderDay(); renderSum(); renderYear(); } });
+  $("q-today").addEventListener("click", function () { setDate(TODAY); showDay(TODAY); renderAll(); });
+  $("s-win").addEventListener("click", function () { setSign(1); }); $("s-loss").addEventListener("click", function () { setSign(-1); });
+  $("t-amt").addEventListener("keydown", function (e) { if (e.key === "-") { e.preventDefault(); setSign(-1); } else if (e.key === "+") { e.preventDefault(); setSign(1); } });
+  $("t-amt").addEventListener("input", function () { $("t-err").hidden = true; saveLabel(); });
+  $("c-amt").addEventListener("input", function () { $("c-err").hidden = true; saveLabel(); });
+  $("t-cancel").addEventListener("click", function () { endEdit(); }); $("c-cancel").addEventListener("click", function () { endEdit(); });
+  $("grid").addEventListener("click", function (ev) {
+    var b = ev.target.closest ? ev.target.closest(".day[data-d]") : null; if (!b) return;
+    V.sel = b.getAttribute("data-d"); if (!V.edit && V.sel <= TODAY) setDate(V.sel);
+    renderCal(); renderDay(); if (window.innerWidth < 980) $("daycard").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  $("d-add").addEventListener("click", function () { if (V.edit) endEdit(); setDate(V.sel <= TODAY ? V.sel : TODAY); goQuick(V.tab === "cash" ? "c-amt" : "t-amt"); });
+  $("prev").addEventListener("click", function () { V.m--; if (V.m < 0) { V.m = 11; V.y--; } renderAll(); });
+  $("next").addEventListener("click", function () { V.m++; if (V.m > 11) { V.m = 0; V.y++; } renderAll(); });
+  $("s-cur").addEventListener("input", function () { D.cur = this.value.trim().slice(0, 4) || "$"; settingsChanged(); save(); renderAll(); });
+  $("s-start").addEventListener("input", function () { var v = parseFloat(this.value); D.start = isFinite(v) && v > 0 ? v : null; settingsChanged(); save(); renderSum(); });
+  function download(name, text, type) { var a = h("a", { href: URL.createObjectURL(new Blob([text], { type: type })), download: name }); document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+  function strip(x) { var o = {}; for (var k in x) if (k !== "dirty") o[k] = x[k]; return o; }
+  $("export").addEventListener("click", function () {
+    if (!D.items.length && !D.cash.length && !D.goals.length) { toast("还没有记录可以导出"); return; }
+    download("盈亏日历备份-" + TODAY + ".json", JSON.stringify({ cur: D.cur, start: D.start, plats: D.plats, items: D.items.map(strip), cash: D.cash.map(strip), goals: D.goals.map(strip) }, null, 1), "application/json");
+    toast("已导出 " + D.items.length + " 笔交易、" + D.cash.length + " 笔提现，请把文件存好");
+  });
+  $("csv").addEventListener("click", function () {
+    if (!D.items.length && !D.cash.length) { toast("还没有记录可以导出"); return; }
+    var q = function (v) { v = v === null || v === undefined ? "" : String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+    var rows = [["type", "date", "amount", "platform", "symbol", "side", "lots", "planned_risk", "R", "by_rules", "note"]];
+    D.items.forEach(function (x) { rows.push(["trade", x.d, x.amt, x.plat, x.sym, x.side, x.lots, x.risk, num(x.risk) && x.risk > 0 ? (x.amt / x.risk).toFixed(2) : "", x.rule === true ? "yes" : x.rule === false ? "no" : "", x.note]); });
+    D.cash.forEach(function (x) { rows.push([x.kind, x.d, x.amt, x.plat, "", "", "", "", "", "", x.note]); });
+    rows = [rows[0]].concat(rows.slice(1).sort(function (a, b) { return a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0; }));
+    download("盈亏日历-" + TODAY + ".csv", "﻿" + rows.map(function (r) { return r.map(q).join(","); }).join("\n"), "text/csv");
+  });
+  $("import").addEventListener("change", function () {
+    var file = this.files && this.files[0], self = this; if (!file) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var d = JSON.parse(rd.result), added = 0; if (!d || !Array.isArray(d.items)) throw new Error("bad");
+        Object.keys(CLEAN).forEach(function (c) {
+          (Array.isArray(d[c]) ? d[c] : []).forEach(function (x) { if (!x || !x.id || find(c, String(x.id))) return; var y = CLEAN[c](x); if (y) { put(c, touch(y)); added++; } });
+        });
+        if (Array.isArray(d.plats)) d.plats.forEach(function (p) { if (typeof p === "string" && p.trim() && D.plats.indexOf(p.trim()) < 0) { D.plats.push(p.trim().slice(0, 40)); settingsChanged(); } });
+        if (!D.items.length && typeof d.cur === "string" && d.cur) { D.cur = d.cur.slice(0, 4); settingsChanged(); }
+        save(); renderAll(); toast(added ? "已读入 " + added + " 条新记录" : "备份里的记录这里都已经有了");
+      } catch (e) { toast("这个文件读不了：需要本页导出的备份文件"); }
+      self.value = "";
+    };
+    rd.readAsText(file);
+  });
+  // the gold page (another tab) can add a closed position to the same store
+  window.addEventListener("storage", function (e) { if (e.key === KEY) { D = load(); renderAll(); Cloud.soon(); } });
+  document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && dOf(Date.now()) !== TODAY) renderAll(); });
+  var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(renderCurve, 150); });
+  // the report page's paper record, for the "same month" comparison (optional)
+  fetch("data/xau-signals.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.signals) { REC = d; renderSum(); } }).catch(function () {});
+  setTab("trade"); setSign(1); renderAll(); Cloud.init();
+})();
