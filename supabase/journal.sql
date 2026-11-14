@@ -49,6 +49,16 @@ create table if not exists public.pnl_goals (
   primary key (user_id, id)
 );
 
+-- Remarks: one per day, typed in the 备注 card (added 2026-11-14; running this whole file again adds it and keeps the rest).
+create table if not exists public.pnl_notes (
+  user_id uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  id      text not null check (char_length(id) <= 64),   -- the day, YYYY-MM-DD
+  d       date not null,
+  text    text not null check (char_length(text) <= 2000),
+  u       bigint,
+  primary key (user_id, id)
+);
+
 -- Page settings: currency sign, month-start balance, the platform list.
 create table if not exists public.pnl_settings (
   user_id uuid primary key default auth.uid() references auth.users (id) on delete cascade,
@@ -62,15 +72,18 @@ alter table public.pnl_trades   enable row level security;
 alter table public.pnl_cash     enable row level security;
 alter table public.pnl_goals    enable row level security;
 alter table public.pnl_settings enable row level security;
+alter table public.pnl_notes    enable row level security;
 
 drop policy if exists "own rows" on public.pnl_trades;
 drop policy if exists "own rows" on public.pnl_cash;
 drop policy if exists "own rows" on public.pnl_goals;
 drop policy if exists "own rows" on public.pnl_settings;
+drop policy if exists "own rows" on public.pnl_notes;
 create policy "own rows" on public.pnl_trades   for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
 create policy "own rows" on public.pnl_cash     for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
 create policy "own rows" on public.pnl_goals    for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
 create policy "own rows" on public.pnl_settings for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
+create policy "own rows" on public.pnl_notes    for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));
 
-revoke all on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings from anon;
-grant select, insert, update, delete on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings to authenticated;
+revoke all on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings, public.pnl_notes from anon;
+grant select, insert, update, delete on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings, public.pnl_notes to authenticated;

@@ -108,3 +108,31 @@ header.pg-head .hdate{text-align:left}
 .v-pat .vp-none{font-size:12.5px;color:#8A857E;line-height:1.7}
 .fx-pr .pc{margin:8px 0 4px}
 @media(max-width:640px){.v-pat{padding:12px 10px}.v-pat .vp-tabs button{min-height:34px}.pc-leg{font-size:11px}}
+
+/* ── settings: the gear in the navbar, its panel, and back to top (assets/site.js) ── */
+.nav-gear{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-left:6px;height:36px;min-width:36px;padding:0 9px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#C9C4BD;cursor:pointer;flex:none}
+.nav-gear:hover{color:#F6F5F3;border-color:rgba(212,167,44,.45)}
+.nav-gear svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-gear .nav-lang{font:600 11px/1 'IBM Plex Mono',monospace;color:#E6BE55}
+@media(max-width:860px){.navbar .brand{order:0}.nav-gear{order:1;margin:0 6px 0 0}.navbar a.nl{order:2}}
+.set-panel{position:fixed;right:max(16px,calc((100% - 1240px) / 2 + 24px));z-index:80;width:min(340px,calc(100vw - 32px));padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.12);background:rgba(16,16,22,.98);box-shadow:0 24px 60px rgba(0,0,0,.6);color:#C9C4BD}
+@media(max-width:860px){.set-panel{left:16px;right:auto}}
+.set-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.set-h b{font:700 15px/1 'Space Grotesk','Noto Sans SC',sans-serif;color:#F6F5F3}
+.set-x{width:34px;height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#8A857E;font-size:18px;line-height:1;cursor:pointer}
+.set-k{font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:1.4px;text-transform:uppercase;color:#8A857E;margin-bottom:8px}
+.set-langs{display:grid;gap:6px}
+.set-lang{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#C9C4BD;cursor:pointer;text-align:left;font:inherit;min-height:44px}
+.set-lang:hover{border-color:rgba(212,167,44,.45)}
+.set-lang .dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25)}
+.set-lang[aria-checked="true"]{border-color:rgba(212,167,44,.6);background:rgba(212,167,44,.1)}
+.set-lang[aria-checked="true"] .dot{border-color:#E6BE55;background:radial-gradient(circle,#E6BE55 42%,transparent 48%)}
+.set-lang b{font:600 13.5px/1.2 'Noto Sans SC',sans-serif;color:#F6F5F3}
+.set-lang small{font-size:11px;color:#8A857E}
+.set-note{font-size:11.5px;line-height:1.7;color:#8A857E;margin-top:12px}
+.to-top{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:55;width:44px;height:44px;border-radius:14px;border:1px solid rgba(255,255,255,.13);background:rgba(23,23,31,.94);color:#E6BE55;display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.to-top.on{opacity:1;pointer-events:auto;transform:none}
+.to-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* English chosen on a page that has no English version yet */
+.lang-note{display:flex;align-items:center;justify-content:center;gap:6px 12px;flex-wrap:wrap;padding:9px 16px;font-size:12.5px;color:#C9C4BD;background:rgba(124,108,240,.1);border-bottom:1px solid rgba(169,155,255,.25);text-align:center}
+.lang-note button{border:1px solid rgba(169,155,255,.4);background:rgba(124,108,240,.15);color:#D3CBFF;font:600 12px/1 'Noto Sans SC',sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer;min-height:32px}
