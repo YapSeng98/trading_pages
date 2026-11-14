@@ -155,7 +155,7 @@ var XauFeed = (function () {
       var since = function (rows, step, more, keep) { return Math.min(keep, Math.ceil((nowSec - rows[rows.length - 1][0]) / step) + more); };    // the gap since the newest bar held, and an overlap
       var nH = full ? need.h1 : since(c.h1, 3600, 48, need.h1), nD = full ? need.d1 : since(c.d1, 86400, 12, need.d1), nM = full ? need.m15 : since(c.m15, 900, 96, need.m15);
       return Promise.all([duk("1HOUR", nH, nH > 1000 ? 25000 : 12000, inst), duk("1DAY", nD, 15000, inst), duk("15MIN", nM, 15000, inst)]).then(function (res) {
-        if (res[0].length < (full ? minFull : 2) || res[2].length < (full ? 200 : 2)) throw new Error(name + "：数据太少");
+        if (res[0].length < (full ? minFull : 2) || res[2].length < (full ? 200 : 2)) throw new Error(name + (window.LANG === "en" ? ": too little data" : "：数据太少"));
         if (!full && (changed(c.h1, res[0], 3600, c.got) || changed(c.d1, res[1], 86400, c.got) || changed(c.m15, res[2], 900, c.got))) { c.h1 = null; return loadBars(c, name, need, minFull, inst, nowMs); }
         c.h1 = merge(full ? null : c.h1, res[0], need.h1); c.d1 = merge(full ? null : c.d1, res[1], need.d1); c.m15 = merge(full ? null : c.m15, res[2], need.m15);
         if (full) c.at = nowMs;
@@ -174,7 +174,7 @@ var XauFeed = (function () {
   function getJson(url) {                                                        // with a time limit, like the spot feed: a stalled backup must not hold the answer
     var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 20000);
     return fetch(url, { cache: "no-store", signal: ctl.signal }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error("备用行情 20 秒没有回应") : e; });
+      .then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error(window.LANG === "en" ? "the backup feed did not answer in 20 s" : "备用行情 20 秒没有回应") : e; });
   }
   function spotNow() { return getJson(SPOT).then(function (d) { var p = d && +d.price; return isFinite(p) && p > 0 ? p : null; }).catch(function () { return null; }); }
   // Candles from Binance klines (4h and 1d asked for in broker time), shifted by the gap to the spot quote.
@@ -195,7 +195,8 @@ var XauFeed = (function () {
     });
     while (W.length && nowMs < (W[W.length - 1][0] / 1000 + 5 * 86400) * 1000) W.pop();   // server Friday midnight = Friday's close
     return { source: "paxg", K: { W: W, D: D, "4H": conv(h4), "1H": conv(h1), "15M": conv(m15) }, price: lastPx + g, priceAt: nowMs, asOf: nowMs, gap: gap,
-      warn: (why ? "现货数据源暂时连不上，" : "") + "改用 PAXG 代币行情" + (gap === null ? "（未能校准到现货价）" : "") + "：价位可能和你的平台差几美元" };
+      warn: window.LANG === "en" ? (why ? "The spot feed cannot be reached right now; " : "") + "using the PAXG token's prices" + (gap === null ? " (not matched to spot)" : "") + ": levels may differ from your platform by a few dollars"
+        : (why ? "现货数据源暂时连不上，" : "") + "改用 PAXG 代币行情" + (gap === null ? "（未能校准到现货价）" : "") + "：价位可能和你的平台差几美元" };
   }
   function loadPaxg(nowMs, why) {
     var tz = serverOff(nowMs / 1000) / 3600;

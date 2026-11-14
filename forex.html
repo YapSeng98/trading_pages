@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="i18n" content="en">
+<meta name="i18n-title" content="Forex trend scan · Trading Hub">
+<script src="assets/i18n.js?v=1"></script>
 <title>外汇趋势扫描 · Trading Hub</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A0A0F">
@@ -139,7 +142,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <link rel="stylesheet" href="assets/site.css?v=8">
 </head>
 <body>
-<nav class="navbar" aria-label="网站导航">
+<nav class="navbar" aria-label="网站导航" data-en-label="Site navigation">
   <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
   <a class="nl" href="report.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
   <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
@@ -150,49 +153,49 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   <a class="nl" href="potential.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg>潜力精选</a>
 </nav>
 <main class="wrap">
-  <h1>外汇 <em>趋势扫描</em></h1>
-  <p class="lead">黄金页的五周期规则，用在 11 个主要货币对上。</p>
-  <div class="fx-sig" id="fx-sig"><span>读取中…</span></div>
-  <div class="warn" id="fx-proof"><b>回放结果：这个规则在外汇上不赚钱。</b> 2024 年 4 月到 2026 年 10 月，11 个货币对共 688 笔，平均每笔 −0.07R，只有 4 个货币对是正的；同样的做法同期在黄金上一笔 +0.66R。外汇信号只当趋势参考，不建议按它用真钱下单。</div>
+  <h1 data-en-html="Forex <em>trend scan</em>">外汇 <em>趋势扫描</em></h1>
+  <p class="lead" data-en="The gold page's five-timeframe rule, run on 11 major currency pairs.">黄金页的五周期规则，用在 11 个主要货币对上。</p>
+  <div class="fx-sig" id="fx-sig"><span data-en="Loading…">读取中…</span></div>
+  <div class="warn" id="fx-proof" data-en-html="&lt;b&gt;Replay: this rule does not make money on forex.&lt;/b&gt; Apr 2024 to Oct 2026, 11 pairs, 688 trades, −0.07R a trade on average, only 4 pairs positive; the same method made +0.66R a trade on gold over the same dates. Treat forex signals as a trend reference only; do not trade them with real money."><b>回放结果：这个规则在外汇上不赚钱。</b> 2024 年 4 月到 2026 年 10 月，11 个货币对共 688 笔，平均每笔 −0.07R，只有 4 个货币对是正的；同样的做法同期在黄金上一笔 +0.66R。外汇信号只当趋势参考，不建议按它用真钱下单。</div>
   <div class="bar">
     <span class="sum" id="fx-sum">读取中…</span>
     <span class="stamp" id="fx-stamp"></span>
-    <button class="btn" type="button" id="fx-refresh">⟳ 刷新</button>
+    <button class="btn" type="button" id="fx-refresh" data-en="⟳ Refresh">⟳ 刷新</button>
     <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
-    <a class="btn" href="#fx-lots">🧮 手数换算</a>
+    <a class="btn" href="#fx-lots" data-en="🧮 Lot sizes">🧮 手数换算</a>
   </div>
   <div class="fx-list" id="fx-list"></div>
   <section class="lots" id="fx-lots">
-    <h2>🧮 手数换算：0.01 手等于多少</h2>
-    <p class="lots-lead"><b>1 手 = 10 万单位，0.01 手 = 1,000 单位</b>（货币对前面那个货币）。<b>1 点 = 0.0001</b>，日元对是 0.01。MT5 的报价多一位小数，图上的 10 points 就是这里的 1 点。</p>
+    <h2 data-en="🧮 Lot sizes: what 0.01 lot is">🧮 手数换算：0.01 手等于多少</h2>
+    <p class="lots-lead" data-en-html="&lt;b&gt;1 lot = 100,000 units, 0.01 lot = 1,000 units&lt;/b&gt; (of the first currency in the pair). &lt;b&gt;1 pip = 0.0001&lt;/b&gt;, 0.01 on yen pairs. MT5 quotes one more decimal, so 10 points on its chart are 1 pip here."><b>1 手 = 10 万单位，0.01 手 = 1,000 单位</b>（货币对前面那个货币）。<b>1 点 = 0.0001</b>，日元对是 0.01。MT5 的报价多一位小数，图上的 10 points 就是这里的 1 点。</p>
     <div class="lots-in">
-      <div class="f"><label for="fx-bal">账户余额</label><div class="inp"><input id="fx-bal" type="number" inputmode="decimal" min="0" step="100" placeholder="例如 5000"><span class="unit">USD</span></div></div>
-      <div class="f"><label for="fx-risk">每笔最多亏</label><div class="inp"><input id="fx-risk" type="number" inputmode="decimal" min="0" step="0.05" placeholder="0.5"><span class="unit">% 账户</span></div></div>
-      <div class="f"><label for="fx-lev">杠杆 1:</label><div class="inp"><input id="fx-lev" type="number" inputmode="decimal" min="1" step="1" placeholder="100"></div></div>
+      <div class="f"><label for="fx-bal" data-en="Account balance">账户余额</label><div class="inp"><input id="fx-bal" type="number" inputmode="decimal" min="0" step="100" placeholder="例如 5000" data-en-ph="e.g. 5000"><span class="unit">USD</span></div></div>
+      <div class="f"><label for="fx-risk" data-en="Most to lose a trade">每笔最多亏</label><div class="inp"><input id="fx-risk" type="number" inputmode="decimal" min="0" step="0.05" placeholder="0.5"><span class="unit" data-en="% of account">% 账户</span></div></div>
+      <div class="f"><label for="fx-lev" data-en="Leverage 1:">杠杆 1:</label><div class="inp"><input id="fx-lev" type="number" inputmode="decimal" min="1" step="1" placeholder="100"></div></div>
     </div>
     <p class="lots-sub" id="fx-lot-sub"></p>
     <div id="fx-lot-tab"></div>
-    <p class="lots-note">手数 = 愿意亏的钱 ÷（止损点数 × 每点的钱 × 100）。实际还要加点差，大约 1–2 点。美分账户、或者平台合约不一样，以 MT5 为准（右键品种 → 规格）。外汇信号回放不赚钱：这张表只帮你把风险算清楚，不是下单建议。只保存在你的浏览器里。</p>
+    <p class="lots-note" data-en="Lots = money you accept to lose ÷ (stop in pips × money a pip × 100). Add the spread too, about 1–2 pips. Cent accounts or other contract sizes: go by MT5 (right-click the symbol → Specification). Forex signals lost money in the replay: this table only makes the risk clear; it is not a trade suggestion. Kept in your browser only.">手数 = 愿意亏的钱 ÷（止损点数 × 每点的钱 × 100）。实际还要加点差，大约 1–2 点。美分账户、或者平台合约不一样，以 MT5 为准（右键品种 → 规格）。外汇信号回放不赚钱：这张表只帮你把风险算清楚，不是下单建议。只保存在你的浏览器里。</p>
   </section>
   <section class="how">
-    <h2>怎么看</h2>
+    <h2 data-en="How to read it">怎么看</h2>
     <ul>
-      <li><b>规则</b>：周线、日线、4 小时同向是大方向，1 小时和 15 分钟也转过来就是信号。每个货币对都写出现在的方向、还差哪一步，以及按规则算好的入场、止损和目标。</li>
-      <li><b>买入 / 卖出信号</b>：五个周期同向。给出的价位按规则算：止损 3 倍小时波幅，目标 3R；或者不设目标，每天把止损挪到最好价格后面 2R，三个大周期不再同向就离场。</li>
-      <li><b>等小周期</b>：周线、日线、4 小时已经同向，写出了还差哪根 K 线收在哪里，以及到时的大约价位。</li>
-      <li><b>方向不一致</b>：三个大周期没有同向，不做；写出了最近的一步。</li>
-      <li><b>形态</b>：点开看。回放里形态本身没有优势，只作参考。</li>
-      <li>所有判断只看已经收盘的 K 线，每 15 分钟重算一次。价格是最近一根 15 分钟 K 线的收盘，卡片右上角写了是几点的；超过 45 分钟没更新会标「延迟」。数据来自 Dukascopy 的公开图表（买价），和 MT5 一样按纽约 17:00 换日；你平台的报价可能差几个点。</li>
-      <li>提醒默认关：打开后，任何一个市场出现新的买入或卖出信号都会弹通知（页面开着时）。</li>
+      <li data-en-html="&lt;b&gt;The rule&lt;/b&gt;: weekly, daily and 4-hour in the same direction is the big trend; when the 1-hour and 15-minute turn the same way too, that is a signal. Each pair shows its direction now, the step still missing, and the rule's entry, stop and target."><b>规则</b>：周线、日线、4 小时同向是大方向，1 小时和 15 分钟也转过来就是信号。每个货币对都写出现在的方向、还差哪一步，以及按规则算好的入场、止损和目标。</li>
+      <li data-en-html="&lt;b&gt;Buy / sell signal&lt;/b&gt;: all five timeframes agree. The prices follow the rule: stop 3 × the 1-hour ATR, target 3R; or no target, moving the stop each day to 2R behind the best price and leaving when the three big trends stop agreeing."><b>买入 / 卖出信号</b>：五个周期同向。给出的价位按规则算：止损 3 倍小时波幅，目标 3R；或者不设目标，每天把止损挪到最好价格后面 2R，三个大周期不再同向就离场。</li>
+      <li data-en-html="&lt;b&gt;Waiting for small timeframes&lt;/b&gt;: weekly, daily and 4-hour already agree; it says which candle still has to close where, and the rough prices then."><b>等小周期</b>：周线、日线、4 小时已经同向，写出了还差哪根 K 线收在哪里，以及到时的大约价位。</li>
+      <li data-en-html="&lt;b&gt;Mixed&lt;/b&gt;: the three big trends do not agree, so nothing to do; it shows the nearest step."><b>方向不一致</b>：三个大周期没有同向，不做；写出了最近的一步。</li>
+      <li data-en-html="&lt;b&gt;Patterns&lt;/b&gt;: tap to open. In the replay patterns had no edge of their own: reference only."><b>形态</b>：点开看。回放里形态本身没有优势，只作参考。</li>
+      <li data-en="Every call uses closed candles only, recomputed every 15 minutes. The price is the last 15-minute close, with its time on the card; over 45 minutes old it is marked «delayed». Data: Dukascopy's public charts (bid), with the day rolling at 17:00 New York like MT5; your platform's quotes may differ by a few pips.">所有判断只看已经收盘的 K 线，每 15 分钟重算一次。价格是最近一根 15 分钟 K 线的收盘，卡片右上角写了是几点的；超过 45 分钟没更新会标「延迟」。数据来自 Dukascopy 的公开图表（买价），和 MT5 一样按纽约 17:00 换日；你平台的报价可能差几个点。</li>
+      <li data-en="Alerts are off by default: switched on, any new buy or sell signal shows a notification (while the page is open).">提醒默认关：打开后，任何一个市场出现新的买入或卖出信号都会弹通知（页面开着时）。</li>
     </ul>
   </section>
-  <footer>这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。外汇回放在 research/forex/（PLAN.md 是事先写好的检验，README.md 是结果）。</footer>
+  <footer data-en="This page only computes and shows; it is not investment advice. Forex leverage is high and you can lose your capital. The forex replay is in research/forex/ (PLAN.md is the test written beforehand, README.md the result).">这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。外汇回放在 research/forex/（PLAN.md 是事先写好的检验，README.md 是结果）。</footer>
 </main>
-<script src="assets/xau-feed.js?v=10"></script>
+<script src="assets/xau-feed.js?v=11"></script>
 <script src="assets/xau-engine.js?v=6"></script>
-<script src="assets/xau-plan.js?v=19"></script>
-<script src="assets/pattern-chart.js?v=1"></script>
-<script src="assets/fx-page.js?v=15"></script>
+<script src="assets/xau-plan.js?v=20"></script>
+<script src="assets/pattern-chart.js?v=2"></script>
+<script src="assets/fx-page.js?v=16"></script>
 <script src="assets/site.js?v=2" defer></script>
 </body>
 </html>

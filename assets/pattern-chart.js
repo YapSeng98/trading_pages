@@ -9,7 +9,8 @@
 (function () {
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
-  var LAB = { top: "顶", bottom: "底", ls: "左肩", head: "头", rs: "右肩" };
+  var tr = window.T || function (zh) { return zh; };
+  var LAB = { top: tr("顶", "top"), bottom: tr("底", "bottom"), ls: tr("左肩", "L shoulder"), head: tr("头", "head"), rs: tr("右肩", "R shoulder") };
   var C = { bull: "var(--m-bull,#0ab074)", bear: "var(--m-bear,#db2943)", gold: "var(--gold,#D4A72C)", ink: "var(--ink,#F6F5F3)", dim: "var(--dim,#8A857E)" };
   function el(n, a, p) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; }
   function txt(p, x, y, s, a) { var t = el("text", Object.assign({ x: x.toFixed(1), y: y.toFixed(1) }, a || {}), p); t.textContent = s; return t; }
@@ -39,18 +40,18 @@
     R.forEach(function (r) { lo = Math.min(lo, r[3]); hi = Math.max(hi, r[2]); });
     var rng = hi - lo || 1, levels = [];
     var addLv = function (v, kind, label) { v = num(v); if (v === null) return; levels.push({ v: v, kind: kind, label: label }); lo = Math.min(lo, Math.max(v, lo - 0.7 * rng)); hi = Math.max(hi, Math.min(v, hi + 0.7 * rng)); };
-    if (plan) { addLv(plan.trigger, "trig", plan.done ? "突破位" : "突破才进"); addLv(plan.stop, "stop", "失效位"); addLv(plan.target, "tgt", "目标"); }
-    else { addLv(pat.level, "trig", "关键位"); addLv(pat.upper, "trig", "上沿"); addLv(pat.lower, "trig", "下沿"); addLv(pat.invalid, "stop", "失效位"); addLv(pat.target, "tgt", "目标"); }
+    if (plan) { addLv(plan.trigger, "trig", plan.done ? tr("突破位", "break level") : tr("突破才进", "on break")); addLv(plan.stop, "stop", tr("失效位", "fails")); addLv(plan.target, "tgt", tr("目标", "target")); }
+    else { addLv(pat.level, "trig", tr("关键位", "key level")); addLv(pat.upper, "trig", tr("上沿", "upper edge")); addLv(pat.lower, "trig", tr("下沿", "lower edge")); addLv(pat.invalid, "stop", tr("失效位", "fails")); addLv(pat.target, "tgt", tr("目标", "target")); }
     var py = (hi - lo) * 0.07; lo -= py; hi += py;
     var Y = function (v) { return T + (hi - v) * (H - T - B) / (hi - lo); };
     var clampY = function (y) { return Math.max(T - 4, Math.min(H - B + 4, y)); };
 
-    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, class: "pc-svg", role: "img", "aria-label": o.title || "形态图" });
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, class: "pc-svg", role: "img", "aria-label": o.title || tr("形态图", "Pattern chart") });
     var defs = el("defs", {}, svg), cp = el("clipPath", { id: "pcclip" + (++draw.n) }, defs); el("rect", { x: L, y: T - 4, width: xR - L, height: H - T - B + 8 }, cp);
     var clip = "url(#pcclip" + draw.n + ")";
     [0.25, 0.5, 0.75].forEach(function (f) { var y = T + f * (H - T - B); el("line", { x1: L, x2: xR, y1: y, y2: y, stroke: "rgba(255,255,255,.05)" }, svg); });
     el("rect", { x: xEnd, y: T - 4, width: xR - xEnd, height: H - T - B + 8, fill: "rgba(255,255,255,.028)" }, svg);
-    txt(svg, xEnd + 4, H - 6, "之后", { class: "pc-ax" });
+    txt(svg, xEnd + 4, H - 6, tr("之后", "after"), { class: "pc-ax" });
 
     // a line at bar i, from its anchor and slope (per bar), clipped to the drawn bars and the space after them
     var lineAt = function (l, i) { var i1 = at(l.t1); return i1 === null ? null : l.p1 + (l.m || 0) * (i - i1); };
@@ -84,7 +85,7 @@
       var iEnd = l.k === "pole" ? at(l.t1) : ext; if (iEnd === null) return;
       var p0 = l.k === "pole" ? l.p0 : lineAt(l, i0), p1 = l.k === "pole" ? l.p1 : lineAt(l, iEnd);
       el("line", { x1: X(i0).toFixed(1), y1: Y(p0).toFixed(1), x2: X(iEnd).toFixed(1), y2: Y(p1).toFixed(1), stroke: l.k === "pole" ? col : C.gold, "stroke-width": l.k === "pole" ? 3 : 1.8, "stroke-linecap": "round", "clip-path": clip, opacity: l.k === "pole" ? 0.7 : 1 }, svg);
-      if (l.k === "neck") txt(svg, X(i0) + 2, Y(p0) + (dir < 0 ? 13 : -6), "颈线", { class: "pc-lab", fill: C.gold });
+      if (l.k === "neck") txt(svg, X(i0) + 2, Y(p0) + (dir < 0 ? 13 : -6), tr("颈线", "neckline"), { class: "pc-lab", fill: C.gold });
     });
     // the pattern's points
     g.pts.forEach(function (q) {
@@ -107,7 +108,7 @@
     });
     var lastR = rows[e], cy = Y(lastR[4]);
     el("circle", { cx: X(e).toFixed(1), cy: cy.toFixed(1), r: 3.5, fill: C.ink, stroke: "var(--bg2,#101016)", "stroke-width": 1.5 }, svg);
-    labs.push({ y: cy, text: "最后收盘", val: o.fmt ? o.fmt(lastR[4]) : String(lastR[4]), col: C.ink });
+    labs.push({ y: cy, text: tr("最后收盘", "last close"), val: o.fmt ? o.fmt(lastR[4]) : String(lastR[4]), col: C.ink });
     if (plan) {                                        // the measured move, as an arrow from the last close toward the target
       var ty = clampY(Y(plan.target)), tx = xEnd + (xR - xEnd) * 0.55;
       el("path", { d: "M" + X(e).toFixed(1) + " " + cy.toFixed(1) + " L" + tx.toFixed(1) + " " + ty.toFixed(1), stroke: COLS.tgt, "stroke-width": 1.5, "stroke-dasharray": "1 3", fill: "none", "stroke-linecap": "round" }, svg);
@@ -119,7 +120,7 @@
     var over = labs.length ? labs[labs.length - 1].y - (H - 6) : 0;
     if (over > 0) labs.forEach(function (l) { l.y -= over; });
     labs.forEach(function (l) { txt(svg, xR + 5, l.y - 2, l.text, { class: "pc-lab", fill: l.col }); txt(svg, xR + 5, l.y + 9, l.val, { class: "pc-val", fill: C.ink }); });
-    txt(svg, L + 2, H - 6, o.tfLabel ? o.tfLabel + " · " + n + " 根" : n + " 根", { class: "pc-ax" });
+    txt(svg, L + 2, H - 6, o.tfLabel ? o.tfLabel + " · " + n + tr(" 根", " bars") : n + tr(" 根", " bars"), { class: "pc-ax" });
 
     // hover / touch: the bar under the pointer
     var wrap = document.createElement("div"); wrap.className = "pc";
@@ -131,7 +132,7 @@
       vl.setAttribute("x1", X(i)); vl.setAttribute("x2", X(i)); vl.setAttribute("visibility", "visible");
       var d = new Date(r[0] + 8 * 3600000), when = (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + " " + ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2);
       var f = o.fmt || String;
-      tip.textContent = when + " SGT · 开 " + f(r[1]) + " 高 " + f(r[2]) + " 低 " + f(r[3]) + " 收 " + f(r[4]);
+      tip.textContent = when + " SGT · " + tr("开 ", "O ") + f(r[1]) + tr(" 高 ", " H ") + f(r[2]) + tr(" 低 ", " L ") + f(r[3]) + tr(" 收 ", " C ") + f(r[4]);
       tip.hidden = false;
       var x = X(i) * rc.width / W, w = tip.offsetWidth; tip.style.left = Math.max(0, Math.min(rc.width - w, x - w / 2)) + "px";
     };
@@ -139,7 +140,7 @@
     svg.addEventListener("pointerleave", function () { vl.setAttribute("visibility", "hidden"); tip.hidden = true; });
     wrap.appendChild(svg); wrap.appendChild(tip);
     var leg = document.createElement("div"); leg.className = "pc-leg";
-    leg.innerHTML = '<span><i style="background:var(--gold,#D4A72C)"></i>形态的线</span><span><i class="d" style="border-color:var(--gold,#D4A72C)"></i>突破位</span><span><i class="d" style="border-color:' + COLS.stop + '"></i>失效位</span><span><i class="d" style="border-color:' + COLS.tgt + '"></i>目标</span><span>右边灰色区域：最后一根之后</span>';
+    leg.innerHTML = '<span><i style="background:var(--gold,#D4A72C)"></i>' + tr("形态的线", "Pattern lines") + '</span><span><i class="d" style="border-color:var(--gold,#D4A72C)"></i>' + tr("突破位", "Break level") + '</span><span><i class="d" style="border-color:' + COLS.stop + '"></i>' + tr("失效位", "Fails") + '</span><span><i class="d" style="border-color:' + COLS.tgt + '"></i>' + tr("目标", "Target") + '</span><span>' + tr("右边灰色区域：最后一根之后", "Grey area on the right: after the last bar") + '</span>';
     wrap.appendChild(leg);
     return wrap;
   }

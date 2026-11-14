@@ -49,6 +49,16 @@ var XauPlan = (function () {
     }
   };
 
+  // The page's language (assets/i18n.js sets window.LANG). Node, the replay and the tracker have no window: Chinese.
+  var EN = typeof window !== "undefined" && window.LANG === "en";
+  function tr(zh, en) { return EN ? en : zh; }
+  if (EN) {
+    TF_ZH = { W: "Weekly", D: "Daily", "4H": "4-hour", "1H": "1-hour", "15M": "15-min" };
+    TF_S = { W: "W", D: "D", "4H": "4H", "1H": "1H", "15M": "15M" };
+    ZH = { trend: { bullish: "bullish", bearish: "bearish", unclear: "unclear", mixed: "mixed" }, stack: { bullish: "bullish stack", bearish: "bearish stack", mixed: "mixed" },
+      zone: { premium: "premium", discount: "discount", equilibrium: "equilibrium" }, pattern: {}, status: {} };   // patterns and statuses: the engine's own English
+  }
+
   function num(v) { return typeof v === "number" && isFinite(v) ? v : null; }
   var NF = {};                                                                   // one formatter per precision: creating one per number is slow
   function fmt(v, d) {
@@ -62,7 +72,7 @@ var XauPlan = (function () {
     var a = Math.abs(v), cents = a < 100 && Math.round(a * 100) % 100 !== 0;
     return (v < 0 ? "−" : "") + "$" + fmt(a, cents ? 2 : 0);
   }
-  function agoTxt(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + " 分钟前"; var hr = Math.round(m / 60); return hr < 48 ? hr + " 小时前" : Math.round(hr / 24) + " 天前"; }
+  function agoTxt(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + tr(" 分钟前", " min ago"); var hr = Math.round(m / 60); return hr < 48 ? hr + tr(" 小时前", " h ago") : Math.round(hr / 24) + tr(" 天前", " days ago"); }
   function tfOk(E, tf) { var t = E && E.tfs && E.tfs[tf]; return t && !t.error ? t : null; }
 
   // ---------- key levels ----------
@@ -249,7 +259,7 @@ var XauPlan = (function () {
     var out = [];
     ["D", "4H", "1H"].forEach(function (tf) {
       var t = tfOk(E, tf);
-      ((t && t.patterns) || []).forEach(function (p) { var d = patternWay(p); if (d) out.push({ tf: tf, dir: d, name: p.name, text: TF_ZH[tf] + (ZH.pattern[p.name] || p.name) + "（已" + (d > 0 ? "向上" : "向下") + "突破）" }); });
+      ((t && t.patterns) || []).forEach(function (p) { var d = patternWay(p); if (d) out.push({ tf: tf, dir: d, name: p.name, text: EN ? TF_ZH[tf] + " " + p.name.toLowerCase() + " (broke " + (d > 0 ? "up" : "down") + ")" : TF_ZH[tf] + (ZH.pattern[p.name] || p.name) + "（已" + (d > 0 ? "向上" : "向下") + "突破）" }); });
     });
     return out;
   }
