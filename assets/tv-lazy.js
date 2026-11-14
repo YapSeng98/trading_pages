@@ -5,6 +5,7 @@
   "use strict";
   [].forEach.call(document.querySelectorAll("script[data-tv-lazy]"), function (cfg) {
     var host = cfg.parentNode, text = cfg.textContent, hgt = 0;
+    if (window.LANG === "en") text = text.replace(/🚀 成长股/g, "🚀 Growth").replace(/💰 股息股/g, "💰 Dividend").replace(/美元指数 DXY/g, "Dollar index DXY").replace(/白银 XAG\/USD/g, "Silver XAG/USD").replace(/WTI 原油/g, "WTI crude").replace(/黄金 XAU\/USD/g, "Gold XAU/USD");   // the widgets' tab and row titles
     try { hgt = parseInt(JSON.parse(text).height, 10) || 0; } catch (e) {}
     if (hgt) host.style.minHeight = hgt + "px";
     var go = function () { var sc = document.createElement("script"); sc.src = "https://s3.tradingview.com/external-embedding/" + cfg.getAttribute("data-tv-lazy") + ".js"; sc.async = true; sc.textContent = text; host.appendChild(sc); };
