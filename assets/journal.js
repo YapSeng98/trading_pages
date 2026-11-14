@@ -842,7 +842,7 @@
     var TABLE = { items: "pnl_trades", cash: "pnl_cash", goals: "pnl_goals" };
     var COLS = { items: ["d", "amt", "sym", "side", "lots", "risk", "rule", "plat", "note", "t"], cash: ["d", "kind", "amt", "plat", "note", "t"], goals: ["name", "target", "start_d", "at", "done_d", "done_at", "reached"] };
     var NUMS = { amt: 1, lots: 1, risk: 1, t: 1, target: 1, at: 1, done_at: 1, reached: 1, u: 1, start: 1 };
-    var st = { busy: false, again: false, err: "", missing: false, recovery: false, note: "", formErr: "", resend: "", mode: null, timer: null, auth: null, retried: false };
+    var st = { busy: false, again: false, err: "", missing: false, recovery: false, note: "", formErr: "", resend: "", sql: "", mode: null, timer: null, auth: null, retried: false };
     function ref() { var m = /^https:\/\/([a-z0-9]+)\.supabase\.co/.exec(CFG.url || ""); return m ? m[1] : ""; }
     function key() { return CFG.key || ls(CKEY) || ""; }
     function conf() { var k = key(); return CFG.url && k ? { url: CFG.url.replace(/\/+$/, ""), key: k } : null; }
@@ -983,7 +983,7 @@
     // "登录 / 注册": sign in; when Supabase says the e-mail and password match no account, create the account with them.
     function auth(kind) {
       var email = (($("cl-email") || {}).value || "").trim(), pw = ($("cl-pw") || {}).value || "";
-      st.formErr = ""; st.note = ""; st.resend = "";
+      st.formErr = ""; st.note = ""; st.resend = ""; st.sql = "";
       if (!/^\S+@\S+\.\S+$/.test(email)) { st.formErr = "请填邮箱。"; paintMsg(); return; }
       if (kind !== "recover" && pw.length < 6) { st.formErr = "密码至少 6 位。"; paintMsg(); return; }
       ls(MAIL, email);
@@ -1000,12 +1000,14 @@
         if (r.up && r.up.access_token) { adopt(r.up); toast("新账号已建好，已登录"); return; }
         if (u && Array.isArray(u.identities) && !u.identities.length) { st.formErr = "这个邮箱已经注册过，但密码不对。忘了密码就点「忘记密码」。"; paintMsg(); return; }
         st.note = "这是新邮箱：账号已经建好，确认邮件已发到 " + email + "。点邮件里的链接就会回到这一页并自动登录（打开的如果是空白页或 localhost 也没关系，回来再点一次「登录 / 注册」）。";
-        st.resend = email; paintMsg();
+        st.resend = email; st.sql = confirmSql(email); paintMsg();
       }, function (e) {
         Array.prototype.forEach.call(btns, function (b) { b.disabled = false; });
-        st.formErr = authWords(e); if (/email not confirmed|email_not_confirmed/i.test(String(e.message) + " " + String(e.code))) st.resend = email; paintMsg();
+        st.formErr = authWords(e); if (/email not confirmed|email_not_confirmed/i.test(String(e.message) + " " + String(e.code))) { st.resend = email; st.sql = confirmSql(email); } paintMsg();
       });
     }
+    function confirmSql(email) { return "update auth.users set email_confirmed_at = now() where email = '" + email.replace(/'/g, "''") + "' and email_confirmed_at is null;"; }
+    function copy(text, done) { try { navigator.clipboard.writeText(text).then(function () { toast(done); }, function () { toast("复制失败：长按选中再复制"); }); } catch (e) { toast("复制失败：长按选中再复制"); } }
     function resend() {
       var email = st.resend; if (!email) return;
       call("/auth/v1/resend?redirect_to=" + encodeURIComponent(here()), { method: "POST", body: { type: "signup", email: email } }).then(function () { st.formErr = ""; st.note = "确认邮件又发了一次，到 " + email + " 的收件箱（也看看垃圾邮件）。"; paintMsg(); }, function (e) { st.formErr = authWords(e); paintMsg(); });
@@ -1034,11 +1036,30 @@
       st.auth = {};
       fetch(c.url + "/auth/v1/settings", { headers: { apikey: c.key } }).then(function (r) { return r.ok ? r.json() : {}; }).then(function (j) { st.auth = j || {}; st.mode = null; paint(); }).catch(function () {});
     }
-    // Links in Supabase's e-mails come back here with the session (or an error) after "#".
+    // The pairing link: this page with the project's publishable key after "#k=" (the key is made for web pages;
+    // the account still needs its e-mail and password). A QR of it is drawn with qrcode-generator, loaded only here.
+    function pairLink() { return here() + (CFG.key ? "" : "#k=" + encodeURIComponent(key())); }
+    var qrLib = null;
+    function drawQr() {
+      var box = $("cl-qr"); if (!box || phone()) return;
+      if (!qrLib) qrLib = new Promise(function (ok, no) { var sc = document.createElement("script"); sc.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
+      qrLib.then(function () {
+        var qr = window.qrcode(0, "M"); qr.addData(pairLink()); qr.make();
+        var n = qr.getModuleCount(), svg = sv("svg", { viewBox: "0 0 " + n + " " + n, "shape-rendering": "crispEdges" }), d = "";
+        for (var r = 0; r < n; r++) for (var c = 0; c < n; c++) if (qr.isDark(r, c)) d += "M" + c + " " + r + "h1v1h-1z";
+        sv("path", { d: d, fill: "#0B0B10" }, svg); clear(box).appendChild(svg);
+      }, function () { box.hidden = true; });
+    }
+    function okKey(k) { return !/^sb_secret_/.test(k) && jwtRole(k) !== "service_role" && (/^sb_publishable_[A-Za-z0-9_-]+$/.test(k) || jwtRole(k) === "anon"); }
+    // Links in Supabase's e-mails come back here with the session (or an error) after "#"; a pairing link brings the key.
     function fromHash() {
-      var hs = location.hash.slice(1); if (!/(^|&)(access_token|error_description)=/.test(hs)) return;
+      var hs = location.hash.slice(1); if (!/(^|&)(access_token|error_description|k)=/.test(hs)) return;
       var q = {}; hs.split("&").forEach(function (p) { var i = p.indexOf("="); if (i > 0) q[decodeURIComponent(p.slice(0, i))] = decodeURIComponent(p.slice(i + 1).replace(/\+/g, " ")); });
       try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+      if (q.k && !q.access_token) {
+        if (!CFG.key && okKey(q.k.trim())) { ls(CKEY, q.k.trim()); st.auth = null; st.note = "这台设备已经连上云端：用电脑上同一个邮箱和密码登录一次，就能看到那边记的每一笔。"; setTimeout(function () { toast("已连上云端：登录一次就同步"); var c = $("cloud"); if (c) c.scrollIntoView({ behavior: "smooth", block: "start" }); }, 300); }
+        return;
+      }
       if (q.error_description) { st.formErr = "邮件里的链接没用上：" + q.error_description + "（过期了就再发一次）"; return; }
       if (!conf()) { st.formErr = "先连上 Supabase，再点一次邮件里的链接。"; return; }
       call("/auth/v1/user", { token: q.access_token }).then(function (user) {
@@ -1065,6 +1086,8 @@
       if (st.formErr) m.appendChild(h("div", { class: "warn", role: "alert", text: st.formErr }));
       if (st.note) m.appendChild(h("div", { class: "okmsg", text: st.note }));
       if (st.resend && !sess()) m.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", text: "重发确认邮件", onclick: resend })]));
+      if (st.sql && !sess()) m.appendChild(h("div", { class: "sqlfix" }, [h("p", { class: "note" }, ["收不到确认邮件？Supabase 自带的发信只发给项目成员的邮箱，而且每小时只有几封。可以直接在 ", link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), " 运行下面这一行确认这个邮箱，然后回来点「登录 / 注册」："]),
+        h("pre", { text: st.sql }), h("button", { class: "btn sm", type: "button", onclick: function () { copy(st.sql, "已复制：到 SQL Editor 粘贴，点 Run"); } }, [icon("copy", "sm"), "复制这一行"])]));
       if (st.err && sess()) m.appendChild(h("div", { class: "warn" }, st.missing ? ["云端还没有建表：打开 Supabase 的 "].concat(sqlLinks(), ["，再点「立即同步」。"]) : [st.err]));
     }
     function flow(sx, c, s) {
@@ -1120,7 +1143,11 @@
           body.appendChild(h("div", { class: "acct" }, [h("span", { class: "av", id: "cl-av" }), h("div", { style: "min-width:0" }, [h("b", { id: "cl-who" }), h("small", { id: "cl-st" })])]));
           body.appendChild(h("div", { class: "mini3" }, [h("div", {}, [h("b", { id: "cl-n1" }), h("span", { text: "笔交易" })]), h("div", {}, [h("b", { id: "cl-n2" }), h("span", { text: "笔提现" })]), h("div", {}, [h("b", { id: "cl-n3" }), h("span", { text: "个目标" })])]));
           body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", onclick: function () { st.retried = false; sync().then(function (ok) { if (ok) toast("已同步"); }); } }, [icon("refresh", "sm"), "立即同步"]), h("button", { class: "btn sm ghost", type: "button", onclick: signOut }, [icon("logout", "sm"), "退出登录"])]));
+          body.appendChild(h("div", { class: "pair" }, [h("div", { class: "qr", id: "cl-qr", "aria-hidden": "true" }), h("div", { style: "min-width:0" }, [h("b", { text: "在手机上也看得到" }),
+            h("p", { class: "note", text: "用手机相机扫左边的码（或者把链接发到手机打开），手机就连上同一个云端；再用同一个邮箱和密码登录一次，这里记的每一笔都会出现在手机上，手机记的也会回到这里。" }),
+            h("div", { class: "acts", style: "margin-top:8px" }, [h("button", { class: "btn sm", type: "button", onclick: function () { copy(pairLink(), "链接已复制：发到手机上打开"); } }, [icon("copy", "sm"), "复制链接"])])])]));
           body.appendChild(h("p", { class: "note", text: "这台设备会一直保持登录：每次保存几秒后自动上传，打开或切回这一页时也会同步。没网的时候照样能记，连上后补传。" }));
+          drawQr();
         }
         body.appendChild(h("div", { id: "cl-msg", class: "cl" }));
       }
