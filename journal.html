@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="i18n" content="en">
+<meta name="i18n-title" content="P&amp;L Journal · Trading Hub">
+<script src="assets/i18n.js?v=1"></script>
 <title>盈亏日历 · Trading Hub</title>
 <link rel="manifest" href="journal.webmanifest">
 <meta name="theme-color" content="#07070B">
@@ -87,6 +90,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .ch .ib.g{background:rgba(10,176,116,.1);color:var(--bull);border-color:rgba(10,176,116,.25)}
 .ch .ib.v{background:rgba(124,108,240,.13);color:var(--ai);border-color:rgba(124,108,240,.3)}
 .ch h2{font:700 16px/1.2 var(--f-d);color:var(--ink);letter-spacing:-.2px}
+html[data-lang="en"] .ch .en:not([data-en]){display:none}
 .ch .en{font:500 9.5px/1 var(--f-m);letter-spacing:1.8px;text-transform:uppercase;color:var(--dim);margin-top:4px}
 .ch .end{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .note{font-size:12px;color:var(--dim);line-height:1.7}
@@ -252,6 +256,15 @@ details.ctx pre{margin-top:8px;max-height:260px;overflow:auto;white-space:pre-wr
 .tip{position:absolute;pointer-events:none;background:var(--bg4);border:1px solid var(--border-2);border-radius:9px;padding:6px 10px;font-size:11.5px;color:var(--ink);white-space:nowrap;z-index:3;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 .legend{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:10px;font-size:11.5px;color:var(--dim)}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.daily{margin-top:18px;padding-top:16px;border-top:1px dashed var(--border)}
+.daily svg{cursor:pointer}
+.dl-n{margin-left:auto;font:400 11px/1 var(--f-m);color:var(--dim)}
+.dl-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+.dl-stats div{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:9px 12px;min-width:0}
+.dl-stats small{display:block;font-size:11px;color:var(--dim);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dl-stats b{font:600 16px/1.2 var(--f-d)}
+.dl-stats em{font:400 11px var(--f-m);font-style:normal;color:var(--dim);margin-left:6px}
+@media(max-width:640px){.dl-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .bd-h{font:600 12px/1.4 var(--f-d);color:var(--ink);margin:2px 0 10px;display:flex;align-items:center;gap:7px}
 .bd-h svg{color:var(--gold-dk)}
 .dv{display:grid;gap:9px}
@@ -507,7 +520,7 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
 </svg>
 <div class="topstrip"></div>
 
-<nav class="navbar" aria-label="网站导航">
+<nav class="navbar" aria-label="网站导航" data-en-label="Site navigation">
   <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
   <a class="nl" href="report.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
   <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
@@ -521,170 +534,171 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
 <main class="wrap">
   <header class="hero">
     <div>
-      <span class="eyebrow"><i></i>Trading Journal · 交易日记</span>
-      <h1>盈亏<em>日历</em></h1>
-      <p class="sub">每做完一笔就记下来：进度条显示离这一轮的目标还差多少，复盘自动算出你的习惯，提现按平台记账。</p>
+      <span class="eyebrow"><i></i><span data-en="Trading Journal">Trading Journal · 交易日记</span></span>
+      <h1 data-en-html="P&amp;L <em>Journal</em>">盈亏<em>日历</em></h1>
+      <p class="sub" data-en="Log each trade when it closes: the bar shows how far this round's goal is, the review works out your habits, and withdrawals are kept by platform.">每做完一笔就记下来：进度条显示离这一轮的目标还差多少，复盘自动算出你的习惯，提现按平台记账。</p>
     </div>
     <div class="hero-r">
       <a class="sync" id="syncpill" href="#cloud">只存在本机</a>
-      <button class="btn pri" type="button" id="top-add"><svg class="i"><use href="#i-plus"/></svg>记一笔</button>
+      <button class="btn pri" type="button" id="top-add"><svg class="i"><use href="#i-plus"/></svg><span data-en="Log a trade">记一笔</span></button>
     </div>
   </header>
 
   <div class="bento">
     <div class="stack s7">
-      <section class="card goal" id="goal" aria-label="目标进度"></section>
-      <section class="card notes" id="notes" aria-label="备注">
-        <div class="ch"><span class="ib v"><svg class="i"><use href="#i-edit"/></svg></span><div><h2>备注</h2><div class="en">Remarks</div></div><span class="end note" id="n-date"></span></div>
-        <textarea id="n-text" rows="4" maxlength="2000" placeholder="这一天的心得、计划、做错的地方……写了就自动保存" aria-label="这一天的备注"></textarea>
+      <section class="card goal" id="goal" aria-label="目标进度" data-en-label="Goal progress"></section>
+      <section class="card notes" id="notes" aria-label="备注" data-en-label="Remarks">
+        <div class="ch"><span class="ib v"><svg class="i"><use href="#i-edit"/></svg></span><div><h2 data-en="Remarks">备注</h2><div class="en">Remarks</div></div><span class="end note" id="n-date"></span></div>
+        <textarea id="n-text" rows="4" maxlength="2000" placeholder="这一天的心得、计划、做错的地方……写了就自动保存" data-en-ph="Lessons, plans, mistakes for this day… saved as you type" aria-label="这一天的备注" data-en-label="Remark for this day"></textarea>
         <div class="n-foot"><span class="note" id="n-state"></span><span class="note" id="n-count"></span></div>
         <div class="n-list" id="n-list"></div>
       </section>
     </div>
 
-    <section class="card entry s5" id="quick" aria-label="记一笔">
-      <div class="sheet-h"><b>记一笔</b><button class="ibtn" type="button" id="sheet-x" aria-label="关闭"><svg class="i"><use href="#i-x"/></svg></button></div>
+    <section class="card entry s5" id="quick" aria-label="记一笔" data-en-label="Log a trade">
+      <div class="sheet-h"><b data-en="Log a trade">记一笔</b><button class="ibtn" type="button" id="sheet-x" aria-label="关闭" data-en-label="Close"><svg class="i"><use href="#i-x"/></svg></button></div>
       <div class="smart">
-        <div class="smart-in"><svg class="i"><use href="#i-spark"/></svg><input id="nl" type="text" autocomplete="off" spellcheck="false" enterkeyhint="done" placeholder="一句话记账，例如 +120 exness" aria-label="一句话记账"><button class="btn sm ai" type="button" id="nl-go" hidden>记下</button></div>
+        <div class="smart-in"><svg class="i"><use href="#i-spark"/></svg><input id="nl" type="text" autocomplete="off" spellcheck="false" enterkeyhint="done" placeholder="一句话记账，例如 +120 exness" data-en-ph="One line, e.g. +120 exness" aria-label="一句话记账" data-en-label="One-line entry"><button class="btn sm ai" type="button" id="nl-go" hidden data-en="Log it">记下</button></div>
       </div>
-      <div class="nl-out" id="nl-out" aria-live="polite"><span class="nl-ex">试试：<button type="button">+120 exness</button> · <button type="button">-35 xm 昨天</button> · <button type="button">提现 200 exness</button> · <button type="button">+80 黄金 多 0.05手</button></span></div>
-      <div class="or">或者一项一项填</div>
-      <div class="seg tabs" role="tablist" aria-label="记什么">
-        <button type="button" role="tab" id="tab-trade" aria-selected="true" aria-controls="f-trade"><svg class="i sm"><use href="#i-up"/></svg>交易盈亏</button>
-        <button type="button" role="tab" id="tab-cash" aria-selected="false" aria-controls="f-cash"><svg class="i sm"><use href="#i-wallet"/></svg>提现</button>
+      <div class="nl-out" id="nl-out" aria-live="polite"><span class="nl-ex" data-en-html="Try: &lt;button type=&quot;button&quot;&gt;+120 exness&lt;/button&gt; · &lt;button type=&quot;button&quot;&gt;-35 xm yesterday&lt;/button&gt; · &lt;button type=&quot;button&quot;&gt;withdraw 200 exness&lt;/button&gt; · &lt;button type=&quot;button&quot;&gt;+80 gold long 0.05lot&lt;/button&gt;">试试：<button type="button">+120 exness</button> · <button type="button">-35 xm 昨天</button> · <button type="button">提现 200 exness</button> · <button type="button">+80 黄金 多 0.05手</button></span></div>
+      <div class="or" data-en="or fill in each field">或者一项一项填</div>
+      <div class="seg tabs" role="tablist" aria-label="记什么" data-en-label="What to log">
+        <button type="button" role="tab" id="tab-trade" aria-selected="true" aria-controls="f-trade"><svg class="i sm"><use href="#i-up"/></svg><span data-en="Trade result">交易盈亏</span></button>
+        <button type="button" role="tab" id="tab-cash" aria-selected="false" aria-controls="f-cash"><svg class="i sm"><use href="#i-wallet"/></svg><span data-en="Withdrawal">提现</span></button>
       </div>
-      <div class="when"><label for="q-date">日期</label><div class="inp"><input id="q-date" type="date"></div><span class="wd" id="q-wd"></span><button type="button" class="btn sm ghost" id="q-today">回到今天</button></div>
+      <div class="when"><label for="q-date" data-en="Date">日期</label><div class="inp"><input id="q-date" type="date"></div><span class="wd" id="q-wd"></span><button type="button" class="btn sm ghost" id="q-today" data-en="Back to today">回到今天</button></div>
 
       <form class="qf" id="f-trade" role="tabpanel" aria-labelledby="tab-trade" novalidate>
-        <div class="sign" role="group" aria-label="赚了还是亏了">
-          <button type="button" class="w" id="s-win" aria-pressed="true"><svg class="i"><use href="#i-up"/></svg>赚了</button>
-          <button type="button" class="l" id="s-loss" aria-pressed="false"><svg class="i"><use href="#i-down"/></svg>亏了</button>
+        <div class="sign" role="group" aria-label="赚了还是亏了" data-en-label="Won or lost">
+          <button type="button" class="w" id="s-win" aria-pressed="true"><svg class="i"><use href="#i-up"/></svg><span data-en="Won">赚了</span></button>
+          <button type="button" class="l" id="s-loss" aria-pressed="false"><svg class="i"><use href="#i-down"/></svg><span data-en="Lost">亏了</span></button>
         </div>
-        <div class="f1"><label for="t-amt">金额（只填数字；按 − 键也能切到「亏了」）</label><div class="inp big"><span class="cur">$</span><input id="t-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="0.00" autocomplete="off"></div></div>
-        <div><div class="lab2">哪个平台（可不选）</div><div class="chips" id="t-plats"></div></div>
-        <details class="more" id="more"><summary>更多（可不填）：品种、方向、手数、风险、有没有按规则、备注</summary>
+        <div class="f1"><label for="t-amt" data-en="Amount (numbers only; the − key switches to «Lost»)">金额（只填数字；按 − 键也能切到「亏了」）</label><div class="inp big"><span class="cur">$</span><input id="t-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="0.00" autocomplete="off"></div></div>
+        <div><div class="lab2" data-en="Platform (optional)">哪个平台（可不选）</div><div class="chips" id="t-plats"></div></div>
+        <details class="more" id="more"><summary data-en="More (optional): symbol, side, lots, risk, by the rule or not, note">更多（可不填）：品种、方向、手数、风险、有没有按规则、备注</summary>
           <div class="f2">
-            <div><label for="t-sym">品种</label><div class="inp t"><input id="t-sym" type="text" maxlength="16" placeholder="XAUUSD"></div></div>
-            <div><label for="t-side">方向</label><div class="inp"><select id="t-side"><option value="">不填</option><option value="long">做多</option><option value="short">做空</option></select></div></div>
-            <div><label for="t-lots">手数</label><div class="inp"><input id="t-lots" type="number" inputmode="decimal" min="0" step="any" placeholder="0.01"></div></div>
-            <div><label for="t-risk">这笔原本最多打算亏</label><div class="inp"><span class="cur">$</span><input id="t-risk" type="number" inputmode="decimal" min="0" step="any" placeholder="可算出几 R"></div></div>
+            <div><label for="t-sym" data-en="Symbol">品种</label><div class="inp t"><input id="t-sym" type="text" maxlength="16" placeholder="XAUUSD"></div></div>
+            <div><label for="t-side" data-en="Side">方向</label><div class="inp"><select id="t-side"><option value="" data-en="—">不填</option><option value="long" data-en="Long">做多</option><option value="short" data-en="Short">做空</option></select></div></div>
+            <div><label for="t-lots" data-en="Lots">手数</label><div class="inp"><input id="t-lots" type="number" inputmode="decimal" min="0" step="any" placeholder="0.01"></div></div>
+            <div><label for="t-risk" data-en="Most I planned to lose">这笔原本最多打算亏</label><div class="inp"><span class="cur">$</span><input id="t-risk" type="number" inputmode="decimal" min="0" step="any" placeholder="可算出几 R" data-en-ph="gives the R multiple"></div></div>
           </div>
-          <div class="f1" style="margin-top:8px"><label for="t-rule">这笔是按 4H 报告的规则做的吗？</label><div class="inp"><select id="t-rule"><option value="">不填</option><option value="yes">是，按规则</option><option value="no">不是，自己的判断</option></select></div></div>
-          <div class="f1" style="margin-top:8px"><label for="t-note">备注</label><div class="inp t"><input id="t-note" type="text" maxlength="140" placeholder="为什么做、哪里做得好或不好"></div></div>
+          <div class="f1" style="margin-top:8px"><label for="t-rule" data-en="Did this trade follow the gold page's rule?">这笔是按 4H 报告的规则做的吗？</label><div class="inp"><select id="t-rule"><option value="" data-en="—">不填</option><option value="yes" data-en="Yes, by the rule">是，按规则</option><option value="no" data-en="No, my own call">不是，自己的判断</option></select></div></div>
+          <div class="f1" style="margin-top:8px"><label for="t-note" data-en="Note">备注</label><div class="inp t"><input id="t-note" type="text" maxlength="140" placeholder="为什么做、哪里做得好或不好" data-en-ph="Why you took it, what went well or not"></div></div>
         </details>
         <div class="err" id="t-err" role="alert" hidden></div>
-        <div class="acts"><button class="btn pri wide" type="submit" id="t-save">保存</button><button class="btn ghost" type="button" id="t-cancel" hidden>取消修改</button></div>
+        <div class="acts"><button class="btn pri wide" type="submit" id="t-save">保存</button><button class="btn ghost" type="button" id="t-cancel" hidden data-en="Cancel edit">取消修改</button></div>
       </form>
 
       <form class="qf" id="f-cash" role="tabpanel" aria-labelledby="tab-cash" novalidate hidden>
-        <div class="f1"><label for="c-amt">提了多少</label><div class="inp big"><span class="cur">$</span><input id="c-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="0.00" autocomplete="off"></div></div>
-        <div><div class="lab2">从哪个平台提的</div><div class="chips" id="c-plats"></div></div>
-        <div class="f1"><label for="c-note">备注（可不填）</label><div class="inp t"><input id="c-note" type="text" maxlength="140" placeholder="例如 提到银行卡、手续费 $2"></div></div>
+        <div class="f1"><label for="c-amt" data-en="Amount withdrawn">提了多少</label><div class="inp big"><span class="cur">$</span><input id="c-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="0.00" autocomplete="off"></div></div>
+        <div><div class="lab2" data-en="From which platform">从哪个平台提的</div><div class="chips" id="c-plats"></div></div>
+        <div class="f1"><label for="c-note" data-en="Note (optional)">备注（可不填）</label><div class="inp t"><input id="c-note" type="text" maxlength="140" placeholder="例如 提到银行卡、手续费 $2" data-en-ph="e.g. to the bank card, $2 fee"></div></div>
         <div class="err" id="c-err" role="alert" hidden></div>
-        <div class="acts"><button class="btn pri wide" type="submit" id="c-save">记下提现</button><button class="btn ghost" type="button" id="c-cancel" hidden>取消修改</button></div>
+        <div class="acts"><button class="btn pri wide" type="submit" id="c-save">记下提现</button><button class="btn ghost" type="button" id="c-cancel" hidden data-en="Cancel edit">取消修改</button></div>
       </form>
 
       <div class="todayline"><svg class="i sm"><use href="#i-sun"/></svg><span id="todayline"></span></div>
     </section>
 
-    <section class="s12" aria-label="概览">
+    <section class="s12" aria-label="概览" data-en-label="Overview">
       <div class="ch" style="margin:6px 0 12px">
-        <div><h2>概览</h2><div class="en">Overview</div></div>
-        <div class="end"><div class="seg" role="tablist" aria-label="时间范围" id="per">
-          <button type="button" role="tab" data-p="week" aria-selected="false">本周</button><button type="button" role="tab" data-p="month" aria-selected="true">本月</button><button type="button" role="tab" data-p="year" aria-selected="false">今年</button><button type="button" role="tab" data-p="all" aria-selected="false">全部</button>
+        <div><h2 data-en="Overview">概览</h2><div class="en">Overview</div></div>
+        <div class="end"><div class="seg" role="tablist" aria-label="时间范围" data-en-label="Period" id="per">
+          <button type="button" role="tab" data-p="week" aria-selected="false" data-en="Week">本周</button><button type="button" role="tab" data-p="month" aria-selected="true" data-en="Month">本月</button><button type="button" role="tab" data-p="year" aria-selected="false" data-en="Year">今年</button><button type="button" role="tab" data-p="all" aria-selected="false" data-en="All">全部</button>
         </div></div>
       </div>
       <div class="kpis" id="kpis"></div>
     </section>
 
-    <section class="card ai-card s12" id="ai" aria-label="智能复盘">
+    <section class="card ai-card s12" id="ai" aria-label="智能复盘" data-en-label="Smart review">
       <div class="ch">
         <span class="ib v"><svg class="i"><use href="#i-spark"/></svg></span>
-        <div><h2 class="ai-h">智能复盘</h2><div class="en">Insights from your own records</div></div>
+        <div><h2 class="ai-h" data-en="Smart review">智能复盘</h2><div class="en" data-en="Insights from your own records">Insights from your own records</div></div>
         <span class="end note" id="ai-n"></span>
       </div>
       <div id="ai-body"></div>
       <div class="ai-acts">
-        <button class="btn ai" type="button" id="ask-go"><svg class="i sm"><use href="#i-spark"/></svg>让 Claude 写一份复盘</button>
-        <button class="btn sm ghost" type="button" id="ask-copy"><svg class="i sm"><use href="#i-copy"/></svg>只复制</button>
+        <button class="btn ai" type="button" id="ask-go"><svg class="i sm"><use href="#i-spark"/></svg><span data-en="Ask Claude for a review">让 Claude 写一份复盘</span></button>
+        <button class="btn sm ghost" type="button" id="ask-copy"><svg class="i sm"><use href="#i-copy"/></svg><span data-en="Copy only">只复制</span></button>
         <span class="note" id="ask-msg"></span>
       </div>
-      <details class="ctx" id="ask-ctx"><summary>Claude 会看到的资料（点按钮之前什么都不会发出去）</summary><pre id="ask-pre"></pre></details>
+      <details class="ctx" id="ask-ctx"><summary data-en="What Claude will see (nothing is sent before you press the button)">Claude 会看到的资料（点按钮之前什么都不会发出去）</summary><pre id="ask-pre"></pre></details>
     </section>
 
-    <section class="card s8" aria-label="累计盈亏">
-      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-up"/></svg></span><div><h2>累计盈亏</h2><div class="en">Equity curve</div></div><span class="end note" id="ctotal"></span></div>
+    <section class="card s8" aria-label="累计盈亏" data-en-label="Equity curve">
+      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-up"/></svg></span><div><h2 data-en="Equity curve">累计盈亏</h2><div class="en">Equity curve</div></div><span class="end note" id="ctotal"></span></div>
       <div class="chart" id="chart"></div>
+      <div class="chart daily" id="daily" hidden></div>
     </section>
-    <section class="card s4" aria-label="分布">
-      <div class="ch"><span class="ib"><svg class="i"><use href="#i-chart"/></svg></span><div><h2>分布</h2><div class="en">Breakdown</div></div></div>
+    <section class="card s4" aria-label="分布" data-en-label="Breakdown">
+      <div class="ch"><span class="ib"><svg class="i"><use href="#i-chart"/></svg></span><div><h2 data-en="Breakdown">分布</h2><div class="en">Breakdown</div></div></div>
       <div id="bd"></div>
     </section>
 
-    <section class="card s8" aria-label="月历">
-      <div class="ch"><span class="ib"><svg class="i"><use href="#i-cal"/></svg></span><div><h2>月历</h2><div class="en">Calendar</div></div>
-        <div class="end"><span class="mtot" id="mtot"></span><div class="monav"><button type="button" id="prev" aria-label="上个月"><svg class="i sm"><use href="#i-l"/></svg></button><span class="m" id="mlabel"></span><button type="button" id="next" aria-label="下个月"><svg class="i sm"><use href="#i-r"/></svg></button></div></div></div>
-      <div class="dow" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+    <section class="card s8" aria-label="月历" data-en-label="Calendar">
+      <div class="ch"><span class="ib"><svg class="i"><use href="#i-cal"/></svg></span><div><h2 data-en="Calendar">月历</h2><div class="en">Calendar</div></div>
+        <div class="end"><span class="mtot" id="mtot"></span><div class="monav"><button type="button" id="prev" aria-label="上个月" data-en-label="Previous month"><svg class="i sm"><use href="#i-l"/></svg></button><span class="m" id="mlabel"></span><button type="button" id="next" aria-label="下个月" data-en-label="Next month"><svg class="i sm"><use href="#i-r"/></svg></button></div></div></div>
+      <div class="dow" aria-hidden="true"><span data-en="Mon">一</span><span data-en="Tue">二</span><span data-en="Wed">三</span><span data-en="Thu">四</span><span data-en="Fri">五</span><span data-en="Sat">六</span><span data-en="Sun">日</span></div>
       <div class="grid" id="grid"></div>
-      <div class="weeks" id="weeks" aria-label="每周合计"></div>
-      <div class="legend" aria-hidden="true"><span><i style="background:rgba(10,176,116,.4)"></i>赚钱的一天</span><span><i style="background:rgba(219,41,67,.4)"></i>亏钱的一天</span><span>小圆点：每一笔，绿赚红亏</span><span><i style="background:var(--bg3);box-shadow:inset 0 -3px 0 var(--gold)"></i>那天有提现</span><span><i style="background:#A99BFF;width:7px;height:7px;border-radius:2px"></i>那天有备注</span></div>
+      <div class="weeks" id="weeks" aria-label="每周合计" data-en-label="Weekly totals"></div>
+      <div class="legend" aria-hidden="true"><span><i style="background:rgba(10,176,116,.4)"></i><span data-en="Winning day">赚钱的一天</span></span><span><i style="background:rgba(219,41,67,.4)"></i><span data-en="Losing day">亏钱的一天</span></span><span data-en="Dots: each trade, green won, red lost">小圆点：每一笔，绿赚红亏</span><span><i style="background:var(--bg3);box-shadow:inset 0 -3px 0 var(--gold)"></i><span data-en="Withdrawal that day">那天有提现</span></span><span><i style="background:#A99BFF;width:7px;height:7px;border-radius:2px"></i><span data-en="Remark that day">那天有备注</span></span></div>
     </section>
-    <section class="card s4" aria-label="这一天" id="daycard">
+    <section class="card s4" aria-label="这一天" data-en-label="This day" id="daycard">
       <div class="dhead"><span class="dt" id="dlabel"></span><span class="tot" id="dtotal"></span></div>
       <div class="recs" id="recs"></div>
-      <button class="btn sm" type="button" id="d-add"><svg class="i sm"><use href="#i-plus"/></svg>在这一天记一笔</button>
+      <button class="btn sm" type="button" id="d-add"><svg class="i sm"><use href="#i-plus"/></svg><span data-en="Log something for this day">在这一天记一笔</span></button>
     </section>
 
-    <section class="card s7" aria-label="提现记录" id="cashcard">
-      <div class="ch"><span class="ib"><svg class="i"><use href="#i-wallet"/></svg></span><div><h2>提现记录</h2><div class="en">Withdrawals</div></div><span class="end note" id="cashtotal"></span></div>
+    <section class="card s7" aria-label="提现记录" data-en-label="Withdrawals" id="cashcard">
+      <div class="ch"><span class="ib"><svg class="i"><use href="#i-wallet"/></svg></span><div><h2 data-en="Withdrawals">提现记录</h2><div class="en">Withdrawals</div></div><span class="end note" id="cashtotal"></span></div>
       <div id="cashbody"></div>
     </section>
     <div class="stack s5">
-      <section class="card" aria-label="全年">
-        <div class="ch"><span class="ib"><svg class="i"><use href="#i-cal"/></svg></span><div><h2 id="ylabel"></h2><div class="en">Year</div></div><span class="end note" id="ytotal"></span></div>
+      <section class="card" aria-label="全年" data-en-label="Year">
+        <div class="ch"><span class="ib"><svg class="i"><use href="#i-cal"/></svg></span><div><h2 id="ylabel"></h2><div class="en" data-en="Year">Year</div></div><span class="end note" id="ytotal"></span></div>
         <div class="months" id="months"></div>
       </section>
-      <section class="card" aria-label="按规则与不按规则">
-        <div class="ch"><span class="ib"><svg class="i"><use href="#i-book"/></svg></span><div><h2>按规则做，和不按规则做</h2><div class="en">Rules</div></div></div>
+      <section class="card" aria-label="按规则与不按规则" data-en-label="By the rule or not">
+        <div class="ch"><span class="ib"><svg class="i"><use href="#i-book"/></svg></span><div><h2 data-en="By the rule, or not">按规则做，和不按规则做</h2><div class="en">Rules</div></div></div>
         <div class="cmp" id="cmp"></div>
       </section>
     </div>
 
-    <section class="card s6" aria-label="云端同步" id="cloud">
-      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-cloud"/></svg></span><div><h2>云端同步</h2><div class="en">Supabase · 可选</div></div><span class="end pill" id="cl-state"></span></div>
+    <section class="card s6" aria-label="云端同步" data-en-label="Cloud sync" id="cloud">
+      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-cloud"/></svg></span><div><h2 data-en="Cloud sync">云端同步</h2><div class="en" data-en="Supabase · optional">Supabase · 可选</div></div><span class="end pill" id="cl-state"></span></div>
       <div class="flow" aria-hidden="true">
-        <div class="node on" id="fl-a"><span class="nb"><svg class="i"><use href="#i-phone"/></svg></span><b>这台设备</b><small id="fl-a-t">自动保存</small></div>
+        <div class="node on" id="fl-a"><span class="nb"><svg class="i"><use href="#i-phone"/></svg></span><b data-en="This device">这台设备</b><small id="fl-a-t">自动保存</small></div>
         <span class="link" id="fl-l1"></span>
-        <div class="node" id="fl-b"><span class="nb"><svg class="i"><use href="#i-cloud"/></svg></span><b>Supabase 云端</b><small id="fl-b-t">未开启</small></div>
+        <div class="node" id="fl-b"><span class="nb"><svg class="i"><use href="#i-cloud"/></svg></span><b data-en="Supabase cloud">Supabase 云端</b><small id="fl-b-t">未开启</small></div>
         <span class="link" id="fl-l2"></span>
-        <div class="node" id="fl-c"><span class="nb"><svg class="i"><use href="#i-laptop"/></svg></span><b>手机 · 电脑</b><small id="fl-c-t">登录同一个账号</small></div>
+        <div class="node" id="fl-c"><span class="nb"><svg class="i"><use href="#i-laptop"/></svg></span><b data-en="Phone · computer">手机 · 电脑</b><small id="fl-c-t">登录同一个账号</small></div>
       </div>
-      <ol class="stepper" id="cl-steps"><li><i>1</i><span>连接项目</span></li><li><i>2</i><span>登录 / 注册</span></li><li><i>3</i><span>自动同步</span></li></ol>
+      <ol class="stepper" id="cl-steps"><li><i>1</i><span data-en="Connect">连接项目</span></li><li><i>2</i><span data-en="Sign in">登录 / 注册</span></li><li><i>3</i><span data-en="Auto-sync">自动同步</span></li></ol>
       <div class="cl" id="cl-body"></div>
     </section>
-    <section class="card s6" aria-label="设置与备份">
-      <div class="ch"><span class="ib"><svg class="i"><use href="#i-sliders"/></svg></span><div><h2>设置与备份</h2><div class="en">Settings</div></div></div>
+    <section class="card s6" aria-label="设置与备份" data-en-label="Settings and backup">
+      <div class="ch"><span class="ib"><svg class="i"><use href="#i-sliders"/></svg></span><div><h2 data-en="Settings and backup">设置与备份</h2><div class="en">Settings</div></div></div>
       <div class="sgrid">
-        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-coins"/></svg>货币</div><div class="curs" id="curs"></div><div class="inp t"><input id="s-cur" type="text" maxlength="4" placeholder="其他符号，自己填" aria-label="货币符号"></div></div>
-        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-wallet"/></svg>月初账户余额</div><div class="inp"><span class="cur">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填" aria-label="月初账户余额"></div><p class="note" style="margin-top:8px">填了，本月盈亏会显示占余额的百分之几。</p></div>
+        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-coins"/></svg><span data-en="Currency">货币</span></div><div class="curs" id="curs"></div><div class="inp t"><input id="s-cur" type="text" maxlength="4" placeholder="其他符号，自己填" data-en-ph="Other sign, type it" aria-label="货币符号" data-en-label="Currency sign"></div></div>
+        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-wallet"/></svg><span data-en="Month-start balance">月初账户余额</span></div><div class="inp"><span class="cur">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填" data-en-ph="optional" aria-label="月初账户余额" data-en-label="Month-start balance"></div><p class="note" style="margin-top:8px" data-en="Fill it in and this month's P&amp;L also shows as a % of the balance.">填了，本月盈亏会显示占余额的百分之几。</p></div>
       </div>
-      <div class="sbox" style="margin-top:12px"><div class="sh"><svg class="i sm"><use href="#i-layers"/></svg>我的平台</div><div class="chips" id="s-plats"></div><p class="note" style="margin-top:8px">记交易和提现时点选平台用。删掉一个平台，已经记下的记录不受影响。</p></div>
+      <div class="sbox" style="margin-top:12px"><div class="sh"><svg class="i sm"><use href="#i-layers"/></svg><span data-en="My platforms">我的平台</span></div><div class="chips" id="s-plats"></div><p class="note" style="margin-top:8px" data-en="The platforms offered when you log a trade or a withdrawal, in this order. Removing one leaves the records already logged as they are.">记交易和提现时点选平台用，顺序和这里一样。删掉一个平台，已经记下的记录不受影响。</p></div>
       <div class="tiles3">
-        <button class="tl" type="button" id="export"><span class="ti"><svg class="i"><use href="#i-dl"/></svg></span><span><b>导出备份</b><br><small>存成一个文件，换设备时读回来</small></span></button>
-        <label class="tl"><span class="ti"><svg class="i"><use href="#i-ul"/></svg></span><span><b>导入备份</b><br><small>读回导出的文件，不会重复</small></span><input type="file" id="import" accept="application/json,.json" hidden></label>
-        <button class="tl" type="button" id="csv"><span class="ti"><svg class="i"><use href="#i-table"/></svg></span><span><b>导出表格</b><br><small>CSV，Excel 和 Numbers 能打开</small></span></button>
+        <button class="tl" type="button" id="export"><span class="ti"><svg class="i"><use href="#i-dl"/></svg></span><span><b data-en="Export backup">导出备份</b><br><small data-en="One file to read back on another device">存成一个文件，换设备时读回来</small></span></button>
+        <label class="tl"><span class="ti"><svg class="i"><use href="#i-ul"/></svg></span><span><b data-en="Import backup">导入备份</b><br><small data-en="Reads an exported file back, without duplicates">读回导出的文件，不会重复</small></span><input type="file" id="import" accept="application/json,.json" hidden></label>
+        <button class="tl" type="button" id="csv"><span class="ti"><svg class="i"><use href="#i-table"/></svg></span><span><b data-en="Export table">导出表格</b><br><small data-en="CSV, opens in Excel and Numbers">CSV，Excel 和 Numbers 能打开</small></span></button>
       </div>
-      <div class="install"><span class="ti"><svg class="i"><use href="#i-phone"/></svg></span><div><b>单独放在手机桌面</b><p class="note">浏览器菜单里的「添加到主屏幕」（iPhone 在分享按钮里），桌面上会多一个「盈亏日历」图标，打开直接就是这一页。</p></div></div>
+      <div class="install"><span class="ti"><svg class="i"><use href="#i-phone"/></svg></span><div><b data-en="Put it on your phone's home screen">单独放在手机桌面</b><p class="note" data-en="Use «Add to Home Screen» in the browser menu (on iPhone, in the Share button): a «P&amp;L Journal» icon appears and opens straight to this page.">浏览器菜单里的「添加到主屏幕」（iPhone 在分享按钮里），桌面上会多一个「盈亏日历」图标，打开直接就是这一页。</p></div></div>
     </section>
   </div>
 </main>
 
-<footer><div class="disc">这一页只是记账工具：数字是你自己填的，页面只做加总和统计。复盘里的每一条都是你过去记录的描述，不是预测，也不构成投资建议。目标进度只算交易盈亏，提现不会让进度变少。</div></footer>
-<button class="fab" type="button" id="fab" aria-label="记一笔"><svg class="i"><use href="#i-plus"/></svg></button>
+<footer><div class="disc" data-en="This page is a record-keeping tool: the numbers are yours, the page only adds them up. Every line in the review describes your past records; it is not a forecast and not investment advice. The goal counts trade results only; a withdrawal never makes it go down.">这一页只是记账工具：数字是你自己填的，页面只做加总和统计。复盘里的每一条都是你过去记录的描述，不是预测，也不构成投资建议。目标进度只算交易盈亏，提现不会让进度变少。</div></footer>
+<button class="fab" type="button" id="fab" aria-label="记一笔" data-en-label="Log a trade"><svg class="i"><use href="#i-plus"/></svg></button>
 <div class="scrim" id="scrim"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/journal.js?v=5"></script>
-<script src="assets/site.js?v=1" defer></script>
+<script src="assets/journal.js?v=6"></script>
+<script src="assets/site.js?v=2" defer></script>
 </body>
 </html>
