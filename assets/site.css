@@ -1,0 +1,56 @@
+/* Trading Hub: the shared look, loaded last on every page so it wins over each page's own <style>.
+   Every page names its colours with the same variables (--bg, --bg2, --border, --gold …), so restating them here
+   moves the whole site at once; the rest is the navbar, the background and the surfaces all pages share.
+   Text and layout stay each page's own. No animation loops here (CLAUDE.md "Speed"). */
+:root{
+  --bg:#07070B;--bg2:#101016;--bg3:#17171F;--bg4:#22222C;
+  --border:rgba(255,255,255,.075);--border-2:rgba(255,255,255,.13);--glass-brd:rgba(255,255,255,.08);
+  --glass:rgba(16,16,22,.72);--glass-2:rgba(23,23,31,.6);
+  --r-lg:22px;--r-md:16px;--r-sm:12px;
+  --shadow-sm:inset 0 1px 0 rgba(255,255,255,.04),0 12px 34px rgba(0,0,0,.32);
+  --shadow-md:inset 0 1px 0 rgba(255,255,255,.05),0 18px 48px rgba(0,0,0,.42);
+  --ai:#A99BFF;
+}
+html{scroll-padding-top:72px}
+body{background-color:var(--bg);background-image:radial-gradient(1000px 560px at 10% -10%,rgba(212,167,44,.12),transparent 62%),radial-gradient(820px 520px at 95% 0%,rgba(124,108,240,.09),transparent 64%);background-repeat:no-repeat;background-size:100% 1100px;font-feature-settings:"tnum" 1}
+/* the old decorative layers: orbs, noise and grid cost repaints and add little */
+.mesh,body::before{display:none!important}
+body::after{opacity:.8}
+::selection{background:rgba(212,167,44,.35);color:#fff}
+*{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.16) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:10px;border:2px solid var(--bg)}
+::-webkit-scrollbar-track{background:transparent}
+.topstrip{height:2px;background:linear-gradient(90deg,transparent,#C9A84C 20%,#F1D27A 50%,#C9A84C 80%,transparent)}
+
+/* ── navbar: one bar for the whole site ── */
+.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:2px;padding:10px max(16px,calc((100% - 1240px) / 2 + 24px));background:rgba(7,7,11,.78);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.navbar .brand{display:flex;align-items:center;gap:10px;font:700 15px/1 'Space Grotesk','Noto Sans SC',sans-serif;color:#F6F5F3;text-decoration:none;letter-spacing:-.3px;margin-right:auto;white-space:nowrap;flex-shrink:0;padding:4px 0}
+.navbar .brand .dot{display:none}
+.navbar .brand .logo{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#F1D27A,#C9A03A);box-shadow:0 4px 16px rgba(212,167,44,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+.navbar .brand .logo svg{width:16px;height:16px}
+.navbar .brand small{font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:1.4px;color:#8A857E;text-transform:uppercase;margin-left:2px}
+.navbar a.nl{display:inline-flex;align-items:center;gap:7px;font:500 13px/1 'Noto Sans SC',sans-serif;color:#8A857E;text-decoration:none;padding:9px 12px;border-radius:11px;transition:color .15s,background .15s;white-space:nowrap}
+.navbar a.nl svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.navbar a.nl:hover{color:#F6F5F3;background:rgba(255,255,255,.05)}
+.navbar a.nl.on{color:#F6F5F3;background:linear-gradient(180deg,rgba(212,167,44,.16),rgba(212,167,44,.08));box-shadow:inset 0 0 0 1px rgba(212,167,44,.32)}
+.navbar a.nl.on svg{color:#E6BE55}
+@media(max-width:1100px){.navbar .brand small{display:none}}
+@media(max-width:860px){.navbar{overflow-x:auto;scrollbar-width:none;padding:8px 14px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:40px}.navbar::-webkit-scrollbar{display:none}.navbar a.nl{flex:none;padding:10px 12px;font-size:12.5px}.navbar .brand{flex:none;margin-right:8px}}
+@media(max-width:640px){.navbar{background:#07070B!important}.navbar .brand .t{display:none}}
+
+/* ── surfaces ── */
+.card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 180px),var(--bg2);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-sm)}
+.card-head h2,.card h2{letter-spacing:-.25px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #D4A72C;outline-offset:2px}
+.chip{border-radius:999px}
+.disc,.disclaimer{color:#8A857E}
+
+/* ── page titles: one typeface and one gold word everywhere ── */
+h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-weight:700;letter-spacing:-1.2px}
+h1 em{font-style:normal;background:linear-gradient(120deg,#E6BE55,#F5B23E 55%,#C2A055);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* stocks and potential: the title block lines up with the content below it, like the other pages */
+header.pg-head{max-width:1120px;margin:0 auto;text-align:left;padding:40px 24px 6px}
+header.pg-head .eyebrow{letter-spacing:1.6px;font-size:10.5px;margin-bottom:14px}
+header.pg-head .hdate{text-align:left}
+@media(max-width:640px){header.pg-head{padding:26px 14px 4px}}

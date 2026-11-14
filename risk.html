@@ -10,7 +10,7 @@
 <script src="assets/embed.js?v=1"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
 <style>
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--violet:#9B8CF0;
@@ -41,7 +41,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;op
 @media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
 header{background:var(--bg2);border-bottom:1px solid var(--border);padding:28px 48px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .hl-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:8px}
-header h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
+header h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:34px;font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px}
 header h1 em{color:var(--gold);font-style:normal}
 .hdate{font-size:13px;line-height:1.75;color:var(--text);margin-top:10px;max-width:820px}
 .hprice{text-align:right}
@@ -105,20 +105,21 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 @media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
 *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
 </style>
+<link rel="stylesheet" href="assets/site.css?v=1">
 </head>
 <body>
 <div class="mesh"><div class="orb-violet"></div></div>
 <div class="topstrip"></div>
 
-<nav class="navbar">
-  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
-  <a class="nl on" href="report.html">🥇 黄金</a>
-  <a class="nl" href="btc.html">₿ 比特币</a>
-  <a class="nl" href="forex.html">💱 外汇</a>
-  <a class="nl" href="journal.html">📒 盈亏日历</a>
-  <a class="nl" href="strategy.html">📖 策略</a>
-  <a class="nl" href="stocks.html">📈 股票</a>
-  <a class="nl" href="potential.html">🚀 潜力精选</a>
+<nav class="navbar" aria-label="网站导航">
+  <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
+  <a class="nl on" href="report.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
+  <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
+  <a class="nl" href="forex.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/></svg>外汇</a>
+  <a class="nl" href="journal.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>盈亏日历</a>
+  <a class="nl" href="strategy.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>策略</a>
+  <a class="nl" href="stocks.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg>股票</a>
+  <a class="nl" href="potential.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg>潜力精选</a>
 </nav>
 
 <header>

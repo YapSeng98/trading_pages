@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trading Stock · 交易中心 Trading Hub</title>
+<title>Trading Hub · 交易中心</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0A0A0F">
+<meta name="theme-color" content="#07070B">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,361 +14,242 @@
 :root{
   --gold:#D4A72C;--gold-lt:#E6BE55;--gold-dk:#C2A055;--amber:#F5B23E;
   --bear:#F87171;--bull:#34D399;--blue:#60A5FA;--violet:#9B8CF0;--neut:#94A3B8;
-  --bg:#0A0A0F;--bg2:#15151C;--bg3:#1E1E27;--bg4:#2B2B36;
-  --glass:rgba(23,23,31,.6);--glass-2:rgba(30,30,40,.5);--glass-brd:rgba(255,255,255,.075);
-  --border:#282833;--border-2:#37374553;--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
-  --r-lg:22px;--r-md:14px;--r-sm:10px;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.5),0 2px 12px rgba(0,0,0,.35);
-  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 16px 40px rgba(0,0,0,.5);
-  --shadow-gold:0 6px 30px rgba(212,167,44,.22);
-  --shadow-violet:0 6px 30px rgba(155,140,240,.18);
+  --m-bull:#0ab074;--m-bear:#db2943;
+  --bg:#07070B;--bg2:#101016;--bg3:#17171F;--bg4:#22222C;
+  --border:rgba(255,255,255,.075);--border-2:rgba(255,255,255,.13);--text:#C9C4BD;--dim:#8A857E;--ink:#F6F5F3;
+  --f-d:'Space Grotesk','Noto Sans SC',sans-serif;--f-m:'IBM Plex Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased;position:relative}
-body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
-body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 900px 500px at 50% 0%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 900px 500px at 50% 0%,#000,transparent 75%)}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans SC',sans-serif;font-size:14px;line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+@media(max-width:560px){.wrap{padding:0 14px}}
 
-/* ── ambient background mesh ── */
-.mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
-.mesh::before{content:'';position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,158,11,.10),transparent 65%);filter:blur(40px)}
-.mesh::after{content:'';position:absolute;top:38%;right:-200px;width:640px;height:520px;background:radial-gradient(ellipse,rgba(184,134,11,.07),transparent 65%);filter:blur(44px)}
-.mesh .orb-violet{position:absolute;top:8%;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(155,140,240,.09),transparent 68%);filter:blur(50px)}
+/* hero */
+.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:40px 0 24px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:500 10.5px/1 var(--f-m);letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-lt);padding:7px 12px;border:1px solid rgba(212,167,44,.26);border-radius:999px;background:rgba(212,167,44,.07)}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--bull);box-shadow:0 0 0 3px rgba(52,211,153,.18)}
+.hero h1{font:700 clamp(32px,5vw,52px)/1.05 var(--f-d);color:var(--ink);letter-spacing:-1.8px;margin-top:14px}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold-lt),var(--amber) 50%,var(--gold-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:14px;color:var(--dim);margin-top:12px;max-width:660px;line-height:1.85}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border-2);background:var(--bg3);color:var(--ink);font:600 13px/1 var(--f-d);padding:12px 18px;border-radius:999px;cursor:pointer;transition:border-color .15s,transform .15s;white-space:nowrap}
+.btn:hover{border-color:rgba(212,167,44,.5);transform:translateY(-1px)}
+.btn.pri{background:linear-gradient(135deg,#EDD27A,var(--gold));color:#17130A;border-color:transparent;box-shadow:0 8px 28px rgba(212,167,44,.24)}
 
-/* ── AI insight badge (marks auto-synthesized content) ── */
-.ai-tag{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);padding:4px 10px;border-radius:999px;background:rgba(155,140,240,.10);border:1px solid rgba(155,140,240,.28)}
-.ai-tag::before{content:'✦';font-size:10px}
-.ai-frame{position:relative;isolation:isolate}
-.ai-frame::before{content:'';position:absolute;inset:-4px;z-index:-1;border-radius:inherit;background:linear-gradient(120deg,rgba(212,167,44,.55),rgba(155,140,240,.5),rgba(96,165,250,.45),rgba(212,167,44,.55));background-size:300% 300%;filter:blur(11px);opacity:.42}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.s8{grid-column:span 8}.s4{grid-column:span 4}
+@media(max-width:980px){.bento>*{grid-column:1/-1}}
+.card{position:relative;display:block;padding:22px;min-width:0;border-radius:22px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 180px),var(--bg2);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 14px 40px rgba(0,0,0,.32)}
+a.card{transition:border-color .2s,transform .2s}
+a.card:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
+@media(max-width:560px){.card{padding:18px 16px;border-radius:20px}}
+.lbl{display:flex;align-items:center;gap:8px;font:500 10.5px/1.4 var(--f-m);letter-spacing:1.4px;text-transform:uppercase;color:var(--dim)}
+.lbl svg.i{width:15px;height:15px;color:var(--gold-dk)}
+.ib{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:rgba(212,167,44,.12);color:var(--gold-lt);border:1px solid rgba(212,167,44,.28);flex:none}
+.ib svg.i{width:22px;height:22px}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;font:500 11.5px/1.3 'Noto Sans SC',sans-serif;padding:6px 11px;border-radius:999px;border:1px solid var(--border-2);background:rgba(255,255,255,.035);color:var(--text)}
+.chip.gold{color:var(--gold-lt);border-color:rgba(212,167,44,.32);background:rgba(212,167,44,.08)}
+.chip.bull{color:var(--bull);border-color:rgba(10,176,116,.35);background:rgba(10,176,116,.08)}
+.chip.bear{color:var(--bear);border-color:rgba(219,41,67,.38);background:rgba(219,41,67,.08)}
 
-/* ── top accent ── */
-.topstrip{height:3px;background:linear-gradient(90deg,#8A6B28,#E8C96D,#C9A84C,#F59E0B,#8A6B28);background-size:220% 100%}
+/* the gold answer */
+.gold-card{border:1px solid transparent;background:radial-gradient(110% 130% at 0% 0%,rgba(212,167,44,.17),transparent 55%) padding-box,linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(140deg,rgba(230,190,85,.55),rgba(255,255,255,.06) 42%,rgba(230,190,85,.2)) border-box}
+.gc-top{display:flex;align-items:center;gap:14px}
+.gc-top .go{margin-left:auto}
+.verdict-big{font:700 clamp(24px,3.4vw,34px)/1.2 var(--f-d);color:var(--ink);letter-spacing:-.6px;margin-top:4px}
+.vd{font-size:14px;color:var(--text);line-height:1.8;margin:16px 0 14px;max-width:680px}
+.tfrow{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;margin-top:18px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.09)}
+.tfv{font:600 16px/1.4 var(--f-d);color:var(--ink)}
+.tfd{font-size:12.5px;color:var(--dim);line-height:1.7}
+.go{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1 var(--f-d);color:var(--gold-lt);white-space:nowrap}
 
-/* ── sticky glass nav ── */
-.navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:6px;padding:12px 28px;background:rgba(10,10,15,.72);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid rgba(255,255,255,.06)}
-.navbar .brand{display:flex;align-items:center;gap:9px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;letter-spacing:-.3px;margin-right:auto}
-.navbar .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#E8C96D,var(--gold));box-shadow:0 0 0 3px rgba(184,134,11,.15)}
-.navbar a.nl{font-size:12.5px;color:var(--dim);text-decoration:none;padding:7px 13px;border-radius:999px;transition:all .18s}
-.navbar a.nl:hover{color:var(--ink);background:var(--bg3)}
-@media(max-width:760px){.navbar{padding:10px 14px;overflow-x:auto}.navbar a.nl{white-space:nowrap;font-size:11.5px;padding:6px 10px}}
+/* price */
+.pbig{font:700 clamp(40px,5vw,52px)/1 var(--f-d);letter-spacing:-1.8px;margin-top:14px;background:linear-gradient(120deg,var(--gold-lt),var(--amber) 60%,var(--gold-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums}
+.pd{font:500 12.5px/1.6 var(--f-m);color:var(--text);margin-top:10px}
+.ptime{font-size:11.5px;color:var(--dim);margin-top:4px}
+.live{width:7px;height:7px;border-radius:50%;background:var(--bull);box-shadow:0 0 0 3px rgba(52,211,153,.2);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.g7{margin-top:16px;padding-top:14px;border-top:1px dashed rgba(255,255,255,.09)}
+.pv-k{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--dim);margin-bottom:6px}
+.g7 svg,.score-card>svg{display:block;width:100%;height:auto}
 
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+/* the three small cards */
+.score-card{display:flex;flex-direction:column;gap:10px}
+.score-card>svg{max-width:280px;margin:4px auto 0}
+.evv{font:700 18px/1.4 var(--f-d);color:var(--ink);margin-top:12px}
+.evd{font-size:12.5px;color:var(--dim);line-height:1.75;margin:6px 0 12px}
+.now-card ul{list-style:none;display:grid;gap:10px;margin-top:12px}
+.now-card li{font-size:12.5px;line-height:1.75;color:var(--text);padding-left:14px;position:relative}
+.now-card li::before{content:'';position:absolute;left:0;top:.75em;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.now-card li strong{color:var(--ink);font-weight:600}
+.now-card .ut{font:400 11px/1.6 var(--f-m);color:var(--dim);margin-top:12px;padding-top:10px;border-top:1px dashed rgba(255,255,255,.09)}
 
-/* ── hero ── */
-.hero{padding:76px 24px 40px;text-align:center;position:relative}
-.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3.5px;color:var(--gold-dk);text-transform:uppercase;margin-bottom:22px;padding:7px 16px;border:1px solid rgba(184,134,11,.25);border-radius:999px;background:rgba(184,134,11,.06)}
-.hero .eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bull);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
-.hero h1{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:clamp(38px,7vw,64px);font-weight:700;color:var(--ink);line-height:1.04;letter-spacing:-2.5px;margin-bottom:14px}
-.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold) 0%,var(--amber) 55%,var(--gold-dk) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero .sub{font-size:15.5px;color:var(--dim);max-width:580px;margin:0 auto;line-height:1.85}
-@media(max-width:760px){.hero{padding:48px 20px 32px}}
+/* sections */
+.sec{display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin:40px 0 14px}
+.sec h2{font:700 20px/1.2 var(--f-d);color:var(--ink);letter-spacing:-.4px}
+.sec span{font-size:12px;color:var(--dim)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:1060px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.tiles{grid-template-columns:minmax(0,1fr)}}
+.tile{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:20px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0) 140px),var(--bg2);transition:border-color .2s,transform .2s;min-width:0}
+.tile:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
+.tile .th{display:flex;align-items:center;gap:12px}
+.tile .tt{font:700 16px/1.25 var(--f-d);color:var(--ink);letter-spacing:-.2px}
+.tile .tt small{display:block;font:500 10.5px/1.4 var(--f-m);letter-spacing:1.2px;color:var(--dim);text-transform:uppercase;margin-top:3px}
+.tile .arr{margin-left:auto;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--border-2);color:var(--dim);transition:all .2s}
+.tile:hover .arr{color:#17130A;background:var(--gold-lt);border-color:transparent}
+.tile p{font-size:12.5px;color:var(--dim);line-height:1.75;flex:1}
+.tile .ib{width:40px;height:40px;border-radius:13px}
+.ib.b{background:rgba(247,147,26,.12);color:#F7A23C;border-color:rgba(247,147,26,.3)}
+.ib.g{background:rgba(10,176,116,.1);color:var(--bull);border-color:rgba(10,176,116,.28)}
+.ib.v{background:rgba(124,108,240,.13);color:#A99BFF;border-color:rgba(124,108,240,.3)}
+.ib.s{background:rgba(96,165,250,.11);color:#7CC4FF;border-color:rgba(96,165,250,.28)}
+.ib.r{background:rgba(219,41,67,.1);color:var(--bear);border-color:rgba(219,41,67,.28)}
 
-/* ── bento grid ── */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:40px 0 8px}
-@media(max-width:760px){.grid{grid-template-columns:1fr;padding:28px 0 4px}}
-.tile{display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:30px 32px;text-decoration:none;color:inherit;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,border-color .25s}
-.tile:hover{border-color:rgba(184,134,11,.45);transform:translateY(-4px);box-shadow:var(--shadow-md),var(--shadow-gold)}
-.tile::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px 180px at 85% -10%,rgba(232,201,109,.10),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.tile:hover::after{opacity:1}
-.tile .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.tile .tag::before{content:'';width:16px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
-.tile .ico{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:16px;background:linear-gradient(135deg,rgba(232,201,109,.16),rgba(184,134,11,.07));border:1px solid rgba(184,134,11,.18);border-radius:var(--r-md)}
-.tile h2{font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:23px;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.25;letter-spacing:-.5px}
-.tile p{font-size:13px;color:var(--text);line-height:1.8;flex:1}
-.tile .meta{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 4px}
-.chip{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.6px;padding:5px 12px;border-radius:999px}
-.chip.bear{background:rgba(220,38,38,.08);color:var(--bear);border:1px solid rgba(220,38,38,.20)}
-.chip.bull{background:rgba(21,128,61,.08);color:var(--bull);border:1px solid rgba(21,128,61,.20)}
-.chip.gold{background:rgba(184,134,11,.08);color:var(--gold);border:1px solid rgba(184,134,11,.22)}
-.tile .go{display:inline-flex;align-items:center;gap:7px;font-family:'Space Grotesk',monospace;font-size:13px;color:var(--gold-lt);margin-top:12px;font-weight:600}
-.tile .go .arr{transition:transform .22s}
-.tile:hover .go .arr{transform:translateX(5px)}
-
-/* ── main tile: full width, live price panel ── */
-.tile.main{grid-column:1/-1;flex-direction:row;gap:44px;align-items:stretch;padding:36px 40px;background:linear-gradient(135deg,rgba(22,22,29,.72) 55%,rgba(25,21,16,.72) 100%);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3)}
-.main-left{flex:1;display:flex;flex-direction:column}
-.main-left p{flex:1}
-.main-right{width:340px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;background:var(--glass);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--glass-brd);border-radius:var(--r-md);padding:26px 28px;box-shadow:var(--shadow-sm)}
-.mp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:8px}
-.mp-num{font-family:'Space Grotesk',monospace;font-size:50px;font-weight:700;letter-spacing:-2.5px;line-height:1;font-variant-numeric:tabular-nums;background:linear-gradient(120deg,var(--gold-lt),var(--amber));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.mp-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);margin-top:10px;display:flex;align-items:center;gap:6px}
-.mp-dot{display:inline-block;color:var(--bull);animation:pulse 2s ease-in-out infinite}
-@media(max-width:860px){.tile.main{flex-direction:column;gap:22px;padding:28px 26px}.main-right{width:auto}.mp-num{font-size:42px}}
-
-.feats{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
-.feats li{font-size:12.5px;color:var(--text);padding:6px 0 6px 25px;position:relative}
-.feats li::before{content:'✓';position:absolute;left:0;top:6px;width:17px;height:17px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gold-lt);background:rgba(184,134,11,.10);border-radius:50%}
-@media(max-width:600px){.feats{grid-template-columns:1fr}}
-
-/* ── section label ── */
-.sec-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold-dk);text-transform:uppercase;margin:36px 0 16px;display:flex;align-items:center;gap:12px}
-.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-2),transparent)}
-
-/* ── chart card ── */
-.chart-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:48px;background:var(--bg2)}
-/* ── market pulse ── */
-.pulse{background:var(--glass);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid var(--glass-brd);border-radius:var(--r-lg);padding:24px 28px;box-shadow:var(--shadow-sm),var(--shadow-violet);margin-bottom:40px;position:relative;overflow:hidden}
-.pulse::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--amber),transparent)}
-.pulse-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-family:'Space Grotesk','Noto Sans SC',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:18px;letter-spacing:-.4px}
-.pulse-time{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:400;color:var(--dim);margin-left:auto;letter-spacing:.5px}
-.pulse-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-@media(max-width:640px){.pulse-stats{grid-template-columns:repeat(2,1fr)}}
-.ps{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px}
-.ps .pk{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
-.ps .pv{font-family:'Space Grotesk',monospace;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.5px;line-height:1.1;font-variant-numeric:tabular-nums}
-.ps .pd{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.5}
-.pulse-viz{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;margin-bottom:20px}
-@media(max-width:700px){.pulse-viz{grid-template-columns:1fr}}
-.pv-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px}
-.pv-k{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;display:flex;justify-content:space-between}
-.pv-card svg{width:100%;height:auto;display:block}
-.pulse-notes .pn-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:10px}
-.pulse-notes ul{list-style:none;padding:0;margin:0}
-.pulse-notes li{font-size:12.5px;color:var(--text);line-height:1.7;padding:7px 0 7px 17px;position:relative;border-bottom:1px solid var(--border)}
-.pulse-notes li:last-child{border-bottom:none}
-.pulse-notes li::before{content:'▸';color:var(--gold);position:absolute;left:0;top:7px}
-.pulse-notes li strong{color:var(--ink)}
-
-/* ── footer ── */
-footer{border-top:1px solid var(--border);padding:36px 24px 48px;text-align:center;background:linear-gradient(180deg,transparent,rgba(232,201,109,.05))}
-footer .upd{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold-dk);margin-bottom:16px;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(184,134,11,.22);border-radius:999px;background:rgba(184,134,11,.05)}
-footer .disc{font-size:11px;color:var(--dim);max-width:680px;margin:0 auto;line-height:1.85}
-footer .disc strong{color:var(--text)}
-
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+/* chart */
+.chart-card{padding:0;overflow:hidden}
+.tape{border-bottom:1px solid var(--border);min-height:46px}
+.chart-box{height:480px}
+@media(max-width:640px){.chart-box{height:380px}}
+footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
+.upd{font:500 11.5px var(--f-m);color:var(--dim);margin-bottom:10px}
+.disc{font-size:11.5px;color:var(--dim);line-height:1.85;border-top:1px solid var(--border);padding-top:18px}
+.disc strong{color:var(--text)}
+@media(prefers-reduced-motion:reduce){.live{animation:none}}
 
 /* phones: nothing smaller than 11px */
-@media(max-width:640px){/* ── AI insight badge (marks auto-synthesized content) ── */
-.ai-tag,.ai-tag::before,.hero .eyebrow,.tile .tag,.chip,.mp-label,.mp-time,.feats li::before,/* ── section label ── */
-.sec-label,.pulse-time,.ps .pk,.pv-k,.pulse-notes .pn-title,footer .upd{font-size:11px}}
-
-/* phones: navbar on one line, links a finger tall */
-@media(max-width:640px){.navbar .brand{white-space:nowrap;flex:none;padding:6px 0}.navbar a.nl{white-space:nowrap;flex:none;padding:10px 13px}}
-@media(max-width:640px){.mp-time{display:block;line-height:1.7}}
-@media(max-width:480px){.pulse-stats{grid-template-columns:1fr}}
-/* phones: the bars that scroll sideways fade at the right edge, so it is clear there is more */
-@media(max-width:640px){.navbar{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 34px),transparent);padding-right:38px}}
-@media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
-*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
+@media(max-width:640px){.lbl,.tile .tt small,.pv-k,.upd,.ptime,.chip{font-size:11px}.hero{padding-top:26px}.hero .acts{width:100%}.hero .acts .btn{flex:1}.gc-top .go{display:none}.sec{margin-top:32px}}
 </style>
+<link rel="stylesheet" href="assets/site.css?v=1">
 </head>
 <body>
-<div class="mesh"><div class="orb-violet"></div></div>
 <div class="topstrip"></div>
 
-<!-- sticky glass nav -->
-<nav class="navbar">
-  <a class="brand" href="index.html"><span class="dot"></span>Trading Hub</a>
-  <a class="nl" href="report.html">🥇 黄金</a>
-  <a class="nl" href="btc.html">₿ 比特币</a>
-  <a class="nl" href="forex.html">💱 外汇</a>
-  <a class="nl" href="journal.html">📒 盈亏日历</a>
-  <a class="nl" href="strategy.html">📖 策略</a>
-  <a class="nl" href="stocks.html">📈 股票</a>
-  <a class="nl" href="potential.html">🚀 潜力精选</a>
+<nav class="navbar" aria-label="网站导航">
+  <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
+  <a class="nl" href="report.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
+  <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
+  <a class="nl" href="forex.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/></svg>外汇</a>
+  <a class="nl" href="journal.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>盈亏日历</a>
+  <a class="nl" href="strategy.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>策略</a>
+  <a class="nl" href="stocks.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg>股票</a>
+  <a class="nl" href="potential.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg>潜力精选</a>
 </nav>
 
-<!-- Live ticker tape (TradingView) -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
-  </script>
-</div>
+<main class="wrap">
+  <header class="hero">
+    <div>
+      <span class="eyebrow"><i></i>Live · Gold first</span>
+      <h1>交易<em>中心</em></h1>
+      <p class="sub">一条用 2011–2026 年真实现货金回放过的规则：周线、日线、4 小时、1 小时、15 分钟同向才进场。这里先给结论，点进黄金页看计划和细节。</p>
+    </div>
+    <div class="acts">
+      <a class="btn pri" href="report.html"><svg class="i" viewBox="0 0 24 24"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>打开黄金</a>
+      <a class="btn" href="journal.html"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>记一笔</a>
+    </div>
+  </header>
 
-<section class="hero">
-  <div class="eyebrow">XAUUSD · Gold Spot · Trading Intelligence</div>
-  <h1>黄金交易<em>中心</em></h1>
-  <div class="sub">一条用 2011–2026 年真实现货金回放过的规则：周线、日线、4 小时、1 小时、15 分钟同向才进场。黄金页实时算出结论和计划，策略页写清它的证据、风险和没通过的做法。</div>
-  <!-- Live single quote (TradingView) -->
-  <div class="tradingview-widget-container" style="max-width:420px;margin:26px auto 0">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-    {"symbol":"OANDA:XAUUSD","width":"100%","isTransparent":true,"colorTheme":"dark","locale":"en"}
-    </script>
-  </div>
-</section>
-
-<div class="wrap">
-  <div class="grid">
-
-    <!-- MAIN: gold, everything on one page -->
-    <a class="tile main" href="report.html">
-      <div class="main-left">
-        <div class="tag">★ 主功能 · 实时 + 每日更新</div>
-        <div class="ico">🥇</div>
-        <h2>黄金 XAU/USD</h2>
-        <p>黄金的一切都在一页：五个周期实时算出的结论和交易计划，每日深度分析、快讯、日历与风险，问 Claude，有新信号时浏览器提醒。</p>
-        <ul class="feats">
-          <li>周线 → 15 分钟五周期结论，每 15 分钟重算</li>
-          <li>入场、止损、目标、手数一步算好，持仓跟踪</li>
-          <li>每日分析 · 快讯 · 日历与风险（文字每天 10:10 SGT 写；过期会标出并收起）</li>
-          <li>问 Claude：带着此刻的行情一起问</li>
-          <li>规则上线以来的纸面记录，和你自己的交易</li>
-        </ul>
-        <div class="go">打开黄金 <span class="arr">→</span></div>
+  <section class="bento" aria-label="黄金现在">
+    <a class="card gold-card s8" href="report.html">
+      <div class="gc-top">
+        <span class="ib"><svg class="i" viewBox="0 0 24 24"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg></span>
+        <div><div class="lbl">黄金 XAU/USD · 系统结论</div><div class="verdict-big" id="pulse-verdict">—</div></div>
+        <span class="go">看计划 <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
-      <div class="main-right">
-        <div class="mp-label">XAU/USD · 实时金价</div>
-        <div class="mp-num js-live-price">—</div>
-        <div class="mp-time"><span class="mp-dot">●</span> 更新于 <span class="js-live-time">载入中…</span></div>
-        <div class="meta" style="margin-top:20px" id="hub-main-chips"><span class="chip gold">载入中…</span></div>
-      </div>
+      <p class="vd" id="pulse-verdict-d">载入中…</p>
+      <div class="meta" id="hub-main-chips"><span class="chip gold">载入中…</span></div>
+      <div class="tfrow"><div class="lbl">五个周期的方向</div><div class="tfv" id="pulse-tf">—</div><div class="tfd" id="pulse-tf-d">载入中…</div></div>
     </a>
 
-    <!-- Bitcoin: the same five-timeframe page, on Binance BTC/USDT -->
-    <a class="tile" href="btc.html">
-      <div class="tag">实时 · 多周期</div>
-      <div class="ico">₿</div>
-      <h2>比特币 BTC/USD</h2>
-      <p>和黄金同一套五周期规则，用币安 BTC/USDT 实时计算，附 2018 年以来的回放成绩：这个规则在比特币上的优势不明显，页面照实写出。</p>
-      <div class="meta">
-        <span class="chip bull">现价 <span id="hub-btc-price">—</span></span>
-        <span id="hub-btc-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
-      </div>
-      <div class="go">打开比特币 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Profit and loss calendar (records stay in the visitor's browser) -->
-    <a class="tile" href="journal.html">
-      <div class="tag">记录 · 复盘</div>
-      <div class="ico">📒</div>
-      <h2>盈亏日历</h2>
-      <p>一句话就能记一笔赚亏，进度条显示离这一轮的目标还差多少，达到了就收下、重新开始。复盘自动算出你的习惯，还能交给 Claude 写一份；提现按平台记账，登录后手机和电脑同一份。</p>
-      <div class="meta">
-        <span class="chip gold">目标进度条</span>
-        <span class="chip gold">智能复盘</span>
-        <span class="chip gold">提现按平台 · 云端同步</span>
-      </div>
-      <div class="go">打开盈亏日历 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Strategy Handbook -->
-    <a class="tile" href="strategy.html">
-      <div class="tag">规则与证据</div>
-      <div class="ico">📖</div>
-      <h2>策略：这条规则凭什么</h2>
-      <p>网站只做一条规则：五个周期同向才进场，止损 3 倍小时波幅，目标 3R 或跟踪止损。回放成绩分年份写出，每笔冒多大风险换算成账户回撤，测过但没有优势的做法（形态、短线、指标、更快的版本、外汇和其他期货）一并列出。</p>
-      <div class="meta">
-        <span class="chip gold">回放证据</span>
-        <span class="chip gold">风险换算</span>
-        <span class="chip gold">没通过的做法</span>
-      </div>
-      <div class="go">打开策略 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Latest market news -->
-    <a class="tile" href="report.html#read-news">
-      <div class="tag">实时更新 · Live</div>
-      <div class="ico">📰</div>
-      <h2>市场快讯</h2>
-      <p>最新黄金头条（服务器每次取数时自动抓取，英文原文带链接），和每天 10:10 写的要闻解读与关键价位。</p>
-      <div class="meta">
-        <span class="chip bear">现价 <span class="js-live-price">—</span></span>
-        <span id="hub-news-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
-      </div>
-      <div class="go">在黄金页看快讯 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Future risk & plan -->
-    <a class="tile" href="report.html#read-risk">
-      <div class="tag">前瞻 · 经济日历</div>
-      <div class="ico">🗓</div>
-      <h2>未来风险与计划</h2>
-      <p>本周美国中高影响数据（ForexFactory，新加坡时间，每天自动更新几次），和每天 10:10 写的前瞻情景与数据期风险提示。</p>
-      <div class="meta">
-        <span id="hub-risk-chips" style="display:contents"><span class="chip gold">载入中…</span></span>
-      </div>
-      <div class="go">在黄金页看日历与风险 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Stock picks: US/SG/MY -->
-    <a class="tile" href="stocks.html">
-      <div class="tag">股票 · 三大市场</div>
-      <div class="ico">📈</div>
-      <h2>股票精选</h2>
-      <p>美国 / 新加坡 / 马来西亚 三大市场选股：成长股与股息股分类精选。AI 基建产业链、S-REITs 收息组合、大马数据中心概念股与组合配置思路。</p>
-      <div class="meta">
-        <span class="chip bull">🚀 成长股</span>
-        <span class="chip gold">💰 股息股</span>
-        <span class="chip gold">🇺🇸 🇸🇬 🇲🇾</span>
-      </div>
-      <div class="go">查看选股 <span class="arr">→</span></div>
-    </a>
-
-    <!-- Low-price high-growth potential picks -->
-    <a class="tile" href="potential.html">
-      <div class="tag">潜力 · 低价高成长</div>
-      <div class="ico">🚀</div>
-      <h2>潜力精选</h2>
-      <p>美国 / 新加坡 / 马来西亚 低价高成长个股精选。eVTOL、半导体设备重估、数据中心基建、太阳能EPC——12 只个股独立分析，含目标价上涨空间、优势与风险。</p>
-      <div class="meta">
-        <span class="chip bear">⚠ 高波动</span>
-        <span class="chip gold">目标价上涨空间</span>
-        <span class="chip gold">🇺🇸 🇸🇬 🇲🇾</span>
-      </div>
-      <div class="go">查看潜力精选 <span class="arr">→</span></div>
-    </a>
-
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="pulse ai-frame">
-    <div class="pulse-head"><span class="ai-tag">实时数据</span>&ensp;市场速览 · Market Pulse <span class="pulse-time" id="pulse-updated">载入中…</span></div>
-    <div class="pulse-stats">
-      <div class="ps"><div class="pk">黄金 XAU/USD</div><div class="pv js-live-price">—</div><div class="pd" id="pulse-gold">载入中…</div></div>
-      <div class="ps"><div class="pk">系统结论</div><div class="pv" id="pulse-verdict" style="font-size:18px">—</div><div class="pd" id="pulse-verdict-d">载入中…</div></div>
-      <div class="ps"><div class="pk">五个周期的方向</div><div class="pv" id="pulse-tf" style="font-size:15px">—</div><div class="pd" id="pulse-tf-d">载入中…</div></div>
-      <div class="ps"><div class="pk">下一关键事件</div><div class="pv" id="pulse-event" style="font-size:15px">—</div><div class="pd" id="pulse-event-d">载入中…</div></div>
+    <div class="card s4">
+      <div class="lbl"><span class="live"></span>XAU/USD · 实时金价</div>
+      <div class="pbig js-live-price">—</div>
+      <div class="pd" id="pulse-gold">载入中…</div>
+      <div class="ptime">更新于 <span class="js-live-time">载入中…</span></div>
+      <div class="g7"><div class="pv-k"><span>近 7 个交易日</span><span id="g7-range"></span></div><svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势"></svg></div>
     </div>
 
-    <div class="pulse-viz">
-      <div class="pv-card">
-        <div class="pv-k"><span>黄金近 7 个交易日 · Gold 7-Day</span><span id="g7-range"></span></div>
-        <svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势"></svg>
-      </div>
-      <div class="pv-card">
-        <div class="pv-k"><span>多周期评分 · Score</span></div>
-        <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分"></svg>
-      </div>
+    <div class="card score-card s4">
+      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg>多周期评分</div>
+      <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分"></svg>
     </div>
-
-    <div class="pulse-notes">
-      <div class="pn-title">◆ 现在的情况 · Right Now</div>
+    <a class="card s4" href="report.html#read-risk">
+      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>下一关键事件</div>
+      <div class="evv" id="pulse-event">—</div>
+      <div class="evd" id="pulse-event-d">载入中…</div>
+      <div class="meta" id="hub-risk-chips"></div>
+    </a>
+    <div class="card now-card s4">
+      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>现在的情况</div>
       <ul id="pulse-list"><li>载入中…</li></ul>
+      <div class="ut" id="pulse-updated">载入中…</div>
     </div>
-  </div>
+  </section>
 
-  <div class="sec-label">实时图表 · Live Chart</div>
-  <div class="chart-card" style="height:480px">
-    <div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div class="sec"><h2>全部功能</h2><span>一页只看一个市场，每一页都先给结论</span></div>
+  <section class="tiles" aria-label="全部功能">
+    <a class="tile" href="btc.html">
+      <div class="th"><span class="ib b"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg></span><div class="tt">比特币<small>BTC/USD · 仅观察</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>和黄金同一套五周期规则，用币安 BTC/USDT 实时计算。回放里这个规则在比特币上优势不明显，所以只作观察。</p>
+      <div class="meta"><span class="chip bull">现价 <span id="hub-btc-price">—</span></span><span id="hub-btc-chips" style="display:contents"><span class="chip gold">载入中…</span></span></div>
+    </a>
+    <a class="tile" href="journal.html">
+      <div class="th"><span class="ib g"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg></span><div class="tt">盈亏日历<small>Journal</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>一句话记一笔赚亏，进度条显示离目标还差多少；复盘自动算出你的习惯，提现按平台记账，手机和电脑同一份。</p>
+      <div class="meta"><span class="chip gold">目标进度条</span><span class="chip gold">智能复盘</span><span class="chip gold">云端同步</span></div>
+    </a>
+    <a class="tile" href="strategy.html">
+      <div class="th"><span class="ib"><svg class="i" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><div class="tt">策略<small>这条规则凭什么</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>回放成绩分年份写出，每笔冒多大风险换算成账户回撤；测过但没有优势的做法（形态、短线、指标、外汇、其他期货）一并列出。</p>
+      <div class="meta"><span class="chip gold">回放证据</span><span class="chip gold">风险换算</span><span class="chip gold">没通过的做法</span></div>
+    </a>
+    <a class="tile" href="report.html#read-news">
+      <div class="th"><span class="ib v"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg></span><div class="tt">市场快讯<small>News · Live</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>最新黄金头条（英文原文带链接，自动抓取），和每天 10:10 写的要闻解读与关键价位。</p>
+      <div class="meta"><span class="chip">现价 <span class="js-live-price">—</span></span><span id="hub-news-chips" style="display:contents"><span class="chip gold">载入中…</span></span></div>
+    </a>
+    <a class="tile" href="forex.html">
+      <div class="th"><span class="ib s"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/></svg></span><div class="tt">外汇<small>11 pairs · 回放不赚钱</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>同一条规则跑 11 个货币对，结果照实写：在外汇上回放是亏的，信号只作观察。附每个货币对的手数换算。</p>
+      <div class="meta"><span class="chip bear">回放不赚钱</span><span class="chip gold">手数换算</span></div>
+    </a>
+    <a class="tile" href="stocks.html">
+      <div class="th"><span class="ib s"><svg class="i" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></span><div class="tt">股票精选<small>US · SG · MY</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>美国、新加坡、马来西亚三大市场的成长股与股息股，价格和收益率每天自动更新。</p>
+      <div class="meta"><span class="chip bull">成长股</span><span class="chip gold">股息股</span><span class="chip">🇺🇸 🇸🇬 🇲🇾</span></div>
+    </a>
+    <a class="tile" href="potential.html">
+      <div class="th"><span class="ib r"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg></span><div class="tt">潜力精选<small>高波动</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p>三个市场的低价高成长个股，每只独立分析：目标价上涨空间、优势与风险。</p>
+      <div class="meta"><span class="chip bear">高波动</span><span class="chip gold">目标价空间</span></div>
+    </a>
+  </section>
+
+  <div class="sec"><h2>实时图表</h2><span>TradingView · 金、美元指数、白银、原油</span></div>
+  <div class="card chart-card">
+    <div class="tape tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="application/json" data-tv-lazy="embed-widget-ticker-tape">{"symbols":[{"proName":"OANDA:XAUUSD","title":"黄金 XAU/USD"},{"proName":"TVC:DXY","title":"美元指数 DXY"},{"proName":"OANDA:XAGUSD","title":"白银 XAG/USD"},{"proName":"TVC:USOIL","title":"WTI 原油"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}</script>
+    </div>
+    <div class="chart-box tradingview-widget-container">
       <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-      <script type="application/json" id="tv-adv-cfg">{"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script>
+      <script type="application/json" data-tv-lazy="embed-widget-advanced-chart">{"autosize":true,"symbol":"OANDA:XAUUSD","interval":"60","timezone":"Asia/Shanghai","theme":"dark","style":"1","locale":"en","hide_side_toolbar":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script>
     </div>
   </div>
-</div>
+</main>
 
 <footer>
   <div class="upd" id="hub-upd">⟳ 自动更新 · 载入中…</div>
-  <div class="disc">
-    <strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Dukascopy（现货金 K 线）、gold-api.com（实时金价）、ForexFactory（经济日历）、Yahoo Finance（股票）、TradingView（图表）。交易前请进行独立尽职调查。
-  </div>
+  <div class="disc"><strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Dukascopy（现货金 K 线）、gold-api.com（实时金价）、ForexFactory（经济日历）、Yahoo Finance（股票）、TradingView（图表）。交易前请进行独立尽职调查。</div>
 </footer>
-
-<div class="topstrip"></div>
 
 <script src="assets/xau-feed.js?v=10"></script>
 <script src="assets/gold-live.js?v=2"></script>
 <script src="assets/hub-live.js?v=9"></script>
-<script>
-// The TradingView chart near the bottom is the heaviest thing on this page: load it only when it is about to be seen.
-(function () {
-  var cfg = document.getElementById("tv-adv-cfg"); if (!cfg) return;
-  var host = cfg.parentNode, go = function () { if (host.dataset.loaded) return; host.dataset.loaded = "1"; var sc = document.createElement("script"); sc.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"; sc.async = true; sc.textContent = cfg.textContent; host.appendChild(sc); };
-  if ("IntersectionObserver" in window) { var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); go(); } }, { rootMargin: "300px 0px" }); io.observe(host); } else go();
-})();
-</script>
+<script src="assets/tv-lazy.js?v=1"></script>
 </body>
 </html>
