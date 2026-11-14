@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="i18n" content="en">
+<meta name="i18n-title" content="Risk and plan · XAUUSD calendar · Trading Hub">
+<script src="assets/i18n.js?v=2"></script>
 <title>未来风险与计划 · XAUUSD 经济日历与前瞻 · Trading Hub</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A0A0F">
@@ -111,7 +114,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 <div class="mesh"><div class="orb-violet"></div></div>
 <div class="topstrip"></div>
 
-<nav class="navbar" aria-label="网站导航">
+<nav class="navbar" aria-label="网站导航" data-en-label="Site navigation">
   <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
   <a class="nl on" href="report.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
   <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
@@ -124,13 +127,13 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 
 <header>
   <div>
-    <div class="hl-tag">XAUUSD · 经济日历 · 前瞻风险与交易计划</div>
-    <h1>未来<em>风险</em>与计划</h1>
+    <div class="hl-tag" data-en="XAUUSD · economic calendar · risks ahead and the plan">XAUUSD · 经济日历 · 前瞻风险与交易计划</div>
+    <h1 data-en-html="Risks &lt;em&gt;ahead&lt;/em&gt; and the plan">未来<em>风险</em>与计划</h1>
     <div class="hdate">2026年11月1日更新（10:11 SGT，周日）· GMT+8 · 现货金 $3,874.6（周五收盘价；周末休市；上一交易日较前收 -3.64%，区间 $3,870–$4,026.2）· 结论：可以顺势做空 · 五个周期都向下 · 周五一天跌破 $4,000 与 $3,900，创一年新低：油价冲高、12 月加息押注仍在 · 周末休市、价格未变；10 月收出第二个月线下跌 · 日历取自本周经济日历（已全部公布），下一关键事件：11/3 美国中期选举、11/6 美国 10 月非农</div>
   </div>
   <div class="hprice">
     <div class="hprice-num js-live-price">—</div>
-    <div class="hprice-sub">🟢 实时金价 · 更新于 <span class="js-live-time">载入中…</span></div>
+    <div class="hprice-sub"><span data-en="🟢 Live gold price · updated">🟢 实时金价 · 更新于</span> <span class="js-live-time">载入中…</span></div>
   </div>
 </header>
 
@@ -219,11 +222,11 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
   </script>
 
   <!-- ══ 经济日历 ══ -->
-  <div class="sec-eyebrow">高影响经济日历 · ForexFactory Calendar (GMT+8)</div>
+  <div class="sec-eyebrow" data-en="High-impact calendar · ForexFactory (GMT+8)">高影响经济日历 · ForexFactory Calendar (GMT+8)</div>
   <div class="card">
     <table class="cal">
       <thead>
-        <tr><th style="min-width:96px">日期 / 时间</th><th style="min-width:70px">影响</th><th>事件与对黄金的意义</th></tr>
+        <tr><th style="min-width:96px" data-en="Date / time">日期 / 时间</th><th style="min-width:70px" data-en="Impact">影响</th><th data-en="Event and what it means for gold">事件与对黄金的意义</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -287,7 +290,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
   </div>
 
   <!-- ══ 实时经济日历 ══ -->
-  <div class="sec-eyebrow">实时经济日历 · Live Calendar (TradingView · 同源 ForexFactory 事件)</div>
+  <div class="sec-eyebrow" data-en="Live calendar (TradingView · the same ForexFactory events)">实时经济日历 · Live Calendar (TradingView · 同源 ForexFactory 事件)</div>
   <div class="tradingview-widget-container" style="border:1px solid var(--border);border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06)">
     <div class="tradingview-widget-container__widget"></div>
     <script type="application/json" data-tv-lazy="embed-widget-events">
@@ -296,7 +299,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
   </div>
 
   <!-- ══ 风险情景 ══ -->
-  <div class="sec-eyebrow">前瞻风险情景 · Forward Scenarios</div>
+  <div class="sec-eyebrow" data-en="Forward scenarios">前瞻风险情景 · Forward Scenarios</div>
   <div class="scen bear">
     <div class="scen-head">
       <span class="scen-title">🔴 顺势下行：跌破 $3,870 → 看 $3,770.9</span>
@@ -334,7 +337,7 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
     </div>
   </div>
 <!-- ══ 分阶段计划 ══ -->
-  <div class="sec-eyebrow">分阶段交易计划 · Staged Plan</div>
+  <div class="sec-eyebrow" data-en="Staged plan">分阶段交易计划 · Staged Plan</div>
   <div class="plan">
     <div class="plan-item">
       <div class="plan-when">已完成<br>10/26–10/30 ✓</div>
@@ -366,15 +369,15 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
     </div>
   </div>
 <!-- ══ 关键价位 ══ -->
-  <div class="sec-eyebrow">关键价位地图 · Key Levels</div>
+  <div class="sec-eyebrow" data-en="Key levels">关键价位地图 · Key Levels</div>
   <div class="lvls">
-    <div class="lvl"><div class="k">上行关键位</div><div class="v r">$4,082</div><div class="d">4 小时收盘站上 = 三周期不再同向，跟踪止损持仓离场</div></div>
-    <div class="lvl"><div class="k">⭐ 阻力</div><div class="v r">$3,941.5 / $3,975.3 / $3,999.1 / $4,015.6 / $4,026.2</div><div class="d">周线转向下的价与区间底（强）；4小时向下突破位；1小时近期小高点（15分钟转回向上的价）；1小时向下突破位；周五高点</div></div>
+    <div class="lvl"><div class="k" data-en="Key level above">上行关键位</div><div class="v r">$4,082</div><div class="d">4 小时收盘站上 = 三周期不再同向，跟踪止损持仓离场</div></div>
+    <div class="lvl"><div class="k" data-en="⭐ Resistance">⭐ 阻力</div><div class="v r">$3,941.5 / $3,975.3 / $3,999.1 / $4,015.6 / $4,026.2</div><div class="d">周线转向下的价与区间底（强）；4小时向下突破位；1小时近期小高点（15分钟转回向上的价）；1小时向下突破位；周五高点</div></div>
     <div class="lvl"><div class="k">⭐ 现价（周五收盘）</div><div class="v gold">$3,874.6</div><div class="d">上一交易日 -3.64%，距ATH约-30.8%</div></div>
-    <div class="lvl"><div class="k">⭐ 支撑</div><div class="v g">$3,870</div><div class="d">上周低点、周五低点、日线与4小时区间底、1小时熊旗关键位（强度最高）</div></div>
-    <div class="lvl"><div class="k">⭐ 深层支撑</div><div class="v g">$3,770.9</div><div class="d">1小时熊旗目标；其下引擎没有给出支撑</div></div>
+    <div class="lvl"><div class="k" data-en="⭐ Support">⭐ 支撑</div><div class="v g">$3,870</div><div class="d">上周低点、周五低点、日线与4小时区间底、1小时熊旗关键位（强度最高）</div></div>
+    <div class="lvl"><div class="k" data-en="⭐ Deeper support">⭐ 深层支撑</div><div class="v g">$3,770.9</div><div class="d">1小时熊旗目标；其下引擎没有给出支撑</div></div>
   </div>
-<div class="sec-eyebrow">重大数据期风险铁律 · Risk Rules</div>
+<div class="sec-eyebrow" data-en="Rules around big releases">重大数据期风险铁律 · Risk Rules</div>
   <div class="rules">
     <ul>
       <li><strong>数据前 30 分钟封盘：</strong>任何高影响事件（PCE/CPI/NFP/FOMC）前 30 分钟内不开新仓，已有仓位减至轻仓或清仓。</li>
@@ -395,9 +398,9 @@ main{max-width:1080px;margin:0 auto;padding:26px 48px 64px}
 
 <script src="assets/xau-feed.js?v=10" defer></script>
 <script src="assets/gold-live.js?v=2" defer></script>
-<script src="assets/gold-bar.js?v=9" defer></script>
-<script src="assets/levels-live.js?v=1" defer></script>
+<script src="assets/gold-bar.js?v=10" defer></script>
+<script src="assets/levels-live.js?v=2" defer></script>
 <script src="assets/tv-lazy.js?v=2"></script>
-<script src="assets/site.js?v=2" defer></script>
+<script src="assets/site.js?v=3" defer></script>
 </body>
 </html>

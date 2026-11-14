@@ -11,10 +11,10 @@
   var pick = S.lang === "en" ? "en" : "zh", hasEn = !!document.querySelector('meta[name="i18n"][content~="en"]');
   var LANGS = [{ id: "zh", name: "中文", note: "原文 · Original" }, { id: "en", name: "English", note: "英文" }];
   var NAV_EN = { "report.html": "Gold", "btc.html": "Bitcoin", "forex.html": "Forex", "journal.html": "P&L Journal", "strategy.html": "Strategy", "stocks.html": "Stocks", "potential.html": "High Potential" };
-  var EN_DONE = "首页、盈亏日历和这个设置已经有英文；黄金、比特币、外汇、策略、股票和每日分析还是中文，会陆续加上。";
+  var EN_DONE = "每一页都有英文版。每日分析的正文由每天的自动更新用中文写成，过期收起时也是中文。";
   var UI = {
     zh: { title: "设置", lang: "语言 · Language", note: EN_DONE, top: "回到顶部", gear: "设置", close: "关闭" },
-    en: { title: "Settings", lang: "Language · 语言", note: "In English so far: the home page, the P&L Journal and these settings. Gold, Bitcoin, forex, strategy, stocks and the daily briefs are still in Chinese; they will follow, gold and Bitcoin next.", top: "Back to top", gear: "Settings", close: "Close" }
+    en: { title: "Settings", lang: "Language · 语言", note: "Every page is in English. The daily brief's written analysis is produced in Chinese by the daily update; while it is out of date it stays folded.", top: "Back to top", gear: "Settings", close: "Close" }
   };
   var T = UI[pick], embedded = root.classList.contains("embedded"), NS = "http://www.w3.org/2000/svg";
   function icon(d) { var s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", "0 0 24 24"); s.setAttribute("aria-hidden", "true"); s.innerHTML = d; return s; }

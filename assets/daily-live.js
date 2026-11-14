@@ -10,6 +10,11 @@
 // Prices come from assets/gold-bar.js ("goldbar:update" events; it also fills the header price), so the page makes no requests of its own.
 (function () {
   "use strict";
+  var EN = window.LANG === "en", tx = function (zh, en) { return EN ? en : zh; }, I = window.I18N || { level: function (x) { return x; }, tfName: function (x) { return x; } };
+  // verdict tags as the brief and the server write them, in English
+  function tagEn(t) { return !EN ? t : String(t || "").replace("休市中 · ", "Market closed · ").replace("仅观察 · ", "Watch only · ").replace("可以顺势做空", "Go short with the trend").replace("可以顺势做多", "Go long with the trend")
+    .replace("等小周期转多", "Waiting for the small timeframes to turn up").replace("等小周期转空", "Waiting for the small timeframes to turn down").replace(/回调中 · 大方向向上/, "Pullback · big trend up").replace(/反弹中 · 大方向向下/, "Bounce · big trend down").replace("先观望", "Wait"); }
+  function trendEn(t) { return !EN ? t : t === "向上" ? "up" : t === "向下" ? "down" : t; }
   var css = "#since-note{min-width:0}" +
     ".since{background:var(--bg2,#15151C);border:1px solid var(--border,#282833);border-left:3px solid var(--gold,#D4A72C);border-radius:14px;padding:14px 18px}" +
     ".since .hd{font-size:13.5px;color:var(--white,#F6F5F3);line-height:1.6}" +
@@ -76,16 +81,16 @@
       r.tr.classList.toggle("lv-crossed", crossed);
       if (!r.dist) return;
       r.dist.textContent = (d >= 0 ? "+$" : "−$") + fmt(Math.abs(d));
-      if (crossed) r.dist.appendChild(el("span", "lv-tag " + (d > 0 ? "dn" : "up"), d > 0 ? "已跌破" : "已突破"));
-      if (r === above) r.dist.appendChild(el("span", "lv-tag near", "最近压力"));
-      if (r === below) r.dist.appendChild(el("span", "lv-tag near", "最近支撑"));
+      if (crossed) r.dist.appendChild(el("span", "lv-tag " + (d > 0 ? "dn" : "up"), d > 0 ? tx("已跌破", "broken below") : tx("已突破", "broken above")));
+      if (r === above) r.dist.appendChild(el("span", "lv-tag near", tx("最近压力", "nearest resistance")));
+      if (r === below) r.dist.appendChild(el("span", "lv-tag near", tx("最近支撑", "nearest support")));
     });
     var cur = W.rows.filter(function (r) { return r.cur; })[0];
     if (!cur) return;
     cur.tr.classList.add("lv-now");
     cur.priceCell.textContent = "$" + fmt(L);
-    if (cur.dist) cur.dist.textContent = "实时";
-    if (cur.why) cur.why.textContent = "现价（实时，每 30 秒）· 写稿时 $" + fmt(W.price) + (W.ms ? "（" + stamp(W.ms) + " SGT）" : "");
+    if (cur.dist) cur.dist.textContent = tx("实时", "live");
+    if (cur.why) cur.why.textContent = EN ? "Price now (live, every 30 s) · when written $" + fmt(W.price) + (W.ms ? " (" + stamp(W.ms) + " SGT)" : "") : "现价（实时，每 30 秒）· 写稿时 $" + fmt(W.price) + (W.ms ? "（" + stamp(W.ms) + " SGT）" : "");
     if (sorted) {   // put the current-price row where price is now
       var tb = cur.tr.parentNode, next = others.filter(function (r) { return r.level < L; })[0];
       tb.insertBefore(cur.tr, next ? next.tr : null);
@@ -100,9 +105,9 @@
       var s = (state.timeframes || []).filter(function (t) { return String(t.name || t.tf).replace(/\s+/g, "") === w.key; })[0];
       if (!s || !s.trend) return;
       var since = parseSgt(s.since), turned = w.trend && s.trend !== w.trend;
-      var tag = el("span", "tf-now " + (turned ? (s.trend === "向上" ? "up" : "dn") : "same"), turned ? "现在" + s.trend + (since ? " · " + stamp(since) + " 起" : "") : "现在仍" + s.trend);
+      var tag = el("span", "tf-now " + (turned ? (s.trend === "向上" ? "up" : "dn") : "same"), turned ? (EN ? "now " + trendEn(s.trend) + (since ? " · since " + stamp(since) : "") : "现在" + s.trend + (since ? " · " + stamp(since) + " 起" : "")) : (EN ? "still " + trendEn(s.trend) : "现在仍" + s.trend));
       w.cell.appendChild(tag);
-      if (turned) { w.tr.classList.add("tf-turned"); out.push(w.key.replace(/(\d)(小时|分钟)/, "$1 $2") + "：文中写" + w.trend + "，现在" + s.trend + (since ? "（" + stamp(since) + " SGT 起）" : "")); }
+      if (turned) { w.tr.classList.add("tf-turned"); out.push(EN ? I.tfName(w.key) + ": the text says " + trendEn(w.trend) + ", now " + trendEn(s.trend) + (since ? " (since " + stamp(since) + " SGT)" : "") : w.key.replace(/(\d)(小时|分钟)/, "$1 $2") + "：文中写" + w.trend + "，现在" + s.trend + (since ? "（" + stamp(since) + " SGT 起）" : "")); }
     });
     return out;
   }
@@ -114,31 +119,32 @@
     var crossed = W.rows.filter(function (r) { return !r.cur && (r.level - W.price) * (r.level - L) < 0; })
       .sort(function (a, b) { return d < 0 ? b.level - a.level : a.level - b.level; });
     var box = el("div", "since"), hd = el("div", "hd");
-    hd.appendChild(document.createTextNode("下面的文字写于 " + (W.ms ? stamp(W.ms) + " SGT" : "今早") + "，当时 "));
+    hd.appendChild(document.createTextNode(EN ? "The text below (in Chinese) was written " + (W.ms ? stamp(W.ms) + " SGT" : "this morning") + ", at " : "下面的文字写于 " + (W.ms ? stamp(W.ms) + " SGT" : "今早") + "，当时 "));
     hd.appendChild(el("b", null, "$" + fmt(W.price)));
-    hd.appendChild(document.createTextNode("。现在 "));
+    hd.appendChild(document.createTextNode(tx("。现在 ", ". Now ")));
     hd.appendChild(el("b", null, "$" + fmt(L)));
-    hd.appendChild(document.createTextNode("，"));
-    hd.appendChild(el("b", d >= 0 ? "up" : "dn", (d >= 0 ? "▲ +$" : "▼ −$") + fmt(Math.abs(d)) + "（" + (d >= 0 ? "+" : "−") + fmt(Math.abs(pct), 2) + "%）"));
-    if (W.ms && now - W.ms > 26 * 3600000) hd.appendChild(el("b", "dn", " · 文字已是 " + Math.floor((now - W.ms) / 86400000) + " 天前写的"));
+    hd.appendChild(document.createTextNode(tx("，", ", ")));
+    hd.appendChild(el("b", d >= 0 ? "up" : "dn", (d >= 0 ? "▲ +$" : "▼ −$") + fmt(Math.abs(d)) + tx("（", " (") + (d >= 0 ? "+" : "−") + fmt(Math.abs(pct), 2) + tx("%）", "%)")));
+    if (W.ms && now - W.ms > 26 * 3600000) hd.appendChild(el("b", "dn", EN ? " · the text is " + Math.floor((now - W.ms) / 86400000) + " days old" : " · 文字已是 " + Math.floor((now - W.ms) / 86400000) + " 天前写的"));
     box.appendChild(hd);
     var ul = el("ul");
     function li(text, hot) { var x = el("li", hot ? "hot" : null, text); ul.appendChild(x); }
     var sv = state && state.verdict && state.verdict.tag;
     if (sv && W.verdict) {
-      if (sv !== W.verdict) li("规则的结论变了：文中写「" + W.verdict + "」，服务器 " + String(state.updated).slice(11, 16) + " 算出来是「" + sv + "」。以上面的实时栏和 4H 报告为准。", true);
-      else li("规则的结论没变：仍是「" + sv + "」（服务器 " + String(state.updated).slice(11, 16) + " 的数据）。");
+      if (sv !== W.verdict) li(EN ? "The rule's answer has changed: the text says «" + tagEn(W.verdict) + "», the server worked out «" + tagEn(sv) + "» at " + String(state.updated).slice(11, 16) + ". Go by the live bar above and the gold page." : "规则的结论变了：文中写「" + W.verdict + "」，服务器 " + String(state.updated).slice(11, 16) + " 算出来是「" + sv + "」。以上面的实时栏和 4H 报告为准。", true);
+      else li(EN ? "The rule's answer is the same: still «" + tagEn(sv) + "» (server data at " + String(state.updated).slice(11, 16) + ")." : "规则的结论没变：仍是「" + sv + "」（服务器 " + String(state.updated).slice(11, 16) + " 的数据）。");
     }
-    if (crossed.length) li("之后" + (d < 0 ? "跌破" : "突破") + "了文中的 " + crossed.map(function (r) { return r.name + " $" + fmt(r.level); }).join("、") + (d < 0 ? "：这些价位现在在现价上方，变成压力。" : "：这些价位现在在现价下方，变成支撑。"), true);
+    if (crossed.length) li(EN ? "Since then price has broken " + (d < 0 ? "below " : "above ") + "the text's " + crossed.map(function (r) { return I.level(r.name) + " $" + fmt(r.level); }).join(", ") + (d < 0 ? ": these levels are now above the price, as resistance." : ": these levels are now below the price, as support.") : "之后" + (d < 0 ? "跌破" : "突破") + "了文中的 " + crossed.map(function (r) { return r.name + " $" + fmt(r.level); }).join("、") + (d < 0 ? "：这些价位现在在现价上方，变成压力。" : "：这些价位现在在现价下方，变成支撑。"), true);
     turned.forEach(function (t) { li(t, true); });
     var w = state && (state.watch || [])[0];
     if (w && num(w.price) !== null) {
       var below = /跌破/.test(w.text), through = below ? L < w.price : L > w.price;
-      li((through ? "现价已经" + (below ? "低于" : "高于") + "关键价 $" + fmt(w.price) + "，但要看收盘：" : "关键价 $" + fmt(w.price) + "（离现价 $" + fmt(Math.abs(L - w.price)) + "）：") + w.text + "。", through);
+      var wm = /^(周线|日线|4\s*小时|1\s*小时|15\s*分钟)/.exec(w.text || ""), wEn = "a " + (wm ? I.tfName(wm[1]).toLowerCase() : "candle") + " close " + (below ? "below" : "above") + " it changes the answer";
+      li(EN ? (through ? "The price is already " + (below ? "below" : "above") + " the key level $" + fmt(w.price) + ", but the close decides: " : "Key level $" + fmt(w.price) + " ($" + fmt(Math.abs(L - w.price)) + " from the price): ") + wEn + "." : (through ? "现价已经" + (below ? "低于" : "高于") + "关键价 $" + fmt(w.price) + "，但要看收盘：" : "关键价 $" + fmt(w.price) + "（离现价 $" + fmt(Math.abs(L - w.price)) + "）：") + w.text + "。", through);
     }
-    if (!crossed.length && !turned.length && Math.abs(d) < 15) li("价格变化不大，文中的价位和场景仍然适用。");
+    if (!crossed.length && !turned.length && Math.abs(d) < 15) li(tx("价格变化不大，文中的价位和场景仍然适用。", "Price has not moved much; the text's levels and scenarios still apply."));
     box.appendChild(ul);
-    box.appendChild(el("div", "ft", "价位表的距离和“已跌破 / 已突破”按实时价格标注；周期表的“现在”来自服务器 " + (state && state.updated ? String(state.updated).slice(5) : "") + " 的数据。" + (isLive ? "" : "（实时价格暂时读不到，用的是服务器价格）")));
+    box.appendChild(el("div", "ft", EN ? "The level table's distances and «broken» marks follow the live price; the timeframe table's «now» comes from the server's data of " + (state && state.updated ? String(state.updated).slice(5) : "") + "." + (isLive ? "" : " (The live price cannot be read right now; using the server price.)") : "价位表的距离和“已跌破 / 已突破”按实时价格标注；周期表的“现在”来自服务器 " + (state && state.updated ? String(state.updated).slice(5) : "") + " 的数据。" + (isLive ? "" : "（实时价格暂时读不到，用的是服务器价格）")));
     host.innerHTML = ""; host.appendChild(box);
   }
   document.addEventListener("goldbar:update", function (e) {
@@ -155,8 +161,8 @@
   [].forEach.call(document.querySelectorAll("header .hdate, header .hprice-chg"), function (x) {
     x.classList.add("clamp");
     if (x.scrollHeight <= x.clientHeight + 4) { x.classList.remove("clamp"); return; }
-    var b = el("button", "more-btn", "展开全文 ▾");
-    b.addEventListener("click", function () { var open = x.classList.toggle("clamp"); b.textContent = open ? "展开全文 ▾" : "收起 ▴"; });
+    var b = el("button", "more-btn", tx("展开全文 ▾", "Show all ▾"));
+    b.addEventListener("click", function () { var open = x.classList.toggle("clamp"); b.textContent = open ? tx("展开全文 ▾", "Show all ▾") : tx("收起 ▴", "Show less ▴"); });
     x.parentNode.insertBefore(b, x.nextSibling);
   });
 
@@ -164,8 +170,9 @@
   var bias = document.querySelector(".biasbar"), extra = bias ? bias.querySelectorAll(".badge").length - 1 : 0;
   if (extra > 0) {
     bias.classList.add("short");
-    var bm = el("button", "bias-more", "看各周期的文字说明（" + extra + " 条）▾"); bm.type = "button";
-    bm.addEventListener("click", function () { var s = bias.classList.toggle("short"); bm.textContent = s ? "看各周期的文字说明（" + extra + " 条）▾" : "收起 ▴"; });
+    var bmTxt = EN ? "Each timeframe's notes (" + extra + ") ▾" : "看各周期的文字说明（" + extra + " 条）▾";
+    var bm = el("button", "bias-more", bmTxt); bm.type = "button";
+    bm.addEventListener("click", function () { var s = bias.classList.toggle("short"); bm.textContent = s ? bmTxt : tx("收起 ▴", "Show less ▴"); });
     bias.appendChild(bm);
   }
 
@@ -191,7 +198,7 @@
   var folds = store("daily.fold") || {};
   function setFold(card, closed, save) {
     card.classList.toggle("folded", closed);
-    var b = card.querySelector(".fold-btn"); if (b) { b.textContent = closed ? "展开 ▾" : "收起 ▴"; b.setAttribute("aria-expanded", String(!closed)); }
+    var b = card.querySelector(".fold-btn"); if (b) { b.textContent = closed ? tx("展开 ▾", "Open ▾") : tx("收起 ▴", "Fold ▴"); b.setAttribute("aria-expanded", String(!closed)); }
     if (!closed) loadChart(card);
     if (save) { folds[card.id] = closed; store("daily.fold", folds); }
   }

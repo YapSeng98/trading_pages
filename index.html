@@ -134,7 +134,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 <body>
 <div class="topstrip"></div>
 
-<nav class="navbar" aria-label="网站导航">
+<nav class="navbar" aria-label="网站导航" data-en-label="Site navigation">
   <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
   <a class="nl" href="report.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
   <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
@@ -158,7 +158,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
     </div>
   </header>
 
-  <section class="bento" aria-label="黄金现在">
+  <section class="bento" aria-label="黄金现在" data-en-label="Gold now">
     <a class="card gold-card s8" href="report.html">
       <div class="gc-top">
         <span class="ib"><svg class="i" viewBox="0 0 24 24"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg></span>
@@ -175,12 +175,12 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
       <div class="pbig js-live-price">—</div>
       <div class="pd" id="pulse-gold" data-en="Loading…">载入中…</div>
       <div class="ptime"><span data-en="Updated">更新于</span> <span class="js-live-time" data-en="loading…">载入中…</span></div>
-      <div class="g7"><div class="pv-k"><span data-en="Last 7 trading days">近 7 个交易日</span><span id="g7-range"></span></div><svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势"></svg></div>
+      <div class="g7"><div class="pv-k"><span data-en="Last 7 trading days">近 7 个交易日</span><span id="g7-range"></span></div><svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势" data-en-label="Gold closes over the last 7 trading days"></svg></div>
     </div>
 
     <div class="card score-card s4">
       <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg><span data-en="Multi-timeframe score">多周期评分</span></div>
-      <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分"></svg>
+      <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分" data-en-label="Score of the five timeframes' weighted directions"></svg>
     </div>
     <a class="card s4" href="report.html#read-risk">
       <div class="lbl"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg><span data-en="Next key event">下一关键事件</span></div>
@@ -196,7 +196,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
   </section>
 
   <div class="sec"><h2 data-en="Everything">全部功能</h2><span data-en="One page per market, each with its answer first">一页只看一个市场，每一页都先给结论</span></div>
-  <section class="tiles" aria-label="全部功能">
+  <section class="tiles" aria-label="全部功能" data-en-label="Everything on the site">
     <a class="tile" href="btc.html">
       <div class="th"><span class="ib b"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg></span><div class="tt" data-en-html="Bitcoin<small>BTC/USD · observe only</small>">比特币<small>BTC/USD · 仅观察</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       <p data-en="The same five-timeframe rule as gold, worked out live on Binance BTC/USDT. In its replay the rule showed no clear edge on Bitcoin, so it is for watching only.">和黄金同一套五周期规则，用币安 BTC/USDT 实时计算。回放里这个规则在比特币上优势不明显，所以只作观察。</p>
@@ -256,6 +256,6 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 <script src="assets/gold-live.js?v=2"></script>
 <script src="assets/hub-live.js?v=11"></script>
 <script src="assets/tv-lazy.js?v=2"></script>
-<script src="assets/site.js?v=2" defer></script>
+<script src="assets/site.js?v=3" defer></script>
 </body>
 </html>
