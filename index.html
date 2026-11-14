@@ -65,7 +65,25 @@ a.card:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
 /* room for the text that arrives a moment later, so the cards below do not jump */
 .vd{min-height:3.6em}.pd{min-height:3.2em}.tfd{min-height:3.4em}#hub-main-chips{min-height:30px}
 .tfrow{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;margin-top:18px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.09)}
-.tfv{font:600 16px/1.4 var(--f-d);color:var(--ink)}
+.tfv{font:600 16px/1.4 var(--f-d);color:var(--ink);display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 2px;min-height:34px;align-items:center}
+.tfl{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:12px;background:var(--bg3);border:1px solid var(--border);font:600 13px/1 var(--f-d);color:var(--text)}
+.tfl i{font-style:normal;color:var(--ink)} .tfl b{font-size:11px} .tfl small{font:400 11px/1 var(--f-m);color:var(--dim)}
+.tfl.up{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07)} .tfl.up b{color:var(--bull)}
+.tfl.dn{border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07)} .tfl.dn b{color:var(--bear)}
+.tfl.big{padding:9px 14px} .tfl.big i{font-size:14px}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0} .stack>.card{min-width:0} .stack>.ev-card{flex:1}
+.drv-card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.drv-card .lbl .go{margin-left:auto;color:var(--gold-lt);display:inline-flex}
+.drv-top{font:600 15px/1.5 var(--f-d);color:var(--ink);margin-top:12px}
+.drv-top b.up{color:var(--bull)} .drv-top b.dn{color:var(--bear)}
+.drv-list{list-style:none;display:grid;gap:2px;margin:10px 0 0;padding:0;min-height:232px;align-content:start}
+.drv-list li{display:grid;grid-template-columns:minmax(0,1fr) 64px auto;align-items:center;gap:10px;padding:8px 0;border-top:1px solid rgba(255,255,255,.05);font-size:12.5px;color:var(--text)}
+.drv-list li span.nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.drv-list li svg{display:block;width:64px;height:20px}
+.drv-list li b{font:600 12.5px/1 var(--f-m);font-variant-numeric:tabular-nums;min-width:62px;text-align:right}
+.drv-list li b.up{color:var(--bull)} .drv-list li b.dn{color:var(--bear)}
+.drv-list li em{font-style:normal;font-size:11px;color:var(--dim);margin-left:6px}
+.drv-card .ut{margin-top:auto;padding-top:10px;font:400 11px/1.6 var(--f-m);color:var(--dim)}
 .tfd{font-size:12.5px;color:var(--dim);line-height:1.7}
 .go{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1 var(--f-d);color:var(--gold-lt);white-space:nowrap}
 
@@ -94,7 +112,8 @@ a.card:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
 .sec{display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin:40px 0 14px}
 .sec h2{font:700 20px/1.2 var(--f-d);color:var(--ink);letter-spacing:-.4px}
 .sec span{font-size:12px;color:var(--dim)}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:1240px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:1060px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.tiles{grid-template-columns:minmax(0,1fr)}}
 .tile{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:20px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0) 140px),var(--bg2);transition:border-color .2s,transform .2s;min-width:0}
@@ -126,7 +145,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 /* phones: nothing smaller than 11px */
 @media(max-width:640px){.lbl,.tile .tt small,.pv-k,.upd,.ptime,.chip{font-size:11px}.hero{padding-top:26px}.hero .acts{width:100%}.hero .acts .btn{flex:1}.gc-top .go{display:none}.sec{margin-top:32px}}
 </style>
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 <meta name="i18n" content="en">
 <meta name="i18n-title" content="Trading Hub · Gold first">
 <script src="assets/i18n.js?v=2"></script>
@@ -178,15 +197,23 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
       <div class="g7"><div class="pv-k"><span data-en="Last 7 trading days">近 7 个交易日</span><span id="g7-range"></span></div><svg id="g7svg" viewBox="0 0 340 96" role="img" aria-label="黄金近 7 个交易日收盘走势" data-en-label="Gold closes over the last 7 trading days"></svg></div>
     </div>
 
-    <div class="card score-card s4">
+    <div class="stack s4">
+    <div class="card score-card">
       <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg><span data-en="Multi-timeframe score">多周期评分</span></div>
       <svg id="scoresvg" viewBox="0 0 170 96" role="img" aria-label="五个周期方向加权后的评分" data-en-label="Score of the five timeframes' weighted directions"></svg>
     </div>
-    <a class="card s4" href="report.html#read-risk">
+    <a class="card ev-card" href="report.html#read-risk">
       <div class="lbl"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg><span data-en="Next key event">下一关键事件</span></div>
       <div class="evv" id="pulse-event">—</div>
       <div class="evd" id="pulse-event-d" data-en="Loading…">载入中…</div>
       <div class="meta" id="hub-risk-chips"></div>
+    </a>
+    </div>
+    <a class="card drv-card s4" href="report.html#drivers">
+      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-9"/><path d="M15 6h5v5"/></svg><span data-en="What's moving gold · this week">驱动因素 · 这一周</span><span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="drv-top" id="hub-drv-top"><span data-en="Loading…">载入中…</span></div>
+      <ul class="drv-list" id="hub-drv"></ul>
+      <div class="ut" id="hub-drv-ft"></div>
     </a>
     <div class="card now-card s4">
       <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Right now">现在的情况</span></div>
@@ -227,6 +254,11 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
       <p data-en="Growth and dividend stocks in the US, Singapore and Malaysia, with prices and yields updated every day (research text in Chinese).">美国、新加坡、马来西亚三大市场的成长股与股息股，价格和收益率每天自动更新。</p>
       <div class="meta"><span class="chip bull" data-en="Growth">成长股</span><span class="chip gold" data-en="Dividend">股息股</span><span class="chip">🇺🇸 🇸🇬 🇲🇾</span></div>
     </a>
+    <a class="tile" href="report.html#ask">
+      <div class="th"><span class="ib v"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg></span><div class="tt" data-en-html="Ask Claude<small>With live data</small>">问 Claude<small>Ask · 带实时数据</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <p data-en="Ask in your own words: the gold page hands Claude its live answer, the five timeframes, the plan, the calendar and the headlines along with your question.">用自己的话提问：黄金页会把此刻的结论、五个周期、方案、日历和头条连同你的问题一起交给 Claude。</p>
+      <div class="meta"><span class="chip gold" data-en="Can I enter now?">现在能进场吗？</span><span class="chip" data-en="Your own Claude account">用你自己的账号</span></div>
+    </a>
     <a class="tile" href="potential.html">
       <div class="th"><span class="ib r"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg></span><div class="tt" data-en-html="High Potential<small>volatile</small>">潜力精选<small>高波动</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       <p data-en="Low-priced, fast-growing stocks in the three markets, each analysed on its own: target upside, strengths and risks (in Chinese).">三个市场的低价高成长个股，每只独立分析：目标价上涨空间、优势与风险。</p>
@@ -252,10 +284,10 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
   <div class="disc" data-en-html="<strong>Disclaimer:</strong> everything on this site is for reference and is not investment advice. Trading XAUUSD is high-risk and can lose you money. Data: Dukascopy (spot gold candles), gold-api.com (live gold price), ForexFactory (economic calendar), Yahoo Finance (stocks), TradingView (charts). Do your own research before you trade."><strong>免责声明：</strong>本站内容仅供参考，不构成投资建议。XAUUSD 交易具有高风险，可能导致本金损失。数据来源：Dukascopy（现货金 K 线）、gold-api.com（实时金价）、ForexFactory（经济日历）、Yahoo Finance（股票）、TradingView（图表）。交易前请进行独立尽职调查。</div>
 </footer>
 
-<script src="assets/xau-feed.js?v=10"></script>
+<script src="assets/xau-feed.js?v=11"></script>
 <script src="assets/gold-live.js?v=2"></script>
-<script src="assets/hub-live.js?v=11"></script>
+<script src="assets/hub-live.js?v=12"></script>
 <script src="assets/tv-lazy.js?v=2"></script>
-<script src="assets/site.js?v=3" defer></script>
+<script src="assets/site.js?v=4" defer></script>
 </body>
 </html>

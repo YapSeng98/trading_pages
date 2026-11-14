@@ -71,5 +71,24 @@
     var raf = 0, check = function () { raf = 0; top.classList.toggle("on", window.scrollY > window.innerHeight * 1.5); };
     window.addEventListener("scroll", function () { if (!raf) raf = requestAnimationFrame(check); }, { passive: true });
   }
+  // ---------- gold's answer in the navbar, on the pages that do not already show it (wide screens only, see site.css) ----------
+  // From data/xau-state.json: the price of the last 15-minute close, the rule's answer and how old it is. The home page,
+  // the gold page and the briefs carry the answer themselves.
+  var here = location.pathname.split("/").pop() || "index.html";
+  if (nav && !embedded && !/^(index|report|daily|news|risk)\.html$/.test(here) && window.fetch) {
+    fetch("data/xau-state.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (st) {
+      if (!st || !st.verdict || typeof st.price !== "number") return;
+      var en = pick === "en", v = st.verdict, tfs = (st.timeframes || []).slice(0, 3).map(function (t) { return t.trend; });
+      var dir = v.level === "go" ? (st.plan && st.plan.side === "做多" ? 1 : -1) : tfs.length === 3 && tfs.every(function (w) { return w === "向上"; }) ? 1 : tfs.length === 3 && tfs.every(function (w) { return w === "向下"; }) ? -1 : 0;
+      var word = v.level === "go" ? (dir > 0 ? (en ? "Buy signal" : "可做多") : (en ? "Sell signal" : "可做空")) : v.level === "ready" && dir ? (en ? "waiting" : "等小周期") : (en ? "Wait" : "观望");
+      var closed = /休市/.test(v.tag || ""), at = Date.parse(String(st.updated || "").replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? Math.round((Date.now() - at) / 3600000) : 0;
+      var tail = closed ? (en ? " · closed" : " · 休市") : ageH >= 3 ? (en ? " · " + ageH + "h ago" : " · " + ageH + " 小时前") : "";
+      var pill = h("a", { class: "nav-pill " + (v.level === "go" ? "go" : v.level === "ready" ? "ready" : "none"), href: "report.html",
+        title: (en ? "Gold: the rule's answer from the data of " : "黄金：规则的结论，数据 ") + (st.updated || "") + (en ? ". Open the gold page for the live answer and plan." : "。打开黄金页看实时结论和计划。") }, [
+        h("span", { class: "k", text: "XAU" }), h("b", { text: st.price.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) }),
+        h("span", { class: "s" + (dir > 0 ? " up" : dir < 0 ? " dn" : ""), text: (dir > 0 ? "▲ " : dir < 0 ? "▼ " : "") + word + tail })]);
+      var brand = nav.querySelector(".brand"); if (brand) { brand.insertAdjacentElement("afterend", pill); nav.classList.add("has-pill"); }
+    }).catch(function () {});
+  }
   window.SiteSettings = { lang: pick, choose: choose };
 })();

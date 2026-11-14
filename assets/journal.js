@@ -1416,4 +1416,5 @@
   // the report page's paper record, for the "same month" line (optional)
   fetch("data/xau-signals.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.signals) { REC = d; renderKpis(); } }).catch(function () {});
   setTab("trade"); setSign(1); renderAll(); Cloud.init();
+  document.documentElement.classList.add("j-ready");      // the cards are filled: show them (journal.html keeps them unseen until now)
 })();

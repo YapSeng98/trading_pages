@@ -72,7 +72,7 @@
     mk("polyline", { points: line.join(" "), fill: "none", stroke: "#D4A72C", "stroke-width": "2", "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
     pts.forEach(function (p, i) {
       mk("circle", { cx: X(i).toFixed(1), cy: Y(p.v).toFixed(1), r: i === pts.length - 1 ? "3.5" : "2", fill: "#D4A72C", stroke: "#15151C", "stroke-width": "1" }, svg);
-      mk("text", { x: X(i).toFixed(1), y: H - 3, fill: "#8A857E", "font-size": "11", "font-family": "'IBM Plex Mono',monospace", "text-anchor": "middle" }, svg).textContent = p.d;
+      mk("text", { x: i === 0 ? "0" : X(i).toFixed(1), y: H - 3, fill: "#8A857E", "font-size": "11", "font-family": "'IBM Plex Mono',monospace", "text-anchor": i === 0 ? "start" : "middle" }, svg).textContent = p.d;
     });
     var last = pts[pts.length - 1];
     mk("text", { x: (X(pts.length - 1) + 5).toFixed(1), y: (Y(last.v) + 3).toFixed(1), fill: "#F6F5F3", "font-size": "11", "font-weight": "700", "font-family": "'Space Grotesk',monospace" }, svg).textContent = "$" + fmt(last.v, 0);
@@ -129,7 +129,18 @@
     set("pulse-verdict-d", EN
       ? vWhen + (vTitle || "") + "." + (w0 ? " Watch " + fmt(w0.price) + ": " + watchEn(w0) + "." + (crossed ? " Price is already past it; " + (L ? "it counts when that candle closes." : "the answer may have changed: open the gold page for the live one.") : "") : "")
       : vWhen + (vTitle || "") + "。" + (w0 ? "关注 " + fmt(w0.price) + "：" + w0.text + "。" + (crossed ? "现价已经越过它，" + (L ? "要看那根 K 线收盘。" : "结论可能已变，打开黄金页看实时结论。") : "") : ""));
-    set("pulse-tf", dirs); set("pulse-tf-d", tr("周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：", "Trade only when the weekly, daily and 4-hour agree; enter when the 1-hour and 15-minute agree too. Now: ") + big + tr("。", "."));
+    var tfBox = $("pulse-tf");
+    if (tfBox) {            // five lights: one per timeframe, coloured by its direction, with the day that trend began
+      while (tfBox.firstChild) tfBox.removeChild(tfBox.firstChild);
+      tfs.forEach(function (t, i) {
+        var up = t.trend === "向上", dn = t.trend === "向下", chip = el("span", "tfl " + (up ? "up" : dn ? "dn" : "un") + (i < 3 ? " big" : ""));
+        chip.appendChild(el("i", null, SHORT[t.tf] || t.tf)); chip.appendChild(el("b", null, up ? "▲" : dn ? "▼" : "–"));
+        var sm = t.since && /^\d{4}-(\d{2})-(\d{2})/.exec(t.since); if (sm) chip.appendChild(el("small", null, tr("自 ", "since ") + (+sm[1]) + "/" + (+sm[2])));
+        tfBox.appendChild(chip);
+      });
+      if (!tfs.length) tfBox.textContent = "—";
+    }
+    set("pulse-tf-d", tr("周线、日线、4 小时同向才做；1 小时和 15 分钟也同向才进场。现在：", "Trade only when the weekly, daily and 4-hour agree; enter when the 1-hour and 15-minute agree too. Now: ") + big + tr("。", "."));
     chips("hub-main-chips", [
       [chg === null ? "gold" : chg >= 0 ? "bull" : "bear", (st.marketOpen ? tr("今日 ", "Today ") : (pdKey ? pdKey + " " : "") + tr("收盘 ", "close ")) + (chg === null ? "" : sgn(chg) + tr("（" + sgn(pct, 2) + "%）· ", " (" + sgn(pct, 2) + "%) · ")) + tr("区间 ", "range ") + fmt(dayLo, 0) + "–" + fmt(dayHi, 0)],
       [go ? "bull" : "gold", tr("系统结论", "The rule") + (L ? tr("（实时）", " (live)") : vOld ? tr("（" + ageTxt + "）", " (" + ageTxt + ")") : "") + tr("：", ": ") + (vTag || "—") + " · " + dirs],
@@ -167,7 +178,30 @@
       paint();
     }).catch(function () {});
   }
-  function loadFiles() { return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; paint(); }); }
+  // what's moving gold this week (data/drivers.json): the short list; the full card is on the gold page
+  var DRV = { dxy: tr("美元指数", "US dollar index"), us10y: tr("美债 10 年收益率", "US 10-year yield"), real10y: tr("10 年实际收益率", "10-year real yield"), oil: tr("原油", "Crude oil"), silver: tr("白银", "Silver"), spx: tr("标普 500", "S&P 500") };
+  function spark(vals) {
+    var svg = mk("svg", { viewBox: "0 0 64 20", preserveAspectRatio: "none", "aria-hidden": "true" }); if (!vals || vals.length < 2) return svg;
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), r = hi - lo || 1;
+    mk("polyline", { points: vals.map(function (v, i) { return (i * 64 / (vals.length - 1)).toFixed(1) + "," + (2 + 16 * (1 - (v - lo) / r)).toFixed(1); }).join(" "), fill: "none", stroke: "#E6BE55", "stroke-width": "1.4", "vector-effect": "non-scaling-stroke", "stroke-linejoin": "round" }, svg);
+    return svg;
+  }
+  function paintDrivers(d) {
+    var top = $("hub-drv-top"), ul = $("hub-drv"); if (!top || !ul) return;
+    var rows = (d && d.series) || [], gold = rows.filter(function (s) { return s.id === "gold"; })[0];
+    while (ul.firstChild) ul.removeChild(ul.firstChild); while (top.firstChild) top.removeChild(top.firstChild);
+    if (!gold) { top.textContent = tr("驱动因素的数据暂时读不到。", "The drivers data is not available right now."); return; }
+    var ch = function (s) { var v = s.chg1w; if (typeof v !== "number") return ["—", ""]; if (s.kind === "pp") { var bp = Math.round(v * 100); return [(bp > 0 ? "+" : bp < 0 ? "−" : "") + Math.abs(bp) + " bp", bp > 0 ? "up" : bp < 0 ? "dn" : ""]; } return [sgn(v, 2) + "%", v > 0 ? "up" : v < 0 ? "dn" : ""]; };
+    var g = ch(gold); top.appendChild(document.createTextNode(tr("黄金（期货）这一周 ", "Gold (futures) this week "))); top.appendChild(el("b", g[1], g[0]));
+    rows.forEach(function (s) {
+      if (!DRV[s.id]) return;
+      var li = el("li"), c = ch(s), nm = el("span", "nm", DRV[s.id]), push = { dxy: -1, us10y: -1, real10y: -1 }[s.id];   // a rising dollar or yield usually weighs on gold
+      if (push && typeof s.chg1w === "number" && s.chg1w !== 0) nm.appendChild(el("em", null, s.chg1w * push < 0 ? tr("不利", "headwind") : tr("有利", "tailwind")));
+      li.appendChild(nm); li.appendChild(spark(s.spark)); li.appendChild(el("b", c[1], c[0])); ul.appendChild(li);
+    });
+    set("hub-drv-ft", tr("日收盘到 ", "Daily closes to ") + gold.date + tr(" · 参考，不是信号", " · context, not a signal"));
+  }
+  function loadFiles() { get("data/drivers.json").then(paintDrivers); return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; paint(); }); }
   // the gold page's own engine, loaded only for a browser that holds the candles; same versions as report.html
   function script(src) { return new Promise(function (ok, no) { var e = document.createElement("script"); e.src = src; e.onload = ok; e.onerror = no; document.head.appendChild(e); }); }
   var WAY = { bullish: "向上", bearish: "向下" }, TFN = { W: "周线", D: "日线", "4H": "4 小时", "1H": "1 小时", "15M": "15 分钟" };
@@ -175,7 +209,7 @@
     if (!window.XauFeed || !XauFeed.hasCache) return;
     XauFeed.hasCache().then(function (has) {
       if (!has) return;
-      return (window.XauPlan && window.runXauEngine ? Promise.resolve() : script("assets/xau-engine.js?v=5").then(function () { return script("assets/xau-plan.js?v=19"); })).then(function () {
+      return (window.XauPlan && window.runXauEngine ? Promise.resolve() : script("assets/xau-engine.js?v=6").then(function () { return script("assets/xau-plan.js?v=20"); })).then(function () {
         return XauFeed.load({ source: "spot" });                                // spot only: the backup feed's answer can differ, the file's is then the better one
       }).then(function (feed) {
         var now = Date.now(), E = runXauEngine(feed, now), V = XauPlan.verdict(E, now), P = V.plan && V.level === "go" ? V.plan : null, d = new Date(feed.priceAt + 8 * 3600000);

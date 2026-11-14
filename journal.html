@@ -256,6 +256,9 @@ details.ctx pre{margin-top:8px;max-height:260px;overflow:auto;white-space:pre-wr
 .tip{position:absolute;pointer-events:none;background:var(--bg4);border:1px solid var(--border-2);border-radius:9px;padding:6px 10px;font-size:11.5px;color:var(--ink);white-space:nowrap;z-index:3;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 .legend{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:10px;font-size:11.5px;color:var(--dim)}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* the cards are filled by journal.js: unseen until its first render (1.5 s at most), so a paint in between cannot show the
+   empty goal card and then push everything down (layout shift 0.15, seen about every other load) */
+html:not(.j-ready) .bento{visibility:hidden}
 .daily{margin-top:18px;padding-top:16px;border-top:1px dashed var(--border)}
 .daily svg{cursor:pointer}
 .dl-n{margin-left:auto;font:400 11px/1 var(--f-m);color:var(--dim)}
@@ -471,9 +474,10 @@ footer{max-width:1240px;margin:0 auto;padding:0 24px 40px}
 // Left empty, the page asks for it once and keeps it in this browser.
 window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "" };
 </script>
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 </head>
 <body>
+<script>setTimeout(function(){document.documentElement.classList.add("j-ready")},1500)</script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9L18.7 9.7 13.8 11.5 12 16.4 10.2 11.5 5.3 9.7l4.9-1.8z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></symbol>
@@ -698,7 +702,7 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
 <div class="scrim" id="scrim"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/journal.js?v=8"></script>
-<script src="assets/site.js?v=3" defer></script>
+<script src="assets/journal.js?v=9"></script>
+<script src="assets/site.js?v=4" defer></script>
 </body>
 </html>
