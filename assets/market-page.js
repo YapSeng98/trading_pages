@@ -1761,6 +1761,14 @@
     if (open) { var sd = new Date((now / 1000 + Feed.serverOff(now / 1000)) * 1000); if (sd.getUTCDay() === 5) L.push("It is Friday: gold shuts Saturday about 05:00 SGT, a trade opened now is held over the weekend."); }
     var nw = (S.news || []).slice(0, 6);
     if (nw.length) { L.push("Latest gold headlines:"); nw.forEach(function (x) { L.push("- " + x.t + " (" + x.src + ", " + ago(x.ms) + ")"); }); }
+    // what gold is moving with (data/drivers.json, the gold page's drivers card): daily closes, as context
+    var dv = M.id === "xau" && window.GoldDrivers && window.GoldDrivers.series;
+    if (dv && dv.length) {
+      var DN = { gold: "gold futures", dxy: "US dollar index", us10y: "US 10-year yield", real10y: "US 10-year real yield", oil: "WTI crude", silver: "silver", spx: "S&P 500" };
+      var dc = function (s, v) { return typeof v !== "number" ? "n/a" : s.kind === "pp" ? (v >= 0 ? "+" : "") + Math.round(v * 100) + "bp" : (v >= 0 ? "+" : "") + v + "%"; };
+      L.push("Drivers, daily closes (context, not a signal; the replay found no gain from filtering the rule by real yields):");
+      dv.forEach(function (s) { if (DN[s.id]) L.push("- " + DN[s.id] + " " + s.last + (s.kind === "pp" ? "%" : "") + " (" + s.date + "): 1 day " + dc(s, s.chg1d) + ", 1 week " + dc(s, s.chg1w) + ", 1 month " + dc(s, s.chg1m) + (typeof s.corr60 === "number" ? "; 60-day correlation of daily moves with gold " + s.corr60 : "")); });
+    }
     var r = S.rec;
     if (r && r.summary) {
       var op = (r.signals || []).filter(function (x) { return x.status === "open"; })[0], oR = openR(op);

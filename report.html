@@ -645,7 +645,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   </header>
 
   <nav class="gnav" id="gnav" aria-label="本页目录" data-en-label="On this page">
-    <a href="#verdict" data-en="Answer">结论</a><a href="#changes" data-en="Trend changes">趋势变化</a><a href="#short" data-en="Intraday">短线</a><a href="#ask" data-en="Ask Claude">问 Claude</a><a href="#chart-sec" data-en="Chart">图表</a><a href="#plan" data-en="Plan">交易计划</a>
+    <a href="#verdict" data-en="Answer">结论</a><a href="#changes" data-en="Trend changes">趋势变化</a><a href="#short" data-en="Intraday">短线</a><a href="#drivers" data-en="Drivers">驱动因素</a><a href="#ask" data-en="Ask Claude">问 Claude</a><a href="#chart-sec" data-en="Chart">图表</a><a href="#plan" data-en="Plan">交易计划</a>
     <a href="#read-daily" data-read="daily" data-en="Daily brief">每日分析</a><a href="#read-news" data-read="news" data-en="News">快讯</a><a href="#read-risk" data-read="risk" data-en="Calendar &amp; risk">日历与风险</a><a href="#dtabs" data-tab="proof" data-en="Record">成绩记录</a>
   </nav>
 
@@ -705,6 +705,12 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   <section class="card live-data" id="short" aria-label="短线" data-en-label="Intraday">
     <div class="card-head"><h2 data-en="Intraday">短线 <small>Intraday</small></h2><span class="chip neut" data-en="Today's market · follows the live price">今天的盘面 · 随现价更新</span></div>
     <div id="short-body"><p class="note" data-en="Loading…">正在载入…</p></div>
+  </section>
+
+  <!-- what gold is moving with: daily closes of the usual drivers (data/drivers.json, assets/drivers.js). Context, not a signal -->
+  <section class="card" id="drivers" aria-label="驱动因素" data-en-label="What's moving gold">
+    <div class="card-head"><h2 data-en="What's moving gold">驱动因素 <small>Drivers</small></h2><span class="chip neut" id="drv-at"><span data-en="daily closes · reference">每日收盘 · 参考</span></span></div>
+    <div id="drv-body"><p class="note" data-en="Loading…">正在载入…</p></div>
   </section>
 
   <section class="card pos" id="pos" hidden aria-label="我的持仓" data-en-label="My position"></section>
@@ -940,7 +946,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=2"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=30"></script>
+<script src="assets/market-page.js?v=31"></script>
+<script src="assets/drivers.js?v=1" defer></script>
 <script src="assets/site.js?v=3" defer></script>
 </body>
 </html>
