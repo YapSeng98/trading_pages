@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-14 06:00 SGT",
+ "updated": "2026-11-14 10:18 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
   "Google News"
  ],
  "items": [
+  {
+   "t": "Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ09SOU1XMmZSdkZoVU5iQkdoN1duRHpoNUhqWHlJVVRhd3ozYzFLLXkteml0ZXJoODBvUy1iMDB1Yk9qRy1oSFhfQ296RlBITmhSbzFSRVBVeGZLQ1lXb05ZRmRIVl9PclVZdzVJQ0h0M2JTRnZKUzZndkswa1JNNEtwbjdNMW1IQXZuQ1BDdVJlM0Y2TmRRWnhEUDFVb3FROEZyOFA1ZEdjNjlWbzYxak9QSjNKLVk?oc=5",
+   "ms": 1794610805000,
+   "time": "11/14 07:00"
+  },
   {
    "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
    "src": "Kitco",
@@ -35,18 +42,18 @@
    "time": "11/14 04:23"
   },
   {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794592944000,
-   "time": "11/14 02:02"
-  },
-  {
    "t": "Gold Makes Worst Losing Run in 4 Decades, Silver Plunge Tests $50 Again",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNV3pPdHZWTGJvazFWazE1VnEzZlR3OXpmYUZhYXozOHlTcW1YR1JsWnRGTkNkSzJiOFpueTdjcjhJQ1A4RXI4b0x2NzZWSlVaTWVrWEtyRGFPcGZJTDVObENIYXpiNjRic0k4NFRiNG5SYnF3ZnlEdEEycmc5SG1hcFM4LTN5Vk5GYmtQTGJ4Wjk?oc=5",
    "ms": 1794589337000,
    "time": "11/14 01:02"
+  },
+  {
+   "t": "Rate hike bets keep gold on track for its worst week in four months",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOM1dMZkZObVU3SzhROG1WY0Vwa09udGszMC1KRy1lMjBZdkZNYmJfMTRmZS1JTG5rVjBRN1VvMjJBX2ZhZXNVUXpRM3FWM0V2aEZVS3NzQlhhNnZFaVhSd3pER1ZfekJya2o3X085ODVWaHdHZlRWZDk2bnJtelFaX3pGblU4SGFEaGFUcFV1RzBveW8wZGIyME4xN3RFQ1VFejlRdHdWQ2N1cHJ2?oc=5",
+   "ms": 1794585788000,
+   "time": "11/14 00:03"
   },
   {
    "t": "Goldman Sachs cuts year-end gold price target to $4,150/oz, 2027 target to $4,800/oz",
@@ -56,25 +63,11 @@
    "time": "11/13 23:25"
   },
   {
-   "t": "The price of gold today, Nov. 13, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9oMl9PZEU0VktTR3Bub3dpNkxXTklxVDFBLTBnUzBXbGtOX0psRkpDbGxlWmY3MG0ycE8zWUU1N1FfVm9kV2poUFpNM0c3bUozTGNTWVZ5dTFGZkxLR251UmxJeXN6dGxsYkxvS2VLTXR2Z9IBd0FVX3lxTE91MjdIVXFjZ29hblhWTUhKeEZlMWI1UzU4d2d3VmtKSkk4Q29wMXVHWlVqZkJseHNMMzFYSnFhR3ZDLV91aWRRcVJDTkRQZ2prWjF6cUkxUktXaU1CdWlod3BBWU5tWUthZWhNdDZsU1ViYnBYU0RF?oc=5",
-   "ms": 1794582110000,
-   "time": "11/13 23:01"
-  },
-  {
    "t": "Current price of gold as of November 13, 2026",
    "src": "Fortune",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5Lb0w5YjBGUUdsRzg4VE9BeUlsYnhBOUs5QkNPVnZCbDJUcC1TXy01ZmRqR2s0NUtPOHMtMEhmNnhNZ2c0TF80QWNSaGJGUjlUZjl1dGhSTDhJQk5ISkIxX1lsb09kSEhLRFF6enRR?oc=5",
    "ms": 1794579780000,
    "time": "11/13 22:23"
-  },
-  {
-   "t": "Gold hit its lowest level of 2026 near $3,850",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPX0RSdGFkTEROdWJjRzUwb21EdkQxRHpveUVIYWZ1Rml6WVZBeEVwN0FPN3VJaTFmYllxZThNbmIwdjRIX09kRERCSndRRExjQXhnblRzX05BMmM1Qlh1MVFVblgxNllFX0JDQmFGODhWQWdGTnRDczgwdjhGZlgwblFIOTA0QnR6Yzk0MW52dnFIdTFWSEE?oc=5",
-   "ms": 1794579182000,
-   "time": "11/13 22:13"
   },
   {
    "t": "Gold pares gains as mixed US PPI offers little relief from Fed tightening fears",
@@ -91,6 +84,13 @@
    "time": "11/13 21:41"
   },
   {
+   "t": "Gold rebounds but heads for weekly fall before US inflation data",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQLUFWRjZyc19ZYllDSFdreDF2Z3dZOFV5RmhGRXZVZHd2bWRDaHhDYkpjY1Zya18tV01JdElTb0NEbUhWWXpMdXAwSmxzVVU4M2RHOEhPNTBZamVka1RUM3BaYk5KcnJ4V0g2TldfY191Ynp6UmNqZ1d6eURNeVdIbkZRMW9VM3MzV25JOFZhTVdYTlVnSmlLbThJYlNqY3BHZnc?oc=5",
+   "ms": 1794574090000,
+   "time": "11/13 20:48"
+  },
+  {
    "t": "Gold price today, Friday, November 13, 2026: Gold's down over 4% in the last five days",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNLVRObm1EUEJJdTdaTm1Vd1pYTS1pZjJaLTRJY1JKWlltRl9jalhnZ3d3NmNHdGNUVHVfUmhUYVE0dTg4QjdCd28ybUhZS3hWeFlreXlBNDdaazdmazU1aU9sdWtFd09wWThuN0lWQ0xPZ3l5YU9fSWZjY1NBNDNvUVlHUDQxazF0UUVQT2dhSFlmZkRKam1jYkcwalpqUHBYOTBZS25LbVJ0R0x5UGJiZEJKOUxCYjZOZUJ3NjRxenJkNEdDaElaM1JnMHNaVWN3TVRkRVlqV2hLTUlTRWdKVnR1ZHp4M2xDUjZnVw?oc=5",
@@ -98,18 +98,18 @@
    "time": "11/13 20:38"
   },
   {
-   "t": "Gold sticks to modest gains below $3,900 as Fed hike bets cap upside ahead of US PPI",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQRGE3UHNvcXhqdy0zNXRVVFlVVVNja2JBZkFVaVd1YXZ4eXh1Mks3dHROM2RDWkxkY0c4NHMtTEktcnp0RWEwNnd6WXo5M2ZrcXRFLWNRRjZaQkhaUWlLdzRXQkgydEVOa2U1eWpSVWo4UUxLd3FUM090TDFQeENsR0VuSnNfbndTRnlBdWVpSXdtMTFMR3RERGU3MG16cU50MG9BUHFnUjhJNkZqbllPd2pmM1RBVjJ6c0xtaW9VUUxaQzBj?oc=5",
-   "ms": 1794558144000,
-   "time": "11/13 16:22"
+   "t": "Current price of gold as of November 12, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
+   "ms": 1794568895000,
+   "time": "11/13 19:21"
   },
   {
-   "t": "Gold rebounds but heads for weekly fall before US inflation data",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxONDhBMUxOVE5NNmVSclhvRGR3NlVvdUJ2NWtHMGZxaHJuTTNSN0NlU1EyWlhMeWlkc0NPOVB4UFZrUUFleFBwZnRMdGxQYWxoR1BkYWsxYmxNSDRadTdFckpCd3JZN0FOVENFNEJzbDVQb2xwSk93VnBYajd5U3ozQm9NN3ZnbDdfcThJSjhuV29MREZ6RXhJS3ZLMNIBoAFBVV95cUxPazNRNjRId2p0TWh6RGEyMGhScDdSN05xb1BPQllZMWxNWmNmVmFJdHJGbnIwcnllQXphX1FRa2QxcnJtZUxISmgwaXpRWFVtV3hSNGRkUElzQnlHYzNHZ0xEXzFiSnZfaHNkc3ViOFBTTjZfVVNkTkVHRmFhYjI0SVZsVzJHNW43bXdfcm9sdjFMTUd5ZEZHbi13UkdHbnlC?oc=5",
-   "ms": 1794544980000,
-   "time": "11/13 12:43"
+   "t": "Aris Mining releases PFS for Toroparu Gold Project in Guyana",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQWlEem1PRHNYRl9IX05laU5BQjQ2T3RQeXJNN0s5b0xlUkRtU1pCWE5EM3hXNU5XUlVxTXZFcXZFYzlnOVVnSXJXMmZPNlZTQk4wWEVDZUtzRHRacXJfdUN0SVQ0RDhpWlJXV29aRV9kekhRNko3YUpEOWgwb0lQQ1RFeUFBZw?oc=5",
+   "ms": 1794567225000,
+   "time": "11/13 18:53"
   }
  ]
 }
