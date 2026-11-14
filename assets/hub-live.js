@@ -148,23 +148,28 @@
     ]);
     chips("hub-news-chips", [["gold", tr("昨日收 ", "Yesterday's close ") + fmt(pd.close) + tr(" · 上周区间 ", " · last week's range ") + fmt(pw.low, 0) + "–" + fmt(pw.high, 0)]]);
     drawDays(st); drawScore(L && typeof L.score === "number" ? L.score : typeof st.score === "number" ? st.score : 0);
-    var ul = $("pulse-list");
-    if (ul) {
-      while (ul.firstChild) ul.removeChild(ul.firstChild);
+    // key levels around the price, highest first: nearest resistance and support, the plan's stop and target while there
+    // is a signal, and the price that would change the answer
+    var lad = $("hub-levels");
+    if (lad) {
+      while (lad.firstChild) lad.removeChild(lad.firstChild);
       // the file's levels were sorted around the price at its run; the price now may have passed some of them
-      var lvAll = (st.resistance || []).concat(st.support || []), lvUp = null, lvDn = null;
+      var lvAll = (st.resistance || []).concat(st.support || []), lvUp = null, lvDn = null, rows = [];
       lvAll.forEach(function (l) { if (typeof l.price !== "number") return; if (l.price > price && (!lvUp || l.price < lvUp.price)) lvUp = l; if (l.price < price && (!lvDn || l.price > lvDn.price)) lvDn = l; });
-      var li = function (head, text) { var x = el("li"); x.appendChild(el("strong", "", head)); x.appendChild(document.createTextNode(tr("：", ": ") + text)); ul.appendChild(x); };
+      var what = function (l) { var two = String(l.what || "").split("、").slice(0, 2).join("、"); return EN ? I.level(two) : two; };
+      var add = function (p, cls, name, note) { if (typeof p === "number" && isFinite(p)) rows.push({ p: p, cls: cls, name: name, note: note }); };
       var pl = L ? L.plan : st.plan;
-      if (EN) {
-        li("Gold", (shut ? "Market closed, last close " : "Price ") + fmt(price) + ". " + dayWord + ": open " + fmt(dayOpen) + ", high " + fmt(dayHi) + ", low " + fmt(dayLo) + (chg === null ? "" : ", " + sgn(chg) + " USD (" + sgn(pct, 2) + "%) on the " + (shut ? "day before" : "previous close")) + ". Nearest resistance above " + (lvUp ? fmt(lvUp.price) + " (" + I.level(lvUp.what) + ")" : "—") + ", nearest support below " + (lvDn ? fmt(lvDn.price) + " (" + I.level(lvDn.what) + ")" : "—") + ".");
-        li("Answer", (vTitle || "") + "." + (go && pl ? " Plan: " + (/空/.test(pl.side) ? "sell" : "buy") + ", stop " + fmt(pl.stop) + ", target " + fmt(pl.target) + "." : ""));
-        li("Next", hi.length ? hi.slice(0, 3).map(function (e) { return e.when + " " + e.name; }).join("; ") + ". No new trades 30 minutes either side of a release." : "Nothing big left on this week's calendar.");
-      } else {
-        li("黄金", (shut ? "休市中，收盘价 " : "现价 ") + fmt(price) + "。" + dayWord + "开 " + fmt(dayOpen) + "，最高 " + fmt(dayHi) + "，最低 " + fmt(dayLo) + (chg === null ? "" : "，较" + (shut ? "前一日" : "昨日") + "收盘 " + sgn(chg) + " 美元（" + sgn(pct, 2) + "%）") + "。上方最近的阻力 " + (lvUp ? fmt(lvUp.price) + "（" + lvUp.what + "）" : "—") + "，下方最近的支撑 " + (lvDn ? fmt(lvDn.price) + "（" + lvDn.what + "）" : "—") + "。");
-        li("结论", (v.text || "") + (go && pl ? " 方案：" + pl.side + "，止损 " + fmt(pl.stop) + "，目标 " + fmt(pl.target) + "。" : ""));
-        li("接下来", (hi.length ? hi.slice(0, 3).map(function (e) { return e.when + " " + e.name; }).join("；") + "。数据公布前后 30 分钟不开新仓。" : "本周日历上没有剩下的大数据。"));
-      }
+      if (lvUp) add(lvUp.price, "res", tr("最近阻力", "Nearest resistance"), what(lvUp));
+      if (lvDn) add(lvDn.price, "sup", tr("最近支撑", "Nearest support"), what(lvDn));
+      if (go && pl) { add(pl.stop, "stop", tr("方案止损", "The plan's stop"), tr("3 倍小时波幅", "3 × the 1-hour ATR")); add(pl.target, "tgt", tr("方案目标", "The plan's target"), "3R"); }
+      if (w0 && typeof w0.price === "number") add(w0.price, "watch", tr("会改变结论的价位", "Changes the answer"), EN ? watchEn(w0) : String(w0.text || "").split("，")[0]);
+      add(price, "now", shut ? tr("收盘价", "Last close") : tr("现价", "Price now"), "");
+      rows.sort(function (x, y) { return y.p - x.p; });
+      rows.forEach(function (r) {
+        var li = el("li", r.cls), mid = el("span"); li.appendChild(el("b", null, fmt(r.p)));
+        mid.appendChild(el("strong", null, r.name)); if (r.note) mid.appendChild(el("small", null, r.note));
+        li.appendChild(mid); li.appendChild(el("em", null, r.cls === "now" ? "" : sgn(r.p - price))); lad.appendChild(li);
+      });
     }
   }
 

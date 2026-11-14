@@ -27,15 +27,16 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 @media(max-width:560px){.wrap{padding:0 14px}}
 
 /* hero */
-.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:40px 0 24px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font:500 10.5px/1 var(--f-m);letter-spacing:1.6px;text-transform:uppercase;color:var(--gold-lt);padding:7px 12px;border:1px solid rgba(212,167,44,.26);border-radius:999px;background:rgba(212,167,44,.07)}
+.hero{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:48px 0 28px}
+.hero::before{content:"";position:absolute;right:0;top:-30px;width:min(460px,72%);height:300px;pointer-events:none;background:radial-gradient(closest-side,rgba(124,108,240,.28),rgba(66,214,245,.1) 55%,transparent);filter:blur(8px);z-index:-1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:500 10.5px/1 var(--f-m);letter-spacing:1.6px;text-transform:uppercase;color:#CFC8FF;padding:7px 12px;border:1px solid rgba(169,155,255,.36);border-radius:999px;background:linear-gradient(120deg,rgba(124,108,240,.2),rgba(66,214,245,.08))}
 .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--bull);box-shadow:0 0 0 3px rgba(52,211,153,.18)}
-.hero h1{font:700 clamp(32px,5vw,52px)/1.05 var(--f-d);color:var(--ink);letter-spacing:-1.8px;margin-top:14px}
-.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--gold-lt),var(--amber) 50%,var(--gold-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1{font:700 clamp(36px,6vw,64px)/1.02 var(--f-d);color:var(--ink);letter-spacing:-2.4px;margin-top:16px}
+.hero h1 em{font-style:normal;background:linear-gradient(105deg,#F1D27A 0%,#E6BE55 24%,#B3A6FF 64%,#42D6F5 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero .sub{font-size:14px;color:var(--dim);margin-top:12px;max-width:660px;line-height:1.85}
 .hero .acts{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--border-2);background:var(--bg3);color:var(--ink);font:600 13px/1 var(--f-d);padding:12px 18px;border-radius:999px;cursor:pointer;transition:border-color .15s,transform .15s;white-space:nowrap}
-.btn:hover{border-color:rgba(212,167,44,.5);transform:translateY(-1px)}
+.btn:hover{border-color:rgba(169,155,255,.6);transform:translateY(-1px)}
 .btn.pri{background:linear-gradient(135deg,#EDD27A,var(--gold));color:#17130A;border-color:transparent;box-shadow:0 8px 28px rgba(212,167,44,.24)}
 
 /* bento */
@@ -44,7 +45,7 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 @media(max-width:980px){.bento>*{grid-column:1/-1}}
 .card{position:relative;display:block;padding:22px;min-width:0;border-radius:22px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 180px),var(--bg2);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 14px 40px rgba(0,0,0,.32)}
 a.card{transition:border-color .2s,transform .2s}
-a.card:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
+a.card:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 22px 60px rgba(124,108,240,.2)}
 @media(max-width:560px){.card{padding:18px 16px;border-radius:20px}}
 .lbl{display:flex;align-items:center;gap:8px;font:500 10.5px/1.4 var(--f-m);letter-spacing:1.4px;text-transform:uppercase;color:var(--dim)}
 .lbl svg.i{width:15px;height:15px;color:var(--gold-dk)}
@@ -57,7 +58,20 @@ a.card:hover{border-color:rgba(212,167,44,.4);transform:translateY(-2px)}
 .chip.bear{color:var(--bear);border-color:rgba(219,41,67,.38);background:rgba(219,41,67,.08)}
 
 /* the gold answer */
-.gold-card{border:1px solid transparent;background:radial-gradient(110% 130% at 0% 0%,rgba(212,167,44,.17),transparent 55%) padding-box,linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(140deg,rgba(230,190,85,.55),rgba(255,255,255,.06) 42%,rgba(230,190,85,.2)) border-box}
+.gold-card{border:1px solid transparent;background:radial-gradient(90% 120% at 0% 0%,rgba(124,108,240,.26),transparent 55%) padding-box,radial-gradient(70% 90% at 100% 100%,rgba(230,190,85,.13),transparent 60%) padding-box,linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(140deg,rgba(179,166,255,.95),rgba(66,214,245,.5) 34%,rgba(255,255,255,.08) 58%,rgba(230,190,85,.75)) border-box;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 30px 80px rgba(124,108,240,.2)}
+/* key levels: the prices around the price now, highest first */
+.lv-card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.lv-card .lbl .go{margin-left:auto;color:var(--gold-lt);display:inline-flex}
+.lv-list{list-style:none;display:grid;gap:2px;margin:12px 0 0;padding:0;min-height:236px;align-content:start}
+.lv-list li{display:grid;grid-template-columns:84px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;border-left:3px solid transparent}
+.lv-list li b{font:600 14px/1 var(--f-m);color:var(--ink);font-variant-numeric:tabular-nums}
+.lv-list li strong{display:block;font:600 12.5px/1.35 'Noto Sans SC',sans-serif;color:var(--ink)}
+.lv-list li small{display:block;font-size:11px;line-height:1.4;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lv-list li em{font:500 12px/1 var(--f-m);font-style:normal;color:var(--dim);font-variant-numeric:tabular-nums}
+.lv-list li.res{border-left-color:var(--bear)} .lv-list li.sup{border-left-color:var(--bull)} .lv-list li.watch{border-left-color:var(--ai)}
+.lv-list li.stop b{color:var(--bear)} .lv-list li.tgt b{color:var(--bull)}
+.lv-list li.now{background:linear-gradient(90deg,rgba(230,190,85,.16),rgba(230,190,85,.03));border-left-color:var(--gold)} .lv-list li.now b{color:var(--gold-lt)}
+.lv-card .ut{margin-top:auto;padding-top:10px;font:400 11px/1.6 var(--f-m);color:var(--dim)}
 .gc-top{display:flex;align-items:center;gap:14px}
 .gc-top .go{margin-left:auto}
 .verdict-big{font:700 clamp(24px,3.4vw,34px)/1.2 var(--f-d);color:var(--ink);letter-spacing:-.6px;margin-top:4px}
@@ -145,7 +159,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 /* phones: nothing smaller than 11px */
 @media(max-width:640px){.lbl,.tile .tt small,.pv-k,.upd,.ptime,.chip{font-size:11px}.hero{padding-top:26px}.hero .acts{width:100%}.hero .acts .btn{flex:1}.gc-top .go{display:none}.sec{margin-top:32px}}
 </style>
-<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="stylesheet" href="assets/site.css?v=11">
 <meta name="i18n" content="en">
 <meta name="i18n-title" content="Trading Hub · Gold first">
 <script src="assets/i18n.js?v=2"></script>
@@ -185,7 +199,6 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
         <span class="go"><span data-en="See the plan">看计划</span> <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
       <p class="vd" id="pulse-verdict-d" data-en="Loading…">载入中…</p>
-      <div class="meta" id="hub-main-chips"><span class="chip gold" data-en="Loading…">载入中…</span></div>
       <div class="tfrow"><div class="lbl" data-en="Direction on the five timeframes">五个周期的方向</div><div class="tfv" id="pulse-tf">—</div><div class="tfd" id="pulse-tf-d" data-en="Loading…">载入中…</div></div>
     </a>
 
@@ -215,11 +228,11 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
       <ul class="drv-list" id="hub-drv"></ul>
       <div class="ut" id="hub-drv-ft"></div>
     </a>
-    <div class="card now-card s4">
-      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-en="Right now">现在的情况</span></div>
-      <ul id="pulse-list"><li data-en="Loading…">载入中…</li></ul>
-      <div class="ut" id="pulse-updated" data-en="Loading…">载入中…</div>
-    </div>
+    <a class="card lv-card s4" href="report.html#dtabs">
+      <div class="lbl"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h16"/></svg><span data-en="Key levels">关键价位</span><span class="go"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <ul class="lv-list" id="hub-levels"></ul>
+      <div class="ut" id="pulse-updated"></div>
+    </a>
   </section>
 
   <div class="sec"><h2 data-en="Everything">全部功能</h2><span data-en="One page per market, each with its answer first">一页只看一个市场，每一页都先给结论</span></div>
@@ -242,7 +255,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
     <a class="tile" href="report.html#read-news">
       <div class="th"><span class="ib v"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg></span><div class="tt" data-en-html="Market news<small>News · Live</small>">市场快讯<small>News · Live</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       <p data-en="The latest gold headlines (in English with links, fetched automatically), and the 10:10 daily write-up of what moved gold and the key levels (in Chinese).">最新黄金头条（英文原文带链接，自动抓取），和每天 10:10 写的要闻解读与关键价位。</p>
-      <div class="meta"><span class="chip" data-en-html="Price <span class=&quot;js-live-price&quot;>—</span>">现价 <span class="js-live-price">—</span></span><span id="hub-news-chips" style="display:contents"><span class="chip gold" data-en="Loading…">载入中…</span></span></div>
+      <div class="meta"><span class="chip gold" data-en="Live headlines">实时头条</span><span class="chip" data-en="Daily write-up">每日解读</span></div>
     </a>
     <a class="tile" href="forex.html">
       <div class="th"><span class="ib s"><svg class="i" viewBox="0 0 24 24"><path d="M4 8h15l-3.5-3.5M20 16H5l3.5 3.5"/></svg></span><div class="tt" data-en-html="Forex<small>11 pairs · loses in the replay</small>">外汇<small>11 pairs · 回放不赚钱</small></div><span class="arr"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
@@ -286,7 +299,7 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 
 <script src="assets/xau-feed.js?v=11"></script>
 <script src="assets/gold-live.js?v=2"></script>
-<script src="assets/hub-live.js?v=12"></script>
+<script src="assets/hub-live.js?v=13"></script>
 <script src="assets/tv-lazy.js?v=2"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
