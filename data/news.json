@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15 02:08 SGT",
+ "updated": "2026-11-15 06:28 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,18 +7,11 @@
  ],
  "items": [
   {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1794664571000,
-   "time": "11/14 21:56"
-  },
-  {
    "t": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPelo2SjFzZjZRZjRrendJYm9Jc3lscjJ2NjZyck5RaXRpWjQ4ZlhWLThoWmIySUczX2kwajNIT2lBbWZTVkdxMzZ5ZVVGYmltQjczY2JMcDhuSUZPdDlibHJ0aFRDVlNJR2p5Mi1iRGRIWHk5S0QzLTM4MXJLdm9ncVpUODk2Q0tHVHFyNVh5OV96cmx3QUZsbDNaN3FHd0RUQ3h1eHNhcExmQU9JTzJaUlJzODRIM2RGa2RUek9lX3dSam5fa093aA?oc=5",
-   "ms": 1794658320000,
-   "time": "11/14 20:12"
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQRzYyRU50SDUzOW15clJVVGhYWFZ5WDdSRWpMSnJBTUMzZDZ5VU16QUM3V3RSVE05Mjg2aFg2eFRQTkVkcWo3US0wU3hGWFFzWUVfYjdTLXNZNG5FelVydFhKVmx0SDR3S1l4VVVicmU5WlBLeUhxM051VXQwLVhjQk5ITjBBOGN1OUVjS1lUb2t5VGh6QmtSVmhyRVNYUG5hODJhNlFmcjB2NXFuMF9BTVBsclRJaTFEbmJjaURTWDRLZ2xNZnNwMy1B?oc=5",
+   "ms": 1794681168000,
+   "time": "11/15 02:32"
   },
   {
    "t": "What Gold Royalty Holders Got Wrong Before The Slide",
@@ -33,34 +26,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ09SOU1XMmZSdkZoVU5iQkdoN1duRHpoNUhqWHlJVVRhd3ozYzFLLXkteml0ZXJoODBvUy1iMDB1Yk9qRy1oSFhfQ296RlBITmhSbzFSRVBVeGZLQ1lXb05ZRmRIVl9PclVZdzVJQ0h0M2JTRnZKUzZndkswa1JNNEtwbjdNMW1IQXZuQ1BDdVJlM0Y2TmRRWnhEUDFVb3FROEZyOFA1ZEdjNjlWbzYxak9QSjNKLVk?oc=5",
    "ms": 1794610805000,
    "time": "11/14 07:00"
-  },
-  {
-   "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQW5oTmxPNVRQbUZPc2NmOC1VeG5uOGJkSTM1MktnX1NDUWxnSHVRU2FYdGxFMlJrSDdGWkZOSW5WaUgtUVdXdkEtM1VWM0hlcnBQeXZJaXB0aUgzRUIyLWZld0dyUFRCc2ZLcy1aWURRcTh4NTRTOHBRakpDZXpyMUJ0N2p2bGhvbDJocjhmZmNKQTlYZGlfRklYVE5HNHRPTnAwZWN1SDdnb19mRXA4WGlZWWx2LUFOTTdB?oc=5",
-   "ms": 1794605209000,
-   "time": "11/14 05:26"
-  },
-  {
-   "t": "Gold's drop below $4,000 offers long-term value as WisdomTree sees potential for $4,800 by 2027",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTTBfZngzcHEwdE1RQ3hVcWI2Rndhb2c1MUVxVElnN1RQb3l6NzNrazk5X0VwVWk2cko5M1VmZzVOYVNfc2tJcGtjYnVVdktuaHZYSzFsU2xPZUM4d1RlRHJ2bWZuZHZaLWFCaU83WmN4bW8xTXlQQk1HdTNkNEdnZ3FMMXdwWWlzLXhZRnNjRFFvenlVTFY0OFNvWG8tNVVPNjlMbU1FOWVPY2g4UWllV2o0dUNsaWQ4NlluYm9R?oc=5",
-   "ms": 1794604316000,
-   "time": "11/14 05:11"
-  },
-  {
-   "t": "Price bounces may be traps as Fed rate hikes could drive gold down to $3,200/oz – StoneX’s Pavilonis",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVTRSTldzM0ZRZjRNM2ktRnZjenYwSG5nUkFCdzZQNFlBcDlqcUxJalBxOFJwaGZaX1RldkJrMFl1VUxFdU5iV2RFN2xqMTlqQlk4UGtpVklxVDVYT0VXTHhCTUN0cTFOWXVJcTNqa3ZETnprRXJpQ0lDTXpjUzdBV0t4WUstWDZwRTgtV0NsMGNMRVZWcEJQM2JfVE9oU29OZERJOHR3a3dmVV9nU0ZhUnFKb3ZGRXM?oc=5",
-   "ms": 1794602715000,
-   "time": "11/14 04:45"
-  },
-  {
-   "t": "Gold faces weekly rout as high US yields fuel Fed rate hike bets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVkZkMHgwOHYxaW1lNy00SV94aTBhLXZXaEp1YXgwXzNVVWJQRXB4TVVVZEQzRm9QUGRoVVhEWmpOQzM5UEpvbENRVUpvOEFkUzZhNzZWY0hseTk2UTA4NDZYOUY2aUFHLWlYeXdoRUhIajdxM1hPcDVIZVZGeEx4LXJmN1JzMGE2SHd5LV9DaU05UFY1RUxra21LOFc1WFJGVWpvQmIyTlVuU3M?oc=5",
-   "ms": 1794601433000,
-   "time": "11/14 04:23"
   }
  ]
 }
