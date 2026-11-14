@@ -622,6 +622,26 @@
     }
     return out;
   }
+  // Where the money went: the costly habits found in the records, as totals, biggest loss first. Arithmetic on past
+  // trades (the groups can overlap), from 10 trades on; never a forecast. Each: { title, sum (negative), n, unit, text }
+  function leaks() {
+    var L = D.items.slice().sort(byTime), out = [];
+    if (L.length < 10) return out;
+    var add = function (title, vals, unit, text) { if (!vals.length) return; var sm = r2(vals.reduce(function (a, b) { return a + b; }, 0)); if (sm < 0) out.push({ title: title, sum: sm, n: vals.length, unit: unit, text: text }); };
+    var amt = function (x) { return x.amt; }, TR = tr(" 笔", " trades"), DY = tr(" 天", " days");
+    add(tr("没按规则做的单子", "Trades not by the rule"), L.filter(function (x) { return x.rule === false; }).map(amt), TR, tr("记账时标了「不是，自己的判断」的单子", "the trades you marked «No, my own call»"));
+    add(tr("亏完马上再做的单子", "Trades straight after a loss"), L.filter(function (x, i) { var p = L[i - 1]; return p && p.d === x.d && p.amt < 0; }).map(amt), TR, tr("同一天里，上一笔亏了之后接着做的", "taken the same day, right after a losing trade"));
+    var busy = []; Object.keys(IDX.day).forEach(function (k) { if (IDX.day[k].n >= 4) busy.push(IDX.day[k].sum); });
+    add(tr("一天做 4 笔以上的日子", "Days with 4 or more trades"), busy, DY, tr("一天做了 4 笔或更多，按天合计", "four or more trades in a day, totalled by day"));
+    add(tr("亏得比计划多的部分", "Losses beyond the planned risk"), L.filter(function (x) { return num(x.risk) > 0 && x.amt < -x.risk * 1.1; }).map(function (x) { return r2(x.amt + x.risk); }), TR, tr("填了「原本最多打算亏」的单子里，超出计划的那部分", "on trades with a planned risk, the part of the loss beyond the plan"));
+    var wk = {}; Object.keys(IDX.day).forEach(function (k) { var w = wdi(k); (wk[w] || (wk[w] = [])).push(IDX.day[k].sum); });
+    var ww = Object.keys(wk).filter(function (w) { return wk[w].length >= 2; }).sort(function (a, b) { return wk[a].reduce(function (t, v) { return t + v; }, 0) - wk[b].reduce(function (t, v) { return t + v; }, 0); })[0];
+    if (ww !== undefined) add(EN ? ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"][ww] : "周" + WD[ww], wk[ww], DY, tr("合计最差的星期几（至少两天）", "the weekday with the worst total (two days or more)"));
+    var pl = {}; L.forEach(function (x) { if (x.plat) (pl[x.plat] || (pl[x.plat] = [])).push(x.amt); });
+    var wp = Object.keys(pl).filter(function (k) { return pl[k].length >= 3; }).sort(function (a, b) { return pl[a].reduce(function (t, v) { return t + v; }, 0) - pl[b].reduce(function (t, v) { return t + v; }, 0); })[0];
+    if (wp !== undefined && Object.keys(pl).length > 1) add(wp + tr(" 平台", " (platform)"), pl[wp], TR, tr("合计最差的平台（至少 3 笔）", "the platform with the worst total (three trades or more)"));
+    return out.sort(function (a, b) { return a.sum - b.sum; });
+  }
   function renderAi() {
     var el = clear($("ai-body")), L = D.items, ins = insights(), s = tstats(L);
     if (L.length < 3) {
@@ -635,6 +655,19 @@
     var sum = EN ? "All " + L.length + " trades: total " + signed(s.sum, 2) + ", win rate " + Math.round(s.wr * 100) + "%, average " + signed(s.sum / L.length, 2) + " a trade. " + (good ? "Going well: " + good.short + ". " : "") + (bad ? "Watch most: " + bad.short + ". " : "") + (L.length < 20 ? "(Only " + L.length + " trades: the findings below are not reliable yet.)" : "")
       : "全部 " + L.length + " 笔，合计 " + signed(s.sum, 2) + "，胜率 " + Math.round(s.wr * 100) + "%，平均每笔 " + signed(s.sum / L.length, 2) + "。" + (good ? "做得好的：" + good.short + "。" : "") + (bad ? "最要注意：" + bad.short + "。" : "") + (L.length < 20 ? "（只有 " + L.length + " 笔，下面的结论还不可靠。）" : "");
     el.appendChild(h("div", { class: "ai-sum" }, [h("span", { class: "tag", text: "Summary" }), sum]));
+    var lk = leaks();
+    if (lk.length) {
+      var worst = Math.abs(lk[0].sum), box = h("div", { class: "leaks" });
+      box.appendChild(h("div", { class: "lk-h" }, [icon("down", "sm"), tr("钱漏在哪里", "Where the money leaks"), h("span", { text: tr("按合计排，最大的排最前", "by total, biggest first") })]));
+      lk.slice(0, 4).forEach(function (x, i) {
+        box.appendChild(h("div", { class: "lk" }, [h("span", { class: "no", text: String(i + 1) }),
+          h("div", { class: "nm" }, [h("b", { text: x.title }), h("small", { text: x.n + (EN && x.n === 1 ? x.unit.replace(/s$/, "") : x.unit) + (x.n < 10 ? tr(" · 样本少，先当线索", " · small sample, a lead only") : "") + " · " + x.text })]),
+          h("span", { class: "tr", "aria-hidden": "true" }, [h("i", { style: "width:" + Math.max(4, Math.round(Math.abs(x.sum) / worst * 100)) + "%" })]), h("b", { class: "v", text: signed(x.sum, 0) })]));
+      });
+      box.appendChild(h("p", { class: "note", text: EN ? "Totals from your own records (all trades together: " + signed(s.sum, 0) + "). The groups can overlap, so they do not add up; they show what has cost you most so far, not what will happen next."
+        : "都是你自己记录的合计（全部交易合计 " + signed(s.sum, 0) + "）。几类之间可能重叠，不能相加；它说明到目前为止什么最费钱，不代表以后。" }));
+      el.appendChild(box);
+    }
     var grid = h("div", { class: "ins" });
     ins.forEach(function (x) {
       grid.appendChild(h("div", { class: "in " + (x.tone || "") }, [h("div", { class: "t" }, [icon(x.ic, "sm"), x.title, x.n < 20 ? h("span", { class: "low", text: tr("样本 ", "n = ") + x.n }) : null]), h("div", { class: "b", text: x.big }), h("div", { class: "x", text: x.text })]));
@@ -655,6 +688,7 @@
     var won = D.goals.filter(function (x) { return x.done_at; }).length; if (won) out.push("已经达成的目标：" + won + " 轮。");
     var cw = withdrawals(); if (cw.length) { var by = {}; cw.forEach(function (x) { by[x.plat || "未填"] = r2((by[x.plat || "未填"] || 0) + x.amt); }); out.push("提现合计 " + plain(cashSum(cw), 2) + "：" + Object.keys(by).map(function (k) { return k + " " + plain(by[k], 2); }).join("，") + "。"); }
     var ins = insights(); if (ins.length) { out.push(""); out.push("页面从记录里算出的观察："); ins.forEach(function (x) { out.push("- " + x.title + "：" + x.text); }); }
+    var lk = leaks(); if (lk.length) { out.push(""); out.push("最费钱的几类（各自的合计，可能重叠，不能相加）："); lk.slice(0, 4).forEach(function (x) { out.push("- " + x.title + "：" + signed(x.sum, 2) + "，" + x.n + x.unit + "（" + x.text + "）"); }); }
     var nl = D.notes.slice().sort(function (a, b) { return a.d < b.d ? 1 : -1; }).slice(0, 12);
     if (nl.length) { out.push(""); out.push("我写的备注（最近 " + nl.length + " 天，新的在前）："); nl.forEach(function (x) { out.push(x.d + "：" + x.text.replace(/\s+/g, " ").slice(0, 300)); }); }
     out.push(""); out.push("每日合计（最近 30 个交易日）：");
@@ -677,6 +711,7 @@
     var won = D.goals.filter(function (x) { return x.done_at; }).length; if (won) out.push("Goals reached so far: " + won + ".");
     var cw = withdrawals(); if (cw.length) { var by = {}; cw.forEach(function (x) { by[x.plat || "no platform"] = r2((by[x.plat || "no platform"] || 0) + x.amt); }); out.push("Withdrawn in total " + plain(cashSum(cw), 2) + ": " + Object.keys(by).map(function (k) { return k + " " + plain(by[k], 2); }).join(", ") + "."); }
     var ins = insights(); if (ins.length) { out.push(""); out.push("What the page worked out from the records:"); ins.forEach(function (x) { out.push("- " + x.title + ": " + x.text); }); }
+    var lk = leaks(); if (lk.length) { out.push(""); out.push("The costliest groups so far (each group's total; they can overlap, so they do not add up):"); lk.slice(0, 4).forEach(function (x) { out.push("- " + x.title + ": " + signed(x.sum, 2) + " over " + x.n + (x.n === 1 ? x.unit.replace(/s$/, "") : x.unit) + " (" + x.text + ")"); }); }
     var nl = D.notes.slice().sort(function (a, b) { return a.d < b.d ? 1 : -1; }).slice(0, 12);
     if (nl.length) { out.push(""); out.push("My remarks (last " + nl.length + " days, newest first; some may be in Chinese):"); nl.forEach(function (x) { out.push(x.d + ": " + x.text.replace(/\s+/g, " ").slice(0, 300)); }); }
     out.push(""); out.push("Daily totals (last 30 trading days):");
