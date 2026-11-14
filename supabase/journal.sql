@@ -87,3 +87,6 @@ create policy "own rows" on public.pnl_notes    for all to authenticated using (
 
 revoke all on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings, public.pnl_notes from anon;
 grant select, insert, update, delete on public.pnl_trades, public.pnl_cash, public.pnl_goals, public.pnl_settings, public.pnl_notes to authenticated;
+
+-- make the API see new tables at once (otherwise it can take a while)
+notify pgrst, 'reload schema';

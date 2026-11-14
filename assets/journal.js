@@ -938,7 +938,7 @@
   function noteState() {       // where this day's remark is kept: this device only, waiting to upload, or the cloud too
     var n = IDX.note[V.sel], w = Cloud.notesWhere(), st = $("n-state");
     st.className = "note" + (n && !n.dirty && w === "cloud" ? " ok" : "");
-    st.textContent = !n ? "" : w === "local" ? tr("已存在本机", "Saved on this device") : w === "missing" ? tr("已存在本机 · 云端还没有备注表", "Saved on this device · no remarks table in the cloud yet")
+    st.textContent = !n ? "" : w === "local" ? tr("已存在本机", "Saved on this device") : w === "missing" ? tr("已存在本机 · 云端还没有备注表：看下面「云端同步」", "Saved on this device · no remarks table in the cloud yet: see «Cloud sync» below")
       : n.dirty ? tr("已存在本机 · 正在上传云端…", "Saved on this device · uploading…") : tr("✓ 已存在本机和云端", "✓ Saved here and in the cloud");
   }
   function renderNoteList() {
@@ -990,6 +990,8 @@
     var st = { busy: false, again: false, err: "", missing: false, notesMissing: false, recovery: false, note: "", formErr: "", resend: "", sql: "", mode: null, timer: null, auth: null, retried: false };
     // the remarks table came after the others (supabase/journal.sql, run again): until it exists, remarks stay here
     function tablesNow() { return Object.keys(TABLE).filter(function (cn) { return cn !== "notes" || !st.notesMissing; }); }
+    // the remarks table on its own, for a project set up before remarks existed (the last line makes the API see it at once)
+    var NOTES_SQL = "create table if not exists public.pnl_notes (\n  user_id uuid not null default auth.uid() references auth.users (id) on delete cascade,\n  id text not null check (char_length(id) <= 64),\n  d date not null,\n  text text not null check (char_length(text) <= 2000),\n  u bigint,\n  primary key (user_id, id)\n);\nalter table public.pnl_notes enable row level security;\ndrop policy if exists \"own rows\" on public.pnl_notes;\ncreate policy \"own rows\" on public.pnl_notes for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()));\nrevoke all on public.pnl_notes from anon;\ngrant select, insert, update, delete on public.pnl_notes to authenticated;\nnotify pgrst, 'reload schema';";
     function isMissing(e) { var m = String(e && e.message || ""), c = String(e && e.code || ""); return c === "PGRST205" || c === "42P01" || /schema cache|does not exist/i.test(m); }
     function ref() { var m = /^https:\/\/([a-z0-9]+)\.supabase\.co/.exec(CFG.url || ""); return m ? m[1] : ""; }
     function key() { return CFG.key || ls(CKEY) || ""; }
@@ -1248,7 +1250,9 @@
       if (st.sql && !sess()) m.appendChild(h("div", { class: "sqlfix" }, [h("p", { class: "note" }, [tr("收不到确认邮件？Supabase 自带的发信只发给项目成员的邮箱，而且每小时只有几封。可以直接在 ", "No confirmation e-mail? Supabase's built-in mailer only sends to the project's members, a few an hour. You can confirm this e-mail yourself: run the line below in the "), link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), tr(" 运行下面这一行确认这个邮箱，然后回来点「登录 / 注册」：", ", then come back and press «Sign in / Sign up»:")]),
         h("pre", { text: st.sql }), h("button", { class: "btn sm", type: "button", onclick: function () { copy(st.sql, tr("已复制：到 SQL Editor 粘贴，点 Run", "Copied: paste it in the SQL Editor and click Run")); } }, [icon("copy", "sm"), tr("复制这一行", "Copy this line")])]));
       if (st.err && sess()) m.appendChild(h("div", { class: "warn" }, st.missing ? [tr("云端还没有建表：打开 Supabase 的 ", "The cloud tables are not there yet: open Supabase's ")].concat(sqlLinks(), [tr("，再点「立即同步」。", ", then press «Sync now».")]) : [st.err]));
-      if (st.notesMissing && sess() && !st.err) m.appendChild(h("div", { class: "okmsg" }, [tr("备注先存在这台设备上：云端还没有备注表。打开 Supabase 的 ", "Remarks are kept on this device for now: the cloud has no remarks table yet. Open Supabase's ")].concat(sqlLinks(), [tr("（交易记录不受影响），再点「立即同步」，备注就会上云端。", " (your trades are not affected), then press «Sync now» and the remarks go up.")])));
+      if (st.notesMissing && sess() && !st.err) m.appendChild(h("div", { class: "sqlfix" }, [h("p", { class: "note" }, [h("b", { text: tr("备注还没上云端：你的 Supabase 里还没有备注表。", "Remarks are not in the cloud yet: your Supabase project has no remarks table. ") }),
+        tr("复制下面这几行，打开 ", "Copy the lines below, open "), link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), tr("（新的一页，不要用以前存的那页），粘贴，点 Run；回到这里点「立即同步」。备注一直存在这台设备上，表建好后会自动传上去，其他设备也就看得到了。交易记录不受影响。", " (a new query, not an old saved one), paste, click Run, then come back and press «Sync now». Your remarks stay on this device meanwhile and go up as soon as the table exists; then your other devices see them. Trades are not affected.")]),
+        h("pre", { text: NOTES_SQL }), h("button", { class: "btn sm", type: "button", onclick: function () { copy(NOTES_SQL, tr("已复制：到 SQL Editor 新建一页粘贴，点 Run", "Copied: paste it into a new SQL Editor query and click Run")); } }, [icon("copy", "sm"), tr("复制这几行", "Copy these lines")])]));
     }
     function flow(sx, c, s) {
       var n = D.items.length + D.cash.length;
