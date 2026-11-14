@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="i18n" content="en">
+<meta name="i18n-title" content="Strategy · Trading Hub">
+<script src="assets/i18n.js?v=2"></script>
 <title>策略 · Trading Hub</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0A0A0F">
@@ -69,7 +72,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <link rel="stylesheet" href="assets/site.css?v=8">
 </head>
 <body>
-<nav class="navbar" aria-label="网站导航">
+<nav class="navbar" aria-label="网站导航" data-en-label="Site navigation">
   <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1.2" fill="#17130A"/><rect x="10" y="9" width="4" height="11" rx="1.2" fill="#17130A"/><rect x="16" y="4" width="4" height="16" rx="1.2" fill="#17130A"/></svg></span><span class="t">Trading Hub</span><small>交易中心</small></a>
   <a class="nl" href="report.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18l-2.2-5H5.2z"/><path d="M7 14l1.6-4h6.8l1.6 4"/><path d="M10 10l.8-3h2.4l.8 3"/></svg>黄金</a>
   <a class="nl" href="btc.html"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 7.5v9M9.5 7.5h3.3a2.2 2.2 0 0 1 0 4.5H9.5M9.5 12h3.8a2.2 2.2 0 0 1 0 4.5H9.5M11 6v1.5M11 16.5V18"/></svg>比特币</a>
@@ -80,57 +83,57 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   <a class="nl" href="potential.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 4.9 4.9 1.8-4.9 1.8L12 16.4l-1.8-4.9-4.9-1.8 4.9-1.8z"/><path d="M19 15v4M17 17h4"/></svg>潜力精选</a>
 </nav>
 <main class="wrap">
-  <h1>策略 <em>一条规则</em></h1>
-  <p class="lead">这个网站只用一条在回放里有优势的规则做黄金：大方向一致才做，小周期转过来才进，止损 3 倍小时波幅，目标 3R 或跟踪止损。下面是规则、证据、每笔该冒多大风险，以及测过但没有用的做法。</p>
+  <h1 data-en-html="Strategy &lt;em&gt;one rule&lt;/em&gt;">策略 <em>一条规则</em></h1>
+  <p class="lead" data-en="This site trades gold with one rule, the one that showed an edge in the replay: trade only when the big trend agrees, enter when the small timeframes turn too, stop at 3 × the 1-hour ATR, target 3R or a trailing stop. Below: the rule, the evidence, how much to risk a trade, and the methods tested that did not work.">这个网站只用一条在回放里有优势的规则做黄金：大方向一致才做，小周期转过来才进，止损 3 倍小时波幅，目标 3R 或跟踪止损。下面是规则、证据、每笔该冒多大风险，以及测过但没有用的做法。</p>
 
   <section class="box key" aria-labelledby="h-rule">
-    <h2 id="h-rule">规则（黄金页每 15 分钟按它算一次）</h2>
+    <h2 id="h-rule" data-en="The rule (the gold page works it out every 15 minutes)">规则（黄金页每 15 分钟按它算一次）</h2>
     <ol class="steps">
-      <li><span><b>大方向</b>：周线、日线、4 小时三个都向上，只做多；三个都向下，只做空；不一致就不做。</span></li>
-      <li><span><b>进场时机</b>：1 小时和 15 分钟也转到同一方向时，在那根 15 分钟收盘进场。大方向一致、小周期还在回调或反弹时：等，不追也不抄。</span></li>
-      <li><span><b>止损</b>：进场价外 3 倍 1 小时波幅（ATR），黄金页直接算好价位和手数。</span></li>
-      <li><span><b>出场，二选一</b>：① 目标 3R，止损和目标都固定；② 不设目标，每天早上 8 点（新加坡时间）把止损挪到最好价格后面 2R，三个大周期不再同向就离场。</span></li>
-      <li><span><b>一次只拿一笔。</b>信号已经走了一段，也可以按现价进，止损从现价重算（回放里效果差不多）。</span></li>
+      <li><span data-en-html="&lt;b&gt;Big trend&lt;/b&gt;: weekly, daily and 4-hour all up, long only; all down, short only; not agreeing, no trade."><b>大方向</b>：周线、日线、4 小时三个都向上，只做多；三个都向下，只做空；不一致就不做。</span></li>
+      <li><span data-en-html="&lt;b&gt;Entry&lt;/b&gt;: when the 1-hour and 15-min turn the same way too, enter at that 15-minute close. While the big trends agree and the small ones are still pulling back or bouncing: wait; do not chase or catch it."><b>进场时机</b>：1 小时和 15 分钟也转到同一方向时，在那根 15 分钟收盘进场。大方向一致、小周期还在回调或反弹时：等，不追也不抄。</span></li>
+      <li><span data-en-html="&lt;b&gt;Stop&lt;/b&gt;: 3 × the 1-hour ATR beyond the entry; the gold page works out the price and the lots."><b>止损</b>：进场价外 3 倍 1 小时波幅（ATR），黄金页直接算好价位和手数。</span></li>
+      <li><span data-en-html="&lt;b&gt;Exit, one of two&lt;/b&gt;: ① target 3R, stop and target both fixed; ② no target, each morning at 8 (Singapore time) move the stop to 2R behind the best price, and leave when the three big trends stop agreeing."><b>出场，二选一</b>：① 目标 3R，止损和目标都固定；② 不设目标，每天早上 8 点（新加坡时间）把止损挪到最好价格后面 2R，三个大周期不再同向就离场。</span></li>
+      <li><span data-en-html="&lt;b&gt;One trade at a time.&lt;/b&gt; If the signal has already run, you can still enter at the price now with the stop worked out from there (about as good in the replay)."><b>一次只拿一笔。</b>信号已经走了一段，也可以按现价进，止损从现价重算（回放里效果差不多）。</span></li>
     </ol>
   </section>
 
   <section class="box" aria-labelledby="h-proof">
-    <h2 id="h-proof">证据</h2>
-    <p id="pf-main">读取回放结果…</p>
+    <h2 id="h-proof" data-en="Evidence">证据</h2>
+    <p id="pf-main" data-en="Reading the replay results…">读取回放结果…</p>
     <table class="tab" id="pf-seg"></table>
     <ul class="notes" id="pf-notes"></ul>
   </section>
 
   <section class="box" aria-labelledby="h-risk">
-    <h2 id="h-risk">每笔冒多大风险</h2>
-    <p id="rk-main">读取中…</p>
+    <h2 id="h-risk" data-en="How much to risk a trade">每笔冒多大风险</h2>
+    <p id="rk-main" data-en="Loading…">读取中…</p>
     <table class="tab" id="rk-tab"></table>
   </section>
 
   <section class="box" aria-labelledby="h-no">
-    <h2 id="h-no">测过、没有优势的做法</h2>
-    <p class="sub">都用同样的真实现货数据和同样的成本回放过。胜率高不等于赚钱：赚得少、亏得多，胜率再高也会亏。</p>
+    <h2 id="h-no" data-en="Tested, no edge">测过、没有优势的做法</h2>
+    <p class="sub" data-en="All replayed on the same real spot data with the same costs. A high win rate is not the same as making money: winning small and losing big loses money however often you win.">都用同样的真实现货数据和同样的成本回放过。胜率高不等于赚钱：赚得少、亏得多，胜率再高也会亏。</p>
     <table class="tab" id="no-tab"></table>
   </section>
 
   <section class="box" aria-labelledby="h-disc">
-    <h2 id="h-disc">纪律</h2>
+    <h2 id="h-disc" data-en="Discipline">纪律</h2>
     <ul class="plain">
-      <li><b>止损只往盈利方向挪</b>，绝不因为亏损扩大往后挪。</li>
-      <li><b>用 R 算结果，不用金额</b>：一笔亏 1R 是计划之内的事，规则本来就是三成左右的胜率。</li>
-      <li><b>不加仓摊平</b>，方向错了就认。</li>
-      <li><b>每笔都记下来</b>（📒 盈亏日历），一个月看一次自己的平均 R，和下面的回放对照。</li>
-      <li id="disc-stop"><b>停用线</b>：纸面记录从高点回落超过回放里最深的回撤，就先停止用真钱做，查清楚原因。黄金页的「成绩记录」里有健康检查。</li>
+      <li data-en-html="&lt;b&gt;Only ever move the stop in your favour&lt;/b&gt;, never further away because a loss is growing."><b>止损只往盈利方向挪</b>，绝不因为亏损扩大往后挪。</li>
+      <li data-en-html="&lt;b&gt;Count results in R, not money&lt;/b&gt;: losing 1R on a trade is part of the plan; the rule wins only about three times in ten."><b>用 R 算结果，不用金额</b>：一笔亏 1R 是计划之内的事，规则本来就是三成左右的胜率。</li>
+      <li data-en-html="&lt;b&gt;Do not add to a loser&lt;/b&gt;; when the direction is wrong, accept it."><b>不加仓摊平</b>，方向错了就认。</li>
+      <li data-en-html="&lt;b&gt;Log every trade&lt;/b&gt; (📒 P&amp;amp;L Journal) and once a month compare your average R with the replay below."><b>每笔都记下来</b>（📒 盈亏日历），一个月看一次自己的平均 R，和下面的回放对照。</li>
+      <li id="disc-stop" data-en-html="&lt;b&gt;Stop line&lt;/b&gt;: when the paper record falls further from its peak than the replay's worst drawdown, stop trading it with real money and find out why. The gold page's «Record» has the health check."><b>停用线</b>：纸面记录从高点回落超过回放里最深的回撤，就先停止用真钱做，查清楚原因。黄金页的「成绩记录」里有健康检查。</li>
     </ul>
   </section>
 
   <section class="box" aria-labelledby="h-pat">
-    <h2 id="h-pat">形态（只作参考）</h2>
-    <p>黄金页和外汇页会列出日线、4 小时、1 小时上已经完成的形态（双顶 / 双底、头肩、三角形、楔形、旗形、通道、区间），并给出每个形态自己的入场、止损和目标。<span id="pat-num">回放里形态本身没有优势。</span>所以形态只用来提醒，不是进场理由；和信号方向相反的完成形态，黄金页会单独提示。</p>
+    <h2 id="h-pat" data-en="Patterns (reference only)">形态（只作参考）</h2>
+    <p data-en-html="The gold and forex pages list the patterns finished on the daily, 4-hour and 1-hour (double tops and bottoms, head and shoulders, triangles, wedges, flags, channels, ranges), each with its own entry, stop and target. &lt;span id=&quot;pat-num&quot;&gt;In the replay patterns had no edge of their own.&lt;/span&gt; So patterns are reminders, not reasons to enter; a finished pattern against the signal gets its own note on the gold page.">黄金页和外汇页会列出日线、4 小时、1 小时上已经完成的形态（双顶 / 双底、头肩、三角形、楔形、旗形、通道、区间），并给出每个形态自己的入场、止损和目标。<span id="pat-num">回放里形态本身没有优势。</span>所以形态只用来提醒，不是进场理由；和信号方向相反的完成形态，黄金页会单独提示。</p>
   </section>
-  <footer>数字都来自回放结果文件：data/xau-backtest.json（黄金，research/xau-replay/）、data/xau-signals.json（实盘纸面记录）、data/btc-backtest.json（比特币）、research/forex/result.json 和 research/forex/edges/result.json（外汇）。只做计算和展示，不构成投资建议。</footer>
+  <footer data-en="Every number comes from the replay result files: data/xau-backtest.json (gold, research/xau-replay/), data/xau-signals.json (live paper record), data/btc-backtest.json (Bitcoin), research/forex/result.json and research/forex/edges/result.json (forex). It only computes and shows; it is not investment advice.">数字都来自回放结果文件：data/xau-backtest.json（黄金，research/xau-replay/）、data/xau-signals.json（实盘纸面记录）、data/btc-backtest.json（比特币）、research/forex/result.json 和 research/forex/edges/result.json（外汇）。只做计算和展示，不构成投资建议。</footer>
 </main>
-<script src="assets/strategy-page.js?v=6"></script>
+<script src="assets/strategy-page.js?v=7"></script>
 <script src="assets/site.js?v=2" defer></script>
 </body>
 </html>
