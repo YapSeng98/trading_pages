@@ -49,7 +49,7 @@
     mk("polyline", { points: line.join(" "), fill: "none", stroke: "#D4A72C", "stroke-width": "2", "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
     pts.forEach(function (p, i) {
       mk("circle", { cx: X(i).toFixed(1), cy: Y(p.v).toFixed(1), r: i === pts.length - 1 ? "3.5" : "2", fill: "#D4A72C", stroke: "#15151C", "stroke-width": "1" }, svg);
-      mk("text", { x: X(i).toFixed(1), y: H - 4, fill: "#8A857E", "font-size": "8", "font-family": "'IBM Plex Mono',monospace", "text-anchor": "middle" }, svg).textContent = p.d;
+      mk("text", { x: X(i).toFixed(1), y: H - 3, fill: "#8A857E", "font-size": "11", "font-family": "'IBM Plex Mono',monospace", "text-anchor": "middle" }, svg).textContent = p.d;
     });
     var last = pts[pts.length - 1];
     mk("text", { x: (X(pts.length - 1) + 5).toFixed(1), y: (Y(last.v) + 3).toFixed(1), fill: "#F6F5F3", "font-size": "11", "font-weight": "700", "font-family": "'Space Grotesk',monospace" }, svg).textContent = "$" + fmt(last.v, 0);
