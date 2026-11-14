@@ -15,8 +15,8 @@ var BtcFeed = (function () {
     // a stalled request must end in an error the page can show and retry, not in an answer that never comes
     var ctl = new AbortController(), timer = setTimeout(function () { ctl.abort(); }, 20000);
     return fetch(API + "&interval=" + iv + "&limit=" + limit, { cache: "no-store", signal: ctl.signal }).then(function (r) {
-      if (!r.ok) throw new Error("币安行情 " + r.status); return r.json();
-    }).then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error("币安 20 秒没有回应") : e; });
+      if (!r.ok) throw new Error(((typeof window !== "undefined" && window.LANG === "en") ? "Binance prices " : "币安行情 ") + r.status); return r.json();
+    }).then(function (d) { clearTimeout(timer); return d; }, function (e) { clearTimeout(timer); throw e && e.name === "AbortError" ? new Error((typeof window !== "undefined" && window.LANG === "en") ? "Binance did not answer in 20 s" : "币安 20 秒没有回应") : e; });
   }
   function done(rows, nowMs) {
     return (rows || []).filter(function (x) { return x[6] < nowMs; }).map(function (x) { return [x[0], +x[1], +x[2], +x[3], +x[4], +x[5], x[6]]; });
@@ -26,11 +26,11 @@ var BtcFeed = (function () {
     return Promise.all(tfs.map(function (tf) { return kl(IV[tf], LIM[tf]); })).then(function (res) {
       var K = {}; tfs.forEach(function (tf, i) { K[tf] = done(res[i], nowMs); });
       var m = K["15M"], last = m[m.length - 1];
-      if (!last) throw new Error("币安没有返回 K 线");
+      if (!last) throw new Error((typeof window !== "undefined" && window.LANG === "en") ? "Binance returned no candles" : "币安没有返回 K 线");
       cache = { source: "spot", K: K, price: last[4], priceTime: last[6] + 1, warn: null, at: nowMs };
       return cache;
     }, function (e) {
-      if (cache && nowMs - cache.at < 3 * 3600000) { cache.warn = "币安暂时连不上，显示的是 " + new Date(cache.at + 8 * 3600000).toISOString().slice(11, 16) + " SGT 的数据"; return cache; }   // keep the last good answer for a while
+      if (cache && nowMs - cache.at < 3 * 3600000) { cache.warn = (typeof window !== "undefined" && window.LANG === "en") ? "Binance cannot be reached right now; showing the data from " + new Date(cache.at + 8 * 3600000).toISOString().slice(11, 16) + " SGT" : "币安暂时连不上，显示的是 " + new Date(cache.at + 8 * 3600000).toISOString().slice(11, 16) + " SGT 的数据"; return cache; }   // keep the last good answer for a while
       throw e;
     });
   }
@@ -50,6 +50,21 @@ var BtcFeed = (function () {
     var pf = bt.proof || null;                                                  // research/xau-replay/proof_check.js
     var st = bt.shortTerm && bt.shortTerm.rules && bt.shortTerm.rules.ST3 ? bt.shortTerm.rules : null;      // research/xau-replay/short_check.js
     var pt = bt.patterns && bt.patterns.alone && bt.patterns.own && bt.patterns.rule ? bt.patterns : null;   // research/xau-replay/pattern_check.js
+    if ((typeof window !== "undefined" && window.LANG === "en")) return {         // the same facts in English, for a page shown in English
+      goText: clear ? "In the Bitcoin replay this signal averaged " + sg(m.avgR) + " a trade. "
+        : "This rule is not proven on Bitcoin: the replay averaged " + sg(m.avgR) + " a trade, by period " + seg.map(function (x) { return x.label + " " + sg(x.avgR); }).join(", ") + ". " +
+          (pf ? "Picking buy or sell with a coin at the same moments beat it " + Math.round(pf.sideBeat * 100) + "% of the time; entering at random times within the big trend beat it " + Math.round(pf.timingBeat * 100) + "% of the time. " : "") + "Watch only; do not trade it with real money. ",
+      observe: !clear, exitNote: "",
+      health: pf ? { avgR: pf.avgR, sd: pf.sd, maxDD: pf.maxDD } : null,
+      shortWarn: m.short && m.short.avgR < 0 ? "Short signals lost overall in the replay (" + sg(m.short.avgR) + " a trade). " : "",
+      longWarn: m.long && m.long.avgR > m.avgR ? "Long signals did better (" + sg(m.long.avgR) + " a trade). " : "",
+      lateText: bt.rules.late1r && bt.rules.late1r.n ? "In the Bitcoin replay, entering after the signal had run 1R averaged " + sg(bt.rules.late1r.avgR) + " (" + bt.rules.late1r.n + " trades), no worse than entering at once (" + sg(m.avgR) + "). " : "",
+      patNote: pt ? "In the Bitcoin replay patterns had no edge on their own: entering after a finished 1-hour pattern, " + pt.alone["1H"].n.toLocaleString("en-US") + " times, averaged " + sg(pt.alone["1H"].avgR) + " a trade; with the pattern's own stop and target, " + Math.round(pt.own["1H"].win) + "% won and the average was " + sg(pt.own["1H"].avgR) + ". Signals with a pattern the same way averaged " + sg(pt.rule.agree.avgR) + ", without one " + sg(pt.rule.none.avgR) + "; gold shows no such difference, so it is not a rule. What patterns are good for is marking key levels, targets and where a move fails." : "",
+      patAgainst: pt && pt.rule.against.n ? "This is rare in the Bitcoin replay (" + pt.rule.against.n + " trades) and averaged " + sg(pt.rule.against.avgR) + " a trade, worse than usual; too few to change the rule. To play safer, halve the size on this one or skip it." : "",
+      shortText: st ? "Replay (Bitcoin " + bt.shortTerm.from.slice(0, 4) + "–" + bt.shortTerm.to.slice(0, 4) + ", spread included): this rule made " + st.ST3.n.toLocaleString("en-US") + " trades at " + sg(st.ST3.avgR) + " on average" + ((st.ST3.segments || []).filter(function (x) { return x.avgR < 0; }).length ? ", losing in " + (st.ST3.segments || []).filter(function (x) { return x.avgR < 0; }).map(function (x) { return x.label.replace("-", "–20") + " (" + sg(x.avgR) + ")"; }).join(", ") : "") + ": not a reliable edge. Two other common short-term rules did worse: 15-minute with the trend " + sg(st.ST1.avgR) + ", the Asian-range breakout " + sg(st.ST2.avgR) + ". So this gives reference prices only and no alerts. If you trade it anyway, use half the main signal's size or less." : "",
+      streak: m.streak,
+      noneText: "In the Bitcoin replay, trading against the three big trends lost steadily" + (bt.rules.against ? " (" + sg(bt.rules.against.avgR) + " a trade)" : "") + "; the edge with them was " + (clear ? "weaker than on gold too" : "not clear either") + "."
+    };
     return {
       goText: clear ? "比特币回放里，这个信号平均每笔 " + sg(m.avgR) + "。"
         : "比特币上这个规则没有被证明有效：回放平均每笔 " + sg(m.avgR) + "，分段看 " + seg.map(function (x) { return x.label + " " + sg(x.avgR); }).join("、") + "。" +

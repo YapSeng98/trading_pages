@@ -52,6 +52,7 @@
     [].forEach.call(q("[data-en-ph]"), function (e) { e.setAttribute("placeholder", e.getAttribute("data-en-ph")); });
     [].forEach.call(q("[data-en-title]"), function (e) { e.setAttribute("title", e.getAttribute("data-en-title")); });
     [].forEach.call(q("[data-en-label]"), function (e) { e.setAttribute("aria-label", e.getAttribute("data-en-label")); });
+    [].forEach.call(q("[data-en-q]"), function (e) { e.setAttribute("data-q", e.getAttribute("data-en-q")); });      // a preset question for Ask Claude
     var t = document.querySelector('meta[name="i18n-title"]'); if (t) document.title = t.getAttribute("content");
   }
   if (!on) return;

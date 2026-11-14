@@ -2,15 +2,16 @@
 // window.MARKET, set in the page before this file loads; the defaults are gold's.
 (function(){
   "use strict";
+  var EN = window.LANG === "en", tx = function (zh, en) { return EN ? en : zh; };    // the page's language (assets/i18n.js)
   var M = Object.assign({
-    id: "xau", ls: "xau4h.", sym: "XAUUSD", name: "黄金", contract: 100, unit: "盎司", weekend: true, calibrate: true,
-    unitShort: "盎司", moveWord: "金价", moves: [1, 10], pxDec: 2,                // the lot table: what 0.01 lot makes on these moves
+    id: "xau", ls: "xau4h.", sym: "XAUUSD", name: tx("黄金", "Gold"), contract: 100, unit: tx("盎司", "oz"), weekend: true, calibrate: true,
+    unitShort: tx("盎司", "oz"), moveWord: tx("金价", "gold"), moves: [1, 10], pxDec: 2,                // the lot table: what 0.01 lot makes on these moves
     spotUrl: "https://api.gold-api.com/price/XAU", tick: "PAXGUSDT", ws: "paxgusdt",
     state: "data/xau-state.json", signals: "data/xau-signals.json", news: "data/news.json", scenarios: "data/xau-scenarios.json",
-    srcSpot: "数据：现货金 XAU/USD", srcBackup: "备用数据：PAXG 代币",
-    basisSpot: "现货金 XAU/USD，Dukascopy 买价，纽约 17:00 换日", basisBackup: "PAXG 代币行情校准到现货（备用数据源）",
-    calEmpty: "本周剩下的时间里，日历上没有会明显影响金价的美国数据。", newsWord: "影响金价的消息", overlapTip: "伦敦与纽约重叠：通常是黄金波动最大的时段",
-    closedText: "黄金休市中，开盘后再看",
+    srcSpot: tx("数据：现货金 XAU/USD", "Data: spot gold XAU/USD"), srcBackup: tx("备用数据：PAXG 代币", "Backup data: PAXG token"),
+    basisSpot: tx("现货金 XAU/USD，Dukascopy 买价，纽约 17:00 换日", "spot gold XAU/USD, Dukascopy bid, day rolls at 17:00 New York"), basisBackup: tx("PAXG 代币行情校准到现货（备用数据源）", "PAXG token prices matched to spot (backup feed)"),
+    calEmpty: tx("本周剩下的时间里，日历上没有会明显影响金价的美国数据。", "For the rest of this week the calendar has no US release likely to move gold."), newsWord: tx("影响金价的消息", "news moving gold"), overlapTip: tx("伦敦与纽约重叠：通常是黄金波动最大的时段", "London and New York overlap: usually gold's busiest hours"),
+    closedText: tx("黄金休市中，开盘后再看", "Gold market closed; look again after the open"),
     askIntro: "I trade XAUUSD (spot gold) on MT5 and live in Singapore.",
     askReplay: "A replay on 2011-2026 spot gold found an edge only when all five agree; buying dips, tight stops and trading against the big three lost money.",
     liveData: "spot XAU/USD, broker-style candles, day starts 17:00 New York", liveDataBackup: "backup feed: PAXG token moved onto spot, may differ from spot",
@@ -25,16 +26,30 @@
   var CHART_TFS = ["D", "4H", "1H", "15M"];
   var ZONE_TFS = { D: ["D", "W"], "4H": ["4H", "D"], "1H": ["1H", "4H"], "15M": ["1H", "4H"] };
   var FIELDS = ["entry", "stop", "tp1", "tp2"];
-  var FIELD_ZH = { entry: "入场价", stop: "止损价", tp1: "目标 1", tp2: "目标 2" };
-  var NEWS_MANUAL = { id: "news", label: "避开重大数据", detail: "数据公布前 30 分钟不开新仓，公布后等 15–30 分钟再进" };
-  var STREAK = { id: "streak", label: "今天没有连亏两单", detail: "连亏两单就停手，不做报复性交易" };
+  var FIELD_ZH = EN ? { entry: "entry", stop: "stop", tp1: "target 1", tp2: "target 2" } : { entry: "入场价", stop: "止损价", tp1: "目标 1", tp2: "目标 2" };
+  var NEWS_MANUAL = { id: "news", label: tx("避开重大数据", "Stay clear of big releases"), detail: tx("数据公布前 30 分钟不开新仓，公布后等 15–30 分钟再进", "No new trade in the 30 minutes before a release; wait 15–30 minutes after it") };
+  var STREAK = { id: "streak", label: tx("今天没有连亏两单", "Not two losses in a row today"), detail: tx("连亏两单就停手，不做报复性交易", "Two losses in a row and stop; no revenge trades") };
   // sessions run on each market's own clock, so daylight saving is handled by the time zone
   var MKTS = [
-    { zh: "亚洲盘", tz: "Asia/Tokyo", open: 9, close: 17 },
-    { zh: "伦敦盘", tz: "Europe/London", open: 8, close: 17 },
-    { zh: "纽约盘", tz: "America/New_York", open: 8, close: 17 }
+    { zh: tx("亚洲盘", "Asia"), tz: "Asia/Tokyo", open: 9, close: 17 },
+    { zh: tx("伦敦盘", "London"), tz: "Europe/London", open: 8, close: 17 },
+    { zh: tx("纽约盘", "New York"), tz: "America/New_York", open: 8, close: 17 }
   ];
-  var GLOSS = {
+  var GLOSS = EN ? {
+    score: ["Score", "The five timeframes' directions added up with weights: weekly and daily 3 points each, 4-hour 2, 1-hour and 15-min 1 each. Up counts plus, down minus, from −10 to +10. The nearer the ends, the more the timeframes agree."],
+    structure: ["Direction (structure)", "Price making higher highs and higher lows is up; lower highs and lower lows is down. Every timeframe's direction on this page follows that rule."],
+    bos: ["Breaks: BOS and CHoCH", "A BOS breaks another prior high or low in the same direction: the trend goes on. A CHoCH is the first break the other way: the first sign it may turn. This is how each timeframe's direction flips here: an up structure is higher highs (HH) and higher lows (HL); a close below the latest HL, making the first lower low (LL), turns it down. A down structure is LH and LL; a close above the latest LH, making an HH, turns it up."],
+    fvg: ["Gap (FVG)", "Price moved so fast that three candles left a stretch with no overlap. Price often reacts on coming back to it, and it is often used as an entry zone; in the replay it added no edge, so it is reference only here."],
+    zone: ["Premium and discount", "Take the latest swing from low to high as a range: the upper half is premium (dear), the lower half discount (cheap). The usual advice is buy cheap, sell dear; but in the gold replay, entering with the trend in the dear half did better, so this page does not make it an entry condition."],
+    atr: ["Average range (ATR)", "How many dollars each recent candle moved on average. A stop much closer than that can be hit by normal movement. In the replay, stops beyond 3 × the 1-hour ATR showed an edge; 1.5 × or less did not."],
+    r: ["R: the risk multiple", "The stop distance is 1R. A 2R target means making twice what you could lose. At 2:1, winning more than a third of the time is enough not to lose. This rule wins only about four times in ten; it relies on winners running far."],
+    trail: ["Trailing stop", "Once price moves your way, move the stop the same way, never back. This page's way: keep the stop 2R behind the best price since entry, moving it once a day. The further it runs, the more profit is locked in."],
+    lots: ["How lots work", "One lot of gold is usually 100 oz: each $1 move makes or loses $100 on 1 lot, $1 on 0.01 lot. Lots = money you accept to lose ÷ (stop distance × 100)."],
+    basis: ["Where the data comes from", "Candles are spot gold (XAU/USD) from Dukascopy's public chart data, with the day rolling at 17:00 New York like most MT5 daily charts. The ticking price is the PAXG token's trade stream on Binance, matched to spot by their live difference. When the spot feed cannot be reached, the whole page switches to PAXG and says so at the top: levels may then differ from your platform by a few dollars."],
+    rsi: ["Strength (RSI)", "A momentum reading from 0 to 100. Above 70 is hot, below 30 cold, around 50 balanced."],
+    ema: ["Moving averages (EMA)", "The average price of the last 20, 50 and 200 candles. Price above all three, stacked top to bottom, is a bullish stack; the reverse is bearish."],
+    liq: ["Liquidity: equal highs and lows", "Several highs or lows at almost the same price usually have many stop orders sitting there. Price often sweeps them first, then turns."]
+  } : {
     score: ["综合评分", "把五个周期的方向加权相加：周线、日线各 3 分，4 小时 2 分，1 小时和 15 分钟各 1 分。向上记正、向下记负，范围 −10 到 +10。越靠两端，各周期方向越一致。"],
     structure: ["方向（结构）", "价格不断创出更高的高点和低点，就是向上；不断创出更低的高点和低点，就是向下。本页每个周期的方向都按这条规则判断。"],
     bos: ["突破：BOS 与 CHoCH", "BOS 是顺着原方向又破了一个前高或前低，说明趋势延续。CHoCH 是第一次朝反方向突破，是可能转向的第一个信号。本页每个周期的「方向」就是这样翻转的：向上的结构是更高的高点（HH）和更高的低点（HL），收盘跌破最近的 HL、走出第一个更低的低点（LL），就转向下；向下的结构是 LH 和 LL，收盘站上最近的 LH、走出 HH，就转向上。"],
@@ -69,7 +84,7 @@
   if (LS.get("ver", 1) < 2) {
     LS.set("ver", 2);
     if (typeof S.plan.entry === "number" && typeof S.plan.stop === "number") {
-      S.saved.unshift({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, note: "旧版页面留下的方案" + (S.plan.note ? "：" + S.plan.note : ""), lots: null, when: "升级前", basis: "旧版（PAXG 报价、旧规则）", status: "已取消" });
+      S.saved.unshift({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, note: tx("旧版页面留下的方案", "Plan left by the old page") + (S.plan.note ? tx("：", ": ") + S.plan.note : ""), lots: null, when: tx("升级前", "before the update"), basis: tx("旧版（PAXG 报价、旧规则）", "old (PAXG prices, old rule)"), status: tx("已取消", "cancelled") });
       S.saved = S.saved.slice(0, 20); LS.set("saved", S.saved);
     }
     S.plan = { side: "long", entry: null, stop: null, tp1: null, tp2: null, note: "" }; LS.set("plan", S.plan);
@@ -90,7 +105,7 @@
   }
   function sv(name, attrs, parent) { var e = document.createElementNS(NS, name); for (var a in attrs) e.setAttribute(a, attrs[a]); if (parent) parent.appendChild(e); return e; }
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("show"); }, 1800); }
-  function mark(ok) { return h("span", { class: "ck " + (ok === true ? "ok" : ok === false ? "no" : "na"), text: ok === true ? "✓" : ok === false ? "✕" : "–", "aria-label": ok === true ? "满足" : ok === false ? "不满足" : "暂不适用" }); }
+  function mark(ok) { return h("span", { class: "ck " + (ok === true ? "ok" : ok === false ? "no" : "na"), text: ok === true ? "✓" : ok === false ? "✕" : "–", "aria-label": ok === true ? tx("满足", "met") : ok === false ? tx("不满足", "not met") : tx("暂不适用", "not applicable yet") }); }
 
   // ---------- price basis ----------
   // Everything the engine returns is already a spot price. Only the tick stream is PAXG: each tick is moved onto
@@ -152,10 +167,10 @@
     if (mode === "full") return p.year + "-" + ("0" + p.month).slice(-2) + "-" + ("0" + p.day).slice(-2) + " " + p.hour + ":" + p.minute + " SGT";
     return p.month + "/" + p.day + " " + p.hour + ":" + p.minute;
   }
-  function left(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + " 分钟"; var hr = Math.floor(m / 60); if (hr < 48) return hr + " 小时 " + (m % 60) + " 分"; return Math.floor(hr / 24) + " 天 " + (hr % 24) + " 小时"; }
+  function left(ms) { var m = Math.max(0, Math.round(ms / 60000)); if (m < 60) return m + tx(" 分钟", " min"); var hr = Math.floor(m / 60); if (hr < 48) return hr + tx(" 小时 ", " h ") + (m % 60) + tx(" 分", " min"); return Math.floor(hr / 24) + tx(" 天 ", " d ") + (hr % 24) + tx(" 小时", " h"); }
   var TODAY = sgt(Date.now(), "full").slice(0, 10);
   if (S.manual._d !== TODAY) S.manual = { _d: TODAY };                        // the self-confirmed ticks are for today only
-  function ago(ms) { var m = Math.round((Date.now() - ms) / 60000); if (!isFinite(m)) return ""; if (m < 1) return "刚刚"; if (m < 60) return m + " 分钟前"; var hr = Math.round(m / 60); return hr < 48 ? hr + " 小时前" : Math.round(hr / 24) + " 天前"; }
+  function ago(ms) { var m = Math.round((Date.now() - ms) / 60000); if (!isFinite(m)) return ""; if (m < 1) return tx("刚刚", "just now"); if (m < 60) return m + tx(" 分钟前", " min ago"); var hr = Math.round(m / 60); return hr < 48 ? hr + tx(" 小时前", " h ago") : Math.round(hr / 24) + tx(" 天前", " days ago"); }
 
   // ---------- term explainers ----------
   var popFor = null;
@@ -184,9 +199,9 @@
     var z0 = pt(0, r - 9), z1 = pt(0, r + 9); sv("line", { x1: z0[0], y1: z0[1], x2: z1[0], y2: z1[1], stroke: "var(--dim)", "stroke-width": 1.5 }, svg);
     var n = pt(sc, r - 18); sv("line", { x1: cx, y1: cy, x2: n[0].toFixed(1), y2: n[1].toFixed(1), stroke: "var(--ink)", "stroke-width": 2.5, "stroke-linecap": "round" }, svg);
     sv("circle", { cx: cx, cy: cy, r: 6, fill: "var(--ink)", stroke: "var(--bg2)", "stroke-width": 3 }, svg);
-    sv("text", { x: 14, y: 113, "text-anchor": "middle" }, svg).textContent = "空";
-    sv("text", { x: 186, y: 113, "text-anchor": "middle" }, svg).textContent = "多";
-    svg.setAttribute("aria-label", "综合评分 " + sc + "，范围 −10 到 +10：" + P.scoreWord(sc));
+    sv("text", { x: 14, y: 113, "text-anchor": "middle" }, svg).textContent = tx("空", "S");
+    sv("text", { x: 186, y: 113, "text-anchor": "middle" }, svg).textContent = tx("多", "L");
+    svg.setAttribute("aria-label", EN ? "Score " + sc + " on a −10 to +10 scale: " + P.scoreWord(sc) : "综合评分 " + sc + "，范围 −10 到 +10：" + P.scoreWord(sc));
   }
   function sysPlanNow(trail) { var R = P.regime(S.E); return R.dir ? P.systemPlan(S.E, R.dir, { trail: !!trail }) : null; }
   function toPlan() { var r = $("plan").getBoundingClientRect(); if (r.top > window.innerHeight - 200 || r.top < 0) $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); }
@@ -197,49 +212,49 @@
     var srv = S.srv && /现货/.test(S.srv.source || "") ? S.srv : null, backup = !!(S.feed && S.feed.source === "paxg");
     var agrees = !!(srv && srv.level === V.level && (V.level !== "go" || srv.side === V.side)), unconfirmed = backup && V.level !== "none" && !agrees;
     box.className = "verdict live-data " + (unconfirmed ? "wait" : V.level);
-    $("v-tag").textContent = (V.closed ? "休市中 · " : "") + (unconfirmed ? "备用数据 · 待确认" : V.tag);
-    $("v-title").textContent = unconfirmed ? "备用数据显示「" + V.tag + "」，现货还没确认" : V.title; $("v-text").textContent = V.text;
+    $("v-tag").textContent = (V.closed ? tx("休市中 · ", "Market closed · ") : "") + (unconfirmed ? tx("备用数据 · 待确认", "Backup data · unconfirmed") : V.tag);
+    $("v-title").textContent = unconfirmed ? (EN ? "The backup data says «" + V.tag + "»; spot has not confirmed it" : "备用数据显示「" + V.tag + "」，现货还没确认") : V.title; $("v-text").textContent = V.text;
     var rs = clear($("v-reasons")), reasons = V.reasons.slice();
-    reasons.push(V.closed ? { label: "时机", ok: false, text: M.closedText } : nw ? { label: "时机", ok: nw.ok, text: nw.detail } : { label: "时机", ok: null, text: "没读到日历：进场前自己看一眼有没有大数据" });
+    reasons.push(V.closed ? { label: tx("时机", "Timing"), ok: false, text: M.closedText } : nw ? { label: tx("时机", "Timing"), ok: nw.ok, text: nw.detail } : { label: tx("时机", "Timing"), ok: null, text: tx("没读到日历：进场前自己看一眼有没有大数据", "Calendar not read: check yourself for big releases before entering") });
     reasons.forEach(function (r) { rs.appendChild(h("li", null, [h("div", { class: "rl" }, [mark(r.ok), r.label]), h("div", { class: "rt", text: r.text })])); });
 
     // what to do now, as steps: the first is the action, the rest is what to wait for and what follows
     var steps = V.next.slice(), hold = false;
-    if (V.closed) { steps.unshift({ lead: "现在休市，什么都不用做", text: "周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。" }); hold = true; }
-    else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: "先等数据过去", text: nw.detail + "。数据前后价格乱跳，点差也会放大。" }); hold = true; }
+    if (V.closed) { steps.unshift({ lead: tx("现在休市，什么都不用做", "Market closed: nothing to do"), text: tx("周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。", "It opens Monday around 06:00 SGT, possibly with a gap. Come back after the open for the answer.") }); hold = true; }
+    else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: tx("先等数据过去", "Let the release pass first"), text: nw.detail + tx("。数据前后价格乱跳，点差也会放大。", ". Around a release price jumps and spreads widen.") }); hold = true; }
     // A trade opened on a Friday is held over the weekend: Monday can open beyond the stop. The replay held through
     // weekends too, so this is already in its results; the page only says when the market shuts.
     if (V.level === "go" && !V.closed && M.weekend) {
       var nowS = Date.now() / 1000, off = Feed.serverOff(nowS), sd = new Date((nowS + off) * 1000);
       if (sd.getUTCDay() === 5) {
         var shut = Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()) - off * 1000 + 24 * 3600000;   // Friday 17:00 New York = 24:00 broker time
-        steps.splice(Math.min(2, steps.length), 0, { lead: "今天是周五", text: "黄金 " + left(shut - Date.now()) + "后（周六 " + sgt(shut, "t") + " SGT）收市，进场的单会带过周末。周一开盘可能跳空越过止损，亏得比 1R 多。回放里的单子也都带着周末，这个风险已经算在结果里；按计划的手数做，别加码。" });
+        steps.splice(Math.min(2, steps.length), 0, { lead: tx("今天是周五", "It is Friday"), text: EN ? "Gold closes in " + left(shut - Date.now()) + " (Saturday " + sgt(shut, "t") + " SGT); a trade entered now is held over the weekend. Monday can open beyond the stop and lose more than 1R. The replay's trades were held over weekends too, so this risk is already in its results; trade the planned size, do not add." : "黄金 " + left(shut - Date.now()) + "后（周六 " + sgt(shut, "t") + " SGT）收市，进场的单会带过周末。周一开盘可能跳空越过止损，亏得比 1R 多。回放里的单子也都带着周末，这个风险已经算在结果里；按计划的手数做，别加码。" });
       }
     }
     // On the backup feed (PAXG) the structure can differ from spot: say so, compare with the server's last spot answer,
     // and offer no one-click plan unless the two agree.
     if (backup) {
-      steps.unshift({ lead: "备用数据：这里的结论可能不准", text: "现货数据暂时连不上，这一页改用 PAXG 代币的 K 线计算，它的结构有时和现货不一样。" + (srv ? "服务器 " + srv.updated.slice(5, 16) + " 用现货算的结论是「" + srv.tag + "」" + (agrees ? "，和这里一致。" : "，和这里不一样：以现货为准，先别按这里下单。") : "先别按这里的信号下单，等现货数据恢复。") });
+      steps.unshift({ lead: tx("备用数据：这里的结论可能不准", "Backup data: this answer may be wrong"), text: EN ? "The spot feed cannot be reached, so this page uses the PAXG token's candles, whose structure sometimes differs from spot. " + (srv ? "The server's spot answer at " + srv.updated.slice(5, 16) + " was «" + srv.tag + "»" + (agrees ? ", the same as here." : ", different from here: go by spot and do not trade on this one.") : "Do not trade on this signal; wait for the spot feed to return.") : "现货数据暂时连不上，这一页改用 PAXG 代币的 K 线计算，它的结构有时和现货不一样。" + (srv ? "服务器 " + srv.updated.slice(5, 16) + " 用现货算的结论是「" + srv.tag + "」" + (agrees ? "，和这里一致。" : "，和这里不一样：以现货为准，先别按这里下单。") : "先别按这里的信号下单，等现货数据恢复。") });
       hold = true; if (!agrees) steps.forEach(function (x) { delete x.fill; });
     }
-    if (S.pos) { steps.unshift({ lead: "你有一笔持仓在跟踪", text: "怎么管理看上面「我的持仓」：止损、目标、每天该挪到哪里、什么时候离场都写好了。" }); hold = true; }
+    if (S.pos) { steps.unshift({ lead: tx("你有一笔持仓在跟踪", "You have a position being tracked"), text: tx("怎么管理看上面「我的持仓」：止损、目标、每天该挪到哪里、什么时候离场都写好了。", "See «My position» above for how to manage it: stop, target, where to move it each day and when to leave.") }); hold = true; }
     var ol = clear($("v-next")); $("v-next-wrap").hidden = !steps.length;
     steps.forEach(function (st, i) {
       var acts = [];
-      if (st.fill) acts.push(h("button", { type: "button", class: "btn sm", text: st.fill, onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "目标 3R 方案"); toPlan(); } }));
+      if (st.fill) acts.push(h("button", { type: "button", class: "btn sm", text: st.fill, onclick: function () { var c = sysPlanNow(false); if (c) loadCandidate(c, tx("目标 3R 方案", "3R target plan")); toPlan(); } }));
       ol.appendChild(h("li", { class: i === 0 ? "now" + (hold ? " hold" : "") : "" }, [h("div", null, [h("div", { class: "nl", text: st.lead }), h("div", { class: "nt", text: st.text })]), acts.length ? h("div", { class: "na" }, acts) : null]));
     });
     $("v-other").hidden = !V.other; $("v-other").textContent = V.other || "";
     var lw = $("v-lines-wrap"), ll = clear($("v-lines")); lw.hidden = !V.lines.length && !V.other;
-    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", null, [l.text, l.dist !== null ? h("small", { text: "离现价 " + fmt(l.dist, 1) + " 美元" }) : null])])); });
+    V.lines.forEach(function (l) { ll.appendChild(h("div", { class: "v-line " + l.dir }, [h("i", { text: l.dir === "up" ? "▲" : "▼" }), h("b", { text: fmt(l.price, 1) }), h("span", null, [l.text, l.dist !== null ? h("small", { text: EN ? "$" + fmt(l.dist, 1) + " from the price now" : "离现价 " + fmt(l.dist, 1) + " 美元" }) : null])])); });
     renderProofLine(V);
     renderOdds();
 
     var chips = clear($("v-chips")), now = Date.now(), ss = sessionState(now), pm = posState();
-    if (S.pos) chips.appendChild(h("button", { type: "button", class: "chip " + (pm && pm.pnlR > 0 ? "bull" : pm && pm.pnlR < 0 ? "bear" : "gold"), style: "cursor:pointer", text: "持仓中" + (pm && pm.pnlR !== null ? " " + sgn(pm.pnlR) + "R" : ""), onclick: function () { $("pos").scrollIntoView({ behavior: "smooth", block: "start" }); } }));
-    if (ov.marketOpen !== false && ss.open.length) chips.appendChild(h("span", { class: "chip gold", text: ss.open.join(" + ") + (ss.overlap ? " 重叠" : "") }));
+    if (S.pos) chips.appendChild(h("button", { type: "button", class: "chip " + (pm && pm.pnlR > 0 ? "bull" : pm && pm.pnlR < 0 ? "bear" : "gold"), style: "cursor:pointer", text: tx("持仓中", "Position on") + (pm && pm.pnlR !== null ? " " + sgn(pm.pnlR) + "R" : ""), onclick: function () { $("pos").scrollIntoView({ behavior: "smooth", block: "start" }); } }));
+    if (ov.marketOpen !== false && ss.open.length) chips.appendChild(h("span", { class: "chip gold", text: ss.open.join(" + ") + (ss.overlap ? tx(" 重叠", " overlap") : "") }));
     var nx = S.events.filter(function (e) { return e.hi && e.ms > now; })[0];
-    if (nx) chips.appendChild(h("span", { class: "chip neut", title: nx.name, text: "下个大数据 " + left(nx.ms - now) + "后" }));
+    if (nx) chips.appendChild(h("span", { class: "chip neut", title: nx.name, text: EN ? "Next big release in " + left(nx.ms - now) : "下个大数据 " + left(nx.ms - now) + "后" }));
 
     // gauge and timeframe lights (the price itself is painted by paintLive)
     var sc = Math.max(-10, Math.min(10, P.votes(E).reduce(function (a, v) { return a + (v.v || 0) * v.w; }, 0)));
@@ -249,7 +264,7 @@
     var vs = P.votes(E), signed = function (x) { return (x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x); }, m15 = E.tfs["15M"];
     var lastClose = m15 && m15.barTime ? Date.parse(m15.barTime) + 900000 : null, nextQ = (Math.floor(Date.now() / 900000) + 1) * 900000;
     var gs = clear($("g-sub")); gs.appendChild(document.createTextNode(vs.map(function (v) { return P.TF_S[v.tf] + " " + signed((v.v || 0) * v.w); }).join(" · ") + " = " + signed(sc)));
-    gs.appendChild(h("span", { class: "g-at", text: (isFinite(lastClose) ? "按 " + sgt(lastClose, "t") + " 收盘的 K 线计算" : "按最新收盘的 K 线计算") + (marketOpen() ? " · " + sgt(nextQ, "t") + " 再算" : " · 休市中") + (S.feed && S.feed.source === "paxg" ? " · 备用数据" : "") }));
+    gs.appendChild(h("span", { class: "g-at", text: (isFinite(lastClose) ? (EN ? "From the candle that closed " + sgt(lastClose, "t") : "按 " + sgt(lastClose, "t") + " 收盘的 K 线计算") : tx("按最新收盘的 K 线计算", "From the latest closed candle")) + (marketOpen() ? (EN ? " · next at " + sgt(nextQ, "t") : " · " + sgt(nextQ, "t") + " 再算") : tx(" · 休市中", " · market closed")) + (S.feed && S.feed.source === "paxg" ? tx(" · 备用数据", " · backup data") : "") }));
     var tfl = clear($("tfl"));
     // The arrow is the structure trend the rule uses: it turns only when a candle closes beyond the last swing high or
     // low, so price can fall for days under an "up" arrow. When the smaller swings, the moving averages and RSI all run
@@ -258,28 +273,32 @@
     vs.forEach(function (v) {
       var t = E.tfs[v.tf], since = t && num(t.since) !== null ? t.since : null, flip = v.v ? P.flipLevel(E, v.tf, -v.v) : null;
       var stack = t && t.ema ? t.ema.stack : null, rsi = t ? num(t.rsi) : null, opp = v.v > 0 ? "bearish" : "bullish", why = [];
-      if (v.v && t && t.internal === opp) why.push("小级别" + (v.v > 0 ? "向下" : "向上"));
-      if (v.v && stack === opp) why.push("均线" + (v.v > 0 ? "空头" : "多头") + "排列");
+      if (v.v && t && t.internal === opp) why.push(EN ? "internal structure " + (v.v > 0 ? "down" : "up") : "小级别" + (v.v > 0 ? "向下" : "向上"));
+      if (v.v && stack === opp) why.push(EN ? (v.v > 0 ? "bearish" : "bullish") + " EMA stack" : "均线" + (v.v > 0 ? "空头" : "多头") + "排列");
       var against = !!(v.v && t && (t.internal === opp || (stack === opp && rsi !== null && (v.v > 0 ? rsi < 50 : rsi > 50))));
       if (against && rsi !== null) why.push("RSI " + Math.round(rsi));
-      var dirWord = v.v === 1 ? "向上" : v.v === -1 ? "向下" : "不明", turnWord = v.v > 0 ? "向下" : "向上";
-      var tip = P.TF_ZH[v.tf] + " 大结构" + dirWord + (since ? "，自 " + sgt(since) + " 起" : "") + "（权重 " + v.w + "）" +
+      var dirWord = v.v === 1 ? tx("向上", "up") : v.v === -1 ? tx("向下", "down") : tx("不明", "unclear"), turnWord = v.v > 0 ? tx("向下", "down") : tx("向上", "up");
+      var tip = EN ? P.TF_ZH[v.tf] + " structure " + dirWord + (since ? " since " + sgt(since) : "") + " (weight " + v.w + ")" +
+        (t && t.lastEvent ? "; last " + (t.lastEvent.dir === "bull" ? "bullish" : "bearish") + (t.lastEvent.type === "CHoCH" ? " turn" : " break") + " at " + fmt(t.lastEvent.level, 1) : "") +
+        (against ? "; but moving the other way lately (" + why.join(", ") + "), " + (v.v > 0 ? "pulling back" : "bouncing") : "") + (flip !== null ? "; turns " + turnWord + " only on a close " + (v.v > 0 ? "below " : "above ") + fmt(flip, 1) : "")
+        : P.TF_ZH[v.tf] + " 大结构" + dirWord + (since ? "，自 " + sgt(since) + " 起" : "") + "（权重 " + v.w + "）" +
         (t && t.lastEvent ? "；上次" + (t.lastEvent.dir === "bull" ? "向上" : "向下") + (t.lastEvent.type === "CHoCH" ? "转折" : "突破") + "在 " + fmt(t.lastEvent.level, 1) : "") +
         (against ? "；但最近在反着走（" + why.join("，") + "），" + (v.v > 0 ? "回调中" : "反弹中") : "") + (flip !== null ? "；收盘" + (v.v > 0 ? "跌破 " : "站上 ") + fmt(flip, 1) + " 才转" + turnWord : "");
       if (against) counters.push({ tf: v.tf, v: v.v, flip: flip, why: why });
-      var sinceTxt = !since ? "" : Date.now() - since < 86400000 ? sgt(since, "t") + " 起" : sgt(since, "d") + " 起";
-      tfl.appendChild(h("div", { class: "tfc " + (v.v === 1 ? "bull" : v.v === -1 ? "bear" : "") + (against ? " counter" : ""), title: tip, "aria-label": tip }, [h("div", { class: "n", text: P.TF_ZH[v.tf].replace(" ", "") }), h("div", { class: "a", text: v.v === 1 ? "▲" : v.v === -1 ? "▼" : "—" }), h("div", { class: "w", text: dirWord }), against ? h("div", { class: "c", text: v.v > 0 ? "回调中" : "反弹中" }) : null, h("div", { class: "s", text: sinceTxt })]));
+      var sinceTxt = !since ? "" : EN ? "since " + (Date.now() - since < 86400000 ? sgt(since, "t") : sgt(since, "d")) : Date.now() - since < 86400000 ? sgt(since, "t") + " 起" : sgt(since, "d") + " 起";
+      tfl.appendChild(h("div", { class: "tfc " + (v.v === 1 ? "bull" : v.v === -1 ? "bear" : "") + (against ? " counter" : ""), title: tip, "aria-label": tip }, [h("div", { class: "n", text: P.TF_ZH[v.tf].replace(" ", "") }), h("div", { class: "a", text: v.v === 1 ? "▲" : v.v === -1 ? "▼" : "—" }), h("div", { class: "w", text: dirWord }), against ? h("div", { class: "c", text: v.v > 0 ? tx("回调中", "pullback") : tx("反弹中", "bounce") }) : null, h("div", { class: "s", text: sinceTxt })]));
     });
     // where each big timeframe would turn, always in view (the boxes' tooltips don't show on a phone)
     var tt = $("tfl-turn"), lp = num(S.live);
     if (!tt) { tt = h("p", { class: "tfl-note", id: "tfl-turn" }); $("tfl-note").parentNode.insertBefore(tt, $("tfl-note")); }
     var turns = vs.filter(function (v) { return v.v && (v.tf === "W" || v.tf === "D" || v.tf === "4H"); }).map(function (v) {
       var fl = P.flipLevel(E, v.tf, -v.v); if (fl === null) return null;
-      return P.TF_ZH[v.tf] + (v.v > 0 ? "↑" : "↓") + "：收盘" + (v.v > 0 ? "跌破 " : "站上 ") + fmt(sh(fl), 1) + " 转" + (v.v > 0 ? "向下" : "向上") + (lp !== null ? "（差 " + fmt(Math.abs(fl - lp), 1) + "）" : "");
+      return EN ? P.TF_ZH[v.tf] + (v.v > 0 ? "↑" : "↓") + ": a close " + (v.v > 0 ? "below " : "above ") + fmt(sh(fl), 1) + " turns it " + (v.v > 0 ? "down" : "up") + (lp !== null ? " (" + fmt(Math.abs(fl - lp), 1) + " away)" : "") : P.TF_ZH[v.tf] + (v.v > 0 ? "↑" : "↓") + "：收盘" + (v.v > 0 ? "跌破 " : "站上 ") + fmt(sh(fl), 1) + " 转" + (v.v > 0 ? "向下" : "向上") + (lp !== null ? "（差 " + fmt(Math.abs(fl - lp), 1) + "）" : "");
     }).filter(Boolean);
-    tt.hidden = !turns.length; tt.textContent = "大周期转向的价位：" + turns.join(" · ") + "。";
+    tt.hidden = !turns.length; tt.textContent = tx("大周期转向的价位：", "Where the big timeframes turn: ") + turns.join(" · ") + tx("。", ".");
     var tn = $("tfl-note"); tn.hidden = !counters.length;
-    tn.textContent = counters.map(function (c) { return P.TF_ZH[c.tf] + "：大结构还是" + (c.v > 0 ? "向上" : "向下") + "，但最近一直在" + (c.v > 0 ? "跌" : "涨") + "（" + c.why.join("，") + "）" + (c.flip !== null ? "，要收盘" + (c.v > 0 ? "跌破 " : "站上 ") + fmt(c.flip, 1) + " 才算转" + (c.v > 0 ? "向下" : "向上") : ""); }).join("；") + (counters.length ? "。箭头只在 K 线收盘突破前高或前低时才改变，规则看的就是它。" : "");
+    tn.textContent = EN ? counters.map(function (c) { return P.TF_ZH[c.tf] + ": the structure is still " + (c.v > 0 ? "up" : "down") + ", but it has been " + (c.v > 0 ? "falling" : "rising") + " lately (" + c.why.join(", ") + ")" + (c.flip !== null ? "; it turns " + (c.v > 0 ? "down" : "up") + " only on a close " + (c.v > 0 ? "below " : "above ") + fmt(c.flip, 1) : ""); }).join("; ") + (counters.length ? ". The arrow changes only when a candle closes beyond a prior high or low, and that is what the rule reads." : "")
+      : counters.map(function (c) { return P.TF_ZH[c.tf] + "：大结构还是" + (c.v > 0 ? "向上" : "向下") + "，但最近一直在" + (c.v > 0 ? "跌" : "涨") + "（" + c.why.join("，") + "）" + (c.flip !== null ? "，要收盘" + (c.v > 0 ? "跌破 " : "站上 ") + fmt(c.flip, 1) + " 才算转" + (c.v > 0 ? "向下" : "向上") : ""); }).join("；") + (counters.length ? "。箭头只在 K 线收盘突破前高或前低时才改变，规则看的就是它。" : "");
 
     $("closed").hidden = !V.closed;
     alertCheck(V, unconfirmed);
@@ -289,18 +308,18 @@
   function paintLive() {
     var E = S.E; if (!E) return;
     var shown = sh(S.live), pe = $("price"), open = marketOpen(), paxg = S.feed && S.feed.source === "paxg";
-    $("price-k").textContent = (open ? "现价 · " : "收盘价 · ") + (M.priceWord || "现货金");
+    $("price-k").textContent = (open ? tx("现价 · ", "Price now · ") : tx("收盘价 · ", "Close · ")) + (M.priceWord || tx("现货金", "spot gold"));
     pe.textContent = fmt(shown, 2);
     if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
     S.lastShown = shown;
-    $("price-sub").textContent = !open ? "休市中，周一约 06:00 SGT 开盘" : S.gapOk && num(S.raw) !== null ? (!M.calibrate ? "实时成交价 · " + M.liveName : "实时推送 · " + (S.basisAt && Date.now() - S.basisAt < 20 * 60000 ? "按现货 1 分钟 K 线校准（买价，和 MT5 图表同一种价）" : "按 gold-api 现货报价校准") + (paxg ? "（备用数据源）" : "")) : "最近一根 15 分钟 K 线的收盘价，实时报价连接中";
+    $("price-sub").textContent = !open ? tx("休市中，周一约 06:00 SGT 开盘", "Market closed; opens Monday around 06:00 SGT") : S.gapOk && num(S.raw) !== null ? (!M.calibrate ? tx("实时成交价 · ", "Live trade price · ") + M.liveName : tx("实时推送 · ", "Live stream · ") + (S.basisAt && Date.now() - S.basisAt < 20 * 60000 ? tx("按现货 1 分钟 K 线校准（买价，和 MT5 图表同一种价）", "matched to spot 1-minute candles (bid, the same price as MT5 charts)") : tx("按 gold-api 现货报价校准", "matched to the gold-api spot quote")) + (paxg ? tx("（备用数据源）", " (backup feed)") : "")) : tx("最近一根 15 分钟 K 线的收盘价，实时报价连接中", "Last 15-minute close; connecting to the live price");
     // where price sits between the nearest support and resistance
     var nr = P.nearest(E), vr = $("v-range"); vr.hidden = !(nr.sup && nr.res);
     if (nr.sup && nr.res) {
       var a = sh(nr.sup.price), b = sh(nr.res.price), pos = Math.max(2, Math.min(98, (shown - a) / (b - a) * 100));
-      $("vr-sup").textContent = fmt(a, 1); $("vr-sup-l").textContent = nr.sup.labels.slice(0, 2).join(" · ") + "，比现价低 " + fmt(shown - a, 1) + " 美元";
-      $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + "，比现价高 " + fmt(b - shown, 1) + " 美元";
-      $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = "现价 " + fmt(shown, 1);
+      $("vr-sup").textContent = fmt(a, 1); $("vr-sup-l").textContent = nr.sup.labels.slice(0, 2).join(" · ") + (EN ? ", $" + fmt(shown - a, 1) + " below the price" : "，比现价低 " + fmt(shown - a, 1) + " 美元");
+      $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + (EN ? ", $" + fmt(b - shown, 1) + " above the price" : "，比现价高 " + fmt(b - shown, 1) + " 美元");
+      $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = tx("现价 ", "Now ") + fmt(shown, 1);
     }
     paintPreview(E, shown);
   }
@@ -325,15 +344,16 @@
     }
     var nowS = Date.now() / 1000, close = function (tf) { var end = (Feed.bucket(nowS, tf) + Feed.DUR[tf]) * 1000; return (end - Date.now() > 20 * 3600000 ? sgt(end) : sgt(end, "t")) + " SGT"; };
     clear(el);
-    el.appendChild(h("b", { text: "按现价预估（K 线还没收盘，不算数）：" }));
+    el.appendChild(h("b", { text: tx("按现价预估（K 线还没收盘，不算数）：", "Preview at the price now (the candle has not closed; it does not count yet): ") }));
     el.appendChild(document.createTextNode(flips.map(function (f) {
-      return P.TF_ZH[f.tf] + "：现价已经" + (f.to < 0 ? "低于 " : "高于 ") + fmt(f.lvl, 1) + "，这根 K 线 " + close(f.tf) + " 收盘时还在" + (f.to < 0 ? "下方" : "上方") + "，就转" + (f.to < 0 ? "向下" : "向上");
-    }).join("；") + "。真这样收盘的话，结论" + (S.preV.tag === S.preNow.tag ? "仍是「" + S.preV.tag + "」。" : "会从「" + S.preNow.tag + "」变成「" + S.preV.tag + "」。")));
+      return EN ? P.TF_ZH[f.tf] + ": the price is already " + (f.to < 0 ? "below " : "above ") + fmt(f.lvl, 1) + "; if still " + (f.to < 0 ? "below" : "above") + " when this candle closes at " + close(f.tf) + ", it turns " + (f.to < 0 ? "down" : "up")
+        : P.TF_ZH[f.tf] + "：现价已经" + (f.to < 0 ? "低于 " : "高于 ") + fmt(f.lvl, 1) + "，这根 K 线 " + close(f.tf) + " 收盘时还在" + (f.to < 0 ? "下方" : "上方") + "，就转" + (f.to < 0 ? "向下" : "向上");
+    }).join(tx("；", "; ")) + (EN ? ". If it closes like that, the answer " + (S.preV.tag === S.preNow.tag ? "stays «" + S.preV.tag + "»." : "changes from «" + S.preNow.tag + "» to «" + S.preV.tag + "».") : "。真这样收盘的话，结论" + (S.preV.tag === S.preNow.tag ? "仍是「" + S.preV.tag + "」。" : "会从「" + S.preNow.tag + "」变成「" + S.preV.tag + "」。"))));
     el.hidden = false;
   }
 
   // ---------- timeframe table ----------
-  function rsiWord(r) { return r >= 70 ? "偏热" : r <= 30 ? "偏冷" : r >= 55 ? "偏强" : r <= 45 ? "偏弱" : "均衡"; }
+  function rsiWord(r) { return EN ? (r >= 70 ? "hot" : r <= 30 ? "cold" : r >= 55 ? "firm" : r <= 45 ? "soft" : "balanced") : r >= 70 ? "偏热" : r <= 30 ? "偏冷" : r >= 55 ? "偏强" : r <= 45 ? "偏弱" : "均衡"; }
   // Phones show wide tables as one small card per row (.tablewrap.stk in the page CSS): each cell carries its
   // column's name in data-l.
   function stackLabels(table) {
@@ -345,16 +365,16 @@
     var tb = clear($("matrix")), E = S.E;
     P.TF_ORDER.forEach(function (tf) {
       var t = E.tfs[tf];
-      if (!t || t.error) { tb.appendChild(h("tr", null, [h("td", { class: "tf", text: P.TF_ZH[tf] }), h("td", { colspan: "6", class: "muted", text: "数据不足：" + ((t && t.error) || "无响应") })])); return; }
+      if (!t || t.error) { tb.appendChild(h("tr", null, [h("td", { class: "tf", text: P.TF_ZH[tf] }), h("td", { colspan: "6", class: "muted", text: tx("数据不足：", "Not enough data: ") + ((t && t.error) || tx("无响应", "no answer")) })])); return; }
       var tr = h("tr");
-      tr.appendChild(h("td", { class: "tf" }, [P.TF_ZH[tf], h("span", { class: "w", text: tf + " · 权重 " + P.TF_WEIGHT[tf] })]));
+      tr.appendChild(h("td", { class: "tf" }, [P.TF_ZH[tf], h("span", { class: "w", text: tf + tx(" · 权重 ", " · weight ") + P.TF_WEIGHT[tf] })]));
       var cls = t.trend === "bullish" ? "bull" : t.trend === "bearish" ? "bear" : "neut";
-      tr.appendChild(h("td", null, [h("span", { class: "chip " + cls, text: cls === "bull" ? "▲ 向上" : cls === "bear" ? "▼ 向下" : "不明" }), h("div", { class: "sm", text: "小级别" + (t.internal === "bullish" ? "向上" : t.internal === "bearish" ? "向下" : "不明") })]));
-      tr.appendChild(h("td", null, [h("div", { class: "mono", text: P.eventText(t.lastEvent, sh) }), h("div", { class: "sm", text: t.lastEvent ? (t.lastEvent.dir === "bull" ? "向上" : "向下") + (t.lastEvent.type === "CHoCH" ? "转折" : "延续") + " · " + t.lastEvent.barsAgo + " 根前" : "" })]));
+      tr.appendChild(h("td", null, [h("span", { class: "chip " + cls, text: cls === "bull" ? tx("▲ 向上", "▲ up") : cls === "bear" ? tx("▼ 向下", "▼ down") : tx("不明", "unclear") }), h("div", { class: "sm", text: tx("小级别", "internal ") + (t.internal === "bullish" ? tx("向上", "up") : t.internal === "bearish" ? tx("向下", "down") : tx("不明", "unclear")) })]));
+      tr.appendChild(h("td", null, [h("div", { class: "mono", text: P.eventText(t.lastEvent, sh) }), h("div", { class: "sm", text: t.lastEvent ? (EN ? (t.lastEvent.dir === "bull" ? "bullish" : "bearish") + (t.lastEvent.type === "CHoCH" ? " turn" : " continuation") + " · " + t.lastEvent.barsAgo + " bars ago" : (t.lastEvent.dir === "bull" ? "向上" : "向下") + (t.lastEvent.type === "CHoCH" ? "转折" : "延续") + " · " + t.lastEvent.barsAgo + " 根前") : "" })]));
       var z = h("td");
       if (t.range) {
-        z.appendChild(h("div", { text: (t.range.zone === "premium" ? "偏贵" : t.range.zone === "discount" ? "偏便宜" : "中间") + " " + t.range.pct + "%" }));
-        var zb = h("div", { class: "zbar", role: "img", "aria-label": "在区间的 " + t.range.pct + "% 处" }), i = h("i"); i.style.left = Math.max(0, Math.min(100, t.range.pct)) + "%"; zb.appendChild(i); z.appendChild(zb);
+        z.appendChild(h("div", { text: (t.range.zone === "premium" ? tx("偏贵", "premium") : t.range.zone === "discount" ? tx("偏便宜", "discount") : tx("中间", "middle")) + " " + t.range.pct + "%" }));
+        var zb = h("div", { class: "zbar", role: "img", "aria-label": EN ? t.range.pct + "% of the range" : "在区间的 " + t.range.pct + "% 处" }), i = h("i"); i.style.left = Math.max(0, Math.min(100, t.range.pct)) + "%"; zb.appendChild(i); z.appendChild(zb);
         z.appendChild(h("div", { class: "sm mono", text: fmt(sh(t.range.bottom), 0) + " – " + fmt(sh(t.range.top), 0) }));
       } else z.appendChild(document.createTextNode("—"));
       tr.appendChild(z);
@@ -363,11 +383,11 @@
       tr.appendChild(h("td", null, [h("div", { text: P.ZH.stack[em.stack] || em.stack || "—" }), h("div", { class: "sm mono", text: fmt(sh(em.e20), 0) + " / " + fmt(sh(em.e50), 0) + " / " + fmt(sh(em.e200), 0) })]));
       var notes = [];
       (t.patterns || []).forEach(function (p) { notes.push(P.patternText(p) + "（" + P.statusText(p.status) + "）"); });
-      ((t.liquidity || {}).sweeps || []).forEach(function (s) { notes.push((s.side === "high" ? "刚扫过高点 " : "刚扫过低点 ") + fmt(sh(s.level), 1) + " · " + s.barsAgo + " 根前"); });
-      (t.fvgs || []).forEach(function (g) { if (g.inside) notes.push("价格在" + (g.dir === "bull" ? "看多" : "看空") + "缺口内"); });
+      ((t.liquidity || {}).sweeps || []).forEach(function (s) { notes.push((s.side === "high" ? tx("刚扫过高点 ", "swept a high ") : tx("刚扫过低点 ", "swept a low ")) + fmt(sh(s.level), 1) + " · " + s.barsAgo + tx(" 根前", " bars ago")); });
+      (t.fvgs || []).forEach(function (g) { if (g.inside) notes.push(EN ? "price inside a " + (g.dir === "bull" ? "bullish" : "bearish") + " gap" : "价格在" + (g.dir === "bull" ? "看多" : "看空") + "缺口内"); });
       var eqh = (t.liquidity || {}).equalHighs || [], eql = (t.liquidity || {}).equalLows || [];
-      if (eqh.length) notes.push("等高 " + eqh.map(function (p) { return fmt(sh(p), 1); }).join("、"));
-      if (eql.length) notes.push("等低 " + eql.map(function (p) { return fmt(sh(p), 1); }).join("、"));
+      if (eqh.length) notes.push(tx("等高 ", "equal highs ") + eqh.map(function (p) { return fmt(sh(p), 1); }).join(tx("、", ", ")));
+      if (eql.length) notes.push(tx("等低 ", "equal lows ") + eql.map(function (p) { return fmt(sh(p), 1); }).join(tx("、", ", ")));
       var last = h("td"); if (!notes.length) last.appendChild(h("span", { class: "muted", text: "—" }));
       notes.forEach(function (n, k) { last.appendChild(h("div", { class: k ? "sm" : "", text: n })); });
       tr.appendChild(last); tb.appendChild(tr);
@@ -398,7 +418,7 @@
     var box = $("chart"), E = S.E; if (!E) return;
     var t = E.tfs[S.tf], tip = null;
     clear(box);
-    if (!t || t.error || !t.bars || t.bars.length < 5) { box.appendChild(h("p", { class: "note", text: "这个周期暂时没有 K 线数据。" })); CH = null; return; }
+    if (!t || t.error || !t.bars || t.bars.length < 5) { box.appendChild(h("p", { class: "note", text: tx("这个周期暂时没有 K 线数据。", "No candles for this timeframe yet.") })); CH = null; return; }
     var W = Math.max(300, Math.round(box.clientWidth)), H = W < 560 ? 320 : W < 800 ? 380 : 440;
     var L = 8, R = 68, T = 14, B = 26, plotW = W - L - R;
     var fb = formingBar(S.tf), src = fb && fb[0] > t.bars[t.bars.length - 1][0] ? t.bars.concat([fb]) : t.bars, live = src !== t.bars;
@@ -411,7 +431,7 @@
     var pad = (hi - lo) * 0.07; lo -= pad; hi += pad;
     var y = function (p) { return T + (hi - p) / (hi - lo) * (H - T - B); };
     var cw = plotW / n, x = function (i) { return L + cw * i + cw / 2; };
-    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", tabindex: "0", "aria-label": P.TF_ZH[S.tf] + " K 线图，含支撑阻力、缺口和你的计划价位。左右方向键可逐根查看。" });
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", tabindex: "0", "aria-label": P.TF_ZH[S.tf] + tx(" K 线图，含支撑阻力、缺口和你的计划价位。左右方向键可逐根查看。", " candle chart with support and resistance, gaps and your plan's prices. Left and right arrow keys step through the candles.") });
 
     // grid + price axis (solid hairlines)
     var step = niceStep(hi - lo, 5), ticks = [];
@@ -440,7 +460,7 @@
       var p = sh(l.price); if (p > hi || p < lo) return;
       var col = l.side === "res" ? "var(--m-bear)" : "var(--m-bull)", ly = y(p);
       sv("line", { class: "lv", "data-lv": l.price, x1: L, x2: W - R, y1: ly, y2: ly, stroke: col, "stroke-opacity": 0.6, "stroke-width": 1, "stroke-dasharray": "5 4" }, svg);
-      labels.push({ y: ly - 4, x: L + 6, text: (l.side === "res" ? "阻力 " : "支撑 ") + fmt(p, 1) + " · " + l.labels[0] + (l.labels.length > 1 ? " 等 " + l.labels.length + " 项" : ""), strength: l.strength });
+      labels.push({ y: ly - 4, x: L + 6, text: (l.side === "res" ? tx("阻力 ", "R ") : tx("支撑 ", "S ")) + fmt(p, 1) + " · " + l.labels[0] + (l.labels.length > 1 ? (EN ? " +" + (l.labels.length - 1) : " 等 " + l.labels.length + " 项") : ""), strength: l.strength });
     });
 
     bars.forEach(function (b, i) {
@@ -457,7 +477,7 @@
     if (inR(e) && s !== null) { var ys = Math.max(T, Math.min(H - B, y(s))); sv("rect", { x: wx, y: Math.min(y(e), ys), width: W - R - wx, height: Math.abs(y(e) - ys), fill: "var(--m-bear)", "fill-opacity": 0.1 }, svg); }
     var far = t2 !== null ? t2 : t1;
     if (inR(e) && far !== null) { var yf = Math.max(T, Math.min(H - B, y(far))); sv("rect", { x: wx, y: Math.min(y(e), yf), width: W - R - wx, height: Math.abs(y(e) - yf), fill: "var(--m-bull)", "fill-opacity": 0.1 }, svg); }
-    [["entry", e, "var(--m-blue)", "#0A0A0F", "入场"], ["stop", s, "var(--m-bear)", "#FFFFFF", "止损"], ["tp1", t1, "var(--m-bull)", "#0A0A0F", "目标1"], ["tp2", t2, "var(--m-bull)", "#0A0A0F", "目标2"]].forEach(function (d) {
+    [["entry", e, "var(--m-blue)", "#0A0A0F", tx("入场", "Entry")], ["stop", s, "var(--m-bear)", "#FFFFFF", tx("止损", "Stop")], ["tp1", t1, "var(--m-bull)", "#0A0A0F", tx("目标1", "TP1")], ["tp2", t2, "var(--m-bull)", "#0A0A0F", tx("目标2", "TP2")]].forEach(function (d) {
       if (!inR(d[1])) return;
       sv("line", { x1: L, x2: W - R, y1: y(d[1]), y2: y(d[1]), stroke: d[2], "stroke-width": 1.5 }, svg);
       tags.push({ y: y(d[1]), text: Math.round(d[1]).toLocaleString("en-US"), fill: d[2], ink: d[3] });
@@ -520,8 +540,8 @@
       at.setAttribute("y", yy + 3.5); at.textContent = fmt(pr, 1); at.setAttribute("visibility", "visible");
       clear(tip); tip.hidden = false;
       var chg = (b[4] - b[1]) / b[1] * 100;
-      tip.appendChild(h("div", { class: "t", text: P.TF_ZH[S.tf] + " · " + sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + " SGT" + (live && i === n - 1 ? " · 还没收盘" : "") }));
-      [["开盘", fmt(b[1], 2)], ["最高", fmt(b[2], 2)], ["最低", fmt(b[3], 2)], ["收盘", fmt(b[4], 2)], ["涨跌", (chg >= 0 ? "▲ +" : "▼ −") + Math.abs(chg).toFixed(2) + "%"]].forEach(function (r) {
+      tip.appendChild(h("div", { class: "t", text: P.TF_ZH[S.tf] + " · " + sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + " SGT" + (live && i === n - 1 ? tx(" · 还没收盘", " · not closed yet") : "") }));
+      [[tx("开盘", "Open"), fmt(b[1], 2)], [tx("最高", "High"), fmt(b[2], 2)], [tx("最低", "Low"), fmt(b[3], 2)], [tx("收盘", "Close"), fmt(b[4], 2)], [tx("涨跌", "Change"), (chg >= 0 ? "▲ +" : "▼ −") + Math.abs(chg).toFixed(2) + "%"]].forEach(function (r) {
         tip.appendChild(h("div", { class: "r" }, [h("span", { text: r[0] }), h("b", { text: r[1] })]));
       });
       var scale = box.clientWidth / W, tw = tip.offsetWidth, lf = cx * scale + 14;
@@ -549,16 +569,16 @@
     var d = $("tbl"), body = $("tbl-body"); if (!d.open || !CH) return;
     clear(body);
     var tb = h("tbody");
-    CH.bars.slice().reverse().forEach(function (b, k) { tb.appendChild(h("tr", null, [h("td", { text: sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + (CH.live && k === 0 ? "（未收盘）" : "") }), h("td", { text: fmt(b[1], 2) }), h("td", { text: fmt(b[2], 2) }), h("td", { text: fmt(b[3], 2) }), h("td", { text: fmt(b[4], 2) })])); });
-    body.appendChild(h("table", null, [h("thead", null, [h("tr", null, [h("th", { text: P.TF_ZH[S.tf] + " · SGT" }), h("th", { text: "开" }), h("th", { text: "高" }), h("th", { text: "低" }), h("th", { text: "收" })])]), tb]));
+    CH.bars.slice().reverse().forEach(function (b, k) { tb.appendChild(h("tr", null, [h("td", { text: sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + (CH.live && k === 0 ? tx("（未收盘）", " (open)") : "") }), h("td", { text: fmt(b[1], 2) }), h("td", { text: fmt(b[2], 2) }), h("td", { text: fmt(b[3], 2) }), h("td", { text: fmt(b[4], 2) })])); });
+    body.appendChild(h("table", null, [h("thead", null, [h("tr", null, [h("th", { text: P.TF_ZH[S.tf] + " · SGT" }), h("th", { text: tx("开", "O") }), h("th", { text: tx("高", "H") }), h("th", { text: tx("低", "L") }), h("th", { text: tx("收", "C") })])]), tb]));
   }
 
   // ---------- levels, gaps, patterns ----------
   function levelRow(l) {
     var p = sh(l.price), d = p - sh(S.live);
-    var dots = h("span", { class: "str", title: "重合的依据越多越满" }), lv = l.strength >= 6 ? 3 : l.strength >= 3 ? 2 : 1;
+    var dots = h("span", { class: "str", title: tx("重合的依据越多越满", "Fuller when more reasons land on it") }), lv = l.strength >= 6 ? 3 : l.strength >= 3 ? 2 : 1;
     for (var k = 0; k < 3; k++) dots.appendChild(h("i", { class: k < lv ? "on" : "" }));
-    var li = h("li", { class: l.side, tabindex: "0", role: "button", "aria-label": fmt(p, 1) + " " + l.labels.join("，") }, [h("span", { class: "bar" }), h("b", { text: fmt(p, 1) }), h("span", { class: "lb" }, [l.labels.join(" · "), dots]), h("span", { class: "dist", text: (d >= 0 ? "高 " : "低 ") + fmt(Math.abs(d), 1) })]);
+    var li = h("li", { class: l.side, tabindex: "0", role: "button", "aria-label": fmt(p, 1) + " " + l.labels.join(tx("，", ", ")) }, [h("span", { class: "bar" }), h("b", { text: fmt(p, 1) }), h("span", { class: "lb" }, [l.labels.join(" · "), dots]), h("span", { class: "dist", text: (d >= 0 ? tx("高 ", "+") : tx("低 ", "−")) + fmt(Math.abs(d), 1) })]);
     var pick = function () {
       if (S.armed) { setField(S.armed, Math.round(p * 10) / 10); return; }
       S.openLevel = S.openLevel === l.price ? null : l.price; renderLevels();
@@ -571,24 +591,24 @@
   function hlLevel(raw, on) { var el = $("chart").querySelector('.lv[data-lv="' + raw + '"]'); if (el) el.classList.toggle("hl", on); }
   function renderLevels() {
     var E = S.E, LV = P.levels(E), ul = clear($("ladder")), nowDone = false;
-    var addNow = function () { ul.appendChild(h("li", { class: "now" }, [h("span", { class: "bar" }), h("b", { text: fmt(sh(S.live), 1) }), h("span", { class: "lb", text: "现价" }), h("span", { class: "dist" })])); nowDone = true; };
+    var addNow = function () { ul.appendChild(h("li", { class: "now" }, [h("span", { class: "bar" }), h("b", { text: fmt(sh(S.live), 1) }), h("span", { class: "lb", text: tx("现价", "Price now") }), h("span", { class: "dist" })])); nowDone = true; };
     LV.points.forEach(function (l) {
       if (!nowDone && l.side === "sup") addNow();
       ul.appendChild(levelRow(l));
       if (S.openLevel === l.price) {
         var q = h("span", { class: "quick" });
-        FIELDS.forEach(function (f) { q.appendChild(h("button", { type: "button", text: "设为" + FIELD_ZH[f], onclick: function (ev) { ev.stopPropagation(); S.openLevel = null; setField(f, Math.round(sh(l.price) * 10) / 10); renderLevels(); } })); });
+        FIELDS.forEach(function (f) { q.appendChild(h("button", { type: "button", text: tx("设为", "Set as ") + FIELD_ZH[f], onclick: function (ev) { ev.stopPropagation(); S.openLevel = null; setField(f, Math.round(sh(l.price) * 10) / 10); renderLevels(); } })); });
         ul.appendChild(h("li", { class: "act" }, [q]));
       }
     });
     if (!nowDone) addNow();
 
     var zl = clear($("zones")), zs = LV.zones.filter(function (z) { return z.tf !== "W" || z.side === "in"; }).slice(0, 8);
-    if (!zs.length) zl.appendChild(h("p", { class: "note", text: "附近没有还留着的缺口。" }));
+    if (!zs.length) zl.appendChild(h("p", { class: "note", text: tx("附近没有还留着的缺口。", "No unfilled gaps nearby.") }));
     zs.forEach(function (z) {
       var top = sh(z.top), bot = sh(z.bottom), pr = sh(S.live);
-      var st = z.side === "in" ? "价格在里面" : z.side === "res" ? "在上方 " + fmt(bot - pr, 1) : "在下方 " + fmt(pr - top, 1);
-      zl.appendChild(h("div", { class: "zi " + z.polarity + (z.side === "in" ? " in" : "") }, [h("span", { class: "bar" }), h("div", null, [h("div", { class: "zt", text: z.label + (z.tapped ? "" : " · 还没被碰过") }), h("div", { class: "zr", text: fmt(bot, 1) + " – " + fmt(top, 1) })]), h("span", { class: "zs", text: st })]));
+      var st = z.side === "in" ? tx("价格在里面", "price inside") : z.side === "res" ? tx("在上方 ", "above, ") + fmt(bot - pr, 1) : tx("在下方 ", "below, ") + fmt(pr - top, 1);
+      zl.appendChild(h("div", { class: "zi " + z.polarity + (z.side === "in" ? " in" : "") }, [h("span", { class: "bar" }), h("div", null, [h("div", { class: "zt", text: z.label + (z.tapped ? "" : tx(" · 还没被碰过", " · not touched yet")) }), h("div", { class: "zr", text: fmt(bot, 1) + " – " + fmt(top, 1) })]), h("span", { class: "zs", text: st })]));
     });
 
     var pt = clear($("patterns")), any = false, Rp = P.regime(E), pw = P.words();
@@ -597,18 +617,19 @@
       var t = E.tfs[tf]; if (!t || t.error) return;
       (t.patterns || []).forEach(function (p) {
         any = true;
-        var pd = P.patternWay(p), rel = !pd ? "" : " · 已完成" + (!Rp.dir ? "" : pd === Rp.dir ? "，和大方向一致" : "，和大方向相反");
+        var pd = P.patternWay(p), rel = !pd ? "" : tx(" · 已完成", " · finished") + (!Rp.dir ? "" : pd === Rp.dir ? tx("，和大方向一致", ", with the big trend") : tx("，和大方向相反", ", against the big trend"));
         var bits = [], pl = P.patternPlan(p, E.price);
         if (pl) {
-          bits.push((pl.done ? (pl.dir > 0 ? "买入（现价）" : "卖出（现价）") : (pl.dir > 0 ? "收盘站上才买 " : "收盘跌破才卖 ")) + fmt(sh(pl.entry), 1) + " · 止损 SL " + fmt(sh(pl.stop), 1) + " · 目标 TP " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1，" + (pl.done ? "大部分已走完，不值得追）" : "不值得做）") : ""));
+          bits.push(EN ? (pl.done ? (pl.dir > 0 ? "buy (now) " : "sell (now) ") : (pl.dir > 0 ? "buy on a close above " : "sell on a close below ")) + fmt(sh(pl.entry), 1) + " · stop SL " + fmt(sh(pl.stop), 1) + " · target TP " + fmt(sh(pl.target), 1) + " · R:R " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1, " + (pl.done ? "mostly run already, not worth chasing)" : "not worth taking)") : "")
+            : (pl.done ? (pl.dir > 0 ? "买入（现价）" : "卖出（现价）") : (pl.dir > 0 ? "收盘站上才买 " : "收盘跌破才卖 ")) + fmt(sh(pl.entry), 1) + " · 止损 SL " + fmt(sh(pl.stop), 1) + " · 目标 TP " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1，" + (pl.done ? "大部分已走完，不值得追）" : "不值得做）") : ""));
         } else {
-          if (num(p.level) !== null) bits.push("关键位 " + fmt(sh(p.level), 1));
-          if (num(p.upper) !== null) bits.push("上沿 " + fmt(sh(p.upper), 1) + " · 下沿 " + fmt(sh(p.lower), 1));
+          if (num(p.level) !== null) bits.push(tx("关键位 ", "key level ") + fmt(sh(p.level), 1));
+          if (num(p.upper) !== null) bits.push(tx("上沿 ", "upper ") + fmt(sh(p.upper), 1) + tx(" · 下沿 ", " · lower ") + fmt(sh(p.lower), 1));
         }
-        pt.appendChild(h("div", { class: "pat " + p.bias }, [h("span", { class: "t", text: P.TF_ZH[tf] + " · " + P.patternText(p) + (p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "") }), h("span", { class: "s", text: P.statusText(p.status) + rel }), bits.length ? h("span", { class: "s mono", text: bits.join(" · ") }) : null]));
+        pt.appendChild(h("div", { class: "pat " + p.bias }, [h("span", { class: "t", text: P.TF_ZH[tf] + " · " + P.patternText(p) + (p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : "") }), h("span", { class: "s", text: P.statusText(p.status) + rel }), bits.length ? h("span", { class: "s mono", text: bits.join(" · ") }) : null]));
       });
     });
-    if (!any) pt.appendChild(h("p", { class: "note", text: "各周期暂时没有清晰的形态。" }));
+    if (!any) pt.appendChild(h("p", { class: "note", text: tx("各周期暂时没有清晰的形态。", "No clear pattern on any timeframe right now.") }));
   }
 
   // ---------- the chart pattern under the price ----------
@@ -625,20 +646,21 @@
     if (!force && S.patE === S.E) return; S.patE = S.E;
     var list = patItems(), Rp = P.regime(S.E); clear(box); box.hidden = false; patW = box.clientWidth;
     var it = list.filter(function (x) { return x.key === S.patSel; })[0] || list[0];
-    var head = h("div", { class: "vp-h" }, [h("span", { class: "vp-k" }, ["图表形态", h("i", { text: "参考" })])]);
+    var head = h("div", { class: "vp-h" }, [h("span", { class: "vp-k" }, [tx("图表形态", "Chart pattern"), h("i", { text: tx("参考", "reference") })])]);
     if (list.length > 1) head.appendChild(h("div", { class: "vp-tabs" }, list.map(function (x) {
       return h("button", { type: "button", "aria-pressed": String(x === it), text: P.TF_ZH[x.tf] + " " + P.patternText(x.p), onclick: function () { S.patSel = x.key; renderPatChart(true); } });
     })));
     box.appendChild(head);
-    if (!it) { box.appendChild(h("p", { class: "vp-none", text: "日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。" })); return; }
+    if (!it) { box.appendChild(h("p", { class: "vp-none", text: tx("日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。", "No clear pattern on the daily, 4-hour or 1-hour right now. When a double top or bottom, head and shoulders, triangle, wedge, channel or flag forms, it is drawn here.") })); return; }
     var p = it.p, pl = P.patternPlan(p, S.E.price), way = it.done;
-    var rel = !way || !Rp.dir ? "" : way === Rp.dir ? "，和大方向一致" : "，和大方向相反";
-    box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "（没有方向）" }), " " + P.statusText(p.status) + rel]));
+    var rel = !way || !Rp.dir ? "" : way === Rp.dir ? tx("，和大方向一致", ", with the big trend") : tx("，和大方向相反", ", against the big trend");
+    box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : tx("（没有方向）", " (no direction)") }), " " + P.statusText(p.status) + rel]));
     var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); });
-    var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28 });
-    if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: "这个形态的 K 线还没读到，下一次刷新再画。" }));
-    if (pl) box.appendChild(h("p", { class: "vp-plan", text: "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") }));
-    box.appendChild(h("p", { class: "vp-n", text: "参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。" }));
+    var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: EN ? P.TF_ZH[it.tf] + " " + P.patternText(p) + " chart" : P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28 });
+    if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: tx("这个形态的 K 线还没读到，下一次刷新再画。", "This pattern's candles are not loaded yet; it is drawn at the next refresh.") }));
+    if (pl) box.appendChild(h("p", { class: "vp-plan", text: EN ? "The pattern's own trade: " + (pl.done ? (pl.dir > 0 ? "broke up, price now " : "broke down, price now ") : (pl.dir > 0 ? "on a close above " : "on a close below ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · fails " + fmt(sh(pl.stop), 1) + " · target " + fmt(sh(pl.target), 1) + " · R:R " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "")
+      : "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") }));
+    box.appendChild(h("p", { class: "vp-n", text: tx("参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。", "Reference, not a signal: in the replay patterns had no edge on their own (with their own stop and target, about six in ten won, about 0R on average). They mark key levels, targets and where a move fails; entries still go by the answer above.") }));
   }
 
   // ---------- plan ----------
@@ -659,7 +681,7 @@
   function renderArm() {
     all("[data-pick]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-pick") === S.armed)); });
     var hint = $("pickhint"); hint.hidden = !S.armed;
-    if (S.armed) hint.textContent = "正在选「" + FIELD_ZH[S.armed] + "」：在图表上点一个价位就填好了。再点一次 ⌖ 取消。";
+    if (S.armed) hint.textContent = EN ? "Picking the " + FIELD_ZH[S.armed] + ": tap a price on the chart to fill it in. Tap ⌖ again to cancel." : "正在选「" + FIELD_ZH[S.armed] + "」：在图表上点一个价位就填好了。再点一次 ⌖ 取消。";
     $("chart").classList.toggle("picking", !!S.armed);
   }
   function touched() { S.plan.at = Date.now(); }                                // when the prices were last set: old ones are flagged
@@ -667,7 +689,7 @@
   function clearPlan() { S.plan = { side: S.plan.side, entry: null, stop: null, tp1: null, tp2: null, note: "", at: null }; S.manual = { _d: TODAY }; LS.set("manual", S.manual); replan(); }
   function loadCandidate(c, label) {
     S.plan.side = c.side; S.plan.entry = c.entry; S.plan.stop = c.stop; S.plan.tp1 = c.tp1; S.plan.tp2 = c.tp2; touched();
-    replan(); toast("已填好：" + label);
+    replan(); toast(tx("已填好：", "Filled in: ") + label);
   }
   function shownCand(c) { return { side: c.side, entry: r1(sh(c.entry)), stop: r1(sh(c.stop)), tp1: r1(sh(c.tp1)), tp2: r1(sh(c.tp2)) }; }
   function isSel(c) { return S.plan.side === c.side && num(S.plan.entry) !== null && Math.abs(S.plan.entry - c.entry) < 0.06 && num(S.plan.stop) !== null && Math.abs(S.plan.stop - c.stop) < 0.06 && (num(S.plan.tp1) === null) === (num(c.tp1) === null); }
@@ -675,25 +697,25 @@
     var el = clear($("cands")), E = S.E, R = P.regime(E), any = false, picked = false;
     var card = function (k, side, tagline, line, sub, rr, label, live) {
       var on = isSel(k); any = true; if (on) picked = true;
-      var btn = h("button", { type: "button", class: "cand" + (on ? " sel" : ""), "aria-pressed": String(on), title: "把这个方案填进计划" }, [
-        h("span", { class: "cs " + side, text: side === "long" ? "▲ 做多" : "▼ 做空" }),
+      var btn = h("button", { type: "button", class: "cand" + (on ? " sel" : ""), "aria-pressed": String(on), title: tx("把这个方案填进计划", "Put this plan in the planner") }, [
+        h("span", { class: "cs " + side, text: side === "long" ? tx("▲ 做多", "▲ Long") : tx("▼ 做空", "▼ Short") }),
         h("span", null, [h("div", { class: "ct", text: line }), h("div", { class: "cd", text: tagline + (sub ? " · " + sub : "") })]),
-        h("span", { class: "cr" }, [rr === null ? "跟踪" : rr.toFixed(1) + "R", h("small", { text: rr === null ? "不设目标" : "赚赔比" })])
+        h("span", { class: "cr" }, [rr === null ? tx("跟踪", "Trail") : rr.toFixed(1) + "R", h("small", { text: rr === null ? tx("不设目标", "no target") : tx("赚赔比", "reward:risk") })])
       ]);
       btn.addEventListener("click", function () { loadCandidate(live ? live() || k : k, label); });
       el.appendChild(btn);
     };
     if (R.dir) [false, true].forEach(function (trail) {
       var k = P.systemPlan(E, R.dir, { trail: trail }); if (!k) return; var buy = R.dir > 0;
-      card(k, k.side, R.full ? "回放里有优势的情形" : "大方向对了，等小周期转回来再用", (buy ? "现价买入 " : "现价卖出 ") + fmt(k.entry, 0) + " · 止损 " + fmt(k.stop, 0) + (trail ? " · 跟踪止损" : " · 目标 " + fmt(k.tp1, 0)),
-        "止损 " + fmt(k.dist, 0) + " 美元 = 3 倍小时波幅", trail ? null : P.SYS.targetR, trail ? "跟踪止损方案" : "目标 3R 方案", function () { return sysPlanNow(trail); });
+      card(k, k.side, R.full ? tx("回放里有优势的情形", "The situation with an edge in the replay") : tx("大方向对了，等小周期转回来再用", "Big trend right; use it once the small timeframes turn back"), (buy ? tx("现价买入 ", "Buy now ") : tx("现价卖出 ", "Sell now ")) + fmt(k.entry, 0) + tx(" · 止损 ", " · stop ") + fmt(k.stop, 0) + (trail ? tx(" · 跟踪止损", " · trailing stop") : tx(" · 目标 ", " · target ") + fmt(k.tp1, 0)),
+        EN ? "Stop $" + fmt(k.dist, 0) + " = 3 × the 1-hour ATR" : "止损 " + fmt(k.dist, 0) + " 美元 = 3 倍小时波幅", trail ? null : P.SYS.targetR, trail ? tx("跟踪止损方案", "Trailing-stop plan") : tx("目标 3R 方案", "3R target plan"), function () { return sysPlanNow(trail); });
     });
     else {
-      el.appendChild(h("p", { class: "note", text: "现在没有信号，所以这里没有方案。周线、日线、4 小时同向以后，会自动出现按规则算好的价位。" }));
+      el.appendChild(h("p", { class: "note", text: tx("现在没有信号，所以这里没有方案。周线、日线、4 小时同向以后，会自动出现按规则算好的价位。", "No signal now, so no plan here. Once weekly, daily and 4-hour agree, the rule's prices appear here by themselves.") }));
       var H1 = E.tfs["1H"];
       if (H1 && H1.atr && num(E.price) !== null) {                              // a worked example to learn the sizing on, clearly not a signal
-        var row = h("div", { class: "prac" }, [h("span", { text: "想先熟悉手数怎么算？按现价生成一个示例（不是信号）：" })]);
-        [1, -1].forEach(function (d) { row.appendChild(h("button", { type: "button", class: "btn sm ghost", text: d > 0 ? "▲ 练习做多" : "▼ 练习做空", onclick: function () { var k = P.systemPlan(S.E, d, {}); if (k) loadCandidate(k, "练习方案（不是信号）"); } })); });
+        var row = h("div", { class: "prac" }, [h("span", { text: tx("想先熟悉手数怎么算？按现价生成一个示例（不是信号）：", "Want to practise the sizing first? Make an example at the price now (not a signal):") })]);
+        [1, -1].forEach(function (d) { row.appendChild(h("button", { type: "button", class: "btn sm ghost", text: d > 0 ? tx("▲ 练习做多", "▲ Practise long") : tx("▼ 练习做空", "▼ Practise short"), onclick: function () { var k = P.systemPlan(S.E, d, {}); if (k) loadCandidate(k, tx("练习方案（不是信号）", "Practice plan (not a signal)")); } })); });
         el.appendChild(row);
       }
     }
@@ -701,7 +723,7 @@
     S.daily.forEach(function (d) {
       if (pxNow !== null && (pxNow - d.stop) * (d.side === "short" ? -1 : 1) <= 0) return;   // price already through its stop
       var buy = d.side === "long", k = { side: d.side, entry: r1(d.entry), stop: r1(d.stop), tp1: d.tp1 === null ? null : r1(d.tp1), tp2: d.tp2 === null ? null : r1(d.tp2) };
-      card(k, d.side, "来自每日分析，没有回放过", fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, "每日分析的方案");
+      card(k, d.side, tx("来自每日分析，没有回放过", "From the daily brief, not replayed"), EN ? (buy ? "Buy " : "Sell ") + fmt(k.entry, 0) + " · stop " + fmt(k.stop, 0) + (k.tp1 !== null ? " · target " + fmt(k.tp1, 0) : "") : fmt(k.entry, 0) + (buy ? " 买入" : " 卖出") + " · 止损 " + fmt(k.stop, 0) + (k.tp1 !== null ? " · 目标 " + fmt(k.tp1, 0) : ""), "", d.rr, tx("每日分析的方案", "The daily brief's plan"));
     });
     S.cardState = !any ? "na" : picked ? "done" : "";
   }
@@ -711,34 +733,34 @@
     var el = $("lotref"); if (!el) return; clear(el);
     var px = num(S.live) !== null ? S.live : S.E ? num(S.E.price) : null, c = num(S.acct.contract) || M.contract, lev = num(S.acct.leverage) || 100;
     var step = num(S.acct.lotStep) || 0.01, spread = num(S.acct.spread) || 0, H1 = S.E && S.E.tfs["1H"], mine = hasPlan();
-    var dist = mine ? Math.abs(S.plan.entry - S.plan.stop) : H1 && H1.atr ? 3 * H1.atr : null, sw = mine ? "你的止损" : "规则止损";
+    var dist = mine ? Math.abs(S.plan.entry - S.plan.stop) : H1 && H1.atr ? 3 * H1.atr : null, sw = mine ? tx("你的止损", "Your stop") : tx("规则止损", "The rule's stop");
     var mv = M.moves || [1, 10], qty = function (l) { var q = Math.round(l * c * 1e6) / 1e6; return q.toLocaleString("en-US", { maximumFractionDigits: 4 }) + " " + M.unitShort; };
-    el.appendChild(h("div", { class: "lr-t" }, [h("b", { text: "0.01 手等于多少" }), px !== null ? h("span", { text: "按现价 " + fmt(px, M.pxDec) + " · 1 手 = " + qty(1) }) : null]));
-    var head = ["手数", "数量", M.moveWord + "动 $" + mv[0].toLocaleString("en-US"), "动 $" + mv[1].toLocaleString("en-US")].concat(dist !== null ? ["到止损"] : []);
+    el.appendChild(h("div", { class: "lr-t" }, [h("b", { text: tx("0.01 手等于多少", "What 0.01 lot is") }), px !== null ? h("span", { text: tx("按现价 ", "At ") + fmt(px, M.pxDec) + tx(" · 1 手 = ", " · 1 lot = ") + qty(1) }) : null]));
+    var head = EN ? ["Lots", "Size", M.moveWord + " moves $" + mv[0].toLocaleString("en-US"), "moves $" + mv[1].toLocaleString("en-US")].concat(dist !== null ? ["to the stop"] : []) : ["手数", "数量", M.moveWord + "动 $" + mv[0].toLocaleString("en-US"), "动 $" + mv[1].toLocaleString("en-US")].concat(dist !== null ? ["到止损"] : []);
     var body = [0.01, 0.1, 1].map(function (l) {
-      var cells = [l.toFixed(2) + " 手", qty(l), "±" + P.usd(l * c * mv[0]), "±" + P.usd(l * c * mv[1])].concat(dist !== null ? ["−" + P.usd(l * c * (dist + spread)).replace("−", "")] : []);
+      var cells = [l.toFixed(2) + tx(" 手", " lots"), qty(l), "±" + P.usd(l * c * mv[0]), "±" + P.usd(l * c * mv[1])].concat(dist !== null ? ["−" + P.usd(l * c * (dist + spread)).replace("−", "")] : []);
       return h("tr", null, cells.map(function (t, i) { return h("td", { "data-l": head[i], class: i === 4 ? "dn" : null, text: t }); }));
     });
     el.appendChild(h("table", { class: "lr-tab" }, [h("thead", null, [h("tr", null, head.map(function (t) { return h("th", { text: t }); }))]), h("tbody", null, body)]));
     var lines = [];
-    if (dist !== null) lines.push(sw + "距离 $" + fmt(dist, M.pxDec) + (mine ? "" : "（3 倍 1 小时波幅，还没填计划时按规则算）") + (spread ? "，已加点差 $" + spread : ""));
+    if (dist !== null) lines.push(EN ? sw + " distance $" + fmt(dist, M.pxDec) + (mine ? "" : " (3 × the 1-hour ATR, the rule's stop until you fill in a plan)") + (spread ? ", spread of $" + spread + " added" : "") : sw + "距离 $" + fmt(dist, M.pxDec) + (mine ? "" : "（3 倍 1 小时波幅，还没填计划时按规则算）") + (spread ? "，已加点差 $" + spread : ""));
     var bal = num(S.acct.balance), pct = num(S.acct.riskPct);
     if (dist !== null && bal && pct) {
       var risk = bal * pct / 100, per = step * c * (dist + spread), n = Math.floor(risk / per + 1e-9);
-      lines.push("你每笔最多亏 " + P.usd(risk) + "，" + step + " 手到止损亏 " + P.usd(per) + " → " + (n ? "最多 " + (n * step).toFixed(Math.max(2, Math.round(-Math.log(step) / Math.LN10))) + " 手" : "连 " + step + " 手都超过上限，这笔开不了"));
-    } else if (dist !== null) lines.push("在上面填账户余额，这里直接告诉你最多做几手");
-    if (px !== null) lines.push("0.01 手的合约价值约 " + P.usd(0.01 * c * px) + "，按 1:" + lev + " 杠杆要占保证金约 " + P.usd(0.01 * c * px / lev) + "（杠杆在「合约设置」里改成你账户的）");
+      lines.push(EN ? "You risk at most " + P.usd(risk) + " a trade; " + step + " lot loses " + P.usd(per) + " at the stop → " + (n ? "at most " + (n * step).toFixed(Math.max(2, Math.round(-Math.log(step) / Math.LN10))) + " lots" : "even " + step + " lot is over the limit, so this one cannot be opened") : "你每笔最多亏 " + P.usd(risk) + "，" + step + " 手到止损亏 " + P.usd(per) + " → " + (n ? "最多 " + (n * step).toFixed(Math.max(2, Math.round(-Math.log(step) / Math.LN10))) + " 手" : "连 " + step + " 手都超过上限，这笔开不了"));
+    } else if (dist !== null) lines.push(tx("在上面填账户余额，这里直接告诉你最多做几手", "Fill in your balance above and this tells you the most lots to trade"));
+    if (px !== null) lines.push(EN ? "0.01 lot's contract value is about " + P.usd(0.01 * c * px) + "; at 1:" + lev + " leverage it takes about " + P.usd(0.01 * c * px / lev) + " of margin (set your account's leverage in «Contract settings»)" : "0.01 手的合约价值约 " + P.usd(0.01 * c * px) + "，按 1:" + lev + " 杠杆要占保证金约 " + P.usd(0.01 * c * px / lev) + "（杠杆在「合约设置」里改成你账户的）");
     lines.forEach(function (t) { el.appendChild(h("p", { class: "lr-n", text: t })); });
   }
   function currentSize() { return P.size({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, balance: S.acct.balance, riskPct: S.acct.riskPct, contract: S.acct.contract, lotStep: S.acct.lotStep, spread: S.acct.spread }); }
   // Auto version of the "stay clear of big data" rule, when the risk calendar gives exact SGT times.
   function newsCheck() {
     var now = Date.now(), ev = S.events.filter(function (e) { return e.timed && e.hi; }); if (!S.events.length) return null;
-    if (!ev.length) { var nm = S.events.filter(function (e) { return e.timed && e.ms > now; })[0]; return { id: "news", label: "避开重大数据", ok: true, detail: "本周日历上剩下的都不是高影响数据" + (nm ? "；下一个中等影响的是 " + nm.name + "（" + nm.date + " " + nm.time.split(" ")[0] + " SGT）" : "") }; }
+    if (!ev.length) { var nm = S.events.filter(function (e) { return e.timed && e.ms > now; })[0]; return { id: "news", label: NEWS_MANUAL.label, ok: true, detail: EN ? "Nothing of high impact left on this week's calendar" + (nm ? "; the next medium-impact one is " + nm.name + " (" + nm.date + " " + nm.time.split(" ")[0] + " SGT)" : "") : "本周日历上剩下的都不是高影响数据" + (nm ? "；下一个中等影响的是 " + nm.name + "（" + nm.date + " " + nm.time.split(" ")[0] + " SGT）" : "") }; }
     var next = ev.filter(function (e) { return e.ms > now; })[0], last = ev.filter(function (e) { return e.ms <= now; }).pop();
-    if (next && next.ms - now <= 30 * 60000) return { id: "news", label: "避开重大数据", ok: false, detail: left(next.ms - now) + "后公布 " + next.name + "：数据前 30 分钟不开新仓" };
-    if (last && now - last.ms <= 30 * 60000) return { id: "news", label: "避开重大数据", ok: false, detail: last.name + " 刚公布 " + left(now - last.ms) + "：等第一波走完再进" };
-    return { id: "news", label: "避开重大数据", ok: true, detail: next ? "下一个大数据是 " + next.name + "（" + next.date + " " + next.time.split(" ")[0] + " SGT），还有 " + left(next.ms - now) : "日历上暂时没有带时间的大数据" };
+    if (next && next.ms - now <= 30 * 60000) return { id: "news", label: NEWS_MANUAL.label, ok: false, detail: EN ? next.name + " in " + left(next.ms - now) + ": no new trade in the 30 minutes before a release" : left(next.ms - now) + "后公布 " + next.name + "：数据前 30 分钟不开新仓" };
+    if (last && now - last.ms <= 30 * 60000) return { id: "news", label: NEWS_MANUAL.label, ok: false, detail: EN ? last.name + " came out " + left(now - last.ms) + " ago: let the first move finish before entering" : last.name + " 刚公布 " + left(now - last.ms) + "：等第一波走完再进" };
+    return { id: "news", label: NEWS_MANUAL.label, ok: true, detail: EN ? (next ? "The next big release is " + next.name + " (" + next.date + " " + next.time.split(" ")[0] + " SGT), in " + left(next.ms - now) : "No timed big release on the calendar yet") : next ? "下一个大数据是 " + next.name + "（" + next.date + " " + next.time.split(" ")[0] + " SGT），还有 " + left(next.ms - now) : "日历上暂时没有带时间的大数据" };
   }
   function manualList() { return newsCheck() ? [STREAK] : [NEWS_MANUAL, STREAK]; }
   function currentChecks(sz) { var ck = S.E ? P.checks(S.E, S.plan, sz) : [], nw = newsCheck(); if (nw) ck.push(nw); return ck; }
@@ -746,20 +768,20 @@
     var E = S.E; if (!E) return; var H1 = E.tfs["1H"], dir = S.plan.side === "short" ? -1 : 1, e = num(S.plan.entry), st = num(S.plan.stop);
     var set = function (f, v) { S.plan[f] = r1(v); };
     if (k === "e-now") set("entry", S.live);
-    else if (k.slice(0, 2) === "s-") { if (e === null || !H1 || !H1.atr) { toast("先填入场价"); return; } set("stop", e - dir * parseFloat(k.slice(2)) * H1.atr); }
+    else if (k.slice(0, 2) === "s-") { if (e === null || !H1 || !H1.atr) { toast(tx("先填入场价", "Fill in the entry first")); return; } set("stop", e - dir * parseFloat(k.slice(2)) * H1.atr); }
     else if (k === "t-none") { S.plan.tp1 = null; S.plan.tp2 = null; }
-    else if (k === "t-2" || k === "t-3") { if (e === null || st === null) { toast("先填入场价和止损价"); return; } set("tp1", e + dir * parseFloat(k.slice(2)) * Math.abs(e - st)); S.plan.tp2 = null; }
+    else if (k === "t-2" || k === "t-3") { if (e === null || st === null) { toast(tx("先填入场价和止损价", "Fill in the entry and stop first")); return; } set("tp1", e + dir * parseFloat(k.slice(2)) * Math.abs(e - st)); S.plan.tp2 = null; }
     else if (k === "t-level") {
-      if (e === null) { toast("先填入场价"); return; }
+      if (e === null) { toast(tx("先填入场价", "Fill in the entry first")); return; }
       var minD = st === null ? 0 : 2 * Math.abs(e - st);                          // nothing closer than 2R
       var pts = P.levels(E, { each: 12 }).points.map(function (l) { return l.price; }).filter(function (p) { return (p - e) * dir >= Math.max(minD, 1); }).sort(function (a, b) { return (a - b) * dir; });
-      if (!pts.length) { toast("这个方向上 2R 以外没有关键位"); return; }
+      if (!pts.length) { toast(tx("这个方向上 2R 以外没有关键位", "No key level beyond 2R in this direction")); return; }
       set("tp1", pts[0]); S.plan.tp2 = pts.length > 1 ? r1(pts[1]) : null;
     }
     touched(); replan();
   }
   function ring(done, total, col) {
-    var svg = sv("svg", { viewBox: "0 0 44 44", role: "img", "aria-label": "通过 " + done + " 项，共 " + total + " 项" }), c = 2 * Math.PI * 18;
+    var svg = sv("svg", { viewBox: "0 0 44 44", role: "img", "aria-label": EN ? done + " of " + total + " passed" : "通过 " + done + " 项，共 " + total + " 项" }), c = 2 * Math.PI * 18;
     sv("circle", { cx: 22, cy: 22, r: 18, fill: "none", stroke: "var(--bg4)", "stroke-width": 4 }, svg);
     if (done > 0) sv("circle", { cx: 22, cy: 22, r: 18, fill: "none", stroke: col, "stroke-width": 4, "stroke-linecap": "round", "stroke-dasharray": (c * done / total).toFixed(1) + " " + c.toFixed(1), transform: "rotate(-90 22 22)" }, svg);
     sv("text", { x: 22, y: 26, "text-anchor": "middle" }, svg).textContent = done + "/" + total;
@@ -768,8 +790,18 @@
   // One line at the top of the plan: how what is typed in compares with the answer at the top of the page.
   function planState(sz) {
     if (!S.E) return null;
-    if (S.feed && S.feed.source === "paxg" && P.regime(S.E).full && !(S.srv && S.srv.level === "go")) return ["bad", "备用数据：信号没法确认", "现货数据连不上，五个周期同向是用 PAXG 代币算的，和现货可能不一样。先别下单，等现货恢复。"];
-    var R = P.regime(S.E), dir = S.plan.side === "short" ? -1 : 1, way = R.dir > 0 ? "向上" : "向下", act = R.dir > 0 ? "做多" : "做空", mine = dir > 0 ? "做多" : "做空";
+    if (S.feed && S.feed.source === "paxg" && P.regime(S.E).full && !(S.srv && S.srv.level === "go")) return ["bad", tx("备用数据：信号没法确认", "Backup data: the signal cannot be confirmed"), tx("现货数据连不上，五个周期同向是用 PAXG 代币算的，和现货可能不一样。先别下单，等现货恢复。", "The spot feed cannot be reached; the five timeframes agreeing comes from the PAXG token and may differ from spot. Do not trade yet; wait for spot to return.")];
+    var R = P.regime(S.E), dir = S.plan.side === "short" ? -1 : 1, way = R.dir > 0 ? tx("向上", "up") : tx("向下", "down"), act = R.dir > 0 ? tx("做多", "long") : tx("做空", "short"), mine = dir > 0 ? tx("做多", "long") : tx("做空", "short");
+    if (EN) {
+      if (!hasPlan()) return R.full ? ["go", "There is a signal now", "Tap the plan in step 1 and the entry, stop and target fill in by themselves."]
+        : R.dir ? ["ready", "Big trend " + way + ", waiting for the small timeframes", "You can tap the plan in step 1 to get it ready, and trade once the signal comes."]
+        : ["none", "No signal now, no plan needed", "The answer above is «Wait». To practise the sizing, use the practice buttons in step 1."];
+      if (!sz.valid) return ["bad", "The prices are not right yet", "See the hints below; one tap fixes them."];
+      if (R.dir === dir) return R.full ? ["go", "This trade goes with the signal now", "All five timeframes " + way + ". If the checks below pass, follow the plan."]
+        : ["ready", "Right direction, not the time yet", "Wait for the small timeframes to turn back " + way + " and the answer above to say «Go " + act + " with the trend»."];
+      if (R.dir === -dir) return ["bad", "This trade is against the trend", "Weekly, daily and 4-hour are all " + way + " and you filled in a " + mine + ". In the replay, trading against the three big trends lost steadily."];
+      return ["none", "This is practice, not a signal", "The answer above is «Wait». Use it to practise the sizing; trading it for real now is not advised."];
+    }
     if (!hasPlan()) return R.full ? ["go", "现在有信号", "点第 1 步里的方案，入场、止损、目标会自动填好。"]
       : R.dir ? ["ready", "大方向" + way + "，还在等小周期", "可以先点第 1 步里的方案，把计划准备好，等信号出现再下单。"]
       : ["none", "现在没有信号，不用做计划", "上面的结论是「先观望」。想熟悉手数怎么算，可以用第 1 步的练习按钮。"];
@@ -784,41 +816,41 @@
   // or, when it is on the wrong side for the direction, what is wrong with it.
   function renderHints() {
     var e = num(S.plan.entry), st = num(S.plan.stop), sell = S.plan.side === "short", dir = sell ? -1 : 1, px = num(S.live), H1 = S.E && S.E.tfs["1H"], atr = H1 && H1.atr ? H1.atr : null;
-    var sx = clear($("side-x")); sx.appendChild(h("b", { text: sell ? "做空" : "做多" }));
-    sx.appendChild(document.createTextNode(sell ? "：先卖后买，价格跌了才赚钱。止损放在入场价上方，目标放在下方。" : "：先买后卖，价格涨了才赚钱。止损放在入场价下方，目标放在上方。"));
-    setHint("entry", e === null ? (px !== null ? "现价 " + fmt(px, 1) : "") : px === null ? "" : Math.abs(e - px) < 0.05 ? "就是现价" : "比现价" + (e > px ? "高 " : "低 ") + fmt(Math.abs(e - px), 1) + " 美元");
+    var sx = clear($("side-x")); sx.appendChild(h("b", { text: sell ? tx("做空", "Short") : tx("做多", "Long") }));
+    sx.appendChild(document.createTextNode(sell ? tx("：先卖后买，价格跌了才赚钱。止损放在入场价上方，目标放在下方。", ": sell first, buy back later; it makes money when price falls. The stop goes above the entry, the target below.") : tx("：先买后卖，价格涨了才赚钱。止损放在入场价下方，目标放在上方。", ": buy first, sell later; it makes money when price rises. The stop goes below the entry, the target above.")));
+    setHint("entry", e === null ? (px !== null ? tx("现价 ", "Price now ") + fmt(px, 1) : "") : px === null ? "" : Math.abs(e - px) < 0.05 ? tx("就是现价", "the price now") : EN ? "$" + fmt(Math.abs(e - px), 1) + (e > px ? " above" : " below") + " the price now" : "比现价" + (e > px ? "高 " : "低 ") + fmt(Math.abs(e - px), 1) + " 美元");
     var same = e !== null && st === e, stBad = e !== null && st !== null && (e - st) * dir < 0;
-    setHint("stop", st === null ? (e !== null && atr ? "规则：离入场价 " + fmt(P.SYS.stopAtr * atr, 0) + " 美元（3 倍小时波幅）" : "") : e === null ? "" : same ? "不能和入场价一样" : stBad ? (sell ? "做空的止损要高于入场价" : "做多的止损要低于入场价")
-      : "离入场价 " + fmt(Math.abs(e - st), 1) + " 美元" + (atr ? " · " + (Math.abs(e - st) / atr).toFixed(1) + " 倍小时波幅" : ""), st !== null && (same || stBad) ? "bad" : "");
+    setHint("stop", st === null ? (e !== null && atr ? (EN ? "Rule: $" + fmt(P.SYS.stopAtr * atr, 0) + " from the entry (3 × the 1-hour ATR)" : "规则：离入场价 " + fmt(P.SYS.stopAtr * atr, 0) + " 美元（3 倍小时波幅）") : "") : e === null ? "" : same ? tx("不能和入场价一样", "cannot equal the entry") : stBad ? (sell ? tx("做空的止损要高于入场价", "a short's stop goes above the entry") : tx("做多的止损要低于入场价", "a long's stop goes below the entry"))
+      : (EN ? "$" + fmt(Math.abs(e - st), 1) + " from the entry" + (atr ? " · " + (Math.abs(e - st) / atr).toFixed(1) + " × 1-hour ATR" : "") : "离入场价 " + fmt(Math.abs(e - st), 1) + " 美元" + (atr ? " · " + (Math.abs(e - st) / atr).toFixed(1) + " 倍小时波幅" : "")), st !== null && (same || stBad) ? "bad" : "");
     ["tp1", "tp2"].forEach(function (k) {
       var t = num(S.plan[k]), bad = e !== null && t !== null && (t - e) * dir <= 0, okStop = e !== null && st !== null && !stBad && !same;
-      setHint(k, t === null ? (k === "tp1" ? "不填 = 用跟踪止损离场" : "") : e === null ? "" : bad ? (sell ? "做空的目标要低于入场价" : "做多的目标要高于入场价")
-        : "离入场价 " + fmt(Math.abs(t - e), 1) + " 美元" + (okStop ? " · 止损距离的 " + (Math.abs(t - e) / Math.abs(e - st)).toFixed(1) + " 倍" : ""), bad ? "bad" : "");
+      setHint(k, t === null ? (k === "tp1" ? tx("不填 = 用跟踪止损离场", "empty = leave by the trailing stop") : "") : e === null ? "" : bad ? (sell ? tx("做空的目标要低于入场价", "a short's target goes below the entry") : tx("做多的目标要高于入场价", "a long's target goes above the entry"))
+        : (EN ? "$" + fmt(Math.abs(t - e), 1) + " from the entry" + (okStop ? " · " + (Math.abs(t - e) / Math.abs(e - st)).toFixed(1) + " × the stop distance" : "") : "离入场价 " + fmt(Math.abs(t - e), 1) + " 美元" + (okStop ? " · 止损距离的 " + (Math.abs(t - e) / Math.abs(e - st)).toFixed(1) + " 倍" : "")), bad ? "bad" : "");
     });
     var bal = num(S.acct.balance), pct = num(S.acct.riskPct), cash = bal !== null && bal > 0 && pct !== null && pct > 0 ? bal * pct / 100 : null;
     all("#riskq button").forEach(function (b) { b.setAttribute("aria-pressed", String(parseFloat(b.getAttribute("data-r")) === pct)); });
-    setHint("bal", bal === null || bal <= 0 ? "MT5 里显示的余额" : "");
-    setHint("risk", pct === null || pct <= 0 ? "建议 0.5%" : cash === null ? "填上余额就能算出金额" : "= 最多亏 " + P.usd(cash) + (pct > 1 ? " · 超过 1%，偏高" : pct < 0.1 ? " · 很小，常用 0.25%–1%" : ""), pct !== null && pct > 1 ? "bad" : pct !== null && pct > 0 && pct < 0.1 ? "warn" : "");
+    setHint("bal", bal === null || bal <= 0 ? tx("MT5 里显示的余额", "the balance MT5 shows") : "");
+    setHint("risk", pct === null || pct <= 0 ? tx("建议 0.5%", "0.5% suggested") : cash === null ? tx("填上余额就能算出金额", "fill in the balance for the amount") : (EN ? "= at most " + P.usd(cash) + " lost" + (pct > 1 ? " · over 1%, high" : pct < 0.1 ? " · very small; 0.25%–1% is usual" : "") : "= 最多亏 " + P.usd(cash) + (pct > 1 ? " · 超过 1%，偏高" : pct < 0.1 ? " · 很小，常用 0.25%–1%" : "")), pct !== null && pct > 1 ? "bad" : pct !== null && pct > 0 && pct < 0.1 ? "warn" : "");
   }
   // Prices that do not fit the direction: say what is wrong in plain words and offer the repair as a button.
   function fixPanel(sz) {
-    var sell = S.plan.side === "short", mine = sell ? "做空" : "做多", other = sell ? "做多" : "做空", box = h("div", { class: "fix" });
+    var sell = S.plan.side === "short", mine = sell ? tx("做空", "short") : tx("做多", "long"), other = sell ? tx("做多", "long") : tx("做空", "short"), box = h("div", { class: "fix" });
     if (sz.same) {
-      box.appendChild(h("div", { class: "fx-t", text: "入场价和止损价不能一样" }));
-      box.appendChild(h("p", { text: "止损是「看错了就认输」的价位，要和入场价拉开距离。规则用的是 3 倍小时波幅。" }));
-      box.appendChild(h("div", { class: "fa" }, [h("button", { type: "button", class: "btn sm pri", text: "按 3 倍小时波幅设止损", onclick: function () { helper("s-3"); } })]));
+      box.appendChild(h("div", { class: "fx-t", text: tx("入场价和止损价不能一样", "The entry and the stop cannot be the same") }));
+      box.appendChild(h("p", { text: tx("止损是「看错了就认输」的价位，要和入场价拉开距离。规则用的是 3 倍小时波幅。", "The stop is where you admit you were wrong; it needs distance from the entry. The rule uses 3 × the 1-hour ATR.") }));
+      box.appendChild(h("div", { class: "fa" }, [h("button", { type: "button", class: "btn sm pri", text: tx("按 3 倍小时波幅设止损", "Set the stop at 3 × the 1-hour ATR"), onclick: function () { helper("s-3"); } })]));
       return box;
     }
-    box.appendChild(h("div", { class: "fx-t", text: "价位和方向对不上" }));
-    box.appendChild(h("p", null, ["你选的是", h("b", { text: mine }), "：价格" + (sell ? "下跌" : "上涨") + "才赚钱，所以止损要在入场价" + (sell ? "上方" : "下方") + "，目标要在入场价" + (sell ? "下方" : "上方") + "。现在填的是："]));
+    box.appendChild(h("div", { class: "fx-t", text: tx("价位和方向对不上", "The prices do not match the direction") }));
+    box.appendChild(h("p", null, EN ? ["You chose ", h("b", { text: mine }), ": it makes money when price " + (sell ? "falls" : "rises") + ", so the stop goes " + (sell ? "above" : "below") + " the entry and the target " + (sell ? "below" : "above") + ". What is filled in now:"] : ["你选的是", h("b", { text: mine }), "：价格" + (sell ? "下跌" : "上涨") + "才赚钱，所以止损要在入场价" + (sell ? "上方" : "下方") + "，目标要在入场价" + (sell ? "下方" : "上方") + "。现在填的是："]));
     var ul = h("ul"), hasS = false, hasT = false;
-    sz.issues.forEach(function (it) { if (it.f === "stop") hasS = true; else hasT = true; ul.appendChild(h("li", null, [FIELD_ZH[it.f] + " ", h("b", { class: "n", text: fmt(it.price, 1) }), " 在入场价" + (it.at === "above" ? "上方" : "下方")])); });
+    sz.issues.forEach(function (it) { if (it.f === "stop") hasS = true; else hasT = true; ul.appendChild(h("li", null, [FIELD_ZH[it.f] + " ", h("b", { class: "n", text: fmt(it.price, 1) }), (EN ? (it.at === "above" ? " above" : " below") + " the entry" : " 在入场价" + (it.at === "above" ? "上方" : "下方"))])); });
     box.appendChild(ul);
     var fa = h("div", { class: "fa" });
-    if (sz.otherSideFits) fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: "改成" + other + "（价位不动）", onclick: function () { S.plan.side = sell ? "long" : "short"; touched(); replan(); toast("已改成" + other); } }));
-    fa.appendChild(h("button", { type: "button", class: "btn sm" + (sz.otherSideFits ? "" : " pri"), text: "保持" + mine + "，把" + (hasS && hasT ? "止损和目标" : hasS ? "止损" : "目标") + "翻到另一边",
-      onclick: function () { var m = P.mirror(S.plan, S.plan.side); S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); replan(); toast("已翻到另一边，距离不变"); } }));
-    fa.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "清空重填", onclick: clearPlan }));
+    if (sz.otherSideFits) fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: EN ? "Make it a " + other + " (prices unchanged)" : "改成" + other + "（价位不动）", onclick: function () { S.plan.side = sell ? "long" : "short"; touched(); replan(); toast(EN ? "Changed to " + other : "已改成" + other); } }));
+    fa.appendChild(h("button", { type: "button", class: "btn sm" + (sz.otherSideFits ? "" : " pri"), text: EN ? "Keep it " + mine + ", flip the " + (hasS && hasT ? "stop and target" : hasS ? "stop" : "target") + " to the other side" : "保持" + mine + "，把" + (hasS && hasT ? "止损和目标" : hasS ? "止损" : "目标") + "翻到另一边",
+      onclick: function () { var m = P.mirror(S.plan, S.plan.side); S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); replan(); toast(tx("已翻到另一边，距离不变", "Flipped to the other side, same distance")); } }));
+    fa.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tx("清空重填", "Clear and start again"), onclick: clearPlan }));
     box.appendChild(fa);
     return box;
   }
@@ -826,18 +858,18 @@
   // The account allows less than the smallest position costs: show it with their own numbers and say what can be done.
   function smallPanel(sz) {
     var bal = S.acct.balance, step = num(S.acct.lotStep) || 0.01, box = h("div", { class: "fix small" }), one = Math.round(sz.minLotRisk * 100) / 100;
-    box.appendChild(h("div", { class: "fx-t", text: "这笔开不了：最小手数也超过你的亏损上限" }));
-    box.appendChild(h("p", null, ["你最多肯亏 ", h("b", { class: "n", text: P.usd(sz.riskUsd) }), "（" + P.usd(bal) + " 的 " + S.acct.riskPct + "%）。可是最小的 " + step + " 手，到止损就要亏 ", h("b", { class: "n", text: P.usd(sz.minLotRisk) }), "，是账户的 " + pctTxt(sz.minLotPct) + "。"]));
+    box.appendChild(h("div", { class: "fx-t", text: tx("这笔开不了：最小手数也超过你的亏损上限", "This one cannot be opened: even the smallest lot is over your loss limit") }));
+    box.appendChild(h("p", null, EN ? ["You accept losing at most ", h("b", { class: "n", text: P.usd(sz.riskUsd) }), " (" + S.acct.riskPct + "% of " + P.usd(bal) + "). But the smallest size, " + step + " lot, loses ", h("b", { class: "n", text: P.usd(sz.minLotRisk) }), " at the stop, " + pctTxt(sz.minLotPct) + " of the account."] : ["你最多肯亏 ", h("b", { class: "n", text: P.usd(sz.riskUsd) }), "（" + P.usd(bal) + " 的 " + S.acct.riskPct + "%）。可是最小的 " + step + " 手，到止损就要亏 ", h("b", { class: "n", text: P.usd(sz.minLotRisk) }), "，是账户的 " + pctTxt(sz.minLotPct) + "。"]));
     var ul = h("ul"), fa = h("div", { class: "fa" });
     if (sz.minLotPct <= 1) {
       var up = +(Math.ceil(sz.minLotPct * 20 - 1e-9) / 20).toFixed(2);          // the next 0.05% that fits one minimum lot
-      ul.appendChild(h("li", { text: "把「这笔最多亏」调到 " + up + "%，就能开 " + step + " 手，仍在 1% 以内。" }));
-      fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: "改成 " + up + "%", onclick: function () { S.acct.riskPct = up; persistPlan(); syncInputs(); renderPlan(); } }));
+      ul.appendChild(h("li", { text: EN ? "Set «Most to lose» to " + up + "% and " + step + " lot fits, still within 1%." : "把「这笔最多亏」调到 " + up + "%，就能开 " + step + " 手，仍在 1% 以内。" }));
+      fa.appendChild(h("button", { type: "button", class: "btn sm pri", text: tx("改成 ", "Make it ") + up + "%", onclick: function () { S.acct.riskPct = up; persistPlan(); syncInputs(); renderPlan(); } }));
     } else {
-      ul.appendChild(h("li", { text: "要让 " + step + " 手只占账户的 1%，账户需要约 " + P.usd(Math.ceil(one * 10 - 1e-6) * 10) + "；只占 0.5% 需要约 " + P.usd(Math.ceil(one * 20 - 1e-6) * 10) + "。" }));
-      ul.appendChild(h("li", { text: "可以先用模拟账户照这页练习；或者用合约更小的账户（例如每手 1 盎司的美分账户），并在上面「合约设置」里把每手盎司改成你平台的数字。" }));
+      ul.appendChild(h("li", { text: EN ? "For " + step + " lot to be 1% of the account, it needs about " + P.usd(Math.ceil(one * 10 - 1e-6) * 10) + "; for 0.5%, about " + P.usd(Math.ceil(one * 20 - 1e-6) * 10) + "." : "要让 " + step + " 手只占账户的 1%，账户需要约 " + P.usd(Math.ceil(one * 10 - 1e-6) * 10) + "；只占 0.5% 需要约 " + P.usd(Math.ceil(one * 20 - 1e-6) * 10) + "。" }));
+      ul.appendChild(h("li", { text: tx("可以先用模拟账户照这页练习；或者用合约更小的账户（例如每手 1 盎司的美分账户），并在上面「合约设置」里把每手盎司改成你平台的数字。", "Practise with this page on a demo account first; or use an account with a smaller contract (a cent account at 1 oz a lot, for example) and set the oz a lot in «Contract settings» above to your platform's number.") }));
     }
-    ul.appendChild(h("li", { text: "不要为了凑手数把止损收近：回放里近的止损没有优势。" }));
+    ul.appendChild(h("li", { text: tx("不要为了凑手数把止损收近：回放里近的止损没有优势。", "Do not move the stop closer to make the size fit: close stops had no edge in the replay.") }));
     box.appendChild(ul); if (fa.firstChild) box.appendChild(fa);
     return box;
   }
@@ -850,37 +882,37 @@
     renderHints();
     var age = S.plan.at ? Date.now() - S.plan.at : null, old = has && (age === null || age > 12 * 3600000);
     $("stale").hidden = !old;
-    if (old) { $("stale-t").textContent = "这组价位是" + (age === null ? "以前" : ago(S.plan.at)) + "填的，不是按现在的行情算的。"; $("stale-new").hidden = !(E && P.regime(E).dir); }
+    if (old) { $("stale-t").textContent = EN ? "These prices were filled in " + (age === null ? "earlier" : ago(S.plan.at)) + ", not worked out from the market now." : "这组价位是" + (age === null ? "以前" : ago(S.plan.at)) + "填的，不是按现在的行情算的。"; $("stale-new").hidden = !(E && P.regime(E).dir); }
     var stepMark = function (id, n, st) { var el = $(id); el.className = "st-n" + (st ? " " + st : ""); el.textContent = st === "done" ? "✓" : st === "bad" ? "!" : String(n); };
     stepMark("st1", 1, S.cardState || ""); stepMark("st2", 2, ok ? "done" : has ? "bad" : ""); stepMark("st3", 3, ok && sz.lots > 0 ? "done" : ok && sz.lots === 0 ? "bad" : "");
 
     tk.className = "ticket" + (!has ? " empty" : !sz.valid ? " need" : "");
-    if (!has) tk.appendChild(h("p", { class: "note", text: "点第 1 步里的方案，或在第 2 步输入入场价和止损价。这里会告诉你该下多少手、会亏多少、能赚多少。" }));
+    if (!has) tk.appendChild(h("p", { class: "note", text: tx("点第 1 步里的方案，或在第 2 步输入入场价和止损价。这里会告诉你该下多少手、会亏多少、能赚多少。", "Tap a plan in step 1, or type the entry and stop in step 2. This then tells you how many lots, how much you could lose and how much you could make.") }));
     else if (!sz.valid) tk.appendChild(fixPanel(sz));
     else {
       var dec = Math.max(2, Math.round(-Math.log(num(S.acct.lotStep) || 0.01) / Math.LN10)), top = h("div", { class: "tk-top" });
       top.appendChild(h("span", { class: "v", text: sz.lots !== null ? sz.lots.toFixed(dec) : "—" }));
-      top.appendChild(h("span", { class: "u" }, [sz.lots !== null ? "手" : "填上账户余额就能算出手数", sz.lots !== null ? h("button", { type: "button", class: "q", "data-g": "lots", "aria-label": "解释：手数", text: "?" }) : null]));
-      top.appendChild(h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? "▼ 做空" : "▲ 做多" }));
+      top.appendChild(h("span", { class: "u" }, [sz.lots !== null ? tx("手", "lots") : tx("填上账户余额就能算出手数", "Fill in your balance for the lot size"), sz.lots !== null ? h("button", { type: "button", class: "q", "data-g": "lots", "aria-label": tx("解释：手数", "Explain: lots"), text: "?" }) : null]));
+      top.appendChild(h("span", { class: "chip " + (sell ? "bear" : "bull"), text: sell ? tx("▼ 做空", "▼ Short") : tx("▲ 做多", "▲ Long") }));
       tk.appendChild(top);
       if (sz.lots === 0) tk.appendChild(smallPanel(sz));
       else { var say = P.sentence(S.plan, sz); if (say.length) { var p = h("p", { class: "tk-say" }); say.forEach(function (x) { p.appendChild(x.b ? h("b", { text: x.t }) : document.createTextNode(x.t)); }); tk.appendChild(p); } }
       var nums = h("div", { class: "tk-nums" }), cell = function (k, v, d) { nums.appendChild(h("div", null, [h("div", { class: "tk", text: k }), h("div", { class: "tv", text: v }), h("div", { class: "td", text: d })])); };
-      cell("止损时亏", sz.lots ? P.usd(sz.actualRisk) : "$" + fmt(sz.dist, 1), sz.lots ? "账户的 " + sz.actualPct.toFixed(2) + "%" : "每" + M.unit + "，止损距离");
-      cell("目标 1", sz.r1 === null ? "—" : sz.pnl1 !== null && sz.lots ? "+" + P.usd(sz.pnl1) : sz.r1.toFixed(1) + "R", sz.r1 === null ? "未设置" : "赚赔比 " + sz.r1.toFixed(1));
-      cell("目标 2", sz.r2 === null ? "—" : sz.pnl2 !== null && sz.lots ? "+" + P.usd(sz.pnl2) : sz.r2.toFixed(1) + "R", sz.r2 === null ? "未设置" : "赚赔比 " + sz.r2.toFixed(1));
+      cell(tx("止损时亏", "Loss at the stop"), sz.lots ? P.usd(sz.actualRisk) : "$" + fmt(sz.dist, 1), sz.lots ? (EN ? sz.actualPct.toFixed(2) + "% of the account" : "账户的 " + sz.actualPct.toFixed(2) + "%") : (EN ? "a " + M.unit + ", the stop distance" : "每" + M.unit + "，止损距离"));
+      cell(tx("目标 1", "Target 1"), sz.r1 === null ? "—" : sz.pnl1 !== null && sz.lots ? "+" + P.usd(sz.pnl1) : sz.r1.toFixed(1) + "R", sz.r1 === null ? tx("未设置", "not set") : tx("赚赔比 ", "reward:risk ") + sz.r1.toFixed(1));
+      cell(tx("目标 2", "Target 2"), sz.r2 === null ? "—" : sz.pnl2 !== null && sz.lots ? "+" + P.usd(sz.pnl2) : sz.r2.toFixed(1) + "R", sz.r2 === null ? tx("未设置", "not set") : tx("赚赔比 ", "reward:risk ") + sz.r2.toFixed(1));
       tk.appendChild(nums);
       var foot = h("div", { class: "tk-foot" });
       if (sz.r1 || sz.r2) {
-        var a = sz.r1 || sz.r2, bx = sz.r1 && sz.r2 && sz.r2 > sz.r1 ? sz.r2 - sz.r1 : 0, bar = h("div", { class: "rrbar", role: "img", "aria-label": "亏 1 份，赚 " + (a + bx).toFixed(1) + " 份" });
+        var a = sz.r1 || sz.r2, bx = sz.r1 && sz.r2 && sz.r2 > sz.r1 ? sz.r2 - sz.r1 : 0, bar = h("div", { class: "rrbar", role: "img", "aria-label": EN ? "risk 1 to make " + (a + bx).toFixed(1) : "亏 1 份，赚 " + (a + bx).toFixed(1) + " 份" });
         var seg = function (c, w) { var i = h("i", { class: c }); i.style.flex = w + " 1 0"; bar.appendChild(i); };
         seg("rk", 1); seg("rw", a); if (bx) seg("rw2", bx);
         foot.appendChild(bar);
-        foot.appendChild(h("div", { class: "rrbar-l" }, [h("span", { text: "亏 1 份" }), h("span", { text: "赚 " + (a + bx).toFixed(1) + " 份" })]));
+        foot.appendChild(h("div", { class: "rrbar-l" }, [h("span", { text: tx("亏 1 份", "risk 1") }), h("span", { text: tx("赚 ", "make ") + (a + bx).toFixed(1) + tx(" 份", "") })]));
       }
       var meta = [];
-      if (H1 && H1.atr) meta.push("止损距离 " + fmt(sz.dist, 1) + " 美元，是 1 小时平均波幅的 " + (sz.dist / H1.atr).toFixed(1) + " 倍");
-      if (sz.breakeven !== null) meta.push("胜率超过 " + sz.breakeven.toFixed(0) + "% 就不亏");
+      if (H1 && H1.atr) meta.push(EN ? "Stop $" + fmt(sz.dist, 1) + " away, " + (sz.dist / H1.atr).toFixed(1) + " × the 1-hour ATR" : "止损距离 " + fmt(sz.dist, 1) + " 美元，是 1 小时平均波幅的 " + (sz.dist / H1.atr).toFixed(1) + " 倍");
+      if (sz.breakeven !== null) meta.push(EN ? "Winning more than " + sz.breakeven.toFixed(0) + "% of the time breaks even" : "胜率超过 " + sz.breakeven.toFixed(0) + "% 就不亏");
       if (meta.length) foot.appendChild(h("div", { class: "tk-meta", text: meta.join(" · ") }));
       foot.appendChild(h("div", { class: "tk-meta", text: exitRule(sz) }));
       tk.appendChild(foot);
@@ -894,37 +926,38 @@
     var cls = !ok ? "" : bad.length >= 3 ? "bad" : bad.length || unsure ? "warn" : "ok";
     sum.className = "chk-sum " + cls;
     sum.appendChild(ring(ok ? okN : 0, total, cls === "ok" ? "var(--m-bull)" : cls === "bad" ? "var(--m-bear)" : "var(--m-gold)"));
-    sum.appendChild(h("div", null, [h("b", { text: !ok ? "开仓前检查" : bad.length ? "有 " + bad.length + " 项没通过" : unsure ? "还有 " + unsure + " 项要你确认" : "全部通过，可以按计划执行" }),
-      h("span", { text: !has ? "填好价位后，这里按回放里有优势的规则逐项检查" : !ok ? "先把上面的价位改对，这里再逐项检查" : bad.length ? bad.map(function (c) { return c.label; }).join("、") : unsure ? "看一下下面的项目，确认后点一下" : "方向、止损、风险都符合回放里的规则" })]));
+    sum.appendChild(h("div", null, [h("b", { text: !ok ? tx("开仓前检查", "Checks before entering") : bad.length ? (EN ? bad.length + " not passed" : "有 " + bad.length + " 项没通过") : unsure ? (EN ? unsure + " still to confirm" : "还有 " + unsure + " 项要你确认") : tx("全部通过，可以按计划执行", "All passed: follow the plan") }),
+      h("span", { text: !has ? tx("填好价位后，这里按回放里有优势的规则逐项检查", "Once the prices are in, this checks them one by one against the rule that had an edge in the replay") : !ok ? tx("先把上面的价位改对，这里再逐项检查", "Fix the prices above first, then this checks them") : bad.length ? bad.map(function (c) { return c.label; }).join(tx("、", "; ")) : unsure ? tx("看一下下面的项目，确认后点一下", "Look through the items below and tap each once confirmed") : tx("方向、止损、风险都符合回放里的规则", "Direction, stop and risk all follow the replay's rule") })]));
     var ul = clear($("checks")), okList = clear($("checks-ok"));
     var row = function (c) { return h("li", null, [mark(c.ok), h("div", null, [h("div", { class: "cl", text: c.label }), h("div", { class: "cx", text: c.detail })])]); };
     if (ok) {
       bad.forEach(function (c) { ul.appendChild(row(c)); }); open.forEach(function (c) { ul.appendChild(row(c)); });
       MAN.forEach(function (m) {
         var on = !!S.manual[m.id], box = h("input", { type: "checkbox", id: "mc-" + m.id }); box.checked = on;
-        var li = h("li", { class: "manual" }, [h("span", { class: "ck " + (on ? "ok" : "na"), text: on ? "✓" : "" }), h("label", { for: "mc-" + m.id, style: "cursor:pointer" }, [box, h("div", { class: "cl", text: m.label + "（自己确认后点一下）" }), h("div", { class: "cx", text: m.detail })])]);
+        var li = h("li", { class: "manual" }, [h("span", { class: "ck " + (on ? "ok" : "na"), text: on ? "✓" : "" }), h("label", { for: "mc-" + m.id, style: "cursor:pointer" }, [box, h("div", { class: "cl", text: m.label + tx("（自己确认后点一下）", " (tap once you have checked)") }), h("div", { class: "cx", text: m.detail })])]);
         box.addEventListener("change", function () { S.manual[m.id] = box.checked; LS.set("manual", S.manual); renderPlan(); });
         li.addEventListener("click", function (ev) { if (ev.target.tagName !== "INPUT" && !ev.target.closest("label")) box.click(); });
         ul.appendChild(li);
       });
       good.forEach(function (c) { okList.appendChild(row(c)); });
     }
-    $("chk-pass").hidden = !ok || !good.length; $("chk-pass-s").textContent = "已通过的 " + good.length + " 项";
+    $("chk-pass").hidden = !ok || !good.length; $("chk-pass-s").textContent = EN ? good.length + " passed" : "已通过的 " + good.length + " 项";
   }
   // How to manage the trade once it is on, in one line. The trailing distance is 2R.
   function exitRule(sz) {
     var hasT = num(S.plan.tp1) !== null || num(S.plan.tp2) !== null;
     // the two ways out the replay tested, each on its own: fixed stop and target, or a daily trailing stop with the regime exit
+    if (EN) return "After entry: " + (hasT ? "leave the stop and target alone and take whichever comes; a change in the big trends is not a reason to leave early (target exit)" : "each day at 08:00 SGT move the stop to $" + fmt(2 * sz.dist, 0) + " behind the best price since entry, only in your favour; leave when the three big trends stop agreeing (the answer turns back to «Wait») (trailing-stop exit)") + ". Do not move it to break-even early";
     return "持仓后：" + (hasT ? "止损和目标都不动，碰到哪个算哪个；大周期变了也不提前走（目标做法）" : "每天 08:00 SGT 把止损挪到入场以来最好价格后面 " + fmt(2 * sz.dist, 0) + " 美元，只往有利方向挪；三个大周期不再同向（结论变回「先观望」）就离场（跟踪止损做法）") + "。别提前挪到成本价";
   }
   function planAsText() {
     var sz = currentSize(), ck = currentChecks(sz).concat(manualList().map(function (m) { return { label: m.label, ok: !!S.manual[m.id] }; }));
-    return P.planText({ plan: S.plan, size: sz, when: sgt(Date.now(), "full"), votes: S.E ? S.E.overall.votes : "", score: S.E ? S.E.overall.score : "", checks: ck, basis: basisName(), exit: sz.dist ? exitRule(sz).replace("持仓后：", "") : "" });
+    return P.planText({ plan: S.plan, size: sz, when: sgt(Date.now(), "full"), votes: S.E ? S.E.overall.votes : "", score: S.E ? S.E.overall.score : "", checks: ck, basis: basisName(), exit: sz.dist ? exitRule(sz).replace("持仓后：", "").replace("After entry: ", "") : "" });
   }
   function copyText(t) {
-    var done = function () { toast("计划已复制"); };
+    var done = function () { toast(tx("计划已复制", "Plan copied")); };
     if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).then(done, fallback); } else fallback();
-    function fallback() { var ta = h("textarea", { style: "position:fixed;opacity:0" }); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) { toast("复制失败，请手动选择"); } document.body.removeChild(ta); }
+    function fallback() { var ta = h("textarea", { style: "position:fixed;opacity:0" }); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); done(); } catch (e) { toast(tx("复制失败，请手动选择", "Copy failed; select it by hand")); } document.body.removeChild(ta); }
   }
   function renderSaved() {
     var el = clear($("saved")), st = clear($("stats")), wins = 0, losses = 0, rsum = 0;
@@ -934,20 +967,20 @@
       if (p.status === "已止盈") { wins++; rsum += num(p.tp1) !== null ? Math.abs(p.tp1 - p.entry) / risk : 0; } else if (p.status === "已止损") { losses++; rsum -= 1; }
     });
     if (wins + losses) {
-      st.appendChild(h("span", { class: "chip neut", text: "已结束 " + (wins + losses) + " 笔" }));
-      st.appendChild(h("span", { class: "chip " + (wins >= losses ? "bull" : "bear"), text: "胜率 " + Math.round(wins / (wins + losses) * 100) + "%" }));
-      st.appendChild(h("span", { class: "chip " + (rsum >= 0 ? "bull" : "bear"), text: "累计 " + (rsum >= 0 ? "+" : "−") + Math.abs(rsum).toFixed(1) + "R（止盈按目标 1 算）" }));
+      st.appendChild(h("span", { class: "chip neut", text: EN ? (wins + losses) + " finished" : "已结束 " + (wins + losses) + " 笔" }));
+      st.appendChild(h("span", { class: "chip " + (wins >= losses ? "bull" : "bear"), text: tx("胜率 ", "Win rate ") + Math.round(wins / (wins + losses) * 100) + "%" }));
+      st.appendChild(h("span", { class: "chip " + (rsum >= 0 ? "bull" : "bear"), text: tx("累计 ", "Total ") + (rsum >= 0 ? "+" : "−") + Math.abs(rsum).toFixed(1) + tx("R（止盈按目标 1 算）", "R (wins at target 1)") }));
     }
     S.saved.forEach(function (p, idx) {
-      var sel = h("select", { "aria-label": "状态" });
-      ["计划中", "已入场", "已止盈", "已止损", "已取消"].forEach(function (s) { var o = h("option", { text: s }); if (s === p.status) o.selected = true; sel.appendChild(o); });
+      var sel = h("select", { "aria-label": tx("状态", "Status") }), STATUS_EN = { "计划中": "planned", "已入场": "entered", "已止盈": "target hit", "已止损": "stopped out", "已取消": "cancelled" };   // stored in Chinese; shown in the page's language
+      ["计划中", "已入场", "已止盈", "已止损", "已取消"].forEach(function (s) { var o = h("option", { value: s, text: EN ? STATUS_EN[s] : s }); if (s === p.status) o.selected = true; sel.appendChild(o); });
       sel.addEventListener("change", function () { p.status = sel.value; LS.set("saved", S.saved); renderSaved(); renderProof(); });
       el.appendChild(h("div", { class: "sv" }, [
-        h("span", { class: "chip " + (p.side === "long" ? "bull" : "bear"), text: p.side === "long" ? "▲ 做多" : "▼ 做空" }),
-        h("div", null, [h("div", { class: "sm1", text: "入场 " + fmt(p.entry, 1) + " · 止损 " + fmt(p.stop, 1) + (num(p.tp1) !== null ? " · 目标 " + fmt(p.tp1, 1) + (num(p.tp2) !== null ? " / " + fmt(p.tp2, 1) : "") : "") + (num(p.lots) !== null ? " · " + p.lots + " 手" : "") }), h("div", { class: "sm2", text: p.when + " · " + p.basis + (p.note ? " · " + p.note : "") })]),
+        h("span", { class: "chip " + (p.side === "long" ? "bull" : "bear"), text: p.side === "long" ? tx("▲ 做多", "▲ Long") : tx("▼ 做空", "▼ Short") }),
+        h("div", null, [h("div", { class: "sm1", text: tx("入场 ", "Entry ") + fmt(p.entry, 1) + tx(" · 止损 ", " · stop ") + fmt(p.stop, 1) + (num(p.tp1) !== null ? tx(" · 目标 ", " · target ") + fmt(p.tp1, 1) + (num(p.tp2) !== null ? " / " + fmt(p.tp2, 1) : "") : "") + (num(p.lots) !== null ? " · " + p.lots + tx(" 手", " lots") : "") }), h("div", { class: "sm2", text: p.when + " · " + p.basis + (p.note ? " · " + p.note : "") })]),
         h("div", { class: "sa" }, [sel,
-          h("button", { type: "button", class: "btn sm", text: "载入", onclick: function () { S.plan = { side: p.side, entry: p.entry, stop: p.stop, tp1: p.tp1, tp2: p.tp2, note: p.note || "", at: Date.now() }; replan(); $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); } }),
-          h("button", { type: "button", class: "btn sm ghost", text: "删除", onclick: function () { S.saved.splice(idx, 1); LS.set("saved", S.saved); renderSaved(); } })])
+          h("button", { type: "button", class: "btn sm", text: tx("载入", "Load"), onclick: function () { S.plan = { side: p.side, entry: p.entry, stop: p.stop, tp1: p.tp1, tp2: p.tp2, note: p.note || "", at: Date.now() }; replan(); $("plan").scrollIntoView({ behavior: "smooth", block: "start" }); } }),
+          h("button", { type: "button", class: "btn sm ghost", text: tx("删除", "Delete"), onclick: function () { S.saved.splice(idx, 1); LS.set("saved", S.saved); renderSaved(); } })])
       ]));
     });
   }
@@ -966,13 +999,13 @@
   function posState() { var p = S.pos; return p && S.E ? P.manage(p, posBars(p.at), S.live, Date.now(), P.regime(S.E).dir) : null; }
   function savePos() { LS.set("pos", S.pos); }
   function enterPos() {
-    var sz = currentSize(); if (!hasPlan() || !sz.valid) { toast("先把计划里的价位填对"); return; }
-    if (S.pos && !window.confirm("已经有一笔持仓在跟踪。换成这一笔吗？（旧的不会记账）")) return;
+    var sz = currentSize(); if (!hasPlan() || !sz.valid) { toast(tx("先把计划里的价位填对", "Fix the plan's prices first")); return; }
+    if (S.pos && !window.confirm(tx("已经有一笔持仓在跟踪。换成这一笔吗？（旧的不会记账）", "A position is already being tracked. Switch to this one? (The old one is not logged.)"))) return;
     var dir = S.plan.side === "short" ? -1 : 1, V = S.E ? P.verdict(S.E) : null;
     S.pos = { side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, initStop: S.plan.stop, tp1: num(S.plan.tp1), lots: sz.lots || null, at: Date.now(), stopAt: Date.now(),
       mode: num(S.plan.tp1) !== null ? "target" : "trail", rule: !!(V && V.level === "go" && V.regime.dir === dir && !(S.feed && S.feed.source === "paxg")) };
     savePos(); S.posForm = "edit"; renderPos(); if (S.E) renderVerdict();
-    $("pos").scrollIntoView({ behavior: "smooth", block: "start" }); toast("开始跟踪这笔持仓：先核对成交价和手数");
+    $("pos").scrollIntoView({ behavior: "smooth", block: "start" }); toast(tx("开始跟踪这笔持仓：先核对成交价和手数", "Tracking this position: check the fill price and lots first"));
   }
   function journalAdd(item) {
     var J = null; try { J = JSON.parse(localStorage.getItem("pnl.v1")); } catch (e) {}
@@ -982,12 +1015,12 @@
   }
   function closePos(price, lots, toJournal) {
     var p = S.pos, dir = p.side === "short" ? -1 : 1, contract = num(S.acct.contract) || M.contract, R = Math.abs(p.entry - p.initStop), pts = (price - p.entry) * dir;
-    var amt = lots ? Math.round(pts * lots * contract * 100) / 100 : null, msg = "已平仓：" + (amt !== null ? (amt >= 0 ? "+" : "−") + P.usd(Math.abs(amt)) + "，" : "") + sgn(pts / R) + "R";
+    var amt = lots ? Math.round(pts * lots * contract * 100) / 100 : null, msg = tx("已平仓：", "Closed: ") + (amt !== null ? (amt >= 0 ? "+" : "−") + P.usd(Math.abs(amt)) + tx("，", ", ") : "") + sgn(pts / R) + "R";
     if (toJournal && amt !== null) {
       var d = new Date(), pad = function (n) { return (n < 10 ? "0" : "") + n; };
       var ok = journalAdd({ id: "x" + Date.now().toString(36), d: d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()), amt: amt, sym: M.sym, side: p.side, lots: lots,
-        risk: Math.round(lots * R * contract * 100) / 100, rule: p.rule, note: "4H 报告持仓：入场 " + fmt(p.entry, 1) + "，初始止损 " + fmt(p.initStop, 1) + "，平仓 " + fmt(price, 1) + "（" + sgn(pts / R) + "R）" });
-      msg += ok ? "，已记到盈亏日历" : "，但记账失败：浏览器不允许存储";
+        risk: Math.round(lots * R * contract * 100) / 100, rule: p.rule, note: EN ? "Gold page position: entry " + fmt(p.entry, 1) + ", first stop " + fmt(p.initStop, 1) + ", closed " + fmt(price, 1) + " (" + sgn(pts / R) + "R)" : "4H 报告持仓：入场 " + fmt(p.entry, 1) + "，初始止损 " + fmt(p.initStop, 1) + "，平仓 " + fmt(price, 1) + "（" + sgn(pts / R) + "R）" });
+      msg += ok ? tx("，已记到盈亏日历", ", logged in the P&L Journal") : tx("，但记账失败：浏览器不允许存储", ", but logging failed: the browser does not allow storage");
     }
     S.pos = null; S.posForm = null; savePos(); renderPos(); renderProof(); if (S.E) renderVerdict(); toast(msg);
   }
@@ -995,67 +1028,69 @@
   function renderPos() {
     var box = $("pos"), p = S.pos; box.hidden = !p; clear(box); if (!p) return;
     var m = posState(), sell = p.side === "short", dir = sell ? -1 : 1, contract = num(S.acct.contract) || M.contract, lots = num(p.lots), px = num(S.live);
-    var held = Date.now() - p.at, heldTxt = held < 3600000 ? Math.max(1, Math.round(held / 60000)) + " 分钟" : held < 172800000 ? Math.round(held / 3600000) + " 小时" : Math.round(held / 86400000) + " 天";
-    box.appendChild(h("div", { class: "card-head" }, [h("h2", null, ["我的持仓 ", h("small", { text: "Position" })]), h("div", { class: "ph" }, [
-      h("span", { class: "chip " + (sell ? "bear" : "bull"), text: (sell ? "▼ 做空 " : "▲ 做多 ") + (lots ? lots + " 手" : "手数未填") }),
-      h("span", { class: "chip neut", text: p.mode === "trail" ? "跟踪止损做法" : "目标 3R 做法" }), h("span", { class: "chip neut", text: "已持有 " + heldTxt })])]));
+    var held = Date.now() - p.at, heldTxt = held < 3600000 ? Math.max(1, Math.round(held / 60000)) + tx(" 分钟", " min") : held < 172800000 ? Math.round(held / 3600000) + tx(" 小时", " h") : Math.round(held / 86400000) + tx(" 天", " days");
+    box.appendChild(h("div", { class: "card-head" }, [h("h2", null, [tx("我的持仓 ", "My position "), EN ? null : h("small", { text: "Position" })]), h("div", { class: "ph" }, [
+      h("span", { class: "chip " + (sell ? "bear" : "bull"), text: (sell ? tx("▼ 做空 ", "▼ Short ") : tx("▲ 做多 ", "▲ Long ")) + (lots ? lots + tx(" 手", " lots") : tx("手数未填", "lots not set")) }),
+      h("span", { class: "chip neut", text: p.mode === "trail" ? tx("跟踪止损做法", "Trailing-stop exit") : tx("目标 3R 做法", "3R target exit") }), h("span", { class: "chip neut", text: tx("已持有 ", "Held ") + heldTxt })])]));
     if (m) {
       var cash = m.pnlPts !== null && lots ? m.pnlPts * lots * contract : null, cls = m.pnlPts > 0 ? "up" : m.pnlPts < 0 ? "dn" : "";
-      box.appendChild(h("div", { class: "pbig" }, [h("span", { class: "v " + cls, text: cash !== null ? (cash >= 0 ? "+" : "−") + P.usd(Math.abs(cash)) : m.pnlPts !== null ? sgn(m.pnlPts, 1) + " 美元/盎司" : "—" }),
-        h("span", { class: "r " + cls, text: m.pnlR !== null ? sgn(m.pnlR) + "R" : "" }), h("span", { class: "px", text: px !== null ? "现价 " + fmt(px, 2) + (S.feed && S.feed.source === "paxg" ? "（备用数据）" : "") : "" })]));
+      box.appendChild(h("div", { class: "pbig" }, [h("span", { class: "v " + cls, text: cash !== null ? (cash >= 0 ? "+" : "−") + P.usd(Math.abs(cash)) : m.pnlPts !== null ? sgn(m.pnlPts, 1) + tx(" 美元/盎司", " $/oz") : "—" }),
+        h("span", { class: "r " + cls, text: m.pnlR !== null ? sgn(m.pnlR) + "R" : "" }), h("span", { class: "px", text: px !== null ? tx("现价 ", "Price now ") + fmt(px, 2) + (S.feed && S.feed.source === "paxg" ? tx("（备用数据）", " (backup data)") : "") : "" })]));
       // where price sits between the stop and the target (or 3R when trailing)
       var far = num(p.tp1) !== null ? p.tp1 : p.entry + dir * 3 * m.R, span = (far - p.stop) * dir, at = function (v) { return Math.max(0, Math.min(100, (v - p.stop) * dir / span * 100)); };
       if (span > 0) {
-        var tr = h("div", { class: "ptrack", role: "img", "aria-label": "现价在止损和" + (num(p.tp1) !== null ? "目标" : "3R") + "之间的位置" }), mk = h("i"), en = h("b");
+        var tr = h("div", { class: "ptrack", role: "img", "aria-label": EN ? "Where the price stands between the stop and the " + (num(p.tp1) !== null ? "target" : "3R level") : "现价在止损和" + (num(p.tp1) !== null ? "目标" : "3R") + "之间的位置" }), mk = h("i"), en = h("b");
         en.style.left = at(p.entry) + "%"; mk.style.left = at(px === null ? p.entry : px) + "%"; tr.appendChild(en); tr.appendChild(mk); box.appendChild(tr);
-        box.appendChild(h("div", { class: "plab" }, [h("span", { text: "止损 " + fmt(p.stop, 1) }), h("span", { text: "入场 " + fmt(p.entry, 1) }), h("span", { text: (num(p.tp1) !== null ? "目标 " : "3R ") + fmt(far, 1) })]));
+        box.appendChild(h("div", { class: "plab" }, [h("span", { text: tx("止损 ", "Stop ") + fmt(p.stop, 1) }), h("span", { text: tx("入场 ", "Entry ") + fmt(p.entry, 1) }), h("span", { text: (num(p.tp1) !== null ? tx("目标 ", "Target ") : "3R ") + fmt(far, 1) })]));
       }
       // the one thing to do now
       var todo, tcls = "", btn = null;
-      if (m.first === "stop") { todo = [h("b", { text: "价格" + (m.stopHitAt < Date.now() - 60000 ? "在 " + sgt(m.stopHitAt) + " " : "") + "碰到了止损 " + fmt(p.stop, 1) + "。" }), "在 MT5 确认这笔已经平仓，然后点「平仓记账」。"]; tcls = "bad"; }
-      else if (m.first === "target") { todo = [h("b", { text: "价格" + (m.targetHitAt < Date.now() - 60000 ? "在 " + sgt(m.targetHitAt) + " " : "") + "到了目标 " + fmt(p.tp1, 1) + "。" }), "在 MT5 确认已经止盈，然后点「平仓记账」。"]; tcls = "good"; }
-      else if (p.mode === "trail" && m.split) { todo = [h("b", { text: "三个大周期不再同向，规则说现在离场。" }), "在 MT5 平仓，然后点「平仓记账」。"]; tcls = "bad"; }
+      if (m.first === "stop") { todo = EN ? [h("b", { text: "Price hit the stop " + fmt(p.stop, 1) + (m.stopHitAt < Date.now() - 60000 ? " at " + sgt(m.stopHitAt) : "") + ". " }), "Check in MT5 that it is closed, then press «Close and log»."] : [h("b", { text: "价格" + (m.stopHitAt < Date.now() - 60000 ? "在 " + sgt(m.stopHitAt) + " " : "") + "碰到了止损 " + fmt(p.stop, 1) + "。" }), "在 MT5 确认这笔已经平仓，然后点「平仓记账」。"]; tcls = "bad"; }
+      else if (m.first === "target") { todo = EN ? [h("b", { text: "Price reached the target " + fmt(p.tp1, 1) + (m.targetHitAt < Date.now() - 60000 ? " at " + sgt(m.targetHitAt) : "") + ". " }), "Check in MT5 that it took profit, then press «Close and log»."] : [h("b", { text: "价格" + (m.targetHitAt < Date.now() - 60000 ? "在 " + sgt(m.targetHitAt) + " " : "") + "到了目标 " + fmt(p.tp1, 1) + "。" }), "在 MT5 确认已经止盈，然后点「平仓记账」。"]; tcls = "good"; }
+      else if (p.mode === "trail" && m.split) { todo = [h("b", { text: tx("三个大周期不再同向，规则说现在离场。", "The three big trends no longer agree: the rule says leave now. ") }), tx("在 MT5 平仓，然后点「平仓记账」。", "Close it in MT5, then press «Close and log».")]; tcls = "bad"; }
       else if (m.moveStop) {
-        todo = [h("b", { text: "今天（08:00 SGT 起）止损该挪到 " + fmt(m.trailStop, 1) + "。" }), "入场以来最好的价格是 " + fmt(m.best, 1) + "，往回 2R（" + fmt(2 * m.R, 0) + " 美元）。在 MT5 改好以后点右边的按钮。"]; tcls = "warn";
-        btn = h("button", { type: "button", class: "btn sm pri", text: "已改到 " + fmt(m.trailStop, 1), onclick: function () { S.pos.stop = m.trailStop; S.pos.stopAt = Date.now(); savePos(); renderPos(); toast("止损已更新"); } });
+        todo = EN ? [h("b", { text: "Today (from 08:00 SGT) the stop moves to " + fmt(m.trailStop, 1) + ". " }), "The best price since entry is " + fmt(m.best, 1) + ", less 2R ($" + fmt(2 * m.R, 0) + "). Change it in MT5, then press the button on the right."] : [h("b", { text: "今天（08:00 SGT 起）止损该挪到 " + fmt(m.trailStop, 1) + "。" }), "入场以来最好的价格是 " + fmt(m.best, 1) + "，往回 2R（" + fmt(2 * m.R, 0) + " 美元）。在 MT5 改好以后点右边的按钮。"]; tcls = "warn";
+        btn = h("button", { type: "button", class: "btn sm pri", text: tx("已改到 ", "Moved to ") + fmt(m.trailStop, 1), onclick: function () { S.pos.stop = m.trailStop; S.pos.stopAt = Date.now(); savePos(); renderPos(); toast(tx("止损已更新", "Stop updated")); } });
       }
-      else if (p.mode === "trail") todo = ["止损 " + fmt(p.stop, 1) + " 不动。每天 08:00 SGT 看一次：" + ((m.nextStop - p.stop) * dir > 0.05 ? "按现在的价格，明天要挪到 " + fmt(m.nextStop, 1) + "。" : "价格还没走出 1R 以上，明天也不用挪。")];
-      else todo = ["止损 " + fmt(p.stop, 1) + " 和目标 " + fmt(p.tp1, 1) + " 都不动，等价格碰到其中一个。这是回放里 3R 做法的规则。" + (m.split ? "三个大周期已经不再同向，但 3R 做法不因此提前离场。" : "")];
+      else if (p.mode === "trail") todo = [EN ? "The stop stays at " + fmt(p.stop, 1) + ". Look once a day at 08:00 SGT: " + ((m.nextStop - p.stop) * dir > 0.05 ? "at the price now, tomorrow it moves to " + fmt(m.nextStop, 1) + "." : "price has not run more than 1R yet, so no move tomorrow either.") : "止损 " + fmt(p.stop, 1) + " 不动。每天 08:00 SGT 看一次：" + ((m.nextStop - p.stop) * dir > 0.05 ? "按现在的价格，明天要挪到 " + fmt(m.nextStop, 1) + "。" : "价格还没走出 1R 以上，明天也不用挪。")];
+      else todo = [EN ? "The stop " + fmt(p.stop, 1) + " and the target " + fmt(p.tp1, 1) + " stay put; wait for price to reach one. That is the replay's 3R exit. " + (m.split ? "The three big trends no longer agree, but the 3R exit does not leave early because of it." : "") : "止损 " + fmt(p.stop, 1) + " 和目标 " + fmt(p.tp1, 1) + " 都不动，等价格碰到其中一个。这是回放里 3R 做法的规则。" + (m.split ? "三个大周期已经不再同向，但 3R 做法不因此提前离场。" : "")];
       box.appendChild(h("div", { class: "pdo " + tcls }, [h("div", null, todo), btn]));
-      box.appendChild(h("p", { class: "pmeta", text: "入场 " + fmt(p.entry, 1) + "（" + sgt(p.at) + "）· 初始止损 " + fmt(p.initStop, 1) + "，1R = " + fmt(m.R, 1) + " 美元" + (lots ? "（" + P.usd(lots * m.R * contract) + "）" : "") +
+      box.appendChild(h("p", { class: "pmeta", text: EN ? "Entry " + fmt(p.entry, 1) + " (" + sgt(p.at) + ") · first stop " + fmt(p.initStop, 1) + ", 1R = $" + fmt(m.R, 1) + (lots ? " (" + P.usd(lots * m.R * contract) + ")" : "") +
+        " · best since entry " + fmt(m.best, 1) + " (" + sgn(m.bestR) + "R)" + (m.toStop !== null ? " · $" + fmt(Math.max(0, m.toStop), 1) + " to the stop" : "") + (m.toTarget !== null ? " · $" + fmt(Math.max(0, m.toTarget), 1) + " to the target" : "") + (p.rule ? " · opened by the rule" : " · not opened on a signal")
+        : "入场 " + fmt(p.entry, 1) + "（" + sgt(p.at) + "）· 初始止损 " + fmt(p.initStop, 1) + "，1R = " + fmt(m.R, 1) + " 美元" + (lots ? "（" + P.usd(lots * m.R * contract) + "）" : "") +
         " · 入场以来最好 " + fmt(m.best, 1) + "（" + sgn(m.bestR) + "R）" + (m.toStop !== null ? " · 离止损 " + fmt(Math.max(0, m.toStop), 1) + " 美元" : "") + (m.toTarget !== null ? " · 离目标 " + fmt(Math.max(0, m.toTarget), 1) + " 美元" : "") + (p.rule ? " · 按规则开的" : " · 不是按信号开的") }));
-    } else box.appendChild(h("p", { class: "note", text: "价格还在载入，或者这笔持仓少了入场价、止损价。点「修改」补上。" }));
+    } else box.appendChild(h("p", { class: "note", text: tx("价格还在载入，或者这笔持仓少了入场价、止损价。点「修改」补上。", "The price is still loading, or this position is missing its entry or stop. Press «Edit» to fill them in.") }));
 
     var acts = h("div", { class: "actions", style: "margin-top:14px" });
-    acts.appendChild(h("button", { type: "button", class: "btn pri", text: "平仓记账", onclick: function () { S.posForm = S.posForm === "close" ? null : "close"; renderPos(); } }));
-    acts.appendChild(h("button", { type: "button", class: "btn", text: "修改", onclick: function () { S.posForm = S.posForm === "edit" ? null : "edit"; renderPos(); } }));
-    acts.appendChild(h("button", { type: "button", class: "btn ghost", text: "撤销（没成交）", onclick: function () { if (window.confirm("撤销这笔持仓？不会记账。")) { S.pos = null; S.posForm = null; savePos(); renderPos(); if (S.E) renderVerdict(); } } }));
+    acts.appendChild(h("button", { type: "button", class: "btn pri", text: tx("平仓记账", "Close and log"), onclick: function () { S.posForm = S.posForm === "close" ? null : "close"; renderPos(); } }));
+    acts.appendChild(h("button", { type: "button", class: "btn", text: tx("修改", "Edit"), onclick: function () { S.posForm = S.posForm === "edit" ? null : "edit"; renderPos(); } }));
+    acts.appendChild(h("button", { type: "button", class: "btn ghost", text: tx("撤销（没成交）", "Undo (not filled)"), onclick: function () { if (window.confirm(tx("撤销这笔持仓？不会记账。", "Undo this position? Nothing is logged."))) { S.pos = null; S.posForm = null; savePos(); renderPos(); if (S.E) renderVerdict(); } } }));
     box.appendChild(acts);
     if (S.posForm === "edit") {
-      var mode = h("select", { id: "pe-mode" }, [h("option", { value: "target", text: "目标 3R（止损目标都不动）" }), h("option", { value: "trail", text: "跟踪止损（每天挪一次）" })]); mode.value = p.mode;
-      var form = h("form", { class: "pform" }, [posField("pe-entry", "成交价", p.entry), posField("pe-stop", "止损价", p.stop), posField("pe-tp1", "目标价（可空）", p.tp1), posField("pe-lots", "手数", p.lots, "0.01"),
-        h("div", { class: "f", style: "grid-column:1/-1" }, [h("label", { for: "pe-mode", text: "离场做法" }), h("div", { class: "inp" }, [mode])]),
-        h("div", { class: "actions", style: "grid-column:1/-1;margin-top:0" }, [h("button", { type: "submit", class: "btn sm pri", text: "保存" }), h("button", { type: "button", class: "btn sm ghost", text: "取消", onclick: function () { S.posForm = null; renderPos(); } })])]);
+      var mode = h("select", { id: "pe-mode" }, [h("option", { value: "target", text: tx("目标 3R（止损目标都不动）", "Target 3R (stop and target stay put)") }), h("option", { value: "trail", text: tx("跟踪止损（每天挪一次）", "Trailing stop (moved once a day)") })]); mode.value = p.mode;
+      var form = h("form", { class: "pform" }, [posField("pe-entry", tx("成交价", "Fill price"), p.entry), posField("pe-stop", tx("止损价", "Stop"), p.stop), posField("pe-tp1", tx("目标价（可空）", "Target (optional)"), p.tp1), posField("pe-lots", tx("手数", "Lots"), p.lots, "0.01"),
+        h("div", { class: "f", style: "grid-column:1/-1" }, [h("label", { for: "pe-mode", text: tx("离场做法", "Exit") }), h("div", { class: "inp" }, [mode])]),
+        h("div", { class: "actions", style: "grid-column:1/-1;margin-top:0" }, [h("button", { type: "submit", class: "btn sm pri", text: tx("保存", "Save") }), h("button", { type: "button", class: "btn sm ghost", text: tx("取消", "Cancel"), onclick: function () { S.posForm = null; renderPos(); } })])]);
       form.addEventListener("submit", function (ev) {
         ev.preventDefault(); var g = function (id) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : null; };
         var e = g("pe-entry"), st = g("pe-stop"), tp = g("pe-tp1"), lt = g("pe-lots"), d = S.pos.side === "short" ? -1 : 1;
-        if (e === null || st === null || (e - st) * d <= 0) { toast(d > 0 ? "做多的止损要低于成交价" : "做空的止损要高于成交价"); return; }
-        if (tp !== null && (tp - e) * d <= 0) { toast(d > 0 ? "做多的目标要高于成交价" : "做空的目标要低于成交价"); return; }
+        if (e === null || st === null || (e - st) * d <= 0) { toast(d > 0 ? tx("做多的止损要低于成交价", "A long's stop goes below the fill price") : tx("做空的止损要高于成交价", "A short's stop goes above the fill price")); return; }
+        if (tp !== null && (tp - e) * d <= 0) { toast(d > 0 ? tx("做多的目标要高于成交价", "A long's target goes above the fill price") : tx("做空的目标要低于成交价", "A short's target goes below the fill price")); return; }
         if (S.pos.stop !== st) S.pos.stopAt = Date.now();
         if (S.pos.entry !== e && S.pos.stop === S.pos.initStop) S.pos.initStop = st;          // the fill price changed before the stop was ever moved
         S.pos.entry = e; S.pos.stop = st; if (S.pos.initStop === null || (e - S.pos.initStop) * d <= 0) S.pos.initStop = st;
         S.pos.lots = lt; S.pos.mode = $("pe-mode").value === "trail" || tp === null ? "trail" : "target"; S.pos.tp1 = S.pos.mode === "trail" ? null : tp;
-        S.posForm = null; savePos(); renderPos(); toast("持仓已更新");
+        S.posForm = null; savePos(); renderPos(); toast(tx("持仓已更新", "Position updated"));
       });
       box.appendChild(form);
     }
     if (S.posForm === "close") {
-      var cf = h("form", { class: "pform" }, [posField("pc-price", "平仓价（MT5 实际成交）", px === null ? null : r1(px)), posField("pc-lots", "手数", p.lots, "0.01"),
-        h("label", { class: "f", style: "grid-column:span 2;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--text);cursor:pointer" }, [(function () { var c = h("input", { type: "checkbox", id: "pc-j" }); c.checked = true; return c; })(), "同时记到盈亏日历"]),
-        h("div", { class: "actions", style: "grid-column:1/-1;margin-top:0" }, [h("button", { type: "submit", class: "btn sm pri", text: "确认平仓" }), h("button", { type: "button", class: "btn sm ghost", text: "取消", onclick: function () { S.posForm = null; renderPos(); } })])]);
+      var cf = h("form", { class: "pform" }, [posField("pc-price", tx("平仓价（MT5 实际成交）", "Close price (MT5's actual fill)"), px === null ? null : r1(px)), posField("pc-lots", tx("手数", "Lots"), p.lots, "0.01"),
+        h("label", { class: "f", style: "grid-column:span 2;display:flex;gap:8px;align-items:center;font-size:12px;color:var(--text);cursor:pointer" }, [(function () { var c = h("input", { type: "checkbox", id: "pc-j" }); c.checked = true; return c; })(), tx("同时记到盈亏日历", "Also log it in the P&L Journal")]),
+        h("div", { class: "actions", style: "grid-column:1/-1;margin-top:0" }, [h("button", { type: "submit", class: "btn sm pri", text: tx("确认平仓", "Confirm close") }), h("button", { type: "button", class: "btn sm ghost", text: tx("取消", "Cancel"), onclick: function () { S.posForm = null; renderPos(); } })])]);
       cf.addEventListener("submit", function (ev) {
         ev.preventDefault(); var pr = parseFloat($("pc-price").value), lt = parseFloat($("pc-lots").value);
-        if (!isFinite(pr) || pr <= 0) { toast("请填平仓价"); return; }
+        if (!isFinite(pr) || pr <= 0) { toast(tx("请填平仓价", "Fill in the close price")); return; }
         closePos(pr, isFinite(lt) && lt > 0 ? lt : null, $("pc-j").checked);
       });
       box.appendChild(cf);
@@ -1072,8 +1107,8 @@
     var el = clear($("events")); $("events-src").textContent = srcNote;
     if (!rows.length) { el.appendChild(h("p", { class: "note", text: M.calEmpty })); }
     rows.forEach(function (e) {
-      var cd = !e.timed ? "" : e.ms > now ? "还有 " + left(e.ms - now) : "已公布";
-      el.appendChild(h("div", { class: "ev" }, [h("div", null, [h("div", { class: "when", text: e.date }), h("div", { class: "time", text: e.time })]), h("div", null, [e.imp ? h("span", { class: "chip " + (e.hi ? "bear" : "gold"), text: "影响 " + e.imp }) : null, cd ? h("span", { class: "chip neut", style: "margin-left:6px", text: cd }) : null, h("div", { class: "name", style: "margin-top:5px", text: e.name }), e.extra ? h("div", { class: "note", style: "margin-top:2px", text: e.extra }) : null])]));
+      var cd = !e.timed ? "" : e.ms > now ? (EN ? "in " + left(e.ms - now) : "还有 " + left(e.ms - now)) : tx("已公布", "released");
+      el.appendChild(h("div", { class: "ev" }, [h("div", null, [h("div", { class: "when", text: e.date }), h("div", { class: "time", text: e.time })]), h("div", null, [e.imp ? h("span", { class: "chip " + (e.hi ? "bear" : "gold"), text: tx("影响 ", "Impact ") + e.imp }) : null, cd ? h("span", { class: "chip neut", style: "margin-left:6px", text: cd }) : null, h("div", { class: "name", style: "margin-top:5px", text: e.name }), e.extra ? h("div", { class: "note", style: "margin-top:2px", text: e.extra }) : null])]));
     });
     renderSessions(); renderPlan(); if (S.E) renderVerdict();
   }
@@ -1089,7 +1124,7 @@
         return { date: date.replace(/[✓✔▲△⚠️]/g, "").trim(), time: time, name: name.replace(/^[✓★\s]+/, ""), imp: imp ? txt(imp) : "", hi: !!(imp && /\bh\b/.test(imp.className)), ms: ms, timed: !!(m && t), done: date.indexOf("✓") >= 0 || name.indexOf("✓") === 0 };
       }).filter(function (e) { return e.date; });
       if (!rowsAll.some(function (e) { return e.ms !== null && calWeek(e.ms) === calWeek(now); })) throw new Error("not this week");
-      showEvents(rowsAll, "自动日历暂时读不到，这里取自风险计划页（每天更新一次）");
+      showEvents(rowsAll, tx("自动日历暂时读不到，这里取自风险计划页（每天更新一次）", "The automatic calendar cannot be read right now; this comes from the risk page (updated once a day)"));
     });
   }
   function loadContext() {
@@ -1104,13 +1139,14 @@
       var by = {}, rows = [];
       cal.events.forEach(function (e) {                                           // one row per release time: CPI m/m, y/y and core land together
         var key = e.ms + "|" + e.impact, g = by[key];
-        if (!g) { g = by[key] = { date: e.date + "（" + e.weekday + "）", time: e.allDay ? "全天" : e.time + " SGT", names: [], imp: e.impact === "high" ? "高" : e.impact === "medium" ? "中" : "假日", hi: e.impact === "high", ms: e.ms, timed: !e.allDay, done: false, fc: [] }; rows.push(g); }
-        g.names.push(e.zh || e.title); if (e.forecast) g.fc.push((e.zh || e.title) + " 预期 " + e.forecast + (e.previous ? "（前值 " + e.previous + "）" : ""));
+        var dm = String(e.date || "").match(/(\d{1,2})月(\d{1,2})/), en = EN && e.title ? e.title : e.zh || e.title;
+        if (!g) { g = by[key] = { date: EN ? (dm ? ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][+dm[1] - 1] + " " + dm[2] : e.date) + " (" + window.I18N.wd(e.weekday) + ")" : e.date + "（" + e.weekday + "）", time: e.allDay ? tx("全天", "all day") : e.time + " SGT", names: [], imp: e.impact === "high" ? tx("高", "high") : e.impact === "medium" ? tx("中", "medium") : tx("假日", "holiday"), hi: e.impact === "high", ms: e.ms, timed: !e.allDay, done: false, fc: [] }; rows.push(g); }
+        g.names.push(en); if (e.forecast) g.fc.push(en + tx(" 预期 ", " forecast ") + e.forecast + (e.previous ? tx("（前值 " + e.previous + "）", " (previous " + e.previous + ")") : ""));
       });
-      rows.forEach(function (g) { g.name = g.names.slice(0, 3).join("、") + (g.names.length > 3 ? " 等 " + g.names.length + " 项" : ""); g.extra = g.fc.slice(0, 2).join("；"); });
-      showEvents(rows, "本周美国数据（ForexFactory，服务器每次运行都会检查）· 内容上次变化 " + cal.updated);
+      rows.forEach(function (g) { g.name = g.names.slice(0, 3).join(tx("、", ", ")) + (g.names.length > 3 ? (EN ? " and " + (g.names.length - 3) + " more" : " 等 " + g.names.length + " 项") : ""); g.extra = g.fc.slice(0, 2).join(tx("；", "; ")); });
+      showEvents(rows, tx("本周美国数据（ForexFactory，服务器每次运行都会检查）· 内容上次变化 ", "This week's US releases (ForexFactory, checked on every server run) · last changed ") + cal.updated);
     }).catch(function () {
-      eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: "这一周的日历暂时读不到：进场前自己在 ForexFactory 看一眼有没有大数据。" })); });
+      eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: tx("这一周的日历暂时读不到：进场前自己在 ForexFactory 看一眼有没有大数据。", "This week's calendar cannot be read right now: check ForexFactory yourself for big releases before entering.") })); });
     });
 
     (M.dailyPlans === false ? Promise.reject(new Error("none")) : getDoc("daily.html")).then(function (doc) {
@@ -1118,19 +1154,27 @@
       // when the brief was written: older than 30 hours (the daily refresh did not run), its plans are not offered
       var hdt = txt(doc.querySelector(".hdate")), dm = hdt.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/), tm = hdt.match(/(\d{1,2}):(\d{2})\s*SGT/);
       var wAt = dm && tm ? Date.UTC(+dm[1], +dm[2] - 1, +dm[3], +tm[1] - 8, +tm[2]) : null, ageH = wAt === null ? null : (Date.now() - wAt) / 3600000, old = ageH !== null && ageH > 30;
-      var agoTxt = ageH === null ? "" : ageH < 48 ? Math.round(ageH) + " 小时前" : Math.floor(ageH / 24) + " 天前", wTxt = wAt === null ? "" : sgt(wAt, "dt");
+      var agoTxt = ageH === null ? "" : ageH < 48 ? Math.round(ageH) + tx(" 小时前", " h ago") : Math.floor(ageH / 24) + tx(" 天前", " days ago"), wTxt = wAt === null ? "" : sgt(wAt, "dt");
       var chip = document.querySelector("#read .card-head .chip");
-      if (chip && wAt !== null) { chip.textContent = "文字写于 " + wTxt + " SGT（" + agoTxt + "）" + (old ? " · 已过期，先看上面的实时结论" : " · 价位按实时价格标注"); chip.className = "chip " + (old ? "bear" : "neut"); }
+      if (chip && wAt !== null) { chip.textContent = EN ? "Written " + wTxt + " SGT (" + agoTxt + ")" + (old ? " · out of date: go by the live answer above" : " · levels marked against the live price") : "文字写于 " + wTxt + " SGT（" + agoTxt + "）" + (old ? " · 已过期，先看上面的实时结论" : " · 价位按实时价格标注"); chip.className = "chip " + (old ? "bear" : "neut"); }
       var el = clear($("dplans")); if (!items.length) throw new Error("none");
+      // the brief is written in Chinese: in English, each line as the facts it states (side, entry, stop, targets)
+      var show = function (t) {
+        if (!EN) return t;
+        var num1 = function (re) { var m = t.match(re); return m ? m[1] : null; }, long = t.indexOf("多头") >= 0, side = long ? "Long plan" : t.indexOf("空头") >= 0 ? "Short plan" : "Plan";
+        if (/暂无/.test(t)) return side + ": none (the reason is in the Chinese brief).";
+        var e = num1(/\$\s?([\d,]+(?:\.\d+)?)/), st = num1(/止损\s?\$?\s?([\d,]+(?:\.\d+)?)/), t1 = num1(/TP1[:：]?\s?\$?\s?([\d,]+(?:\.\d+)?)/), t2 = num1(/TP2[:：]?\s?\$?\s?([\d,]+(?:\.\d+)?)/);
+        return side + ": " + (long ? "buy" : "sell") + (e ? " around $" + e : "") + (st ? ", stop $" + st : "") + (t1 ? ", TP1 $" + t1 : "") + (t2 ? ", TP2 $" + t2 : "") + ". (From the Chinese brief.)";
+      };
       S.daily = [];
       if (old) {
-        items.forEach(function (t) { el.appendChild(h("div", { class: "dplan", style: "opacity:.55", text: t })); });
-        el.appendChild(h("p", { class: "note" }, ["这两条是 " + wTxt + " SGT 写的（" + agoTxt + "），每日更新没有运行，价位已经过期，不能再用，也不放进计划器。现在按规则算的方案在上面。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })]));
+        items.forEach(function (t) { el.appendChild(h("div", { class: "dplan", style: "opacity:.55", text: show(t) })); });
+        el.appendChild(h("p", { class: "note" }, [EN ? "These two were written " + wTxt + " SGT (" + agoTxt + "); the daily update has not run, so their levels are out of date: not to be used, and not offered in the planner. The rule's plan for now is above. " : "这两条是 " + wTxt + " SGT 写的（" + agoTxt + "），每日更新没有运行，价位已经过期，不能再用，也不放进计划器。现在按规则算的方案在上面。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: tx("打开每日分析 →", "Open the daily brief →") })]));
         if (S.E) renderCands();
         return;
       }
       items.forEach(function (t) {
-        el.appendChild(h("div", { class: "dplan", text: t }));
+        el.appendChild(h("div", { class: "dplan", text: show(t) }));
         var side = t.indexOf("空头") >= 0 ? "short" : t.indexOf("多头") >= 0 ? "long" : null, n = function (m) { return m ? parseFloat(m[1].replace(/,/g, "")) : null; };
         var entry = n(t.match(/\$\s?([\d,]+(?:\.\d+)?)/)), stop = n(t.match(/止损\s?\$?\s?([\d,]+(?:\.\d+)?)/)), tp1 = n(t.match(/TP1[:：]?\s?\$?\s?([\d,]+(?:\.\d+)?)/)), tp2 = n(t.match(/TP2[:：]?\s?\$?\s?([\d,]+(?:\.\d+)?)/));
         var dir = side === "short" ? -1 : 1;
@@ -1139,9 +1183,9 @@
         S.daily.push({ side: side, entry: entry, stop: stop, tp1: tp1, tp2: tp2, rr: tp1 === null ? null : Math.abs(tp1 - entry) / Math.abs(entry - stop) });
       });
       var hd = txt(doc.querySelector(".hdate")).split("·")[0];
-      el.appendChild(h("p", { class: "note" }, ["摘自每日分析" + (hd ? "（" + hd.trim() + "）" : "") + "。这是每天写一次的文字方案，没有做过回放，和上面的结论不一定一致；它们也在计划器第 1 步里。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })]));
+      el.appendChild(h("p", { class: "note" }, [EN ? "From the daily brief" + (hd ? " (" + hd.trim() + ")" : "") + ". Written once a day, never replayed, and not always in line with the answer above; they are also in step 1 of the planner. " : "摘自每日分析" + (hd ? "（" + hd.trim() + "）" : "") + "。这是每天写一次的文字方案，没有做过回放，和上面的结论不一定一致；它们也在计划器第 1 步里。 ", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: tx("打开每日分析 →", "Open the daily brief →") })]));
       if (S.E) renderCands();
-    }).catch(function () { if (M.dailyPlans === false || !$("dplans")) return; clear($("dplans")).appendChild(h("p", { class: "note" }, ["这里读不到每日方案，", h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: "打开每日分析 →" })])); });
+    }).catch(function () { if (M.dailyPlans === false || !$("dplans")) return; clear($("dplans")).appendChild(h("p", { class: "note" }, [tx("这里读不到每日方案，", "The daily plans cannot be read here; "), h("a", { href: "daily.html", style: "color:var(--gold-lt)", text: tx("打开每日分析 →", "open the daily brief →") })])); });
   }
 
   // ---------- Claude's written report (snapshot file) ----------
@@ -1150,19 +1194,19 @@
     fetch(M.snapshot || "data/xau-report.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (r) {
       if (!r || !r.headline) return;
       var ms = Date.parse(r.createdAt), stale = !isFinite(ms) || Date.now() - ms > 12 * 3600 * 1000, body = clear($("ai-body"));
-      $("ai-age").textContent = isFinite(ms) ? sgt(ms, "dt") + " SGT · " + ago(ms) : "时间未知";
+      $("ai-age").textContent = isFinite(ms) ? sgt(ms, "dt") + " SGT · " + ago(ms) : tx("时间未知", "time unknown");
       $("ai-stale").hidden = !stale;
       var inner = h("div");
       inner.appendChild(h("h3", { class: "hl", text: r.headline })); inner.appendChild(h("p", { text: r.summary || "" }));
       var grid = h("div", { class: "ai-grid" }), st = r.setup || {};
-      if (st.state || st.trigger) grid.appendChild(h("div", { class: "ai-box" }, [h("h3", { text: "当期方案" }), st.state ? h("p", null, [h("b", { text: st.state })]) : null, st.trigger ? h("p", null, [h("b", { text: "触发：" }), st.trigger]) : null, st.invalidation ? h("p", null, [h("b", { text: "失效：" }), st.invalidation]) : null, st.note ? h("p", { class: "muted", text: st.note }) : null]));
+      if (st.state || st.trigger) grid.appendChild(h("div", { class: "ai-box" }, [h("h3", { text: tx("当期方案", "Current plan") }), st.state ? h("p", null, [h("b", { text: st.state })]) : null, st.trigger ? h("p", null, [h("b", { text: tx("触发：", "Trigger: ") }), st.trigger]) : null, st.invalidation ? h("p", null, [h("b", { text: tx("失效：", "Fails: ") }), st.invalidation]) : null, st.note ? h("p", { class: "muted", text: st.note }) : null]));
       (r.scenarios || []).forEach(function (x) {
         var b = /bull/i.test(x.name) ? "bull" : /bear/i.test(x.name) ? "bear" : "";
-        grid.appendChild(h("div", { class: "ai-box " + b }, [h("h3", { text: x.name }), x.trigger ? h("p", null, [h("b", { text: "如果：" }), x.trigger]) : null, x.path ? h("p", null, [h("b", { text: "那么：" }), x.path]) : null, x.invalidation ? h("p", { class: "muted", text: "失效条件：" + x.invalidation }) : null]));
+        grid.appendChild(h("div", { class: "ai-box " + b }, [h("h3", { text: x.name }), x.trigger ? h("p", null, [h("b", { text: tx("如果：", "If: ") }), x.trigger]) : null, x.path ? h("p", null, [h("b", { text: tx("那么：", "Then: ") }), x.path]) : null, x.invalidation ? h("p", { class: "muted", text: tx("失效条件：", "Fails if: ") + x.invalidation }) : null]));
       });
       if (grid.children.length) inner.appendChild(grid);
       (r.analysis || []).forEach(function (sec, i) {
-        var d = h("details", null, [h("summary", { text: sec.title || "分析" })]); if (i === 0 && !stale) d.open = true;
+        var d = h("details", null, [h("summary", { text: sec.title || tx("分析", "Analysis") })]); if (i === 0 && !stale) d.open = true;
         String(sec.body || "").split(/\n\n+/).forEach(function (par) { if (par.trim()) d.appendChild(h("p", { text: par.trim() })); });
         inner.appendChild(d);
       });
@@ -1176,7 +1220,7 @@
         });
         d2.appendChild(ul); inner.appendChild(d2);
       }
-      if (stale) body.appendChild(h("details", null, [h("summary", { text: "这期解读已超过 12 小时，展开查看" }), inner])); else body.appendChild(inner);
+      if (stale) body.appendChild(h("details", null, [h("summary", { text: tx("这期解读已超过 12 小时，展开查看", "This reading is over 12 hours old; open to see it") }), inner])); else body.appendChild(inner);
       if (!isFinite(ms) || Date.now() - ms > 24 * 3600 * 1000) return;                 // an old write-up would contradict the live answer: leave the tab hidden
       S.hasAi = true; $("tab-ai").hidden = false; if (LS.get("tab", "levels") === "ai") showTab("ai");
     }).catch(function () {});
@@ -1197,7 +1241,7 @@
   function sessionState(now) {
     var open = [], next = null;
     MKTS.forEach(function (m) { spans(m, now).forEach(function (x) { if (now >= x.s && now < x.e) open.push(m.zh); else if (x.s > now && (!next || x.s < next.ms)) next = { ms: x.s, zh: m.zh }; }); });
-    return { open: open, next: next, overlap: open.indexOf("伦敦盘") >= 0 && open.indexOf("纽约盘") >= 0 };
+    return { open: open, next: next, overlap: open.indexOf(MKTS[1].zh) >= 0 && open.indexOf(MKTS[2].zh) >= 0 };
   }
   function renderSessions() {
     var now = Date.now(), np = parts(now), d0 = Date.UTC(+np.year, +np.month - 1, +np.day) - 8 * 3600000, d1 = d0 + 86400000;   // today in SGT
@@ -1212,18 +1256,18 @@
       });
       if (!hours && sp.length) hours = sgt(sp[sp.length - 1].s, "t") + "–" + sgt(sp[sp.length - 1].e, "t");
       ivs[m.zh] = sp;
-      tl.appendChild(h("div", { class: "tl-row" + (on ? " on" : "") }, [h("div", { class: "tl-name" }, [m.zh + (on ? " ●" : ""), h("span", { text: hours ? hours + " SGT" : "周末休市" })]), track]));
+      tl.appendChild(h("div", { class: "tl-row" + (on ? " on" : "") }, [h("div", { class: "tl-name" }, [m.zh + (on ? " ●" : ""), h("span", { text: hours ? hours + " SGT" : tx("周末休市", "weekend, closed") })]), track]));
     });
     var over = h("div", { class: "tl-over" });
-    (ivs["伦敦盘"] || []).forEach(function (a) { (ivs["纽约盘"] || []).forEach(function (b) {
+    (ivs[MKTS[1].zh] || []).forEach(function (a) { (ivs[MKTS[2].zh] || []).forEach(function (b) {
       var s0 = Math.max(a.s, b.s, d0), e0 = Math.min(a.e, b.e, d1); if (e0 <= s0) return;
       var o = h("div", { class: "tl-ov", title: M.overlapTip }); o.style.left = pct(s0) + "%"; o.style.width = (pct(e0) - pct(s0)) + "%"; over.appendChild(o);
     }); });
-    var nl = h("div", { class: "tl-now", title: "现在 " + sgt(now, "t") + " SGT" }); nl.style.left = pct(now) + "%"; over.appendChild(nl); tl.appendChild(over);
+    var nl = h("div", { class: "tl-now", title: tx("现在 ", "Now ") + sgt(now, "t") + " SGT" }); nl.style.left = pct(now) + "%"; over.appendChild(nl); tl.appendChild(over);
     var head = clear($("sess-now"));
-    head.appendChild(h("span", { class: "chip neut", text: "现在 " + sgt(now, "t") + " SGT" }));
-    if (st.open.length) head.appendChild(h("span", { class: "chip gold", text: st.open.join(" + ") + (st.overlap ? " · 重叠时段" : "") }));
-    else if (st.next) head.appendChild(h("span", { class: "chip neut", text: st.next.zh + " " + left(st.next.ms - now) + "后开盘" }));
+    head.appendChild(h("span", { class: "chip neut", text: tx("现在 ", "Now ") + sgt(now, "t") + " SGT" }));
+    if (st.open.length) head.appendChild(h("span", { class: "chip gold", text: st.open.join(" + ") + (st.overlap ? tx(" · 重叠时段", " · overlap") : "") }));
+    else if (st.next) head.appendChild(h("span", { class: "chip neut", text: EN ? st.next.zh + " opens in " + left(st.next.ms - now) : st.next.zh + " " + left(st.next.ms - now) + "后开盘" }));
   }
 
   var vAt = 0;
@@ -1245,8 +1289,11 @@
     var px = num(S.live), sn = P.soonNeed(S.E, px); if (!sn) return;
     var dir = sn.dir, tf = sn.tf, start = Feed.bucket(Date.now() / 1000, tf), end = (start + TF_SEC[tf]) * 1000;
     var key = "soon:" + dir + ":" + tf + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
-    var k = P.systemPlan(S.E, dir), buy = dir > 0, wd = P.words(), when = tf === "W" ? "本周收盘" : sgt(end, tf === "D" ? "" : "t") + " 收盘";
-    fireAlert("⏳ " + M.name + " · 可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
+    var k = P.systemPlan(S.E, dir), buy = dir > 0, wd = P.words(), when = tf === "W" ? tx("本周收盘", "the weekly close") : EN ? "the " + sgt(end, tf === "D" ? "" : "t") + " close" : sgt(end, tf === "D" ? "" : "t") + " 收盘";
+    if (EN) fireAlert("⏳ " + M.name + " · a " + (buy ? "buy" : "sell") + " signal may come" + (wd.observe ? " (watch only)" : ""),
+      sn.need.map(function (g) { return "a " + P.TF_ZH[g.tf] + " close " + (buy ? "above " : "below ") + fmt(g.p, 1); }).join(" and ") + " is a " + (buy ? "buy" : "sell") + " signal. The price " + fmt(px, 1) + " is already on that side; it counts only if still there at " + when + ". Not a signal yet. " +
+      (k ? "Then about: " + (buy ? "buy " : "sell ") + fmt(px, 1) + ", stop " + fmt(px - dir * k.dist, 1) + ", target " + fmt(px + dir * 3 * k.dist, 1) + "." : ""), M.id + "-soon");
+    else fireAlert("⏳ " + M.name + " · 可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
       sn.need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + fmt(g.p, 1); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + fmt(px, 1) + " 已经在这边，" + when + "时还在才算，现在还不是信号。" +
       (k ? "到时约：" + (buy ? "买入 " : "卖出 ") + fmt(px, 1) + "，止损 " + fmt(px - dir * k.dist, 1) + "，目标 " + fmt(px + dir * 3 * k.dist, 1) + "。" : ""), M.id + "-soon");
   }
@@ -1269,10 +1316,10 @@
     var items = J && Array.isArray(J.items) ? J.items.filter(function (x) { return x && /^\d{4}-\d{2}-\d{2}$/.test(x.d) && num(x.amt) !== null; }) : [];
     var cur = J && typeof J.cur === "string" && J.cur ? J.cur : "$", done = S.saved.filter(function (p) { return p.status === "已止盈" || p.status === "已止损"; });
     var cash = function (v) { var a = Math.abs(v); return (v > 0 ? "+" : v < 0 ? "−" : "") + cur + a.toLocaleString("en-US", { maximumFractionDigits: a < 100 ? 2 : 0 }); };
-    var link = h("a", { href: "journal.html", style: "color:var(--gold-lt)", text: "打开盈亏日历 →" });
-    el.appendChild(h("div", { class: "sub-h", text: "你自己的交易（来自盈亏日历）" }));
+    var link = h("a", { href: "journal.html", style: "color:var(--gold-lt)", text: tx("打开盈亏日历 →", "Open the P&L Journal →") });
+    el.appendChild(h("div", { class: "sub-h", text: tx("你自己的交易（来自盈亏日历）", "Your own trades (from the P&L Journal)") }));
     if (!items.length) {
-      el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, ["你还没有在「盈亏日历」里记过交易" + (done.length ? "（「已保存」里有 " + done.length + " 笔标成已结束的计划）" : "") + "。每做完一笔记一下金额，最好也填「原本最多打算亏多少」和「是不是按规则做的」，这里就会自动显示。 ", link]));
+      el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, [EN ? "You have not logged any trades in the P&L Journal yet" + (done.length ? " («Saved» has " + done.length + " plans marked finished)" : "") + ". Log the amount after each trade, ideally also «most I planned to lose» and «by the rule or not», and they show here. " : "你还没有在「盈亏日历」里记过交易" + (done.length ? "（「已保存」里有 " + done.length + " 笔标成已结束的计划）" : "") + "。每做完一笔记一下金额，最好也填「原本最多打算亏多少」和「是不是按规则做的」，这里就会自动显示。 ", link]));
       return;
     }
     items.sort(function (a, b) { return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
@@ -1280,15 +1327,15 @@
     items.forEach(function (x) { sum += x.amt; if (x.amt > 0) win++; else if (x.amt < 0) loss++; if (num(x.risk) !== null && x.risk > 0) rs.push(x.amt / x.risk); if (x.rule === true) byRule++; else if (x.rule === false) notRule++; });
     var n = items.length, md = function (d) { return (+d.slice(5, 7)) + "/" + (+d.slice(8, 10)); }, even = n - win - loss, unmarked = n - byRule - notRule;
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
-    tile("记了几笔", n + " 笔", "", md(items[0].d) + (n > 1 ? " 到 " + md(items[n - 1].d) : "") + "，来自盈亏日历");
-    tile("赚 / 亏", win + " 赚 · " + loss + " 亏", "", (win + loss ? "胜率 " + Math.round(win / (win + loss) * 100) + "%" : "") + (even ? (win + loss ? "，" : "") + even + " 笔打平" : ""));
+    tile(tx("记了几笔", "Trades logged"), n + tx(" 笔", ""), "", md(items[0].d) + (n > 1 ? tx(" 到 ", " to ") + md(items[n - 1].d) : "") + tx("，来自盈亏日历", ", from the P&L Journal"));
+    tile(tx("赚 / 亏", "Won / lost"), EN ? win + " won · " + loss + " lost" : win + " 赚 · " + loss + " 亏", "", (win + loss ? tx("胜率 ", "win rate ") + Math.round(win / (win + loss) * 100) + "%" : "") + (even ? (win + loss ? tx("，", ", ") : "") + even + tx(" 笔打平", " break-even") : ""));
     var avgR = rs.length ? rs.reduce(function (a, b) { return a + b; }, 0) / rs.length : null;
-    tile("合计", cash(sum), sum > 0 ? "up" : sum < 0 ? "dn" : "", avgR !== null ? rs.length + " 笔填了风险：平均每笔 " + sgn(avgR) + "R" : "填上「原本最多打算亏」就能换算成 R");
-    tile("按规则做的", byRule + " 笔", "", notRule || unmarked ? (notRule ? notRule + " 笔不是" : "") + (notRule && unmarked ? "，" : "") + (unmarked ? unmarked + " 笔没标记" : "") : "全部按规则");
+    tile(tx("合计", "Total"), cash(sum), sum > 0 ? "up" : sum < 0 ? "dn" : "", avgR !== null ? (EN ? rs.length + " with a planned risk: " + sgn(avgR) + "R a trade" : rs.length + " 笔填了风险：平均每笔 " + sgn(avgR) + "R") : tx("填上「原本最多打算亏」就能换算成 R", "Fill in «most I planned to lose» to see it in R"));
+    tile(tx("按规则做的", "By the rule"), byRule + tx(" 笔", ""), "", notRule || unmarked ? (notRule ? notRule + tx(" 笔不是", " not") : "") + (notRule && unmarked ? tx("，", ", ") : "") + (unmarked ? unmarked + tx(" 笔没标记", " not marked") : "") : tx("全部按规则", "all by the rule"));
     el.appendChild(tiles);
-    var say = n < 30 ? "只有 " + n + " 笔，还说明不了好坏：要攒到 30 笔以上才看得出来。" : "已经有 " + n + " 笔。";
-    if (S.rec && S.rec.summary && !S.rec.summary.signals) say += "规则上线以来还没出过信号，所以这 " + n + " 笔都不是这页的信号单。";
-    el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, [say + (done.length ? "「已保存」里另有 " + done.length + " 笔标成已结束的计划。" : "") + " ", link]));
+    var say = n < 30 ? (EN ? "Only " + n + " trades: too few to judge; it takes 30 or more. " : "只有 " + n + " 笔，还说明不了好坏：要攒到 30 笔以上才看得出来。") : (EN ? n + " trades so far. " : "已经有 " + n + " 笔。");
+    if (S.rec && S.rec.summary && !S.rec.summary.signals) say += EN ? "The rule has had no signal since it went live, so none of these " + n + " trades is one of this page's signals. " : "规则上线以来还没出过信号，所以这 " + n + " 笔都不是这页的信号单。";
+    el.appendChild(h("p", { class: "p-intro", style: "margin-bottom:22px" }, [say + (done.length ? (EN ? "«Saved» also has " + done.length + " plans marked finished." : "「已保存」里另有 " + done.length + " 笔标成已结束的计划。") : "") + " ", link]));
   }
   // The rule's paper record since it went live, kept by the market job (scripts/xau_track.js).
   // ---------- health check ----------
@@ -1303,52 +1350,65 @@
     var oR = openR((r.signals || []).filter(function (x) { return x.status === "open"; })[0]), now = Math.max(dd, peak - (tot + (oR || 0)));
     var lo = yard.avgR * n - 1.96 * yard.sd * Math.sqrt(n), hi = yard.avgR * n + 1.96 * yard.sd * Math.sqrt(n);
     var level = now >= yard.maxDD ? "stop" : !n ? "wait" : tot < lo ? "low" : "ok";
-    var text = level === "stop" ? "停用：纸面记录从高点回落了 " + now.toFixed(1) + "R，超过回放里最深的回撤 " + yard.maxDD + "R。按事先定好的规矩，先停止用真钱做这个规则。"
+    var text = EN ? (level === "stop" ? "Stop: the paper record has fallen " + now.toFixed(1) + "R from its peak, deeper than the replay's worst drawdown of " + yard.maxDD + "R. By the rule agreed beforehand, stop trading this rule with real money."
+      : level === "wait" ? "No paper trade has finished yet; the comparison with the replay starts after the first. Stop line: a fall of more than " + yard.maxDD + "R from the record's peak (the replay's worst drawdown)."
+      : level === "low" ? "Low: " + n + " trades total " + sgn(tot, 1) + "R, below the replay's normal range after " + n + " trades (" + sgn(lo, 1) + " to " + sgn(hi, 1) + "R). It may be bad luck, or the rule may have stopped working: halve the size and keep watching."
+      : "Normal: " + n + " trades total " + sgn(tot, 1) + "R; after " + n + " trades the replay is usually between " + sgn(lo, 1) + " and " + sgn(hi, 1) + "R. " + now.toFixed(1) + "R below the peak; the stop line is " + yard.maxDD + "R.")
+      : level === "stop" ? "停用：纸面记录从高点回落了 " + now.toFixed(1) + "R，超过回放里最深的回撤 " + yard.maxDD + "R。按事先定好的规矩，先停止用真钱做这个规则。"
       : level === "wait" ? "还没有结束的纸面单，第一笔结束后开始和回放对照。停用线：纸面记录从高点回落超过 " + yard.maxDD + "R（回放里最深的回撤）。"
       : level === "low" ? "偏低：" + n + " 笔合计 " + sgn(tot, 1) + "R，低于回放里 " + n + " 笔后的正常范围（" + sgn(lo, 1) + " 到 " + sgn(hi, 1) + "R）。可能只是运气差，也可能规则失效：先把手数减半，继续观察。"
       : "正常：" + n + " 笔合计 " + sgn(tot, 1) + "R，回放里 " + n + " 笔后通常在 " + sgn(lo, 1) + " 到 " + sgn(hi, 1) + "R 之间。从高点回落 " + now.toFixed(1) + "R，停用线 " + yard.maxDD + "R。";
-    return { level: level, text: text, word: { stop: "停用", wait: "等第一笔结束", low: "偏低", ok: "正常" }[level] };
+    return { level: level, text: text, word: (EN ? { stop: "stop", wait: "waiting for the first trade", low: "low", ok: "normal" } : { stop: "停用", wait: "等第一笔结束", low: "偏低", ok: "正常" })[level] };
   }
   function recordBlock(el) {
     var r = S.rec; if (!r) return;
     var z = r.summary || {}, sig = r.signals || [], open = sig.filter(function (x) { return x.status === "open"; })[0];
-    el.appendChild(h("div", { class: "sub-h", text: "规则的自动记录：机器按信号记的纸面交易，不是你的交易（从 " + r.since + " 起）" }));
-    el.appendChild(h("p", { class: "p-intro", text: "规则上线之后，机器照着规则记下的纸面交易：出现信号就按规则进场（已有持仓时跳过），一直跟到止损或目标，点差和隔夜利息都算进去。每次运行都会把上次以来的每一根 15 分钟 K 线补看一遍，所以晚运行也不会漏。" + (z.signals ? "" : "从 " + r.since.replace(" SGT", "") + " 到现在，五个周期一次也没有同时同向，所以这里还是 0。") }));
+    el.appendChild(h("div", { class: "sub-h", text: EN ? "The rule's automatic record: paper trades a machine logs on each signal, not your trades (since " + r.since + ")" : "规则的自动记录：机器按信号记的纸面交易，不是你的交易（从 " + r.since + " 起）" }));
+    el.appendChild(h("p", { class: "p-intro", text: EN ? "Paper trades a machine has logged by the rule since it went live: on each signal it enters by the rule (skipping when a position is already open) and follows it to the stop or target, spread and overnight costs included. Each run looks again at every 15-minute candle since the last, so a late run misses nothing." + (z.signals ? "" : " From " + r.since.replace(" SGT", "") + " until now the five timeframes have never agreed at once, so this is still 0.") : "规则上线之后，机器照着规则记下的纸面交易：出现信号就按规则进场（已有持仓时跳过），一直跟到止损或目标，点差和隔夜利息都算进去。每次运行都会把上次以来的每一根 15 分钟 K 线补看一遍，所以晚运行也不会漏。" + (z.signals ? "" : "从 " + r.since.replace(" SGT", "") + " 到现在，五个周期一次也没有同时同向，所以这里还是 0。") }));
     var tiles = h("div", { class: "pf-tiles" }), tile = function (k, v, cls, sub) { tiles.appendChild(h("div", { class: "pf-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v " + (cls || ""), text: v }), h("div", { class: "d", text: sub })])); };
-    tile("出现过的信号", z.signals + " 次", "", z.signals ? z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过" : "还没有出现");
-    tile("已经结束", z.closed + " 笔", "", z.closed ? "其中 " + z.wins + " 笔赚钱" : "还没有");
-    tile("合计", z.closed ? sgn(z.totalR, 1) + "R" : "—", z.totalR > 0 ? "up" : z.totalR < 0 ? "dn" : "", z.closed ? "平均每笔 " + sgn(z.avgR) + "R" : "等第一笔结束");
+    tile(tx("出现过的信号", "Signals so far"), z.signals + tx(" 次", ""), "", z.signals ? (EN ? z.taken + " entered, " + (z.signals - z.taken) + " skipped by the rule" : z.taken + " 次进场，" + (z.signals - z.taken) + " 次按规则跳过") : tx("还没有出现", "none yet"));
+    tile(tx("已经结束", "Finished"), z.closed + tx(" 笔", ""), "", z.closed ? (EN ? z.wins + " made money" : "其中 " + z.wins + " 笔赚钱") : tx("还没有", "none yet"));
+    tile(tx("合计", "Total"), z.closed ? sgn(z.totalR, 1) + "R" : "—", z.totalR > 0 ? "up" : z.totalR < 0 ? "dn" : "", z.closed ? (EN ? sgn(z.avgR) + "R a trade" : "平均每笔 " + sgn(z.avgR) + "R") : tx("等第一笔结束", "waiting for the first to finish"));
     var oR = openR(open);
-    tile("进行中", open ? open.side + (oR !== null ? " " + sgn(oR) + "R" : "") : "没有", oR !== null ? (oR > 0 ? "up" : oR < 0 ? "dn" : "") : open ? (open.side === "做多" ? "up" : "dn") : "", open ? "入场 " + fmt(open.entry, 1) + " · 止损 " + fmt(open.stop, 1) + " · 目标 " + fmt(open.target, 1) + (oR !== null ? " · 按现价 " + fmt(S.live, 1) + " 算" : "") : "现在没有纸面持仓");
+    tile(tx("进行中", "Open"), open ? sideEn(open.side) + (oR !== null ? " " + sgn(oR) + "R" : "") : tx("没有", "none"), oR !== null ? (oR > 0 ? "up" : oR < 0 ? "dn" : "") : open ? (open.side === "做多" ? "up" : "dn") : "", open ? tx("入场 ", "Entry ") + fmt(open.entry, 1) + tx(" · 止损 ", " · stop ") + fmt(open.stop, 1) + tx(" · 目标 ", " · target ") + fmt(open.target, 1) + (oR !== null ? (EN ? " · at the price now " + fmt(S.live, 1) : " · 按现价 " + fmt(S.live, 1) + " 算") : "") : tx("现在没有纸面持仓", "No paper position now"));
     el.appendChild(tiles);
-    var hc = health(); if (hc) el.appendChild(h("div", { class: "hc " + hc.level }, [h("b", { text: "健康检查 · " + hc.word }), h("span", { text: hc.text })]));
+    var hc = health(); if (hc) el.appendChild(h("div", { class: "hc " + hc.level }, [h("b", { text: tx("健康检查 · ", "Health check · ") + hc.word }), h("span", { text: hc.text })]));
     if (sig.length) {
-      var tb = h("tbody"), word = { open: "进行中", target: "到目标", stop: "止损", skipped: "跳过" };
+      var tb = h("tbody"), word = EN ? { open: "open", target: "target hit", stop: "stopped out", skipped: "skipped" } : { open: "进行中", target: "到目标", stop: "止损", skipped: "跳过" };
       sig.slice().reverse().slice(0, 15).forEach(function (x) {
-        tb.appendChild(h("tr", null, [h("td", { class: "l", text: "#" + x.id + " · " + x.time.replace(" SGT", "") }), h("td", { class: "num " + (x.side === "做多" ? "up" : "dn"), text: x.side }), h("td", { class: "num", text: fmt(x.entry, 1) }), h("td", { class: "num", text: fmt(x.stop, 1) }), h("td", { class: "num", text: fmt(x.target, 1) }),
-          h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? "（" + x.why + "）" : "") }), (function () { var rr = typeof x.R === "number" ? x.R : openR(x); return h("td", { class: "num " + (rr > 0 ? "up" : rr < 0 ? "dn" : ""), text: rr === null ? "—" : sgn(rr) + "R" + (typeof x.R === "number" ? "" : "（现在）") }); })()]));
+        tb.appendChild(h("tr", null, [h("td", { class: "l", text: "#" + x.id + " · " + x.time.replace(" SGT", "") }), h("td", { class: "num " + (x.side === "做多" ? "up" : "dn"), text: sideEn(x.side) }), h("td", { class: "num", text: fmt(x.entry, 1) }), h("td", { class: "num", text: fmt(x.stop, 1) }), h("td", { class: "num", text: fmt(x.target, 1) }),
+          h("td", { class: "num", text: word[x.status] + (x.status === "skipped" && x.why ? (EN ? " (" + dataEn(x.why) + ")" : "（" + x.why + "）") : "") }), (function () { var rr = typeof x.R === "number" ? x.R : openR(x); return h("td", { class: "num " + (rr > 0 ? "up" : rr < 0 ? "dn" : ""), text: rr === null ? "—" : sgn(rr) + "R" + (typeof x.R === "number" ? "" : tx("（现在）", " (now)")) }); })()]));
       });
-      el.appendChild(h("div", { class: "tablewrap stk stk-3", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: "信号（新加坡时间）" }), h("th", { text: "方向" }), h("th", { text: "入场" }), h("th", { text: "止损" }), h("th", { text: "目标" }), h("th", { text: "状态" }), h("th", { text: "结果" })])]), tb])]));
+      el.appendChild(h("div", { class: "tablewrap stk stk-3", style: "margin-bottom:10px" }, [h("table", { class: "pf" }, [h("thead", null, [h("tr", null, [h("th", { class: "l", text: tx("信号（新加坡时间）", "Signal (Singapore time)") }), h("th", { text: tx("方向", "Side") }), h("th", { text: tx("入场", "Entry") }), h("th", { text: tx("止损", "Stop") }), h("th", { text: tx("目标", "Target") }), h("th", { text: tx("状态", "Status") }), h("th", { text: tx("结果", "Result") })])]), tb])]));
       stackLabels(tb.parentNode);
     }
     var ev = (r.events || []).slice(-4).reverse();
-    if (ev.length) el.appendChild(h("p", { class: "note", text: "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。" + (num(r.lastChecked) !== null ? "已经检查到 " + sgt(r.lastChecked, "dt") + " SGT 收盘的 K 线；" : "") + "它不知道你自己有没有下单。" }));
+    if (ev.length) el.appendChild(h("p", { class: "note", text: EN ? "Latest: " + ev.map(function (e) { return e.time.slice(5, 16) + " " + dataEn(e.text); }).join("; ") + ". " + (num(r.lastChecked) !== null ? "Checked up to the candle that closed " + sgt(r.lastChecked, "dt") + " SGT; " : "") + "it does not know whether you traded yourself." : "最近的动静：" + ev.map(function (e) { return e.time.slice(5, 16) + " " + e.text; }).join("；") + "。" + (num(r.lastChecked) !== null ? "已经检查到 " + sgt(r.lastChecked, "dt") + " SGT 收盘的 K 线；" : "") + "它不知道你自己有没有下单。" }));
     // candidate books (scripts/xau_track.js, research/xau-replay/FORWARD-PLAN.md): totals only, never a signal
     var sh = r.shadow && r.shadow.books;
-    if (sh) el.appendChild(h("p", { class: "note", text: "同一台机器也在记几个候选做法（" + String(r.shadow.since).slice(0, 10) + " 起，只记录，不提醒，不是信号）：" + Object.keys(sh).map(function (id) { var b = sh[id], z = b.summary || {}; return b.name + " " + (z.closed ? z.closed + " 笔，合计 " + sgn(z.totalR, 1) + "R" : "0 笔") + (z.open ? "，1 笔持有中" : ""); }).join("；") + "。回放和其他市场都没证明它们比现在的规则好；每个攒满 100 笔才拿来和规则比（黄金要两三年）。" }));
+    if (sh) el.appendChild(h("p", { class: "note", text: EN ? "The same machine also logs a few candidate methods (since " + String(r.shadow.since).slice(0, 10) + "; logged only, no alerts, not signals): " + Object.keys(sh).map(function (id) { var b = sh[id], z = b.summary || {}; return (BOOK_EN[id] || b.name) + " " + (z.closed ? z.closed + " trades, " + sgn(z.totalR, 1) + "R total" : "0 trades") + (z.open ? ", 1 open" : ""); }).join("; ") + ". Neither the replay nor other markets showed them to be better than the rule; each is compared with the rule only after 100 trades (two or three years on gold)." : "同一台机器也在记几个候选做法（" + String(r.shadow.since).slice(0, 10) + " 起，只记录，不提醒，不是信号）：" + Object.keys(sh).map(function (id) { var b = sh[id], z = b.summary || {}; return b.name + " " + (z.closed ? z.closed + " 笔，合计 " + sgn(z.totalR, 1) + "R" : "0 笔") + (z.open ? "，1 笔持有中" : ""); }).join("；") + "。回放和其他市场都没证明它们比现在的规则好；每个攒满 100 笔才拿来和规则比（黄金要两三年）。" }));
   }
   // One line under the answer: the rule's live record so far.
   function renderProofLine(V) {
     var el = clear($("v-proof")), r = S.rec; el.hidden = !r; if (!r) return;
     var z = r.summary || {};
-    el.appendChild(h("b", { text: "规则上线以来（" + r.since.replace(" SGT", "") + " 起）：" }));
+    el.appendChild(h("b", { text: EN ? "Since the rule went live (" + r.since.replace(" SGT", "") + "): " : "规则上线以来（" + r.since.replace(" SGT", "") + " 起）：" }));
     var op = (r.signals || []).filter(function (x) { return x.status === "open"; })[0], oR = openR(op);
-    el.appendChild(document.createTextNode(z.signals ? "信号 " + z.signals + " 次，进场 " + z.taken + " 笔，已结束 " + z.closed + " 笔" + (z.closed ? "，合计 " + sgn(z.totalR, 1) + "R" : "") + (op ? "；纸面持仓 #" + op.id + " " + op.side + "中" + (oR !== null ? "，现在 " + sgn(oR) + "R" : "") : "") + "。" : "还没有出现过信号。"));
-    var hc = health(); if (hc && hc.level !== "wait") el.appendChild(h("span", { class: "hc-w " + hc.level, text: " 健康检查：" + hc.word + "。" }));
-    el.appendChild(h("button", { type: "button", text: "看成绩记录 →", onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
+    el.appendChild(document.createTextNode(EN ? (z.signals ? z.signals + " signals, " + z.taken + " entered, " + z.closed + " finished" + (z.closed ? ", " + sgn(z.totalR, 1) + "R total" : "") + (op ? "; paper position #" + op.id + " " + sideEn(op.side) + " open" + (oR !== null ? ", " + sgn(oR) + "R now" : "") : "") + "." : "No signal yet.") : z.signals ? "信号 " + z.signals + " 次，进场 " + z.taken + " 笔，已结束 " + z.closed + " 笔" + (z.closed ? "，合计 " + sgn(z.totalR, 1) + "R" : "") + (op ? "；纸面持仓 #" + op.id + " " + op.side + "中" + (oR !== null ? "，现在 " + sgn(oR) + "R" : "") : "") + "。" : "还没有出现过信号。"));
+    var hc = health(); if (hc && hc.level !== "wait") el.appendChild(h("span", { class: "hc-w " + hc.level, text: tx(" 健康检查：", " Health check: ") + hc.word + tx("。", ".") }));
+    el.appendChild(h("button", { type: "button", text: tx("看成绩记录 →", "See the record →"), onclick: function () { showTab("proof"); document.querySelector('[data-panel="proof"]').scrollIntoView({ behavior: "smooth", block: "start" }); } }));
   }
   function renderProof() { var el = clear($("proof")); ownBlock(el); recordBlock(el); }
   // where the rule's open paper trade stands at the live price, in R (its own risk, before costs)
+  // The paper record (data/xau-signals.json) is written in Chinese by scripts/xau_track.js: its fixed phrases in English
+  var BOOK_EN = { trail: "same signal, trailing-stop exit", noW: "no weekly trend, 3R target", noWtrail: "no weekly trend, trailing-stop exit" };
+  function dataEn(t) {
+    if (!EN || !t) return t;
+    return String(t).replace(/已有纸面持仓/g, "a paper position was open").replace(/出现在每日休市的那一小时/g, "came in the daily closed hour").replace(/，按规则跳过/g, ", skipped by the rule")
+      .replace(/三个大周期不再同向/g, "the three big trends stopped agreeing").replace(/开始记录/g, "record started").replace(/到目标/g, "reached the target").replace(/ 止损/g, " stopped out")
+      .replace(/信号 #/g, "signal #").replace(/做空/g, "short").replace(/做多/g, "long").replace(/（/g, " (").replace(/）/g, ") ").replace(/：/g, ": ").replace(/，/g, ", ").replace(/\s+/g, " ").trim();
+  }
+  function sideEn(x) { return EN ? (x === "做多" ? "long" : x === "做空" ? "short" : x) : x; }
   function openR(x) { if (!x || x.status !== "open" || num(S.live) === null || !(x.risk > 0)) return null; return (S.live - x.entry) * (x.side === "做空" ? -1 : 1) / x.risk; }
 
   // ---------- signal reminder ----------
@@ -1363,7 +1423,7 @@
   function askPermission() {
     if (!NOTE_OK || !S.notify || Notification.permission !== "default" || S.asking) return;
     S.asking = true;
-    var done = function () { S.asking = false; renderAlert(); if (alertsOn()) toast("提醒已开：出现新信号或趋势变化时会弹出通知"); };
+    var done = function () { S.asking = false; renderAlert(); if (alertsOn()) toast(tx("提醒已开：出现新信号或趋势变化时会弹出通知", "Alerts on: a notification appears on a new signal or a trend change")); };
     try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done, done); } catch (e) { done(); }
   }
   // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
@@ -1375,33 +1435,33 @@
     var perm = Notification.permission, on = alertsOn(); el.className = "v-alert" + (on ? " on" : "");
     var t = h("div", { class: "t" });
     if (on) {
-      t.appendChild(h("b", { text: "🔔 提醒已开，刷新或重开浏览器后也一直开着。" })); t.appendChild(document.createTextNode("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。"));
+      t.appendChild(h("b", { text: tx("🔔 提醒已开，刷新或重开浏览器后也一直开着。", "🔔 Alerts are on, and stay on after a reload or a browser restart. ") })); t.appendChild(document.createTextNode(tx("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。", "With this page open (in the background is fine) it checks every 15 minutes and notifies you of what is ticked below. Phone browsers pause background pages; a computer is the most reliable.")));
       var opts = h("div", { class: "nopts" });
-      [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时结构转向（HH→LL 或 LL→HH）"], ["h1", "1 小时结构转向（一天一两次）"], ["small", "15 分钟结构转向（一天好几次）"]].forEach(function (o) {
+      (EN ? [["signal", "A new buy / sell signal"], ["soon", "Early word when a signal may come (price already on the signal's side, candle not closed)"], ["verdict", "The answer changing (a signal ending, the big trends splitting)"], ["big", "Weekly, daily or 4-hour structure turning (HH→LL or LL→HH)"], ["h1", "1-hour structure turning (once or twice a day)"], ["small", "15-min structure turning (several times a day)"]] : [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时结构转向（HH→LL 或 LL→HH）"], ["h1", "1 小时结构转向（一天一两次）"], ["small", "15 分钟结构转向（一天好几次）"]]).forEach(function (o) {
         var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
         cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
         opts.appendChild(h("label", { class: "nopt", for: "nopt-" + o[0] }, [cb, o[1]]));
       });
       t.appendChild(opts);
       var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
-      if (soundOn()) snd.appendChild(document.createTextNode("🔊 提示音已开" + (isApp() ? "（应用里打开：刷新后也不用点）" : "") + "。电脑静音或勿扰模式时听不到。"));
+      if (soundOn()) snd.appendChild(document.createTextNode(tx("🔊 提示音已开", "🔊 Sound on") + (isApp() ? tx("（应用里打开：刷新后也不用点）", " (opened as an app: no tap needed after a reload)") : "") + tx("。电脑静音或勿扰模式时听不到。", ". Not heard when the computer is muted or on Do Not Disturb.")));
       else {
-        snd.appendChild(document.createTextNode("🔇 这次打开还没有提示音（通知照常弹出）。浏览器规定网页刷新后要点一下才能出声；"));
-        snd.appendChild(h("b", { text: "把网站装成电脑上的应用（只要一次），以后从应用打开就不用再点。" }));
-        if (S.installEvt) snd.appendChild(h("button", { type: "button", class: "btn sm pri", text: "安装成应用", onclick: installApp }));
-        else if (!isApp()) snd.appendChild(document.createTextNode("安装方法：Chrome 地址栏右边的「安装」图标，或右上角 ⋮ → 投放、保存和分享 → 将网页安装为应用。"));
-        snd.appendChild(h("button", { type: "button", class: "btn sm", text: "这次先开启", onclick: function () { ensureAudio(); probeSound(function () { chime(); renderAlert(); soundChip(); }); } }));
+        snd.appendChild(document.createTextNode(tx("🔇 这次打开还没有提示音（通知照常弹出）。浏览器规定网页刷新后要点一下才能出声；", "🔇 No sound this time yet (notifications still appear). Browsers need a tap after a reload before a page can make sound; ")));
+        snd.appendChild(h("b", { text: tx("把网站装成电脑上的应用（只要一次），以后从应用打开就不用再点。", "install the site as an app on your computer (once) and opening it from the app needs no tap.") }));
+        if (S.installEvt) snd.appendChild(h("button", { type: "button", class: "btn sm pri", text: tx("安装成应用", "Install as app"), onclick: installApp }));
+        else if (!isApp()) snd.appendChild(document.createTextNode(tx("安装方法：Chrome 地址栏右边的「安装」图标，或右上角 ⋮ → 投放、保存和分享 → 将网页安装为应用。", "To install: the «Install» icon at the right of Chrome's address bar, or ⋮ at the top right → Cast, save and share → Install page as app.")));
+        snd.appendChild(h("button", { type: "button", class: "btn sm", text: tx("这次先开启", "Turn on for now"), onclick: function () { ensureAudio(); probeSound(function () { chime(); renderAlert(); soundChip(); }); } }));
       }
       t.appendChild(snd);
     }
-    else if (S.notify && perm === "default") { t.appendChild(h("b", { text: "🔔 提醒默认开着，还差浏览器允许一次。" })); t.appendChild(document.createTextNode("浏览器弹出询问时点「允许」；没看到询问就点右边的按钮。允许一次以后，黄金页和比特币页都不用再点。")); }
-    else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: "浏览器拒绝了通知。" })); t.appendChild(document.createTextNode("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。")); }
-    else { t.appendChild(h("b", { text: "🔔 有新信号或趋势变化时提醒我" })); t.appendChild(document.createTextNode("：浏览器弹出通知，不用设置别的。")); }
+    else if (S.notify && perm === "default") { t.appendChild(h("b", { text: tx("🔔 提醒默认开着，还差浏览器允许一次。", "🔔 Alerts are on by default; the browser still has to allow them once. ") })); t.appendChild(document.createTextNode(tx("浏览器弹出询问时点「允许」；没看到询问就点右边的按钮。允许一次以后，黄金页和比特币页都不用再点。", "Press «Allow» when the browser asks; if it does not ask, press the button on the right. Once allowed, neither the gold nor the Bitcoin page asks again."))); }
+    else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: tx("浏览器拒绝了通知。", "The browser blocked notifications. ") })); t.appendChild(document.createTextNode(tx("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。", "Open the site settings at the left of the address bar, set «Notifications» to allow, then come back and press «Turn on»."))); }
+    else { t.appendChild(h("b", { text: tx("🔔 有新信号或趋势变化时提醒我", "🔔 Tell me about new signals or trend changes") })); t.appendChild(document.createTextNode(tx("：浏览器弹出通知，不用设置别的。", ": a browser notification, nothing else to set up."))); }
     el.appendChild(t);
     if (on) {
-      el.appendChild(h("button", { type: "button", class: "btn sm", text: "试一下", onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + " 提醒测试", "这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", M.id + "-test"); } }));
-      el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: "关闭", onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
-    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? "允许通知" : "开启提醒", onclick: function () {
+      el.appendChild(h("button", { type: "button", class: "btn sm", text: tx("试一下", "Try it"), onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + tx(" 提醒测试", " alert test"), tx("这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "This is a test notification. A new signal appears like this; tap it to come back to the page."), M.id + "-test"); } }));
+      el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tx("关闭", "Turn off"), onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
+    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? tx("允许通知", "Allow notifications") : tx("开启提醒", "Turn on alerts"), onclick: function () {
       S.notify = true; LS.set("notify", true); ensureAudio(); askPermission(); renderAlert();
     } }));
   }
@@ -1441,12 +1501,12 @@
   }
   function isApp() { try { return matchMedia("(display-mode: standalone)").matches || navigator.standalone === true; } catch (e) { return false; } }
   window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); S.installEvt = e; renderAlert(); });
-  window.addEventListener("appinstalled", function () { S.installEvt = null; toast("已装成应用：以后从应用打开，提示音不用点"); renderAlert(); });
+  window.addEventListener("appinstalled", function () { S.installEvt = null; toast(tx("已装成应用：以后从应用打开，提示音不用点", "Installed as an app: open it from the app and sound needs no tap")); renderAlert(); });
   function installApp() { var e = S.installEvt; if (!e) return; e.prompt(); (e.userChoice || Promise.resolve()).then(function () { S.installEvt = null; renderAlert(); }); }
   function soundOn() { return !!(S.mediaOk || (S.audio && S.audio.state === "running")); }
   function soundChip() {
     var c = $("snd-chip");
-    if (!c) { c = h("button", { type: "button", id: "snd-chip", class: "snd-chip", text: "🔇 点一下页面，开启提示音" }); document.body.appendChild(c); }
+    if (!c) { c = h("button", { type: "button", id: "snd-chip", class: "snd-chip", text: tx("🔇 点一下页面，开启提示音", "🔇 Tap the page to turn on sound") }); document.body.appendChild(c); }
     var show = !!(S.notify && NOTE_OK && !soundOn());
     // on a phone the chip floats over the text: it says its piece for a few seconds, then leaves it to the 🔔 panel
     if (show && window.matchMedia && matchMedia("(max-width:640px)").matches) {
@@ -1487,7 +1547,9 @@
     LS.set("notified", key);
     if (!S.nopt.signal) return;
     var k = sysPlanNow(false), nw = newsCheck(), buy = R.dir > 0, wd = P.words();
-    fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
+    if (EN) fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "buy" : "sell") + " signal" + (wd.observe ? " (watch only)" : ""),
+      "All five timeframes " + (buy ? "up" : "down") + ". " + (k ? (buy ? "Buy" : "Sell") + " about " + fmt(S.live, 1) + ", stop " + fmt(k.stop, 1) + ", target " + fmt(k.tp1, 1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price. " : "") + (wd.exitNote ? wd.exitNote + " " : "") + (nw && nw.ok === false ? "Note: " + nw.detail + ". " : "") + "Open it for the plan.", M.id + "-signal");
+    else fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
       "五个周期都" + (buy ? "向上" : "向下") + "。" + (k ? (buy ? "买入" : "卖出") + "约 " + fmt(S.live, 1) + "，止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）；或不设目标、每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。" : "") + (wd.exitNote || "") + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", M.id + "-signal");
   }
 
@@ -1500,11 +1562,11 @@
     var stamp = key + ":" + Math.floor(Date.now() / 900000);                    // once per quarter hour across tabs
     if (LS.get("notifiedLevel", "") === stamp) return; LS.set("notifiedLevel", stamp);
     if (!S.nopt.verdict) return;
-    fireAlert(M.sym + " 结论变了：" + V.tag, V.title + "。现在 " + arrowsNow() + "。" + (S.pos ? "你有持仓：看「我的持仓」里写的做法。" : ""), M.id + "-level");
+    fireAlert(M.sym + tx(" 结论变了：", " answer changed: ") + V.tag, V.title + tx("。现在 ", ". Now ") + arrowsNow() + tx("。", ". ") + (S.pos ? tx("你有持仓：看「我的持仓」里写的做法。", "You have a position: see what «My position» says.") : ""), M.id + "-level");
   }
-  var TW = { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
+  var TW = EN ? { bullish: "up", bearish: "down", unclear: "unclear", mixed: "unclear" } : { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
   // HH→LL only when it really came from the opposite structure; out of an unclear stretch there was no HH to lose
-  function structWord(to, from) { return to === "bearish" ? "结构转空 " + (from === "bullish" ? "HH→LL" : "LL") : to === "bullish" ? "结构转多 " + (from === "bearish" ? "LL→HH" : "HH") : "结构不明"; }
+  function structWord(to, from) { return EN ? (to === "bearish" ? " structure turns bearish " + (from === "bullish" ? "HH→LL" : "LL") : to === "bullish" ? " structure turns bullish " + (from === "bearish" ? "LL→HH" : "HH") : " structure unclear") : to === "bearish" ? "结构转空 " + (from === "bullish" ? "HH→LL" : "LL") : to === "bullish" ? "结构转多 " + (from === "bearish" ? "LL→HH" : "HH") : "结构不明"; }
   function arrowsNow() { return S.E ? P.votes(S.E).map(function (v) { return P.TF_S[v.tf] + (v.v > 0 ? "↑" : v.v < 0 ? "↓" : "–"); }).join(" ") : ""; }
   // ---------- trend changes ----------
   // Each recompute is compared with the one before (on the same data source): a timeframe whose trend has flipped
@@ -1525,7 +1587,7 @@
       var big = tf === "W" || tf === "D" || tf === "4H";
       if (big ? !S.nopt.big : tf === "1H" ? !S.nopt.h1 : !S.nopt.small) return;
       var V = P.verdict(E), dn = b === "bearish";
-      fireAlert((dn ? "📉 " : b === "bullish" ? "📈 " : "") + M.name + " · " + P.TF_ZH[tf] + structWord(b, a), "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " 跌破上一个更高的低点（HL）" : " 站上上一个更低的高点（LH）") + fmt(ch.level, 1) : "") + "：" + P.TF_ZH[tf] + (dn ? (a === "bullish" ? "从 HH/HL 变成 LL，" : "走出 LL，") + "转向下" : b === "bullish" ? (a === "bearish" ? "从 LH/LL 变成 HH，" : "走出 HH，") + "转向上" : "结构不明") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
+      fireAlert((dn ? "📉 " : b === "bullish" ? "📈 " : "") + M.name + " · " + P.TF_ZH[tf] + structWord(b, a), EN ? "Close " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " below the last higher low (HL) " : " above the last lower high (LH) ") + fmt(ch.level, 1) : "") + ": " + P.TF_ZH[tf] + (dn ? (a === "bullish" ? " went from HH/HL to LL, " : " made an LL, ") + "turning down" : b === "bullish" ? (a === "bearish" ? " went from LH/LL to HH, " : " made an HH, ") + "turning up" : " structure unclear") + ". Now " + arrowsNow() + " · answer: " + V.tag + "." : "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " 跌破上一个更高的低点（HL）" : " 站上上一个更低的高点（LH）") + fmt(ch.level, 1) : "") + "：" + P.TF_ZH[tf] + (dn ? (a === "bullish" ? "从 HH/HL 变成 LL，" : "走出 LL，") + "转向下" : b === "bullish" ? (a === "bearish" ? "从 LH/LL 变成 HH，" : "走出 HH，") + "转向上" : "结构不明") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
     });
     renderChanges();
   }
@@ -1547,26 +1609,26 @@
     var box = $("chg-body"); if (!box) return;
     var list = allChanges(), bigOnly = !!S.chgBig, shown = list.filter(function (c) { return !bigOnly || c.tf === "W" || c.tf === "D" || c.tf === "4H"; });
     clear(box);
-    $("chg-span").textContent = S.rec && S.rec.changes ? "每根 15 分钟 K 线收盘后检查 · 记录从 " + sgt(S.rec.changes.length ? S.rec.changes[0].ms : S.rec.lastChecked, "d") + " 起" : "记录读取中";
-    var head = h("div", { class: "cg-now" }); head.appendChild(h("b", { text: "现在 " + arrowsNow() })); 
-    if (list[0]) head.appendChild(document.createTextNode(" · 最近一次：" + P.TF_ZH[list[0].tf] + structWord(list[0].to, list[0].from) + "（" + sgt(list[0].ms) + "，" + ago(list[0].ms) + "）"));
-    var tg = h("button", { type: "button", class: "btn sm ghost", text: bigOnly ? "显示全部周期" : "只看周线、日线、4 小时", onclick: function () { S.chgBig = !S.chgBig; LS.set("chgBig", S.chgBig); renderChanges(); } });
+    $("chg-span").textContent = S.rec && S.rec.changes ? (EN ? "Checked after every 15-minute close · record since " : "每根 15 分钟 K 线收盘后检查 · 记录从 ") + sgt(S.rec.changes.length ? S.rec.changes[0].ms : S.rec.lastChecked, "d") + tx(" 起", "") : tx("记录读取中", "Loading the record");
+    var head = h("div", { class: "cg-now" }); head.appendChild(h("b", { text: tx("现在 ", "Now ") + arrowsNow() })); 
+    if (list[0]) head.appendChild(document.createTextNode(tx(" · 最近一次：", " · latest: ") + P.TF_ZH[list[0].tf] + structWord(list[0].to, list[0].from) + (EN ? " (" + sgt(list[0].ms) + ", " + ago(list[0].ms) + ")" : "（" + sgt(list[0].ms) + "，" + ago(list[0].ms) + "）")));
+    var tg = h("button", { type: "button", class: "btn sm ghost", text: bigOnly ? tx("显示全部周期", "Show all timeframes") : tx("只看周线、日线、4 小时", "Weekly, daily and 4-hour only"), onclick: function () { S.chgBig = !S.chgBig; LS.set("chgBig", S.chgBig); renderChanges(); } });
     head.appendChild(tg); box.appendChild(head);
-    if (!shown.length) { box.appendChild(h("p", { class: "note", text: bigOnly ? "这段时间周线、日线、4 小时都没有转向。" : "这段时间没有周期转向。" })); return; }
+    if (!shown.length) { box.appendChild(h("p", { class: "note", text: bigOnly ? tx("这段时间周线、日线、4 小时都没有转向。", "No weekly, daily or 4-hour turn in this period.") : tx("这段时间没有周期转向。", "No timeframe turned in this period.") })); return; }
     var ol = h("ol", { class: "cg-list" }), limit = S.chgAll ? shown.length : 8;
     shown.slice(0, limit).forEach(function (c) {
       var big = c.tf === "W" || c.tf === "D" || c.tf === "4H", up = c.to === "bullish", fresh = Date.now() - c.ms < 4 * 3600000;
-      var after = c.a5 ? "五个周期同向" + (c.a5 > 0 ? "向上：做多信号" : "向下：做空信号") : c.a3 ? "三大周期同向" + (c.a3 > 0 ? "向上" : "向下") + "，等小周期" : "";
+      var after = EN ? (c.a5 ? "all five " + (c.a5 > 0 ? "up: long signal" : "down: short signal") : c.a3 ? "the big three " + (c.a3 > 0 ? "up" : "down") + ", waiting for the small timeframes" : "") : c.a5 ? "五个周期同向" + (c.a5 > 0 ? "向上：做多信号" : "向下：做空信号") : c.a3 ? "三大周期同向" + (c.a3 > 0 ? "向上" : "向下") + "，等小周期" : "";
       ol.appendChild(h("li", { class: "cg" + (big ? " big" : "") }, [
         h("span", { class: "cg-t", text: sgt(c.ms) }),
         h("span", { class: "cg-tf " + (up ? "up" : "dn"), text: P.TF_S[c.tf] }),
-        h("span", { class: "cg-d " + (up ? "up" : "dn"), text: structWord(c.to, c.from) + (fresh ? " · 新" : "") }),
-        h("span", { class: "cg-p", text: (c.price !== null && c.price !== undefined ? "收盘 " + fmt(c.price, 1) : "") + (c.level !== null && c.level !== undefined ? (c.price !== null && c.price !== undefined ? "，" : "") + (up ? "站上上一个 LH " : "跌破上一个 HL ") + fmt(c.level, 1) : "") }),
+        h("span", { class: "cg-d " + (up ? "up" : "dn"), text: structWord(c.to, c.from).trim() + (fresh ? tx(" · 新", " · new") : "") }),
+        h("span", { class: "cg-p", text: (c.price !== null && c.price !== undefined ? tx("收盘 ", "close ") + fmt(c.price, 1) : "") + (c.level !== null && c.level !== undefined ? (c.price !== null && c.price !== undefined ? tx("，", ", ") : "") + (up ? tx("站上上一个 LH ", "above the last LH ") : tx("跌破上一个 HL ", "below the last HL ")) + fmt(c.level, 1) : "") }),
         after ? h("span", { class: "cg-a" + (c.a5 ? " sig" : ""), text: after }) : null
       ]));
     });
     box.appendChild(ol);
-    if (shown.length > 8) box.appendChild(h("button", { type: "button", class: "btn sm ghost", text: S.chgAll ? "收起" : "显示全部 " + shown.length + " 条", onclick: function () { S.chgAll = !S.chgAll; renderChanges(); } }));
+    if (shown.length > 8) box.appendChild(h("button", { type: "button", class: "btn sm ghost", text: S.chgAll ? tx("收起", "Show fewer") : (EN ? "Show all " + shown.length : "显示全部 " + shown.length + " 条"), onclick: function () { S.chgAll = !S.chgAll; renderChanges(); } }));
   }
   S.chgBig = !!LS.get("chgBig", false);
   (function () {
@@ -1642,21 +1704,21 @@
     var box = $("v-odds"); if (!box) return;
     var o = oddsNow(); box.hidden = !o; if (!o) return;
     clear(box);
-    var dn = o.dir < 0, word = dn ? "反弹" : "回调", w = dn ? "down" : "up", ag = dn ? "up" : "down";
-    box.appendChild(h("div", { class: "oh" }, ["哪个先到？" + word + "已走 ", h("b", { text: o.extAtr.toFixed(2) }), " 个日波幅；以前" + (o.atLeast ? "走过 ≥" + o.atLeast + " 个日波幅的 " : "同样的 ") + o.n + " 次里："]));
-    box.appendChild(h("div", { class: "ob", role: "img", "aria-label": word + "先结束 " + Math.round(o.back) + "%，大方向先转折 " + Math.round(o.brk) + "%" }, [
+    var dn = o.dir < 0, word = dn ? tx("反弹", "bounce") : tx("回调", "pullback"), w = dn ? "down" : "up", ag = dn ? "up" : "down";
+    box.appendChild(h("div", { class: "oh" }, EN ? ["Which comes first? The " + word + " has run ", h("b", { text: o.extAtr.toFixed(2) }), " daily ATRs; of " + o.n + (o.atLeast ? " past ones that ran ≥" + o.atLeast + " daily ATRs:" : " like it:")] : ["哪个先到？" + word + "已走 ", h("b", { text: o.extAtr.toFixed(2) }), " 个日波幅；以前" + (o.atLeast ? "走过 ≥" + o.atLeast + " 个日波幅的 " : "同样的 ") + o.n + " 次里："]));
+    box.appendChild(h("div", { class: "ob", role: "img", "aria-label": EN ? "the " + word + " ended first " + Math.round(o.back) + "%, the big trend broke first " + Math.round(o.brk) + "%" : word + "先结束 " + Math.round(o.back) + "%，大方向先转折 " + Math.round(o.brk) + "%" }, [
       h("span", { class: w, style: "flex:" + o.back, text: Math.round(o.back) + "%" }), h("span", { class: ag, style: "flex:" + o.brk, text: Math.round(o.brk) + "%" })]));
     box.appendChild(h("div", { class: "ol" }, [
-      h("span", { text: (dn ? "▼ " : "▲ ") + (o.backAt !== null ? fmt(o.backAt, 1) + " " : "") + word + "结束，出" + (dn ? "做空" : "做多") + "信号" }),
-      h("span", { text: "大方向转折，观望" + (o.breakAt !== null ? " " + fmt(o.breakAt, 1) : "") + (dn ? " ▲" : " ▼") })]));
-    box.appendChild(h("p", { class: "oc", text: "2011–2026 年回放里的比例，不是预测；规则照样等收盘确认。" }));
+      h("span", { text: (dn ? "▼ " : "▲ ") + (o.backAt !== null ? fmt(o.backAt, 1) + " " : "") + (EN ? word + " ends, " + (dn ? "short" : "long") + " signal" : word + "结束，出" + (dn ? "做空" : "做多") + "信号") }),
+      h("span", { text: tx("大方向转折，观望", "big trend breaks, wait") + (o.breakAt !== null ? " " + fmt(o.breakAt, 1) : "") + (dn ? " ▲" : " ▼") })]));
+    box.appendChild(h("p", { class: "oc", text: tx("2011–2026 年回放里的比例，不是预测；规则照样等收盘确认。", "Shares from the 2011–2026 replay, not a forecast; the rule still waits for the close.") }));
   }
   function loadNews() { if (!M.news) return; fetch(M.news, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d && d.items) S.news = d.items; }).catch(function () {}); }
   var EN_TF = { W: "Weekly", D: "Daily", "4H": "4-hour", "1H": "1-hour", "15M": "15-min" };
   function f1(v) { return num(v) === null ? "—" : fmt(v, 1); }
   function askContext(withMe) {
     var E = S.E, L = [], now = Date.now();
-    if (!E) return "（行情还在载入，资料暂时不完整）";
+    if (!E) return tx("（行情还在载入，资料暂时不完整）", "(prices still loading; the facts are not complete yet)");
     var V = P.verdict(E), R = V.regime || P.regime(E), open = marketOpen(), K = S.feed && S.feed.K, D = K && K.D, prev = D && D.length ? D[D.length - 1][4] : null;
     L.push("LIVE DATA from the trading page at " + sgt(now, "full") + " (" + (S.feed && S.feed.source === "paxg" ? M.liveDataBackup : M.liveData) + ")");
     L.push("Market: " + (open ? "open" : "closed for the weekend (reopens Monday about 06:00 SGT)"));
@@ -1709,10 +1771,10 @@
   }
   function askNow(open) {
     var q = $("ask-q").value.trim();
-    if (!q) { $("ask-msg").textContent = "先选一个问题，或者自己写一个。"; $("ask-q").focus(); return; }
+    if (!q) { $("ask-msg").textContent = tx("先选一个问题，或者自己写一个。", "Pick a question first, or write your own."); $("ask-q").focus(); return; }
     var text = askPrompt(q, $("ask-me").checked), url = "https://claude.ai/new?q=" + encodeURIComponent(text);
     $("ask-pre").textContent = text;
-    var copied = function (ok) { $("ask-msg").textContent = open ? (ok ? "已在新窗口打开 Claude，问题和资料已填好；如果没有填好，在输入框里粘贴即可（已复制）。" : "已在新窗口打开 Claude。如果问题没有填好，点「只复制」再粘贴。") : ok ? "已复制，到 Claude 里粘贴即可。" : "复制失败：打开下面的「Claude 会看到的资料」，手动复制。"; };
+    var copied = function (ok) { $("ask-msg").textContent = open ? (ok ? tx("已在新窗口打开 Claude，问题和资料已填好；如果没有填好，在输入框里粘贴即可（已复制）。", "Claude opened in a new window with the question and facts filled in; if not, paste them in the box (they are copied).") : tx("已在新窗口打开 Claude。如果问题没有填好，点「只复制」再粘贴。", "Claude opened in a new window. If the question is not filled in, press «Copy only» and paste.")) : ok ? tx("已复制，到 Claude 里粘贴即可。", "Copied: paste it into Claude.") : tx("复制失败：打开下面的「Claude 会看到的资料」，手动复制。", "Copy failed: open «What Claude will see» below and copy it by hand."); };
     if (open) {
       if (url.length > 12000) url = "https://claude.ai/new";                   // too long for a link: the copied text carries it
       var a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
@@ -1722,7 +1784,7 @@
   all("#ask-qs button").forEach(function (b) { b.addEventListener("click", function () { all("#ask-qs button").forEach(function (x) { x.classList.toggle("on", x === b); }); $("ask-q").value = b.getAttribute("data-q"); $("ask-msg").textContent = ""; if (!$("ask-ctx").open) return; $("ask-pre").textContent = askPrompt($("ask-q").value, $("ask-me").checked); }); });
   $("ask-go").addEventListener("click", function () { askNow(true); });
   $("ask-copy").addEventListener("click", function () { askNow(false); });
-  $("ask-ctx").addEventListener("toggle", function () { if ($("ask-ctx").open) $("ask-pre").textContent = askPrompt($("ask-q").value.trim() || "（还没写问题）", $("ask-me").checked); });
+  $("ask-ctx").addEventListener("toggle", function () { if ($("ask-ctx").open) $("ask-pre").textContent = askPrompt($("ask-q").value.trim() || tx("（还没写问题）", "(no question yet)"), $("ask-me").checked); });
 
   // ---------- tabs ----------
   function showTab(id) {
@@ -1744,9 +1806,9 @@
   function fetchTick() { return fetch("https://data-api.binance.vision/api/v3/ticker/price?symbol=" + M.tick, { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (d) { var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) livePrice(p); }).catch(function () {}); }
   function setStamp() {
     var on = streamOn(); $("ldot").className = "ldot" + (on ? " on" : "");
-    $("stamp").textContent = (on ? "报价实时推送" : "报价每 30 秒更新") + " · K 线于 " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + " 更新，每 15 分钟收线后重算";
+    $("stamp").textContent = EN ? (on ? "Live price stream" : "Price every 30 s") + " · candles updated " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + ", recomputed after every 15-minute close" : (on ? "报价实时推送" : "报价每 30 秒更新") + " · K 线于 " + (S.lastRun ? sgt(S.lastRun, "t") : "--:--") + " 更新，每 15 分钟收线后重算";
     var src = $("src"), px = S.feed && S.feed.source === "paxg";
-    src.className = "chip " + (px ? "gold" : "neut"); src.textContent = !S.feed ? "数据载入中" : px ? M.srcBackup : M.srcSpot;
+    src.className = "chip " + (px ? "gold" : "neut"); src.textContent = !S.feed ? tx("数据载入中", "Loading data") : px ? M.srcBackup : M.srcSpot;
   }
   function busyUi() { return !!S.armed || S.overLadder || $("chart").querySelector(".tip:not([hidden])") !== null; }
 
@@ -1799,37 +1861,37 @@
     today.forEach(function (k) { hi = hi === null ? k[2] : Math.max(hi, k[2]); lo = lo === null ? k[3] : Math.min(lo, k[3]); });
     if (open && px !== null && today.length) { [px, S.tHi, S.tLo].forEach(function (v) { v = num(v); if (v !== null) { hi = Math.max(hi, v); lo = Math.min(lo, v); } }); }
     var aH = null, aL = null; today.forEach(function (k) { var t = k[0] / 1000; if (t >= asiaA && t < asiaB) { aH = aH === null ? k[2] : Math.max(aH, k[2]); aL = aL === null ? k[3] : Math.min(aL, k[3]); } });
-    var R = P.regime(E), dD = R.dirs.D, d4 = R.dirs["4H"], want = dD && dD === d4 ? dD : 0, way = function (d) { return d > 0 ? "向上" : d < 0 ? "向下" : "不明"; };
-    var dist = function (p) { return px === null || p === null ? "" : (p >= px ? "高 " : "低 ") + fmt(Math.abs(p - px), 1); };
+    var R = P.regime(E), dD = R.dirs.D, d4 = R.dirs["4H"], want = dD && dD === d4 ? dD : 0, way = function (d) { return d > 0 ? tx("向上", "up") : d < 0 ? tx("向下", "down") : tx("不明", "unclear"); };
+    var dist = function (p) { return px === null || p === null ? "" : (p >= px ? tx("高 ", "+") : tx("低 ", "−")) + fmt(Math.abs(p - px), 1); };
     clear(box);
     // 1. today in numbers
     var range = hi !== null ? hi - lo : null, used = range !== null && num(D.atr) ? Math.round(range / D.atr * 100) : null;
     var tiles = h("div", { class: "sh-tiles" }), tile = function (k, v, d) { tiles.appendChild(h("div", { class: "sh-t" }, [h("div", { class: "k", text: k }), h("div", { class: "v mono", text: v }), d ? h("div", { class: "d", text: d }) : null])); };
-    if (!today.length) tile(open ? "今天" : "休市中", open ? "还没有收盘的 15 分钟 K 线" : "下个交易日开盘后更新", "");
+    if (!today.length) tile(open ? tx("今天", "Today") : tx("休市中", "Market closed"), open ? tx("还没有收盘的 15 分钟 K 线", "No closed 15-minute candle yet") : tx("下个交易日开盘后更新", "Updated after the next trading day opens"), "");
     else {
-      tile("今日开盘", fmt(op, 1), "交易日从 " + sgt(ds * 1000, "t") + " SGT 起");
-      tile("今日最高 / 最低", fmt(hi, 1) + " / " + fmt(lo, 1), "区间 " + fmt(range, 1));
-      tile("已走平均日波幅", used === null ? "—" : used + "%", num(D.atr) ? "平均一天走 " + fmt(D.atr, 0) + "（日线 ATR）" : "");
+      tile(tx("今日开盘", "Today's open"), fmt(op, 1), EN ? "the trading day starts " + sgt(ds * 1000, "t") + " SGT" : "交易日从 " + sgt(ds * 1000, "t") + " SGT 起");
+      tile(tx("今日最高 / 最低", "Today's high / low"), fmt(hi, 1) + " / " + fmt(lo, 1), tx("区间 ", "range ") + fmt(range, 1));
+      tile(tx("已走平均日波幅", "Share of an average day used"), used === null ? "—" : used + "%", num(D.atr) ? (EN ? "an average day moves " + fmt(D.atr, 0) + " (daily ATR)" : "平均一天走 " + fmt(D.atr, 0) + "（日线 ATR）") : "");
     }
     box.appendChild(tiles);
     // 2. the prices an intraday trader watches today, highest first
     var lv = [];
-    if (pdh !== null) lv.push(["昨日高点", pdh]); if (pdl !== null) lv.push(["昨日低点", pdl]);
-    if (aH !== null) lv.push(["亚洲盘高点" + (nowS < asiaB ? "（还在形成）" : ""), aH], ["亚洲盘低点" + (nowS < asiaB ? "（还在形成）" : ""), aL]);
-    if (op !== null) lv.push(["今日开盘", op]);
+    if (pdh !== null) lv.push([tx("昨日高点", "Yesterday's high"), pdh]); if (pdl !== null) lv.push([tx("昨日低点", "Yesterday's low"), pdl]);
+    if (aH !== null) lv.push([tx("亚洲盘高点", "Asian session high") + (nowS < asiaB ? tx("（还在形成）", " (still forming)") : ""), aH], [tx("亚洲盘低点", "Asian session low") + (nowS < asiaB ? tx("（还在形成）", " (still forming)") : ""), aL]);
+    if (op !== null) lv.push([tx("今日开盘", "Today's open"), op]);
     var t1 = P.flipLevel(E, "1H", -R.dirs["1H"]), t15 = P.flipLevel(E, "15M", -R.dirs["15M"]);
-    if (t1 !== null && R.dirs["1H"]) lv.push(["1 小时收盘" + (R.dirs["1H"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t1]);
-    if (t15 !== null && R.dirs["15M"]) lv.push(["15 分钟收盘" + (R.dirs["15M"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t15]);
+    if (t1 !== null && R.dirs["1H"]) lv.push([EN ? "A 1-hour close " + (R.dirs["1H"] > 0 ? "below here turns it down" : "above here turns it up") : "1 小时收盘" + (R.dirs["1H"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t1]);
+    if (t15 !== null && R.dirs["15M"]) lv.push([EN ? "A 15-min close " + (R.dirs["15M"] > 0 ? "below here turns it down" : "above here turns it up") : "15 分钟收盘" + (R.dirs["15M"] > 0 ? "跌破这里转向下" : "站上这里转向上"), t15]);
     lv.sort(function (a, b) { return b[1] - a[1]; });
     var ul = h("ul", { class: "sh-lv" }), nowDone = false;
     lv.forEach(function (x) {
-      if (!nowDone && px !== null && x[1] < px) { nowDone = true; ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: "现价" }), h("span")])); }
+      if (!nowDone && px !== null && x[1] < px) { nowDone = true; ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: tx("现价", "Price now") }), h("span")])); }
       ul.appendChild(h("li", { class: px !== null && x[1] >= px ? "res" : "sup" }, [h("b", { class: "mono", text: fmt(x[1], 1) }), h("span", { text: x[0] }), h("span", { class: "dd mono", text: dist(x[1]) })]));
     });
-    if (!nowDone && px !== null) ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: "现价" }), h("span")]));
+    if (!nowDone && px !== null) ul.appendChild(h("li", { class: "now" }, [h("b", { class: "mono", text: fmt(px, 1) }), h("span", { text: tx("现价", "Price now") }), h("span")]));
     var cols = h("div", { class: "sh-cols" }), left = h("div"); cols.appendChild(left); box.appendChild(cols);
-    left.appendChild(h("div", { class: "sh-sub", text: "今天要看的价位" })); left.appendChild(ul);
-    left.appendChild(h("p", { class: "sh-tf", text: "1 小时" + way(R.dirs["1H"]) + "（RSI " + (num(H1.rsi) !== null ? Math.round(H1.rsi) : "—") + "）、15 分钟" + way(R.dirs["15M"]) + "（RSI " + (num(((E.tfs || {})["15M"] || {}).rsi) !== null ? Math.round(E.tfs["15M"].rsi) : "—") + "）。亚洲盘按交易日开盘后 8 小时算（" + sgt(asiaA * 1000, "t") + "–" + sgt(asiaB * 1000, "t") + " SGT）。" }));
+    left.appendChild(h("div", { class: "sh-sub", text: tx("今天要看的价位", "Levels to watch today") })); left.appendChild(ul);
+    left.appendChild(h("p", { class: "sh-tf", text: EN ? "1-hour " + way(R.dirs["1H"]) + " (RSI " + (num(H1.rsi) !== null ? Math.round(H1.rsi) : "—") + "), 15-min " + way(R.dirs["15M"]) + " (RSI " + (num(((E.tfs || {})["15M"] || {}).rsi) !== null ? Math.round(E.tfs["15M"].rsi) : "—") + "). The Asian session is the trading day's first 8 hours (" + sgt(asiaA * 1000, "t") + "–" + sgt(asiaB * 1000, "t") + " SGT)." : "1 小时" + way(R.dirs["1H"]) + "（RSI " + (num(H1.rsi) !== null ? Math.round(H1.rsi) : "—") + "）、15 分钟" + way(R.dirs["15M"]) + "（RSI " + (num(((E.tfs || {})["15M"] || {}).rsi) !== null ? Math.round(E.tfs["15M"].rsi) : "—") + "）。亚洲盘按交易日开盘后 8 小时算（" + sgt(asiaA * 1000, "t") + "–" + sgt(asiaB * 1000, "t") + " SGT）。" }));
     // 3. the reference setup: yesterday's high or low taken out, with the daily and 4-hour trend
     var ref = h("div", { class: "sh-ref" + (want ? "" : " off") }), lines = [], atr = num(H1.atr), Rd = atr ? 1.5 * atr : null;
     var first = null;
@@ -1837,29 +1899,31 @@
       for (var i = 0; i < today.length; i++) { var k = today[i], t = k[0] / 1000; if (t < asiaA || t >= lastNew) continue; var up = k[2] > pdh, dn = k[3] < pdl; if (up || dn) { first = { dir: up && dn ? 0 : up ? 1 : -1, t: k[6] + 1, i: i }; break; } }
       if (!first && open && px !== null && nowS >= asiaA && nowS < lastNew) { if (px > pdh) first = { dir: 1, t: Date.now(), live: true }; else if (px < pdl) first = { dir: -1, t: Date.now(), live: true }; }
     }
-    var head = "昨日高低点突破（顺日线和 4 小时）";
-    if (!want) lines.push("日线" + way(dD) + "、4 小时" + way(d4) + "，不一致：按这条规则今天没有短线方向。");
-    else if (!Rd) lines.push("暂时算不出小时波幅。");
+    var head = tx("昨日高低点突破（顺日线和 4 小时）", "Yesterday's high/low break (with the daily and 4-hour)");
+    if (!want) lines.push(EN ? "Daily " + way(dD) + ", 4-hour " + way(d4) + ": not agreeing, so this rule has no short-term direction today." : "日线" + way(dD) + "、4 小时" + way(d4) + "，不一致：按这条规则今天没有短线方向。");
+    else if (!Rd) lines.push(tx("暂时算不出小时波幅。", "The 1-hour ATR cannot be worked out yet."));
     else {
-      var lvl = want > 0 ? pdh : pdl, other = want > 0 ? pdl : pdh, act = want > 0 ? "做多" : "做空", cross = want > 0 ? "突破" : "跌破";
-      var e = lvl, st = e - want * Rd, tg = e + want * 2 * Rd, plan = "入场 " + fmt(e, 1) + "，止损 " + fmt(st, 1) + "（1.5 倍小时波幅，" + fmt(Rd, 1) + "），目标 " + fmt(tg, 1) + "（2R），" + sgt(outAt * 1000, "t") + " SGT 前离场。";
-      if (!open && !today.length) lines.push("休市中。下个交易日：日线和 4 小时都" + way(want) + "，开盘后先" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + " 就是短线" + act + "参考：" + plan);
-      else if (!first && nowS >= lastNew) lines.push("今天没有触发，已过开新单的时段（离场前 2 小时不再开新单）。");
-      else if (!first) lines.push("等：价格" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + "（" + (dist(lvl) || "—") + "）→ 短线" + act + "参考：" + plan + "如果先" + (want > 0 ? "跌破昨日低点 " : "突破昨日高点 ") + fmt(other, 1) + "，今天就不做。");
-      else if (first.dir !== want) lines.push("今天先" + (first.dir > 0 ? "突破的是昨日高点" : first.dir < 0 ? "跌破的是昨日低点" : "两边都碰了") + "（" + sgt(first.t, "t") + "），和日线、4 小时的方向不符：按这条规则今天不做。");
+      var lvl = want > 0 ? pdh : pdl, other = want > 0 ? pdl : pdh, act = want > 0 ? tx("做多", "long") : tx("做空", "short"), cross = want > 0 ? tx("突破", "breaks above") : tx("跌破", "breaks below");
+      var e = lvl, st = e - want * Rd, tg = e + want * 2 * Rd, plan = EN ? "entry " + fmt(e, 1) + ", stop " + fmt(st, 1) + " (1.5 × the 1-hour ATR, " + fmt(Rd, 1) + "), target " + fmt(tg, 1) + " (2R), out by " + sgt(outAt * 1000, "t") + " SGT. " : "入场 " + fmt(e, 1) + "，止损 " + fmt(st, 1) + "（1.5 倍小时波幅，" + fmt(Rd, 1) + "），目标 " + fmt(tg, 1) + "（2R），" + sgt(outAt * 1000, "t") + " SGT 前离场。";
+      if (!open && !today.length) lines.push(EN ? "Market closed. Next trading day: daily and 4-hour both " + way(want) + "; if after the open price first " + cross + " yesterday's " + (want > 0 ? "high " : "low ") + fmt(lvl, 1) + ", that is the short-term " + act + " reference: " + plan : "休市中。下个交易日：日线和 4 小时都" + way(want) + "，开盘后先" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + " 就是短线" + act + "参考：" + plan);
+      else if (!first && nowS >= lastNew) lines.push(EN ? "Not triggered today, and past the time for new trades (none in the last 2 hours before the exit)." : "今天没有触发，已过开新单的时段（离场前 2 小时不再开新单）。");
+      else if (!first) lines.push(EN ? "Wait: price " + cross + " yesterday's " + (want > 0 ? "high " : "low ") + fmt(lvl, 1) + " (" + (dist(lvl) || "—") + ") → short-term " + act + " reference: " + plan + "If it first " + (want > 0 ? "breaks below yesterday's low " : "breaks above yesterday's high ") + fmt(other, 1) + ", no trade today." : "等：价格" + cross + "昨日" + (want > 0 ? "高点 " : "低点 ") + fmt(lvl, 1) + "（" + (dist(lvl) || "—") + "）→ 短线" + act + "参考：" + plan + "如果先" + (want > 0 ? "跌破昨日低点 " : "突破昨日高点 ") + fmt(other, 1) + "，今天就不做。");
+      else if (first.dir !== want) lines.push(EN ? "Today it first " + (first.dir > 0 ? "broke yesterday's high" : first.dir < 0 ? "broke yesterday's low" : "touched both sides") + " (" + sgt(first.t, "t") + "), against the daily and 4-hour: by this rule, no trade today." : "今天先" + (first.dir > 0 ? "突破的是昨日高点" : first.dir < 0 ? "跌破的是昨日低点" : "两边都碰了") + "（" + sgt(first.t, "t") + "），和日线、4 小时的方向不符：按这条规则今天不做。");
       else {
         // follow the reference trade through the candles since it triggered, then the live price
         var res = null, after = first.live ? [] : today.slice(first.i + (first.live ? 0 : 1));
         after.forEach(function (k) { if (res) return; if (want > 0 ? k[3] <= st : k[2] >= st) res = "stop"; else if (want > 0 ? k[2] >= tg : k[3] <= tg) res = "target"; });
         if (!res && px !== null) { if ((px - st) * want <= 0) res = "stop"; else if ((px - tg) * want >= 0) res = "target"; }
         var nowR = px !== null ? (px - e) * want / Rd : null;
-        lines.push((first.live ? "刚刚" : sgt(first.t, "t") + " SGT ") + cross + "昨日" + (want > 0 ? "高点" : "低点") + "，短线" + act + "参考已触发：" + plan +
+        lines.push(EN ? (first.live ? "Just now" : "At " + sgt(first.t, "t") + " SGT") + " price " + cross + " yesterday's " + (want > 0 ? "high" : "low") + ": the short-term " + act + " reference has triggered: " + plan +
+            (res === "stop" ? "It has since hit the stop (−1R)." : res === "target" ? "It has since reached the target (+2R)." : nowOut(outAt) ? "Exit time has come." : nowR !== null ? "Now " + (nowR >= 0 ? "+" : "−") + Math.abs(nowR).toFixed(2) + "R." : "")
+          : (first.live ? "刚刚" : sgt(first.t, "t") + " SGT ") + cross + "昨日" + (want > 0 ? "高点" : "低点") + "，短线" + act + "参考已触发：" + plan +
           (res === "stop" ? "之后已经碰到止损（−1R）。" : res === "target" ? "之后已经到目标（+2R）。" : nowOut(outAt) ? "已到离场时间。" : nowR !== null ? "现在 " + (nowR >= 0 ? "+" : "−") + Math.abs(nowR).toFixed(2) + "R。" : ""));
       }
-      if (R.dir && R.dir === want) lines.push(R.full ? "和主信号同方向：主信号是「" + (R.dir > 0 ? "可以顺势做多" : "可以顺势做空") + "」。" : "和三个大周期同方向；主信号还在等小周期。");
-      else if (!R.dir) lines.push("周线和日线、4 小时不一致，主结论是观望：短线单只是日内的，不要拿过夜。");
+      if (R.dir && R.dir === want) lines.push(R.full ? (EN ? "Same direction as the main signal, which says «Go " + (R.dir > 0 ? "long" : "short") + " with the trend»." : "和主信号同方向：主信号是「" + (R.dir > 0 ? "可以顺势做多" : "可以顺势做空") + "」。") : tx("和三个大周期同方向；主信号还在等小周期。", "Same direction as the three big trends; the main signal is still waiting for the small timeframes."));
+      else if (!R.dir) lines.push(tx("周线和日线、4 小时不一致，主结论是观望：短线单只是日内的，不要拿过夜。", "The weekly does not agree with the daily and 4-hour, so the main answer is wait: a short-term trade is intraday only; do not hold it overnight."));
     }
-    ref.appendChild(h("div", { class: "sh-rh" }, [h("b", { text: "短线参考 · " + head }), h("span", { class: "chip neut", text: "参考，不是信号 · 不提醒" })]));
+    ref.appendChild(h("div", { class: "sh-rh" }, [h("b", { text: tx("短线参考 · ", "Short-term reference · ") + head }), h("span", { class: "chip neut", text: tx("参考，不是信号 · 不提醒", "reference, not a signal · no alerts") })]));
     lines.forEach(function (x) { ref.appendChild(h("p", { text: x })); });
     var wd = P.words(); if (wd.shortText) ref.appendChild(h("p", { class: "sh-note", text: wd.shortText }));
     cols.appendChild(ref);
@@ -1874,7 +1938,7 @@
     var quotes = Promise.all([fetchSpot(), num(S.raw) === null ? fetchTick() : null]), wait = new Promise(function (ok) { setTimeout(ok, 1500); });
     Promise.all([Feed.load(), Promise.race([quotes, wait])]).then(function (res) {
       quotes.then(function () { if (S.E) { calibrate(); setLive(); paintLive(); } }, function () {});
-      var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error("行情接口没有返回数据");
+      var feed = res[0], E = runXauEngine(feed); if (!E || num(E.price) === null) throw new Error(tx("行情接口没有返回数据", "the price feed returned no data"));
       S.feed = feed; S.E = E; S.lastRun = Date.now(); S.lastQ = Math.floor((Date.now() - 25000) / 900000);
       calibrate(); setLive();
       // the finished minutes since the last quarter-hour: they complete the candle that is still forming, and stand
@@ -1892,7 +1956,7 @@
       renderProof(); trendCheck(E, feed.source); renderChanges();
       if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
-      $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : "网络异常") + "。" + (S.E ? "页面保留上一次的结果。" : "");
+      $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : tx("网络异常", "network problem")) + tx("。", ". ") + (S.E ? tx("页面保留上一次的结果。", "The page keeps the last result.") : "");
     }).then(function () { S.busy = false; document.body.classList.remove("refreshing"); });
   }
   function tick() {
@@ -1913,7 +1977,7 @@
   all("[data-side]").forEach(function (b) { b.addEventListener("click", function () {
     var side = b.getAttribute("data-side"); if (side === S.plan.side) return;
     var was = currentSize(), m = P.mirror(S.plan, side); S.plan.side = side;
-    if (was.valid && m.changed) { S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); toast("已换成" + (side === "short" ? "做空" : "做多") + "：止损和目标翻到了另一边，距离不变"); }
+    if (was.valid && m.changed) { S.plan.stop = m.plan.stop; S.plan.tp1 = m.plan.tp1; S.plan.tp2 = m.plan.tp2; touched(); toast(EN ? "Switched to " + (side === "short" ? "short" : "long") + ": the stop and target flipped to the other side, same distance" : "已换成" + (side === "short" ? "做空" : "做多") + "：止损和目标翻到了另一边，距离不变"); }
     replan();
   }); });
   all("[data-pick]").forEach(function (b) { b.addEventListener("click", function () { var f = b.getAttribute("data-pick"); S.armed = S.armed === f ? null : f; renderArm(); if (S.armed) { var r = $("chart").getBoundingClientRect(); if (r.bottom < 120 || r.top > window.innerHeight - 120) $("chart").scrollIntoView({ behavior: "smooth", block: "center" }); } }); });
@@ -1925,17 +1989,17 @@
   all("#helpers button[data-h]").forEach(function (b) { b.addEventListener("click", function () { helper(b.getAttribute("data-h")); }); });
   all("#dtabs [data-tab]").forEach(function (b) { b.addEventListener("click", function () { showTab(b.getAttribute("data-tab")); }); });
   $("in-note").addEventListener("input", function () { S.plan.note = this.value; persistPlan(); });
-  $("copy").addEventListener("click", function () { if (num(S.plan.entry) === null || num(S.plan.stop) === null) { toast("先填入场价和止损价"); return; } copyText(planAsText()); });
+  $("copy").addEventListener("click", function () { if (num(S.plan.entry) === null || num(S.plan.stop) === null) { toast(tx("先填入场价和止损价", "Fill in the entry and stop first")); return; } copyText(planAsText()); });
   $("save").addEventListener("click", function () {
-    if (num(S.plan.entry) === null || num(S.plan.stop) === null) { toast("先填入场价和止损价"); return; }
+    if (num(S.plan.entry) === null || num(S.plan.stop) === null) { toast(tx("先填入场价和止损价", "Fill in the entry and stop first")); return; }
     var sz = currentSize();
     S.saved.unshift({ side: S.plan.side, entry: S.plan.entry, stop: S.plan.stop, tp1: S.plan.tp1, tp2: S.plan.tp2, note: S.plan.note || "", lots: sz.lots, when: sgt(Date.now(), "full"), basis: basisName(), status: "计划中" });
-    S.saved = S.saved.slice(0, 20); LS.set("saved", S.saved); renderSaved(); toast("已保存，在下方「已保存」里");
+    S.saved = S.saved.slice(0, 20); LS.set("saved", S.saved); renderSaved(); toast(tx("已保存，在下方「已保存」里", "Saved: see «Saved» below"));
   });
   $("reset").addEventListener("click", clearPlan);
   $("enter").addEventListener("click", enterPos);
   $("stale-clear").addEventListener("click", clearPlan);
-  $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, "按现在的行情重算"); });
+  $("stale-new").addEventListener("click", function () { var c = sysPlanNow(false); if (c) loadCandidate(c, tx("按现在的行情重算", "Worked out again from the market now")); });
   $("retry").addEventListener("click", refresh);
   $("refresh-now").addEventListener("click", function () { refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds(); });
   $("ladder").addEventListener("mouseenter", function () { S.overLadder = true; }); $("ladder").addEventListener("mouseleave", function () { S.overLadder = false; });
