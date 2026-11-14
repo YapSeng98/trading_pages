@@ -64,9 +64,10 @@ header.pg-head .hdate{text-align:left}
 
 /* ── smoother loading: keep room for what arrives a moment later, so the page does not jump ── */
 .verdict:has(#v-title .sk){min-height:1000px}
+.verdict{align-content:start}   /* the reserved height while loading must not stretch the grid rows (the answer jumped up when they closed) */
 #gold-bar:empty{min-height:210px;margin-bottom:22px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015))}
 @media(max-width:860px){#gold-bar:empty{min-height:480px}}
-@media(max-width:640px){.verdict:has(#v-title .sk){min-height:1800px}}
+@media(max-width:640px){#v-title:has(.sk){min-height:2.6em}#v-text:has(.sk){min-height:8.5em}.verdict:has(#v-title .sk){min-height:1800px}}
 
 /* ── phones: nothing under 11px, and controls a finger can hit ── */
 @media(max-width:640px){

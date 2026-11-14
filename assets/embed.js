@@ -4,6 +4,15 @@
 // Opened on its own, nothing changes. Load it in <head>, before the page renders.
 (function () {
   "use strict";
+  // The live bar, the fold of old text and its facts (assets/gold-bar.js, daily-live.js) change the layout once the
+  // data files arrive: on desktop that was a layout shift of 0.3. Keep the page's content unseen until the live bar has
+  // painted with its data ("goldbar:update"), 1.5 s at most.
+  var html = document.documentElement, hold = document.createElement("style");
+  hold.textContent = "html.gb-wait header,html.gb-wait main,html.gb-wait footer{visibility:hidden}";
+  document.head.appendChild(hold); html.classList.add("gb-wait");
+  var show = function () { html.classList.remove("gb-wait"); };
+  document.addEventListener("goldbar:update", function () { requestAnimationFrame(show); });
+  setTimeout(show, 1500);
   var inFrame = false; try { inFrame = window.self !== window.top && window.parent.location.origin === location.origin; } catch (e) { inFrame = false; }
   if (!inFrame) return;
   var root = document.documentElement; root.classList.add("embedded");

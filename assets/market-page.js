@@ -1149,6 +1149,19 @@
       eventsFromRisk().catch(function () { clear($("events")).appendChild(h("p", { class: "note", text: tx("这一周的日历暂时读不到：进场前自己在 ForexFactory 看一眼有没有大数据。", "This week's calendar cannot be read right now: check ForexFactory yourself for big releases before entering.") })); });
     });
 
+    // the daily brief (66 KB) is read only for its two entry lines: fetch it when the planner, the plans box or the brief
+    // comes near the screen, not on every visit
+    if (M.dailyPlans !== false && "IntersectionObserver" in window && !S.dailyAsked) {
+      var near = ["plan", "dplans", "read"].map($).filter(Boolean);
+      if (near.length) {
+        var dio = new IntersectionObserver(function (es) { if (es.some(function (x) { return x.isIntersecting; })) { dio.disconnect(); S.dailyAsked = true; loadDailyPlans(); } }, { rootMargin: "600px 0px" });
+        near.forEach(function (e) { dio.observe(e); });
+        return;
+      }
+    }
+    loadDailyPlans();
+  }
+  function loadDailyPlans() {
     (M.dailyPlans === false ? Promise.reject(new Error("none")) : getDoc("daily.html")).then(function (doc) {
       var items = [].slice.call(doc.querySelectorAll(".risk-list li")).map(txt).filter(function (t) { return t.indexOf("入场方案") >= 0; }).slice(0, 2);
       // when the brief was written: older than 30 hours (the daily refresh did not run), its plans are not offered

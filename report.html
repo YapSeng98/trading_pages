@@ -611,7 +611,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 @media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
 *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
 </style>
-<link rel="stylesheet" href="assets/site.css?v=8">
+<link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
 <div class="mesh"><div class="orb-violet"></div></div>
@@ -656,7 +656,8 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
     <button class="btn sm ghost" type="button" id="howto-x" data-en="Got it ×">知道了 ×</button>
   </div>
 
-  <div class="banner" id="feed-warn" hidden><span>⚠</span><div id="feed-warn-t"></div></div>
+  <script>try{if(!JSON.parse(localStorage.getItem("xau4h.howtoDone")))document.getElementById("howto").hidden=false}catch(e){document.getElementById("howto").hidden=false}</script>
+<div class="banner" id="feed-warn" hidden><span>⚠</span><div id="feed-warn-t"></div></div>
   <div class="banner err" id="err" hidden><span>⚠</span><div><b data-en="Prices failed to load.">行情加载失败。</b> <span id="err-t"></span> <button class="btn sm" type="button" id="retry" data-en="Retry">重试</button></div></div>
 
   <!-- the answer first -->
@@ -939,7 +940,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=2"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=29"></script>
+<script src="assets/market-page.js?v=30"></script>
 <script src="assets/site.js?v=3" defer></script>
 </body>
 </html>
