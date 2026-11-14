@@ -313,9 +313,12 @@
     b.className = "btn pri wide" + (V.sign < 0 ? " neg" : "");
     $("c-save").textContent = (V.edit && V.edit.c === "cash" ? "保存修改 " : "记下提现 ") + (isFinite(c) && c > 0 ? D.cur + money(c, 2) : "") + (V.cplat ? " · " + V.cplat : "") + on;
   }
+  // a platform's initial on a colour picked from its name, so the same platform looks the same everywhere
+  var MONO = ["#E6BE55", "#5EE3B0", "#A99BFF", "#7CC4FF", "#F59AB0", "#B5E36B"];
+  function mono(p) { var k = 0; for (var i = 0; i < p.length; i++) k = (k * 31 + p.charCodeAt(i)) >>> 0; return h("span", { class: "mono", style: "background:" + MONO[k % MONO.length], "aria-hidden": "true", text: p.charAt(0).toUpperCase() }); }
   function chipRow(el, sel, pick) {
     clear(el);
-    plats().forEach(function (p) { el.appendChild(h("button", { type: "button", class: "chip", "aria-pressed": String(p === sel), text: p, onclick: function () { pick(p === sel ? "" : p); } })); });
+    plats().forEach(function (p) { el.appendChild(h("button", { type: "button", class: "chip", "aria-pressed": String(p === sel), onclick: function () { pick(p === sel ? "" : p); } }, [mono(p), p])); });
     el.appendChild(h("button", { type: "button", class: "chip add", text: "＋ 新平台", onclick: function () { newPlat(el, pick); } }));
   }
   function newPlat(el, pick) {
@@ -331,7 +334,7 @@
     chipRow($("t-plats"), V.tplat, function (p) { V.tplat = p; paintPlats(); });
     chipRow($("c-plats"), V.cplat, function (p) { V.cplat = p; $("c-err").hidden = true; paintPlats(); saveLabel(); });
     var s = clear($("s-plats"));
-    D.plats.forEach(function (p) { s.appendChild(h("button", { type: "button", class: "chip", title: "从列表里删掉 " + p, "aria-label": "删掉平台 " + p, onclick: function () { D.plats = D.plats.filter(function (q) { return q !== p; }); settingsChanged(); save(); paintPlats(); } }, [p, h("span", { class: "x", text: "×" })])); });
+    D.plats.forEach(function (p) { s.appendChild(h("button", { type: "button", class: "chip", title: "从列表里删掉 " + p, "aria-label": "删掉平台 " + p, onclick: function () { D.plats = D.plats.filter(function (q) { return q !== p; }); settingsChanged(); save(); paintPlats(); } }, [mono(p), p, h("span", { class: "x", text: "×" })])); });
     s.appendChild(h("button", { type: "button", class: "chip add", text: "＋ 新平台", onclick: function () { newPlat(s, function () { paintPlats(); }); } }));
   }
   var TF = ["t-amt", "t-sym", "t-lots", "t-risk", "t-note"];
@@ -814,8 +817,11 @@
     el.appendChild(h("p", { class: "note", text: "笔数少的时候差别说明不了什么，至少看二三十笔。" }));
   }
 
+  var CURS = ["$", "RM", "S$", "US$", "¥", "€"];
   function renderSettings() {
-    if (document.activeElement !== $("s-cur")) $("s-cur").value = D.cur;
+    var cs = clear($("curs"));
+    CURS.forEach(function (c) { cs.appendChild(h("button", { type: "button", class: "chip", "aria-pressed": String(D.cur === c), text: c, onclick: function () { D.cur = c; $("s-cur").value = ""; settingsChanged(); save(); renderAll(); } })); });
+    if (document.activeElement !== $("s-cur")) $("s-cur").value = CURS.indexOf(D.cur) < 0 ? D.cur : "";
     if (document.activeElement !== $("s-start")) $("s-start").value = num(D.start) === null ? "" : D.start;
   }
   function renderAll() {
@@ -1047,12 +1053,12 @@
     function sqlLinks() { return [link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), "，把 ", link("https://github.com/YapSeng98/trading_pages/blob/main/supabase/journal.sql", "supabase/journal.sql"), " 整段贴进去，点 Run（只做一次）"]; }
     function state() {
       var c = conf(), s = sess(), n = pending();
-      if (!c) return { k: "", t: "只存在本机" };
-      if (!s) return { k: "", t: "未登录云端" };
+      if (!c) return { k: "", t: "已保存在本机" };
+      if (!s) return { k: "", t: "本机已保存 · 云端未登录" };
       if (st.busy) return { k: "busy", t: "同步中…" };
       if (st.err) return { k: "err", t: st.missing ? "云端未建表" : "同步没成功" };
       if (n) return { k: "busy", t: n + " 条待上传" };
-      return { k: "ok", t: "已同步" + (D.synced ? " " + hm(D.synced) : "") };
+      return { k: "ok", t: "已同步到云端" + (D.synced ? " " + hm(D.synced) : "") };
     }
     function paintMsg() {
       var m = $("cl-msg"); if (!m) return; clear(m);
@@ -1061,49 +1067,68 @@
       if (st.resend && !sess()) m.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", text: "重发确认邮件", onclick: resend })]));
       if (st.err && sess()) m.appendChild(h("div", { class: "warn" }, st.missing ? ["云端还没有建表：打开 Supabase 的 "].concat(sqlLinks(), ["，再点「立即同步」。"]) : [st.err]));
     }
+    function flow(sx, c, s) {
+      var n = D.items.length + D.cash.length;
+      $("fl-a-t").textContent = "自动保存 · " + n + " 条";
+      var b = $("fl-b"), cl = !c || !s ? "" : sx.k === "ok" ? "on" : sx.k === "err" ? "err" : "busy";
+      b.className = "node " + cl;
+      $("fl-b-t").textContent = !c ? "未连接" : !s ? "未登录" : st.busy ? "同步中…" : st.err ? (st.missing ? "未建表" : "没成功") : pending() ? pending() + " 条待传" : D.synced ? "已同步 " + hm(D.synced) : "已登录";
+      $("fl-l1").className = "link" + (cl === "on" || cl === "busy" ? " on" : "");
+      $("fl-c").className = "node" + (s && cl === "on" ? " on" : "");
+      $("fl-c-t").textContent = s ? "登录同一个账号即同步" : "登录同一个账号就能同步";
+      $("fl-l2").className = "link" + (s && cl === "on" ? " on" : "");
+      var step = !c ? 1 : !s ? 2 : 3;
+      Array.prototype.forEach.call($("cl-steps").children, function (li, k) {
+        var no = k + 1, done = no < step || (no === 3 && cl === "on"), i = li.firstChild;
+        li.className = done ? "done" : no === step ? "now" : "";
+        clear(i); if (done) i.appendChild(icon("check")); else i.textContent = String(no);
+      });
+    }
     function paint() {
       var c = conf(), s = sess(), sx = state(), pill = $("syncpill");
       pill.className = "sync " + sx.k; pill.textContent = sx.t;
       var cs = $("cl-state"); cs.className = "end pill " + sx.k; cs.textContent = sx.t;
+      flow(sx, c, s);
       var mode = !c ? "key" : !s ? "login" : st.recovery ? "recovery" : "acct", body = $("cl-body");
       if (mode !== st.mode) {
         st.mode = mode; clear(body);
         if (mode === "key") {
-          body.appendChild(h("p", { class: "note", text: "现在记录只存在这台设备的浏览器里。连上你的 Supabase 项目后，手机和电脑看到的是同一份记录，换设备、清浏览器也不会丢。准备一次就好：" }));
+          body.appendChild(h("p", { class: "note", text: "记录已经自动存在这台设备上，不连云端也不会丢。连上你的 Supabase 项目以后，手机和电脑看到的是同一份，换设备、清浏览器也不怕。准备一次就好：" }));
           body.appendChild(h("ol", { class: "steps" }, [
             h("li", {}, ["打开 Supabase 的 "].concat(sqlLinks(), ["。"])),
             h("li", {}, ["打开 ", link("https://supabase.com/dashboard/project/" + ref() + "/settings/api-keys", "Project Settings → API Keys"), "，复制 ", h("b", { text: "Publishable key" }), "（sb_publishable_ 开头；旧项目叫 anon public），贴在下面。"])]));
-          body.appendChild(h("div", { class: "inp t" }, [h("input", { id: "cl-key", type: "text", autocomplete: "off", spellcheck: "false", placeholder: "sb_publishable_…", "aria-label": "Supabase publishable key" })]));
-          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: "连接", onclick: connect })]));
+          body.appendChild(h("div", { class: "fld" }, [icon("key", "sm"), h("input", { id: "cl-key", type: "text", autocomplete: "off", spellcheck: "false", placeholder: "sb_publishable_…", "aria-label": "Supabase publishable key" })]));
+          body.appendChild(h("button", { class: "btn pri wide", type: "button", onclick: connect }, ["连接", icon("arrow", "sm")]));
           body.appendChild(h("p", { class: "note", text: "不要贴 secret key 或 service_role key：那是管理员钥匙，放进网页谁都能拿去。Publishable key 本来就是给网页用的，配合登录，每个人只能读写自己的记录。" }));
         } else if (mode === "login") {
           var a = st.auth || {}, open = !a.disable_signup;
-          body.appendChild(h("p", { class: "note", text: open ? "填邮箱和密码，点「登录 / 注册」：有账号就登录，第一次用就自动帮你注册。之后这台设备会一直保持登录，打开就自动同步。" : "用已有的账号登录。之后这台设备会一直保持登录，打开就自动同步。" }));
-          var em = h("input", { id: "cl-email", type: "email", autocomplete: "email", inputmode: "email", placeholder: "you@example.com" }); em.value = ls(MAIL) || "";
-          body.appendChild(h("div", { class: "f2" }, [
-            h("div", {}, [h("label", { for: "cl-email", text: "邮箱" }), h("div", { class: "inp t" }, [em])]),
-            h("div", {}, [h("label", { for: "cl-pw", text: "密码（至少 6 位）" }), h("div", { class: "inp t" }, [h("input", { id: "cl-pw", type: "password", autocomplete: "current-password", placeholder: "••••••" })])])]));
-          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: open ? "登录 / 注册" : "登录", onclick: function () { auth("auto"); } }),
-            h("button", { class: "btn ghost", type: "button", text: "忘记密码", onclick: function () { auth("recover"); } })]));
-          if (open && a.mailer_autoconfirm !== true) body.appendChild(h("p", { class: "note", text: "第一次注册时，Supabase 会发一封确认邮件，点一次里面的链接就好。" }));
-          if (!CFG.key) body.appendChild(h("p", { class: "note" }, [h("a", { href: "#cloud", text: "换一个 Supabase key", onclick: function (e) { e.preventDefault(); try { localStorage.removeItem(CKEY); } catch (x) {} st.auth = null; st.mode = null; paint(); } })]));
-          $("cl-pw").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); auth("auto"); } });
+          body.appendChild(h("p", { class: "note", text: "记录已经自动存在这台设备上。登录只是多一份云端副本，让手机和电脑同步：" + (open ? "有账号就登录，第一次用会自动帮你注册。" : "用已有的账号登录。") + "每台设备登录一次，之后一直保持登录。" }));
+          var em = h("input", { id: "cl-email", type: "email", autocomplete: "email", inputmode: "email", placeholder: "邮箱", "aria-label": "邮箱" }); em.value = ls(MAIL) || "";
+          var pw = h("input", { id: "cl-pw", type: "password", autocomplete: "current-password", placeholder: "密码（至少 6 位）", "aria-label": "密码" });
+          var eye = h("button", { class: "ibtn", type: "button", "aria-label": "显示密码", onclick: function () { var show = pw.type === "password"; pw.type = show ? "text" : "password"; clear(eye).appendChild(icon(show ? "eyeoff" : "eye", "sm")); eye.setAttribute("aria-label", show ? "隐藏密码" : "显示密码"); } }, [icon("eye", "sm")]);
+          body.appendChild(h("div", { class: "lgrid" }, [h("div", { class: "fld" }, [icon("mail", "sm"), em]), h("div", { class: "fld" }, [icon("lock", "sm"), pw, eye])]));
+          body.appendChild(h("button", { class: "btn pri wide", type: "button", onclick: function () { auth("auto"); } }, [open ? "登录 / 注册" : "登录", icon("arrow", "sm")]));
+          body.appendChild(h("div", { class: "links" }, [h("button", { type: "button", text: "忘记密码", onclick: function () { auth("recover"); } }),
+            !CFG.key ? h("a", { href: "#cloud", text: "换一个 Supabase key", onclick: function (e) { e.preventDefault(); try { localStorage.removeItem(CKEY); } catch (x) {} st.auth = null; st.mode = null; paint(); } }) : null,
+            open && a.mailer_autoconfirm !== true ? h("span", { class: "note", text: "第一次注册要去邮箱点一次确认链接" }) : null]));
+          pw.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); auth("auto"); } });
         } else if (mode === "recovery") {
           body.appendChild(h("p", { class: "note", text: "你是从「重设密码」的邮件过来的：设一个新密码。" }));
-          body.appendChild(h("div", { class: "inp t" }, [h("input", { id: "cl-newpw", type: "password", autocomplete: "new-password", placeholder: "新密码，至少 6 位", "aria-label": "新密码" })]));
+          body.appendChild(h("div", { class: "fld" }, [icon("lock", "sm"), h("input", { id: "cl-newpw", type: "password", autocomplete: "new-password", placeholder: "新密码，至少 6 位", "aria-label": "新密码" })]));
           body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn pri", type: "button", text: "设好新密码", onclick: setPassword }), h("button", { class: "btn ghost", type: "button", text: "以后再说", onclick: function () { st.recovery = false; st.mode = null; paint(); } })]));
         } else {
-          body.appendChild(h("dl", { class: "kv" }, [h("dt", { text: "账号" }), h("dd", { id: "cl-who" }), h("dt", { text: "状态" }), h("dd", { id: "cl-st" }), h("dt", { text: "云端" }), h("dd", { id: "cl-n" })]));
-          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", text: "立即同步", onclick: function () { st.retried = false; sync().then(function (ok) { if (ok) toast("已同步"); }); } }), h("button", { class: "btn sm ghost", type: "button", text: "退出登录", onclick: signOut })]));
-          body.appendChild(h("p", { class: "note", text: "这台设备会一直保持登录。每次保存几秒后自动上传；打开这一页、切回这一页时也会同步。没网的时候照样能记，连上后补传。" }));
+          body.appendChild(h("div", { class: "acct" }, [h("span", { class: "av", id: "cl-av" }), h("div", { style: "min-width:0" }, [h("b", { id: "cl-who" }), h("small", { id: "cl-st" })])]));
+          body.appendChild(h("div", { class: "mini3" }, [h("div", {}, [h("b", { id: "cl-n1" }), h("span", { text: "笔交易" })]), h("div", {}, [h("b", { id: "cl-n2" }), h("span", { text: "笔提现" })]), h("div", {}, [h("b", { id: "cl-n3" }), h("span", { text: "个目标" })])]));
+          body.appendChild(h("div", { class: "acts" }, [h("button", { class: "btn sm", type: "button", onclick: function () { st.retried = false; sync().then(function (ok) { if (ok) toast("已同步"); }); } }, [icon("refresh", "sm"), "立即同步"]), h("button", { class: "btn sm ghost", type: "button", onclick: signOut }, [icon("logout", "sm"), "退出登录"])]));
+          body.appendChild(h("p", { class: "note", text: "这台设备会一直保持登录：每次保存几秒后自动上传，打开或切回这一页时也会同步。没网的时候照样能记，连上后补传。" }));
         }
         body.appendChild(h("div", { id: "cl-msg", class: "cl" }));
       }
       if (mode === "acct") {
-        $("cl-who").textContent = s.user.email || s.user.id;
-        var n = pending();
-        $("cl-st").textContent = st.busy ? "同步中…" : st.err ? "上次没成功" : D.synced ? "上次同步 " + ms(dOf(D.synced)) + " " + hm(D.synced) + (n ? "；本机还有 " + n + " 条待上传" : "") : "还没同步过";
-        $("cl-n").textContent = D.items.length + " 笔交易 · " + withdrawals().length + " 笔提现 · " + D.goals.length + " 个目标";
+        var who = s.user.email || s.user.id, n = pending();
+        $("cl-av").textContent = who.charAt(0).toUpperCase(); $("cl-who").textContent = who;
+        $("cl-st").textContent = st.busy ? "同步中…" : st.err ? "上次同步没成功" : D.synced ? "已登录 · 上次同步 " + ms(dOf(D.synced)) + " " + hm(D.synced) + (n ? " · 还有 " + n + " 条待上传" : "") : "已登录 · 还没同步过";
+        $("cl-n1").textContent = D.items.length; $("cl-n2").textContent = withdrawals().length; $("cl-n3").textContent = D.goals.length;
       }
       paintMsg();
     }

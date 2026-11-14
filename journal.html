@@ -333,6 +333,62 @@ details.ctx pre{margin-top:8px;max-height:260px;overflow:auto;white-space:pre-wr
 .set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:6px}
 .sub-h{font:600 12.5px/1.4 var(--f-d);color:var(--ink);margin:16px 0 8px}
 
+/* ── cloud: device → cloud → other devices ── */
+.flow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:4px;padding:16px 10px 14px;border-radius:18px;background:radial-gradient(120% 140% at 50% 0%,rgba(10,176,116,.09),transparent 62%),rgba(255,255,255,.02);border:1px solid var(--border);margin-bottom:14px}
+.node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;min-width:0}
+.node .nb{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:var(--bg3);border:1px solid var(--border-2);color:var(--dim);transition:all .25s}
+.node .nb svg.i{width:22px;height:22px}
+.node.on .nb{color:var(--bull);background:rgba(10,176,116,.13);border-color:rgba(10,176,116,.45);box-shadow:0 0 0 5px rgba(10,176,116,.06),0 0 24px rgba(10,176,116,.18)}
+.node.busy .nb{color:var(--gold-lt);background:rgba(212,167,44,.13);border-color:rgba(212,167,44,.45);box-shadow:0 0 0 5px rgba(212,167,44,.06)}
+.node.err .nb{color:var(--bear);background:rgba(219,41,67,.11);border-color:rgba(219,41,67,.45)}
+.node b{font:600 12px/1.3 var(--f-d);color:var(--ink)}
+.node small{font-size:11px;color:var(--dim);line-height:1.4;overflow-wrap:anywhere}
+.node.on small{color:var(--bull)} .node.busy small{color:var(--gold-lt)} .node.err small{color:var(--bear)}
+.link{height:2px;width:clamp(16px,4vw,46px);margin-top:23px;border-radius:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 4px,transparent 4px 8px);transition:background .25s}
+.link.on{background:linear-gradient(90deg,var(--m-bull),rgba(10,176,116,.45))}
+.stepper{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;list-style:none;margin:0 0 14px}
+.stepper li{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.02);min-width:0;white-space:nowrap;overflow:hidden}
+.stepper li i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font:600 11px/1 var(--f-m);font-style:normal;background:var(--bg4);color:var(--dim);flex:none}
+.stepper li i svg.i{width:12px;height:12px;stroke-width:3}
+.stepper li.done{color:var(--text)} .stepper li.done i{background:rgba(10,176,116,.2);color:var(--bull)}
+.stepper li.now{color:var(--ink);border-color:rgba(212,167,44,.45);background:rgba(212,167,44,.07)} .stepper li.now i{background:var(--gold);color:#17130A}
+.lgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fld{display:flex;align-items:center;gap:10px;border:1px solid var(--border-2);background:#0C0C12;border-radius:14px;padding:0 5px 0 14px;min-width:0;transition:border-color .15s,box-shadow .15s}
+.fld:focus-within{border-color:rgba(212,167,44,.6);box-shadow:0 0 0 4px rgba(212,167,44,.08)}
+.fld>svg{color:var(--dim)}
+.fld input{flex:1;min-width:0;border:0;background:transparent;padding:13px 0;font:500 14px/1.2 'Noto Sans SC',sans-serif;color:var(--ink);outline:none}
+.fld input::placeholder{color:#6E6A75}
+.links{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center;font-size:12px}
+.links button,.links a{border:0;background:none;color:var(--dim);font:inherit;cursor:pointer;padding:4px 0;text-decoration:underline dotted rgba(255,255,255,.25);text-underline-offset:3px}
+.links button:hover,.links a:hover{color:var(--ink)}
+.acct{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;border:1px solid rgba(10,176,116,.32);background:linear-gradient(135deg,rgba(10,176,116,.12),transparent 70%)}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:700 17px/1 var(--f-d);color:#06281C;background:linear-gradient(135deg,#7EEBC0,var(--m-bull));flex:none;box-shadow:0 0 0 3px rgba(10,176,116,.15)}
+.acct b{display:block;color:var(--ink);font:600 13.5px/1.35 var(--f-d);overflow-wrap:anywhere}
+.acct small{display:block;font-size:11.5px;color:var(--dim);line-height:1.5}
+.mini3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mini3 div{border:1px solid var(--border);border-radius:13px;padding:10px 12px;background:rgba(255,255,255,.025);min-width:0}
+.mini3 b{display:block;font:700 19px/1.2 var(--f-d);color:var(--ink);font-variant-numeric:tabular-nums}
+.mini3 span{font-size:11px;color:var(--dim)}
+
+/* ── settings ── */
+.sgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sbox{border:1px solid var(--border);border-radius:16px;padding:14px;background:rgba(255,255,255,.02);min-width:0}
+.sbox .sh{display:flex;align-items:center;gap:8px;font:600 12.5px/1.3 var(--f-d);color:var(--ink);margin-bottom:10px}
+.sbox .sh svg{color:var(--gold-dk)}
+.curs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.curs .chip{min-width:44px;justify-content:center;font-family:var(--f-m);font-weight:600}
+.inp input::placeholder{font:400 13px/1.2 'Noto Sans SC',sans-serif;color:#6E6A75;letter-spacing:0}
+.mono{width:20px;height:20px;border-radius:7px;display:inline-grid;place-items:center;font:700 10.5px/1 var(--f-d);color:#0B0B10;margin:-4px 8px -4px -5px;flex:none}
+.tiles3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.tl{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:14px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.025);cursor:pointer;color:var(--text);min-width:0;transition:border-color .15s,transform .15s;font:inherit}
+.tl:hover{border-color:rgba(212,167,44,.45);transform:translateY(-1px)}
+.ti{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(212,167,44,.11);color:var(--gold-lt);border:1px solid rgba(212,167,44,.22);flex:none}
+.tl b{font:600 13px/1.3 var(--f-d);color:var(--ink)}
+.tl small{font-size:11.5px;color:var(--dim);line-height:1.5}
+.install{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;border:1px dashed rgba(212,167,44,.3);margin-top:12px;background:linear-gradient(135deg,rgba(212,167,44,.05),transparent 60%)}
+.install b{display:block;font:600 13px/1.4 var(--f-d);color:var(--ink);margin-bottom:2px}
+@media(max-width:640px){.lgrid,.sgrid,.tiles3{grid-template-columns:minmax(0,1fr)}.tl{flex-direction:row;align-items:center;gap:12px}.tl b{white-space:nowrap}.stepper li{padding:8px 7px;gap:6px;font-size:11px}.node .nb{width:42px;height:42px}.link{margin-top:20px}}
+
 /* ── phone: the entry card is a sheet that slides up from the + button ── */
 .fab{display:none;position:fixed;right:18px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:56;width:60px;height:60px;border-radius:20px;border:0;place-items:center;cursor:pointer;color:#17130A;background:linear-gradient(135deg,#F1D27A,var(--gold));box-shadow:0 12px 34px rgba(212,167,44,.45),0 0 0 1px rgba(255,255,255,.2) inset}
 .fab svg.i{width:26px;height:26px;stroke-width:2.4}
@@ -408,6 +464,19 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
   <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
   <symbol id="i-l" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
   <symbol id="i-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 5.1A10.8 10.8 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17.4 17.4 0 0 0 2 12s3.5 7 10 7a9.9 9.9 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M15 8l2 2"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><path d="M15.4 9.6a6 6 0 1 1-5.8 5.8"/><path d="M9 6.5v5M7.5 8h2.8"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
 </svg>
 <div class="topstrip"></div>
@@ -548,22 +617,30 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
     </div>
 
     <section class="card s6" aria-label="云端同步" id="cloud">
-      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-cloud"/></svg></span><div><h2>云端同步</h2><div class="en">Supabase</div></div><span class="end pill" id="cl-state"></span></div>
+      <div class="ch"><span class="ib g"><svg class="i"><use href="#i-cloud"/></svg></span><div><h2>云端同步</h2><div class="en">Supabase · 可选</div></div><span class="end pill" id="cl-state"></span></div>
+      <div class="flow" aria-hidden="true">
+        <div class="node on" id="fl-a"><span class="nb"><svg class="i"><use href="#i-phone"/></svg></span><b>这台设备</b><small id="fl-a-t">自动保存</small></div>
+        <span class="link" id="fl-l1"></span>
+        <div class="node" id="fl-b"><span class="nb"><svg class="i"><use href="#i-cloud"/></svg></span><b>Supabase 云端</b><small id="fl-b-t">未开启</small></div>
+        <span class="link" id="fl-l2"></span>
+        <div class="node" id="fl-c"><span class="nb"><svg class="i"><use href="#i-laptop"/></svg></span><b>手机 · 电脑</b><small id="fl-c-t">登录同一个账号</small></div>
+      </div>
+      <ol class="stepper" id="cl-steps"><li><i>1</i><span>连接项目</span></li><li><i>2</i><span>登录 / 注册</span></li><li><i>3</i><span>自动同步</span></li></ol>
       <div class="cl" id="cl-body"></div>
     </section>
     <section class="card s6" aria-label="设置与备份">
       <div class="ch"><span class="ib"><svg class="i"><use href="#i-sliders"/></svg></span><div><h2>设置与备份</h2><div class="en">Settings</div></div></div>
-      <div class="set">
-        <div class="f1"><label for="s-cur">货币符号</label><div class="inp t"><input id="s-cur" type="text" maxlength="4" placeholder="$"></div></div>
-        <div class="f1"><label for="s-start">月初账户余额（填了就能看到百分比）</label><div class="inp"><span class="cur">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填"></div></div>
+      <div class="sgrid">
+        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-coins"/></svg>货币</div><div class="curs" id="curs"></div><div class="inp t"><input id="s-cur" type="text" maxlength="4" placeholder="其他符号，自己填" aria-label="货币符号"></div></div>
+        <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-wallet"/></svg>月初账户余额</div><div class="inp"><span class="cur">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填" aria-label="月初账户余额"></div><p class="note" style="margin-top:8px">填了，本月盈亏会显示占余额的百分之几。</p></div>
       </div>
-      <div class="sub-h">我的平台</div>
-      <div class="chips" id="s-plats"></div>
-      <p class="note" style="margin-top:8px">记交易和提现时点选平台用。删掉一个平台，已经记下的记录不受影响。</p>
-      <div class="sub-h">备份</div>
-      <div class="acts"><button class="btn sm" type="button" id="export"><svg class="i sm"><use href="#i-dl"/></svg>导出备份</button><label class="btn sm" style="cursor:pointer"><svg class="i sm"><use href="#i-ul"/></svg>导入备份<input type="file" id="import" accept="application/json,.json" hidden></label><button class="btn sm" type="button" id="csv"><svg class="i sm"><use href="#i-dl"/></svg>导出为表格（CSV）</button></div>
-      <div class="sub-h">单独放在手机桌面</div>
-      <p class="note">用浏览器菜单的「添加到主屏幕」（iPhone 在分享按钮里），桌面上会多一个「盈亏日历」图标，打开直接就是这一页。</p>
+      <div class="sbox" style="margin-top:12px"><div class="sh"><svg class="i sm"><use href="#i-layers"/></svg>我的平台</div><div class="chips" id="s-plats"></div><p class="note" style="margin-top:8px">记交易和提现时点选平台用。删掉一个平台，已经记下的记录不受影响。</p></div>
+      <div class="tiles3">
+        <button class="tl" type="button" id="export"><span class="ti"><svg class="i"><use href="#i-dl"/></svg></span><span><b>导出备份</b><br><small>存成一个文件，换设备时读回来</small></span></button>
+        <label class="tl"><span class="ti"><svg class="i"><use href="#i-ul"/></svg></span><span><b>导入备份</b><br><small>读回导出的文件，不会重复</small></span><input type="file" id="import" accept="application/json,.json" hidden></label>
+        <button class="tl" type="button" id="csv"><span class="ti"><svg class="i"><use href="#i-table"/></svg></span><span><b>导出表格</b><br><small>CSV，Excel 和 Numbers 能打开</small></span></button>
+      </div>
+      <div class="install"><span class="ti"><svg class="i"><use href="#i-phone"/></svg></span><div><b>单独放在手机桌面</b><p class="note">浏览器菜单里的「添加到主屏幕」（iPhone 在分享按钮里），桌面上会多一个「盈亏日历」图标，打开直接就是这一页。</p></div></div>
     </section>
   </div>
 </main>
@@ -573,6 +650,6 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
 <div class="scrim" id="scrim"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/journal.js?v=2"></script>
+<script src="assets/journal.js?v=3"></script>
 </body>
 </html>
