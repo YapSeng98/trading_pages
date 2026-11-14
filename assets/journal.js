@@ -938,8 +938,9 @@
   function noteState() {       // where this day's remark is kept: this device only, waiting to upload, or the cloud too
     var n = IDX.note[V.sel], w = Cloud.notesWhere(), st = $("n-state");
     st.className = "note" + (n && !n.dirty && w === "cloud" ? " ok" : "");
-    st.textContent = !n ? "" : w === "local" ? tr("已存在本机", "Saved on this device") : w === "missing" ? tr("已存在本机 · 云端还没有备注表：看下面「云端同步」", "Saved on this device · no remarks table in the cloud yet: see «Cloud sync» below")
+    st.textContent = !n ? "" : w === "local" ? tr("已存在本机", "Saved on this device") : w === "missing" ? tr("已存在本机 · 云端还没有备注表，所以还没同步", "Saved on this device · not synced: the cloud has no remarks table yet")
       : n.dirty ? tr("已存在本机 · 正在上传云端…", "Saved on this device · uploading…") : tr("✓ 已存在本机和云端", "✓ Saved here and in the cloud");
+    if (n && w === "missing") { st.appendChild(document.createTextNode(" ")); st.appendChild(h("button", { class: "btn sm", type: "button", text: tr("一键建备注表 →", "Create the remarks table →"), onclick: Cloud.fixNotes })); }
   }
   function renderNoteList() {
     var el = clear($("n-list")), list = D.notes.filter(function (x) { return x.d !== V.sel; }).sort(function (a, b) { return a.d < b.d ? 1 : -1; }).slice(0, 5);
@@ -1232,7 +1233,14 @@
 
     // --- the card ---
     function link(href, text) { return h("a", { href: href, target: "_blank", rel: "noopener", text: text }); }
-    function sqlLinks() { return [link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), tr("，把 ", ", paste in the whole of "), link("https://github.com/YapSeng98/trading_pages/blob/main/supabase/journal.sql", "supabase/journal.sql"), tr(" 整段贴进去，点 Run（只做一次）", " and click Run (once only)")]; }
+    // Supabase's SQL Editor reopens the last visited query on /sql/new unless the link says skip=true: an old saved
+    // query (the setup before remarks existed) is what ran when the owner pressed Run. content= fills a new query.
+    function sqlUrl(sql) { return "https://supabase.com/dashboard/project/" + ref() + "/sql/new?skip=true" + (sql ? "&content=" + encodeURIComponent(sql) : ""); }
+    function fixNotes() {
+      copy(NOTES_SQL, tr("已复制建表的几行。在打开的 SQL Editor 里点 Run（如果编辑器是空的，先粘贴），再回到这一页", "The lines are copied. In the SQL Editor that opens, click Run (if the editor is empty, paste first), then come back to this page"));
+      window.open(sqlUrl(NOTES_SQL), "_blank", "noopener"); st.awaitNotes = true;
+    }
+    function sqlLinks() { return [link(sqlUrl(""), "SQL Editor"), tr("，把 ", ", paste in the whole of "), link("https://github.com/YapSeng98/trading_pages/blob/main/supabase/journal.sql", "supabase/journal.sql"), tr(" 整段贴进去，点 Run（只做一次）", " and click Run (once only)")]; }
     function state() {
       var c = conf(), s = sess(), n = pending();
       if (!c) return { k: "", t: tr("已保存在本机", "Saved on this device") };
@@ -1251,8 +1259,8 @@
         h("pre", { text: st.sql }), h("button", { class: "btn sm", type: "button", onclick: function () { copy(st.sql, tr("已复制：到 SQL Editor 粘贴，点 Run", "Copied: paste it in the SQL Editor and click Run")); } }, [icon("copy", "sm"), tr("复制这一行", "Copy this line")])]));
       if (st.err && sess()) m.appendChild(h("div", { class: "warn" }, st.missing ? [tr("云端还没有建表：打开 Supabase 的 ", "The cloud tables are not there yet: open Supabase's ")].concat(sqlLinks(), [tr("，再点「立即同步」。", ", then press «Sync now».")]) : [st.err]));
       if (st.notesMissing && sess() && !st.err) m.appendChild(h("div", { class: "sqlfix" }, [h("p", { class: "note" }, [h("b", { text: tr("备注还没上云端：你的 Supabase 里还没有备注表。", "Remarks are not in the cloud yet: your Supabase project has no remarks table. ") }),
-        tr("复制下面这几行，打开 ", "Copy the lines below, open "), link("https://supabase.com/dashboard/project/" + ref() + "/sql/new", "SQL Editor"), tr("（新的一页，不要用以前存的那页），粘贴，点 Run；回到这里点「立即同步」。备注一直存在这台设备上，表建好后会自动传上去，其他设备也就看得到了。交易记录不受影响。", " (a new query, not an old saved one), paste, click Run, then come back and press «Sync now». Your remarks stay on this device meanwhile and go up as soon as the table exists; then your other devices see them. Trades are not affected.")]),
-        h("pre", { text: NOTES_SQL }), h("button", { class: "btn sm", type: "button", onclick: function () { copy(NOTES_SQL, tr("已复制：到 SQL Editor 新建一页粘贴，点 Run", "Copied: paste it into a new SQL Editor query and click Run")); } }, [icon("copy", "sm"), tr("复制这几行", "Copy these lines")])]));
+        tr("点下面的按钮：会打开 Supabase 的 SQL Editor 并填好这几行（同时也复制了），在那里点 Run，再回到这一页，备注会自动传上去，其他设备也就看得到了。交易记录不受影响。", "Press the button below: it opens Supabase's SQL Editor with these lines filled in (and copies them too). Click Run there, come back to this page, and your remarks go up by themselves; then your other devices see them. Trades are not affected.")]),
+        h("pre", { text: NOTES_SQL }), h("div", { class: "acts" }, [h("button", { class: "btn sm pri", type: "button", onclick: fixNotes }, [tr("打开 SQL Editor 建表 →", "Open the SQL Editor to create it →")]), h("button", { class: "btn sm", type: "button", onclick: function () { copy(NOTES_SQL, tr("已复制：到 SQL Editor 新建一页粘贴，点 Run", "Copied: paste it into a new SQL Editor query and click Run")); } }, [icon("copy", "sm"), tr("只复制", "Copy only")])])]));
     }
     function flow(sx, c, s) {
       var n = D.items.length + D.cash.length;
@@ -1326,10 +1334,10 @@
     function init() {
       fromHash(); authSettings();
       if (sess()) sync();
-      document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && sess() && conf() && (!D.synced || Date.now() - D.synced > 30000)) sync(); });
+      document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && sess() && conf() && (st.notesMissing || st.awaitNotes || !D.synced || Date.now() - D.synced > 30000)) { st.awaitNotes = false; sync(); } });
       window.addEventListener("online", function () { if (sess()) sync(); });
     }
-    return { paint: paint, soon: soon, sync: sync, flush: flush, notesWhere: notesWhere, init: init };
+    return { paint: paint, soon: soon, sync: sync, flush: flush, notesWhere: notesWhere, fixNotes: fixNotes, init: init };
   })();
 
   // ---------- wiring ----------
