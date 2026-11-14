@@ -116,6 +116,9 @@ function xPatterns(B, atr, cfg) {
   var Hs = P.filter(function (p) { return p.t === "H"; }), Ls = P.filter(function (p) { return p.t === "L"; });
   function minBetween(i0, i1) { var m = Infinity; for (var k = i0; k <= i1; k++) m = Math.min(m, B.l[k]); return m; }
   function maxBetween(i0, i1) { var m = -Infinity; for (var k = i0; k <= i1; k++) m = Math.max(m, B.h[k]); return m; }
+  function argMin(i0, i1) { var j = i0; for (var k = i0; k <= i1; k++) if (B.l[k] < B.l[j]) j = k; return j; }
+  function argMax(i0, i1) { var j = i0; for (var k = i0; k <= i1; k++) if (B.h[k] > B.h[j]) j = k; return j; }
+  // geo: the points and lines a chart needs to draw the pattern (bar indices here, times after xAnalyzeTf)
   var recent = Math.max(10, Math.round(cfg.win * 0.45));
 
   // Double top / bottom
@@ -126,7 +129,8 @@ function xPatterns(B, atr, cfg) {
       if ((h1.p + h2.p) / 2 - neck >= 1.5 * a && close <= top + tol) {
         var conf = close < neck;
         out.push({ name: "Double top", bias: "bearish", status: conf ? "confirmed: closed below neckline" : "forming: watch the neckline",
-          level: xr(neck), invalid: xr(top), target: xr(neck - (top - neck)), from: h1.i, to: h2.i });
+          level: xr(neck), invalid: xr(top), target: xr(neck - (top - neck)), from: h1.i, to: h2.i,
+          geo: { pts: [{ i: h1.i, p: h1.p, k: "top" }, { i: h2.i, p: h2.p, k: "top" }, { i: argMin(h1.i, h2.i), p: neck, k: "neck" }], lines: [{ i0: h1.i, p0: neck, i1: last, p1: neck, m: 0, k: "neck" }] } });
       }
     }
   }
@@ -137,7 +141,8 @@ function xPatterns(B, atr, cfg) {
       if (neck2 - (l1.p + l2.p) / 2 >= 1.5 * a && close >= bot - tol) {
         var conf2 = close > neck2;
         out.push({ name: "Double bottom", bias: "bullish", status: conf2 ? "confirmed: closed above neckline" : "forming: watch the neckline",
-          level: xr(neck2), invalid: xr(bot), target: xr(neck2 + (neck2 - bot)), from: l1.i, to: l2.i });
+          level: xr(neck2), invalid: xr(bot), target: xr(neck2 + (neck2 - bot)), from: l1.i, to: l2.i,
+          geo: { pts: [{ i: l1.i, p: l1.p, k: "bottom" }, { i: l2.i, p: l2.p, k: "bottom" }, { i: argMax(l1.i, l2.i), p: neck2, k: "neck" }], lines: [{ i0: l1.i, p0: neck2, i1: last, p1: neck2, m: 0, k: "neck" }] } });
       }
     }
   }
@@ -151,7 +156,9 @@ function xPatterns(B, atr, cfg) {
       if (Math.abs(A.p - C.p) <= Math.max(0.6 * a, 0.3 * (Hd.p - neckHead)) && close < Hd.p) {
         var cf = close < neckNow;
         out.push({ name: "Head and shoulders", bias: "bearish", status: cf ? "confirmed: closed below neckline" : "forming: right shoulder in place",
-          level: xr(neckNow), invalid: xr(Hd.p), target: xr(neckNow - (Hd.p - neckHead)), from: A.i, to: C.i });
+          level: xr(neckNow), invalid: xr(Hd.p), target: xr(neckNow - (Hd.p - neckHead)), from: A.i, to: C.i,
+          geo: { pts: [{ i: A.i, p: A.p, k: "ls" }, { i: Hd.i, p: Hd.p, k: "head" }, { i: C.i, p: C.p, k: "rs" }, { i: n1.i, p: n1.p, k: "neck" }, { i: n2.i, p: n2.p, k: "neck" }],
+            lines: [{ i0: n1.i, p0: nf.at(n1.i), i1: last, p1: neckNow, m: nf.m, k: "neck" }] } });
       }
     }
   }
@@ -164,7 +171,9 @@ function xPatterns(B, atr, cfg) {
       if (Math.abs(A2.p - C2.p) <= Math.max(0.6 * a, 0.3 * (neckHead2 - Hd2.p)) && close > Hd2.p) {
         var cf2 = close > neckNow2;
         out.push({ name: "Inverse head and shoulders", bias: "bullish", status: cf2 ? "confirmed: closed above neckline" : "forming: right shoulder in place",
-          level: xr(neckNow2), invalid: xr(Hd2.p), target: xr(neckNow2 + (neckHead2 - Hd2.p)), from: A2.i, to: C2.i });
+          level: xr(neckNow2), invalid: xr(Hd2.p), target: xr(neckNow2 + (neckHead2 - Hd2.p)), from: A2.i, to: C2.i,
+          geo: { pts: [{ i: A2.i, p: A2.p, k: "ls" }, { i: Hd2.i, p: Hd2.p, k: "head" }, { i: C2.i, p: C2.p, k: "rs" }, { i: m1.i, p: m1.p, k: "neck" }, { i: m2.i, p: m2.p, k: "neck" }],
+            lines: [{ i0: m1.i, p0: nf2.at(m1.i), i1: last, p1: neckNow2, m: nf2.m, k: "neck" }] } });
       }
     }
   }
@@ -189,7 +198,9 @@ function xPatterns(B, atr, cfg) {
           var up = fh.at(last), dn = fl.at(last), st = "inside: watch for a breakout";
           if (close > up + 0.25 * a) st = "broke out upward"; else if (close < dn - 0.25 * a) st = "broke out downward";
           out.push({ name: name, bias: bias, status: st, upper: xr(up), lower: xr(dn), height: xr(wStart),
-            touches: hs.length + ls.length, from: start, to: last });
+            touches: hs.length + ls.length, from: start, to: last,
+            geo: { pts: hs.map(function (q) { return { i: q.i, p: q.p, k: "hi" }; }).concat(ls.map(function (q) { return { i: q.i, p: q.p, k: "lo" }; })),
+              lines: [{ i0: start, p0: fh.at(start), i1: last, p1: up, m: fh.m, k: "upper" }, { i0: start, p0: fl.at(start), i1: last, p1: dn, m: fl.m, k: "lower" }] } });
         }
       }
     }
@@ -208,7 +219,9 @@ function xPatterns(B, atr, cfg) {
         out.push({ name: bull ? "Bull flag" : "Bear flag", bias: bull ? "bullish" : "bearish",
           status: (bull ? close > cons.hi : close < cons.lo) ? "broke out" : "consolidating after the impulse",
           level: xr(bull ? cons.hi : cons.lo), invalid: xr(bull ? cons.lo : cons.hi),
-          target: xr(bull ? cons.hi + best : cons.lo + best), from: bj, to: last });
+          target: xr(bull ? cons.hi + best : cons.lo + best), from: bj, to: last,
+          geo: { pts: [{ i: bj, p: c[bj], k: "pole" }, { i: end, p: c[end], k: "pole" }], lines: [{ i0: bj, p0: c[bj], i1: end, p1: c[end], m: 0, k: "pole" }],
+            box: { i0: Math.min(end + 1, last), i1: last, hi: cons.hi, lo: cons.lo } } });
       }
       break;
     }
@@ -262,7 +275,16 @@ function xAnalyzeTf(cfg, raw, nowMs) {
     if (Math.abs(sls[x2].p - sls[y2].p) <= 0.15 * a) { var lv2 = Math.min(sls[x2].p, sls[y2].p), taken2 = false; for (var q2 = sls[y2].i + 1; q2 < n; q2++) if (B.l[q2] < lv2) { taken2 = true; break; } if (!taken2 && lv2 < close) eql.push(xr(lv2)); }
   }
   var sweeps = S.sweeps.filter(function (s) { return last - s.i <= 10; }).map(function (s) { return { side: s.side, level: xr(s.level), barsAgo: last - s.i }; });
-  var pats = xPatterns(B, atr, cfg).map(function (p) { p.from = xIso(B.t[p.from]); p.to = xIso(B.t[p.to]); return p; });
+  var pats = xPatterns(B, atr, cfg).map(function (p) {
+    p.from = xIso(B.t[p.from]); p.to = xIso(B.t[p.to]);
+    if (p.geo) {                                     // bar indices to candle open times (ms), so a chart can find the bars
+      var g = p.geo;
+      p.geo = { pts: g.pts.map(function (q) { return { t: B.t[q.i], p: xr(q.p), k: q.k }; }),
+        lines: g.lines.map(function (l) { return { t0: B.t[l.i0], p0: xr(l.p0), t1: B.t[l.i1], p1: xr(l.p1), m: l.m || 0, k: l.k }; }),
+        box: g.box ? { t0: B.t[g.box.i0], t1: B.t[g.box.i1], hi: xr(g.box.hi), lo: xr(g.box.lo) } : null, last: B.t[last] };
+    }
+    return p;
+  });
   var res = {
     tf: cfg.tf, close: xr(close), barTime: xIso(B.t[last]), atr: xr(a), rsi: xr(rsi[last], 1),
     ema: { e20: xr(e20), e50: xr(e50), e200: xr(e200), stack: stack },

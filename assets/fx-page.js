@@ -75,7 +75,7 @@
     var k = Math.pow(10, p.d), sc = function (rows) { return rows.map(function (r) { return [r[0], r[1] * k, r[2] * k, r[3] * k, r[4] * k, 0, r[6]]; }); }, K = {};
     TFS.forEach(function (tf) { K[tf] = sc(feed.K[tf] || []); });
     var E = runXauEngine({ source: "spot", K: K, price: feed.price * k, priceAt: feed.priceAt }, Date.now()), R = P.regime(E), un = function (v) { return typeof v === "number" ? v / k : null; };
-    var out = { p: p, price: feed.price, at: feed.priceAt, dirs: R.dirs, dir: R.dir, full: R.full, lean: R.lean, odd: R.odd, since3: R.since3, since5: R.since5 };
+    var out = { p: p, price: feed.price, at: feed.priceAt, dirs: R.dirs, dir: R.dir, full: R.full, lean: R.lean, odd: R.odd, since3: R.since3, since5: R.since5, K: K, k: k };
     var D = K.D, prev = D.length ? D[D.length - 1][4] / k : null; out.chg = prev ? (feed.price / prev - 1) * 100 : null;
     var H1 = E.tfs["1H"] || {}; out.atr = un(H1.atr);
     if (R.dir) {
@@ -106,7 +106,7 @@
       ((E.tfs[tf] || {}).patterns || []).forEach(function (q) {
         var pl = P.patternPlan(q, E.price), done = P.patternWay(q);
         out.plans.push({ tf: tf, name: P.patternText(q), done: !!done, dir: pl ? pl.dir : done, bias: q.bias, status: P.statusText(q.status),
-          plan: pl ? { entry: un(pl.entry), stop: un(pl.stop), target: un(pl.target), rr: pl.rr } : null });
+          plan: pl ? { entry: un(pl.entry), stop: un(pl.stop), target: un(pl.target), rr: pl.rr } : null, raw: q, rawPlan: pl });
       });
     });
     return out;
@@ -216,9 +216,11 @@
     if (!list.length) return null;
     var box = h("details", { class: "fx-pat" + (warn ? " warn" : ""), open: warn ? "" : null }), inner = h("div", { class: "fx-pat-in" });
     box.appendChild(h("summary", null, [h("b", { text: (warn ? "⚠ " : "") + "形态（参考）" }), " " + list.map(function (q) { return P.TF_ZH[q.tf] + " " + q.name; }).join(" · ")]));
+    var slots = [];
     list.forEach(function (q) {
       var rel = !q.dir ? "" : !dir ? "" : q.dir === dir ? " · 和大方向一致" : " · 和大方向相反", p = r.p, k = q.plan;
       var row = h("div", { class: "fx-pr" }, [h("div", { class: "fx-pr-n" }, [h("b", { text: P.TF_ZH[q.tf] + " " + q.name }), h("span", { text: q.status + rel })])]);
+      if (q.raw && q.raw.geo && window.PatChart) { var sl = h("div", { class: "fx-pc" }); row.appendChild(sl); slots.push({ el: sl, q: q }); }
       if (k) {
         var buy = k.dir > 0, weak = k.rr < 1;
         row.appendChild(h("div", { class: "fx-pr-g" }, [
@@ -232,6 +234,15 @@
     });
     inner.appendChild(h("p", { class: "fx-pr-note", text: (warn ? "有反方向的已完成形态：黄金回放里这种情况很少，结果偏差（16 笔，平均 −0.28R），笔数太少不能当规则；想更稳可以减半或不做。" : "") + S.patWords }));
     box.appendChild(inner);
+    var drawn = false, drawCharts = function () {
+      if (drawn || !box.open) return; drawn = true;
+      slots.forEach(function (sl) {
+        var q = sl.q, rows = (r.K[q.tf] || []).filter(function (k) { return k[6] < Date.now(); });
+        var c = PatChart.draw(rows, q.raw, { fmt: function (v) { return px(r.p, v / r.k); }, plan: q.rawPlan, tfLabel: P.TF_ZH[q.tf], title: r.p.i + " " + P.TF_ZH[q.tf] + q.name, w: sl.el.clientWidth || 320 });
+        if (c) sl.el.appendChild(c);
+      });
+    };
+    box.addEventListener("toggle", drawCharts); if (box.open) setTimeout(drawCharts, 0);
     return box;
   }
   function warnOf(r) { var dir = r.dir || 0, ag = (r.pats || []).filter(function (q) { return dir && q.dir === dir; }), op = (r.pats || []).filter(function (q) { return dir && q.dir === -dir; }); return (r.state === "buy" || r.state === "sell") && op.length && !ag.length; }

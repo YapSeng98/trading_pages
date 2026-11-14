@@ -82,3 +82,29 @@ header.pg-head .hdate{text-align:left}
   .seg button{min-height:34px}
   #stale-note .row a{display:inline-flex;align-items:center;min-height:34px}
 }
+
+/* ── chart patterns drawn on their candles (assets/pattern-chart.js): gold, Bitcoin, forex ── */
+.pc{position:relative}
+.pc-svg{display:block;width:100%;height:auto;touch-action:pan-y}
+.pc-svg .pc-lab{font:600 11px 'Noto Sans SC',sans-serif}
+.pc-svg .pc-val{font:500 11px 'IBM Plex Mono',monospace}
+.pc-svg .pc-ax{font:400 11px 'IBM Plex Mono',monospace;fill:#8A857E}
+.pc-tip{position:absolute;top:2px;pointer-events:none;background:rgba(34,34,44,.96);border:1px solid rgba(255,255,255,.13);border-radius:8px;padding:5px 9px;font:500 11px/1.3 'IBM Plex Mono',monospace;color:#F6F5F3;white-space:nowrap;z-index:3}
+.pc-leg{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:11px;color:#8A857E}
+.pc-leg i{display:inline-block;width:12px;height:3px;border-radius:2px;margin-right:5px;vertical-align:3px}
+.pc-leg i.d{height:0;border-top:2px dashed;border-radius:0;background:none!important}
+.v-pat{margin-top:18px;padding:14px;border-radius:18px;border:1px solid rgba(212,167,44,.24);background:linear-gradient(180deg,rgba(212,167,44,.06),rgba(212,167,44,.01))}
+.v-pat .vp-h{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.v-pat .vp-k{font:600 12px/1.3 'Space Grotesk','Noto Sans SC',sans-serif;color:#F6F5F3;display:flex;align-items:center;gap:7px}
+.v-pat .vp-k i{font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:1px;color:#C2A055;border:1px solid rgba(212,167,44,.35);border-radius:999px;padding:3px 7px;font-style:normal}
+.v-pat .vp-tabs{display:flex;gap:5px;flex-wrap:wrap}
+.v-pat .vp-tabs button{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 11.5px/1 'Noto Sans SC',sans-serif;padding:7px 10px;border-radius:999px;cursor:pointer}
+.v-pat .vp-tabs button[aria-pressed="true"]{border-color:rgba(212,167,44,.6);background:rgba(212,167,44,.14);color:#E6BE55}
+.v-pat .vp-s{font-size:12.5px;line-height:1.65;color:#C9C4BD;margin:2px 0 6px}
+.v-pat .vp-s b{color:#F6F5F3}
+.v-pat .vp-s .up{color:#34D399}.v-pat .vp-s .dn{color:#F87171}
+.v-pat .vp-plan{font:500 12px/1.6 'IBM Plex Mono',monospace;color:#C9C4BD;margin-top:8px}
+.v-pat .vp-n{font-size:11.5px;line-height:1.65;color:#8A857E;margin-top:6px}
+.v-pat .vp-none{font-size:12.5px;color:#8A857E;line-height:1.7}
+.fx-pr .pc{margin:8px 0 4px}
+@media(max-width:640px){.v-pat{padding:12px 10px}.v-pat .vp-tabs button{min-height:34px}.pc-leg{font-size:11px}}

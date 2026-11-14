@@ -611,6 +611,36 @@
     if (!any) pt.appendChild(h("p", { class: "note", text: "各周期暂时没有清晰的形态。" }));
   }
 
+  // ---------- the chart pattern under the price ----------
+  // The patterns on the daily, 4-hour and 1-hour charts (finished ones first), each drawn on its own candles with its
+  // textbook levels (assets/pattern-chart.js). Reference only: the replay found no edge in patterns.
+  function patItems() {
+    var out = [];
+    ["D", "4H", "1H"].forEach(function (tf) { var t = S.E.tfs[tf]; if (!t || t.error) return; (t.patterns || []).forEach(function (p) { if (p.geo) out.push({ tf: tf, p: p, done: P.patternWay(p), key: tf + "|" + p.name }); }); });
+    return out.sort(function (a, b) { return (b.done ? 1 : 0) - (a.done ? 1 : 0); });
+  }
+  var patW = 0; window.addEventListener("resize", function () { var b = $("v-pat"); if (b && !b.hidden && Math.abs(b.clientWidth - patW) > 40) { patW = b.clientWidth; renderPatChart(true); } });
+  function renderPatChart(force) {
+    var box = $("v-pat"); if (!box || !S.E || !S.feed || !window.PatChart) return;
+    if (!force && S.patE === S.E) return; S.patE = S.E;
+    var list = patItems(), Rp = P.regime(S.E); clear(box); box.hidden = false; patW = box.clientWidth;
+    var it = list.filter(function (x) { return x.key === S.patSel; })[0] || list[0];
+    var head = h("div", { class: "vp-h" }, [h("span", { class: "vp-k" }, ["图表形态", h("i", { text: "参考" })])]);
+    if (list.length > 1) head.appendChild(h("div", { class: "vp-tabs" }, list.map(function (x) {
+      return h("button", { type: "button", "aria-pressed": String(x === it), text: P.TF_ZH[x.tf] + " " + P.patternText(x.p), onclick: function () { S.patSel = x.key; renderPatChart(true); } });
+    })));
+    box.appendChild(head);
+    if (!it) { box.appendChild(h("p", { class: "vp-none", text: "日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。" })); return; }
+    var p = it.p, pl = P.patternPlan(p, S.E.price), way = it.done;
+    var rel = !way || !Rp.dir ? "" : way === Rp.dir ? "，和大方向一致" : "，和大方向相反";
+    box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? "（偏多）" : p.bias === "bearish" ? "（偏空）" : "（没有方向）" }), " " + P.statusText(p.status) + rel]));
+    var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); });
+    var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28 });
+    if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: "这个形态的 K 线还没读到，下一次刷新再画。" }));
+    if (pl) box.appendChild(h("p", { class: "vp-plan", text: "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") }));
+    box.appendChild(h("p", { class: "vp-n", text: "参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。" }));
+  }
+
   // ---------- plan ----------
   function persistPlan() { LS.set("plan", S.plan); LS.set("acct", S.acct); }
   function syncInputs() {
@@ -1835,7 +1865,7 @@
     cols.appendChild(ref);
   }
   function nowOut(t) { return Date.now() / 1000 >= t; }
-  function renderAll() { renderShort(); renderPos(); renderVerdict(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
+  function renderAll() { renderShort(); renderPos(); renderVerdict(); renderPatChart(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
   function refresh() {
     if (S.busy) return; S.busy = true; S.lastTry = Date.now(); document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });

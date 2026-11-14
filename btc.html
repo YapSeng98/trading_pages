@@ -597,7 +597,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 @media(max-width:640px){/* phones: the blurred backgrounds cost the most while scrolling and barely show on this dark page */
 *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.navbar,.secnav{background:#0A0A0F!important}.mesh::before,.mesh::after,.mesh .orb-violet{filter:none!important}}
 </style>
-<link rel="stylesheet" href="assets/site.css?v=4">
+<link rel="stylesheet" href="assets/site.css?v=6">
 </head>
 <body>
 <div class="mesh"><div class="orb-violet"></div></div>
@@ -662,6 +662,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <div class="num" id="price">—</div>
         <div class="subl" id="price-sub">币安 BTC/USDT</div>
       </div>
+      <div class="v-pat" id="v-pat" hidden></div>
       <div class="gauge">
         <svg id="gauge" viewBox="0 0 200 116" role="img" aria-label="多周期综合评分"></svg>
         <div><div class="g-word"><span id="g-word">—</span><button type="button" class="q" data-g="score" aria-label="解释：综合评分">?</button></div><div class="g-sub" id="g-sub">五个周期的方向加权后的总分</div></div>
@@ -909,8 +910,9 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <div class="pop" id="pop" role="tooltip" hidden></div>
 
 <script src="assets/btc-feed.js?v=7"></script>
-<script src="assets/xau-engine.js?v=5"></script>
+<script src="assets/xau-engine.js?v=6"></script>
 <script src="assets/xau-plan.js?v=19"></script>
+<script src="assets/pattern-chart.js?v=1"></script>
 <script>
 window.MARKET = {
   id: "btc", ls: "btc4h.", sym: "BTCUSD", name: "比特币", feed: BtcFeed, contract: 1, unit: "个 BTC", weekend: false, calibrate: false,
@@ -976,6 +978,6 @@ XauPlan.setMarket({ goText: "这个规则是在黄金上选出来的，在比特
   }).catch(function () { var b = document.getElementById("rp-body"); if (b) b.innerHTML = '<p class="note">读不到回放结果（data/btc-backtest.json）。</p>'; });
 })();
 </script>
-<script src="assets/market-page.js?v=27"></script>
+<script src="assets/market-page.js?v=28"></script>
 </body>
 </html>
