@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14 10:18 SGT",
+ "updated": "2026-11-14 12:08 SGT",
  "sources": [
   "FXStreet",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz",
+   "t": "What Gold Royalty Holders Got Wrong Before The Slide",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRWhYeW9HWl96bk5McWsxWm9aV2lWUnFIemh3clF4WFIyWXZvbDdCamdBLWcxcVpVZVgxbjNjWVEyeEgxVWxSMEhTd05QcUdSWFVINTJIQko3NWpYdDB6NW1PSWt1MUc1VmNuaFE0cEtuanp1UWZLdnFFV1pzN0JEaVAxenVIaG1kQUEycGY5Nm41eUhjaU1pZ0xKQQ?oc=5",
+   "ms": 1794626040000,
+   "time": "11/14 11:14"
+  },
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ09SOU1XMmZSdkZoVU5iQkdoN1duRHpoNUhqWHlJVVRhd3ozYzFLLXkteml0ZXJoODBvUy1iMDB1Yk9qRy1oSFhfQ296RlBITmhSbzFSRVBVeGZLQ1lXb05ZRmRIVl9PclVZdzVJQ0h0M2JTRnZKUzZndkswa1JNNEtwbjdNMW1IQXZuQ1BDdVJlM0Y2TmRRWnhEUDFVb3FROEZyOFA1ZEdjNjlWbzYxak9QSjNKLVk?oc=5",
-   "ms": 1794610805000,
-   "time": "11/14 07:00"
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1794610349000,
+   "time": "11/14 06:52"
   },
   {
    "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5pWVFMTUx3c05YLVZsdG9YLVplY0ZIU2x5bW92cDd4dGRpQWo2cmFIX04zMTBQTDlHU2k4NWc5em53dmVWUjRBb0tSZ3B5c2x0Z291emZ4djk3UFNNWVZoemV5ZkVNb3BVNzhOLVJR?oc=5",
    "ms": 1794568895000,
    "time": "11/13 19:21"
-  },
-  {
-   "t": "Aris Mining releases PFS for Toroparu Gold Project in Guyana",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQWlEem1PRHNYRl9IX05laU5BQjQ2T3RQeXJNN0s5b0xlUkRtU1pCWE5EM3hXNU5XUlVxTXZFcXZFYzlnOVVnSXJXMmZPNlZTQk4wWEVDZUtzRHRacXJfdUN0SVQ0RDhpWlJXV29aRV9kekhRNko3YUpEOWgwb0lQQ1RFeUFBZw?oc=5",
-   "ms": 1794567225000,
-   "time": "11/13 18:53"
   }
  ]
 }
