@@ -70,8 +70,9 @@ jobs:
       - name: Was fresh data asked for?
         id: ask
         run: |
-          req=$(grep -o 'last request: [0-9-]* [0-9:]*' data/refresh-request.txt 2>/dev/null | sed 's/last request: //')
-          upd=$(python3 -c "import json;print(json.load(open('data/xau-state.json')).get('updated','')[:16])" 2>/dev/null)
+          # "|| true": a missing line or an unreadable file must not stop the job (the shell here exits on any failure)
+          req=$(grep -o 'last request: [0-9-]* [0-9:]*' data/refresh-request.txt 2>/dev/null | sed 's/last request: //' || true)
+          upd=$(python3 -c "import json;print(json.load(open('data/xau-state.json')).get('updated','')[:16])" 2>/dev/null || true)
           if [[ "${{ github.event_name }}" == "push" ]] || [[ -n "$req" && ! "$req" < "$upd" ]]; then
             echo "force=1" >> "$GITHUB_OUTPUT"; echo "Fresh files asked for (request $req, gold file $upd)."
           else

@@ -18,6 +18,8 @@
 # Needs GH_TOKEN (the workflow's own token, with actions: write), GITHUB_REPOSITORY and GITHUB_RUN_ID. Never fails the job.
 set +e
 repo="${GITHUB_REPOSITORY:?}"; me="${GITHUB_RUN_ID:-0}"
+# what was decided, as a line in the log and as a notice on the run (notices of a public repository can be read without signing in)
+say() { echo "$1"; echo "::notice title=Keep going::$1"; }
 
 # ---- 1. stock quotes when their own timer is late
 due=$(python3 - <<'PY'
@@ -34,23 +36,23 @@ PY
 )
 last=$(gh run list --repo "$repo" --workflow quotes.yml --limit 1 --json createdAt --jq '.[0].createdAt // ""' 2>/dev/null)
 if [[ -n "$due" && -n "$last" && "$last" < "$due" ]]; then
-  gh workflow run quotes.yml --repo "$repo" --ref main && echo "Stock quotes: due at $due, last run $last: started."
+  gh workflow run quotes.yml --repo "$repo" --ref main && say "Stock quotes: due at $due, last run $last: started."
 else
-  echo "Stock quotes: nothing due (last due time $due, last run ${last:-unknown})."
+  say "Stock quotes: nothing due (last due time $due, last run ${last:-unknown})."
 fi
 
 # ---- 2. the next market run
 timer=$(gh api "repos/$repo/environments/tick" --jq '[.protection_rules[]? | select(.type == "wait_timer") | .wait_timer] | first // 0' 2>/dev/null)
 case "$timer" in ''|*[!0-9]*) timer=0 ;; esac
 if [ "$timer" -lt 5 ]; then
-  echo "Next run: not started. There is no 'tick' environment with a wait timer of 5 minutes or more; GitHub's timer still runs the job."
+  say "Next run: not started. There is no 'tick' environment with a wait timer of 5 minutes or more; GitHub's timer still runs the job."
   exit 0
 fi
 others=$(gh run list --repo "$repo" --workflow market.yml --event workflow_dispatch --limit 30 --json databaseId,status --jq "[.[] | select(.status != \"completed\" and .databaseId != $me)] | length" 2>/dev/null)
-case "$others" in ''|*[!0-9]*) echo "Next run: the run list could not be read; left to the next run."; exit 0 ;; esac
+case "$others" in ''|*[!0-9]*) say "Next run: the run list could not be read; left to the next run."; exit 0 ;; esac
 if [ "$others" -gt 0 ]; then
-  echo "Next run: one is already waiting or running ($others)."
+  say "Next run: one is already waiting or running ($others)."
   exit 0
 fi
-gh workflow run market.yml --repo "$repo" --ref main -f chain=yes && echo "Next run: started; it waits $timer minutes in 'tick' first."
+gh workflow run market.yml --repo "$repo" --ref main -f chain=yes && say "Next run: started; it waits $timer minutes in 'tick' first."
 exit 0
