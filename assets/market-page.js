@@ -335,7 +335,7 @@
       $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + (EN ? ", $" + fmt(b - shown, 1) + " above the price" : "，比现价高 " + fmt(b - shown, 1) + " 美元");
       $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = tx("现价 ", "Now ") + fmt(shown, 1);
     }
-    paintPreview(E, shown); paintPatLive();
+    paintPreview(E, shown); paintPatLive(); paintPal();
   }
   // 按现价预估: the rule decides on closed candles only (crosses inside a candle often reverse), but the visitor can
   // see at any second which timeframes the price now stands beyond the turning close of, when that candle closes,
@@ -498,6 +498,11 @@
       labels.push({ y: y(d[1]) - 4, x: W - R - 46, text: d[4], strength: 99 });
     });
 
+    palList().forEach(function (a) {                                            // your price alerts that are still waiting
+      var p = sh(a.price); if (a.at || !inR(p)) return;
+      sv("line", { x1: L, x2: W - R, y1: y(p), y2: y(p), stroke: "#A78BFA", "stroke-width": 1, "stroke-dasharray": "2 3" }, svg);
+      tags.push({ y: y(p), text: "🔔" + Math.round(p).toLocaleString("en-US"), fill: "#A78BFA", ink: "#0A0A0F" });
+    });
     if (inR(price)) {
       sv("line", { x1: L, x2: W - R, y1: y(price), y2: y(price), stroke: "var(--m-gold)", "stroke-width": 1.25 }, svg);
       tags.push({ y: y(price), text: fmt(price, 1), fill: "var(--m-gold)", ink: "#0A0A0F" });
@@ -675,6 +680,7 @@
     if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: tx("这个形态的 K 线还没读到，下一次刷新再画。", "This pattern's candles are not loaded yet; it is drawn at the next refresh.") }));
     box.appendChild(h("p", { class: "vp-live", id: "vp-live" }));
     if (pl) box.appendChild(h("p", { class: "vp-plan", id: "vp-plan", text: patPlanText(pl) }));
+    box.appendChild(h("div", { class: "vp-pal", id: "vp-pal" })); renderPatPal();
     paintPatLive();
     box.appendChild(h("p", { class: "vp-n", text: tx("参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。", "Reference, not a signal: in the replay patterns had no edge on their own (with their own stop and target, about six in ten won, about 0R on average). They mark key levels, targets and where a move fails; entries still go by the answer above.") }));
   }
@@ -1596,15 +1602,162 @@
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
     try { M.chime.notes.forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = M.chime.wave; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
   }
-  function fireAlert(title, body, tag) {
-    if (!alertsOn()) return;
+  // own: a price alert the visitor set (below). It notifies whenever the browser allows it, even with the signal alerts
+  // switched off, and without that permission it still shows on the page and sounds.
+  function fireAlert(title, body, tag, own) {
+    if (!alertsOn() && !(own && NOTE_OK && Notification.permission === "granted")) { if (own) { toast(title); chime(); } return; }
     try {
       var n = new Notification(title, { body: body, tag: tag, renotify: true, requireInteraction: true, silent: false });
-      n.onclick = function () { try { window.focus(); } catch (e) {} $("verdict").scrollIntoView({ behavior: "smooth", block: "start" }); n.close(); };
+      n.onclick = function () { try { window.focus(); } catch (e) {} $(own ? "v-palert" : "verdict").scrollIntoView({ behavior: "smooth", block: "start" }); n.close(); };
     } catch (e) { toast(title + "：" + body); }
     chime();
     if (document.visibilityState !== "visible") { var t0 = S.title0 || (S.title0 = document.title); document.title = "🔔 " + title; var back = function () { if (document.visibilityState === "visible") { document.title = t0; document.removeEventListener("visibilitychange", back); } }; document.addEventListener("visibilitychange", back); }
   }
+  // ---------- price alerts: the visitor's own levels ----------
+  // The owner asked on 2026-11-15 for alerts at levels they pick: one the page shows (the price that changes the answer,
+  // the nearest support and resistance, the chart pattern's levels, the plan's stop and target) or a typed price, told
+  // when the live price touches it or when a 15-minute candle closes beyond it. The same notification and chime as the
+  // signal alerts, once per alert across open tabs: the list is kept in localStorage (`<market>palerts`) and a tab
+  // reads it again before firing. Like every alert here it works while the page is open (a background tab is fine).
+  // It is the visitor's own level, not a signal, and says so. Where a level came from is kept as a key (src, and the
+  // pattern's timeframe and name) and worded when shown, so the words follow the page's language.
+  var PAL_MAX = 20, palAt = 0;
+  S.palMode = LS.get("palMode", "touch") === "close" ? "close" : "touch";
+  function palList() { var l = LS.get("palerts", []); return Array.isArray(l) ? l : []; }
+  function palArmed(mode) { return palList().some(function (a) { return !a.at && (!mode || a.mode === mode); }); }
+  function palWord(a) {
+    var pat = a.tf && a.pat ? P.TF_ZH[a.tf] + (EN ? " " : "") + P.patternText({ name: a.pat }) : "";
+    return { flip: tx("会改变结论", "changes the answer"), res: tx("最近阻力", "nearest resistance"), sup: tx("最近支撑", "nearest support"), stop: tx("计划止损", "plan's stop"), tp: tx("计划目标", "plan's target"),
+      ptrig: pat + tx("突破位", " break level"), pstop: pat + tx("失效位", " fail level"), ptgt: pat + tx("目标", " target") }[a.src] || "";
+  }
+  function palAdd(price, from) {
+    price = num(price); var px = num(S.live);
+    if (price === null || price <= 0) { toast(tx("先填一个价位", "Type a price first")); return false; }
+    if (px === null) { toast(tx("价格还在载入，稍等再设", "Prices are still loading; try again in a moment")); return false; }
+    price = Math.round(price * 100) / 100;
+    if (price === px) { toast(tx("现价就在这个价位上", "The price is right there already")); return false; }
+    var list = palList(), mode = S.palMode;
+    if (list.some(function (a) { return !a.at && a.price === price && a.mode === mode; })) { toast(tx("这个价位已经在提醒里了", "That level is already in your alerts")); return false; }
+    var a = Object.assign({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), price: price, dir: price > px ? 1 : -1, mode: mode, made: Date.now(), at: null, hit: null, bar: null }, from || {});
+    list.unshift(a);
+    while (list.length > PAL_MAX) { var j = -1; for (var i = list.length - 1; i >= 0; i--) if (list[i].at) { j = i; break; } list.splice(j >= 0 ? j : list.length - 1, 1); }   // the oldest finished go first
+    LS.set("palerts", list); palAsk();
+    toast(EN ? "Alert set: " + (a.dir > 0 ? "up to " : "down to ") + fmt(price, 1) + (mode === "close" ? " on a 15-minute close" : "") : "已设提醒：" + (a.dir > 0 ? "涨到 " : "跌到 ") + fmt(price, 1) + (mode === "close" ? "（15 分钟收盘越过才算）" : ""));
+    palChanged(); return true;
+  }
+  function palDel(id) { LS.set("palerts", palList().filter(function (a) { return a.id !== id; })); palChanged(); }
+  function palRearm(id) {
+    var px = num(S.live), list = palList();
+    list.forEach(function (a) { if (a.id === id && px !== null && a.price !== px) { a.at = a.hit = a.bar = null; a.made = Date.now(); a.dir = a.price > px ? 1 : -1; } });
+    LS.set("palerts", list); palChanged();
+  }
+  function palChanged() { renderPal(); renderPatPal(); if (S.E && !busyUi()) drawChart(); }
+  // the browser's permission, asked when an alert is set (the signal alerts may be switched off)
+  function palAsk() {
+    ensureAudio();
+    if (!NOTE_OK || Notification.permission !== "default") return;
+    var done = function () { renderPal(); renderAlert(); };
+    try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done, done); } catch (e) {}
+  }
+  // touch: the live price at or beyond the level; close: a 15-minute candle that finished after the alert was set and
+  // closed at or beyond it. While gold is shut only the spot feed's last close counts (the backup token trades on).
+  function palCheck(now) {
+    if (!S.E || (!now && Date.now() - palAt < 250)) return; palAt = Date.now();
+    var list = palList(), px = num(S.live), spotOk = marketOpen() || (S.feed && S.feed.source === "spot"), K = (S.feed && S.feed.K["15M"]) || [], fired = [];
+    list.forEach(function (a) {
+      if (a.at) return;
+      if (a.mode === "close") {
+        for (var i = K.length - 1; i >= 0 && K[i][6] > a.made; i--) {}
+        for (i = i + 1; i < K.length; i++) if (a.dir > 0 ? K[i][4] >= a.price : K[i][4] <= a.price) { a.at = Date.now(); a.hit = K[i][4]; a.bar = K[i][6] + 1; fired.push(a); break; }
+      } else if (px !== null && spotOk && (a.dir > 0 ? px >= a.price : px <= a.price)) { a.at = Date.now(); a.hit = px; fired.push(a); }
+    });
+    if (!fired.length) return;
+    LS.set("palerts", list); fired.forEach(palFire); palChanged();
+  }
+  function palFire(a) {
+    var up = a.dir > 0, w = palWord(a), past = Math.abs(a.hit - a.price) > a.price * 0.001;
+    var title = EN ? "🔔 " + M.name + " · " + (up ? "up to" : "down to") + " your level " + fmt(a.price, 1) : "🔔 " + M.name + " · 到你的价位 " + fmt(a.price, 1);
+    var what = a.bar ? (EN ? "The 15-minute candle that closed at " + sgt(a.bar, "t") + " SGT closed at " + fmt(a.hit, 1) + ", " + (up ? "above" : "below") + " your level" : sgt(a.bar, "t") + " 收盘的 15 分钟 K 线收在 " + fmt(a.hit, 1) + "，" + (up ? "站上" : "跌破") + "了你设的价位")
+      : (EN ? "Price " + fmt(a.hit, 1) + " has reached your level" + (past ? " and gone past it" : "") : "现价 " + fmt(a.hit, 1) + "，已" + (up ? "涨到" : "跌到") + "你设的价位" + (past ? "并越过" : ""));
+    fireAlert(title, what + (w ? (EN ? " (" + w + ")" : "（" + w + "）") : "") + tx("。这是你自己设的提醒，不是信号；进场仍按页面的结论。", ". Your own alert, not a signal; entries still go by the page's answer."), M.id + "-pal-" + a.id, true);
+  }
+  // the levels the page shows, for one tap (a price listed twice keeps its first name); the chart pattern's own levels
+  // are offered under its chart (renderPatPal)
+  function palPicks() {
+    if (!S.E) return [];
+    var out = [], seen = {}, add = function (v, src, more) { v = num(v); if (v === null) return; v = Math.round(v * 100) / 100; if (seen[v]) return; seen[v] = 1; out.push(Object.assign({ price: v, src: src }, more || {})); };
+    (P.verdict(S.E).lines || []).forEach(function (l) { add(l.price, "flip"); });
+    var nr = P.nearest(S.E); if (nr.res) add(nr.res.price, "res"); if (nr.sup) add(nr.sup.price, "sup");
+    add(S.plan.stop, "stop"); add(S.plan.tp1, "tp");
+    return out.slice(0, 6);
+  }
+  // The block under the 🔔 panel. Its frame (mode, the typed price) is built once so typing is never interrupted;
+  // the one-tap levels and the list are drawn again on every change, the distances on every price (paintPal).
+  function renderPal() {
+    var el = $("v-palert"); if (!el || !S.E) return;
+    if (!el.firstChild) {
+      el.hidden = false;
+      el.appendChild(h("div", { class: "pa-h" }, [h("b", { text: tx("🔔 价格提醒", "🔔 Price alerts") }), h("span", { class: "chip gold", id: "pa-n", hidden: true })]));
+      el.appendChild(h("p", { class: "pa-s", text: tx("价格到你设的价位时弹通知、响提示音（这一页开着就行，放在后台也可以）。价位是你自己定的，不是信号。", "A notification and the chime when price reaches a level you set (with this page open; in the background is fine). The levels are yours, not signals.") }));
+      el.appendChild(h("div", { class: "pa-mode", id: "pa-mode", role: "group", "aria-label": tx("什么时候提醒", "When to alert") }, [["touch", tx("一碰到就提醒", "As soon as touched")], ["close", tx("15 分钟收盘越过才提醒", "On a 15-minute close beyond")]].map(function (m) {
+        return h("button", { type: "button", "data-m": m[0], text: m[1], onclick: function () { S.palMode = m[0]; LS.set("palMode", m[0]); renderPal(); renderPatPal(); } });
+      })));
+      var inp = h("input", { type: "text", inputmode: "decimal", id: "pa-in", autocomplete: "off", "aria-label": tx("提醒价位", "Alert price") });
+      var add = function () { if (palAdd(parseFloat(String(inp.value).replace(/[,\s]/g, "")), { src: "own" })) inp.value = ""; };
+      inp.addEventListener("keydown", function (ev) { if (ev.key === "Enter") add(); });
+      el.appendChild(h("div", { class: "pa-add" }, [inp, h("button", { type: "button", class: "btn sm pri", text: tx("添加提醒", "Add alert"), onclick: add })]));
+      el.appendChild(h("div", { class: "pa-picks", id: "pa-picks" }));
+      el.appendChild(h("ul", { class: "pa-list", id: "pa-list" }));
+      el.appendChild(h("div", { class: "pa-warn", id: "pa-warn", hidden: true }));
+    }
+    var list = palList(), wait = list.filter(function (a) { return !a.at; }), px = num(S.live);
+    var n = $("pa-n"); n.hidden = !wait.length; n.textContent = EN ? wait.length + " waiting" : wait.length + " 个在等";
+    all("#pa-mode button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-m") === S.palMode)); });
+    $("pa-in").placeholder = px !== null ? tx("输入价位，例如 ", "Type a price, e.g. ") + String(Math.round(px)) : tx("输入价位", "Type a price");
+    var pk = clear($("pa-picks")), picks = palPicks();
+    if (picks.length) pk.appendChild(h("span", { class: "pa-pl", text: tx("一键设：", "One tap: ") }));
+    picks.forEach(function (p) {
+      var have = wait.some(function (a) { return a.price === p.price && a.mode === S.palMode; });
+      pk.appendChild(h("button", { type: "button", class: "pa-pick" + (have ? " on" : ""), "aria-pressed": String(have), text: (have ? "✓ " : "") + palWord(p) + " " + fmt(p.price, 1), onclick: function () { if (!have) palAdd(p.price, { src: p.src, tf: p.tf, pat: p.pat }); } }));
+    });
+    var ul = clear($("pa-list"));
+    list.slice().sort(function (a, b) { return (a.at ? 1 : 0) - (b.at ? 1 : 0) || (a.at ? b.at - a.at : px === null ? 0 : Math.abs(a.price - px) - Math.abs(b.price - px)); }).forEach(function (a) {
+      var w = palWord(a);
+      ul.appendChild(h("li", { class: a.at ? "done" : "" }, [
+        h("span", { class: "pa-dir " + (a.at ? "ok" : a.dir > 0 ? "up" : "dn"), text: a.at ? "✓" : a.dir > 0 ? "▲" : "▼", "aria-label": a.at ? tx("已到", "went off") : a.dir > 0 ? tx("涨到", "up to") : tx("跌到", "down to") }),
+        h("b", { text: fmt(a.price, 1) }),
+        h("span", { class: "pa-m" }, [[a.mode === "close" ? tx("15 分钟收盘", "15-min close") : tx("碰到", "touch"), w].filter(Boolean).join(" · ") + " · ", h("span", { class: "pa-d", "data-p": a.at ? "" : a.price, text: a.at ? (EN ? (a.bar ? "closed beyond " : "went off ") + palWhen(a.bar || a.at) + " at " + fmt(a.hit, 1) : palWhen(a.bar || a.at) + (a.bar ? " 收盘越过，收在 " : " 已到，当时 ") + fmt(a.hit, 1)) : "" })]),
+        a.at ? h("button", { type: "button", class: "btn sm ghost", text: tx("再提醒", "Re-arm"), onclick: function () { palRearm(a.id); } }) : null,
+        h("button", { type: "button", class: "pa-x", "aria-label": tx("删除这个提醒", "Delete this alert"), text: "×", onclick: function () { palDel(a.id); } })
+      ]));
+    });
+    ul.hidden = !list.length;
+    var wn = clear($("pa-warn")), perm = NOTE_OK ? Notification.permission : "denied";
+    wn.hidden = !list.length || perm === "granted";
+    if (!wn.hidden) {
+      wn.appendChild(document.createTextNode(perm === "denied" ? tx("浏览器不让这一页弹通知：到价时只在这一页上提示和响铃。要弹通知：点地址栏左边的网站设置 → 通知 → 允许。", "This browser does not let the page show notifications: an alert only shows on this page and sounds. For notifications: site settings at the left of the address bar → Notifications → Allow.") : tx("浏览器还没允许通知：到价时只在这一页上提示和响铃。", "The browser has not allowed notifications yet: an alert only shows on this page and sounds. ")));
+      if (perm === "default") wn.appendChild(h("button", { type: "button", class: "btn sm", text: tx("允许通知", "Allow notifications"), onclick: palAsk }));
+    }
+    paintPal();
+  }
+  function palWhen(ms) { return sgt(ms, "d") === sgt(Date.now(), "d") ? sgt(ms, "t") : sgt(ms); }   // today: the time only
+  function paintPal() {
+    var px = num(S.live); if (px === null) return;
+    all("#pa-list .pa-d").forEach(function (d) { var p = num(parseFloat(d.getAttribute("data-p"))); if (p !== null) d.textContent = EN ? fmt(Math.abs(p - px), 1) + " away" : "还差 " + fmt(Math.abs(p - px), 1); });
+  }
+  // the same, from the chart pattern: its break level, fail level and target under the chart
+  function renderPatPal() {
+    var el = $("vp-pal"); if (!el) return; clear(el);
+    var p = S.patP, pl = S.patPlan; el.hidden = !p; if (!p) return;
+    var wait = palList().filter(function (a) { return !a.at; });
+    el.appendChild(h("span", { class: "pa-pl", text: tx("🔔 到价提醒我：", "🔔 Alert me at: ") }));
+    [[pl ? pl.trigger : p.level, "ptrig", tx("突破位", "break")], [pl ? pl.stop : p.invalid, "pstop", tx("失效位", "fails")], [pl ? pl.target : p.target, "ptgt", tx("目标", "target")]].forEach(function (x) {
+      var v = num(x[0]); if (v === null) return; v = Math.round(v * 100) / 100;
+      var have = wait.some(function (a) { return a.price === v && a.mode === S.palMode; });
+      el.appendChild(h("button", { type: "button", class: "pa-pick" + (have ? " on" : ""), "aria-pressed": String(have), text: (have ? "✓ " : "") + x[2] + " " + fmt(v, 1), onclick: function () { if (!have) palAdd(v, { src: x[1], tf: S.patTf, pat: p.name }); } }));
+    });
+  }
+
   // called with every new answer: alert when it has just become "go"
   function alertCheck(V, unconfirmed) {
     levelCheck(V, unconfirmed);
@@ -1900,7 +2053,7 @@
   var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
   function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
   function onPrice() {
-    checkVerdict(); soonCheck();
+    checkVerdict(); soonCheck(); palCheck();
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
@@ -2005,7 +2158,7 @@
     cols.appendChild(ref);
   }
   function nowOut(t) { return Date.now() / 1000 >= t; }
-  function renderAll() { renderShort(); renderPos(); renderVerdict(); renderPatChart(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); }
+  function renderAll() { renderShort(); renderPos(); renderVerdict(); renderPatChart(); renderTfTabs(); renderMatrix(); renderCands(); renderLevels(); renderPlan(); drawChart(); fillTable(); renderPal(); }
   function refresh() {
     if (S.busy) return; S.busy = true; S.lastTry = Date.now(); document.body.classList.add("refreshing");
     XAU_TFS.forEach(function (c) { c.bars = CHART_BARS[c.tf]; });
@@ -2028,7 +2181,7 @@
       }).catch(function () {});
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
-      renderAll(); setStamp();
+      renderAll(); setStamp(); palCheck(true);
       renderProof(); trendCheck(E, feed.source); renderChanges();
       if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
@@ -2038,9 +2191,9 @@
   function tick() {
     if (!S.E || S.busy) return;
     var vis = document.visibilityState === "visible";
-    if (!vis) return;
+    if (!vis) { if (!streamOn() && palArmed("touch")) fetchTick().then(function () { palCheck(true); }); return; }
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
-      calibrate(); checkVerdict(); setStamp();
+      calibrate(); checkVerdict(); setStamp(); palCheck(true);
       if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
@@ -2082,7 +2235,7 @@
   $("howto").hidden = !!LS.get("howtoDone", false);
   $("howto-x").addEventListener("click", function () { LS.set("howtoDone", true); $("howto").hidden = true; });
   $("tbl").addEventListener("toggle", fillTable);
-  window.addEventListener("storage", function (e) { if (e.key === "pnl.v1") renderProof(); });
+  window.addEventListener("storage", function (e) { if (e.key === "pnl.v1") renderProof(); if (e.key === M.ls + "palerts") palChanged(); });
   document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { closePop(); if (S.armed) { S.armed = null; renderArm(); } } });
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && Date.now() - S.lastRun > 5 * 60000) refresh(); });
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
@@ -2096,7 +2249,7 @@
   // most. Nothing is fetched in between, so an open tab asks the price feed for candles about 16 times an hour.
   var qSeen = null, qTries = 0;
   setInterval(function () {
-    if (document.visibilityState !== "visible" && !alertsOn()) return;         // a hidden tab keeps checking only for the signal reminder
+    if (document.visibilityState !== "visible" && !alertsOn() && !palArmed("close")) return;   // a hidden tab keeps checking only for the reminders
     var now = Date.now(), q = Math.floor((now - 25000) / 900000);
     if (now - S.lastTry < 55000) return;
     if (q !== qSeen) { qSeen = q; qTries = 0; if (q !== S.lastQ) { refresh(); return; } }

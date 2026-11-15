@@ -521,6 +521,25 @@ footer .disc strong{color:var(--text)}
 .v-alert{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:rgba(255,255,255,.02);font-size:12.5px;line-height:1.6;color:var(--text)}
 .v-alert.on{border-color:rgba(212,167,44,.4);background:rgba(212,167,44,.06)}
 .v-alert .t{flex:1 1 260px;min-width:0}.v-alert b{color:var(--ink)}
+.v-palert{margin-top:12px;padding:12px 14px;border:1px solid rgba(167,139,250,.3);border-radius:var(--r-md);background:rgba(167,139,250,.045);font-size:12.5px;line-height:1.6}
+.v-palert .pa-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.v-palert .pa-h b{color:var(--ink)}
+.v-palert .pa-s{color:var(--dim);margin:3px 0 9px}
+.pa-mode{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.pa-mode button,.pa-pick{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 12px/1.25 'Noto Sans SC',sans-serif;padding:7px 11px;border-radius:999px;cursor:pointer}
+.pa-mode button[aria-pressed="true"]{border-color:rgba(167,139,250,.65);background:rgba(167,139,250,.16);color:#DDD6FE}
+.pa-pick:hover{border-color:rgba(167,139,250,.5)}.pa-pick.on{border-color:rgba(167,139,250,.55);background:rgba(167,139,250,.1);color:#DDD6FE;cursor:default}
+.pa-add{display:flex;gap:8px;margin-bottom:8px}
+.pa-add input{flex:1 1 auto;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;color:var(--ink);font:500 13px 'IBM Plex Mono',monospace;padding:8px 10px}
+.pa-add input:focus{outline:none;border-color:rgba(167,139,250,.6)}
+.pa-picks,.vp-pal{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.vp-pal{margin-top:10px}
+.pa-pl{color:var(--dim);font-size:12px}
+.pa-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px}
+.pa-list li{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 10px;border-radius:10px;background:rgba(255,255,255,.03)}
+.pa-list li b{font:600 13px 'IBM Plex Mono',monospace;color:var(--ink)}.pa-list li.done{opacity:.7}
+.pa-dir{font-size:11px;width:14px;text-align:center;flex:none}.pa-dir.up{color:var(--m-bull)}.pa-dir.dn{color:var(--m-bear)}.pa-dir.ok{color:#A78BFA}
+.pa-m{flex:1 1 auto;min-width:0;color:var(--dim);font-size:12px}
+.pa-x{flex:none;border:0;background:none;color:var(--dim);font-size:18px;line-height:1;cursor:pointer;width:32px;height:32px;border-radius:8px}.pa-x:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+.pa-warn{color:#E6BE55;font-size:12px;margin-top:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 /* replay results */
 .pf-tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:20px}
 .pf-t{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:13px 15px;min-width:0}
@@ -560,13 +579,14 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   .verdict .v-top{order:1}.verdict .v-title{order:2}.verdict .v-text{order:3}
   .verdict .v-side{order:4;margin-top:22px}
   .verdict .v-range{order:5;margin-top:22px}
-  .verdict .v-reasons{order:6}.verdict #v-next-wrap{order:7}.verdict .v-proof{order:8}.verdict .v-alert{order:9}
+  .verdict .v-reasons{order:6}.verdict #v-next-wrap{order:7}.verdict .v-proof{order:8}.verdict .v-alert{order:9}.verdict .v-palert{order:10}
 }
 @media(max-width:640px){
   /* 16px stops iPhone from zooming into a field when it is tapped */
   input:not([type=checkbox]):not([type=radio]),select,textarea,.inp input,.ask textarea{font-size:16px!important}
   /* fingers need about 36px */
   .btn.sm{min-height:36px;padding:9px 13px;font-size:12px}
+  .pa-mode button,.pa-pick{min-height:36px}.pa-x{width:36px;height:36px}
   .seg button{padding:11px 14px}
   .tabs button{padding:12px 16px}
   .q{position:relative}.q::after{content:"";position:absolute;inset:-11px}
@@ -659,6 +679,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
       <div id="v-next-wrap" hidden><div class="v-sub" data-en="What to do now">现在该做什么</div><ol class="v-next" id="v-next"></ol></div>
       <p class="v-proof" id="v-proof" hidden></p>
       <div class="v-alert" id="v-alert" hidden></div>
+      <div class="v-palert" id="v-palert" hidden></div>
     </div>
     <div class="v-side">
       <div class="v-price">
@@ -1002,7 +1023,7 @@ XauPlan.setMarket({ goText: T("这个规则是在黄金上选出来的，在比�
   }).catch(function () { var b = document.getElementById("rp-body"); if (b) b.innerHTML = window.LANG === "en" ? '<p class="note">The replay results (data/btc-backtest.json) cannot be read.</p>' : '<p class="note">读不到回放结果（data/btc-backtest.json）。</p>'; });
 })();
 </script>
-<script src="assets/market-page.js?v=33"></script>
+<script src="assets/market-page.js?v=34"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
 </html>
