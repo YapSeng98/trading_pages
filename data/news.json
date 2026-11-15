@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-16 04:55 SGT",
+ "updated": "2026-11-16 05:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold rush turns deadly in Guinea",
-   "src": "Financial Times",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPS1NfNjBjam1VeXctMEFtM2RqTW1vUnhya0JQd01uYVZfLVFRWXRsVE15bXoxVW5Bc2NLakFhUDAwU3hBdldHNGJjRWNieWZFek9SUzhMR01sWE9zMUR3NlNMWXZLZjlNcVBqM0FJbGRDQjRqa09PUUl4b0VRTFVEQU9zMXI?oc=5",
-   "ms": 1794755618000,
-   "time": "11/15 23:13"
-  },
   {
    "t": "Gold, silver prices outlook: Inflation data, Fed signals and West Asia tensions to guide bullion this week",
    "src": "CNBC TV18",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/golds-break-below-october-low-draws-parallels-with-the-historic-2013-selloff-200691553",
    "ms": 1794594060000,
    "time": "11/14 02:21"
+  },
+  {
+   "t": "Gold Miners Face a Profit Squeeze as Production Falls and Costs Hit Records",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-miners-face-a-profit-squeeze-as-production-falls-and-costs-hit-records-200691551",
+   "ms": 1794592680000,
+   "time": "11/14 01:58"
   }
  ]
 }
