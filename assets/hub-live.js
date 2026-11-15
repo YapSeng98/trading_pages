@@ -89,6 +89,7 @@
   }
 
   function paint() {
+    paintSince();
     var st = S.state, cal = S.cal, ev = upcoming(cal, false), hi = ev.filter(function (e) { return e.high; }), now = Date.now();
     if (cal) {
       var nx = hi[0];
@@ -319,6 +320,7 @@
   function btc() {
     get("data/btc-state.json").then(function (b) {
       if (!b || !b.verdict) return;
+      SN.btc = b; paintSince();
       var arrows = (b.timeframes || []).map(function (t) { return (EN ? SHORT[t.tf] || t.tf : (t.name || t.tf).replace(" ", "")) + (t.trend === "向上" ? "↑" : t.trend === "向下" ? "↓" : "–"); }).join(" ");
       var at = Date.parse(String(b.updated).replace(" SGT", ":00+08:00").replace(" ", "T")), ageH = isFinite(at) ? (Date.now() - at) / 3600000 : 0;   // written by the same late job as gold's file
       chips("hub-btc-chips", [[b.verdict.level === "go" ? "bull" : "gold", tr("结论", "Answer") + (ageH >= 1 ? tr("（" + Math.round(ageH) + " 小时前）", " (" + Math.round(ageH) + " h ago)") : "") + tr("：", ": ") + (EN ? tagEn(b.verdict, b.timeframes || []) : b.verdict.tag) + " · " + arrows]]);
@@ -327,7 +329,79 @@
       var p = d && parseFloat(d.price); if (isFinite(p) && p > 0) set("hub-btc-price", "$" + fmt(p, 0));
     }).catch(function () {});
   }
+  // ---------- since your last visit ----------
+  // The owner took up the proposal on 2026-11-15. A returning visitor (this page last seen over 15 minutes ago,
+  // localStorage "hub.seen") gets one card under the title: whether gold's answer changed and the price then and now,
+  // the bigger timeframes' turns (and how many 15-minute ones), the paper trades opened or closed, Bitcoin's answer, and
+  // how many headlines are new, all from the data files' own times. index.html shows the card's frame before the page
+  // is drawn, so nothing moves when it fills. The visit is written down when the page is left, after a minute on it,
+  // or when the card is closed.
+  var SEEN = "hub.seen", seen0 = null, SN = { sig: null, btc: null, news: null };
+  try { seen0 = JSON.parse(localStorage.getItem(SEEN)); } catch (e) {}
+  function bareTag(t) { return String(t || "").replace("休市中 · ", "").replace("仅观察 · ", ""); }
+  function fakeTfs(d) { var w = d > 0 ? "向上" : d < 0 ? "向下" : "不明"; return [{ trend: w }, { trend: w }, { trend: w }]; }
+  function goldNow() {
+    var st = S.state; if (!st) return null;
+    var v = (S.lv ? S.lv.verdict : st.verdict) || {}, tfs = ((S.lv ? S.lv.timeframes : st.timeframes) || []).filter(function (t) { return !t.error; });
+    return { v: v, tfs: tfs, px: S.live !== null && st.marketOpen ? S.live : st.price };
+  }
+  function saveSeen() {
+    var g = goldNow(), b = SN.btc; if (!g) return;
+    try { localStorage.setItem(SEEN, JSON.stringify({ at: Date.now(), gTag: bareTag(g.v.tag), gLevel: g.v.level, gDir: bigDir(g.tfs), gPx: g.px,
+      bTag: b && b.verdict ? bareTag(b.verdict.tag) : null, bLevel: b && b.verdict ? b.verdict.level : null, bDir: b ? bigDir(b.timeframes || []) : 0, bPx: b ? b.price : null })); } catch (e) {}
+  }
+  function sinceWhen(ms) {
+    var d = new Date(ms + 8 * 3600000), n = new Date(Date.now() + 8 * 3600000), hm = ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2);
+    return d.getUTCDate() === n.getUTCDate() && d.getUTCMonth() === n.getUTCMonth() ? hm : (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + " " + hm;
+  }
+  function paintSince() {
+    var box = $("hub-since"); if (!box || box.hidden || !seen0 || !S.state || !SN.sig) return;
+    var at = seen0.at, g = goldNow(), lines = [], pct = function (a, b) { return sgn((b - a) / a * 100, 2) + "%"; };
+    set("sn-t", (EN ? "Since your last visit · " : "自你上次来过 · ") + sinceWhen(at) + (EN ? " (" + left(Date.now() - at) + " ago)" : "（" + left(Date.now() - at) + "前）"));
+    // gold's answer and price
+    var nowTag = EN ? tagEn(g.v, g.tfs) : g.v.tag, oldTag = EN ? tagEn({ level: seen0.gLevel, tag: seen0.gTag }, fakeTfs(seen0.gDir)) : seen0.gTag, same = bareTag(g.v.tag) === seen0.gTag;
+    var px = typeof seen0.gPx === "number" && typeof g.px === "number" ? (EN ? " Price " : "金价 ") + fmt(seen0.gPx) + " → " + fmt(g.px) + (EN ? " (" : "（") + sgn(g.px - seen0.gPx) + (EN ? ", " : "，") + pct(seen0.gPx, g.px) + (EN ? ")." : "）。") : "";
+    lines.push([same ? "" : "chg", same ? (EN ? "Gold's answer is the same: " + nowTag + "." : "黄金结论没变：" + nowTag + "。") : (EN ? "Gold's answer changed: " + oldTag + " → " + nowTag + "." : "黄金结论变了：" + oldTag + " → " + nowTag + "。"), px]);
+    // the trends, from the paper-record file's list of turns
+    var ch = (SN.sig.changes || []).filter(function (c) { return c.ms > at; }), big = ch.filter(function (c) { return c.tf !== "15M"; }).reverse(), n15 = ch.length - big.length;
+    var turn = function (c) { return (EN ? I.tfName(TFN[c.tf]) + (c.to === "bullish" ? " turned up" : c.to === "bearish" ? " turned down" : " became unclear") : TFN[c.tf] + (c.to === "bullish" ? "转多" : c.to === "bearish" ? "转空" : "变得不明")) + (EN ? " (" : "（") + sinceWhen(c.ms) + (EN ? ")" : "）"); };
+    lines.push([big.length ? "chg" : "", (EN ? "Trends: " : "趋势：") + (big.length ? big.slice(0, 3).map(turn).join(EN ? ", " : "、") + (big.length > 3 ? (EN ? " and " + (big.length - 3) + " more" : " 等 " + big.length + " 次") : "") : tr("大周期都没变", "no change on the bigger timeframes")) + (n15 ? (EN ? "; the 15-minute turned " + n15 + (n15 > 1 ? " times" : " time") : "；15 分钟变了 " + n15 + " 次") : "") + tr("。", "."), ""]);
+    // the paper record
+    var sg = SN.sig.signals || [], opened = sg.filter(function (s) { return s.ms > at && s.status !== "skipped"; }), closed = sg.filter(function (s) { return s.exitMs > at; });
+    var side = function (s) { return EN ? (s.side === "做空" ? "short" : "long") : s.side; };
+    if (opened.length || closed.length) lines.push(["chg", (EN ? "Paper record: " : "纸面记录：") + opened.map(function (s) { return EN ? "new " + side(s) + " at " + fmt(s.entry) : "新开" + side(s) + " " + fmt(s.entry); }).concat(closed.map(function (s) {
+      return "#" + s.id + (s.status === "target" ? tr(" 到目标 ", " hit its target ") : s.status === "stop" ? tr(" 止损 ", " stopped out ") : tr(" 平仓 ", " closed ")) + (typeof s.R === "number" ? sgn(s.R, 2) + "R" : "");
+    })).join(EN ? "; " : "；") + tr("。", "."), ""]);
+    // Bitcoin
+    var b = SN.btc;
+    if (b && b.verdict && seen0.bTag) {
+      var bSame = bareTag(b.verdict.tag) === seen0.bTag, bNow = EN ? tagEn(b.verdict, b.timeframes || []) : b.verdict.tag, bOld = EN ? tagEn({ level: seen0.bLevel, tag: seen0.bTag }, fakeTfs(seen0.bDir)) : seen0.bTag;
+      var bp = typeof seen0.bPx === "number" && typeof b.price === "number" ? (EN ? " " : "") + fmt(seen0.bPx, 0) + " → " + fmt(b.price, 0) + (EN ? " (" : "（") + pct(seen0.bPx, b.price) + (EN ? ")." : "）。") : "";
+      lines.push([bSame ? "" : "chg", bSame ? (EN ? "Bitcoin's answer is the same (watch only)." : "比特币结论没变（仅观察）。") : (EN ? "Bitcoin's answer changed: " + bOld + " → " + bNow + "." : "比特币结论变了：" + bOld + " → " + bNow + "。"), bp]);
+    }
+    // headlines
+    var nn = SN.news && SN.news.items ? SN.news.items.filter(function (i) { return i.ms > at; }).length : 0;
+    if (nn) lines.push(["", EN ? nn + " new headline" + (nn > 1 ? "s" : "") + " on gold." : "黄金新头条 " + nn + " 条。", "", "report.html#read-news"]);
+    var ul = $("sn-list"); while (ul.firstChild) ul.removeChild(ul.firstChild);
+    lines.forEach(function (l) {
+      var li = el("li", l[0]); li.appendChild(el("span", "", l[1])); if (l[2]) li.appendChild(el("span", "sn-px", l[2]));
+      if (l[3]) { var a = el("a", "", tr(" 去看 →", " Read →")); a.href = l[3]; li.appendChild(a); }
+      ul.appendChild(li);
+    });
+  }
+  function startSince() {
+    var box = $("hub-since");
+    if (box && !box.hidden && seen0) {
+      get("data/xau-signals.json").then(function (d) { SN.sig = d || { changes: [], signals: [] }; paintSince(); });
+      get("data/news.json").then(function (d) { SN.news = d; paintSince(); });
+      var x = $("sn-x"); if (x) x.addEventListener("click", function () { saveSeen(); box.hidden = true; });
+    }
+    window.addEventListener("pagehide", saveSeen);
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") saveSeen(); });
+    setTimeout(function () { if (document.visibilityState === "visible") saveSeen(); }, 60000);
+  }
   function start() {
+    startSince();
     btc(); setInterval(btc, 60000);
     loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } liveVerdict(); });
     setInterval(loadFiles, 15 * 60000);
