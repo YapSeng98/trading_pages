@@ -113,6 +113,17 @@
   function sh(p) { return num(p); }
   function unsh(p) { return num(p); }
   function marketOpen() { return !Feed.closed(Date.now() / 1000); }
+  // a verdict tag the data file wrote in Chinese, restated in English (as daily-live.js does)
+  function tagEn(t) { return !EN ? t : String(t || "").replace("休市中 · ", "Market closed · ").replace("仅观察 · ", "Watch only · ").replace("可以顺势做空", "Go short with the trend").replace("可以顺势做多", "Go long with the trend")
+    .replace("等小周期转多", "Waiting for the small timeframes to turn up").replace("等小周期转空", "Waiting for the small timeframes to turn down").replace(/回调中 · 大方向向上/, "Pullback · big trend up").replace(/反弹中 · 大方向向下/, "Bounce · big trend down").replace("先观望", "Wait"); }
+  // When gold opens again: the first quarter-hour Feed.closed lets through (Sunday 18:00 New York, which is Monday
+  // 07:00 SGT in winter and 06:00 SGT in summer), as words: "周一 07:00 SGT（还有 15 小时 10 分）".
+  function nextOpen() { var t = Math.ceil(Date.now() / 900000) * 900; for (var i = 0; i < 700 && Feed.closed(t); i++) t += 900; return t * 1000; }
+  function openWords() {
+    var t = nextOpen(), wd = new Date(t + 8 * 3600000).getUTCDay();
+    return EN ? ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][wd] + " " + sgt(t, "t") + " SGT (in " + left(t - Date.now()) + ")"
+      : ["周日", "周一", "周二", "周三", "周四", "周五", "周六"][wd] + " " + sgt(t, "t") + " SGT（还有 " + left(t - Date.now()) + "）";
+  }
   function basisName() { return S.feed && S.feed.source === "paxg" ? M.basisBackup : M.basisSpot; }
   function calibrate() {
     if (!M.calibrate) { S.gap = 0; S.gapOk = true; setLive(); return; }
@@ -136,10 +147,13 @@
   // The live price: a calibrated tick while the market is open, else the close of the last finished candle.
   function setLive() {
     if (!S.E) return;
-    if (marketOpen() && S.gapOk && num(S.raw) !== null) S.live = Math.round((S.raw + S.gap) * 100) / 100;
+    var tick = marketOpen() && S.gapOk && num(S.raw) !== null;
+    if (tick) S.live = Math.round((S.raw + S.gap) * 100) / 100;
     else if (num(S.live) === null || !marketOpen()) S.live = S.feed ? S.feed.price : S.E.price;
     S.E.price = S.live;
-    if (num(S.live) !== null) { S.tHi = S.tHi === null ? S.live : Math.max(S.tHi, S.live); S.tLo = S.tLo === null ? S.live : Math.min(S.tLo, S.live); }
+    // the high and low of live ticks only: the last close, shown until the first tick, is not part of the candle still
+    // forming (after Monday's gap it would draw a wick back to Friday's close)
+    if (tick) { S.tHi = S.tHi === null ? S.live : Math.max(S.tHi, S.live); S.tLo = S.tLo === null ? S.live : Math.min(S.tLo, S.live); }
   }
   // The candle still forming on a timeframe: the finished quarter-hours inside it, then the finished minutes after
   // those, then the live price. The engine never sees it (the answer is judged on closed candles only); it is drawn
@@ -220,7 +234,7 @@
 
     // what to do now, as steps: the first is the action, the rest is what to wait for and what follows
     var steps = V.next.slice(), hold = false;
-    if (V.closed) { steps.unshift({ lead: tx("现在休市，什么都不用做", "Market closed: nothing to do"), text: tx("周一约 06:00 SGT 开盘，可能跳空。开盘后再回来看一次结论。", "It opens Monday around 06:00 SGT, possibly with a gap. Come back after the open for the answer.") }); hold = true; }
+    if (V.closed) { steps.unshift({ lead: tx("现在休市，什么都不用做", "Market closed: nothing to do"), text: EN ? "It opens " + openWords() + ", possibly with a gap. Come back after the open for the answer." : openWords() + "开盘，可能跳空。开盘后再回来看一次结论。" }); hold = true; }
     else if (V.level === "go" && nw && nw.ok === false) { steps.unshift({ lead: tx("先等数据过去", "Let the release pass first"), text: nw.detail + tx("。数据前后价格乱跳，点差也会放大。", ". Around a release price jumps and spreads widen.") }); hold = true; }
     // A trade opened on a Friday is held over the weekend: Monday can open beyond the stop. The replay held through
     // weekends too, so this is already in its results; the page only says when the market shuts.
@@ -234,7 +248,7 @@
     // On the backup feed (PAXG) the structure can differ from spot: say so, compare with the server's last spot answer,
     // and offer no one-click plan unless the two agree.
     if (backup) {
-      steps.unshift({ lead: tx("备用数据：这里的结论可能不准", "Backup data: this answer may be wrong"), text: EN ? "The spot feed cannot be reached, so this page uses the PAXG token's candles, whose structure sometimes differs from spot. " + (srv ? "The server's spot answer at " + srv.updated.slice(5, 16) + " was «" + srv.tag + "»" + (agrees ? ", the same as here." : ", different from here: go by spot and do not trade on this one.") : "Do not trade on this signal; wait for the spot feed to return.") : "现货数据暂时连不上，这一页改用 PAXG 代币的 K 线计算，它的结构有时和现货不一样。" + (srv ? "服务器 " + srv.updated.slice(5, 16) + " 用现货算的结论是「" + srv.tag + "」" + (agrees ? "，和这里一致。" : "，和这里不一样：以现货为准，先别按这里下单。") : "先别按这里的信号下单，等现货数据恢复。") });
+      steps.unshift({ lead: tx("备用数据：这里的结论可能不准", "Backup data: this answer may be wrong"), text: EN ? "The spot feed cannot be reached, so this page uses the PAXG token's candles, whose structure sometimes differs from spot. " + (srv ? "The server's spot answer at " + srv.updated.slice(5, 16) + " was «" + tagEn(srv.tag) + "»" + (agrees ? ", the same as here." : ", different from here: go by spot and do not trade on this one.") : "Do not trade on this signal; wait for the spot feed to return.") : "现货数据暂时连不上，这一页改用 PAXG 代币的 K 线计算，它的结构有时和现货不一样。" + (srv ? "服务器 " + srv.updated.slice(5, 16) + " 用现货算的结论是「" + srv.tag + "」" + (agrees ? "，和这里一致。" : "，和这里不一样：以现货为准，先别按这里下单。") : "先别按这里的信号下单，等现货数据恢复。") });
       hold = true; if (!agrees) steps.forEach(function (x) { delete x.fill; });
     }
     if (S.pos) { steps.unshift({ lead: tx("你有一笔持仓在跟踪", "You have a position being tracked"), text: tx("怎么管理看上面「我的持仓」：止损、目标、每天该挪到哪里、什么时候离场都写好了。", "See «My position» above for how to manage it: stop, target, where to move it each day and when to leave.") }); hold = true; }
@@ -312,7 +326,7 @@
     pe.textContent = fmt(shown, 2);
     if (S.lastShown !== null && shown !== S.lastShown) { pe.classList.remove("up", "dn"); void pe.offsetWidth; pe.classList.add(shown > S.lastShown ? "up" : "dn"); }
     S.lastShown = shown;
-    $("price-sub").textContent = !open ? tx("休市中，周一约 06:00 SGT 开盘", "Market closed; opens Monday around 06:00 SGT") : S.gapOk && num(S.raw) !== null ? (!M.calibrate ? tx("实时成交价 · ", "Live trade price · ") + M.liveName : tx("实时推送 · ", "Live stream · ") + (S.basisAt && Date.now() - S.basisAt < 20 * 60000 ? tx("按现货 1 分钟 K 线校准（买价，和 MT5 图表同一种价）", "matched to spot 1-minute candles (bid, the same price as MT5 charts)") : tx("按 gold-api 现货报价校准", "matched to the gold-api spot quote")) + (paxg ? tx("（备用数据源）", " (backup feed)") : "")) : tx("最近一根 15 分钟 K 线的收盘价，实时报价连接中", "Last 15-minute close; connecting to the live price");
+    $("price-sub").textContent = !open ? (EN ? "Market closed; opens " + openWords() : "休市中，" + openWords() + "开盘") : S.gapOk && num(S.raw) !== null ? (!M.calibrate ? tx("实时成交价 · ", "Live trade price · ") + M.liveName : tx("实时推送 · ", "Live stream · ") + (S.basisAt && Date.now() - S.basisAt < 20 * 60000 ? tx("按现货 1 分钟 K 线校准（买价，和 MT5 图表同一种价）", "matched to spot 1-minute candles (bid, the same price as MT5 charts)") : tx("按 gold-api 现货报价校准", "matched to the gold-api spot quote")) + (paxg ? tx("（备用数据源）", " (backup feed)") : "")) : tx("最近一根 15 分钟 K 线的收盘价，实时报价连接中", "Last 15-minute close; connecting to the live price");
     // where price sits between the nearest support and resistance
     var nr = P.nearest(E), vr = $("v-range"); vr.hidden = !(nr.sup && nr.res);
     if (nr.sup && nr.res) {
@@ -321,7 +335,7 @@
       $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + (EN ? ", $" + fmt(b - shown, 1) + " above the price" : "，比现价高 " + fmt(b - shown, 1) + " 美元");
       $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = tx("现价 ", "Now ") + fmt(shown, 1);
     }
-    paintPreview(E, shown);
+    paintPreview(E, shown); paintPatLive();
   }
   // 按现价预估: the rule decides on closed candles only (crosses inside a candle often reverse), but the visitor can
   // see at any second which timeframes the price now stands beyond the turning close of, when that candle closes,
@@ -655,24 +669,34 @@
     var p = it.p, pl = P.patternPlan(p, S.E.price), way = it.done;
     var rel = !way || !Rp.dir ? "" : way === Rp.dir ? tx("，和大方向一致", ", with the big trend") : tx("，和大方向相反", ", against the big trend");
     box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : tx("（没有方向）", " (no direction)") }), " " + P.statusText(p.status) + rel]));
-    var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); });
-    var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: EN ? P.TF_ZH[it.tf] + " " + P.patternText(p) + " chart" : P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28 });
+    var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); }), Lv = marketOpen() ? num(S.live) : null;
+    var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: EN ? P.TF_ZH[it.tf] + " " + P.patternText(p) + " chart" : P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28, live: Lv, bar: Lv !== null ? formingBar(it.tf) : null });
     S.patChart = chart || null; S.patPlan = pl || null; S.patTf = it.tf; S.patP = p;
     if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: tx("这个形态的 K 线还没读到，下一次刷新再画。", "This pattern's candles are not loaded yet; it is drawn at the next refresh.") }));
-    box.appendChild(h("p", { class: "vp-live", id: "vp-live" })); paintPatLive();
-    if (pl) box.appendChild(h("p", { class: "vp-plan", text: EN ? "The pattern's own trade: " + (pl.done ? (pl.dir > 0 ? "broke up, price now " : "broke down, price now ") : (pl.dir > 0 ? "on a close above " : "on a close below ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · fails " + fmt(sh(pl.stop), 1) + " · target " + fmt(sh(pl.target), 1) + " · R:R " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "")
-      : "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") }));
+    box.appendChild(h("p", { class: "vp-live", id: "vp-live" }));
+    if (pl) box.appendChild(h("p", { class: "vp-plan", id: "vp-plan", text: patPlanText(pl) }));
+    paintPatLive();
     box.appendChild(h("p", { class: "vp-n", text: tx("参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。", "Reference, not a signal: in the replay patterns had no edge on their own (with their own stop and target, about six in ten won, about 0R on average). They mark key levels, targets and where a move fails; entries still go by the answer above.") }));
   }
 
-  // The pattern chart between candle closes: the live price drawn on it, and how far it is from the pattern's levels.
-  // The pattern itself is worked out again after every 15-minute close (renderAll after refresh), on closed candles only.
+  // The pattern's own textbook trade in one line. A pattern that has already broken is entered at the price now, so
+  // its line follows the live price (paintPatLive).
+  function patPlanText(pl) {
+    return EN ? "The pattern's own trade: " + (pl.done ? (pl.dir > 0 ? "broke up, price now " : "broke down, price now ") : (pl.dir > 0 ? "on a close above " : "on a close below ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · fails " + fmt(sh(pl.stop), 1) + " · target " + fmt(sh(pl.target), 1) + " · R:R " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "")
+      : "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "");
+  }
+  // The pattern chart between candle closes: the live price and the candle still forming drawn on it, and how far the
+  // price is from the pattern's levels. The pattern itself is worked out again after every 15-minute close (renderAll
+  // after refresh), on closed candles only. Called from paintLive, so it moves with every price the page shows.
   function paintPatLive() {
     var line = $("vp-live"); if (!line) return;
-    var open = marketOpen(), L = num(S.live), pl = S.patPlan, f = function (v) { return fmt(sh(v), 1); };
-    if (S.patChart && S.patChart.setLive) S.patChart.setLive(open && L !== null ? L : null);
+    var open = marketOpen(), L = open ? num(S.live) : null, pl = S.patPlan, f = function (v) { return fmt(sh(v), 1); };
+    // a price that has left the drawn scale (a gap, a fast move): the chart is drawn again around it, at most every 10 s
+    if (S.patChart && S.patChart.setLive && S.patChart.setLive(L, L !== null ? formingBar(S.patTf) : null) === false && Date.now() - (S.patFit || 0) > 10000) { S.patFit = Date.now(); renderPatChart(true); return; }
+    var pe = $("vp-plan");
+    if (pe && L !== null && pl && pl.done) { var p2 = P.patternPlan(S.patP, L); pe.textContent = p2 ? patPlanText(p2) : tx("形态自己的做法：按现价已经没有（价格已过它的目标或失效位）", "The pattern's own trade: none left at this price (it is past the target or where the pattern fails)"); }
     var bits = [];
-    if (open && L !== null && pl) {
+    if (L !== null && pl) {
       var gap = function (v) { return fmt(Math.abs(L - v), 1); };
       if (!pl.done && num(pl.trigger) !== null) {
         var past = pl.dir > 0 ? L > pl.trigger : L < pl.trigger;
@@ -681,7 +705,7 @@
       }
       if (num(pl.stop) !== null) bits.push((pl.dir > 0 ? L <= pl.stop : L >= pl.stop) ? (EN ? "price is through where it fails (" + f(pl.stop) + ")" : "现价已过失效位 " + f(pl.stop)) : (EN ? gap(pl.stop) + " from where it fails" : "离失效位 " + gap(pl.stop)));
       if (num(pl.target) !== null) bits.push((pl.dir > 0 ? L >= pl.target : L <= pl.target) ? (EN ? "target " + f(pl.target) + " reached" : "已到目标 " + f(pl.target)) : (EN ? gap(pl.target) + " from the target" : "离目标 " + gap(pl.target)));
-    } else if (open && L !== null && S.patP) {      // no trade left in it (target already passed, or no direction): where price stands against its own levels
+    } else if (L !== null && S.patP) {      // no trade left in it (target already passed, or no direction): where price stands against its own levels
       var pp = S.patP, d = P.patternWay(pp) || (pp.bias === "bullish" ? 1 : pp.bias === "bearish" ? -1 : 0), tg = num(pp.target), iv = num(pp.invalid), far = function (v) { return fmt(Math.abs(L - v), 1); };
       if (d && tg !== null) bits.push((d > 0 ? L >= tg : L <= tg) ? (EN ? "price is past its target " + f(tg) + ": the measured move is done" : "现价已过它的目标 " + f(tg) + "：量度的幅度已经走完") : (EN ? far(tg) + " from its target " + f(tg) : "离它的目标 " + f(tg) + " 还有 " + far(tg)));
       if (d && iv !== null) bits.push((d > 0 ? L <= iv : L >= iv) ? (EN ? "price is through where it fails (" + f(iv) + ")" : "现价已过失效位 " + f(iv)) : (EN ? far(iv) + " from where it fails" : "离失效位 " + far(iv)));
@@ -690,7 +714,8 @@
     clear(line);
     line.appendChild(h("span", { class: "vp-dot" + (open ? " on" : "") }));
     line.appendChild(h("b", { text: open ? (EN ? "Live " + (L !== null ? fmt(sh(L), 1) : "—") : "现价 " + (L !== null ? fmt(sh(L), 1) : "—")) : tx("休市中", "Market closed") }));
-    line.appendChild(document.createTextNode((bits.length ? tx("：", ": ") + bits.join(tx("；", "; ")) : "") + tx(" · ", " · ") + (EN ? "pattern worked out again after every 15-minute close (last " + at + " SGT)" : "形态在每根 15 分钟 K 线收盘后自动重算（上次 " + at + " SGT）")));
+    line.appendChild(document.createTextNode(!open ? (EN ? ": opens " + openWords() + ". From the open, the live price and the candle still forming are drawn on the chart." : "：" + openWords() + "开盘。开盘后，现价和正在走的这根 K 线会实时画在图上。")
+      : (bits.length ? tx("：", ": ") + bits.join(tx("；", "; ")) : "") + tx(" · ", " · ") + (EN ? "pattern worked out again after every 15-minute close (last " + at + " SGT)" : "形态在每根 15 分钟 K 线收盘后自动重算（上次 " + at + " SGT）")));
   }
 
   // ---------- plan ----------
@@ -1764,7 +1789,7 @@
     if (!E) return tx("（行情还在载入，资料暂时不完整）", "(prices still loading; the facts are not complete yet)");
     var V = P.verdict(E), R = V.regime || P.regime(E), open = marketOpen(), K = S.feed && S.feed.K, D = K && K.D, prev = D && D.length ? D[D.length - 1][4] : null;
     L.push("LIVE DATA from the trading page at " + sgt(now, "full") + " (" + (S.feed && S.feed.source === "paxg" ? M.liveDataBackup : M.liveData) + ")");
-    L.push("Market: " + (open ? "open" : "closed for the weekend (reopens Monday about 06:00 SGT)"));
+    L.push("Market: " + (open ? "open" : "closed for the weekend (reopens " + sgt(nextOpen(), "full") + ")"));
     L.push("Price (bid, live): " + f1(S.live) + (prev !== null && num(S.live) !== null ? " | previous day close " + f1(prev) + " (" + (S.live >= prev ? "+" : "") + fmt(S.live - prev, 1) + ", " + (S.live >= prev ? "+" : "") + fmt((S.live - prev) / prev * 100, 2) + "%)" : ""));
     L.push("Rule's answer now: " + V.tag + " / " + V.title + " (level: " + V.level + ")");
     if (V.signal) L.push("Signal: appeared " + sgt(V.signal.at) + " SGT at " + f1(V.signal.price) + (num(V.signal.movedR) !== null ? ", price has moved " + V.signal.movedR.toFixed(1) + "R in its favour since" : ""));
@@ -1879,7 +1904,7 @@
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
-      paintLive(); paintPatLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 5 === 0) renderShort(); if (slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
+      paintLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 5 === 0) renderShort(); if (slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
     }, 1000);
   }
   function connectStream() {
@@ -2016,7 +2041,7 @@
     if (!vis) return;
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
       calibrate(); checkVerdict(); setStamp();
-      if (vis) { renderVerdict(); paintPatLive(); if (!busyUi()) { renderLevels(); drawChart(); } }
+      if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
   function loop() { tick(); setTimeout(loop, 30000); }

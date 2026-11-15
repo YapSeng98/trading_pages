@@ -5,7 +5,8 @@
 // Reference only: the replay found no edge in patterns (CLAUDE.md), and the caller says so next to the chart.
 // PatChart.draw(rows, pattern, opts) -> element or null
 //   rows: closed candles [openMs, o, h, l, c, …] of the pattern's timeframe, in the pattern's price units
-//   opts: { fmt(v) -> text, plan: XauPlan.patternPlan(…) or null, title, tfLabel, w: the width it will be shown at }
+//   opts: { fmt(v) -> text, plan: XauPlan.patternPlan(…) or null, title, tfLabel, w: the width it will be shown at,
+//           live: the price now and bar: the candle still forming [openMs, o, h, l, c], both optional, kept inside the scale }
 (function () {
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
@@ -42,6 +43,8 @@
     var addLv = function (v, kind, label) { v = num(v); if (v === null) return; levels.push({ v: v, kind: kind, label: label }); lo = Math.min(lo, Math.max(v, lo - 0.7 * rng)); hi = Math.max(hi, Math.min(v, hi + 0.7 * rng)); };
     if (plan) { addLv(plan.trigger, "trig", plan.done ? tr("突破位", "break level") : tr("突破才进", "on break")); addLv(plan.stop, "stop", tr("失效位", "fails")); addLv(plan.target, "tgt", tr("目标", "target")); }
     else { addLv(pat.level, "trig", tr("关键位", "key level")); addLv(pat.upper, "trig", tr("上沿", "upper edge")); addLv(pat.lower, "trig", tr("下沿", "lower edge")); addLv(pat.invalid, "stop", tr("失效位", "fails")); addLv(pat.target, "tgt", tr("目标", "target")); }
+    // the price now and the candle still forming are drawn on the chart, not pinned to its edge (up to a range further)
+    [num(o.live)].concat(o.bar ? [num(o.bar[2]), num(o.bar[3])] : []).forEach(function (v) { if (v !== null) { lo = Math.min(lo, Math.max(v, lo - rng)); hi = Math.max(hi, Math.min(v, hi + rng)); } });
     var py = (hi - lo) * 0.07; lo -= py; hi += py;
     var Y = function (v) { return T + (hi - v) * (H - T - B) / (hi - lo); };
     var clampY = function (y) { return Math.max(T - 4, Math.min(H - B + 4, y)); };
@@ -108,7 +111,7 @@
     });
     var lastR = rows[e], cy = Y(lastR[4]);
     el("circle", { cx: X(e).toFixed(1), cy: cy.toFixed(1), r: 3.5, fill: C.ink, stroke: "var(--bg2,#101016)", "stroke-width": 1.5 }, svg);
-    labs.push({ y: cy, text: tr("最后收盘", "last close"), val: o.fmt ? o.fmt(lastR[4]) : String(lastR[4]), col: C.ink });
+    labs.push({ y: cy, text: tr("最后收盘", "last close"), val: o.fmt ? o.fmt(lastR[4]) : String(lastR[4]), col: C.ink, close: true });
     if (plan) {                                        // the measured move, as an arrow from the last close toward the target
       var ty = clampY(Y(plan.target)), tx = xEnd + (xR - xEnd) * 0.55;
       el("path", { d: "M" + X(e).toFixed(1) + " " + cy.toFixed(1) + " L" + tx.toFixed(1) + " " + ty.toFixed(1), stroke: COLS.tgt, "stroke-width": 1.5, "stroke-dasharray": "1 3", fill: "none", "stroke-linecap": "round" }, svg);
@@ -119,28 +122,47 @@
     for (var q = 1; q < labs.length; q++) if (labs[q].y - labs[q - 1].y < 22) labs[q].y = labs[q - 1].y + 22;
     var over = labs.length ? labs[labs.length - 1].y - (H - 6) : 0;
     if (over > 0) labs.forEach(function (l) { l.y -= over; });
-    labs.forEach(function (l) { txt(svg, xR + 5, l.y - 2, l.text, { class: "pc-lab", fill: l.col }); txt(svg, xR + 5, l.y + 9, l.val, { class: "pc-val", fill: C.ink }); });
+    labs.forEach(function (l) { l.a = txt(svg, xR + 5, l.y - 2, l.text, { class: "pc-lab", fill: l.col }); l.b = txt(svg, xR + 5, l.y + 9, l.val, { class: "pc-val", fill: C.ink }); });
     txt(svg, L + 2, H - 6, o.tfLabel ? o.tfLabel + " · " + n + tr(" 根", " bars") : n + tr(" 根", " bars"), { class: "pc-ax" });
 
-    // the price now, for a caller that follows it (gold, Bitcoin): a line from the last close across the space after
-    // it, a dot and the figure. Hidden until wrap.setLive(price) is called; a price off the scale sits at the edge with an arrow.
-    var liveG = el("g", { visibility: "hidden", "pointer-events": "none" }, svg);
-    var liveLn = el("line", { x1: X(e).toFixed(1), x2: xR.toFixed(1), stroke: C.ink, "stroke-width": 1, opacity: 0.5 }, liveG);
-    var liveRing = el("circle", { cx: (xEnd + 9).toFixed(1), r: 6, fill: "none", stroke: C.ink, "stroke-width": 1, class: "pc-ring" }, liveG);
-    var liveDot = el("circle", { cx: (xEnd + 9).toFixed(1), r: 3, fill: C.ink }, liveG);
-    var liveTx = txt(liveG, xEnd + 19, 0, "", { class: "pc-val pc-now", fill: C.ink });
+    // the price now, for a caller that follows it (gold, Bitcoin): the candle still forming, hollow, in the first slot
+    // after the last close; a dot at the price with a line to the right edge; and the figure in the right margin, in the
+    // free slot nearest the price (the last close's label gives way to it). Hidden until wrap.setLive(price, bar) is
+    // called. It returns false when the price is off the drawn scale (then it sits at the edge with an arrow), so the
+    // caller can draw the chart again with opts.live.
+    var liveG = el("g", { visibility: "hidden", "pointer-events": "none" }, svg), xF = X(e + 1);
+    var fWick = el("line", { x1: xF.toFixed(1), x2: xF.toFixed(1), "stroke-width": 1 }, liveG);
+    var fBody = el("rect", { x: (xF - bw / 2).toFixed(1), width: bw.toFixed(1), fill: "none", "stroke-width": 1.3, rx: bw > 4 ? 1 : 0 }, liveG);
+    var liveLn = el("line", { x1: X(e).toFixed(1), y1: cy.toFixed(1), stroke: C.ink, "stroke-width": 1, opacity: 0.5 }, liveG);
+    var liveH = el("line", { x2: xR.toFixed(1), stroke: C.ink, "stroke-width": 1, "stroke-dasharray": "1 3", opacity: 0.6 }, liveG);
+    var liveRing = el("circle", { r: 6, fill: "none", stroke: C.ink, "stroke-width": 1, class: "pc-ring" }, liveG);
+    var liveDot = el("circle", { r: 3, fill: C.ink }, liveG);
+    var liveA = txt(liveG, xR + 5, 0, tr("现价", "now"), { class: "pc-lab", fill: C.ink }), liveB = txt(liveG, xR + 5, 0, "", { class: "pc-val pc-now", fill: C.ink });
+    var closeLab = labs.filter(function (l) { return l.close; })[0], fixed = labs.filter(function (l) { return !l.close; }), hollow = null;
+    var free = function (c) { return c >= T && c <= H - 6 && fixed.every(function (l) { return Math.abs(l.y - c) >= 22; }); };
     var wrap = document.createElement("div"); wrap.className = "pc";
-    wrap.setLive = function (v, label) {
-      v = num(v); if (v === null) { liveG.setAttribute("visibility", "hidden"); return; }
-      var y0 = Y(v), y = clampY(y0), ys = y.toFixed(1), above = y - 16 > T;
-      liveLn.setAttribute("y1", cy.toFixed(1)); liveLn.setAttribute("y2", ys); liveLn.setAttribute("x1", X(e).toFixed(1)); liveLn.setAttribute("x2", (xEnd + 9).toFixed(1));
-      liveRing.setAttribute("cy", ys); liveDot.setAttribute("cy", ys);
-      liveTx.setAttribute("y", (above ? y - 7 : y + 15).toFixed(1));
-      // the figure only where it fits between the dot and the right-hand labels (a phone's chart has little room there)
-      var word = label || tr("现价", "now"), fig = (o.fmt ? o.fmt(v) : String(v)) + (y !== y0 ? (v > hi ? " ↑" : " ↓") : ""), room = xR - (xEnd + 19) - 4;
-      var wide = function (t) { var n = 0; for (var i = 0; i < t.length; i++) n += t.charCodeAt(i) > 255 ? 11 : 6.7; return n; };
-      liveTx.textContent = wide(word + " " + fig) <= room ? word + " " + fig : wide(fig) <= room ? fig : "";
-      liveG.setAttribute("visibility", "visible");
+    wrap.setLive = function (v, bar) {
+      v = num(v); var b = v !== null && bar && num(bar[1]) !== null ? bar : null, on = v !== null;
+      liveG.setAttribute("visibility", on ? "visible" : "hidden");
+      if (closeLab) { closeLab.a.setAttribute("visibility", on ? "hidden" : "visible"); closeLab.b.setAttribute("visibility", on ? "hidden" : "visible"); }
+      if (hollow) hollow.hidden = !b;
+      if (!on) return true;
+      var y0 = Y(v), y = clampY(y0), x = b ? xF : xEnd + 9;
+      if (b) {
+        var bo = b[1], c = v >= bo ? C.bull : C.bear, t0 = clampY(Y(Math.max(bo, v))), t1 = clampY(Y(Math.min(bo, v)));
+        fWick.setAttribute("y1", clampY(Y(Math.max(num(b[2]) === null ? v : b[2], bo, v))).toFixed(1)); fWick.setAttribute("y2", clampY(Y(Math.min(num(b[3]) === null ? v : b[3], bo, v))).toFixed(1));
+        fBody.setAttribute("y", t0.toFixed(1)); fBody.setAttribute("height", Math.max(1, t1 - t0).toFixed(1));
+        fWick.setAttribute("stroke", c); fBody.setAttribute("stroke", c);
+      }
+      [fWick, fBody].forEach(function (k) { k.setAttribute("visibility", b ? "inherit" : "hidden"); });
+      liveLn.setAttribute("visibility", b ? "hidden" : "inherit"); liveLn.setAttribute("x2", x.toFixed(1)); liveLn.setAttribute("y2", y.toFixed(1));
+      liveH.setAttribute("x1", (x + 7).toFixed(1)); liveH.setAttribute("y1", y.toFixed(1)); liveH.setAttribute("y2", y.toFixed(1));
+      [liveRing, liveDot].forEach(function (k) { k.setAttribute("cx", x.toFixed(1)); k.setAttribute("cy", y.toFixed(1)); });
+      var want = Math.max(T, Math.min(H - 6, y)), ly = want;
+      for (var k = 0; k <= 90; k++) { if (free(want - 2 * k)) { ly = want - 2 * k; break; } if (free(want + 2 * k)) { ly = want + 2 * k; break; } }
+      liveA.setAttribute("y", (ly - 2).toFixed(1)); liveB.setAttribute("y", (ly + 9).toFixed(1));
+      liveB.textContent = (o.fmt ? o.fmt(v) : String(v)) + (y !== y0 ? (v > hi ? " ↑" : " ↓") : "");
+      return y === y0;
     };
     var vl = el("line", { y1: T, y2: H - B, stroke: "rgba(255,255,255,.35)", "stroke-dasharray": "2 3", visibility: "hidden" }, svg);
     el("rect", { x: L, y: 0, width: xEnd - L, height: H, fill: "transparent" }, svg);
@@ -159,6 +181,9 @@
     wrap.appendChild(svg); wrap.appendChild(tip);
     var leg = document.createElement("div"); leg.className = "pc-leg";
     leg.innerHTML = '<span><i style="background:var(--gold,#D4A72C)"></i>' + tr("形态的线", "Pattern lines") + '</span><span><i class="d" style="border-color:var(--gold,#D4A72C)"></i>' + tr("突破位", "Break level") + '</span><span><i class="d" style="border-color:' + COLS.stop + '"></i>' + tr("失效位", "Fails") + '</span><span><i class="d" style="border-color:' + COLS.tgt + '"></i>' + tr("目标", "Target") + '</span><span>' + tr("右边灰色区域：最后一根之后", "Grey area on the right: after the last bar") + '</span>';
+    hollow = document.createElement("span"); hollow.hidden = true;
+    hollow.innerHTML = '<i style="width:7px;height:11px;border:1.3px solid currentColor;background:none;border-radius:1px;vertical-align:-1px"></i>' + tr("空心 K 线：还没收盘的这一根", "Hollow candle: the one still forming");
+    leg.appendChild(hollow);
     wrap.appendChild(leg);
     return wrap;
   }
