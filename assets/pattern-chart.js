@@ -122,8 +122,26 @@
     labs.forEach(function (l) { txt(svg, xR + 5, l.y - 2, l.text, { class: "pc-lab", fill: l.col }); txt(svg, xR + 5, l.y + 9, l.val, { class: "pc-val", fill: C.ink }); });
     txt(svg, L + 2, H - 6, o.tfLabel ? o.tfLabel + " · " + n + tr(" 根", " bars") : n + tr(" 根", " bars"), { class: "pc-ax" });
 
-    // hover / touch: the bar under the pointer
+    // the price now, for a caller that follows it (gold, Bitcoin): a line from the last close across the space after
+    // it, a dot and the figure. Hidden until wrap.setLive(price) is called; a price off the scale sits at the edge with an arrow.
+    var liveG = el("g", { visibility: "hidden", "pointer-events": "none" }, svg);
+    var liveLn = el("line", { x1: X(e).toFixed(1), x2: xR.toFixed(1), stroke: C.ink, "stroke-width": 1, opacity: 0.5 }, liveG);
+    var liveRing = el("circle", { cx: (xEnd + 9).toFixed(1), r: 6, fill: "none", stroke: C.ink, "stroke-width": 1, class: "pc-ring" }, liveG);
+    var liveDot = el("circle", { cx: (xEnd + 9).toFixed(1), r: 3, fill: C.ink }, liveG);
+    var liveTx = txt(liveG, xEnd + 19, 0, "", { class: "pc-val pc-now", fill: C.ink });
     var wrap = document.createElement("div"); wrap.className = "pc";
+    wrap.setLive = function (v, label) {
+      v = num(v); if (v === null) { liveG.setAttribute("visibility", "hidden"); return; }
+      var y0 = Y(v), y = clampY(y0), ys = y.toFixed(1), above = y - 16 > T;
+      liveLn.setAttribute("y1", cy.toFixed(1)); liveLn.setAttribute("y2", ys); liveLn.setAttribute("x1", X(e).toFixed(1)); liveLn.setAttribute("x2", (xEnd + 9).toFixed(1));
+      liveRing.setAttribute("cy", ys); liveDot.setAttribute("cy", ys);
+      liveTx.setAttribute("y", (above ? y - 7 : y + 15).toFixed(1));
+      // the figure only where it fits between the dot and the right-hand labels (a phone's chart has little room there)
+      var word = label || tr("现价", "now"), fig = (o.fmt ? o.fmt(v) : String(v)) + (y !== y0 ? (v > hi ? " ↑" : " ↓") : ""), room = xR - (xEnd + 19) - 4;
+      var wide = function (t) { var n = 0; for (var i = 0; i < t.length; i++) n += t.charCodeAt(i) > 255 ? 11 : 6.7; return n; };
+      liveTx.textContent = wide(word + " " + fig) <= room ? word + " " + fig : wide(fig) <= room ? fig : "";
+      liveG.setAttribute("visibility", "visible");
+    };
     var vl = el("line", { y1: T, y2: H - B, stroke: "rgba(255,255,255,.35)", "stroke-dasharray": "2 3", visibility: "hidden" }, svg);
     el("rect", { x: L, y: 0, width: xEnd - L, height: H, fill: "transparent" }, svg);
     var tip = document.createElement("div"); tip.className = "pc-tip"; tip.hidden = true;

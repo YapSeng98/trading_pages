@@ -117,6 +117,15 @@ header.pg-head .hdate{text-align:left}
 .v-pat .vp-plan{font:500 12px/1.6 'IBM Plex Mono',monospace;color:#C9C4BD;margin-top:8px}
 .v-pat .vp-n{font-size:11.5px;line-height:1.65;color:#8A857E;margin-top:6px}
 .v-pat .vp-none{font-size:12.5px;color:#8A857E;line-height:1.7}
+.v-pat .vp-live{font-size:12px;line-height:1.65;color:#C4C8D8;margin:8px 0 0;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.035)}
+.v-pat .vp-live b{color:#F4F5FB;font-family:'IBM Plex Mono',monospace;font-weight:600}
+.v-pat .vp-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#858BA3;margin-right:7px;vertical-align:1px}
+.v-pat .vp-dot.on{background:#34D399;box-shadow:0 0 0 3px rgba(52,211,153,.18);animation:vpPulse 1.8s ease-in-out infinite}
+@keyframes vpPulse{50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+.pc-svg .pc-now{font-weight:600}
+.pc-svg .pc-ring{animation:pcRing 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pcRing{0%{opacity:.7;transform:scale(.6)}100%{opacity:0;transform:scale(1.5)}}
+@media(prefers-reduced-motion:reduce){.v-pat .vp-dot.on,.pc-svg .pc-ring{animation:none}}
 .fx-pr .pc{margin:8px 0 4px}
 @media(max-width:640px){.v-pat{padding:12px 10px}.v-pat .vp-tabs button{min-height:34px}.pc-leg{font-size:11px}}
 

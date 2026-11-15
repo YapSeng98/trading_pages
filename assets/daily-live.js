@@ -130,8 +130,10 @@
     var ul = el("ul");
     function li(text, hot) { var x = el("li", hot ? "hot" : null, text); ul.appendChild(x); }
     var sv = state && state.verdict && state.verdict.tag;
+    // the same answer with "休市中 · " in front (the market shut since the text was written) is not a changed answer
+    var bare = function (t) { return String(t || "").replace(/^(?:休市中|仅观察)\s*·\s*/, "").replace(/\s+/g, ""); };
     if (sv && W.verdict) {
-      if (sv !== W.verdict) li(EN ? "The rule's answer has changed: the text says «" + tagEn(W.verdict) + "», the server worked out «" + tagEn(sv) + "» at " + String(state.updated).slice(11, 16) + ". Go by the live bar above and the gold page." : "规则的结论变了：文中写「" + W.verdict + "」，服务器 " + String(state.updated).slice(11, 16) + " 算出来是「" + sv + "」。以上面的实时栏和 4H 报告为准。", true);
+      if (bare(sv) !== bare(W.verdict)) li(EN ? "The rule's answer has changed: the text says «" + tagEn(W.verdict) + "», the server worked out «" + tagEn(sv) + "» at " + String(state.updated).slice(11, 16) + ". Go by the live bar above and the gold page." : "规则的结论变了：文中写「" + W.verdict + "」，服务器 " + String(state.updated).slice(11, 16) + " 算出来是「" + sv + "」。以上面的实时栏和 4H 报告为准。", true);
       else li(EN ? "The rule's answer is the same: still «" + tagEn(sv) + "» (server data at " + String(state.updated).slice(11, 16) + ")." : "规则的结论没变：仍是「" + sv + "」（服务器 " + String(state.updated).slice(11, 16) + " 的数据）。");
     }
     if (crossed.length) li(EN ? "Since then price has broken " + (d < 0 ? "below " : "above ") + "the text's " + crossed.map(function (r) { return I.level(r.name) + " $" + fmt(r.level); }).join(", ") + (d < 0 ? ": these levels are now above the price, as resistance." : ": these levels are now below the price, as support.") : "之后" + (d < 0 ? "跌破" : "突破") + "了文中的 " + crossed.map(function (r) { return r.name + " $" + fmt(r.level); }).join("、") + (d < 0 ? "：这些价位现在在现价上方，变成压力。" : "：这些价位现在在现价下方，变成支撑。"), true);

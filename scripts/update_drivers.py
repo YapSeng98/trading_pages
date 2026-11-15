@@ -9,9 +9,17 @@ Context, not a signal: research/world (T4) found that trading the gold rule only
 Sources: Yahoo Finance's chart API (same method as update_quotes.py: closes only, today's bar is dropped while the
 exchange is still trading; a run that fails keeps the previous file's values) and FRED's DFII10 for the real yield.
 Gold is COMEX futures (GC=F) here, close to spot day to day; the card says so.
+
+While a market is trading, its row also carries `now`: the price at this run, its time, and the change since the last
+close ("盘中" on the card). It is as fresh as the job that runs this script (the market job); the closes, the changes
+over a week and a month and the correlations stay on closes only.
+
+Runs in the market job, which may come round every 15 minutes: it asks the sources at most about once an hour (the file's
+own `updated` time), and at the weekend only until Friday's closes are in. DRIVERS_FORCE=1 asks regardless.
 """
 import json
 import math
+import os
 import sys
 import time
 import urllib.request
@@ -47,10 +55,13 @@ def yahoo(symbol):
                 ts, closes = res["timestamp"], res["indicators"]["quote"][0]["close"]
                 bars = [(t, c) for t, c in zip(ts, closes) if c is not None]
                 reg = (res["meta"].get("currentTradingPeriod") or {}).get("regular") or {}
+                live = None
                 if bars and reg.get("start") and reg.get("end") and bars[-1][0] >= reg["start"] and time.time() < reg["end"] + 600:
-                    bars = bars[:-1]  # today's bar while the exchange is still trading: not a close yet
+                    live, bars = bars[-1], bars[:-1]  # today's bar while the exchange is still trading: not a close yet
+                    at = res["meta"].get("regularMarketTime") or live[0]   # when that price traded (only the time is taken from meta)
+                    live = (at, live[1]) if 0 <= time.time() - at < 3 * 3600 else None   # no trade for hours (a holiday session): not a price "now"
                 tz = timezone(timedelta(seconds=res["meta"].get("gmtoffset", 0)))
-                return [(datetime.fromtimestamp(t, tz).strftime("%Y-%m-%d"), c) for t, c in bars]
+                return [(datetime.fromtimestamp(t, tz).strftime("%Y-%m-%d"), c) for t, c in bars], live
             except Exception as e:  # noqa: BLE001 - try the next host, then report
                 last = e
                 time.sleep(2 + 4 * attempt)
@@ -107,19 +118,46 @@ def corr(gold, other, kind, n):
     return round(sxy / (sx * sy), 2) if sx and sy else None
 
 
+def due(prev):
+    """Whether to ask the sources on this run: not when the file is under 55 minutes old, and at the weekend (Saturday
+    07:00 to Monday 05:00 SGT, nothing trades) only while Friday's closes are still missing."""
+    if os.environ.get("DRIVERS_FORCE") == "1" or not prev:
+        return True
+    sgt = timezone(timedelta(hours=8))
+    now = datetime.now(sgt)
+    try:
+        age = (now - datetime.strptime(prev.get("updated", ""), "%Y-%m-%d %H:%M SGT").replace(tzinfo=sgt)).total_seconds() / 60
+    except ValueError:
+        return True
+    if 0 <= age < 55:
+        print("Updated %d minutes ago: not asking again yet." % age)
+        return False
+    wd, hm = now.weekday(), now.hour * 60 + now.minute           # Monday is 0
+    if (wd == 5 and hm >= 7 * 60) or wd == 6 or (wd == 0 and hm < 5 * 60):
+        friday = (now - timedelta(days={5: 1, 6: 2, 0: 3}[wd])).strftime("%Y-%m-%d")
+        gold = [r for r in prev.get("series", []) if r.get("id") == "gold"]
+        if gold and gold[0].get("date", "") >= friday and not any("now" in r for r in prev.get("series", [])):
+            print("Weekend, and Friday's closes are in: nothing to ask.")
+            return False
+    return True
+
+
 def main():
     try:
         with open(OUT, encoding="utf-8") as f:
-            old = {s["id"]: s for s in json.load(f).get("series", [])}
+            prev = json.load(f)
     except (OSError, ValueError):
-        old = {}
+        prev = {}
+    if not due(prev):
+        return 0
+    old = {s["id"]: s for s in prev.get("series", [])}
     data, failed = {}, []
     for sid, src, sym, kind in SERIES:
         try:
-            bars = yahoo(sym) if src == "yahoo" else fred(sym)
+            bars, live = yahoo(sym) if src == "yahoo" else (fred(sym), None)
             if len(bars) < 260:
                 raise ValueError("only %d closes" % len(bars))
-            data[sid] = (bars, kind, src, sym)
+            data[sid] = (bars, kind, src, sym, live)
         except Exception as e:  # noqa: BLE001 - keep the old values for this one
             failed.append(sid)
             print("%-8s %-9s FAILED: %s" % (sid, sym, e), file=sys.stderr)
@@ -134,20 +172,25 @@ def main():
             if sid in old:
                 out.append(dict(old[sid], stale=True))
             continue
-        bars, kind, src, sym = data[sid]
+        bars, kind, src, sym, live = data[sid]
         row = {"id": sid, "symbol": sym, "source": "FRED" if src == "fred" else "Yahoo Finance", "kind": kind,
                "last": round(bars[-1][1], 4), "date": bars[-1][0],
                "chg1d": change(bars, 1, kind), "chg1w": change(bars, 5, kind), "chg1m": change(bars, 21, kind),
                "spark": [round(v, 4) for _, v in bars[-60:]]}
+        if live:  # trading now: the price at this run and the move since the last close
+            a, b = bars[-1][1], live[1]
+            row["now"] = {"price": round(b, 4), "at": datetime.fromtimestamp(live[0], timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M SGT"),
+                          "chg": round(b - a, 3) if kind == "pp" else round((b / a - 1) * 100, 2)}
         if sid != "gold":
             row["corr60"] = corr(gold, bars, kind, 60)
             row["corr250"] = corr(gold, bars, kind, 250)
         if sid in old and row["date"] < old[sid].get("date", ""):
             row = dict(old[sid])  # a close never goes back in time
+            row.pop("now", None)
         out.append(row)
         print("%-8s %-9s %10.3f  %s  1w %s  corr60 %s" % (sid, sym, row["last"], row["date"], row["chg1w"], row.get("corr60")))
     if old and [dict(r) for r in out] == [old.get(r["id"]) for r in out] and not failed:
-        print("No close changed: file left as it is.")
+        print("Nothing changed: file left as it is.")
         return 0
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump({"updated": datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M SGT"), "failed": failed, "series": out},

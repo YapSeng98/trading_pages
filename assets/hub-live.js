@@ -198,15 +198,93 @@
     if (!gold) { top.textContent = tr("驱动因素的数据暂时读不到。", "The drivers data is not available right now."); return; }
     var ch = function (s) { var v = s.chg1w; if (typeof v !== "number") return ["—", ""]; if (s.kind === "pp") { var bp = Math.round(v * 100); return [(bp > 0 ? "+" : bp < 0 ? "−" : "") + Math.abs(bp) + " bp", bp > 0 ? "up" : bp < 0 ? "dn" : ""]; } return [sgn(v, 2) + "%", v > 0 ? "up" : v < 0 ? "dn" : ""]; };
     var g = ch(gold); top.appendChild(document.createTextNode(tr("黄金（期货）这一周 ", "Gold (futures) this week "))); top.appendChild(el("b", g[1], g[0]));
+    var gn = gold.now && typeof gold.now.chg === "number" ? gold.now : null;   // trading when the data job last ran: today's move so far
+    if (gn) { top.appendChild(document.createTextNode(tr(" · 今天 ", " · today "))); top.appendChild(el("b", gn.chg > 0 ? "up" : gn.chg < 0 ? "dn" : "", sgn(gn.chg, 2) + "%")); }
     rows.forEach(function (s) {
       if (!DRV[s.id]) return;
       var li = el("li"), c = ch(s), nm = el("span", "nm", DRV[s.id]), push = { dxy: -1, us10y: -1, real10y: -1 }[s.id];   // a rising dollar or yield usually weighs on gold
       if (push && typeof s.chg1w === "number" && s.chg1w !== 0) nm.appendChild(el("em", null, s.chg1w * push < 0 ? tr("不利", "headwind") : tr("有利", "tailwind")));
       li.appendChild(nm); li.appendChild(spark(s.spark)); li.appendChild(el("b", c[1], c[0])); ul.appendChild(li);
     });
-    set("hub-drv-ft", tr("日收盘到 ", "Daily closes to ") + gold.date + tr(" · 参考，不是信号", " · context, not a signal"));
+    set("hub-drv-ft", tr("日收盘到 ", "Daily closes to ") + gold.date + (gn ? tr(" · 盘中 ", " · intraday ") + String(gn.at).slice(5, 16) : "") + tr(" · 参考，不是信号", " · context, not a signal"));
   }
-  function loadFiles() { get("data/drivers.json").then(paintDrivers); return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; paint(); }); }
+  function loadFiles() { get("data/drivers.json").then(function (d) { S.drv = d; paintDrivers(d); paintSys(); }); return Promise.all([get("data/xau-state.json"), get("data/calendar.json")]).then(function (r) { S.state = r[0]; S.cal = r[1]; S.tried = true; paint(); paintSys(); }); }
+
+  // ---------- 系统状态: is every part still updating itself? ----------
+  // The owner asked to be able to confirm it (2026-11-15: "i want to confirm that entire system is auto updated").
+  // One row per feed: when it last changed, how often it should, and whether that is on time. The gold state, calendar
+  // and drivers files are already on the page; the rest (Bitcoin state, headlines, stock quotes, and the written brief's
+  // date line read from news.html) are fetched only when the card comes near the screen, then every 10 minutes.
+  var SYS = { asked: false, btc: null, news: null, quotes: null, briefAt: null, briefTried: false };
+  function sgtMs(t) { var m = String(t || "").match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4] - 8, +m[5]) : null; }
+  function stampSgt(ms) { var d = new Date(ms + 8 * 3600000); return (d.getUTCMonth() + 1) + "/" + d.getUTCDate() + " " + ("0" + d.getUTCHours()).slice(-2) + ":" + ("0" + d.getUTCMinutes()).slice(-2); }
+  function grade(ms, okH, lateH) { if (ms === null) return "none"; var h = (Date.now() - ms) / 3600000; return h <= okH ? "ok" : h <= lateH ? "late" : "stale"; }
+  // the stock-quotes job's last due time: 08:20 SGT Tuesday to Saturday, 17:40 SGT Monday to Friday
+  function quoteSlot(now) {
+    var best = null;
+    for (var back = 0; back < 8; back++) {
+      var d = new Date(now + 8 * 3600000 - back * 86400000), wd = d.getUTCDay();
+      [[8, 20, [2, 3, 4, 5, 6]], [17, 40, [1, 2, 3, 4, 5]]].forEach(function (x) {
+        if (x[2].indexOf(wd) < 0) return;
+        var t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), x[0] - 8, x[1]);
+        if (t <= now && (best === null || t > best)) best = t;
+      });
+    }
+    return best;
+  }
+  function loadSys() {
+    get("data/btc-state.json").then(function (d) { SYS.btc = d; paintSys(); });
+    get("data/news.json").then(function (d) { SYS.news = d; paintSys(); });
+    get("data/quotes.json").then(function (d) { SYS.quotes = d; paintSys(); });
+    fetch("news.html", { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : ""; }).then(function (t) {
+      var m = t.match(/class="hdate">\s*(\d{4})年(\d{1,2})月(\d{1,2})日[^<]*?(\d{1,2}):(\d{2})\s*SGT/);
+      SYS.briefAt = m ? Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4] - 8, +m[5]) : null; SYS.briefTried = true; paintSys();
+    }).catch(function () { SYS.briefTried = true; paintSys(); });
+  }
+  function paintSys() {
+    var ul = $("sys-list"); if (!ul || !SYS.asked) return;
+    var now = Date.now(), st = S.state, open = !!(st && st.marketOpen), wkOf = function (ms) { return Math.floor((ms - 5 * 3600000 - 3 * 86400000) / 604800000); };
+    var rows = [];
+    var add = function (key, name, what, ms, state, every, note) { rows.push({ key: key, name: name, what: what, ms: ms, state: state, every: every, note: note }); };
+    add("live", tr("黄金 · 比特币 · 外汇页面", "Gold · Bitcoin · Forex pages"), tr("在你的浏览器里实时计算，不靠服务器：价格逐秒，结论和图表形态在每根 15 分钟 K 线收盘后重算", "worked out live in your browser, not on a server: price by the second, the answer and chart patterns again after every 15-minute close"), null, "live", tr("实时", "live"), tr("页面开着时", "while a page is open"));
+    var gAt = st ? sgtMs(st.updated) : null;
+    add("gold", tr("黄金结论文件 · 纸上记录", "Gold answer file · paper record"), tr("首页、导航栏的结论，纸上记录和趋势变化", "the answer on the home page and in the navbar, the paper record and the trend-change log"), gAt, st ? grade(gAt, open ? 1.5 : 8, open ? 8 : 30) : S.tried ? "none" : "wait", open ? tr("每 15 分钟", "every 15 min") : tr("休市：每 6 小时", "closed: every 6 h"));
+    var bAt = SYS.btc ? sgtMs(SYS.btc.updated) : null;
+    add("btc", tr("比特币结论文件", "Bitcoin answer file"), tr("首页的比特币卡片和它的纸上记录", "the Bitcoin tile on the home page and its paper record"), bAt, SYS.btc ? grade(bAt, open ? 1.5 : 8, open ? 8 : 30) : "wait", open ? tr("每 15 分钟", "every 15 min") : tr("周末：每 6 小时", "weekend: every 6 h"));   // the job's weekend pace, though Bitcoin trades: its page is live in the browser
+    var nAt = SYS.news ? sgtMs(SYS.news.updated) : null, nN = SYS.news && SYS.news.items ? SYS.news.items.length : 0;
+    add("news", tr("实时头条", "Live headlines"), EN ? "gold headlines on the news tab and in Ask Claude" + (SYS.news ? " · " + nN + " now" : "") : "快讯页和问 Claude 里的黄金头条" + (SYS.news ? " · 现在 " + nN + " 条" : ""), nAt, SYS.news ? grade(nAt, open ? 1.5 : 8, open ? 8 : 30) : "wait", open ? tr("每 15 分钟", "every 15 min") : tr("休市：每 6 小时", "closed: every 6 h"));
+    var cal = S.cal, cHas = !!(cal && (cal.events || []).some(function (e) { return wkOf(e.ms) === wkOf(now); })), cNew = (now - 5 * 3600000 - 3 * 86400000) % 604800000 < 12 * 3600000;   // the first 12 hours of ForexFactory's week
+    add("cal", tr("经济日历", "Economic calendar"), cal ? (cHas ? tr("本周的美国数据", "this week's US releases") : cNew ? tr("新一周刚开始，日历在下一次运行时换过来", "the new week has just begun; the calendar moves at the next run") : tr("还是上一周的日历", "still last week's calendar")) : tr("读不到", "not readable"), null, !cal ? (S.tried ? "none" : "wait") : cHas || cNew ? "ok" : "late", tr("每周换一次，每次运行都检查", "weekly; checked at every run"), cal && cal.updated ? tr("内容上次变化 ", "last changed ") + String(cal.updated).slice(5, 16) : "");
+    var q = SYS.quotes, qAt = q ? sgtMs(q.updated) : null, slot = quoteSlot(now), qSt = !q ? "wait" : qAt === null ? "none" : qAt >= slot || now - slot < 2 * 3600000 ? "ok" : now - slot < 12 * 3600000 ? "late" : "stale";
+    add("quotes", tr("股票行情", "Stock quotes"), EN ? "closing prices on the stocks page" + (q && q.failed && q.failed.length ? " · " + q.failed.length + " not fetched" : "") : "股票页的收盘价" + (q && q.failed && q.failed.length ? " · " + q.failed.length + " 只没取到" : ""), qAt, qSt, tr("工作日两次：08:20 和 17:40", "twice a weekday: 08:20 and 17:40"));
+    var dv = S.drv, dAt = dv ? sgtMs(dv.updated) : null;
+    add("drv", tr("驱动因素", "Gold's drivers"), tr("美元、收益率、原油、白银、标普：日收盘和盘中", "dollar, yields, oil, silver, S&P 500: daily closes and intraday"), dAt, dv ? grade(dAt, open ? 2 : 60, open ? 10 : 80) : (S.drv === undefined ? "wait" : "none"), open ? tr("每小时", "hourly") : tr("休市：收盘后一次", "closed: once after the close"));
+    add("brief", tr("每日文字解读", "Daily written brief"), tr("黄金页「分析 · 消息 · 日历」里的文字，由每天 10:10 的 Claude 任务写", "the text in the gold page's «Brief · news · calendar», written by the Claude job at 10:10 every day"), SYS.briefAt, !SYS.briefTried ? "wait" : grade(SYS.briefAt, 26, 30), tr("每天 10:10", "daily at 10:10"));
+    var WORD = { ok: tr("正常", "on time"), late: tr("晚了", "late"), stale: tr("停了", "stopped"), none: tr("读不到", "not readable"), wait: tr("检查中", "checking"), live: tr("实时", "live") };
+    while (ul.firstChild) ul.removeChild(ul.firstChild);
+    rows.forEach(function (r) {
+      var li = el("li", "s-" + r.state), when = r.ms !== null && r.ms !== undefined ? stampSgt(r.ms) + " · " + (EN ? left(now - r.ms) + " ago" : left(now - r.ms) + "前") : r.note || "—";
+      li.appendChild(el("i")); var mid = el("div"); mid.appendChild(el("strong", null, r.name)); mid.appendChild(el("small", null, r.what)); li.appendChild(mid);
+      var rt = el("div", "rt"); rt.appendChild(el("b", null, WORD[r.state])); rt.appendChild(el("em", null, when + (r.ms !== null && r.ms !== undefined && r.note ? " · " + r.note : ""))); if (r.key !== "live") rt.appendChild(el("span", null, tr("应 ", "due ") + r.every)); li.appendChild(rt);
+      ul.appendChild(li);
+    });
+    var feeds = rows.filter(function (r) { return r.key !== "live"; }), waiting = feeds.some(function (r) { return r.state === "wait"; }), bad = feeds.filter(function (r) { return r.state !== "ok" && r.state !== "wait"; });
+    var head = $("sys-head"); if (!head) return;
+    head.className = "sys-head s-" + (waiting ? "wait" : bad.length ? (bad.some(function (r) { return r.state === "stale" || r.state === "none"; }) ? "stale" : "late") : "ok");
+    while (head.firstChild) head.removeChild(head.firstChild);
+    head.appendChild(el("i"));
+    head.appendChild(el("b", null, waiting ? tr("检查中…", "Checking…") : !bad.length ? tr("全部在自动更新", "Everything is updating itself") : EN ? bad.length + " of " + feeds.length + " behind" : feeds.length + " 项里 " + bad.length + " 项没跟上"));
+    head.appendChild(el("span", null, waiting ? "" : (!bad.length ? (EN ? feeds.length + " of " + feeds.length + " feeds on time" : feeds.length + " 项都正常") : bad.map(function (r) { return r.name + tr("：", ": ") + WORD[r.state]; }).join(tr("；", "; "))) + tr(" · 检查于 ", " · checked ") + stampSgt(now).split(" ")[1]));
+    // a late server file does not make the gold page late: say so once, when that is the case
+    var tip = $("sys-tip"); if (tip) tip.textContent = bad.some(function (r) { return r.key === "gold" || r.key === "btc"; }) ? tr("服务器文件晚了，不影响黄金、比特币、外汇页面本身：它们打开时在你的浏览器里实时计算。晚的只是首页卡片、导航栏和头条。", "A late server file does not make the gold, Bitcoin or forex pages late: they are worked out live in your browser when open. Only the home cards, the navbar pill and the headlines lag.") : "";
+  }
+  (function () {
+    var card = $("hub-sys"); if (!card) return;
+    var go = function () { if (SYS.asked) return; SYS.asked = true; paintSys(); loadSys(); setInterval(function () { if (document.visibilityState === "visible") loadSys(); }, 600000); setInterval(paintSys, 60000); };
+    if (!("IntersectionObserver" in window)) { go(); return; }
+    var io = new IntersectionObserver(function (es) { if (es.some(function (x) { return x.isIntersecting; })) { io.disconnect(); go(); } }, { rootMargin: "400px 0px" });
+    io.observe(card);
+  })();
   // the gold page's own engine, loaded only for a browser that holds the candles; same versions as report.html
   function script(src) { return new Promise(function (ok, no) { var e = document.createElement("script"); e.src = src; e.onload = ok; e.onerror = no; document.head.appendChild(e); }); }
   var WAY = { bullish: "向上", bearish: "向下" }, TFN = { W: "周线", D: "日线", "4H": "4 小时", "1H": "1 小时", "15M": "15 分钟" };

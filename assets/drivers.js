@@ -1,8 +1,10 @@
 // The gold page's "驱动因素 · What's moving gold" card: gold next to the usual drivers (dollar, yields, real yield, oil,
 // silver, S&P 500) from data/drivers.json (scripts/update_drivers.py, daily closes): this week's headwinds and
 // tailwinds in one line, then each driver's latest close, 1-day / 1-week / 1-month change, its last 60 closes, and how
-// gold's daily moves lined up with it over 60 trading days. Context, never a signal: research/world (T4) found that
-// trading the rule only when real yields agreed did not help. Also published as window.GoldDrivers for 问 Claude.
+// gold's daily moves lined up with it over 60 trading days. A market that was trading when the data job last ran also
+// carries `now` (price, time, change since its last close): shown with a green dot and its time, and summed up in a
+// "today so far" line. Context, never a signal: research/world (T4) found that trading the rule only when real yields
+// agreed did not help. Also published as window.GoldDrivers for 问 Claude. The file is read again every 10 minutes.
 (function () {
   "use strict";
   var box = document.getElementById("drivers"); if (!box) return;
@@ -28,6 +30,10 @@
     "#drivers .drv-k .bar::after{content:'';position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:rgba(255,255,255,.25)}#drivers .drv-k .bar i{position:absolute;top:0;bottom:0;border-radius:3px}" +
     "#drivers .drv-k span{font-size:11px;color:var(--dim,#8A857E)}#drivers .drv-k span b{color:var(--text,#C9C4BD);font-weight:600}" +
     "#drivers .drv-gold{background:rgba(212,167,44,.06);border:1px solid rgba(212,167,44,.18)}" +
+    "#drivers .drv-row.live .drv-v::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--bull,#34D399);margin-right:6px;vertical-align:2px}" +
+    "#drivers .drv-nm small b{display:inline;font:inherit;color:var(--bull,#34D399);font-weight:500}" +
+    "#drivers .drv-today{font-size:13px;line-height:1.7;color:var(--text,#C9C4BD);margin:-6px 0 14px;padding:9px 12px;border-radius:12px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.16)}" +
+    "#drivers .drv-today b{color:var(--white,#F6F5F3);font-weight:600}#drivers .drv-today b.up{color:var(--bull,#34D399)}#drivers .drv-today b.dn{color:var(--bear,#F87171)}" +
     "#drivers .drv-ft{font-size:11.5px;line-height:1.65;color:var(--dim,#8A857E);margin-top:12px}" +
     "@media(max-width:760px){#drivers .drv-head{display:none}#drivers .drv-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'nm v' 'ch ch' 'sp k';row-gap:6px;padding:12px 10px;border-top:1px solid rgba(255,255,255,.05)}" +
     "#drivers .drv-nm{grid-area:nm}#drivers .drv-v{grid-area:v;text-align:right}#drivers .drv-chs{grid-area:ch;display:flex;gap:14px}#drivers .drv-sp{grid-area:sp}#drivers .drv-k{grid-area:k;min-width:120px}" +
@@ -42,7 +48,8 @@
     return e;
   }
   var NF = {}; function nf(d) { return NF[d] || (NF[d] = new Intl.NumberFormat("en-US", { minimumFractionDigits: d, maximumFractionDigits: d })); }
-  function val(s) { var u = NAME[s.id] ? NAME[s.id][1] : "", d = s.last >= 1000 ? 0 : s.last >= 100 ? 1 : 2; return (u === "$" ? "$" : "") + nf(d).format(s.last) + (u === "%" ? "%" : ""); }
+  function val(s, v) { v = typeof v === "number" ? v : s.last; var u = NAME[s.id] ? NAME[s.id][1] : "", d = v >= 1000 ? 0 : v >= 100 ? 1 : 2; return (u === "$" ? "$" : "") + nf(d).format(v) + (u === "%" ? "%" : ""); }
+  function hm(at) { return String(at || "").slice(5, 16); }                    // "2026-11-16 14:29 SGT" -> "11-16 14:29"
   function chg(s, v) {
     if (typeof v !== "number") return { t: "—", c: "" };
     if (s.kind === "pp") { var bp = Math.round(v * 100); return { t: (bp > 0 ? "+" : bp < 0 ? "−" : "") + Math.abs(bp) + " bp", c: bp > 0 ? "up" : bp < 0 ? "dn" : "" }; }
@@ -74,33 +81,53 @@
     out.push(tx("（按教科书的方向：美元和收益率上升通常压金价）。", " (by the textbook direction: a rising dollar and rising yields usually weigh on gold)."));
     return out;
   }
+  function today(gold, rows) {     // while markets trade: the move since the last close, at the data job's last run
+    if (!gold.now || typeof gold.now.chg !== "number") return null;
+    var g = chg(gold, gold.now.chg), out = [h("b", { text: tx("今天到目前", "Today so far") }), tx("（数据 ", " (data ") + hm(gold.now.at) + " SGT" + tx("）：金价 ", "): gold "), h("b", { class: g.c, text: g.t })];
+    var parts = rows.filter(function (s) { return s.id !== "gold" && s.now && typeof s.now.chg === "number"; }).map(function (s) {
+      var p = PUSH[s.id], side = !p || s.now.chg === 0 ? "" : s.now.chg * p < 0 ? tx("，不利", ", headwind") : tx("，有利", ", tailwind");
+      return NAME[s.id][0] + " " + chg(s, s.now.chg).t + side;
+    });
+    if (parts.length) out.push(tx("；", "; ") + parts.join(tx("；", "; ")));
+    out.push(tx("。", "."));
+    return out;
+  }
   function render(d) {
     var rows = (d.series || []).filter(function (s) { return NAME[s.id]; }), gold = rows.filter(function (s) { return s.id === "gold"; })[0];
     if (!gold) return;
-    var dates = rows.map(function (s) { return s.date; }).sort();
-    var chip = document.getElementById("drv-at"); if (chip) chip.textContent = tx("收盘到 ", "closes to ") + dates[dates.length - 1];
+    var dates = rows.map(function (s) { return s.date; }).sort(), lives = rows.filter(function (s) { return s.now; }).map(function (s) { return s.now.at; }).sort();
+    var chip = document.getElementById("drv-at"); if (chip) chip.textContent = lives.length ? tx("盘中 ", "intraday ") + hm(lives[lives.length - 1]) + " SGT" : tx("收盘到 ", "closes to ") + dates[dates.length - 1];
     var body = document.getElementById("drv-body"); while (body.firstChild) body.removeChild(body.firstChild);
     body.appendChild(h("p", { class: "drv-read" }, read(gold, rows)));
+    var td = today(gold, rows); if (td) body.appendChild(h("p", { class: "drv-today" }, td));
     var list = h("div", { class: "drv-rows", role: "table", "aria-label": tx("黄金和它的驱动因素", "Gold and its drivers") });
-    list.appendChild(h("div", { class: "drv-row drv-head", role: "row" }, [tx("品种", "Market"), tx("最新收盘", "Latest close"), tx("1 天", "1 day"), tx("1 周", "1 week"), tx("1 个月", "1 month"), tx("近 60 天", "Last 60 days"), tx("和金价的关系（60 天）", "Link with gold (60 days)")].map(function (t) { return h("span", { role: "columnheader", text: t }); })));
+    list.appendChild(h("div", { class: "drv-row drv-head", role: "row" }, [tx("品种", "Market"), lives.length ? tx("最新", "Latest") : tx("最新收盘", "Latest close"), lives.length ? tx("今天 / 1 天", "Today / 1 day") : tx("1 天", "1 day"), tx("1 周", "1 week"), tx("1 个月", "1 month"), tx("近 60 天", "Last 60 days"), tx("和金价的关系（60 天）", "Link with gold (60 days)")].map(function (t) { return h("span", { role: "columnheader", text: t }); })));
     [gold].concat(rows.filter(function (s) { return s.id !== "gold"; })).forEach(function (s) {
-      var c1 = chg(s, s.chg1d), c2 = chg(s, s.chg1w), c3 = chg(s, s.chg1m), isG = s.id === "gold";
+      var live = s.now && typeof s.now.price === "number" ? s.now : null;      // trading when the data job last ran: that price, and the move since the last close
+      var c1 = chg(s, live ? live.chg : s.chg1d), c2 = chg(s, s.chg1w), c3 = chg(s, s.chg1m), isG = s.id === "gold";
       var k = isG ? h("div", { class: "drv-k" }, [h("span", { text: tx("参照", "the reference") })]) : (function () {
         var c = s.corr60, bar = h("div", { class: "bar" }), i = h("i");
         if (typeof c === "number") { var w = Math.min(1, Math.abs(c)) * 50; i.style.width = w + "%"; i.style.left = c >= 0 ? "50%" : (50 - w) + "%"; i.style.background = c >= 0 ? "var(--gold,#D4A72C)" : "#7CC4FF"; bar.appendChild(i); }
         return h("div", { class: "drv-k", title: tx("相关系数：60 天 ", "Correlation: 60 days ") + (c === null || c === undefined ? "—" : c) + tx("，250 天 ", ", 250 days ") + (typeof s.corr250 === "number" ? s.corr250 : "—") }, [bar, h("span", null, [h("b", { text: typeof c === "number" ? (c > 0 ? "+" : "") + c.toFixed(2) : "—" }), " " + link(c)])]);
       })();
-      list.appendChild(h("div", { class: "drv-row" + (isG ? " drv-gold" : ""), role: "row" }, [
-        h("div", { class: "drv-nm" }, [h("b", { text: NAME[s.id][0] }), h("small", { text: s.symbol + " · " + s.date + (s.stale ? tx(" · 未更新", " · not updated") : "") })]),
-        h("div", { class: "drv-v", text: val(s) }),
-        h("div", { class: "drv-chs" }, [h("span", { class: "drv-c " + c1.c, "data-l": tx("1天", "1d"), text: c1.t }), h("span", { class: "drv-c " + c2.c, "data-l": tx("1周", "1w"), text: c2.t }), h("span", { class: "drv-c " + c3.c, "data-l": tx("1月", "1m"), text: c3.t })]),
+      list.appendChild(h("div", { class: "drv-row" + (isG ? " drv-gold" : "") + (live ? " live" : ""), role: "row" }, [
+        h("div", { class: "drv-nm" }, [h("b", { text: NAME[s.id][0] }), h("small", null, [s.symbol + " · ", live ? h("b", { text: tx("盘中 ", "intraday ") + hm(live.at) }) : tx("收盘 ", "close ") + s.date, s.stale ? tx(" · 未更新", " · not updated") : ""])]),
+        h("div", { class: "drv-v", text: val(s, live ? live.price : s.last) }),
+        h("div", { class: "drv-chs" }, [h("span", { class: "drv-c " + c1.c, "data-l": live ? tx("今天", "today") : tx("1天", "1d"), text: c1.t }), h("span", { class: "drv-c " + c2.c, "data-l": tx("1周", "1w"), text: c2.t }), h("span", { class: "drv-c " + c3.c, "data-l": tx("1月", "1m"), text: c3.t })]),
         h("div", { class: "drv-sp" }, [spark(s.spark)]), k]));
     });
     body.appendChild(list);
     body.appendChild(h("p", { class: "drv-ft", text: tx("参考，不是信号。「和金价的关系」是过去 60 个交易日里金价和它每天涨跌的相关系数（−1 到 +1，鼠标停在上面可看 250 天的），这种关系会变：回放里只在实际收益率配合时才做，并没有让规则更好（2011–2018 年配合的单子平均 −0.08R，其余 +0.46R；research/world T4），金价和实际收益率的关系在 2022–2023 年基本断了。数据：Yahoo Finance 日收盘（黄金用 COMEX 期货 GC=F，和现货每天差不多），实际收益率用 FRED 的 DFII10；更新于 ",
-      "Context, not a signal. «Link with gold» is the correlation of gold's daily moves with each driver's over the last 60 trading days (−1 to +1; hover for 250 days), and these links change: in the replay, trading only when real yields agreed did not make the rule better (2011–2018: −0.08R a trade for those against +0.46R for the rest; research/world T4), and gold's link with real yields largely broke in 2022–2023. Data: Yahoo Finance daily closes (gold is COMEX futures GC=F, close to spot day to day), real yield from FRED DFII10; updated ") + d.updated + tx("。", ".") }));
+      "Context, not a signal. «Link with gold» is the correlation of gold's daily moves with each driver's over the last 60 trading days (−1 to +1; hover for 250 days), and these links change: in the replay, trading only when real yields agreed did not make the rule better (2011–2018: −0.08R a trade for those against +0.46R for the rest; research/world T4), and gold's link with real yields largely broke in 2022–2023. Data: Yahoo Finance daily closes (gold is COMEX futures GC=F, close to spot day to day), real yield from FRED DFII10; updated ") + d.updated + tx("。带绿点的是盘中数字：数据任务上次运行时的价格和它比上一个收盘的变化（时间写在名字下面），不是逐秒行情；1 周、1 个月和相关系数只用日收盘。", ". A green dot marks an intraday figure: the price when the data job last ran and its change since the last close (the time is under the name), not a tick-by-tick quote; 1 week, 1 month and the correlations use daily closes only.") }));
   }
-  fetch("data/drivers.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
-    window.GoldDrivers = d; render(d);
-  }).catch(function () { var b = document.getElementById("drv-body"); if (b) b.textContent = tx("驱动因素的数据暂时读不到。", "The drivers data cannot be read right now."); });
+  var last = "";
+  function load(first) {
+    fetch("data/drivers.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+      if (d.updated === last) return; last = d.updated;                        // nothing new: leave the card as it is
+      window.GoldDrivers = d; render(d);
+    }).catch(function () { var b = document.getElementById("drv-body"); if (first && b) b.textContent = tx("驱动因素的数据暂时读不到。", "The drivers data cannot be read right now."); });
+  }
+  load(true);
+  // an open page picks up the data job's next file by itself (a 4 KB file, every 10 minutes while the tab is in view)
+  setInterval(function () { if (document.visibilityState === "visible") load(false); }, 600000);
 })();

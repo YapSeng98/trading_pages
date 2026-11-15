@@ -1,8 +1,10 @@
-# Keeps three data files current:
+# Keeps the data files current:
 #   data/calendar.json     this week's US economic releases (scripts/update_calendar.py)
 #   data/xau-state.json    what the report page's engine says about gold right now (scripts/update_gold.js)
 #   data/xau-signals.json  the live record: every "go" signal as a paper trade, followed to its stop or target
 #   data/news.json         the latest gold headlines for news.html (scripts/update_news.py)
+#   data/btc-state.json, data/btc-signals.json   the same for Bitcoin (scripts/update_btc.js)
+#   data/drivers.json      what gold is moving with: dollar, yields, oil, silver, S&P 500 (scripts/update_drivers.py)
 # report.html reads the calendar and the live record, the home page (assets/hub-live.js) fills its market summary
 # from the state and the calendar, and the daily Claude refresh reads them for its numbers: the cloud machine it
 # runs on cannot reach any price or calendar service; this runner can.
@@ -10,8 +12,13 @@
 # There are no notifications: the owner asked on 2026-10-22 for the alert comments on the issue
 # "XAU 信号提醒（自动）" to be removed.
 #
-# Besides the timer, a push that touches data/refresh-request.txt starts a run: the daily refresh uses that to get
-# fresh facts just before it writes, so it does not depend on GitHub's timer being punctual.
+# How it is started. GitHub's timer (the cron lines below) reaches this repository hours late and drops most of the
+# 15-minute times: about 5 runs a day (measured 2026-11-15). So the job does not depend on it:
+#   - a push that touches data/refresh-request.txt starts a run: the daily refresh uses that to get fresh facts just
+#     before it writes. Whichever run comes next answers the request (see "Was fresh data asked for?");
+#   - the last step (scripts/keep_going.sh) starts the stock-quotes job when it is overdue, and starts the next run of
+#     this job, which waits in the "tick" environment's wait timer first. That needs the environment, set up once by
+#     the owner; until then the step only reports that it is off.
 name: Update market facts
 
 on:
@@ -20,44 +27,79 @@ on:
     - cron: "2,17,32,47 * * * 1-5"  # every 15 minutes Monday to Friday (UTC), while gold trades: alerts stay prompt
     - cron: "17 */6 * * 0,6"        # every 6 hours at the weekend
   workflow_dispatch:
+    inputs:
+      chain:
+        description: "Set by the job itself (scripts/keep_going.sh): a run started by the previous run. It waits in the 'tick' environment first."
+        required: false
+        default: ""
   push:
     branches: [main]
-    paths: ["scripts/update_calendar.py", "scripts/update_news.py", "scripts/update_gold.js", "scripts/xau_track.js", "scripts/update_btc.js", "assets/xau-*.js", "assets/btc-feed.js", "data/refresh-request.txt", ".github/workflows/market.yml"]
+    paths: ["scripts/update_calendar.py", "scripts/update_news.py", "scripts/update_gold.js", "scripts/xau_track.js", "scripts/update_btc.js", "scripts/update_drivers.py", "scripts/keep_going.sh", "assets/xau-*.js", "assets/btc-feed.js", "data/refresh-request.txt", ".github/workflows/market.yml"]
 
 permissions:
   contents: write
-
-concurrency:
-  group: market
-  cancel-in-progress: false
+  actions: write      # the last step starts the next run and, when overdue, the stock-quotes job
 
 jobs:
+  # A run started by the previous run waits here. The "tick" environment has a wait timer, so no machine is used while
+  # it waits; runs started by the timer, a push or by hand skip this job.
+  wait:
+    if: github.event_name == 'workflow_dispatch' && inputs.chain == 'yes'
+    runs-on: ubuntu-latest
+    environment: tick
+    steps:
+      - run: echo "The wait is over."
+
   update:
+    needs: wait
+    if: ${{ !cancelled() && (needs.wait.result == 'success' || needs.wait.result == 'skipped') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # one at a time; held only while the scripts run, not while a started run waits for its timer
+    concurrency:
+      group: market
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      # The daily refresh writes the time into data/refresh-request.txt and waits for a "Market facts" commit.
+      # Whichever run comes next answers it: fresh files are forced on a push, and whenever the request is not older
+      # than the gold file (so a run that was already queued answers it too).
+      - name: Was fresh data asked for?
+        id: ask
+        run: |
+          req=$(grep -o 'last request: [0-9-]* [0-9:]*' data/refresh-request.txt 2>/dev/null | sed 's/last request: //')
+          upd=$(python3 -c "import json;print(json.load(open('data/xau-state.json')).get('updated','')[:16])" 2>/dev/null)
+          if [[ "${{ github.event_name }}" == "push" ]] || [[ -n "$req" && ! "$req" < "$upd" ]]; then
+            echo "force=1" >> "$GITHUB_OUTPUT"; echo "Fresh files asked for (request $req, gold file $upd)."
+          else
+            echo "force=" >> "$GITHUB_OUTPUT"; echo "No request waiting (request $req, gold file $upd)."
+          fi
       # each script keeps the old file when its source does not answer, so one failing does not block the other.
-      # update_gold.js rewrites its files only when something happened or they are close to an hour old, so most
-      # of the 15-minute runs end without a commit. A refresh request always gets fresh files.
+      # update_gold.js rewrites its files only when something happened or they are close to an hour old, and
+      # update_drivers.py asks its sources about once an hour, so most runs end without a commit.
+      # A refresh request always gets fresh files.
       - name: Calendar
         run: python3 scripts/update_calendar.py || echo "::warning::calendar not updated"
       - name: News headlines
         run: python3 scripts/update_news.py || echo "::warning::headlines not updated"
       - name: Gold state and live record
         env:
-          XAU_FORCE: ${{ github.event_name == 'push' && '1' || '' }}
+          XAU_FORCE: ${{ steps.ask.outputs.force }}
         run: node scripts/update_gold.js || echo "::warning::gold state not updated"
       - name: Bitcoin state and live record
         env:
-          BTC_FORCE: ${{ github.event_name == 'push' && '1' || '' }}
+          BTC_FORCE: ${{ steps.ask.outputs.force }}
         run: node scripts/update_btc.js || echo "::warning::bitcoin state not updated"
+      - name: Gold's drivers (dollar, yields, oil, silver, S&P 500)
+        env:
+          DRIVERS_FORCE: ${{ steps.ask.outputs.force }}
+        run: python3 scripts/update_drivers.py || echo "::warning::drivers not updated"
       - name: Commit if the data changed
         run: |
-          git add data/calendar.json data/xau-state.json data/xau-signals.json data/news.json data/btc-state.json data/btc-signals.json 2>/dev/null || true
+          git add data/calendar.json data/xau-state.json data/xau-signals.json data/news.json data/btc-state.json data/btc-signals.json data/drivers.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "No change."; exit 0; fi
           git config user.name "market-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -67,3 +109,8 @@ jobs:
             sleep 5
           done
           exit 1
+      - name: Keep going (stock quotes when overdue, and the next run)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/keep_going.sh || true

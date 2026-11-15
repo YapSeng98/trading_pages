@@ -651,16 +651,46 @@
       return h("button", { type: "button", "aria-pressed": String(x === it), text: P.TF_ZH[x.tf] + " " + P.patternText(x.p), onclick: function () { S.patSel = x.key; renderPatChart(true); } });
     })));
     box.appendChild(head);
-    if (!it) { box.appendChild(h("p", { class: "vp-none", text: tx("日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。", "No clear pattern on the daily, 4-hour or 1-hour right now. When a double top or bottom, head and shoulders, triangle, wedge, channel or flag forms, it is drawn here.") })); return; }
+    if (!it) { S.patChart = S.patPlan = S.patP = null; box.appendChild(h("p", { class: "vp-none", text: tx("日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。", "No clear pattern on the daily, 4-hour or 1-hour right now. When a double top or bottom, head and shoulders, triangle, wedge, channel or flag forms, it is drawn here.") })); return; }
     var p = it.p, pl = P.patternPlan(p, S.E.price), way = it.done;
     var rel = !way || !Rp.dir ? "" : way === Rp.dir ? tx("，和大方向一致", ", with the big trend") : tx("，和大方向相反", ", against the big trend");
     box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : tx("（没有方向）", " (no direction)") }), " " + P.statusText(p.status) + rel]));
     var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); });
     var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: EN ? P.TF_ZH[it.tf] + " " + P.patternText(p) + " chart" : P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28 });
+    S.patChart = chart || null; S.patPlan = pl || null; S.patTf = it.tf; S.patP = p;
     if (chart) box.appendChild(chart); else box.appendChild(h("p", { class: "vp-none", text: tx("这个形态的 K 线还没读到，下一次刷新再画。", "This pattern's candles are not loaded yet; it is drawn at the next refresh.") }));
+    box.appendChild(h("p", { class: "vp-live", id: "vp-live" })); paintPatLive();
     if (pl) box.appendChild(h("p", { class: "vp-plan", text: EN ? "The pattern's own trade: " + (pl.done ? (pl.dir > 0 ? "broke up, price now " : "broke down, price now ") : (pl.dir > 0 ? "on a close above " : "on a close below ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · fails " + fmt(sh(pl.stop), 1) + " · target " + fmt(sh(pl.target), 1) + " · R:R " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "")
       : "形态自己的做法：" + (pl.done ? (pl.dir > 0 ? "已向上突破，现价 " : "已向下突破，现价 ") : (pl.dir > 0 ? "收盘站上 " : "收盘跌破 ")) + fmt(sh(pl.done ? pl.entry : pl.trigger), 1) + " · 失效 " + fmt(sh(pl.stop), 1) + " · 目标 " + fmt(sh(pl.target), 1) + " · 盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") }));
     box.appendChild(h("p", { class: "vp-n", text: tx("参考，不是信号：回放里形态单独拿来做没有优势（按它自己的止损和目标，大约六成赢、平均约 0R）。它的用处是标出关键位、目标和失效位；进场仍以上面的结论为准。", "Reference, not a signal: in the replay patterns had no edge on their own (with their own stop and target, about six in ten won, about 0R on average). They mark key levels, targets and where a move fails; entries still go by the answer above.") }));
+  }
+
+  // The pattern chart between candle closes: the live price drawn on it, and how far it is from the pattern's levels.
+  // The pattern itself is worked out again after every 15-minute close (renderAll after refresh), on closed candles only.
+  function paintPatLive() {
+    var line = $("vp-live"); if (!line) return;
+    var open = marketOpen(), L = num(S.live), pl = S.patPlan, f = function (v) { return fmt(sh(v), 1); };
+    if (S.patChart && S.patChart.setLive) S.patChart.setLive(open && L !== null ? L : null);
+    var bits = [];
+    if (open && L !== null && pl) {
+      var gap = function (v) { return fmt(Math.abs(L - v), 1); };
+      if (!pl.done && num(pl.trigger) !== null) {
+        var past = pl.dir > 0 ? L > pl.trigger : L < pl.trigger;
+        bits.push(past ? (EN ? "price is already " + gap(pl.trigger) + (pl.dir > 0 ? " above" : " below") + " the break level " + f(pl.trigger) + ": it counts only if the " + P.TF_ZH[S.patTf] + " candle closes there" : "现价已经" + (pl.dir > 0 ? "高于" : "低于") + "突破位 " + f(pl.trigger) + " " + gap(pl.trigger) + "：要" + P.TF_ZH[S.patTf] + " K 线收在那边才算")
+          : (EN ? gap(pl.trigger) + " from the break level " + f(pl.trigger) : "离突破位 " + f(pl.trigger) + " 还有 " + gap(pl.trigger)));
+      }
+      if (num(pl.stop) !== null) bits.push((pl.dir > 0 ? L <= pl.stop : L >= pl.stop) ? (EN ? "price is through where it fails (" + f(pl.stop) + ")" : "现价已过失效位 " + f(pl.stop)) : (EN ? gap(pl.stop) + " from where it fails" : "离失效位 " + gap(pl.stop)));
+      if (num(pl.target) !== null) bits.push((pl.dir > 0 ? L >= pl.target : L <= pl.target) ? (EN ? "target " + f(pl.target) + " reached" : "已到目标 " + f(pl.target)) : (EN ? gap(pl.target) + " from the target" : "离目标 " + gap(pl.target)));
+    } else if (open && L !== null && S.patP) {      // no trade left in it (target already passed, or no direction): where price stands against its own levels
+      var pp = S.patP, d = P.patternWay(pp) || (pp.bias === "bullish" ? 1 : pp.bias === "bearish" ? -1 : 0), tg = num(pp.target), iv = num(pp.invalid), far = function (v) { return fmt(Math.abs(L - v), 1); };
+      if (d && tg !== null) bits.push((d > 0 ? L >= tg : L <= tg) ? (EN ? "price is past its target " + f(tg) + ": the measured move is done" : "现价已过它的目标 " + f(tg) + "：量度的幅度已经走完") : (EN ? far(tg) + " from its target " + f(tg) : "离它的目标 " + f(tg) + " 还有 " + far(tg)));
+      if (d && iv !== null) bits.push((d > 0 ? L <= iv : L >= iv) ? (EN ? "price is through where it fails (" + f(iv) + ")" : "现价已过失效位 " + f(iv)) : (EN ? far(iv) + " from where it fails" : "离失效位 " + far(iv)));
+    }
+    var at = S.lastRun ? sgt(S.lastRun, "t") : "--:--";
+    clear(line);
+    line.appendChild(h("span", { class: "vp-dot" + (open ? " on" : "") }));
+    line.appendChild(h("b", { text: open ? (EN ? "Live " + (L !== null ? fmt(sh(L), 1) : "—") : "现价 " + (L !== null ? fmt(sh(L), 1) : "—")) : tx("休市中", "Market closed") }));
+    line.appendChild(document.createTextNode((bits.length ? tx("：", ": ") + bits.join(tx("；", "; ")) : "") + tx(" · ", " · ") + (EN ? "pattern worked out again after every 15-minute close (last " + at + " SGT)" : "形态在每根 15 分钟 K 线收盘后自动重算（上次 " + at + " SGT）")));
   }
 
   // ---------- plan ----------
@@ -1170,7 +1200,7 @@
       var agoTxt = ageH === null ? "" : ageH < 48 ? Math.round(ageH) + tx(" 小时前", " h ago") : Math.floor(ageH / 24) + tx(" 天前", " days ago"), wTxt = wAt === null ? "" : sgt(wAt, "dt");
       var chip = document.querySelector("#read .card-head .chip");
       if (chip && wAt !== null) { chip.textContent = EN ? "Written " + wTxt + " SGT (" + agoTxt + ")" + (old ? " · out of date: go by the live answer above" : " · levels marked against the live price") : "文字写于 " + wTxt + " SGT（" + agoTxt + "）" + (old ? " · 已过期，先看上面的实时结论" : " · 价位按实时价格标注"); chip.className = "chip " + (old ? "bear" : "neut"); }
-      var el = clear($("dplans")); if (!items.length) throw new Error("none");
+      var el = $("dplans") ? clear($("dplans")) : document.createElement("div"); if (!items.length) throw new Error("none");   // the gold page no longer lists them a second time (2026-11-15): they are offered in the planner's step 1
       // the brief is written in Chinese: in English, each line as the facts it states (side, entry, stop, targets)
       var show = function (t) {
         if (!EN) return t;
@@ -1766,8 +1796,8 @@
     if (dv && dv.length) {
       var DN = { gold: "gold futures", dxy: "US dollar index", us10y: "US 10-year yield", real10y: "US 10-year real yield", oil: "WTI crude", silver: "silver", spx: "S&P 500" };
       var dc = function (s, v) { return typeof v !== "number" ? "n/a" : s.kind === "pp" ? (v >= 0 ? "+" : "") + Math.round(v * 100) + "bp" : (v >= 0 ? "+" : "") + v + "%"; };
-      L.push("Drivers, daily closes (context, not a signal; the replay found no gain from filtering the rule by real yields):");
-      dv.forEach(function (s) { if (DN[s.id]) L.push("- " + DN[s.id] + " " + s.last + (s.kind === "pp" ? "%" : "") + " (" + s.date + "): 1 day " + dc(s, s.chg1d) + ", 1 week " + dc(s, s.chg1w) + ", 1 month " + dc(s, s.chg1m) + (typeof s.corr60 === "number" ? "; 60-day correlation of daily moves with gold " + s.corr60 : "")); });
+      L.push("Drivers, daily closes and, where a market was trading at the data job's last run, its intraday price (context, not a signal; the replay found no gain from filtering the rule by real yields):");
+      dv.forEach(function (s) { if (DN[s.id]) L.push("- " + DN[s.id] + " " + s.last + (s.kind === "pp" ? "%" : "") + " (close " + s.date + "): 1 day " + dc(s, s.chg1d) + ", 1 week " + dc(s, s.chg1w) + ", 1 month " + dc(s, s.chg1m) + (typeof s.corr60 === "number" ? "; 60-day correlation of daily moves with gold " + s.corr60 : "") + (s.now && typeof s.now.price === "number" ? "; intraday " + s.now.price + (s.kind === "pp" ? "%" : "") + " at " + s.now.at + " (" + dc(s, s.now.chg) + " since that close)" : "")); });
     }
     var r = S.rec;
     if (r && r.summary) {
@@ -1849,7 +1879,7 @@
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
-      paintLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 5 === 0) renderShort(); if (slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
+      paintLive(); paintPatLive(); if (S.pos && !S.posForm) renderPos(); if (++slowN % 5 === 0) renderShort(); if (slowN % 10 === 0 && !busyUi()) { renderLevels(); drawChart(); }
     }, 1000);
   }
   function connectStream() {
@@ -1986,7 +2016,7 @@
     if (!vis) return;
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
       calibrate(); checkVerdict(); setStamp();
-      if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
+      if (vis) { renderVerdict(); paintPatLive(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
   function loop() { tick(); setTimeout(loop, 30000); }
