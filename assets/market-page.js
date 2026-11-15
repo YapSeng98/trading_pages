@@ -335,7 +335,49 @@
       $("vr-res").textContent = fmt(b, 1); $("vr-res-l").textContent = nr.res.labels.slice(0, 2).join(" · ") + (EN ? ", $" + fmt(b - shown, 1) + " above the price" : "，比现价高 " + fmt(b - shown, 1) + " 美元");
       $("vr-dot").style.left = pos + "%"; $("vr-cap").style.left = pos + "%"; $("vr-cap").textContent = tx("现价 ", "Now ") + fmt(shown, 1);
     }
-    paintPreview(E, shown); paintPatLive(); paintPal();
+    paintPreview(E, shown); paintPatLive(); paintPal(); paintGap();
+  }
+  // ---------- Monday's gap (gold) ----------
+  // From the open (Sunday 18:00 New York) until that broker day ends: how far gold opened from Friday's close, which of
+  // the page's levels the gap jumped, whether the plan's or the tracked position's stop sits inside it (a stop order in
+  // a gap fills at the first price after it, not at its own price), and whether price has been back to Friday's close
+  // since (the gap filled). Facts only; the replay's trades were held over weekends too.
+  function gapInfo() {
+    if (!M.weekend || !S.feed || !S.E || !marketOpen()) return null;
+    var nowS = Date.now() / 1000, wk = Feed.bucket(nowS, "W"); if (Feed.bucket(nowS, "D") !== wk) return null;   // the week's first broker day only
+    var K = S.feed.K["15M"] || [], i = 0; while (i < K.length && K[i][0] < wk * 1000) i++;
+    if (!i) return null;
+    var fri = K[i - 1][4], open = null;
+    if (i < K.length) open = K[i][1];
+    else { var m = (S.mins || []).filter(function (r) { return r[0] >= wk; })[0]; if (m) open = m[1]; }   // the first minutes, before a quarter-hour has closed
+    if (open === null) return null;
+    var gap = open - fri, filled = null, px = num(S.live);
+    for (var j = i; j < K.length && filled === null; j++) if (gap > 0 ? K[j][3] <= fri : K[j][2] >= fri) filled = K[j][0];
+    if (filled === null && px !== null && (gap > 0 ? Math.min(px, S.tLo === null ? px : S.tLo) <= fri : Math.max(px, S.tHi === null ? px : S.tHi) >= fri)) filled = Date.now();
+    var lo = Math.min(fri, open), hi = Math.max(fri, open), inGap = function (v) { v = num(v); return v !== null && v > lo && v < hi; };
+    var jumped = P.levels(S.E).points.filter(function (l) { return inGap(l.price); }).sort(function (a, b) { return Math.abs(a.price - fri) - Math.abs(b.price - fri); }).slice(0, 2);
+    // a stop the gap went through: a long's on a gap down, a short's on a gap up
+    var hit = function (side, v) { return inGap(v) && (side === "short" ? gap > 0 : gap < 0); }, stops = [];
+    if (hit(S.plan.side, S.plan.stop)) stops.push([tx("计划止损", "the plan's stop"), S.plan.stop]); if (S.pos && hit(S.pos.side, S.pos.stop)) stops.push([tx("持仓止损", "your position's stop"), S.pos.stop]);
+    return { fri: fri, open: open, gap: gap, filled: filled, px: px, jumped: jumped, stops: stops };
+  }
+  function gapText(g) {
+    var up = g.gap > 0, d = Math.abs(g.gap), pct = fmt(d / g.fri * 100, 2), flat = d < 0.5;
+    var head = flat ? (EN ? "Monday opened flat: Friday " + fmt(g.fri, 1) + ", open " + fmt(g.open, 1) + "." : "周一基本平开：周五收 " + fmt(g.fri, 1) + "，开 " + fmt(g.open, 1) + "。")
+      : (EN ? "Monday gapped " + (up ? "up" : "down") + " $" + fmt(d, 1) + " (" + (up ? "+" : "−") + pct + "%): Friday " + fmt(g.fri, 1) + ", open " + fmt(g.open, 1) + ". " : "周一跳空" + (up ? "高开" : "低开") + " " + fmt(d, 1) + " 美元（" + (up ? "+" : "−") + pct + "%）：周五收 " + fmt(g.fri, 1) + "，开 " + fmt(g.open, 1) + "。");
+    if (flat) return head;
+    var fill = g.filled !== null ? (EN ? "Filled at " + sgt(g.filled, "t") + " (back to Friday's close). " : sgt(g.filled, "t") + " 已回补（回到过周五收盘价）。")
+      : g.px !== null ? (EN ? "Not filled: $" + fmt(Math.abs(g.px - g.fri), 1) + " to Friday's close. " : "未回补：离周五收盘还差 " + fmt(Math.abs(g.px - g.fri), 1) + " 美元。") : "";
+    var jump = g.jumped.length ? (EN ? "It jumped " + g.jumped.map(function (l) { return fmt(l.price, 1) + " (" + l.labels[0] + ")"; }).join(" and ") + ". " : "缺口跳过了 " + g.jumped.map(function (l) { return fmt(l.price, 1) + "（" + l.labels[0] + "）"; }).join("、") + "。") : "";
+    var sw = g.stops.map(function (s) { return s[0] + " " + fmt(s[1], 1); }).join(EN ? " and " : "、");
+    var st = g.stops.length ? (EN ? sw.charAt(0).toUpperCase() + sw.slice(1) + (g.stops.length > 1 ? " are" : " is") + " inside the gap: in a gap a stop order fills at the first price after it, not at its own price."
+      : sw + " 在缺口里：跳空时止损单按开盘后的第一个价格成交，不是它自己的价。") : "";
+    return (head + fill + jump + st).trim();
+  }
+  function paintGap() {
+    var el = $("price-gap"); if (!el) return;
+    var g = gapInfo(), t = g ? "↕ " + gapText(g) : "";
+    el.hidden = !g; if (el.textContent !== t) el.textContent = t;
   }
   // 按现价预估: the rule decides on closed candles only (crosses inside a candle often reverse), but the visitor can
   // see at any second which timeframes the price now stands beyond the turning close of, when that candle closes,
@@ -1943,6 +1985,7 @@
     var V = P.verdict(E), R = V.regime || P.regime(E), open = marketOpen(), K = S.feed && S.feed.K, D = K && K.D, prev = D && D.length ? D[D.length - 1][4] : null;
     L.push("LIVE DATA from the trading page at " + sgt(now, "full") + " (" + (S.feed && S.feed.source === "paxg" ? M.liveDataBackup : M.liveData) + ")");
     L.push("Market: " + (open ? "open" : "closed for the weekend (reopens " + sgt(nextOpen(), "full") + ")"));
+    var gp = gapInfo(); if (gp) L.push("Monday's gap: Friday close " + f1(gp.fri) + ", Monday open " + f1(gp.open) + " (" + (gp.gap >= 0 ? "+" : "") + fmt(gp.gap, 1) + ")" + (gp.filled !== null ? ", filled at " + sgt(gp.filled, "t") + " SGT" : ", not filled"));
     L.push("Price (bid, live): " + f1(S.live) + (prev !== null && num(S.live) !== null ? " | previous day close " + f1(prev) + " (" + (S.live >= prev ? "+" : "") + fmt(S.live - prev, 1) + ", " + (S.live >= prev ? "+" : "") + fmt((S.live - prev) / prev * 100, 2) + "%)" : ""));
     L.push("Rule's answer now: " + V.tag + " / " + V.title + " (level: " + V.level + ")");
     if (V.signal) L.push("Signal: appeared " + sgt(V.signal.at) + " SGT at " + f1(V.signal.price) + (num(V.signal.movedR) !== null ? ", price has moved " + V.signal.movedR.toFixed(1) + "R in its favour since" : ""));

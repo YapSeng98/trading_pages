@@ -532,6 +532,7 @@ footer .disc strong{color:var(--text)}
 .v-alert{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:12px;padding:11px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:rgba(255,255,255,.02);font-size:12.5px;line-height:1.6;color:var(--text)}
 .v-alert.on{border-color:rgba(212,167,44,.4);background:rgba(212,167,44,.06)}
 .v-alert .t{flex:1 1 260px;min-width:0}.v-alert b{color:var(--ink)}
+.v-price .gapl{margin-top:6px;color:#E6BE55;font:500 12px/1.6 'Noto Sans SC',sans-serif;letter-spacing:0;text-transform:none}
 .v-palert{margin-top:12px;padding:12px 14px;border:1px solid rgba(167,139,250,.3);border-radius:var(--r-md);background:rgba(167,139,250,.045);font-size:12.5px;line-height:1.6}
 .v-palert .pa-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.v-palert .pa-h b{color:var(--ink)}
 .v-palert .pa-s{color:var(--dim);margin:3px 0 9px}
@@ -697,6 +698,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
         <div class="k" id="price-k"><span data-en="Price now">现价</span></div>
         <div class="num" id="price">—</div>
         <div class="subl" id="price-sub"><span data-en="Spot gold XAU/USD">现货金 XAU/USD</span></div>
+        <div class="subl gapl" id="price-gap" hidden></div>
       </div>
       <div class="v-pat" id="v-pat" hidden></div>
       <div class="gauge">
@@ -965,7 +967,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=4"></script>
 <script>window.MARKET = { id: "xau" };   // gold: the defaults in assets/market-page.js</script>
-<script src="assets/market-page.js?v=34"></script>
+<script src="assets/market-page.js?v=35"></script>
 <script src="assets/drivers.js?v=2" defer></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
