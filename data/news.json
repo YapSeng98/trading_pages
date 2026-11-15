@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-15 20:37 SGT",
+ "updated": "2026-11-15 20:50 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and silver are supposed to protect against inflation. So why are both metals tumbling instead?",
+   "src": "MarketWatch",
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSWFYVlBzemdQeHFIRFlFWUQ3ZEYwY2F5VDFELWxqVzUtalUtamVfUHNVSS1kNTJ5QXR4LUlKR2VZMHJkb1FYSlMwRGUyOVNLZW9WblByODVxeFZadFdaMWFId0hEX01CS3pPdlhWemZfd2pyaUtBLUVEbGRPdHp1RFZreGFybGFWdkNhNE9IQ2FSOFU2OWROb1hMeVVKUFFJVWxvOXlvWnVWeFdPLTV2ZlJHTmFvWDI1SnkwVi1zNURWaUo5WmJLSGdCX1dXYzUxbVRpSmVuaw?oc=5",
+   "ms": 1794745800000,
+   "time": "11/15 20:30"
+  },
   {
    "t": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVkZkMHgwOHYxaW1lNy00SV94aTBhLXZXaEp1YXgwXzNVVWJQRXB4TVVVZEQzRm9QUGRoVVhEWmpOQzM5UEpvbENRVUpvOEFkUzZhNzZWY0hseTk2UTA4NDZYOUY2aUFHLWlYeXdoRUhIajdxM1hPcDVIZVZGeEx4LXJmN1JzMGE2SHd5LV9DaU05UFY1RUxra21LOFc1WFJGVWpvQmIyTlVuU3M?oc=5",
    "ms": 1794601433000,
    "time": "11/14 04:23"
-  },
-  {
-   "t": "Forecasting the upcoming week: Fed takes control with the release of the Minutes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbmUxdVJKVjNFVG9udUV4eGJUZkM3RFptWkhQYko4V0Z2RUp5YlcwclVlSXFreFBYb0lZYlNoYktYV1dzLTktUWVGUzUwTjd2NGFIUDhzR3l5d25kaFJjbTA4ZzVjQ2dPQ2N1eWpteThKNWQyV05vZW00RXhZMzB0cU9pR0lUOFdBVGtJT0hqZzAzVExFNWtaam9MQjREYkw0dWRxcG92ajBSWW5BWHpRbnRoVkxtYk1hNVVNUjlUMTYzSXB5?oc=5",
-   "ms": 1794594128000,
-   "time": "11/14 02:22"
   }
  ]
 }
