@@ -1,11 +1,95 @@
 {
- "updated": "2026-11-15 23:31 SGT",
+ "updated": "2026-11-15 23:45 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold, silver prices outlook: Inflation data, Fed signals and West Asia tensions to guide bullion this week",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZnEtODZDcnVfWENRbkJSMkZERDhKSVl1UkRrVjlncWJRdUZTTDBBUEJ4VlpxRFFiMUVOM2RjQktRTGJRMmtqaEc4eEI2c0xmV19ZY1JWMmVuMXoxZWJVRWpyNG9EVUltUGh5RjJzbmtNcUx5aVIxaFMxYVJMQl9iNnFZblJHWkxsRTA3MEVOY3A5X0F0QmtfMklTWmJFcklpZE1kVzl3dGRKUVNvZ3JBUNIBtgFBVV95cUxPajFqYnNHQVNhaV9qdTRWbHY3eFlnNGRBYXBxeFBqUWxfN0NfaWF0cVdLMFV1V010TGx6alRlTnZIN0dHS2lwZ3pRUlBRYUFyY2dGbnNsZjhBM0lpelBKdjFoV2xGM3Q2eXVYZmJuMlRUZXRDaHVlVGNQeGg1VFB2aDRMdjlWdlk4RnRqOW1XWG43ZUpWd19HTGJiRmNnS1RoU2U4VXo2eDJQSVFBRFJsNEhhWWRWQQ?oc=5",
+   "ms": 1794753230000,
+   "time": "11/15 22:33"
+  },
+  {
+   "t": "Gold and silver are supposed to protect against inflation. So why are both metals tumbling instead?",
+   "src": "MarketWatch",
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSWFYVlBzemdQeHFIRFlFWUQ3ZEYwY2F5VDFELWxqVzUtalUtamVfUHNVSS1kNTJ5QXR4LUlKR2VZMHJkb1FYSlMwRGUyOVNLZW9WblByODVxeFZadFdaMWFId0hEX01CS3pPdlhWemZfd2pyaUtBLUVEbGRPdHp1RFZreGFybGFWdkNhNE9IQ2FSOFU2OWROb1hMeVVKUFFJVWxvOXlvWnVWeFdPLTV2ZlJHTmFvWDI1SnkwVi1zNURWaUo5WmJLSGdCX1dXYzUxbVRpSmVuaw?oc=5",
+   "ms": 1794745800000,
+   "time": "11/15 20:30"
+  },
+  {
+   "t": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQRzYyRU50SDUzOW15clJVVGhYWFZ5WDdSRWpMSnJBTUMzZDZ5VU16QUM3V3RSVE05Mjg2aFg2eFRQTkVkcWo3US0wU3hGWFFzWUVfYjdTLXNZNG5FelVydFhKVmx0SDR3S1l4VVVicmU5WlBLeUhxM051VXQwLVhjQk5ITjBBOGN1OUVjS1lUb2t5VGh6QmtSVmhyRVNYUG5hODJhNlFmcjB2NXFuMF9BTVBsclRJaTFEbmJjaURTWDRLZ2xNZnNwMy1B?oc=5",
+   "ms": 1794681168000,
+   "time": "11/15 02:32"
+  },
+  {
+   "t": "Spot gold posts worst week since March amid jump in Fed rate hike expectations By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOS0lpdDNCT2s1bWs1R0RmNlRWaVd4Rm5mczdYTW1WRTFwcHdWQzBwblZ0M2h3ZnJZeVB4MncweGFTeGVTTlBJTmNCRkg4dzFQU3dUdEdZRHdTb1VxN1JYenprbnlPSGJlc2tkSWM2ckIyS29vVmNEX0JHWV9VTndIcTlmY3JGYll3QW9KMDZSRGVHSE8yVl9pWldnaEFyODBCTGFyMHVnQWlIQmlDQjdGdGpOSFI3LVJONTB2TDQ4X1U?oc=5",
+   "ms": 1794638977000,
+   "time": "11/14 14:49"
+  },
+  {
+   "t": "This Week’s Sell Off in Gold Brought November Into the Red",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPR2x3VTlCVUhXVnRSMWJCNDlIcFNWeWx6WVU4UmdNX0o1TDl2R3dYOEl1Q3hQYWJTZXdJaHhIb0NWQWt3MllmM3I5THBYd2xBc2hnNmdOanNwdThuRk11aVdqNUJHSUdFQVhSTXFFRXQ3cTVDUnpySzZZTzFYY3BlZ050aw?oc=5",
+   "ms": 1794616878000,
+   "time": "11/14 08:41"
+  },
+  {
+   "t": "Fed's Jefferson says he is taking his policy cues from inflation",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZW1TY0lTUklmN2JmVC0zMm5qMUdfOUFjWk43S1NTS1RpcGx1Ni0tWkJCX1NXWDg1cHdzazZsQUZlREpWRkl2UER3S2t0TjFON1lXeTNNLXA4SXZYYjFjbXh0SnJzcXFGV2FPZkhoc1dNc1ZhUXNTRjdmX3R2SUR0ZlZwcHlnT2F2ZzdLdnNkQ1I5Sy1tRmVGTS1GTEpUTmRTWVlkYXRR?oc=5",
+   "ms": 1794614580000,
+   "time": "11/14 08:03"
+  },
+  {
+   "t": "Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ09SOU1XMmZSdkZoVU5iQkdoN1duRHpoNUhqWHlJVVRhd3ozYzFLLXkteml0ZXJoODBvUy1iMDB1Yk9qRy1oSFhfQ296RlBITmhSbzFSRVBVeGZLQ1lXb05ZRmRIVl9PclVZdzVJQ0h0M2JTRnZKUzZndkswa1JNNEtwbjdNMW1IQXZuQ1BDdVJlM0Y2TmRRWnhEUDFVb3FROEZyOFA1ZEdjNjlWbzYxak9QSjNKLVk?oc=5",
+   "ms": 1794610805000,
+   "time": "11/14 07:00"
+  },
+  {
+   "t": "Gold posts steep weekly loss as Treasury yields rise, Fed tightening bets persist - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPX0k2NHE2ZjJka2ltRGxrN2ZDN1JKQ1FBZnRxT240TTRqcmp5Qlp4UWkwQWtVM3dFTXBtYU5vNkpYQXFQRi1vQ3FYRG5fd1J5YTdrUjc1RjMwRGhVeHZJdEoyYmdQTGdTbW1QWVFiQVkwXzVELU9mOFBXdEdBbnZ1M0VaODNDckVvb2hfanpQMXJRdWVBOGdiWldtM0xlYWxUaEM3NFVPMnJaLTdlYlFEN2o2dzNuUQ?oc=5",
+   "ms": 1794609975000,
+   "time": "11/14 06:46"
+  },
+  {
+   "t": "Tether taking aim at gold ETFs as tokenization gains momentum",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZF9lOHdWWE9sS2E2eUFpZDlScnU1YmNfck5CYXJ4X2xpQ0lfdV8wZXdIUzRZTGpiM1dYOXJlOWlRVFJITWlpU1VkZ2llamZQTDJDa2xCMWFYZnhkSGRLdjFpUGJTUm1uQzBBN256VU5Fajg2eDFhcWp2WVMyLUJMcnhUd19aOEZjMTZXYzdyRFFjUFNLbWJ6LUZTeVJrQXB3Tk53?oc=5",
+   "ms": 1794606081000,
+   "time": "11/14 05:41"
+  },
+  {
+   "t": "Gold Holds Drop to Near One-Year Low as Rate-Hike Bets Increase",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOT3F2NGZ0c25jVUdYLU1WVFUydUJtUHQwWm9uTHlQbG10SHFHLUpZUndrUzZNR2ZwRFBqMUdKNDQ4NmlnY0dDS2hjR3hkenpsZlo1Q3Q2Q21pV3c4dDRFNmdSTnJPejNNR191a1RxVFd5dDNIYkhrb20wcWRRREFCTHFlOXJ1cXZGRlFLRC0ybWNyS0sxODJoWTBBVlFCZDM3S0tSdm9BREUzSVZnQzRiOXc5OXY?oc=5",
+   "ms": 1794605634000,
+   "time": "11/14 05:33"
+  },
+  {
+   "t": "Gold is on the cusp of breaking key support, and further USD strength could drive price to $3,500/oz – Jesse Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQQW5oTmxPNVRQbUZPc2NmOC1VeG5uOGJkSTM1MktnX1NDUWxnSHVRU2FYdGxFMlJrSDdGWkZOSW5WaUgtUVdXdkEtM1VWM0hlcnBQeXZJaXB0aUgzRUIyLWZld0dyUFRCc2ZLcy1aWURRcTh4NTRTOHBRakpDZXpyMUJ0N2p2bGhvbDJocjhmZmNKQTlYZGlfRklYVE5HNHRPTnAwZWN1SDdnb19mRXA4WGlZWWx2LUFOTTdB?oc=5",
+   "ms": 1794605209000,
+   "time": "11/14 05:26"
+  },
+  {
+   "t": "Gold's drop below $4,000 offers long-term value as WisdomTree sees potential for $4,800 by 2027",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTTBfZngzcHEwdE1RQ3hVcWI2Rndhb2c1MUVxVElnN1RQb3l6NzNrazk5X0VwVWk2cko5M1VmZzVOYVNfc2tJcGtjYnVVdktuaHZYSzFsU2xPZUM4d1RlRHJ2bWZuZHZaLWFCaU83WmN4bW8xTXlQQk1HdTNkNEdnZ3FMMXdwWWlzLXhZRnNjRFFvenlVTFY0OFNvWG8tNVVPNjlMbU1FOWVPY2g4UWllV2o0dUNsaWQ4NlluYm9R?oc=5",
+   "ms": 1794604316000,
+   "time": "11/14 05:11"
+  },
   {
    "t": "Gold Breaks Below $4,000 as Rising Yields Redefine the Macro Trade",
    "src": "Investing.com",
@@ -14,67 +98,18 @@
    "time": "11/14 04:46"
   },
   {
-   "t": "Gold’s Break Below October Low Draws Parallels With the Historic 2013 Sell-Off",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-break-below-october-low-draws-parallels-with-the-historic-2013-selloff-200691553",
-   "ms": 1794594060000,
-   "time": "11/14 02:21"
+   "t": "Price bounces may be traps as Fed rate hikes could drive gold down to $3,200/oz – StoneX’s Pavilonis",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVTRSTldzM0ZRZjRNM2ktRnZjenYwSG5nUkFCdzZQNFlBcDlqcUxJalBxOFJwaGZaX1RldkJrMFl1VUxFdU5iV2RFN2xqMTlqQlk4UGtpVklxVDVYT0VXTHhCTUN0cTFOWXVJcTNqa3ZETnprRXJpQ0lDTXpjUzdBV0t4WUstWDZwRTgtV0NsMGNMRVZWcEJQM2JfVE9oU29OZERJOHR3a3dmVV9nU0ZhUnFKb3ZGRXM?oc=5",
+   "ms": 1794602715000,
+   "time": "11/14 04:45"
   },
   {
-   "t": "Gold Miners Face a Profit Squeeze as Production Falls and Costs Hit Records",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-miners-face-a-profit-squeeze-as-production-falls-and-costs-hit-records-200691551",
-   "ms": 1794592680000,
-   "time": "11/14 01:58"
-  },
-  {
-   "t": "Gold Risks a Drop Below $3,838 as Iran Tensions Keep Sellers on Alert",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-risks-a-drop-below-3838-as-iran-tensions-keep-sellers-on-alert-200691542",
-   "ms": 1794584760000,
-   "time": "11/13 23:46"
-  },
-  {
-   "t": "India gold demand stays firm as lower prices draw festive buying",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/india-gold-demand-stays-firm-as-lower-prices-draw-festive-buying/",
-   "ms": 1794583654000,
-   "time": "11/13 23:27"
-  },
-  {
-   "t": "Oil Imports to Asia Rebound as Gulf Discounts Outweigh Hormuz Risks",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/oil-imports-to-asia-rebound-as-gulf-discounts-outweigh-hormuz-risks-200691529",
-   "ms": 1794576960000,
-   "time": "11/13 21:36"
-  },
-  {
-   "t": "Gold Breaks Key Levels as Hormuz Risks Raise Prospect of Further Selling",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-breaks-key-levels-as-hormuz-risks-raise-prospect-of-further-selling-200691503",
-   "ms": 1794550800000,
-   "time": "11/13 14:20"
-  },
-  {
-   "t": "Brent Briefly Hits $96 After Trump Says US Has No Need for Iran Deal",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/brent-briefly-hits-96-after-trump-says-us-has-no-need-for-iran-deal-200691497",
-   "ms": 1794547200000,
-   "time": "11/13 13:20"
-  },
-  {
-   "t": "Gold price drops to over one-year low as fading Middle East peace hopes fan inflation fears",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-drops-to-over-one-year-low-as-fading-middle-east-peace-hopes-fan-inflation-fears/",
-   "ms": 1794520038000,
-   "time": "11/13 05:47"
-  },
-  {
-   "t": "Gold sheds gains as hot inflation figures, higher dollar weigh",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-sheds-gains-as-hot-inflation-figures-higher-dollar-weigh/",
-   "ms": 1794415358000,
-   "time": "11/12 00:42"
+   "t": "Gold's $4,000 support breaks as Fed fears grow; analysts eye $3,800",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOamVpVk9OcXdFVWlWTFVUTG1xendnVlZLR2NId0llYnVBa3U0UGlnZ3NsV1JMUVhCeEdwT3AwdGgwdF9QYk4wZ3ZFWVpUQjFCblBhYzI0Q1BNc3NONjRiSkpCc1JhQTJfcDVrR2pSOHhya0I1QWhCOEMwdS1UX0hHQTJEY2piYWgzaGRDTWRLV1hJaGJiOHlQdzZiZ2xGQV9fUUtDM2ZESQ?oc=5",
+   "ms": 1794601466000,
+   "time": "11/14 04:24"
   }
  ]
 }
