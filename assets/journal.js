@@ -1442,6 +1442,118 @@
     };
     rd.readAsText(file);
   });
+  // ---------- MT5 history (2026-11-15: the owner took up the proposal to fill this page from MT5 instead of typing) ----------
+  // MT5 on a computer saves its history as a report (Toolbox → History → right-click → Report → HTML), often in UTF-16.
+  // Its tables are read by their layout, not their headings, so a terminal in another language reads the same:
+  //   Positions: open time | position | symbol | type | volume | price | S/L | T/P | close time | price | commission | swap | profit
+  //   Deals:     time | deal | symbol | type | … | profit | balance | comment   (type "balance": a deposit or a withdrawal)
+  // Orders rows have a state word where a position has its close price, so they never pass for positions. Nothing is
+  // saved before the preview is confirmed. Ids are made from the account and the position (or deal) number, so reading
+  // the same report again updates those records instead of adding them twice.
+  var MT = null, MTDT = /^(\d{4})\.(\d{2})\.(\d{2})(?: (\d{2}):(\d{2})(?::(\d{2}))?)?$/;
+  function mtNum(s) { var t = String(s).replace(/[\s ]/g, ""); return /^[-+]?\d+(\.\d+)?$/.test(t) ? parseFloat(t) : null; }
+  function mtText(buf) {          // the report's own encoding: a byte-order mark, or UTF-16's zero bytes, else UTF-8
+    var b = new Uint8Array(buf), enc = "utf-8";
+    if (b[0] === 0xFF && b[1] === 0xFE) enc = "utf-16le"; else if (b[0] === 0xFE && b[1] === 0xFF) enc = "utf-16be";
+    else if (b.length > 3 && b[1] === 0 && b[3] === 0) enc = "utf-16le";
+    try { return new TextDecoder(enc).decode(b); } catch (e) { return new TextDecoder("utf-8").decode(b); }
+  }
+  // broker time (most MT5 servers: New York + 7 hours, so GMT+2 in winter, GMT+3 in summer) as ms since 1970
+  function mtDst(t) { var y = new Date(t).getUTCFullYear(), m1 = new Date(Date.UTC(y, 2, 1)).getUTCDay(), n1 = new Date(Date.UTC(y, 10, 1)).getUTCDay(); return t >= Date.UTC(y, 2, 1 + ((7 - m1) % 7) + 7, 7) && t < Date.UTC(y, 10, 1 + ((7 - n1) % 7), 6); }
+  function mtMs(s) { var m = MTDT.exec(s), loc = Date.UTC(+m[1], +m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0), +(m[6] || 0)); return loc - (mtDst(loc - 3 * 3600000) ? 3 : 2) * 3600000; }
+  function mtDay(s, sgt) { if (!sgt) return s.slice(0, 10).replace(/\./g, "-"); var x = new Date(mtMs(s) + 8 * 3600000); return x.getUTCFullYear() + "-" + pad(x.getUTCMonth() + 1) + "-" + pad(x.getUTCDate()); }
+  function mtParse(text) {
+    var doc = new DOMParser().parseFromString(text, "text/html"), out = { acct: "", company: "", pos: [], cash: [] };
+    Array.prototype.forEach.call(doc.querySelectorAll("tr"), function (tr) {
+      var c = Array.prototype.map.call(tr.cells, function (x) { return x.textContent.replace(/[ \s]+/g, " ").trim(); });
+      if (c.length < 2) return;
+      // the header: "Account:" 12345678 (USD, …), "Company:" …
+      var lab = c[0].replace(/[:：]\s*$/, "");
+      if (/^(Account|账户|帐户|账号|交易账户)$/i.test(lab) && !out.acct) { var a = /\d{3,}/.exec(c[1]); if (a) out.acct = a[0]; return; }
+      if (/^(Company|公司)$/i.test(lab) && !out.company) { out.company = c[1].slice(0, 40); return; }
+      var dt = []; c.forEach(function (x, i) { if (MTDT.test(x)) dt.push(i); });
+      if (dt.length >= 2) {          // a closed position
+        var i0 = dt[0], i1 = dt[1], type = (c[i0 + 3] || "").toLowerCase(), side = /^(buy|买入|买)$/.test(type) ? "long" : /^(sell|卖出|卖)$/.test(type) ? "short" : null;
+        if (!side || !/^\d+$/.test(c[i0 + 1] || "")) return;
+        var mid = c.slice(i0 + 4, i1).filter(Boolean).map(mtNum), aft = c.slice(i1 + 1).filter(Boolean).map(mtNum);
+        if (mid[0] === null || mid[0] === undefined || aft.length < 4 || aft.slice(0, 4).some(function (v) { return v === null; })) return;
+        out.pos.push({ id: c[i0 + 1], sym: c[i0 + 2].slice(0, 16), side: side, lots: mid[0], open: c[i0], close: c[i1], net: r2(aft[3] + aft[1] + aft[2]) });
+      } else if (dt.length === 1 && dt[0] === 0 && /^\d+$/.test(c[1] || "") && /^(balance|余额|结余)$/i.test(c[3] || "")) {   // a deposit or a withdrawal
+        var nums = c.slice(4).filter(Boolean).map(mtNum).filter(function (v) { return v !== null; }), amt = nums.length >= 2 ? nums[nums.length - 2] : null;
+        var words = c.slice(4).filter(function (x) { return x && mtNum(x) === null; });
+        if (amt) out.cash.push({ id: c[1], t: c[0], amt: amt, note: (words[words.length - 1] || "").slice(0, 140) });
+      }
+    });
+    return out;
+  }
+  function mtId(p, x) { return (p + "m5" + (MT.acct || "x") + "-" + x.id).slice(0, 64); }
+  function mtPreview() {
+    var box = clear($("mt5-prev")), r = MT, sgt = !!r.sgt;
+    if (!r.pos.length && !r.cash.length) {
+      box.appendChild(h("p", { class: "note", text: tr("这个文件里没有找到已平仓的交易。请用电脑版 MT5：工具箱 → 历史 → 右键 → 报告 → 选 HTML（不是 Excel）。", "No closed trades found in this file. Use MT5 on a computer: Toolbox → History → right-click → Report → choose HTML (not Excel).") }));
+      box.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tr("关闭", "Close"), onclick: function () { box.hidden = true; MT = null; } }));
+      box.hidden = false; return;
+    }
+    var days = r.pos.map(function (x) { return mtDay(x.close, sgt); }).sort(), sum = r2(r.pos.reduce(function (a, x) { return a + x.net; }, 0));
+    var have = r.pos.filter(function (x) { return find("items", mtId("r", x)); }).length, cashHave = r.cash.filter(function (x) { return find("cash", mtId("c", x)); }).length;
+    box.appendChild(h("p", { class: "mt5-sum" }, [h("b", { text: EN ? "Found " + r.pos.length + " closed " + pl(r.pos.length, "trade", "trades") : "找到 " + r.pos.length + " 笔已平仓交易" }),
+      (days.length ? (EN ? ", " : " ") + ms(days[0]) + "–" + ms(days[days.length - 1]) : "") + tr("，合计 ", ", total "), h("b", { class: cls(sum), text: signed(sum) }), tr("（已含手续费和隔夜利息）", " (commission and swap included)") + (r.cash.length ? (EN ? "; plus " + r.cash.length + " " + pl(r.cash.length, "deposit or withdrawal", "deposits and withdrawals") : "；另有 " + r.cash.length + " 笔入金或出金") : "") + tr("。", ".")]));
+    if (r.acct || r.company) box.appendChild(h("p", { class: "note", text: [r.acct ? tr("账户 ", "Account ") + r.acct : "", r.company].filter(Boolean).join(" · ") }));
+    // platform: one of mine, or the report's company as a new one
+    var sel = h("select", { id: "mt5-plat", "aria-label": tr("记在哪个平台", "Platform") });
+    sel.appendChild(h("option", { value: "", text: tr("（不写平台）", "(no platform)") }));
+    D.plats.forEach(function (p) { sel.appendChild(h("option", { value: p, text: p })); });
+    if (r.company && D.plats.indexOf(r.company) < 0) sel.appendChild(h("option", { value: r.company, text: tr("新平台：", "New: ") + r.company }));
+    sel.value = r.plat !== undefined ? r.plat : D.plats.length ? D.plats[0] : r.company || "";
+    sel.addEventListener("change", function () { r.plat = sel.value; });
+    box.appendChild(h("label", { class: "mt5-row" }, [h("span", { text: tr("记在平台", "Platform") }), sel]));
+    // which day a trade counts on
+    var dayRow = h("div", { class: "mt5-row", role: "group", "aria-label": tr("日期按", "Dates by") }, [h("span", { text: tr("日期按", "Dates by") })]);
+    [[false, tr("MT5 上显示的日期（经纪商时间）", "the date MT5 shows (broker time)")], [true, tr("新加坡时间", "Singapore time")]].forEach(function (o) {
+      dayRow.appendChild(h("button", { type: "button", class: "chip", "aria-pressed": String(sgt === o[0]), text: o[1], onclick: function () { r.sgt = o[0]; mtPreview(); } }));
+    });
+    box.appendChild(dayRow);
+    if (sgt) box.appendChild(h("p", { class: "note", text: tr("按大多数 MT5 经纪商的服务器时间换算（纽约收盘为 0 点：冬天 GMT+2、夏天 GMT+3）。", "Converted from the server time most MT5 brokers use (midnight at the New York close: GMT+2 in winter, GMT+3 in summer).") }));
+    if (r.cash.length) {
+      var cb = h("input", { type: "checkbox", id: "mt5-cash" }); cb.checked = r.withCash !== false; cb.addEventListener("change", function () { r.withCash = cb.checked; });
+      box.appendChild(h("label", { class: "mt5-row ck", for: "mt5-cash" }, [cb, EN ? "Also import " + r.cash.length + " " + pl(r.cash.length, "deposit or withdrawal", "deposits and withdrawals") : "也导入 " + r.cash.length + " 笔入金和出金"]));
+    }
+    if (have || cashHave) box.appendChild(h("p", { class: "note", text: EN ? (have + cashHave) + " of these were imported before: they are updated, not added again." : "其中 " + (have + cashHave) + " 笔以前导入过：只会更新，不会重复。" }));
+    // the newest few, as they will be written
+    var list = r.pos.slice().sort(function (a, b) { return a.close < b.close ? 1 : -1; }), tb = h("tbody");
+    list.slice(0, 6).forEach(function (x) { tb.appendChild(h("tr", null, [h("td", { text: ms(mtDay(x.close, sgt)) }), h("td", { text: x.sym }), h("td", { text: x.side === "long" ? tr("多", "long") : tr("空", "short") }), h("td", { text: String(x.lots) }), h("td", { class: "r " + cls(x.net), text: signed(x.net) })])); });
+    box.appendChild(h("table", { class: "mt5-tbl" }, [tb]));
+    if (list.length > 6) box.appendChild(h("p", { class: "note", text: EN ? "… and " + (list.length - 6) + " more" : "……还有 " + (list.length - 6) + " 笔" }));
+    box.appendChild(h("div", { class: "mt5-act" }, [
+      h("button", { type: "button", class: "btn pri", text: EN ? "Import " + r.pos.length + " " + pl(r.pos.length, "trade", "trades") : "导入 " + r.pos.length + " 笔", onclick: mtImport }),
+      h("button", { type: "button", class: "btn ghost", text: tr("取消", "Cancel"), onclick: function () { box.hidden = true; MT = null; } })]));
+    box.hidden = false;
+  }
+  function mtImport() {
+    var r = MT; if (!r) return;
+    var plat = r.plat !== undefined ? r.plat : $("mt5-plat").value, sgt = !!r.sgt, added = 0, updated = 0, cash = 0;
+    r.pos.forEach(function (x) {
+      var id = mtId("r", x), old = find("items", id);
+      var y = cleanItem({ id: id, d: mtDay(x.close, sgt), amt: x.net, sym: x.sym, side: x.side, lots: x.lots, plat: plat, t: mtMs(x.close),
+        note: old && old.note && old.note.indexOf("MT5 #") !== 0 ? old.note : "MT5 #" + x.id, risk: old ? old.risk : null, rule: old ? old.rule : null });
+      if (y) { put("items", touch(y)); if (old) updated++; else added++; }
+    });
+    if (r.withCash !== false) r.cash.forEach(function (x) {
+      var y = cleanCash({ id: mtId("c", x), d: mtDay(x.t, sgt), kind: x.amt > 0 ? "deposit" : "withdraw", amt: Math.abs(x.amt), plat: plat, note: x.note || "MT5", t: mtMs(x.t) });
+      if (y) { put("cash", touch(y)); cash++; }
+    });
+    if (plat) addPlat(plat);
+    save(); renderAll(); $("mt5-prev").hidden = true; MT = null;
+    toast(EN ? "Imported " + added + " new " + pl(added, "trade", "trades") + (updated ? ", updated " + updated : "") + (cash ? ", " + cash + " deposits / withdrawals" : "") : "已导入 " + added + " 笔新交易" + (updated ? "，更新 " + updated + " 笔" : "") + (cash ? "，入金/出金 " + cash + " 笔" : ""));
+  }
+  $("mt5-file").addEventListener("change", function () {
+    var file = this.files && this.files[0], self = this; if (!file) return;
+    if (/\.xlsx?$/i.test(file.name)) { toast(tr("这是 Excel 文件：请在 MT5 里选「报告 → HTML」再试", "That is an Excel file: in MT5 choose «Report → HTML» and try again")); self.value = ""; return; }
+    var rd = new FileReader();
+    rd.onload = function () { try { MT = mtParse(mtText(rd.result)); mtPreview(); $("mt5-prev").scrollIntoView({ behavior: "smooth", block: "nearest" }); } catch (e) { toast(tr("这个文件读不了：需要 MT5 导出的 HTML 报告", "Cannot read this file: it needs the HTML report MT5 saves")); } self.value = ""; };
+    rd.readAsArrayBuffer(file);
+  });
+
   // the gold page (another tab) can add a closed position to the same store
   window.addEventListener("storage", function (e) { if (e.key === KEY) { D = load(); renderAll(); Cloud.soon(); } });
   document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible" && dOf(Date.now()) !== TODAY) renderAll(); if (document.visibilityState === "hidden") leaving(); });

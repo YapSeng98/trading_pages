@@ -433,6 +433,15 @@ html:not(.j-ready) .bento{visibility:hidden}
 .tiles3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
 .tl{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:14px;border-radius:16px;border:1px solid var(--border);background:rgba(255,255,255,.025);cursor:pointer;color:var(--text);min-width:0;transition:border-color .15s,transform .15s;font:inherit}
 .tl:hover{border-color:rgba(212,167,44,.45);transform:translateY(-1px)}
+.tl.wide{flex-direction:row;align-items:center;gap:12px;margin-top:12px;width:100%}.tl.wide .ti{flex:none}
+.mt5-prev{margin-top:10px;padding:14px;border-radius:16px;border:1px solid rgba(212,167,44,.35);background:rgba(212,167,44,.05);display:grid;gap:9px;font-size:13px;line-height:1.6}
+.mt5-prev .mt5-sum b{color:var(--ink)}.mt5-prev .mt5-sum b.up{color:var(--up,#34D399)}.mt5-prev .mt5-sum b.dn{color:var(--dn,#F87171)}
+.mt5-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.mt5-row>span{color:var(--dim);font-size:12px;min-width:56px}
+.mt5-row select{background:var(--bg3);border:1px solid var(--border-2);color:var(--ink);border-radius:10px;padding:8px 10px;font:500 13px 'Noto Sans SC',sans-serif;max-width:100%}
+.mt5-row.ck{color:var(--text)}.mt5-row.ck input{width:16px;height:16px;accent-color:var(--gold)}
+.mt5-tbl{width:100%;border-collapse:collapse;font-size:12.5px}.mt5-tbl td{padding:6px 4px;border-top:1px solid var(--border)}.mt5-tbl td.r{text-align:right;font-family:'IBM Plex Mono',monospace}
+.mt5-tbl td.up{color:var(--up,#34D399)}.mt5-tbl td.dn{color:var(--dn,#F87171)}
+.mt5-act{display:flex;gap:8px;flex-wrap:wrap}
 .ti{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:rgba(212,167,44,.11);color:var(--gold-lt);border:1px solid rgba(212,167,44,.22);flex:none}
 .tl b{font:600 13px/1.3 var(--f-d);color:var(--ink)}
 .tl small{font-size:11.5px;color:var(--dim);line-height:1.5}
@@ -697,6 +706,8 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
         <div class="sbox"><div class="sh"><svg class="i sm"><use href="#i-wallet"/></svg><span data-en="Month-start balance">月初账户余额</span></div><div class="inp"><span class="cur">$</span><input id="s-start" type="number" inputmode="decimal" min="0" step="any" placeholder="可不填" data-en-ph="optional" aria-label="月初账户余额" data-en-label="Month-start balance"></div><p class="note" style="margin-top:8px" data-en="Fill it in and this month's P&amp;L also shows as a % of the balance.">填了，本月盈亏会显示占余额的百分之几。</p></div>
       </div>
       <div class="sbox" style="margin-top:12px"><div class="sh"><svg class="i sm"><use href="#i-layers"/></svg><span data-en="My platforms">我的平台</span></div><div class="chips" id="s-plats"></div><p class="note" style="margin-top:8px" data-en="The platforms offered when you log a trade or a withdrawal, in this order. Removing one leaves the records already logged as they are.">记交易和提现时点选平台用，顺序和这里一样。删掉一个平台，已经记下的记录不受影响。</p></div>
+      <label class="tl wide" id="mt5-tile"><span class="ti"><svg class="i"><use href="#i-ul"/></svg></span><span><b data-en="Import MT5 history">导入 MT5 交易记录</b><br><small data-en="MT5 on a computer: Toolbox → History → right-click → Report → HTML, then pick that file here. You see what it found before anything is saved; importing the same report again does not add duplicates.">电脑版 MT5：工具箱 → 历史 → 右键 → 报告 → HTML，再在这里选那个文件。保存前会先给你看读到了什么；同一份报告再导入不会重复。</small></span><input type="file" id="mt5-file" accept=".html,.htm,text/html" hidden></label>
+      <div class="mt5-prev" id="mt5-prev" hidden></div>
       <div class="tiles3">
         <button class="tl" type="button" id="export"><span class="ti"><svg class="i"><use href="#i-dl"/></svg></span><span><b data-en="Export backup">导出备份</b><br><small data-en="One file to read back on another device">存成一个文件，换设备时读回来</small></span></button>
         <label class="tl"><span class="ti"><svg class="i"><use href="#i-ul"/></svg></span><span><b data-en="Import backup">导入备份</b><br><small data-en="Reads an exported file back, without duplicates">读回导出的文件，不会重复</small></span><input type="file" id="import" accept="application/json,.json" hidden></label>
@@ -712,7 +723,7 @@ window.JOURNAL_CLOUD = { url: "https://tbbvzidayjbcbqsxsvog.supabase.co", key: "
 <div class="scrim" id="scrim"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/journal.js?v=10"></script>
+<script src="assets/journal.js?v=11"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
 </html>
