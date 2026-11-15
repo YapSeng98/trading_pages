@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15 07:23 SGT",
+ "updated": "2026-11-15 13:06 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": false,
@@ -108,22 +108,22 @@
    "name": "周线",
    "trend": "向下",
    "since": "2026-06-28 08:00 SGT",
-   "rsi": 43.4,
-   "atr": 217.05,
-   "ema20": 4224.5,
-   "ema50": 4220.3,
-   "ema200": 3306.6,
+   "rsi": 38.3,
+   "atr": 222.7,
+   "ema20": 4192,
+   "ema50": 4207.1,
+   "ema200": 3312.4,
    "emaOrder": "交错",
    "range": {
     "top": 4696.6,
-    "bottom": 3869.1,
-    "positionPct": 24
+    "bottom": 3852.4,
+    "positionPct": 4
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3941.5,
-    "barsAgo": 1
+    "barsAgo": 2
    },
    "turnsUpAbove": 4696.6,
    "turnsDownBelow": null
@@ -259,13 +259,13 @@
  "support": [
   {
    "price": 3867.6,
-   "what": "昨日低点、日线前低、周线区间底、4小时熊旗关键位、1小时前低、1小时近期小低点",
-   "strength": 13
+   "what": "昨日低点、日线前低、4小时熊旗关键位、1小时前低、1小时近期小低点",
+   "strength": 10
   },
   {
    "price": 3852.4,
-   "what": "上周低点、日线区间底、4小时前低、4小时区间底、1小时区间底、4小时近期小低点",
-   "strength": 13
+   "what": "上周低点、周线区间底、日线区间底、4小时前低、4小时区间底、1小时区间底、4小时近期小低点",
+   "strength": 16
   },
   {
    "price": 3706.4,
