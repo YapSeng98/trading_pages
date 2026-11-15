@@ -19,7 +19,7 @@
     var items = (d && d.items) || []; if (!items.length) return;
     host.appendChild(el("div", "sec-eyebrow", tx("实时头条 · 自动更新 · Live Headlines", "Live headlines · updated automatically")));
     var box = el("div", "nlive"), hd = el("div", "hd");
-    hd.appendChild(el("span", null, tx("服务器每次取数时自动抓取（约 3–4 小时一次），英文原文，点开看全文", "Fetched by the server on each run (about every 3–4 hours), original language; tap to read in full")));
+    hd.appendChild(el("span", null, tx("数据任务每次运行都会重新抓取（上次时间在右边），英文原文，点开看全文", "Fetched again on every run of the data job (last time on the right); original language; tap to read in full")));
     hd.appendChild(el("span", null, tx("上次抓取 ", "Last fetched ") + String(d.updated || "").slice(5)));
     box.appendChild(hd);
     items.slice(0, 12).forEach(function (x) {
