@@ -2,9 +2,9 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1794732300000,
+ "lastChecked": 1794734100000,
  "a3": -1,
- "a5": -1,
+ "a5": 0,
  "open": 5,
  "nextId": 6,
  "signals": [
@@ -1014,6 +1014,17 @@
    "level": 64179.9,
    "a3": -1,
    "a5": -1
+  },
+  {
+   "ms": 1794734100000,
+   "time": "2026-11-15 17:15 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 65914.41,
+   "level": 65595.77,
+   "a3": -1,
+   "a5": 0
   }
  ],
  "trends": {
@@ -1021,7 +1032,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bearish"
+  "15M": "bullish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1029,10 +1040,10 @@
   "books": {
    "trail": {
     "name": "同一信号，跟踪止损出场",
-    "open": 1,
+    "open": null,
     "nextId": 2,
     "skipped": 4,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1047,16 +1058,21 @@
       "spread": 22.46,
       "best": 62028.46,
       "day": 20772,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-15 17:15 SGT",
+      "exitMs": 1794734100000,
+      "exitPrice": 65847.34,
+      "nights": 6,
+      "R": 7.04
      }
     ],
     "summary": {
      "taken": 1,
-     "closed": 0,
-     "wins": 0,
-     "totalR": 0,
-     "avgR": null,
-     "open": 1
+     "closed": 1,
+     "wins": 1,
+     "totalR": 7.04,
+     "avgR": 7.04,
+     "open": 0
     }
    },
    "noW": {
@@ -1064,7 +1080,7 @@
     "open": 4,
     "nextId": 5,
     "skipped": 2,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1153,10 +1169,10 @@
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 4,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1191,16 +1207,21 @@
       "spread": 22.3,
       "best": 62028.3,
       "day": 20772,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-15 17:15 SGT",
+      "exitMs": 1794734100000,
+      "exitPrice": 65971.26,
+      "nights": 5,
+      "R": 6.25
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 0.91,
-     "avgR": 0.91,
-     "open": 1
+     "closed": 2,
+     "wins": 2,
+     "totalR": 7.16,
+     "avgR": 3.58,
+     "open": 0
     }
    }
   }
