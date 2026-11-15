@@ -715,7 +715,12 @@
     if (!it) { S.patChart = S.patPlan = S.patP = null; box.appendChild(h("p", { class: "vp-none", text: tx("日线、4 小时、1 小时现在都没有清楚的形态。出现双顶、头肩、三角形、楔形、通道或旗形时，会画在这里。", "No clear pattern on the daily, 4-hour or 1-hour right now. When a double top or bottom, head and shoulders, triangle, wedge, channel or flag forms, it is drawn here.") })); return; }
     var p = it.p, pl = P.patternPlan(p, S.E.price), way = it.done;
     var rel = !way || !Rp.dir ? "" : way === Rp.dir ? tx("，和大方向一致", ", with the big trend") : tx("，和大方向相反", ", against the big trend");
-    box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : tx("（没有方向）", " (no direction)") }), " " + P.statusText(p.status) + rel]));
+    box.appendChild(h("p", { class: "vp-s" }, [h("b", { text: P.TF_ZH[it.tf] + " · " + P.patternText(p) }), h("span", { class: p.bias === "bullish" ? "up" : p.bias === "bearish" ? "dn" : "", text: p.bias === "bullish" ? tx("（偏多）", " (bullish)") : p.bias === "bearish" ? tx("（偏空）", " (bearish)") : tx("（没有方向）", " (no direction)") }), " " + P.statusText(p.status) + rel,
+      // 形态说明 (assets/pattern-guide.js): how to spot it, and its textbook entry, stop and target with these prices
+      window.PatGuide ? h("button", { type: "button", class: "vp-how", text: tx("ⓘ 怎么认 · 进场止损止盈", "ⓘ How to spot & trade it"), onclick: function (ev) {
+        PatGuide.open(p, { tf: it.tf, fmt: function (v) { return fmt(sh(v), 1); }, price: function () { return num(S.live); }, priceWord: marketOpen() ? tx("现价", "Price now") : tx("收盘价", "Last close"),
+          market: M.name, live: true, replay: "data/" + M.id + "-backtest.json", replayName: M.name, opener: ev.currentTarget });
+      } }) : null]));
     var rows = (S.feed.K[it.tf] || []).filter(function (k) { return k[6] < Date.now(); }), Lv = marketOpen() ? num(S.live) : null;
     var chart = PatChart.draw(rows, p, { fmt: function (v) { return fmt(sh(v), 1); }, plan: pl, tfLabel: P.TF_ZH[it.tf], title: EN ? P.TF_ZH[it.tf] + " " + P.patternText(p) + " chart" : P.TF_ZH[it.tf] + P.patternText(p) + "形态图", w: box.clientWidth - 28, live: Lv, bar: Lv !== null ? formingBar(it.tf) : null });
     S.patChart = chart || null; S.patPlan = pl || null; S.patTf = it.tf; S.patP = p;

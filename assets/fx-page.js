@@ -226,7 +226,12 @@
     var slots = [];
     list.forEach(function (q) {
       var rel = !q.dir ? "" : !dir ? "" : q.dir === dir ? tr(" · 和大方向一致", " · with the big trend") : tr(" · 和大方向相反", " · against the big trend"), p = r.p, k = q.plan;
-      var row = h("div", { class: "fx-pr" }, [h("div", { class: "fx-pr-n" }, [h("b", { text: P.TF_ZH[q.tf] + " " + q.name }), h("span", { text: q.status + rel })])]);
+      // 形态说明 (assets/pattern-guide.js): how to spot it, and its textbook entry, stop and target with these prices
+      var how = window.PatGuide && q.raw ? h("button", { type: "button", class: "vp-how", text: tr("ⓘ 怎么认 · 进场止损止盈", "ⓘ How to spot & trade it"), onclick: function (ev) {
+        PatGuide.open(q.raw, { tf: q.tf, fmt: function (v) { return px(p, v / r.k); }, price: function () { return typeof r.price === "number" ? r.price * r.k : null; }, priceWord: tr("最近 15 分钟收盘", "Last 15-minute close"),
+          market: p.i, replay: "data/xau-backtest.json", replayName: tr("黄金", "gold"), replayNote: tr("外汇没有单独回放形态，这里是黄金的数字：", "Patterns were not replayed on forex; these are gold's numbers:"), opener: ev.currentTarget });
+      } }) : null;
+      var row = h("div", { class: "fx-pr" }, [h("div", { class: "fx-pr-n" }, [h("b", { text: P.TF_ZH[q.tf] + " " + q.name }), h("span", { text: q.status + rel }), how])]);
       if (q.raw && q.raw.geo && window.PatChart) { var sl = h("div", { class: "fx-pc" }); row.appendChild(sl); slots.push({ el: sl, q: q }); }
       if (k) {
         var buy = k.dir > 0, weak = k.rr < 1;
