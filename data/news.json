@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 13:29 SGT",
+ "updated": "2026-11-16 13:42 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOU3B5Z2Q4R3I1RTdoY2xvX0s5S1d4VFVjLW1mOFRUZG5lS25IdWNqdWJoZ1JJR21Ca2lQYm1JT1dlZFNVMkdPdTc2UldvVkNIMUpCVHd2dU10c0s2OXNjbEY1a0RWTTM5YnZZSnlJTTBCc2UzZ3pxOUozNDRLWWxLUjYwMF9LUXBteDRhVmppNk10NTF3bHlVRmtwYldST1NUNTh0dXFsYlNNOGdzZGNoRWlzUTZWOEx4dnhrX2NvZF8?oc=5",
+   "ms": 1794806775000,
+   "time": "11/16 13:26"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD consolidates before the next leg down",
    "src": "FXStreet",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSUVwQV9lbWNEVnc1X0d5ZVZsbEdqdTN1SmVKQVBuVXp0dW9KNlZXaGZ1MmliUE4yVG5OZ3R5YkNhY24zR2drSjJoT0lucm93NTVtRHhhUHlEUVFLNkE0eUgzLTJXd2lFYU9sVU92Q21tS2Q4MVIwZVB5ZWg3REpody1OMnRNSGctZ1llOEdsWTNaZ1NfT3QxNnNjVFc0andWSWdWZEM5akhHM0FueU52MXcxZlpleU8tYmc2TE1GOHNrSGM?oc=5",
    "ms": 1794801855000,
    "time": "11/16 12:04"
+  },
+  {
+   "t": "Silver Price Forecast: XAG/USD hits yearly lows below $47.50 amid hawkish Fed sentiment",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOZk0zOGR2enVVZmd6MlZ5cHFDaTNpQVl1dWEwbGpXMTc1V2RXaXUxMm9QVTVYRmtBUlpFbFJHY1NpZjFVS3dIOWFOeTFzX0hLejE0WGpVRmNNOUJNeWJyQjgwbE1CYzRkR2l0MDlNVmlzeEl1VFJXYm5xS3E2Y0tjUDdURFg0eXd4enlBYUI0VjFXWHFxZ3U3d1U3SC1WXy1sRGhIOXBTMUhNTTVmMEpHZlpRNndLR1VCM2EycXJlMVFMUUZ1VGc?oc=5",
+   "ms": 1794798670000,
+   "time": "11/16 11:11"
   },
   {
    "t": "United States Dollar Index holds gains above 103.50 on hawkish Fed comments",
@@ -70,6 +84,13 @@
    "time": "11/16 06:29"
   },
   {
+   "t": "Freeman Gold Corp (FMANF.PK) | Stock Price & Latest News",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE01eTJrbEh2T3RYQjdHc0I5TzV2anVuakdXajhCSF9LdkJQUHFva0JQZVhTd29ldV9BQUd4bEk0N3o2djdJVDZVNDJCcE53RUVaLVJ0WTBCTTJyZERGQlJoQQ?oc=5",
+   "ms": 1794770208000,
+   "time": "11/16 03:16"
+  },
+  {
    "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5",
@@ -82,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSWFYVlBzemdQeHFIRFlFWUQ3ZEYwY2F5VDFELWxqVzUtalUtamVfUHNVSS1kNTJ5QXR4LUlKR2VZMHJkb1FYSlMwRGUyOVNLZW9WblByODVxeFZadFdaMWFId0hEX01CS3pPdlhWemZfd2pyaUtBLUVEbGRPdHp1RFZreGFybGFWdkNhNE9IQ2FSOFU2OWROb1hMeVVKUFFJVWxvOXlvWnVWeFdPLTV2ZlJHTmFvWDI1SnkwVi1zNURWaUo5WmJLSGdCX1dXYzUxbVRpSmVuaw?oc=5",
    "ms": 1794745800000,
    "time": "11/15 20:30"
+  },
+  {
+   "t": "Iran's navy says three tankers on fire after hitting mines in Hormuz",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZWt1cHFualJEVktnTTVvd21uVnljc0FqR2dRaWpaRnYwZ3luZ2t1dUlJNVUtLTVlWHJFOS1ocDBlaVZsTFNZdjRMeldFVFE1Q0Jqem9FbU9fMmp1YTBUTUhqTmYzR3FJN1Z1Y1dHY2d0Yjlzb2lBR0JvNllyT3pScjI2SEpkbkhiYzZSWW9Tb3dwemdWaVVmMjBPbXZqd0hOZzdpRDVSZlVlbzBnV1BjMQ?oc=5",
+   "ms": 1794696859000,
+   "time": "11/15 06:54"
   }
  ]
 }
