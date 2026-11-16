@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 02:00 SGT",
+ "updated": "2026-11-17 02:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Silver leads Gold to new 2026 lows: What the ratio says",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSXcxclFZcUJFQ1prTDR3d19ZYWhsTGpGVWtWYS1hYTIxQjJNZXhwbjU2S3FnWjBTRmFvTHlmdnZZakZFREpUSnVGMDdKcXZxUWxlSmZKem5CYnk4cE9XZVF1WFZ3eVZwT1AxVTJVdTkzVzYyTGZEY25lLUlLQ0FvbjVrbnlndms0UzI0STRFalpBeVUyUDRsd1RPQnFjRWQtN0FB?oc=5",
-   "ms": 1794849900000,
-   "time": "11/17 01:25"
+   "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
+   "ms": 1794851640000,
+   "time": "11/17 01:54"
+  },
+  {
+   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
+   "ms": 1794851268000,
+   "time": "11/17 01:47"
   },
   {
    "t": "Gold isn't being sold for thew reason most people think",
@@ -91,25 +98,18 @@
    "time": "11/16 21:24"
   },
   {
+   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
+   "ms": 1794834960000,
+   "time": "11/16 21:16"
+  },
+  {
    "t": "Gold Extends Drop but Seasonality Hopes Keeps Bullish Case Alive",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-extends-drop-but-seasonality-hopes-keeps-bullish-case-alive-200691659",
    "ms": 1794834240000,
    "time": "11/16 21:04"
-  },
-  {
-   "t": "Gold prices today, Monday, November 16, 2026: Gold prices hit lowest levels in over a year. Here's why.",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPT3hOZU5BcnBOZlhpenpQMllzc0xzTWRyWFIzXzEtLVVlX0dIMmxTWVJ0NVp5MWN4bWctUGJ0VUxSVFpJZkdfY2pfR1FGRjhiY0dPTjJaLXM0S2xhU0l1MUVKYkRXcHB3VDVlMXFQbzcwc3hyUV9IZkdNcWFqRl9Vby15OHM2emJDM2JSWWRkd2NTUlFZbmlWNWdZc0MydDdVbDBBNEF5NVM1MlJSTW90VURuZEVQZDV4RVZRSDVyT3hiSUtvOEVjcWhfeHRTWC1aZVoySWdKQ0VpUVhWcFBwNlNSWTl3RWtfUG1vNHhLTTJGTnFqanh0MVdHYkxEQzR3ZFE?oc=5",
-   "ms": 1794832541000,
-   "time": "11/16 20:35"
-  },
-  {
-   "t": "Gold today: 2 analysts see more losses as $3,800 comes into focus",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTmZNLTV6TXRaaHp1dUFMUF9iSGRzendjRk1RaFNPRDVPRzF0QzBnYlI3NzA3dGJMMmppNWV2cEU4Q1R0b3hZS3hUODlPQndoWjdXS2FJUFlKWWZJM2xCSTZCNFdUM0hHVjAzN1RiaTFsdTc4UEdDZlRuTUdfTlJvZkItSWZMMDNXaEJYc3ZISHI3OXktRW8zaUhCNUFfRFNoS0RieWhUaGpWNzEwV0FR?oc=5",
-   "ms": 1794832272000,
-   "time": "11/16 20:31"
   }
  ]
 }
