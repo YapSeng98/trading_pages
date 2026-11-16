@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-16 21:56 SGT",
+ "updated": "2026-11-16 22:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Current price of gold as of November 16, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBSLUtnUnBuT2NhTmpObFlyd09EMk1LNjBhOXRPYkp2dVdhY1hfQ3ZfNTJkd1lWMzJjQ2R0bG5KUkljWW5rZmxKWFJKcEtHN3ZraWZUMkR5VHVrVzhKWjVueHZkWTVHNUh3MncyTlJn?oc=5",
+   "ms": 1794837900000,
+   "time": "11/16 22:05"
+  },
+  {
+   "t": "Gold, silver extend losses as Fed hike bets rise, dollar remains firm - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQVGVSSlFXaDhDTy1CTnJudmRsTU5HMVFLNWF1WDlaeTlHR0hya1Z2ZHYyNmx1aWZkN1NMc0dha3NoZ0VyY0UxQTNFcDB3NGI4aC1PRkZhQXNLVDNsQW9URmY3TkZTMmJsN05icFB5RFp3V3prY0VRVjFsVUhOYXZOaV9VVFhab1FIb1pYT3pOZ2tMeW9lckZqVWs3bEJWWjlKMXJSSW1DaThCdTlaLUZBOGMxWFFxaklEUVhn?oc=5",
+   "ms": 1794837570000,
+   "time": "11/16 21:59"
+  },
   {
    "t": "gold price struggles even as New York Fed's Empire State survey weakens",
    "src": "Kitco",
@@ -26,13 +40,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
    "ms": 1794835440000,
    "time": "11/16 21:24"
-  },
-  {
-   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
-   "ms": 1794834960000,
-   "time": "11/16 21:16"
   },
   {
    "t": "Gold Extends Drop but Seasonality Hopes Keeps Bullish Case Alive",
@@ -70,6 +77,13 @@
    "time": "11/16 19:12"
   },
   {
+   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUHVxWl9hRWVsanhEbEhURDdvZHAwRG1NNmtQSFN3dlZIMDYxLUtWeVo0YVYtWjRETkJkdTdaU3JGZXNULUNTQnc1VTg5MGFudmpIWUdfdzNvQVFMU3J3R21DRnh4UjRyZHFzR1c1ZUtJMXZFMXE5Z1lialdKR3NEdUR4ak9zUjBwcVZXaFF0YUc0eHlwSEpHNXFETkt6RlY0Q01KbzFn?oc=5",
+   "ms": 1794826784000,
+   "time": "11/16 18:59"
+  },
+  {
    "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTFBIdFU4VFpER2NCbk9CczVZNXM0eGNZMElweDhvaFNseDFPNHp4NHE3bjhGZ09td1BmYUxnay1jSnRoRW50WlZQYUVldEZSLU1BWHFuaTVOOXZWVERSOHI5QmRwSUVpSEJiX2t5bXNxUXdGUjV6TDVncEZVcFB3dVRFMXEtWVR4MUpTeC1ueVRpODlxdTN4OVkwbjFkNi1MdmtMYUpSX3YtMy1IZFVVR1p5UUp5U1R5TTFCcQ?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPU0tHeFloYnVYcTM0SV9GWFRrWGdLNjROMWNWLXQ3MnNhV3ZiRkJXTGtPRkRJcmM0V2xzLWt0RjlVV2tVNGY2cF84Y29kaDZKcURfSFBNaEhCcHc1bWdxaTM2SGd6RzBvUlV1bTBjRnhlTjFVdmtLVjdCTWJqZWo3Z0p2WDVRSVRteWppMjNQQ2Z0X05GeGpsZjI2bWJxd05oSlhUcVNMNHNqZw?oc=5",
    "ms": 1794817046000,
    "time": "11/16 16:17"
-  },
-  {
-   "t": "Gold bounces off YTD low; not out of the woods as Fed hike bets and Iran risks support USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSUVwQV9lbWNEVnc1X0d5ZVZsbEdqdTN1SmVKQVBuVXp0dW9KNlZXaGZ1MmliUE4yVG5OZ3R5YkNhY24zR2drSjJoT0lucm93NTVtRHhhUHlEUVFLNkE0eUgzLTJXd2lFYU9sVU92Q21tS2Q4MVIwZVB5ZWg3REpody1OMnRNSGctZ1llOEdsWTNaZ1NfT3QxNnNjVFc0andWSWdWZEM5akhHM0FueU52MXcxZlpleU8tYmc2TE1GOHNrSGM?oc=5",
-   "ms": 1794816997000,
-   "time": "11/16 16:16"
-  },
-  {
-   "t": "Gold Expected to Respond to Weekend Events: May Indicate Next Directional Moves",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
-   "ms": 1794815160000,
-   "time": "11/16 15:46"
   }
  ]
 }
