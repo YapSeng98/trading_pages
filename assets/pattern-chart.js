@@ -141,7 +141,7 @@
     var closeLab = labs.filter(function (l) { return l.close; })[0], fixed = labs.filter(function (l) { return !l.close; }), hollow = null;
     var free = function (c) { return c >= T && c <= H - 6 && fixed.every(function (l) { return Math.abs(l.y - c) >= 22; }); };
     var wrap = document.createElement("div"); wrap.className = "pc";
-    wrap.setLive = function (v, bar) {
+    wrap.setLive = function (v, bar, label) {        // label: the price's name in the margin (default 现价 / now)
       v = num(v); var b = v !== null && bar && num(bar[1]) !== null ? bar : null, on = v !== null;
       liveG.setAttribute("visibility", on ? "visible" : "hidden");
       if (closeLab) { closeLab.a.setAttribute("visibility", on ? "hidden" : "visible"); closeLab.b.setAttribute("visibility", on ? "hidden" : "visible"); }
@@ -160,7 +160,7 @@
       [liveRing, liveDot].forEach(function (k) { k.setAttribute("cx", x.toFixed(1)); k.setAttribute("cy", y.toFixed(1)); });
       var want = Math.max(T, Math.min(H - 6, y)), ly = want;
       for (var k = 0; k <= 90; k++) { if (free(want - 2 * k)) { ly = want - 2 * k; break; } if (free(want + 2 * k)) { ly = want + 2 * k; break; } }
-      liveA.setAttribute("y", (ly - 2).toFixed(1)); liveB.setAttribute("y", (ly + 9).toFixed(1));
+      liveA.textContent = label || tr("现价", "now"); liveA.setAttribute("y", (ly - 2).toFixed(1)); liveB.setAttribute("y", (ly + 9).toFixed(1));
       liveB.textContent = (o.fmt ? o.fmt(v) : String(v)) + (y !== y0 ? (v > hi ? " ↑" : " ↓") : "");
       return y === y0;
     };

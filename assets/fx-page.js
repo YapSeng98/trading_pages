@@ -107,7 +107,7 @@
       ((E.tfs[tf] || {}).patterns || []).forEach(function (q) {
         var pl = P.patternPlan(q, E.price), done = P.patternWay(q);
         out.plans.push({ tf: tf, name: P.patternText(q), done: !!done, dir: pl ? pl.dir : done, bias: q.bias, status: P.statusText(q.status),
-          plan: pl ? { entry: un(pl.entry), stop: un(pl.stop), target: un(pl.target), rr: pl.rr } : null, raw: q, rawPlan: pl });
+          plan: pl ? { dir: pl.dir, entry: un(pl.entry), stop: un(pl.stop), target: un(pl.target), rr: pl.rr } : null, raw: q, rawPlan: pl });
       });
     });
     return out;
@@ -250,8 +250,9 @@
       if (drawn || !box.open) return; drawn = true;
       slots.forEach(function (sl) {
         var q = sl.q, rows = (r.K[q.tf] || []).filter(function (k) { return k[6] < Date.now(); });
-        var c = PatChart.draw(rows, q.raw, { fmt: function (v) { return px(r.p, v / r.k); }, plan: q.rawPlan, tfLabel: P.TF_ZH[q.tf], title: r.p.i + " " + P.TF_ZH[q.tf] + q.name, w: sl.el.clientWidth || 320 });
-        if (c) sl.el.appendChild(c);
+        var Lv = !F.closed(Date.now() / 1000) && typeof r.price === "number" ? r.price * r.k : null, bar = Lv !== null ? forming(r, q.tf) : null;
+        var c = PatChart.draw(rows, q.raw, { fmt: function (v) { return px(r.p, v / r.k); }, plan: q.rawPlan, tfLabel: P.TF_ZH[q.tf], title: r.p.i + " " + P.TF_ZH[q.tf] + q.name, w: sl.el.clientWidth || 320, live: Lv, bar: bar });
+        if (c) { sl.el.appendChild(c); if (Lv !== null && c.setLive) c.setLive(Lv, bar, tr("最新", "latest")); }
       });
     };
     box.addEventListener("toggle", drawCharts); if (box.open) setTimeout(drawCharts, 0);
@@ -259,6 +260,13 @@
   }
   function warnOf(r) { var dir = r.dir || 0, ag = (r.pats || []).filter(function (q) { return dir && q.dir === dir; }), op = (r.pats || []).filter(function (q) { return dir && q.dir === -dir; }); return (r.state === "buy" || r.state === "sell") && op.length && !ag.length; }
   function way(d) { return d > 0 ? tr("向上", "up") : d < 0 ? tr("向下", "down") : tr("不明", "unclear"); }
+  // the candle still forming on a timeframe, from the 15-minute candles inside it (this page has no live price: the
+  // latest is the last 15-minute close), in the engine's units like r.K
+  function forming(r, tf) {
+    var K15 = (r.K && r.K["15M"]) || [], start = F.bucket(Date.now() / 1000, tf) * 1000, o = null, hi = -Infinity, lo = Infinity, c = null;
+    K15.forEach(function (k) { if (k[0] >= start) { if (o === null) o = k[1]; if (k[2] > hi) hi = k[2]; if (k[3] < lo) lo = k[3]; c = k[4]; } });
+    return o === null ? null : [start, o, hi, lo, c];
+  }
   // a price from a 15-minute close more than 45 minutes old while the market is open
   function late(ms) { return Date.now() - ms > 45 * 60000 && !F.closed(Date.now() / 1000); }
 
