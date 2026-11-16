@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 01:06 SGT",
+ "updated": "2026-11-17 01:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -14,6 +14,13 @@
    "time": "11/17 00:56"
   },
   {
+   "t": "Gold holds near 13-month low as hawkish Fed outlook caps upside",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
+   "ms": 1794842800000,
+   "time": "11/16 23:26"
+  },
+  {
    "t": "The price of gold today, Nov. 16, 2026 — and the best places to buy",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51RXJFR0hvanlBak5MOWdLM2x6eExDOVdybUM1QWM3V3pabV9KZUZKQmk1STU1a29wd1FBLURtTFRXRGs5WjN2d19EWFo5dzl3UmMyN2hsN1A0S3VQd3Q1NFgxWExKaFJ1eEpqTEJjeDM2d9IBd0FVX3lxTE9lZmxTVTA4VVpjREwxX3VGdG1WdmQwakxoLVk3M0VsdFE5Ym5XcER2cXZLSllBWEVUVWJmQ1U5RTczLUNHeFVINWpBUFVaa2c2NEQ1dU5uWjVRb3BkTVBGYlY3RUlKTGMzMHd5bjlSYThmZTRYMTRr?oc=5",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTnBWa0U3NmtKWVR6X1FDSjNiOUFHcHlIR0Q1Q2xIdWJwU253aFQ0ZzRBMjN4LTZkVlNhTDg2SDVjTWV5VXpFNzBDMXRUWjhvS3JqZXE1LUk2RmV0a0RXdnpMSVZ0cXF5emJXTXV1bE5VclR3cTZxeFRDb1c2WkJTd2xONEN4alVjS05DVllHMG1LRU13LW9nWGtMQXF0eFl0WE9YRXBESnN0MjYydVpkd2xoMlRUWWZLWFBmUk5R?oc=5",
    "ms": 1794841293000,
    "time": "11/16 23:01"
-  },
-  {
-   "t": "Gold holds near 13-month low as hawkish Fed outlook caps upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
-   "ms": 1794838809000,
-   "time": "11/16 22:20"
   },
   {
    "t": "Current price of gold as of November 16, 2026",
@@ -56,7 +56,7 @@
    "time": "11/16 21:48"
   },
   {
-   "t": "gold price struggles even as New York Fed's Empire State survey weakens",
+   "t": "Gold price struggles even as New York Fed's Empire State survey weakens",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
    "ms": 1794835946000,
@@ -75,13 +75,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
    "ms": 1794835440000,
    "time": "11/16 21:24"
-  },
-  {
-   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
-   "ms": 1794834960000,
-   "time": "11/16 21:16"
   },
   {
    "t": "Gold Extends Drop but Seasonality Hopes Keeps Bullish Case Alive",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVmx1Nk5KUjhqaTk3aDdkRmQ1M0l0eE10QWxzTFBGeTEydEstUmt5OThlNjZKYlN2Tm1MN21td0lzWHF0bDk2RHR0aE9YaERqRzR2YXp3cXNjMjViRFhLd1UwbDVJMUU1MlJ3SjhUQmxNWHdkblVYRVBoUENrR0xHM0lULU4?oc=5",
    "ms": 1794829995000,
    "time": "11/16 19:53"
+  },
+  {
+   "t": "US Dollar: Upward momentum extends on Fed repricing – MUFG",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQYjdBY0dnZ2Jib09WQ2lhZkhIX1lKOFVOODZHUlJHZXJXR1lKVU9NU283bjRSNnFWNFg2bXFKYl9HVk5Wem1nNndjWU5mTy1EeU9jY1UxSm9YWWRpSXg3QVJZbDJXX2ZmVHpscUFOVkhOc3pDTzZ1VFByWjVUM3ZvU3FjaGI5dFhSTm5Fc3F3RThUNmw0NUFEZHFyYWMxWHc?oc=5",
+   "ms": 1794829276000,
+   "time": "11/16 19:41"
   }
  ]
 }
