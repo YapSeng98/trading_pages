@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16 07:52 SGT",
+ "updated": "2026-11-16 09:13 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -28,6 +28,13 @@
    "time": "11/15 20:30"
   },
   {
+   "t": "Goldman Sachs just slashed its 2027 gold forecast. Here are the new numbers",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQRzYyRU50SDUzOW15clJVVGhYWFZ5WDdSRWpMSnJBTUMzZDZ5VU16QUM3V3RSVE05Mjg2aFg2eFRQTkVkcWo3US0wU3hGWFFzWUVfYjdTLXNZNG5FelVydFhKVmx0SDR3S1l4VVVicmU5WlBLeUhxM051VXQwLVhjQk5ITjBBOGN1OUVjS1lUb2t5VGh6QmtSVmhyRVNYUG5hODJhNlFmcjB2NXFuMF9BTVBsclRJaTFEbmJjaURTWDRLZ2xNZnNwMy1B?oc=5",
+   "ms": 1794681168000,
+   "time": "11/15 02:32"
+  },
+  {
    "t": "Spot gold posts worst week since March amid jump in Fed rate hike expectations By Investing.com",
    "src": "Investing.com India",
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOS0lpdDNCT2s1bWs1R0RmNlRWaVd4Rm5mczdYTW1WRTFwcHdWQzBwblZ0M2h3ZnJZeVB4MncweGFTeGVTTlBJTmNCRkg4dzFQU3dUdEdZRHdTb1VxN1JYenprbnlPSGJlc2tkSWM2ckIyS29vVmNEX0JHWV9VTndIcTlmY3JGYll3QW9KMDZSRGVHSE8yVl9pWldnaEFyODBCTGFyMHVnQWlIQmlDQjdGdGpOSFI3LVJONTB2TDQ4X1U?oc=5",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPR2x3VTlCVUhXVnRSMWJCNDlIcFNWeWx6WVU4UmdNX0o1TDl2R3dYOEl1Q3hQYWJTZXdJaHhIb0NWQWt3MllmM3I5THBYd2xBc2hnNmdOanNwdThuRk11aVdqNUJHSUdFQVhSTXFFRXQ3cTVDUnpySzZZTzFYY3BlZ050aw?oc=5",
    "ms": 1794616878000,
    "time": "11/14 08:41"
+  },
+  {
+   "t": "Fed's Jefferson says he is taking his policy cues from inflation",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZW1TY0lTUklmN2JmVC0zMm5qMUdfOUFjWk43S1NTS1RpcGx1Ni0tWkJCX1NXWDg1cHdzazZsQUZlREpWRkl2UER3S2t0TjFON1lXeTNNLXA4SXZYYjFjbXh0SnJzcXFGV2FPZkhoc1dNc1ZhUXNTRjdmX3R2SUR0ZlZwcHlnT2F2ZzdLdnNkQ1I5Sy1tRmVGTS1GTEpUTmRTWVlkYXRR?oc=5",
+   "ms": 1794614580000,
+   "time": "11/14 08:03"
   },
   {
    "t": "Wall Street bears abound after inflation sours Fed outlook, Main Street abandons bullish bias as gold drops below $3,900/oz",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVkZkMHgwOHYxaW1lNy00SV94aTBhLXZXaEp1YXgwXzNVVWJQRXB4TVVVZEQzRm9QUGRoVVhEWmpOQzM5UEpvbENRVUpvOEFkUzZhNzZWY0hseTk2UTA4NDZYOUY2aUFHLWlYeXdoRUhIajdxM1hPcDVIZVZGeEx4LXJmN1JzMGE2SHd5LV9DaU05UFY1RUxra21LOFc1WFJGVWpvQmIyTlVuU3M?oc=5",
    "ms": 1794601433000,
    "time": "11/14 04:23"
-  },
-  {
-   "t": "Gold’s Break Below October Low Draws Parallels With the Historic 2013 Sell-Off",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-break-below-october-low-draws-parallels-with-the-historic-2013-selloff-200691553",
-   "ms": 1794594060000,
-   "time": "11/14 02:21"
-  },
-  {
-   "t": "Gold Miners Face a Profit Squeeze as Production Falls and Costs Hit Records",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-miners-face-a-profit-squeeze-as-production-falls-and-costs-hit-records-200691551",
-   "ms": 1794592680000,
-   "time": "11/14 01:58"
   }
  ]
 }
