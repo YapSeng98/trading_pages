@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16 19:29 SGT",
+ "updated": "2026-11-16 19:43 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -33,6 +33,13 @@
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTl94eUh5TmgtelpOeG4zVkZleHVRU2lHREJZS2xGQXpkTXphYkd4RzR6RGZVdTI2ZDZBZUktM0RHdXY4akFSNWljYXdaMjZab0FBNi1XVWYtS3lETEFnUnl3SzgzcFRyNzZQTXQ0TkZ1WnNxb1puRmw3c3ZzYkxLZ2tMRW5Tc2xTaFRwbDE1QngxeDd0cG5kcmFOeDBPSUdSODFwbmtXR0wzLWZL?oc=5",
    "ms": 1794823764000,
    "time": "11/16 18:09"
+  },
+  {
+   "t": "Fed's Barr warns on AI risks to financial system",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
+   "ms": 1794823591000,
+   "time": "11/16 18:06"
   },
   {
    "t": "Euro approaches 1.1000 area as Fed's hawkishness boosts US Dollar",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/golds-november-correction-is-a-major-cycle-low-developing-200691609",
    "ms": 1794806280000,
    "time": "11/16 13:18"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD consolidates before the next leg down",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcGNoQ2VlUkl6MW84RkNQRjJtWU9uN0c2cnBsMHFybTJHLTZHejNRYVNHbXE5NlI4UnVHZVBPZEt0eUpXcXRSWVBZdmhERVhCSmlHbnd3ZG96VXdpVHlJeVhJNHAxeVlIM0JzWjBhVHNvNUF0VlhkSjZ4QUlkeUZ5YlNsM3J0S3pmS3J4RVBUeEZvVi1SUlZ3UThwbkRBQlJIdmR2c0xWY1lRcjNKSHVCT3h3?oc=5",
-   "ms": 1794804781000,
-   "time": "11/16 12:53"
   }
  ]
 }
