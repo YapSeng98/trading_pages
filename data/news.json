@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 07:39 SGT",
+ "updated": "2026-11-17 07:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,20 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUHpVZUx2OEFZd3dWdy1WZDNVVWY3dGNveEs3eHVtOHRVX2Y0NjhVZ3Y3UjdDNmlmdTl2LVdiaURMa1U2UzAxdGpUVG9PU09OT2VXQVZWc3VlcXFldnpXWWZaLVBMV1pXcW5HdjVMTlFzQkVpOV9qdFMyYWkzbExKTmZJRUM3OEVrWUMydE41ODNvRTNaTW5mNmhtUWVVTXRsWExTaVFURzJ5ZDJwcGlNZGExS0FNaDFFVkgyUUp3?oc=5",
    "ms": 1794871675000,
    "time": "11/17 07:27"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
+   "ms": 1794871608000,
+   "time": "11/17 07:26"
+  },
+  {
+   "t": "Gold, silver extend losses as tech selloff, dollar pressure metals- Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWUpDRWNWQmNETVJrQXMxTlE5YWtIN1BsM01mQXcwRmdaMFBLckxRblViNHJHeEVtVkcxU0JuU1k0TEg0dTV5X25fbXBGZ2ptcXJsVEJFN2ZSbHIwVnh5ZG1zZXFhWnp0RHZZa29majhzYzc1ZzhaVmVueGJhTnFiSDA5Q3pPUHdGcFVTcmpfUDEzYzRRaW5DUG9oUWRQVjdGMEtMVnFkejYtVjdHODRxTm8zUExBUFk?oc=5",
+   "ms": 1794868785000,
+   "time": "11/17 06:39"
   },
   {
    "t": "Goldman forecasts gold price to take two years to recapture all-time highs",
@@ -28,6 +42,13 @@
    "time": "11/17 05:34"
   },
   {
+   "t": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
+   "ms": 1794862663000,
+   "time": "11/17 04:57"
+  },
+  {
    "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-breaks-longterm-support-as-platinum-approaches-another-bearish-target-200691688",
@@ -40,6 +61,20 @@
    "url": "https://www.mining.com/web/gold-drops-to-more-than-one-year-low-as-us-dollar-marches-higher/",
    "ms": 1794861986000,
    "time": "11/17 04:46"
+  },
+  {
+   "t": "Fed's Hammack reiterates case for slow, steady rate hikes -Bloomberg TV",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYk9kal9uc0hmSGMySFhuVE1BbTd3dkV1SkdjbEx3U2NuZFdoMFI1TThKSHVnLUNGTVNOOVpRM3VVUnBZdkxISEhKdVloQzBxUGlEcm15ZkQyUGZjWW5IbVhhZVNKWnBleE1PZzAyNUtmQUVrWHZ1R2YwU1FSZWVjczdVWXcwX3Z4VWhsVXZwUE1EaWMtZ3I0d1I2WlVOdm5rdGdZMFl4VVJENHRaSUE?oc=5",
+   "ms": 1794860200000,
+   "time": "11/17 04:16"
+  },
+  {
+   "t": "Goldman Forecasts Gold to Take Two Years to Recapture All-Time Highs",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNczF1RXhsRmNwczFILVk5SGZNMVhVeERCSHJkOS1OdDFNcndMcHk0ZTUxVVc0QXNUd0lCZEVqYmxfOGV5eGpsMEhnMGpRWUhLVEJqdWQ1MExqZUxMcjQ1S1h1LWx5QzBDVzkyY3BYQVk1Y2VkSnIyOWxMOV9tcTdYOU1lSUxCMHVfNFJkTm5vbDFpLUItZnFWMlhfamdvdHZoak9RRG9Xakl6RFBIb29JSkRWRENVM1dlWU1v?oc=5",
+   "ms": 1794860145000,
+   "time": "11/17 04:15"
   },
   {
    "t": "Gold price dip presents an opportunity for long-term investors",
@@ -75,41 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
    "ms": 1794853260000,
    "time": "11/17 02:21"
-  },
-  {
-   "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
-   "ms": 1794851640000,
-   "time": "11/17 01:54"
-  },
-  {
-   "t": "Gold isn't being sold for thew reason most people think",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
-   "ms": 1794849778000,
-   "time": "11/17 01:22"
-  },
-  {
-   "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-tests-key-support-as-bearish-candlestick-pattern-raises-fresh-concerns-200691672",
-   "ms": 1794848160000,
-   "time": "11/17 00:56"
-  },
-  {
-   "t": "Gold could see sharp year-end rally as energy pressures ease, long-term bull market remains intact – Schroders",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNN2Qwbk93YnpEY1RvUDdjMWs2cjVMNllNdWxQY21wTEd5aXkwam1jTExId3Aycmh5eURxSElxVTdhQXNpaGpqM19ia2V4UjVudEhPTFVrcDN5RTQxU2MzZmN6Z0tNS0tsdWdhbTdhU0JUREZ4SHlTY1ZCaUxRNmdjdUpGbVRWZzF5WmlFN2JoUUxOOTRaeHlRbzZqUDdZMFRCR0pVNmt6RWdIaEVCQmU2SjN0VTVRNHVoRHc?oc=5",
-   "ms": 1794845228000,
-   "time": "11/17 00:07"
-  },
-  {
-   "t": "Gold holds near 13-month low as hawkish Fed outlook caps upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
-   "ms": 1794842800000,
-   "time": "11/16 23:26"
   }
  ]
 }
