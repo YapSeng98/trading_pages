@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 22:37 SGT",
+ "updated": "2026-11-16 22:50 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold holds near 13-month low as hawkish Fed outlook caps upside",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
+   "ms": 1794838809000,
+   "time": "11/16 22:20"
+  },
   {
    "t": "Current price of gold as of November 16, 2026",
    "src": "Fortune",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQVGVSSlFXaDhDTy1CTnJudmRsTU5HMVFLNWF1WDlaeTlHR0hya1Z2ZHYyNmx1aWZkN1NMc0dha3NoZ0VyY0UxQTNFcDB3NGI4aC1PRkZhQXNLVDNsQW9URmY3TkZTMmJsN05icFB5RFp3V3prY0VRVjFsVUhOYXZOaV9VVFhab1FIb1pYT3pOZ2tMeW9lckZqVWs3bEJWWjlKMXJSSW1DaThCdTlaLUZBOGMxWFFxaklEUVhn?oc=5",
    "ms": 1794837570000,
    "time": "11/16 21:59"
+  },
+  {
+   "t": "Gold Options Map: December Max Pain at 4,190 Sits 7.8% Above a 3,886 Settle",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-options-map-december-max-pain-at-4190-sits-78-above-a-3886-settle-200691666",
+   "ms": 1794836880000,
+   "time": "11/16 21:48"
   },
   {
    "t": "gold price struggles even as New York Fed's Empire State survey weakens",
@@ -77,13 +91,6 @@
    "time": "11/16 19:41"
   },
   {
-   "t": "Gold steadies after hitting lowest since October 2025, hawkish Fed caps gains",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
-   "ms": 1794827530000,
-   "time": "11/16 19:12"
-  },
-  {
    "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTFBIdFU4VFpER2NCbk9CczVZNXM0eGNZMElweDhvaFNseDFPNHp4NHE3bjhGZ09td1BmYUxnay1jSnRoRW50WlZQYUVldEZSLU1BWHFuaTVOOXZWVERSOHI5QmRwSUVpSEJiX2t5bXNxUXdGUjV6TDVncEZVcFB3dVRFMXEtWVR4MUpTeC1ueVRpODlxdTN4OVkwbjFkNi1MdmtMYUpSX3YtMy1IZFVVR1p5UUp5U1R5TTFCcQ?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaHdFUk5BQnd0bW5UZjR1UnBBNFltdmh5NC1vWm1INUpRcl9qZGtnOVVVU1JFUVRiWmdQaFdBR2kwVUk5eUtmSFVnY04wdWUySTBhWmFmR1cyUUp4N0dQYmNHd3Q4YVF1WlhHX2lPNjg1c3JkZ2plZEhjZVRzZ3pyLWpR?oc=5",
    "ms": 1794823448000,
    "time": "11/16 18:04"
-  },
-  {
-   "t": "Euro approaches 1.1000 area as Fed's hawkishness boosts US Dollar",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPU0tHeFloYnVYcTM0SV9GWFRrWGdLNjROMWNWLXQ3MnNhV3ZiRkJXTGtPRkRJcmM0V2xzLWt0RjlVV2tVNGY2cF84Y29kaDZKcURfSFBNaEhCcHc1bWdxaTM2SGd6RzBvUlV1bTBjRnhlTjFVdmtLVjdCTWJqZWo3Z0p2WDVRSVRteWppMjNQQ2Z0X05GeGpsZjI2bWJxd05oSlhUcVNMNHNqZw?oc=5",
-   "ms": 1794817046000,
-   "time": "11/16 16:17"
   }
  ]
 }
