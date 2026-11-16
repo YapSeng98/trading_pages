@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 04:43 SGT",
+ "updated": "2026-11-17 04:56 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,46 @@
  ],
  "items": [
   {
-   "t": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
-   "ms": 1794858067000,
-   "time": "11/17 03:41"
+   "t": "Gold drops to more than one-year low as US dollar marches higher",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-drops-to-more-than-one-year-low-as-us-dollar-marches-higher/",
+   "ms": 1794861986000,
+   "time": "11/17 04:46"
+  },
+  {
+   "t": "Gold Use in Tech and Industry Increased Modestly in Q3",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQalVtanBZQXdITFlZZU5WeHB3SzhZWHFNZEdubXMxd1VsX2dsVmVmU0lLRXJtekh6cGZXMHpOWFk1XzZfSHFnOUdLSGM2b1ZtbzFhNE5OWkpTREV4cmd1QUMzbVZvbld4Q1hZSEZLc2J2MDFOcmRMejlNcFJLcWpGZUZyX1o3ZEZLQXhOaTlVb1JsUmp2TGM2OExVSy1qeFRkUHln?oc=5",
+   "ms": 1794857551000,
+   "time": "11/17 03:32"
+  },
+  {
+   "t": "Gold price dip presents an opportunity for long-term investors",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOeUlZNFRxOWVYUHAtc0ozNGlYT1lWM3Zfb2wzWG9PdTVIZExkUTBVV0dWaGFpMTFRYXdLNktWTVBNN255LWZReEduV1h5c0FBR2hxa3dBRTUwdHVibWUyV1hGcHZ1dkRWOXdQMUFZWEpJY1JYeEpLWnJ6bV9JZ3RNTF9JckV5N0JJWEwtZWRiSldNSWRXUzFZNjItSjBUVF84VGZxem1rVjVMUjhFSFE?oc=5",
+   "ms": 1794857493000,
+   "time": "11/17 03:31"
+  },
+  {
+   "t": "Inflation is back - so why is gold falling?",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZ01FckYwQ21PN282MW10eWlUV1Q4aUlPekdkbVRmMHVVSmNKNGx6NDhhMXp5MmRzbEF0WmRQY3BlMzJwbmdST0VXdWN6am1kbUJuaUNtenJvUHBpXzJrX2pFSmsxdVJIZWFtb2Z6M2t1VzVLQjFxdlVrcEhyOGZ2OQ?oc=5",
+   "ms": 1794857234000,
+   "time": "11/17 03:27"
+  },
+  {
+   "t": "Gold’s bull market will benefit from tech selloff as capital rotates back into precious metals – Jesse Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOai16a295Z0xBSGRIYkZyRW94bUsyVHFKOU5FVzBWY2k2TkRpUldqTy1pQnlJZjJVZzFPMHFPOTNuVlRsMnZRQ3RISldyVlV5b1BlNzl4eFdzUVpaUWZVTm5TaEpPTEgybnpyWUlVSjk3YTEtX3g2WXJreWNaUVFPaUVITlVWdFBqODB1a3NibVdSd2FpZTRrY1l2RThuYkRmVkNtc1l5NjFfUWNBZWdfNHJhWnI2a1RHck13?oc=5",
+   "ms": 1794856767000,
+   "time": "11/17 03:19"
+  },
+  {
+   "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOal9nbG1RUnNxVTlESVFPbnI1bzkwejJ3UUVPbTNzSG9RaGtPQ2d3Mkd6elBJNHpVT0NTN0daNkNIeUNKWTBnWl9NRWM5TXpTbVptTVBZUWM0SzRTLVliZnJ4TEd5ejM4Nkh2Ylk4TndsUjZGblBJTkJwQllBNnBURjJodUJudVBjd0RpdEV0STJrLWpySDhCaGNhZGVuVERUS0xjUWRLQ0pyZHVDSHRkeGc1MTVRcXdtY1ZuRFln?oc=5",
+   "ms": 1794856725000,
+   "time": "11/17 03:18"
   },
   {
    "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
@@ -21,13 +56,6 @@
    "time": "11/17 02:34"
   },
   {
-   "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
-   "ms": 1794853260000,
-   "time": "11/17 02:21"
-  },
-  {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
@@ -35,11 +63,11 @@
    "time": "11/17 01:54"
   },
   {
-   "t": "Fed's Barr warns on AI risks to financial system",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
-   "ms": 1794849813000,
-   "time": "11/17 01:23"
+   "t": "Gold isn't being sold for thew reason most people think",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
+   "ms": 1794849778000,
+   "time": "11/17 01:22"
   },
   {
    "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
@@ -63,11 +91,18 @@
    "time": "11/16 23:15"
   },
   {
-   "t": "Canadian Dollar extends decline as mixed CPI data offers little support",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMDllQkF3QVVxdUFSdjZaMmF5Tjg3OS1FOEsxR1R4cUo5cmN3YWd3SlU4SXk4RkdtSmM2ZmRwUUlUbWtRMHpjWVFTSTBzT1AtekdSS191bEU0Q0R2Q1kwNlQtMVo5Tm5hSFhyWUIxd1ZHSDNkRWdCWWE5Zmh4RXNkbWpSMVRlQjVfRUI4N1lxbEl1MmhSSzR0a1A1YXBWTTQxT3FuTHBDaTNZYUZ6TUNFMTQ2RHo?oc=5",
-   "ms": 1794838410000,
-   "time": "11/16 22:13"
+   "t": "Gold price slides as Fed hike bets rise, silver bar and coin sales drop despite lower prices – Heraeus",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTnBWa0U3NmtKWVR6X1FDSjNiOUFHcHlIR0Q1Q2xIdWJwU253aFQ0ZzRBMjN4LTZkVlNhTDg2SDVjTWV5VXpFNzBDMXRUWjhvS3JqZXE1LUk2RmV0a0RXdnpMSVZ0cXF5emJXTXV1bE5VclR3cTZxeFRDb1c2WkJTd2xONEN4alVjS05DVllHMG1LRU13LW9nWGtMQXF0eFl0WE9YRXBESnN0MjYydVpkd2xoMlRUWWZLWFBmUk5R?oc=5",
+   "ms": 1794841293000,
+   "time": "11/16 23:01"
+  },
+  {
+   "t": "Current price of gold as of November 16, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBSLUtnUnBuT2NhTmpObFlyd09EMk1LNjBhOXRPYkp2dVdhY1hfQ3ZfNTJkd1lWMzJjQ2R0bG5KUkljWW5rZmxKWFJKcEtHN3ZraWZUMkR5VHVrVzhKWjVueHZkWTVHNUh3MncyTlJn?oc=5",
+   "ms": 1794837900000,
+   "time": "11/16 22:05"
   },
   {
    "t": "Gold Options Map: December Max Pain at 4,190 Sits 7.8% Above a 3,886 Settle",
@@ -75,41 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-options-map-december-max-pain-at-4190-sits-78-above-a-3886-settle-200691666",
    "ms": 1794836880000,
    "time": "11/16 21:48"
-  },
-  {
-   "t": "Gold price struggles even as New York Fed's Empire State survey weakens",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
-   "ms": 1794835946000,
-   "time": "11/16 21:32"
-  },
-  {
-   "t": "Gold: Rebound Off 0.786 Resistance Arc, Medium Term Remains Bearish Towards 3720",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
-   "ms": 1794835440000,
-   "time": "11/16 21:24"
-  },
-  {
-   "t": "US Dollar Index extends gains as traders bet on a longer Fed hiking cycle",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcTlqWVZHUzBUUHA5bnlxaHpVWFZ3WVB2ZlB6WFM0YTRGTGp3Z2l4eU4yUllndG9ReHBZUXpSTmtoajVYZWxxSVJpcjE5QlZ1MF83UjBmejU1clFEMGFaV2daeE1samRaWmxpTThEaTl6ZjA1RlIyblUyUWVPbHNEbnF0YW0wV0JwYTVJUW8zUkk3RVphRVB0V2lFcFZRSzlfTGwtY2NmaGp6NHMxendHTjlJNTYzT00?oc=5",
-   "ms": 1794831257000,
-   "time": "11/16 20:14"
-  },
-  {
-   "t": "US Dollar: Upward momentum extends on Fed repricing – MUFG",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQYjdBY0dnZ2Jib09WQ2lhZkhIX1lKOFVOODZHUlJHZXJXR1lKVU9NU283bjRSNnFWNFg2bXFKYl9HVk5Wem1nNndjWU5mTy1EeU9jY1UxSm9YWWRpSXg3QVJZbDJXX2ZmVHpscUFOVkhOc3pDTzZ1VFByWjVUM3ZvU3FjaGI5dFhSTm5Fc3F3RThUNmw0NUFEZHFyYWMxWHc?oc=5",
-   "ms": 1794829276000,
-   "time": "11/16 19:41"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTFBIdFU4VFpER2NCbk9CczVZNXM0eGNZMElweDhvaFNseDFPNHp4NHE3bjhGZ09td1BmYUxnay1jSnRoRW50WlZQYUVldEZSLU1BWHFuaTVOOXZWVERSOHI5QmRwSUVpSEJiX2t5bXNxUXdGUjV6TDVncEZVcFB3dVRFMXEtWVR4MUpTeC1ueVRpODlxdTN4OVkwbjFkNi1MdmtMYUpSX3YtMy1IZFVVR1p5UUp5U1R5TTFCcQ?oc=5",
-   "ms": 1794826055000,
-   "time": "11/16 18:47"
   }
  ]
 }
