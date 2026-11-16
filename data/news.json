@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 23:45 SGT",
+ "updated": "2026-11-16 23:58 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "The price of gold today, Nov. 16, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51RXJFR0hvanlBak5MOWdLM2x6eExDOVdybUM1QWM3V3pabV9KZUZKQmk1STU1a29wd1FBLURtTFRXRGs5WjN2d19EWFo5dzl3UmMyN2hsN1A0S3VQd3Q1NFgxWExKaFJ1eEpqTEJjeDM2d9IBd0FVX3lxTE9lZmxTVTA4VVpjREwxX3VGdG1WdmQwakxoLVk3M0VsdFE5Ym5XcER2cXZLSllBWEVUVWJmQ1U5RTczLUNHeFVINWpBUFVaa2c2NEQ1dU5uWjVRb3BkTVBGYlY3RUlKTGMzMHd5bjlSYThmZTRYMTRr?oc=5",
+   "ms": 1794842117000,
+   "time": "11/16 23:15"
+  },
   {
    "t": "Gold price slides as Fed hike bets rise, silver bar and coin sales drop despite lower prices – Heraeus",
    "src": "Kitco",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTFBIdFU4VFpER2NCbk9CczVZNXM0eGNZMElweDhvaFNseDFPNHp4NHE3bjhGZ09td1BmYUxnay1jSnRoRW50WlZQYUVldEZSLU1BWHFuaTVOOXZWVERSOHI5QmRwSUVpSEJiX2t5bXNxUXdGUjV6TDVncEZVcFB3dVRFMXEtWVR4MUpTeC1ueVRpODlxdTN4OVkwbjFkNi1MdmtMYUpSX3YtMy1IZFVVR1p5UUp5U1R5TTFCcQ?oc=5",
    "ms": 1794826055000,
    "time": "11/16 18:47"
-  },
-  {
-   "t": "Gold: Downtrend extends towards lower projections – Societe Generale",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTl94eUh5TmgtelpOeG4zVkZleHVRU2lHREJZS2xGQXpkTXphYkd4RzR6RGZVdTI2ZDZBZUktM0RHdXY4akFSNWljYXdaMjZab0FBNi1XVWYtS3lETEFnUnl3SzgzcFRyNzZQTXQ0TkZ1WnNxb1puRmw3c3ZzYkxLZ2tMRW5Tc2xTaFRwbDE1QngxeDd0cG5kcmFOeDBPSUdSODFwbmtXR0wzLWZL?oc=5",
-   "ms": 1794823764000,
-   "time": "11/16 18:09"
   }
  ]
 }
