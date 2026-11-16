@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-16 15:44 SGT",
+ "updated": "2026-11-16 15:57 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Expected to Respond to Weekend Events: May Indicate Next Directional Moves",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
+   "ms": 1794815160000,
+   "time": "11/16 15:46"
+  },
+  {
+   "t": "Gold Snowed, The Buck Behold",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-snowed-the-buck-behold-200691624",
+   "ms": 1794812700000,
+   "time": "11/16 15:05"
+  },
   {
    "t": "Earnings call transcript: Senco Gold Q2 2026 revenue misses as shares fall 8.5%",
    "src": "Investing.com UK",
@@ -21,6 +35,13 @@
    "time": "11/16 14:50"
   },
   {
+   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
+   "ms": 1794811789000,
+   "time": "11/16 14:49"
+  },
+  {
    "t": "Gold remains under pressure as inflation keeps Fed rate hikes in focus",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRkUySnhhczlZWFM1VTF2U0gzY0RsNndodVZmVnVTS1BTMFRLaXY5S0tqVVoxMDFINUNwM2xjOFd4WU5hM08wcjEyaWxQRmJkZzlKY2pJdWdfWWNDZEJfVmd3RjRlckJSMnY1VGhoeGFhM1JMYkx0LXFsN1pPTEdYX193TGlDOURPNURpblZDRlRXTmt2S2xQWlQyZU1sM1hDQ3FhbXVJaXN6SXdvbDNHVjFmMGoxejAt?oc=5",
@@ -33,13 +54,6 @@
    "url": "https://www.investing.com/analysis/gold-outlook-asia-buys-the-dip-us-hammers-the-rip-200691610",
    "ms": 1794807120000,
    "time": "11/16 13:32"
-  },
-  {
-   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOU3B5Z2Q4R3I1RTdoY2xvX0s5S1d4VFVjLW1mOFRUZG5lS25IdWNqdWJoZ1JJR21Ca2lQYm1JT1dlZFNVMkdPdTc2UldvVkNIMUpCVHd2dU10c0s2OXNjbEY1a0RWTTM5YnZZSnlJTTBCc2UzZ3pxOUozNDRLWWxLUjYwMF9LUXBteDRhVmppNk10NTF3bHlVRmtwYldST1NUNTh0dXFsYlNNOGdzZGNoRWlzUTZWOEx4dnhrX2NvZF8?oc=5",
-   "ms": 1794806775000,
-   "time": "11/16 13:26"
   },
   {
    "t": "Gold holds steady as investors await Warsh remarks for rate signals",
@@ -77,13 +91,6 @@
    "time": "11/16 09:50"
   },
   {
-   "t": "Gold falls below $3,900 as December Fed hike bets build, Warsh in focus",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
-   "ms": 1794793679000,
-   "time": "11/16 09:47"
-  },
-  {
    "t": "Gold hits over one-year low as firm dollar, Fed outlook weigh",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOR0w3QnNOYVBGYjdBMGJDeml5RExhSzMzaGVTUEQ2eEdLNHhHQzRoV2thNUo4TkVGYmNfc3NsSGpVVVF2OWxCZ21CNzBMSGs0S3NuZ2Rla1d4WTR0RGJwcllfYnZ6dlR5ZGZXa3dMakUxZmNDWFExYk9HNTkyLTN6aWF0MlRRbzN4aUJUVnVCMk1fdlpVN1B0bE1QM3dkaENDNEwzaHRORFFjVDYw?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdWtLQmZscFc0dXY0M1JQeWdxZEVsVVRPdWFIREczQ3FIaTE4MXF1T2w1a3VGNm03eW1VZEJyeFlHbUZSVVV5X0RlTV9ZNzVyTTNVdGRNRnBKaGUwa29HMk15SGUyNDNsN1ptWGVEajNwdUdKdElxYWZNM3d6YWtYTmFVblVHNjl1eEY5VnhEZHJfNnE5TlJtREoxczRFc09LREl3?oc=5",
    "ms": 1794781758000,
    "time": "11/16 06:29"
-  },
-  {
-   "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5",
-   "ms": 1794758160000,
-   "time": "11/15 23:56"
   }
  ]
 }
