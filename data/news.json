@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 19:16 SGT",
+ "updated": "2026-11-16 19:29 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slides to lowest level in over a year on dollar strength, Fed hike bets",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
+   "ms": 1794827700000,
+   "time": "11/16 19:15"
+  },
   {
    "t": "Gold steadies after hitting lowest since October 2025, hawkish Fed caps gains",
    "src": "FXStreet",
@@ -49,11 +56,11 @@
    "time": "11/16 15:46"
   },
   {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1794814518000,
-   "time": "11/16 15:35"
+   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWkN3M3lPVDA5bTl5M1RFbGhFMTExejdGY19pSFVkWVJDZ1hpYkhndHM0czNWNDlwMjk0am9pb2I3MkhEQmUtZU5OWWRjc0NvUm5uQUxManh5YWNuemYzVVREclpWcE56TzQ4eTZVVmNlWGwtUFl0VXJTaGVONFV2TlZGOTNXTHZINmF5bnpEUWppRE0weXZWb3p0STN3V3hNcXlTYm5pcUpzQ19oQmhBQlVtem84eDduVXFLbU9QM1Y?oc=5",
+   "ms": 1794814726000,
+   "time": "11/16 15:38"
   },
   {
    "t": "Gold Snowed, The Buck Behold",
@@ -68,13 +75,6 @@
    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTkpIeGJCXy1jaG5iVk53NEVkUklUandQY2R4TW90dWdBZXNvbmpSTVlqdW9HSUxWc0xqQ29yNy1ZUFVoU2tlUXdHWEQyMlNlcVFwRVpENHNwSmc0c2RqQ2JzUlFaMHNUWGJYRDZ3WEhYYmxqeHFZVkIzTHhzMUxJV2xjRW1jdEtuOVZpVTVkX1NMbF9kLV9GQUIzT3lKaVp6UDVoRnhEQUxwZ09nQ0trZ0N0U0FxNzktT0hYbzZHWnc3SUs1bFRvYllqS3JJT2tnb3pj?oc=5",
    "ms": 1794812040000,
    "time": "11/16 14:54"
-  },
-  {
-   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
-   "ms": 1794811789000,
-   "time": "11/16 14:49"
   },
   {
    "t": "Gold remains under pressure as inflation keeps Fed rate hikes in focus",
