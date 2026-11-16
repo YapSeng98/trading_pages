@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15 13:53 SGT",
+ "updated": "2026-11-16 08:46 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -73,18 +73,6 @@
    "zh": "初请失业金人数",
    "forecast": "199K",
    "previous": "200K"
-  },
-  {
-   "ms": 1795181100000,
-   "date": "11月20日",
-   "weekday": "周五",
-   "time": "21:25",
-   "allDay": false,
-   "impact": "medium",
-   "title": "FOMC Member Waller Speaks",
-   "zh": "美联储官员 Waller 讲话",
-   "forecast": "",
-   "previous": ""
   },
   {
    "ms": 1795186800000,
