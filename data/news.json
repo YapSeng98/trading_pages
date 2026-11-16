@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 19:02 SGT",
+ "updated": "2026-11-16 19:16 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold steadies after hitting lowest since October 2025, hawkish Fed caps gains",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
+   "ms": 1794827530000,
+   "time": "11/16 19:12"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
    "src": "FXStreet",
@@ -40,6 +47,13 @@
    "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
    "ms": 1794815160000,
    "time": "11/16 15:46"
+  },
+  {
+   "t": "META_TITLE_QUOTE",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
+   "ms": 1794814518000,
+   "time": "11/16 15:35"
   },
   {
    "t": "Gold Snowed, The Buck Behold",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcGNoQ2VlUkl6MW84RkNQRjJtWU9uN0c2cnBsMHFybTJHLTZHejNRYVNHbXE5NlI4UnVHZVBPZEt0eUpXcXRSWVBZdmhERVhCSmlHbnd3ZG96VXdpVHlJeVhJNHAxeVlIM0JzWjBhVHNvNUF0VlhkSjZ4QUlkeUZ5YlNsM3J0S3pmS3J4RVBUeEZvVi1SUlZ3UThwbkRBQlJIdmR2c0xWY1lRcjNKSHVCT3h3?oc=5",
    "ms": 1794804781000,
    "time": "11/16 12:53"
-  },
-  {
-   "t": "United States Dollar Index holds gains above 103.50 on hawkish Fed comments",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUUQ1Skg4R0RWamZ5V1QtVDFDTVVsQ0RVWlhLRGc5OUR1Ti1hckZLaHNNSmJYV2hrTzdYaF9sZUZ4enpZeGVDTUh6UkVVZjFjMlp0aXByektNTUdobFU0cnRMeW5nTmdvaGgwOEQyNGlzcXZBeXNtN1ZSX1JxTDZLWE9hZGdOXzRrZ2Qtb3M0bzFCUGxEdmJZcDRHNVVhMmVRMjVmSVF4UkNWQ2xXUmd1WUdIT0dIZkpR?oc=5",
-   "ms": 1794797121000,
-   "time": "11/16 10:45"
-  },
-  {
-   "t": "CCTV Script 16/11/26",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vMXd3YXpSN285ZXVtYWNiV3plZ3BZZ0F3TFdRaC1TTGpiUGxybmRsRkRJczRaS09wLTRYZE5KYXFkem9WbGVaMnU0QlhmcjVzVkxURXNnVDlDWnFPLTBOTmI5N0hNQdIBa0FVX3lxTFBZc3FkZlJGM0plYnRHQkh3YUdyYy1ULTM0S1lhWEFoQXZ5VFZHalpTbnpSQzRMbUtfV1RQOVJXaHlyWHFFS3N2SWNKS05yZ1ZqZzNTdlNORno3S2owQ2hDOGNKRHBBM0hvSXZn?oc=5",
-   "ms": 1794793800000,
-   "time": "11/16 09:50"
   }
  ]
 }
