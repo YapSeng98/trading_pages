@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 01:20 SGT",
+ "updated": "2026-11-17 01:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold isn't being sold for thew reason most people think",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
+   "ms": 1794849778000,
+   "time": "11/17 01:22"
+  },
   {
    "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVmx1Nk5KUjhqaTk3aDdkRmQ1M0l0eE10QWxzTFBGeTEydEstUmt5OThlNjZKYlN2Tm1MN21td0lzWHF0bDk2RHR0aE9YaERqRzR2YXp3cXNjMjViRFhLd1UwbDVJMUU1MlJ3SjhUQmxNWHdkblVYRVBoUENrR0xHM0lULU4?oc=5",
    "ms": 1794829995000,
    "time": "11/16 19:53"
-  },
-  {
-   "t": "US Dollar: Upward momentum extends on Fed repricing – MUFG",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQYjdBY0dnZ2Jib09WQ2lhZkhIX1lKOFVOODZHUlJHZXJXR1lKVU9NU283bjRSNnFWNFg2bXFKYl9HVk5Wem1nNndjWU5mTy1EeU9jY1UxSm9YWWRpSXg3QVJZbDJXX2ZmVHpscUFOVkhOc3pDTzZ1VFByWjVUM3ZvU3FjaGI5dFhSTm5Fc3F3RThUNmw0NUFEZHFyYWMxWHc?oc=5",
-   "ms": 1794829276000,
-   "time": "11/16 19:41"
   }
  ]
 }
