@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16 20:10 SGT",
+ "updated": "2026-11-16 20:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,74 +7,11 @@
  ],
  "items": [
   {
-   "t": "Gold price falls to lowest level in a year in key signal over interest rates",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVmx1Nk5KUjhqaTk3aDdkRmQ1M0l0eE10QWxzTFBGeTEydEstUmt5OThlNjZKYlN2Tm1MN21td0lzWHF0bDk2RHR0aE9YaERqRzR2YXp3cXNjMjViRFhLd1UwbDVJMUU1MlJ3SjhUQmxNWHdkblVYRVBoUENrR0xHM0lULU4?oc=5",
-   "ms": 1794829995000,
-   "time": "11/16 19:53"
-  },
-  {
-   "t": "Gold slides to lowest level in over a year on dollar strength, Fed hike bets",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
-   "ms": 1794827700000,
-   "time": "11/16 19:15"
-  },
-  {
-   "t": "Gold steadies after hitting lowest since October 2025, hawkish Fed caps gains",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
-   "ms": 1794827530000,
-   "time": "11/16 19:12"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNTFBIdFU4VFpER2NCbk9CczVZNXM0eGNZMElweDhvaFNseDFPNHp4NHE3bjhGZ09td1BmYUxnay1jSnRoRW50WlZQYUVldEZSLU1BWHFuaTVOOXZWVERSOHI5QmRwSUVpSEJiX2t5bXNxUXdGUjV6TDVncEZVcFB3dVRFMXEtWVR4MUpTeC1ueVRpODlxdTN4OVkwbjFkNi1MdmtMYUpSX3YtMy1IZFVVR1p5UUp5U1R5TTFCcQ?oc=5",
-   "ms": 1794826055000,
-   "time": "11/16 18:47"
-  },
-  {
-   "t": "Gold: Downtrend extends towards lower projections – Societe Generale",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTl94eUh5TmgtelpOeG4zVkZleHVRU2lHREJZS2xGQXpkTXphYkd4RzR6RGZVdTI2ZDZBZUktM0RHdXY4akFSNWljYXdaMjZab0FBNi1XVWYtS3lETEFnUnl3SzgzcFRyNzZQTXQ0TkZ1WnNxb1puRmw3c3ZzYkxLZ2tMRW5Tc2xTaFRwbDE1QngxeDd0cG5kcmFOeDBPSUdSODFwbmtXR0wzLWZL?oc=5",
-   "ms": 1794823764000,
-   "time": "11/16 18:09"
-  },
-  {
-   "t": "Fed's Barr warns on AI risks to financial system",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
-   "ms": 1794823591000,
-   "time": "11/16 18:06"
-  },
-  {
-   "t": "Euro approaches 1.1000 area as Fed's hawkishness boosts US Dollar",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPU0tHeFloYnVYcTM0SV9GWFRrWGdLNjROMWNWLXQ3MnNhV3ZiRkJXTGtPRkRJcmM0V2xzLWt0RjlVV2tVNGY2cF84Y29kaDZKcURfSFBNaEhCcHc1bWdxaTM2SGd6RzBvUlV1bTBjRnhlTjFVdmtLVjdCTWJqZWo3Z0p2WDVRSVRteWppMjNQQ2Z0X05GeGpsZjI2bWJxd05oSlhUcVNMNHNqZw?oc=5",
-   "ms": 1794817046000,
-   "time": "11/16 16:17"
-  },
-  {
-   "t": "Gold bounces off YTD low; not out of the woods as Fed hike bets and Iran risks support USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSUVwQV9lbWNEVnc1X0d5ZVZsbEdqdTN1SmVKQVBuVXp0dW9KNlZXaGZ1MmliUE4yVG5OZ3R5YkNhY24zR2drSjJoT0lucm93NTVtRHhhUHlEUVFLNkE0eUgzLTJXd2lFYU9sVU92Q21tS2Q4MVIwZVB5ZWg3REpody1OMnRNSGctZ1llOEdsWTNaZ1NfT3QxNnNjVFc0andWSWdWZEM5akhHM0FueU52MXcxZlpleU8tYmc2TE1GOHNrSGM?oc=5",
-   "ms": 1794816997000,
-   "time": "11/16 16:16"
-  },
-  {
    "t": "Gold Expected to Respond to Weekend Events: May Indicate Next Directional Moves",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
    "ms": 1794815160000,
    "time": "11/16 15:46"
-  },
-  {
-   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWkN3M3lPVDA5bTl5M1RFbGhFMTExejdGY19pSFVkWVJDZ1hpYkhndHM0czNWNDlwMjk0am9pb2I3MkhEQmUtZU5OWWRjc0NvUm5uQUxManh5YWNuemYzVVREclpWcE56TzQ4eTZVVmNlWGwtUFl0VXJTaGVONFV2TlZGOTNXTHZINmF5bnpEUWppRE0weXZWb3p0STN3V3hNcXlTYm5pcUpzQ19oQmhBQlVtem84eDduVXFLbU9QM1Y?oc=5",
-   "ms": 1794814726000,
-   "time": "11/16 15:38"
   },
   {
    "t": "Gold Snowed, The Buck Behold",
@@ -84,20 +21,6 @@
    "time": "11/16 15:05"
   },
   {
-   "t": "Earnings call transcript: Senco Gold Q2 2026 revenue misses as shares fall 8.5%",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTkpIeGJCXy1jaG5iVk53NEVkUklUandQY2R4TW90dWdBZXNvbmpSTVlqdW9HSUxWc0xqQ29yNy1ZUFVoU2tlUXdHWEQyMlNlcVFwRVpENHNwSmc0c2RqQ2JzUlFaMHNUWGJYRDZ3WEhYYmxqeHFZVkIzTHhzMUxJV2xjRW1jdEtuOVZpVTVkX1NMbF9kLV9GQUIzT3lKaVp6UDVoRnhEQUxwZ09nQ0trZ0N0U0FxNzktT0hYbzZHWnc3SUs1bFRvYllqS3JJT2tnb3pj?oc=5",
-   "ms": 1794812040000,
-   "time": "11/16 14:54"
-  },
-  {
-   "t": "Gold remains under pressure as inflation keeps Fed rate hikes in focus",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRkUySnhhczlZWFM1VTF2U0gzY0RsNndodVZmVnVTS1BTMFRLaXY5S0tqVVoxMDFINUNwM2xjOFd4WU5hM08wcjEyaWxQRmJkZzlKY2pJdWdfWWNDZEJfVmd3RjRlckJSMnY1VGhoeGFhM1JMYkx0LXFsN1pPTEdYX193TGlDOURPNURpblZDRlRXTmt2S2xQWlQyZU1sM1hDQ3FhbXVJaXN6SXdvbDNHVjFmMGoxejAt?oc=5",
-   "ms": 1794810796000,
-   "time": "11/16 14:33"
-  },
-  {
    "t": "Gold Outlook: Asia Buys the Dip, US Hammers the Rip",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-outlook-asia-buys-the-dip-us-hammers-the-rip-200691610",
@@ -105,11 +28,39 @@
    "time": "11/16 13:32"
   },
   {
-   "t": "Gold holds steady as investors await Warsh remarks for rate signals",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTVJaOG1NX2M0MVR0c0tyZFlmaWVHY1F4Uk95QW9DRzQ5VERlR0h5d1FhbUNMVHVIbFRtazA4TGh6ZkxENjA3bWp1R256VHE4RC1NcF9udVpxc1MzMkE0UFhvdmpxT25EbWt5SG80Q3ZGOWdSbFFMQjhfM0V2X1NPcTdnclJrUThpcGtRSF9CdXUzaU1GOEVaRXJ0SC1pVmFwZnhxSVFBNNIBrAFBVV95cUxNRU1aT3ktODNULUM3bEpZMVRRd3prSEc2QnE3UllBSjhjbDRWM3czV0FkY21fbmY1anZaWXdyZlVnUkRLMFhtNFBMZ3U5WjRTbWNqbnVUbFg1SkRnY0o3RTZJWEhwUzEzV0xCVmxlNHZwUFZRa2xYUHB3LVpQbkxyaFhlemtlcW84cHpLV1FmRTc4OEZHRFltTkpmdXM0cG40MzNjR2JCWWJrNGRN?oc=5",
-   "ms": 1794806653000,
-   "time": "11/16 13:24"
+   "t": "Gold’s November Correction: Is a Major Cycle Low Developing?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-november-correction-is-a-major-cycle-low-developing-200691609",
+   "ms": 1794806280000,
+   "time": "11/16 13:18"
+  },
+  {
+   "t": "US Dollar Just Hit a 19-Month High - Here’s What It Means for Gold and Silver",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/us-dollar-just-hit-a-19month-high--heres-what-it-means-for-gold-and-silver-200691579",
+   "ms": 1794748560000,
+   "time": "11/15 21:16"
+  },
+  {
+   "t": "Gold Breaks Below $4,000 as Rising Yields Redefine the Macro Trade",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-breaks-below-4000-as-rising-yields-redefine-the-macro-trade-200691560",
+   "ms": 1794602760000,
+   "time": "11/14 04:46"
+  },
+  {
+   "t": "India gold demand stays firm as lower prices draw festive buying",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/india-gold-demand-stays-firm-as-lower-prices-draw-festive-buying/",
+   "ms": 1794583654000,
+   "time": "11/13 23:27"
+  },
+  {
+   "t": "Gold price drops to over one-year low as fading Middle East peace hopes fan inflation fears",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-drops-to-over-one-year-low-as-fading-middle-east-peace-hopes-fan-inflation-fears/",
+   "ms": 1794520038000,
+   "time": "11/13 05:47"
   }
  ]
 }
