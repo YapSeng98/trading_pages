@@ -1,11 +1,46 @@
 {
- "updated": "2026-11-16 21:04 SGT",
+ "updated": "2026-11-16 21:56 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "gold price struggles even as New York Fed's Empire State survey weakens",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
+   "ms": 1794835946000,
+   "time": "11/16 21:32"
+  },
+  {
+   "t": "'Plenty of Reasons to Sell' as Gold Sinks 15% in 12 Weeks",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbjEyUjNLdmI1TkRFNkQ0dWFWc3BMUnFyc2F1SDBkYXRUXzg0Zk5vS2VaQUQzTnB6UWx5X2MybHJWT2dhQ0NDNkxDdXUzWXhLdVBRMFVPYkMxbzhieWd1Q1FycjVEOGtxRVJORTFQRjVXeU9TUFFmaTVpd1dkaHdyQS1vUHFNMUVfRjhOZDdyME85UQ?oc=5",
+   "ms": 1794835768000,
+   "time": "11/16 21:29"
+  },
+  {
+   "t": "Gold: Rebound Off 0.786 Resistance Arc, Medium Term Remains Bearish Towards 3720",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
+   "ms": 1794835440000,
+   "time": "11/16 21:24"
+  },
+  {
+   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
+   "ms": 1794834960000,
+   "time": "11/16 21:16"
+  },
+  {
+   "t": "Gold Extends Drop but Seasonality Hopes Keeps Bullish Case Alive",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-extends-drop-but-seasonality-hopes-keeps-bullish-case-alive-200691659",
+   "ms": 1794834240000,
+   "time": "11/16 21:04"
+  },
   {
    "t": "Gold prices today, Monday, November 16, 2026: Gold prices hit lowest levels in over a year. Here's why.",
    "src": "Yahoo Finance",
@@ -14,11 +49,11 @@
    "time": "11/16 20:35"
   },
   {
-   "t": "Gold price falls to lowest level in a year in key signal over interest rates",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVmx1Nk5KUjhqaTk3aDdkRmQ1M0l0eE10QWxzTFBGeTEydEstUmt5OThlNjZKYlN2Tm1MN21td0lzWHF0bDk2RHR0aE9YaERqRzR2YXp3cXNjMjViRFhLd1UwbDVJMUU1MlJ3SjhUQmxNWHdkblVYRVBoUENrR0xHM0lULU4?oc=5",
-   "ms": 1794829995000,
-   "time": "11/16 19:53"
+   "t": "Gold today: 2 analysts see more losses as $3,800 comes into focus",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTmZNLTV6TXRaaHp1dUFMUF9iSGRzendjRk1RaFNPRDVPRzF0QzBnYlI3NzA3dGJMMmppNWV2cEU4Q1R0b3hZS3hUODlPQndoWjdXS2FJUFlKWWZJM2xCSTZCNFdUM0hHVjAzN1RiaTFsdTc4UEdDZlRuTUdfTlJvZkItSWZMMDNXaEJYc3ZISHI3OXktRW8zaUhCNUFfRFNoS0RieWhUaGpWNzEwV0FR?oc=5",
+   "ms": 1794832272000,
+   "time": "11/16 20:31"
   },
   {
    "t": "US Dollar: Upward momentum extends on Fed repricing – MUFG",
@@ -28,25 +63,11 @@
    "time": "11/16 19:41"
   },
   {
-   "t": "Gold slides to lowest level in over a year on dollar strength, Fed hike bets",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPQjNWeUI1OEM0UXd1V1k0UHdleXk1UlZGVGZEYlJCSTBPbmtxYnNOb3k1a20yaHdzY2t5Ml9SSDhSNVNLSWg5dm95UTBLYWw3QTVCb3NFTlZ3Tm9fajI1TWRMZnNpLXhfVHhTUnhTb1BnQVZmbWo3cndTdjJpeU5vZHhwTDRGYU41cEtIZmhIRlZJVkhFTWVqT0d2aDY5WllNNFpNQkdwd3o2b2FwNTQ4eXVqczg1eS1FdGljcUotNGZhdw?oc=5",
-   "ms": 1794827700000,
-   "time": "11/16 19:15"
-  },
-  {
    "t": "Gold steadies after hitting lowest since October 2025, hawkish Fed caps gains",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
    "ms": 1794827530000,
    "time": "11/16 19:12"
-  },
-  {
-   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUHVxWl9hRWVsanhEbEhURDdvZHAwRG1NNmtQSFN3dlZIMDYxLUtWeVo0YVYtWjRETkJkdTdaU3JGZXNULUNTQnc1VTg5MGFudmpIWUdfdzNvQVFMU3J3R21DRnh4UjRyZHFzR1c1ZUtJMXZFMXE5Z1lialdKR3NEdUR4ak9zUjBwcVZXaFF0YUc0eHlwSEpHNXFETkt6RlY0Q01KbzFn?oc=5",
-   "ms": 1794826784000,
-   "time": "11/16 18:59"
   },
   {
    "t": "Gold Price Forecast: XAU/USD picks up above $3,850 with the bearish bias intact",
@@ -63,25 +84,11 @@
    "time": "11/16 18:09"
   },
   {
-   "t": "Fed's Barr warns on AI risks to financial system",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
-   "ms": 1794823591000,
-   "time": "11/16 18:06"
-  },
-  {
    "t": "Gold Prices Retreat Below $3,900 as Inflation Concerns Fuel Expectations of Further Fed Tightening",
    "src": "Yahoo Finance UK",
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaHdFUk5BQnd0bW5UZjR1UnBBNFltdmh5NC1vWm1INUpRcl9qZGtnOVVVU1JFUVRiWmdQaFdBR2kwVUk5eUtmSFVnY04wdWUySTBhWmFmR1cyUUp4N0dQYmNHd3Q4YVF1WlhHX2lPNjg1c3JkZ2plZEhjZVRzZ3pyLWpR?oc=5",
    "ms": 1794823448000,
    "time": "11/16 18:04"
-  },
-  {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1794821175000,
-   "time": "11/16 17:26"
   },
   {
    "t": "Euro approaches 1.1000 area as Fed's hawkishness boosts US Dollar",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
    "ms": 1794815160000,
    "time": "11/16 15:46"
-  },
-  {
-   "t": "Gold Snowed, The Buck Behold",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-snowed-the-buck-behold-200691624",
-   "ms": 1794812700000,
-   "time": "11/16 15:05"
   }
  ]
 }
