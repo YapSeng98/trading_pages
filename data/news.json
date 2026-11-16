@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 06:04 SGT",
+ "updated": "2026-11-17 06:18 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -49,13 +49,6 @@
    "time": "11/17 04:15"
   },
   {
-   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQYlNlUGtXUzMzaFhYU1lJRE9ZSW1NRTh3ZzRnc2RjYVRxNENhWnVuOWQ4TklmczRfTWg5MmZaRUktd195R2dFOURVcUFIZ3ZKSUE3N3MtbEFCUnVfU1R3T2pyc2FEeDdmdGZJQm5XN2hUWUdGb28wVmowTHV3OWFvLWhxVVlZbl9hQkZ4cE9lbXItdmRYZ0wtNUZDSE9OQ1lHZU5fb3dLZ3lJYnkwU2g1ZE90S1NTSXZkckJF?oc=5",
-   "ms": 1794859339000,
-   "time": "11/17 04:02"
-  },
-  {
    "t": "Gold Use in Tech and Industry Increased Modestly in Q3",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQalVtanBZQXdITFlZZU5WeHB3SzhZWHFNZEdubXMxd1VsX2dsVmVmU0lLRXJtekh6cGZXMHpOWFk1XzZfSHFnOUdLSGM2b1ZtbzFhNE5OWkpTREV4cmd1QUMzbVZvbld4Q1hZSEZLc2J2MDFOcmRMejlNcFJLcWpGZUZyX1o3ZEZLQXhOaTlVb1JsUmp2TGM2OExVSy1qeFRkUHln?oc=5",
@@ -96,6 +89,13 @@
    "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
    "ms": 1794853260000,
    "time": "11/17 02:21"
+  },
+  {
+   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
+   "ms": 1794852186000,
+   "time": "11/17 02:03"
   },
   {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
