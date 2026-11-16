@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 20:37 SGT",
+ "updated": "2026-11-16 20:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold prices today, Monday, November 16, 2026: Gold prices hit lowest levels in over a year. Here's why.",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPT3hOZU5BcnBOZlhpenpQMllzc0xzTWRyWFIzXzEtLVVlX0dIMmxTWVJ0NVp5MWN4bWctUGJ0VUxSVFpJZkdfY2pfR1FGRjhiY0dPTjJaLXM0S2xhU0l1MUVKYkRXcHB3VDVlMXFQbzcwc3hyUV9IZkdNcWFqRl9Vby15OHM2emJDM2JSWWRkd2NTUlFZbmlWNWdZc0MydDdVbDBBNEF5NVM1MlJSTW90VURuZEVQZDV4RVZRSDVyT3hiSUtvOEVjcWhfeHRTWC1aZVoySWdKQ0VpUVhWcFBwNlNSWTl3RWtfUG1vNHhLTTJGTnFqanh0MVdHYkxEQzR3ZFE?oc=5",
+   "ms": 1794832541000,
+   "time": "11/16 20:35"
+  },
   {
    "t": "Gold price falls to lowest level in a year in key signal over interest rates",
    "src": "Yahoo Finance UK",
@@ -68,13 +75,6 @@
    "url": "https://www.investing.com/analysis/gold-expected-to-respond-to-weekend-events-may-indicate-next-directional-moves-200691613",
    "ms": 1794815160000,
    "time": "11/16 15:46"
-  },
-  {
-   "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWkN3M3lPVDA5bTl5M1RFbGhFMTExejdGY19pSFVkWVJDZ1hpYkhndHM0czNWNDlwMjk0am9pb2I3MkhEQmUtZU5OWWRjc0NvUm5uQUxManh5YWNuemYzVVREclpWcE56TzQ4eTZVVmNlWGwtUFl0VXJTaGVONFV2TlZGOTNXTHZINmF5bnpEUWppRE0weXZWb3p0STN3V3hNcXlTYm5pcUpzQ19oQmhBQlVtem84eDduVXFLbU9QM1Y?oc=5",
-   "ms": 1794814726000,
-   "time": "11/16 15:38"
   },
   {
    "t": "Gold Snowed, The Buck Behold",
