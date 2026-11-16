@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 07:12 SGT",
+ "updated": "2026-11-17 07:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -70,13 +70,6 @@
    "time": "11/17 03:27"
   },
   {
-   "t": "Gold’s bull market will benefit from tech selloff as capital rotates back into precious metals – Jesse Colombo",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOai16a295Z0xBSGRIYkZyRW94bUsyVHFKOU5FVzBWY2k2TkRpUldqTy1pQnlJZjJVZzFPMHFPOTNuVlRsMnZRQ3RISldyVlV5b1BlNzl4eFdzUVpaUWZVTm5TaEpPTEgybnpyWUlVSjk3YTEtX3g2WXJreWNaUVFPaUVITlVWdFBqODB1a3NibVdSd2FpZTRrY1l2RThuYkRmVkNtc1l5NjFfUWNBZWdfNHJhWnI2a1RHck13?oc=5",
-   "ms": 1794856767000,
-   "time": "11/17 03:19"
-  },
-  {
    "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-selloff-shows-how-rising-real-yields-can-overwhelm-haven-demand-200691680",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
    "ms": 1794849813000,
    "time": "11/17 01:23"
+  },
+  {
+   "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-tests-key-support-as-bearish-candlestick-pattern-raises-fresh-concerns-200691672",
+   "ms": 1794848160000,
+   "time": "11/17 00:56"
   }
  ]
 }
