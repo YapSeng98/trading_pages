@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1794843900000,
+ "lastChecked": 1794844800000,
  "a3": -1,
- "a5": 0,
+ "a5": -1,
  "open": 13,
- "nextId": 15,
+ "nextId": 16,
  "signals": [
   {
    "id": 1,
@@ -218,6 +218,20 @@
    "spread": 0.58,
    "status": "skipped",
    "why": "已有纸面持仓"
+  },
+  {
+   "id": 15,
+   "time": "2026-11-17 00:00 SGT",
+   "ms": 1794844800000,
+   "side": "做空",
+   "entry": 3858.87,
+   "stop": 3914.22,
+   "target": 3692.82,
+   "risk": 55.35,
+   "atr": 18.45,
+   "spread": 0.58,
+   "status": "skipped",
+   "why": "已有纸面持仓"
   }
  ],
  "events": [
@@ -340,10 +354,16 @@
    "time": "2026-11-16 14:00 SGT",
    "type": "skipped",
    "text": "信号 #14（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1794844800000,
+   "time": "2026-11-17 00:00 SGT",
+   "type": "skipped",
+   "text": "信号 #15（做空）已有纸面持仓，按规则跳过"
   }
  ],
  "summary": {
-  "signals": 14,
+  "signals": 15,
   "taken": 5,
   "closed": 4,
   "wins": 2,
@@ -1011,6 +1031,17 @@
    "level": 3876.55,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1794844800000,
+   "time": "2026-11-17 00:00 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 3858.87,
+   "level": 3861.19,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
@@ -1018,7 +1049,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bullish"
+  "15M": "bearish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1028,8 +1059,8 @@
     "name": "同一信号，跟踪止损出场",
     "open": 1,
     "nextId": 2,
-    "skipped": 4,
-    "prev": 0,
+    "skipped": 5,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1060,8 +1091,8 @@
     "name": "不看周线，目标 3R",
     "open": 2,
     "nextId": 3,
-    "skipped": 3,
-    "prev": 0,
+    "skipped": 4,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1112,8 +1143,8 @@
     "name": "不看周线，跟踪止损出场",
     "open": 1,
     "nextId": 2,
-    "skipped": 4,
-    "prev": 0,
+    "skipped": 5,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
