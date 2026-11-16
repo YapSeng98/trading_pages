@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16 15:17 SGT",
+ "updated": "2026-11-16 15:44 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPTkpIeGJCXy1jaG5iVk53NEVkUklUandQY2R4TW90dWdBZXNvbmpSTVlqdW9HSUxWc0xqQ29yNy1ZUFVoU2tlUXdHWEQyMlNlcVFwRVpENHNwSmc0c2RqQ2JzUlFaMHNUWGJYRDZ3WEhYYmxqeHFZVkIzTHhzMUxJV2xjRW1jdEtuOVZpVTVkX1NMbF9kLV9GQUIzT3lKaVp6UDVoRnhEQUxwZ09nQ0trZ0N0U0FxNzktT0hYbzZHWnc3SUs1bFRvYllqS3JJT2tnb3pj?oc=5",
    "ms": 1794812040000,
    "time": "11/16 14:54"
+  },
+  {
+   "t": "Gold weakens below $3,850, fresh low since October 2025 amid Fed hike bets, bullish USD",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSUVwQV9lbWNEVnc1X0d5ZVZsbEdqdTN1SmVKQVBuVXp0dW9KNlZXaGZ1MmliUE4yVG5OZ3R5YkNhY24zR2drSjJoT0lucm93NTVtRHhhUHlEUVFLNkE0eUgzLTJXd2lFYU9sVU92Q21tS2Q4MVIwZVB5ZWg3REpody1OMnRNSGctZ1llOEdsWTNaZ1NfT3QxNnNjVFc0andWSWdWZEM5akhHM0FueU52MXcxZlpleU8tYmc2TE1GOHNrSGM?oc=5",
+   "ms": 1794811855000,
+   "time": "11/16 14:50"
   },
   {
    "t": "Gold remains under pressure as inflation keeps Fed rate hikes in focus",
@@ -42,18 +49,18 @@
    "time": "11/16 13:24"
   },
   {
+   "t": "Gold’s November Correction: Is a Major Cycle Low Developing?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-november-correction-is-a-major-cycle-low-developing-200691609",
+   "ms": 1794806280000,
+   "time": "11/16 13:18"
+  },
+  {
    "t": "Gold Price Forecast: XAU/USD consolidates before the next leg down",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcGNoQ2VlUkl6MW84RkNQRjJtWU9uN0c2cnBsMHFybTJHLTZHejNRYVNHbXE5NlI4UnVHZVBPZEt0eUpXcXRSWVBZdmhERVhCSmlHbnd3ZG96VXdpVHlJeVhJNHAxeVlIM0JzWjBhVHNvNUF0VlhkSjZ4QUlkeUZ5YlNsM3J0S3pmS3J4RVBUeEZvVi1SUlZ3UThwbkRBQlJIdmR2c0xWY1lRcjNKSHVCT3h3?oc=5",
    "ms": 1794804781000,
    "time": "11/16 12:53"
-  },
-  {
-   "t": "Gold hangs near YTD low as Fed rate hike bets and Middle East tensions support USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSUVwQV9lbWNEVnc1X0d5ZVZsbEdqdTN1SmVKQVBuVXp0dW9KNlZXaGZ1MmliUE4yVG5OZ3R5YkNhY24zR2drSjJoT0lucm93NTVtRHhhUHlEUVFLNkE0eUgzLTJXd2lFYU9sVU92Q21tS2Q4MVIwZVB5ZWg3REpody1OMnRNSGctZ1llOEdsWTNaZ1NfT3QxNnNjVFc0andWSWdWZEM5akhHM0FueU52MXcxZlpleU8tYmc2TE1GOHNrSGM?oc=5",
-   "ms": 1794801855000,
-   "time": "11/16 12:04"
   },
   {
    "t": "United States Dollar Index holds gains above 103.50 on hawkish Fed comments",
@@ -77,7 +84,7 @@
    "time": "11/16 09:47"
   },
   {
-   "t": "Gold dips on firmer dollar ahead of Warsh comments",
+   "t": "Gold hits over one-year low as firm dollar, Fed outlook weigh",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOR0w3QnNOYVBGYjdBMGJDeml5RExhSzMzaGVTUEQ2eEdLNHhHQzRoV2thNUo4TkVGYmNfc3NsSGpVVVF2OWxCZ21CNzBMSGs0S3NuZ2Rla1d4WTR0RGJwcllfYnZ6dlR5ZGZXa3dMakUxZmNDWFExYk9HNTkyLTN6aWF0MlRRbzN4aUJUVnVCMk1fdlpVN1B0bE1QM3dkaENDNEwzaHRORFFjVDYw?oc=5",
    "ms": 1794792300000,
@@ -101,15 +108,8 @@
    "t": "Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5",
-   "ms": 1794769159000,
-   "time": "11/16 02:59"
-  },
-  {
-   "t": "Gold and silver are supposed to protect against inflation. So why are both metals tumbling instead?",
-   "src": "MarketWatch",
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSWFYVlBzemdQeHFIRFlFWUQ3ZEYwY2F5VDFELWxqVzUtalUtamVfUHNVSS1kNTJ5QXR4LUlKR2VZMHJkb1FYSlMwRGUyOVNLZW9WblByODVxeFZadFdaMWFId0hEX01CS3pPdlhWemZfd2pyaUtBLUVEbGRPdHp1RFZreGFybGFWdkNhNE9IQ2FSOFU2OWROb1hMeVVKUFFJVWxvOXlvWnVWeFdPLTV2ZlJHTmFvWDI1SnkwVi1zNURWaUo5WmJLSGdCX1dXYzUxbVRpSmVuaw?oc=5",
-   "ms": 1794745800000,
-   "time": "11/15 20:30"
+   "ms": 1794758160000,
+   "time": "11/15 23:56"
   }
  ]
 }
