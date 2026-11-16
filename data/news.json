@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-17 02:14 SGT",
+ "updated": "2026-11-17 02:28 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
+   "ms": 1794853260000,
+   "time": "11/17 02:21"
+  },
+  {
+   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
+   "ms": 1794852186000,
+   "time": "11/17 02:03"
+  },
   {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
    "src": "Investing.com",
@@ -14,18 +28,18 @@
    "time": "11/17 01:54"
   },
   {
-   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
-   "ms": 1794851268000,
-   "time": "11/17 01:47"
-  },
-  {
    "t": "Gold isn't being sold for thew reason most people think",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
    "ms": 1794849778000,
    "time": "11/17 01:22"
+  },
+  {
+   "t": "Fed Chairman Kevin Warsh stresses importance of AI to economy, but says it could ‘disappoint’",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1seHNLTEVjRmlFTzQyYmpBZVNCaXd3a1dnTEkyNFV3VkZmSGk5WHQyUEhjSHZLTXRJYnVxZkF5ZkRvclZsbXAybGRtUTFIMmpUNDNwN2stUzdoVmNEVEJaY0F2YXVwMUtXbFlKc0xkX21SZ3JO0gF6QVVfeXFMT0MyNFFrVnJmcGxqcUluVV9LTUgyeVo2MDVlNUpNQW03cXd0U1l0a0FxSmhKUFRCNTJIM3B5WklRbDEzZFplRGlDOGYxempYY1h6czlobFdWaXE5ZHY2YVdSdmxadHozNC13VFFCOWJBZ0p2dVFyemlqRHc?oc=5",
+   "ms": 1794848404000,
+   "time": "11/17 01:00"
   },
   {
    "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
    "ms": 1794835440000,
    "time": "11/16 21:24"
-  },
-  {
-   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
-   "ms": 1794834960000,
-   "time": "11/16 21:16"
-  },
-  {
-   "t": "Gold Extends Drop but Seasonality Hopes Keeps Bullish Case Alive",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-extends-drop-but-seasonality-hopes-keeps-bullish-case-alive-200691659",
-   "ms": 1794834240000,
-   "time": "11/16 21:04"
   }
  ]
 }
