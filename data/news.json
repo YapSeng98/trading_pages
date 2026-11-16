@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 04:56 SGT",
+ "updated": "2026-11-17 05:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-breaks-longterm-support-as-platinum-approaches-another-bearish-target-200691688",
+   "ms": 1794862320000,
+   "time": "11/17 04:52"
+  },
   {
    "t": "Gold drops to more than one-year low as US dollar marches higher",
    "src": "mining.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBSLUtnUnBuT2NhTmpObFlyd09EMk1LNjBhOXRPYkp2dVdhY1hfQ3ZfNTJkd1lWMzJjQ2R0bG5KUkljWW5rZmxKWFJKcEtHN3ZraWZUMkR5VHVrVzhKWjVueHZkWTVHNUh3MncyTlJn?oc=5",
    "ms": 1794837900000,
    "time": "11/16 22:05"
-  },
-  {
-   "t": "Gold Options Map: December Max Pain at 4,190 Sits 7.8% Above a 3,886 Settle",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-options-map-december-max-pain-at-4190-sits-78-above-a-3886-settle-200691666",
-   "ms": 1794836880000,
-   "time": "11/16 21:48"
   }
  ]
 }
