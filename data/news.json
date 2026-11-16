@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 02:54 SGT",
+ "updated": "2026-11-17 03:08 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -15,17 +15,10 @@
   },
   {
    "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
-   "ms": 1794853260000,
-   "time": "11/17 02:21"
-  },
-  {
-   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
-   "ms": 1794852186000,
-   "time": "11/17 02:03"
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOOGVRWEVNUmRxbnpOOHN0WGZad283S2tpb2M1Q1BNa1lCTlUyNmtRd1NyRGp1X194Rk83TWwwS08yVXppS0xJWHRNZElZNVZOU0JpamFfMnN6a1FsM090N05TZVpVNms5NkxnWmtMTEE5eFFJQUd2TDJMTzBBUVI0My1QUWlVcmRtMjZOdE1MVDVFNVRVVEktdDJ0blBwdERIM2ZZa2I5VUFLejNhQ3JoYnlvVXBwQ3kwMk1JTQ?oc=5",
+   "ms": 1794853821000,
+   "time": "11/17 02:30"
   },
   {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
@@ -33,6 +26,13 @@
    "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
    "ms": 1794851640000,
    "time": "11/17 01:54"
+  },
+  {
+   "t": "Fed's Barr warns on AI risks to financial system",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
+   "ms": 1794849813000,
+   "time": "11/17 01:23"
   },
   {
    "t": "Gold isn't being sold for thew reason most people think",
@@ -77,6 +77,13 @@
    "time": "11/16 23:01"
   },
   {
+   "t": "Canadian Dollar extends decline as mixed CPI data offers little support",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMDllQkF3QVVxdUFSdjZaMmF5Tjg3OS1FOEsxR1R4cUo5cmN3YWd3SlU4SXk4RkdtSmM2ZmRwUUlUbWtRMHpjWVFTSTBzT1AtekdSS191bEU0Q0R2Q1kwNlQtMVo5Tm5hSFhyWUIxd1ZHSDNkRWdCWWE5Zmh4RXNkbWpSMVRlQjVfRUI4N1lxbEl1MmhSSzR0a1A1YXBWTTQxT3FuTHBDaTNZYUZ6TUNFMTQ2RHo?oc=5",
+   "ms": 1794838410000,
+   "time": "11/16 22:13"
+  },
+  {
    "t": "Current price of gold as of November 16, 2026",
    "src": "Fortune",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBSLUtnUnBuT2NhTmpObFlyd09EMk1LNjBhOXRPYkp2dVdhY1hfQ3ZfNTJkd1lWMzJjQ2R0bG5KUkljWW5rZmxKWFJKcEtHN3ZraWZUMkR5VHVrVzhKWjVueHZkWTVHNUh3MncyTlJn?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
    "ms": 1794835946000,
    "time": "11/16 21:32"
-  },
-  {
-   "t": "'Plenty of Reasons to Sell' as Gold Sinks 15% in 12 Weeks",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbjEyUjNLdmI1TkRFNkQ0dWFWc3BMUnFyc2F1SDBkYXRUXzg0Zk5vS2VaQUQzTnB6UWx5X2MybHJWT2dhQ0NDNkxDdXUzWXhLdVBRMFVPYkMxbzhieWd1Q1FycjVEOGtxRVJORTFQRjVXeU9TUFFmaTVpd1dkaHdyQS1vUHFNMUVfRjhOZDdyME85UQ?oc=5",
-   "ms": 1794835768000,
-   "time": "11/16 21:29"
   }
  ]
 }
