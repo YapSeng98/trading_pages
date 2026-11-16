@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 06:45 SGT",
+ "updated": "2026-11-17 06:58 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,13 +21,6 @@
    "time": "11/17 05:34"
   },
   {
-   "t": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
-   "ms": 1794862663000,
-   "time": "11/17 04:57"
-  },
-  {
    "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-breaks-longterm-support-as-platinum-approaches-another-bearish-target-200691688",
@@ -40,20 +33,6 @@
    "url": "https://www.mining.com/web/gold-drops-to-more-than-one-year-low-as-us-dollar-marches-higher/",
    "ms": 1794861986000,
    "time": "11/17 04:46"
-  },
-  {
-   "t": "Fed's Hammack reiterates case for slow, steady rate hikes -Bloomberg TV",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYk9kal9uc0hmSGMySFhuVE1BbTd3dkV1SkdjbEx3U2NuZFdoMFI1TThKSHVnLUNGTVNOOVpRM3VVUnBZdkxISEhKdVloQzBxUGlEcm15ZkQyUGZjWW5IbVhhZVNKWnBleE1PZzAyNUtmQUVrWHZ1R2YwU1FSZWVjczdVWXcwX3Z4VWhsVXZwUE1EaWMtZ3I0d1I2WlVOdm5rdGdZMFl4VVJENHRaSUE?oc=5",
-   "ms": 1794860200000,
-   "time": "11/17 04:16"
-  },
-  {
-   "t": "Goldman Forecasts Gold to Take Two Years to Recapture All-Time Highs",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNczF1RXhsRmNwczFILVk5SGZNMVhVeERCSHJkOS1OdDFNcndMcHk0ZTUxVVc0QXNUd0lCZEVqYmxfOGV5eGpsMEhnMGpRWUhLVEJqdWQ1MExqZUxMcjQ1S1h1LWx5QzBDVzkyY3BYQVk1Y2VkSnIyOWxMOV9tcTdYOU1lSUxCMHVfNFJkTm5vbDFpLUItZnFWMlhfamdvdHZoak9RRG9Xakl6RFBIb29JSkRWRENVM1dlWU1v?oc=5",
-   "ms": 1794860145000,
-   "time": "11/17 04:15"
   },
   {
    "t": "Gold price dip presents an opportunity for long-term investors",
@@ -105,11 +84,32 @@
    "time": "11/17 01:54"
   },
   {
-   "t": "Fed's Barr warns on AI risks to financial system",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
-   "ms": 1794849813000,
-   "time": "11/17 01:23"
+   "t": "Gold isn't being sold for thew reason most people think",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
+   "ms": 1794849778000,
+   "time": "11/17 01:22"
+  },
+  {
+   "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-tests-key-support-as-bearish-candlestick-pattern-raises-fresh-concerns-200691672",
+   "ms": 1794848160000,
+   "time": "11/17 00:56"
+  },
+  {
+   "t": "Gold holds near 13-month low as hawkish Fed outlook caps upside",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSWtRM0FYZ1BHSVl4Rk5rRmxEZnMtc2Y0a2lob3AwYm5yVEtzV1c5SG5CWFRodFpCY3FpUEgtUnF2UE1WMkF5ckZibmVKdWE0V0VnY0xELW9nTjBYUUdTem9nOGpCaThzc1pTcUtoYTNRd0RxcFZmdi1HT19vbkJXR0o5VUFHWjB1dnpCUlFVMkRnQ2c5ZzhwX0dmQWx4MG9HNXZMRlBPc0ZDX19rMlppdmtoWmMtWlNJSklZ?oc=5",
+   "ms": 1794842800000,
+   "time": "11/16 23:26"
+  },
+  {
+   "t": "The price of gold today, Nov. 16, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51RXJFR0hvanlBak5MOWdLM2x6eExDOVdybUM1QWM3V3pabV9KZUZKQmk1STU1a29wd1FBLURtTFRXRGs5WjN2d19EWFo5dzl3UmMyN2hsN1A0S3VQd3Q1NFgxWExKaFJ1eEpqTEJjeDM2d9IBd0FVX3lxTE9lZmxTVTA4VVpjREwxX3VGdG1WdmQwakxoLVk3M0VsdFE5Ym5XcER2cXZLSllBWEVUVWJmQ1U5RTczLUNHeFVINWpBUFVaa2c2NEQ1dU5uWjVRb3BkTVBGYlY3RUlKTGMzMHd5bjlSYThmZTRYMTRr?oc=5",
+   "ms": 1794842117000,
+   "time": "11/16 23:15"
   }
  ]
 }
