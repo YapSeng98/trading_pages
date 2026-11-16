@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 06:18 SGT",
+ "updated": "2026-11-17 06:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Goldman forecasts gold price to take two years to recapture all-time highs",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/goldman-forecasts-gold-price-to-take-two-years-to-recapture-all-time-highs/",
+   "ms": 1794868263000,
+   "time": "11/17 06:31"
+  },
   {
    "t": "Central bank buying to support gold’s climb to $4,650/oz by end-2027, Goldman Says",
    "src": "mining.com",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
    "ms": 1794851640000,
    "time": "11/17 01:54"
-  },
-  {
-   "t": "Fed's Barr warns on AI risks to financial system",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
-   "ms": 1794849813000,
-   "time": "11/17 01:23"
   }
  ]
 }
