@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 05:37 SGT",
+ "updated": "2026-11-17 05:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -28,11 +28,18 @@
    "time": "11/17 04:52"
   },
   {
-   "t": "Gold drops to more than one-year low as US dollar marches higher",
+   "t": "Gold price drops to more than one-year low as US dollar marches higher",
    "src": "mining.com",
    "url": "https://www.mining.com/web/gold-drops-to-more-than-one-year-low-as-us-dollar-marches-higher/",
    "ms": 1794861986000,
    "time": "11/17 04:46"
+  },
+  {
+   "t": "Goldman Forecasts Gold to Take Two Years to Recapture All-Time Highs",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNczF1RXhsRmNwczFILVk5SGZNMVhVeERCSHJkOS1OdDFNcndMcHk0ZTUxVVc0QXNUd0lCZEVqYmxfOGV5eGpsMEhnMGpRWUhLVEJqdWQ1MExqZUxMcjQ1S1h1LWx5QzBDVzkyY3BYQVk1Y2VkSnIyOWxMOV9tcTdYOU1lSUxCMHVfNFJkTm5vbDFpLUItZnFWMlhfamdvdHZoak9RRG9Xakl6RFBIb29JSkRWRENVM1dlWU1v?oc=5",
+   "ms": 1794860145000,
+   "time": "11/17 04:15"
   },
   {
    "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQYlNlUGtXUzMzaFhYU1lJRE9ZSW1NRTh3ZzRnc2RjYVRxNENhWnVuOWQ4TklmczRfTWg5MmZaRUktd195R2dFOURVcUFIZ3ZKSUE3N3MtbEFCUnVfU1R3T2pyc2FEeDdmdGZJQm5XN2hUWUdGb28wVmowTHV3OWFvLWhxVVlZbl9hQkZ4cE9lbXItdmRYZ0wtNUZDSE9OQ1lHZU5fb3dLZ3lJYnkwU2g1ZE90S1NTSXZkckJF?oc=5",
    "ms": 1794859339000,
    "time": "11/17 04:02"
+  },
+  {
+   "t": "Gold’s bull market will benefit from tech selloff as capital rotates back into precious metals – Jesse Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOai16a295Z0xBSGRIYkZyRW94bUsyVHFKOU5FVzBWY2k2TkRpUldqTy1pQnlJZjJVZzFPMHFPOTNuVlRsMnZRQ3RISldyVlV5b1BlNzl4eFdzUVpaUWZVTm5TaEpPTEgybnpyWUlVSjk3YTEtX3g2WXJreWNaUVFPaUVITlVWdFBqODB1a3NibVdSd2FpZTRrY1l2RThuYkRmVkNtc1l5NjFfUWNBZWdfNHJhWnI2a1RHck13?oc=5",
+   "ms": 1794856767000,
+   "time": "11/17 03:19"
   },
   {
    "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
@@ -91,25 +105,11 @@
    "time": "11/16 23:15"
   },
   {
-   "t": "Canadian Dollar extends decline as mixed CPI data offers little support",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMDllQkF3QVVxdUFSdjZaMmF5Tjg3OS1FOEsxR1R4cUo5cmN3YWd3SlU4SXk4RkdtSmM2ZmRwUUlUbWtRMHpjWVFTSTBzT1AtekdSS191bEU0Q0R2Q1kwNlQtMVo5Tm5hSFhyWUIxd1ZHSDNkRWdCWWE5Zmh4RXNkbWpSMVRlQjVfRUI4N1lxbEl1MmhSSzR0a1A1YXBWTTQxT3FuTHBDaTNZYUZ6TUNFMTQ2RHo?oc=5",
-   "ms": 1794838410000,
-   "time": "11/16 22:13"
-  },
-  {
-   "t": "Gold Options Map: December Max Pain at 4,190 Sits 7.8% Above a 3,886 Settle",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-options-map-december-max-pain-at-4190-sits-78-above-a-3886-settle-200691666",
-   "ms": 1794836880000,
-   "time": "11/16 21:48"
-  },
-  {
-   "t": "Gold price struggles even as New York Fed's Empire State survey weakens",
+   "t": "Gold price slides as Fed hike bets rise, silver bar and coin sales drop despite lower prices – Heraeus",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
-   "ms": 1794835946000,
-   "time": "11/16 21:32"
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTnBWa0U3NmtKWVR6X1FDSjNiOUFHcHlIR0Q1Q2xIdWJwU253aFQ0ZzRBMjN4LTZkVlNhTDg2SDVjTWV5VXpFNzBDMXRUWjhvS3JqZXE1LUk2RmV0a0RXdnpMSVZ0cXF5emJXTXV1bE5VclR3cTZxeFRDb1c2WkJTd2xONEN4alVjS05DVllHMG1LRU13LW9nWGtMQXF0eFl0WE9YRXBESnN0MjYydVpkd2xoMlRUWWZLWFBmUk5R?oc=5",
+   "ms": 1794841293000,
+   "time": "11/16 23:01"
   }
  ]
 }

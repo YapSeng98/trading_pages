@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16 08:46 SGT",
+ "updated": "2026-11-17 05:51 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -35,7 +35,7 @@
    "impact": "high",
    "title": "Retail Sales m/m",
    "zh": "零售销售月率",
-   "forecast": "0.2%",
+   "forecast": "0.1%",
    "previous": "0.8%"
   },
   {
