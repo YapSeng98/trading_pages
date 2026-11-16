@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-17 05:23 SGT",
+ "updated": "2026-11-17 05:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Central bank buying to support gold’s climb to $4,650/oz by end-2027, Goldman Says",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/central-bank-buying-to-support-golds-climb-to-4650-oz-by-end-2027-goldman-says/",
+   "ms": 1794864898000,
+   "time": "11/17 05:34"
+  },
+  {
+   "t": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
+   "ms": 1794862663000,
+   "time": "11/17 04:57"
+  },
   {
    "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
    "src": "Investing.com",
@@ -21,32 +35,11 @@
    "time": "11/17 04:46"
   },
   {
-   "t": "Gold Use in Tech and Industry Increased Modestly in Q3",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQalVtanBZQXdITFlZZU5WeHB3SzhZWHFNZEdubXMxd1VsX2dsVmVmU0lLRXJtekh6cGZXMHpOWFk1XzZfSHFnOUdLSGM2b1ZtbzFhNE5OWkpTREV4cmd1QUMzbVZvbld4Q1hZSEZLc2J2MDFOcmRMejlNcFJLcWpGZUZyX1o3ZEZLQXhOaTlVb1JsUmp2TGM2OExVSy1qeFRkUHln?oc=5",
-   "ms": 1794857551000,
-   "time": "11/17 03:32"
-  },
-  {
-   "t": "Gold price dip presents an opportunity for long-term investors",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOeUlZNFRxOWVYUHAtc0ozNGlYT1lWM3Zfb2wzWG9PdTVIZExkUTBVV0dWaGFpMTFRYXdLNktWTVBNN255LWZReEduV1h5c0FBR2hxa3dBRTUwdHVibWUyV1hGcHZ1dkRWOXdQMUFZWEpJY1JYeEpLWnJ6bV9JZ3RNTF9JckV5N0JJWEwtZWRiSldNSWRXUzFZNjItSjBUVF84VGZxem1rVjVMUjhFSFE?oc=5",
-   "ms": 1794857493000,
-   "time": "11/17 03:31"
-  },
-  {
-   "t": "Inflation is back - so why is gold falling?",
+   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOZ01FckYwQ21PN282MW10eWlUV1Q4aUlPekdkbVRmMHVVSmNKNGx6NDhhMXp5MmRzbEF0WmRQY3BlMzJwbmdST0VXdWN6am1kbUJuaUNtenJvUHBpXzJrX2pFSmsxdVJIZWFtb2Z6M2t1VzVLQjFxdlVrcEhyOGZ2OQ?oc=5",
-   "ms": 1794857234000,
-   "time": "11/17 03:27"
-  },
-  {
-   "t": "Gold’s bull market will benefit from tech selloff as capital rotates back into precious metals – Jesse Colombo",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOai16a295Z0xBSGRIYkZyRW94bUsyVHFKOU5FVzBWY2k2TkRpUldqTy1pQnlJZjJVZzFPMHFPOTNuVlRsMnZRQ3RISldyVlV5b1BlNzl4eFdzUVpaUWZVTm5TaEpPTEgybnpyWUlVSjk3YTEtX3g2WXJreWNaUVFPaUVITlVWdFBqODB1a3NibVdSd2FpZTRrY1l2RThuYkRmVkNtc1l5NjFfUWNBZWdfNHJhWnI2a1RHck13?oc=5",
-   "ms": 1794856767000,
-   "time": "11/17 03:19"
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQYlNlUGtXUzMzaFhYU1lJRE9ZSW1NRTh3ZzRnc2RjYVRxNENhWnVuOWQ4TklmczRfTWg5MmZaRUktd195R2dFOURVcUFIZ3ZKSUE3N3MtbEFCUnVfU1R3T2pyc2FEeDdmdGZJQm5XN2hUWUdGb28wVmowTHV3OWFvLWhxVVlZbl9hQkZ4cE9lbXItdmRYZ0wtNUZDSE9OQ1lHZU5fb3dLZ3lJYnkwU2g1ZE90S1NTSXZkckJF?oc=5",
+   "ms": 1794859339000,
+   "time": "11/17 04:02"
   },
   {
    "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
@@ -63,20 +56,6 @@
    "time": "11/17 02:21"
   },
   {
-   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
-   "ms": 1794852186000,
-   "time": "11/17 02:03"
-  },
-  {
-   "t": "Earnings call transcript: Contango Silver & Gold posts Q3 2026 loss as stock falls",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcVRyXzR2eXFjVDFNa0pEcG0wX01LZ3VVTUFpWE5UMzdCMnlnTmg5T09tbm9Jd1JwWEtDeFRTeTRUUG9WXzBhVlBMSzhLTmNqZk85WVBDVmhFSUIwb0xSNzVqYnlRbUNHakFSQVdDRVZHc1RFZmwwMjJla2N6ZTA4UWp4N295Wk4xcmdrNi0yaGthakNXX0F0ZmN0djFZNXFERmRGOThxVnQ5b3FlWlUyRnVWYUNJdGVVVGh2SHJfd1RVMHI0dGtwbzlyaUhXSVIyYWhjbllJQUI?oc=5",
-   "ms": 1794852139000,
-   "time": "11/17 02:02"
-  },
-  {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
@@ -84,11 +63,11 @@
    "time": "11/17 01:54"
   },
   {
-   "t": "Gold isn't being sold for thew reason most people think",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
-   "ms": 1794849778000,
-   "time": "11/17 01:22"
+   "t": "Fed's Barr warns on AI risks to financial system",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQMmF2a1AxTXIyN09XQ2FpMmNFYk9UdVdYaFozUTN3UmY2amR1c0g5ZkdMU0NCRG54cy1pWmhadmFNdjNxbmlha1p3SlhnZ1VvZ2dvU3JIT1praWI2eWVIZE1taUNKQ2Nqd1JUakhtQl8tS3B2Y1gwNkJ3ZlFTYkpaSDJuZjZBZjVza2NB?oc=5",
+   "ms": 1794849813000,
+   "time": "11/17 01:23"
   },
   {
    "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
@@ -110,6 +89,27 @@
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51RXJFR0hvanlBak5MOWdLM2x6eExDOVdybUM1QWM3V3pabV9KZUZKQmk1STU1a29wd1FBLURtTFRXRGs5WjN2d19EWFo5dzl3UmMyN2hsN1A0S3VQd3Q1NFgxWExKaFJ1eEpqTEJjeDM2d9IBd0FVX3lxTE9lZmxTVTA4VVpjREwxX3VGdG1WdmQwakxoLVk3M0VsdFE5Ym5XcER2cXZLSllBWEVUVWJmQ1U5RTczLUNHeFVINWpBUFVaa2c2NEQ1dU5uWjVRb3BkTVBGYlY3RUlKTGMzMHd5bjlSYThmZTRYMTRr?oc=5",
    "ms": 1794842117000,
    "time": "11/16 23:15"
+  },
+  {
+   "t": "Canadian Dollar extends decline as mixed CPI data offers little support",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMDllQkF3QVVxdUFSdjZaMmF5Tjg3OS1FOEsxR1R4cUo5cmN3YWd3SlU4SXk4RkdtSmM2ZmRwUUlUbWtRMHpjWVFTSTBzT1AtekdSS191bEU0Q0R2Q1kwNlQtMVo5Tm5hSFhyWUIxd1ZHSDNkRWdCWWE5Zmh4RXNkbWpSMVRlQjVfRUI4N1lxbEl1MmhSSzR0a1A1YXBWTTQxT3FuTHBDaTNZYUZ6TUNFMTQ2RHo?oc=5",
+   "ms": 1794838410000,
+   "time": "11/16 22:13"
+  },
+  {
+   "t": "Gold Options Map: December Max Pain at 4,190 Sits 7.8% Above a 3,886 Settle",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-options-map-december-max-pain-at-4190-sits-78-above-a-3886-settle-200691666",
+   "ms": 1794836880000,
+   "time": "11/16 21:48"
+  },
+  {
+   "t": "Gold price struggles even as New York Fed's Empire State survey weakens",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQWktDb1dkWG44SXZtY1B0bWo5QzZCVzBxWnFCaFFiSnpJNmplY3VvUVZqUWxlMjR6WWdadlo4cG9HeTNnQS13UTR3X3lXeUJUVGRfMkc0cU9lQVFEZ19pRXRIMGpGYTBub1huTm05cTVjZFF4dl9saHFPamItUjF3WU1qczd1a1h3WE02eFhjeEt2bEFhTVFVUS13RGk3X2c0VUVFVXAxeEtGdnhrUlRRUHktUQ?oc=5",
+   "ms": 1794835946000,
+   "time": "11/16 21:32"
   }
  ]
 }
