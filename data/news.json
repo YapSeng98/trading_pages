@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 02:41 SGT",
+ "updated": "2026-11-17 02:54 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-selloff-shows-how-rising-real-yields-can-overwhelm-haven-demand-200691680",
+   "ms": 1794854040000,
+   "time": "11/17 02:34"
+  },
   {
    "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
    "src": "Investing.com",
@@ -33,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPYm9RempVRkhYbWt2MU95aHJEbUpDYVdfX1d0RXBvTWxTMFVPdFZsZTZlMmExSjNQTTNscTdZcWxZQ21BUWY3ZDV3cUZ1cnM0d0pYay1ueXlrWEJaa3FfNGxmQmsyVDgxbUN5cC1UUXRzNFZ3NW90SHlnRDhaczZKUWVzZkpaR3QwOUNRYVY5Z2JBUkswWk44WnhRbDVTR1FuY093?oc=5",
    "ms": 1794849778000,
    "time": "11/17 01:22"
+  },
+  {
+   "t": "Fed's Warsh says emerging technologies will have 'significant impact,' but risks need to be watched",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
+   "ms": 1794848817000,
+   "time": "11/17 01:06"
   },
   {
    "t": "Gold Tests Key Support as Bearish Candlestick Pattern Raises Fresh Concerns",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbjEyUjNLdmI1TkRFNkQ0dWFWc3BMUnFyc2F1SDBkYXRUXzg0Zk5vS2VaQUQzTnB6UWx5X2MybHJWT2dhQ0NDNkxDdXUzWXhLdVBRMFVPYkMxbzhieWd1Q1FycjVEOGtxRVJORTFQRjVXeU9TUFFmaTVpd1dkaHdyQS1vUHFNMUVfRjhOZDdyME85UQ?oc=5",
    "ms": 1794835768000,
    "time": "11/16 21:29"
-  },
-  {
-   "t": "Gold: Rebound Off 0.786 Resistance Arc, Medium Term Remains Bearish Towards 3720",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebound-off-0786-resistance-arc-medium-term-remains-bearish-towards-3720-200691662",
-   "ms": 1794835440000,
-   "time": "11/16 21:24"
-  },
-  {
-   "t": "TSX futures slip on weaker oil, gold; inflation data eyed",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNZGV2N2U3ZkVzNVBVN3lFY1NlWk81ME90am94TzlxZzBiOUxIRFdLU1hlMkQ5TWxEdUJfT0x3U1FUNkxia0pFRFh1cHdDb2RlMFBkb1BNZlZVcUlCR0h0MDdMVng4aVFhOHNVWlF2ZmlZeVQtcTEyOEJXM3NsMDAxQXNMYlUzYnpPYWNtRERFNWN3MXhhTDIxMVpRdS1BZGFtS3RDNWdB?oc=5",
-   "ms": 1794834960000,
-   "time": "11/16 21:16"
   }
  ]
 }
