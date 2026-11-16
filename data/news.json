@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-16 14:37 SGT",
+ "updated": "2026-11-16 14:50 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold remains under pressure as inflation keeps Fed rate hikes in focus",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRkUySnhhczlZWFM1VTF2U0gzY0RsNndodVZmVnVTS1BTMFRLaXY5S0tqVVoxMDFINUNwM2xjOFd4WU5hM08wcjEyaWxQRmJkZzlKY2pJdWdfWWNDZEJfVmd3RjRlckJSMnY1VGhoeGFhM1JMYkx0LXFsN1pPTEdYX193TGlDOURPNURpblZDRlRXTmt2S2xQWlQyZU1sM1hDQ3FhbXVJaXN6SXdvbDNHVjFmMGoxejAt?oc=5",
+   "ms": 1794810796000,
+   "time": "11/16 14:33"
+  },
   {
    "t": "Gold extends slide below $3,900 as dollar strength and Fed hike bets weigh By Investing.com",
    "src": "Investing.com India",
