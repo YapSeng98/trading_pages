@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 05:10 SGT",
+ "updated": "2026-11-17 05:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -49,18 +49,32 @@
    "time": "11/17 03:19"
   },
   {
-   "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOal9nbG1RUnNxVTlESVFPbnI1bzkwejJ3UUVPbTNzSG9RaGtPQ2d3Mkd6elBJNHpVT0NTN0daNkNIeUNKWTBnWl9NRWM5TXpTbVptTVBZUWM0SzRTLVliZnJ4TEd5ejM4Nkh2Ylk4TndsUjZGblBJTkJwQllBNnBURjJodUJudVBjd0RpdEV0STJrLWpySDhCaGNhZGVuVERUS0xjUWRLQ0pyZHVDSHRkeGc1MTVRcXdtY1ZuRFln?oc=5",
-   "ms": 1794856725000,
-   "time": "11/17 03:18"
-  },
-  {
    "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-selloff-shows-how-rising-real-yields-can-overwhelm-haven-demand-200691680",
    "ms": 1794854040000,
    "time": "11/17 02:34"
+  },
+  {
+   "t": "Gold: Central Bank Buying Is Keeping It Afloat as More Fed Hikes Are Expected",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-central-bank-buying-is-keeping-it-afloat-as-more-fed-hikes-are-expected-200691679",
+   "ms": 1794853260000,
+   "time": "11/17 02:21"
+  },
+  {
+   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
+   "ms": 1794852186000,
+   "time": "11/17 02:03"
+  },
+  {
+   "t": "Earnings call transcript: Contango Silver & Gold posts Q3 2026 loss as stock falls",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcVRyXzR2eXFjVDFNa0pEcG0wX01LZ3VVTUFpWE5UMzdCMnlnTmg5T09tbm9Jd1JwWEtDeFRTeTRUUG9WXzBhVlBMSzhLTmNqZk85WVBDVmhFSUIwb0xSNzVqYnlRbUNHakFSQVdDRVZHc1RFZmwwMjJla2N6ZTA4UWp4N295Wk4xcmdrNi0yaGthakNXX0F0ZmN0djFZNXFERmRGOThxVnQ5b3FlWlUyRnVWYUNJdGVVVGh2SHJfd1RVMHI0dGtwbzlyaUhXSVIyYWhjbllJQUI?oc=5",
+   "ms": 1794852139000,
+   "time": "11/17 02:02"
   },
   {
    "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE51RXJFR0hvanlBak5MOWdLM2x6eExDOVdybUM1QWM3V3pabV9KZUZKQmk1STU1a29wd1FBLURtTFRXRGs5WjN2d19EWFo5dzl3UmMyN2hsN1A0S3VQd3Q1NFgxWExKaFJ1eEpqTEJjeDM2d9IBd0FVX3lxTE9lZmxTVTA4VVpjREwxX3VGdG1WdmQwakxoLVk3M0VsdFE5Ym5XcER2cXZLSllBWEVUVWJmQ1U5RTczLUNHeFVINWpBUFVaa2c2NEQ1dU5uWjVRb3BkTVBGYlY3RUlKTGMzMHd5bjlSYThmZTRYMTRr?oc=5",
    "ms": 1794842117000,
    "time": "11/16 23:15"
-  },
-  {
-   "t": "Gold price slides as Fed hike bets rise, silver bar and coin sales drop despite lower prices – Heraeus",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTnBWa0U3NmtKWVR6X1FDSjNiOUFHcHlIR0Q1Q2xIdWJwU253aFQ0ZzRBMjN4LTZkVlNhTDg2SDVjTWV5VXpFNzBDMXRUWjhvS3JqZXE1LUk2RmV0a0RXdnpMSVZ0cXF5emJXTXV1bE5VclR3cTZxeFRDb1c2WkJTd2xONEN4alVjS05DVllHMG1LRU13LW9nWGtMQXF0eFl0WE9YRXBESnN0MjYydVpkd2xoMlRUWWZLWFBmUk5R?oc=5",
-   "ms": 1794841293000,
-   "time": "11/16 23:01"
-  },
-  {
-   "t": "Current price of gold as of November 16, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBSLUtnUnBuT2NhTmpObFlyd09EMk1LNjBhOXRPYkp2dVdhY1hfQ3ZfNTJkd1lWMzJjQ2R0bG5KUkljWW5rZmxKWFJKcEtHN3ZraWZUMkR5VHVrVzhKWjVueHZkWTVHNUh3MncyTlJn?oc=5",
-   "ms": 1794837900000,
-   "time": "11/16 22:05"
   }
  ]
 }
