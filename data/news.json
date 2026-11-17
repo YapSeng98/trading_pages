@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 07:19 SGT",
+ "updated": "2026-11-18 07:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold holds steady near $3,850 ahead of FOMC Minutes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNOVZrZ1k5azNqcC02SU9yOV9RZ1lJNEpRam1ScmNCNnR5b1Rxa3Jud19xUEJrclZfRGlRZTZzUnl1a2ZyUTNtRl9vMURhb1V1UV9Rc0FPd1RLV2ZuSm1DQmVSeGt5WGJiekJRLVRtemNmaV9oU0Z2RVpOc2xUQ1hEOS02X1N5eU1MSzlmd2haeDAxVlZId1VSWg?oc=5",
+   "ms": 1794957685000,
+   "time": "11/18 07:21"
+  },
   {
    "t": "Gold will reclaim $5,600/oz in 2028 as rate cuts bring Western investors back to precious metals – Goldman Sachs",
    "src": "Kitco",
@@ -56,6 +63,13 @@
    "time": "11/18 02:57"
   },
   {
+   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
+   "ms": 1794941713000,
+   "time": "11/18 02:55"
+  },
+  {
    "t": "Forex Today: FOMC Minutes and UK CPI come to the fore",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbjlZZ00wRDByX0FDZ2dDMUZEQTZ5QjlGNGNSWXl6X2hvUmx1LUlfeG1oRUpSMUQ3YmFMSlpGYUlxTmlHLUlkbUlNN3FXbUV6YmxBdVFpLXBac3BTODgycEZCUm43N0w0UVE1eksta3pmb3pFMzBoSmVsVURHOHpxMjVVcjlIdXUwVkI3RW51TENIZXpyeFdNTXp2QQ?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-prices-rebound-on-trumps-comments-but-key-resistance-keeps-sellers-alert-200691762",
    "ms": 1794935340000,
    "time": "11/18 01:09"
-  },
-  {
-   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
-   "ms": 1794933788000,
-   "time": "11/18 00:43"
-  },
-  {
-   "t": "Gold: Fed expectations could help prices find a floor – Commerzbank",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTkhoYXNCY202ZThpclIyUmxncVZTdkVHdVg4VEYzTDB6QkRmWnI5bDZOdjlGN2dEZlpVUGs1SlVlc3dVNmF4eGZ0RHRQV2s0ZEx6N0ZLczhqNV9sQVg2WXdaQk8zNnY5UzhsZ1ZBdjZvdkxTX3ZadDhYQ1FWQk1hUklCSjlFZU0wWGI1cDFlVTJ1bGFmSFl5bC1wdkF3X0p5LVM3NzE1Q1dFY2M?oc=5",
-   "ms": 1794933352000,
-   "time": "11/18 00:35"
   }
  ]
 }
