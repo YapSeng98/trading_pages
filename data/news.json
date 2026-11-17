@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 03:57 SGT",
+ "updated": "2026-11-18 04:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -28,18 +28,18 @@
    "time": "11/18 02:57"
   },
   {
-   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
-   "ms": 1794941713000,
-   "time": "11/18 02:55"
-  },
-  {
    "t": "China’s concentrate-fed copper smelting capacity nears a ceiling in 2026, association says",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY082NmJfTXQxdE16cnlxbzl1T1V1ZkdFNGY4c3d6TnpVaG1tMzhWRXFNQ2xqdGdyQThDZlZaRFFYRFVRWlpkUTNmYTlPMTRwdTI0WEd4SVYwQ2F5TlRtLXYxQlNwUjUtdTcyS1E1RlJ1Tk4xcU5jU3NSYVViUXFaSDd5QUFiajc5ek5aYUJkZVpmMUViZGhKLTdHeDVtak10dXVWVXV2a29vOTFhU3NOaGZWekpWSWtY?oc=5",
    "ms": 1794941072000,
    "time": "11/18 02:44"
+  },
+  {
+   "t": "Will Gold Prices Rise After the Fed's Expected December Rate Hike?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbWctLXJnSWdVYW5Tcjh2S09STExVTWFuMWM4NFdnTjRFQ216c00xOVBRVUFPQ25JTDRkb1Uzd19ua2pyRkpRZ3hYZ2xxellPVjFyMGJQYkN3dVBUUnByVEhITzJKM1U3c3ZtM2tFSEd4SlRlMjlvbDhTUWd3czd5cFJrOTFCTWlCUDFOVzNwdU4ySTgxX2RHYWlDYS1laXUtN3c?oc=5",
+   "ms": 1794938578000,
+   "time": "11/18 02:02"
   },
   {
    "t": "Gold struggles to rebound from one-year low as US dollar, yields advance",
@@ -91,6 +91,13 @@
    "time": "11/17 23:10"
   },
   {
+   "t": "Gold stabilizes after hitting over one-year low By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb0c2d0N3TGdSX211bDdHeHhLc2tmN0xWMlBFUGxIWUU5RmVjak5UbUhWYi1xTmZObXZldF81VnFjMmVDSkNjOHBTRkxsbURITG9hOGdVM2YzQW5kUDlxV3h3S25HNFh2d0xITnhFQnNCZ1dIeVFQdmpKcHY0SjRtVHNJcXNubFF0Tnp6TWw1M3VleHBXczRfZllSX29mX0xwbFd5NVRyakVZRlpNME5zcmJnN084ZlUyZi01cExkdzU?oc=5",
+   "ms": 1794928061000,
+   "time": "11/17 23:07"
+  },
+  {
    "t": "The price of gold today, Nov. 17, 2026 — and the best places to buy",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa0doRkFmRmdZak9BZDFNN0k1amNIR2tuNl9zQTJISDRBbTlOZTNXNlFEb2xrREl5Rk5NcTNzNEJnY3hIWnBLSlhBaExxTTU0WXM3aXY2SWhHZjgyeERfMUsxX3hLLW1SRHEwX2F2ME42Z9IBd0FVX3lxTE1PZlBvMkkycUY0b0Z5OUNnYmo2RzZDZFRIQU1KV0xlSEpuWEdZYV9mWmZTRVRCWnZYRWFoMDR0ZTg5SlBjR1pPME84SXVzVkwzMGxfdWxESkw4NTJOWVZvb2JleE5VMTR5QmZHOTNiUzNaS3pEZG1B?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
    "ms": 1794926859000,
    "time": "11/17 22:47"
-  },
-  {
-   "t": "Current price of gold as of November 17, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE00VDN1NmE2Y2Z4b0RmS2JWdlkzdTE1dlI2QkRMaXExSmxPV18xVDMwRWRtZ1FpUVNlV1V3Vl9wT2dfZVZ2SDZtdEYyY2YxYzZHZjNDSFZrUjFpMVFuRjlBS1N6UjIteGlSYTJ0c1Nn?oc=5",
-   "ms": 1794924480000,
-   "time": "11/17 22:08"
   }
  ]
 }
