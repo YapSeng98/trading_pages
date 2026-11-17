@@ -423,11 +423,25 @@
       : perm !== "granted" ? tr("这个浏览器还没允许通知：打开黄金、比特币或外汇页，开启提醒时允许一次。", "This browser has not allowed notifications yet: open the gold, Bitcoin or forex page and allow them once when turning alerts on.")
       : tr("提醒由开着的市场页检查（放在后台也行），没开的页面不会提醒。每条带一张图，点通知会打开那一条。", "Alerts are checked by the market pages that are open (in the background is fine); a page that is not open does not alert. Each comes with a picture; tapping a notification opens it.")));
   }
+  // every market's alerts behind one button, in the same popup the market pages use (owner, 2026-11-18: "one button for
+  // user to click and view")
+  var ALPOP = null;
+  function paintAlBtn() {
+    var all = AlertKit.list(), n = AlertKit.unread ? AlertKit.unread() : 0, b = $("hub-al-n"), last = $("hub-al-last");
+    if (b) { b.hidden = !n; b.textContent = n > 99 ? "99+" : String(n); }
+    if (last) last.textContent = all.length ? (EN ? all.length + " kept · latest " : "共 " + all.length + " 条 · 最近 ") + sinceWhen(all[0].at) + " " + all[0].title : tr("还没有提醒", "No alerts yet");
+    if (ALPOP) ALPOP.badge("log", n);
+  }
   function startAlerts() {
     if (!window.AlertKit || !$("hub-al")) return;
     paintAlerts(); setInterval(paintAlerts, 30000);
     window.addEventListener("storage", function (e) { if (e.key === "alerts.watch") paintAlerts(); });
-    AlertKit.view($("hub-al-log"), { limit: 5, others: true, noClear: true, empty: tr("还没有提醒。打开黄金、比特币或外汇页并开启提醒后，每条提醒都会记在这里，带上那一刻的图。", "No alerts yet. With the gold, Bitcoin or forex page open and its alerts on, each alert is kept here with its chart at that moment.") });
+    var log = el("div", "al-log");
+    ALPOP = AlertKit.popup({ id: "hub-al-dlg", title: tr("🗂 提醒记录 · 这台设备", "🗂 Alert record · this device"), sub: tr("黄金 · 比特币 · 外汇", "Gold · Bitcoin · Forex"), markets: ["xau", "btc", "fx"], tabs: [{ id: "log", label: tr("提醒记录", "Record"), el: log }] });
+    AlertKit.view(log, { limit: 30, others: true, noClear: true, empty: tr("还没有提醒。打开黄金、比特币或外汇页并开启提醒后，每条提醒都会记在这里，带上那一刻的图。", "No alerts yet. With the gold, Bitcoin or forex page open and its alerts on, each alert is kept here with its chart at that moment.") });
+    $("hub-al-open").addEventListener("click", function () { ALPOP.open("log"); });
+    AlertKit.onOpen(function () { ALPOP.open("log"); });
+    AlertKit.onChange(paintAlBtn); paintAlBtn();
   }
   function start() {
     startSince(); startAlerts();

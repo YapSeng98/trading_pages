@@ -48,9 +48,9 @@ h1 em{font-style:normal;color:var(--gold-lt)}
 .bar .stamp{font-size:12px;color:var(--dim);flex:1;min-width:200px}
 .btn{border:1px solid var(--border);background:var(--bg3);border-radius:999px;padding:9px 15px;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink)}
 .btn.on{border-color:rgba(212,167,44,.6);color:var(--gold-lt);background:rgba(212,167,44,.08)}
-.fx-al{margin:12px 0 0;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2)}.fx-al .al-wrap{margin-top:10px}
+.fx-sw{font-size:12.5px;line-height:1.6}.fx-sw p{margin:0}.fx-sw b{color:var(--ink)}
 .fx-pchips{display:flex;flex-wrap:wrap;gap:6px}.fx-pch{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 12px/1.2 'IBM Plex Mono',monospace;padding:6px 9px;border-radius:999px;cursor:pointer}
-.fx-pch.on{border-color:rgba(212,167,44,.55);background:rgba(212,167,44,.1);color:var(--gold-lt)}.fx-pch.all{font-family:inherit;color:var(--dim)}.fx-albtn{margin-top:10px}
+.fx-pch.on{border-color:rgba(212,167,44,.55);background:rgba(212,167,44,.1);color:var(--gold-lt)}.fx-pch.all{font-family:inherit;color:var(--dim)}
 .fx-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
 /* loading must not move the page: the cards get their room before they arrive, so the sections under them start below the screen */
 .fx-list:empty{min-height:120vh}
@@ -135,7 +135,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   .fx-tf span{min-width:0;flex:1}
   .btn{min-height:36px}
   .fx-pat>summary{padding:8px 0}
-  .fx-al{padding:12px}.fx-pch{min-height:36px;padding:9px 11px}
+  .fx-pch{min-height:36px;padding:9px 11px}
   .lots{padding:16px 14px}.lots-in{grid-template-columns:repeat(2,minmax(0,1fr))}.inp input{font-size:16px}
   .lots-t thead{display:none}
   .lots-t tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;padding:10px 0;border-top:1px solid var(--border)}
@@ -167,10 +167,9 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
     <span class="sum" id="fx-sum">读取中…</span>
     <span class="stamp" id="fx-stamp"></span>
     <button class="btn" type="button" id="fx-refresh" data-en="⟳ Refresh">⟳ 刷新</button>
-    <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
+    <button class="btn" type="button" id="fx-alert" aria-haspopup="dialog">🔕 外汇提醒：关</button>
     <a class="btn" href="#fx-lots" data-en="🧮 Lot sizes">🧮 手数换算</a>
   </div>
-  <div class="fx-al" id="fx-al" hidden></div>
   <div class="fx-list" id="fx-list"></div>
   <section class="lots" id="fx-lots">
     <h2 data-en="🧮 Lot sizes: what 0.01 lot is">🧮 手数换算：0.01 手等于多少</h2>
@@ -203,8 +202,8 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=5"></script>
 <script src="assets/pattern-guide.js?v=2"></script>
-<script src="assets/alert-kit.js?v=1"></script>
-<script src="assets/fx-page.js?v=19"></script>
+<script src="assets/alert-kit.js?v=2"></script>
+<script src="assets/fx-page.js?v=20"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
 </html>

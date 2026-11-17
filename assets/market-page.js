@@ -1570,6 +1570,7 @@
   ];
   function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
   function renderAlert() {
+    paintAlBtn();
     var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
     var perm = Notification.permission, on = alertsOn(); el.className = "v-alert" + (on ? " on" : "");
     var t = h("div", { class: "t" });
@@ -1601,13 +1602,16 @@
     else if (S.notify && perm === "default") { t.appendChild(h("b", { text: tx("🔔 提醒默认开着，还差浏览器允许一次。", "🔔 Alerts are on by default; the browser still has to allow them once. ") })); t.appendChild(document.createTextNode(tx("浏览器弹出询问时点「允许」；没看到询问就点右边的按钮。允许一次以后，黄金页和比特币页都不用再点。", "Press «Allow» when the browser asks; if it does not ask, press the button on the right. Once allowed, neither the gold nor the Bitcoin page asks again."))); }
     else if (S.notify && perm === "denied") { t.appendChild(h("b", { text: tx("浏览器拒绝了通知。", "The browser blocked notifications. ") })); t.appendChild(document.createTextNode(tx("点地址栏左边的网站设置，把「通知」改成允许，再回来点「开启」。", "Open the site settings at the left of the address bar, set «Notifications» to allow, then come back and press «Turn on»."))); }
     else { t.appendChild(h("b", { text: tx("🔔 有新信号或趋势变化时提醒我", "🔔 Tell me about new signals or trend changes") })); t.appendChild(document.createTextNode(tx("：浏览器弹出通知，不用设置别的。", ": a browser notification, nothing else to set up."))); }
-    el.appendChild(t);
+    // the buttons right under what the state is, not after the list of ticks
+    var acts = h("div", { class: "al-acts" });
     if (on) {
-      el.appendChild(h("button", { type: "button", class: "btn sm", text: tx("试一下", "Try it"), onclick: function () { ensureAudio(); renderAlert(); testAlert(); } }));
-      el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tx("关闭", "Turn off"), onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
-    } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? tx("允许通知", "Allow notifications") : tx("开启提醒", "Turn on alerts"), onclick: function () {
+      acts.appendChild(h("button", { type: "button", class: "btn sm", text: tx("试一下", "Try it"), onclick: function () { ensureAudio(); renderAlert(); testAlert(); } }));
+      acts.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tx("关闭提醒", "Turn off"), onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
+    } else acts.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? tx("允许通知", "Allow notifications") : tx("开启提醒", "Turn on alerts"), onclick: function () {
       S.notify = true; LS.set("notify", true); ensureAudio(); askPermission(); renderAlert();
     } }));
+    var first = t.querySelector(".al-grp"); if (first) t.insertBefore(acts, first); else t.appendChild(acts);
+    el.appendChild(t);
   }
   // The chime. Browsers let a page make sound only after the visitor has clicked or typed on it since it was
   // loaded, so the sound is unlocked by the first click anywhere (or by 开启提示音 / 试一下); until then the
@@ -1887,7 +1891,7 @@
     list.forEach(function (a) { if (a.id === id && px !== null && a.price !== px) { a.at = a.hit = a.bar = null; a.made = Date.now(); a.dir = a.price > px ? 1 : -1; } });
     LS.set("palerts", list); palChanged();
   }
-  function palChanged() { renderPal(); renderPatPal(); if (S.E && !busyUi()) drawChart(); }
+  function palChanged() { renderPal(); renderPatPal(); paintAlBtn(); if (S.E && !busyUi()) drawChart(); }
   // the browser's permission, asked when an alert is set (the signal alerts may be switched off)
   function palAsk() {
     ensureAudio();
@@ -1997,6 +2001,7 @@
       var have = wait.some(function (a) { return a.price === v && a.mode === S.palMode; });
       el.appendChild(h("button", { type: "button", class: "pa-pick" + (have ? " on" : ""), "aria-pressed": String(have), text: (have ? "✓ " : "") + x[2] + " " + fmt(v, 1), onclick: function () { if (!have) palAdd(v, { src: x[1], tf: S.patTf, pat: p.name }); } }));
     });
+    if (POP) el.appendChild(h("button", { type: "button", class: "pa-more", text: tx("全部提醒 →", "All alerts →"), onclick: function () { POP.open("price"); } }));
   }
 
   // called with every new answer: alert when it has just become "go"
@@ -2497,21 +2502,38 @@
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
-  // ---------- the alert record ----------
-  // Every alert this browser was sent for this market, newest first, with its words and the picture that went with it,
-  // so a missed notification can still be read; a click on a notification opens it here (assets/alert-kit.js). The
-  // page also says every minute that it is open and checking, which the home page's status card shows.
-  function setupRecord() {
-    var after = $("v-palert"); if (!AK || !after || $("al-wrap")) return;
-    var wrap = h("details", { class: "al-wrap", id: "al-wrap" }, [h("summary", null, [h("b", { text: tx("🗂 提醒记录", "🗂 Alert record") }), h("span", { id: "al-last" })]), h("div", { class: "al-log", id: "al-log" })]);
-    after.parentNode.insertBefore(wrap, after.nextSibling);
-    AK.view($("al-log"), { markets: [M.id] });
-    var last = function () { var l = AK.list([M.id])[0]; $("al-last").textContent = l ? tx(" · 最近 ", " · latest ") + (sgt(l.at, "d") === sgt(Date.now(), "d") ? sgt(l.at, "t") : sgt(l.at)) + " " + l.title : tx(" · 还没有", " · none yet"); };
-    AK.onChange(last); last();
-    AK.onOpen(function () { wrap.open = true; });
+  // ---------- everything about alerts behind one button ----------
+  // Owner, 2026-11-18: "can make the alert related into one popup page? like one button for user to click and view so
+  // that will not make the page so confuse and need scroll down". The 🔔 提醒 button at the top of the answer (#al-open)
+  // opens one popup (AlertKit.popup) with three tabs: what to be told about (#v-alert), the price alerts (#v-palert) and
+  // the record of alerts sent (#al-log). The button shows whether alerts are on and how many alerts came since the record
+  // was last looked at; a click on a notification opens the record at that alert. The page also says every minute that it
+  // is open and checking, which the home page's alerts card shows.
+  var POP = null;
+  function setupPopup() {
+    var btn = $("al-open"), home = $("al-home"); if (!btn) return;
+    if (!AK || !AK.popup) { btn.hidden = true; if (home) home.hidden = false; return; }   // without the alert file the panels stay on the page
+    var log = h("div", { class: "al-log", id: "al-log" });
+    POP = AK.popup({ id: "al-dlg", title: tx("🔔 提醒", "🔔 Alerts"), markets: [M.id], tabs: [
+      { id: "set", label: tx("提醒设置", "Settings"), el: $("v-alert") },
+      { id: "price", label: tx("价格提醒", "Price alerts"), el: $("v-palert") },
+      { id: "log", label: tx("提醒记录", "Record"), el: log }] });
+    if (home && home.parentNode) home.parentNode.removeChild(home);
+    AK.view(log, { markets: [M.id] });
+    btn.addEventListener("click", function () { ensureAudio(); askPermission(); POP.open(AK.unread([M.id]) ? "log" : null); });
+    AK.onOpen(function () { POP.open("log"); });
+    AK.onChange(paintAlBtn); paintAlBtn(); setInterval(paintAlBtn, 60000);
+  }
+  function paintAlBtn() {
+    var btn = $("al-open"); if (!btn || !AK || !AK.unread) return;
+    var on = alertsOn(), wait = palList().filter(function (a) { return !a.at; }).length, n = AK.unread([M.id]), last = AK.list([M.id])[0], b = $("al-btn-n");
+    btn.classList.toggle("on", on); b.hidden = !n; b.textContent = n > 99 ? "99+" : String(n);
+    btn.title = (on ? tx("提醒已开", "Alerts on") : NOTE_OK && Notification.permission === "denied" ? tx("浏览器拒绝了通知", "The browser blocked notifications") : tx("提醒没开", "Alerts off")) +
+      (wait ? (EN ? " · " + wait + " price alert" + (wait > 1 ? "s" : "") + " waiting" : " · " + wait + " 个价格提醒在等") : "") + (n ? (EN ? " · " + n + " new" : " · " + n + " 条新提醒") : "") + (last ? tx(" · 最近：", " · latest: ") + last.title : "");
+    if (POP) POP.badge("log", n);
   }
   function beat() { if (AK) AK.watching(M.id, { on: alertsOn(), perm: NOTE_OK ? Notification.permission : "none", own: palList().filter(function (a) { return !a.at; }).length }); }
-  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert(); setupRecord(); beat(); setInterval(beat, 60000);
+  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert(); setupPopup(); beat(); setInterval(beat, 60000);
   refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed

@@ -487,20 +487,46 @@
     ["日线 · 4 小时：最快的预警", "潜在的偏多 / 偏空", [["pre", "可能转向：最新 15 分钟收盘越过日线或 4 小时的转折价", "那根 K 线收盘后再告诉你转成了没有。还不是信号"], ["turn", "收盘确认转向（周线、日线、4 小时）", "附日线和 4 小时合起来的方向"]]],
     ["形态 · 参考", "回放里形态单独做没有优势", [["pattern", "日线、4 小时：出现新形态、最新收盘越过突破位、收盘突破", "附形态图和它的价位"]]]
   ];
+  // Everything about alerts sits behind the one button in the bar (#fx-alert; owner, 2026-11-18: "one button for user to
+  // click and view so that will not make the page so confuse"): a popup with the switch, what to be told about and which
+  // pairs, and the record. The button says whether alerts are on and how many came since the record was last looked at.
+  var POP = null;
+  function paintFxBtn() {
+    var b = $("fx-alert"), n = AK && AK.unread ? AK.unread(["fx"]) : 0; while (b.firstChild) b.removeChild(b.firstChild);
+    b.appendChild(document.createTextNode(S.notify ? (granted() ? tr("🔔 外汇提醒：开", "🔔 Forex alerts: on") : tr("🔔 提醒：等浏览器允许", "🔔 Alerts: waiting for the browser")) : tr("🔕 外汇提醒：关", "🔕 Forex alerts: off")));
+    if (n) b.appendChild(h("span", { class: "al-btn-n", text: n > 99 ? "99+" : String(n) }));
+    b.className = "btn sm " + (S.notify ? "on" : ""); b.setAttribute("aria-haspopup", "dialog");
+    if (POP) POP.badge("log", n);
+  }
+  function toggle() {
+    var ask = function () { Notification.requestPermission().then(function () { renderAlert(); beat(); }); };
+    if (S.notify && "Notification" in window && Notification.permission === "default") { ask(); return; }
+    S.notify = !S.notify; ls.set("notify", S.notify);
+    if (S.notify && "Notification" in window && Notification.permission === "default") ask();
+    if (S.notify && AK) AK.sw();
+    renderAlert(); beat();
+  }
   function renderAlert() {
-    var b = $("fx-alert"), ok = granted();
-    b.textContent = S.notify ? (ok ? tr("🔔 外汇提醒：开（点一下关闭）", "🔔 Forex alerts: on (tap to turn off)") : tr("🔔 提醒已开，但浏览器还没允许通知：点一下允许", "🔔 Alerts on, but the browser has not allowed notifications: tap to allow")) : tr("🔕 外汇提醒：关（点一下打开）", "🔕 Forex alerts: off (tap to turn on)");
-    b.className = "btn sm " + (S.notify ? "on" : "");
-    var box = $("fx-al"); if (!box || !AK) return;
-    var opt = $("fx-alopt"); if (!opt) { opt = h("div", { id: "fx-alopt" }); box.appendChild(opt); }
-    if (!$("fx-alrec")) {
-      var rec = h("details", { class: "al-wrap", id: "fx-alrec" }, [h("summary", null, [h("b", { text: tr("🗂 提醒记录", "🗂 Alert record") }), h("span", { id: "fx-allast" })]), h("div", { class: "al-log", id: "fx-allog" })]);
-      box.appendChild(rec); AK.view($("fx-allog"), { markets: ["fx"] });
-      var last = function () { var l = AK.list(["fx"])[0]; $("fx-allast").textContent = l ? tr(" · 最近 ", " · latest ") + sgt(l.at) + " " + l.title : tr(" · 还没有", " · none yet"); };
-      AK.onChange(last); last(); AK.onOpen(function () { rec.open = true; });
+    paintFxBtn();
+    if (!AK || !AK.popup) return;
+    if (!POP) {
+      var log = h("div", { class: "al-log", id: "fx-allog" });
+      POP = AK.popup({ id: "fx-dlg", title: tr("🔔 外汇提醒", "🔔 Forex alerts"), markets: ["fx"], tabs: [{ id: "set", label: tr("提醒设置", "Settings"), el: h("div", { id: "fx-alset" }) }, { id: "log", label: tr("提醒记录", "Record"), el: log }] });
+      AK.view(log, { markets: ["fx"] }); AK.onOpen(function () { POP.open("log"); }); AK.onChange(paintFxBtn); paintFxBtn();
     }
+    var opt = $("fx-alset"), ok = granted(), perm = "Notification" in window ? Notification.permission : "none";
     while (opt.firstChild) opt.removeChild(opt.firstChild);
-    box.hidden = false; opt.hidden = !S.notify;
+    var sw = h("div", { class: "fx-sw" + (S.notify && ok ? " on" : "") }), t = h("p");
+    if (!S.notify) { t.appendChild(h("b", { text: tr("🔕 外汇提醒没开。", "🔕 Forex alerts are off. ") })); t.appendChild(document.createTextNode(tr("打开后，可以选要哪些提醒、哪些货币对。外汇回放里这个规则不赚钱，只作参考。", "Switched on, you choose which alerts and which pairs. The rule lost money in the forex replay: reference only."))); }
+    else if (ok) { t.appendChild(h("b", { text: tr("🔔 外汇提醒已开。", "🔔 Forex alerts are on. ") })); t.appendChild(document.createTextNode(tr("这一页开着（放在后台也行），每根 15 分钟 K 线收盘后检查一次，按下面勾选的弹出通知。", "With this page open (in the background is fine), it checks after every 15-minute close and notifies you of what is ticked below."))); }
+    else if (perm === "denied") { t.appendChild(h("b", { text: tr("浏览器拒绝了通知。", "The browser blocked notifications. ") })); t.appendChild(document.createTextNode(tr("点地址栏左边的网站设置，把「通知」改成允许，再回来。", "Open the site settings at the left of the address bar, set «Notifications» to allow, then come back."))); }
+    else { t.appendChild(h("b", { text: tr("提醒已开，还差浏览器允许一次。", "Alerts are on; the browser still has to allow them once. ") })); t.appendChild(document.createTextNode(tr("点右边的「允许通知」。", "Press «Allow notifications» on the right."))); }
+    sw.appendChild(t);
+    var acts = h("div", { class: "al-acts" });
+    if (S.notify && ok) acts.appendChild(h("button", { type: "button", class: "btn sm", text: tr("试一下", "Try it"), onclick: testAlert }));
+    acts.appendChild(h("button", { type: "button", class: "btn sm" + (S.notify ? "" : " on"), text: !S.notify ? tr("开启提醒", "Turn on") : perm === "default" ? tr("允许通知", "Allow notifications") : tr("关闭提醒", "Turn off"), onclick: toggle }));
+    sw.appendChild(acts);
+    opt.appendChild(sw);
     if (!S.notify) return;
     var grp = h("div", { class: "al-grp" });
     NG.forEach(function (g) {
@@ -525,8 +551,7 @@
     chips.appendChild(h("button", { type: "button", class: "fx-pch all", text: Array.isArray(S.npairs) ? tr("全选", "All") : tr("全不选", "None"), onclick: function () { S.npairs = Array.isArray(S.npairs) ? null : []; ls.set("npairs", S.npairs); renderAlert(); } }));
     pr.appendChild(chips); grp.appendChild(pr);
     opt.appendChild(grp);
-    opt.appendChild(h("p", { class: "al-pic", text: tr("这一页每根 15 分钟 K 线收盘后看一次（页面开着就行，放在后台也可以）。每条提醒都带一张图：那个周期的 K 线、提醒说到的价位和最新收盘，有形态就画上形态；一次超过三条时，先发最要紧的两条，其余的汇总成一条。全部记在下面的「提醒记录」里。", "This page looks once per 15-minute close (with the page open; in the background is fine). Every alert comes with a picture: that timeframe's candles, the prices it names and the latest close, with the chart pattern when there is one; more than three at once are sent as the two that matter most and one summary. All are kept in the «Alert record» below.") }));
-    opt.appendChild(h("div", { class: "fx-albtn" }, [h("button", { type: "button", class: "btn sm", text: tr("试一下", "Try it"), onclick: testAlert })]));
+    opt.appendChild(h("p", { class: "al-pic", text: tr("每条提醒都带一张图：那个周期的 K 线、提醒说到的价位和最新收盘，有形态就画上形态；一次超过三条时，先发最要紧的两条，其余的汇总成一条。全部记在「提醒记录」里。", "Every alert comes with a picture: that timeframe's candles, the prices it names and the latest close, with the chart pattern when there is one; more than three at once are sent as the two that matter most and one summary. All are kept in the «Record».") }));
   }
   function testAlert() {
     var r = PAIRS.map(function (p) { return S.res[p.i]; }).filter(function (x) { return x && x.E && pairOn(x.p.i); })[0] || PAIRS.map(function (p) { return S.res[p.i]; }).filter(function (x) { return x && x.E; })[0];
@@ -537,13 +562,7 @@
       lines: [tr("这是一条测试通知：真的提醒会像这样弹出，带一张那一刻的图。", "This is a test notification: a real alert pops up like this, with a picture of the chart at that moment."), r ? (fxPatLine(r, q) || tr("这个货币对现在日线、4 小时、1 小时都没有清楚的形态。", "This pair has no clear pattern on the daily, 4-hour or 1-hour right now.")) : "", REF],
       chart: r ? fxChart(r, q ? q.tf : "4H", [], { what: tr("测试", "test") }) : null });
   }
-  $("fx-alert").addEventListener("click", function () {
-    if (S.notify && "Notification" in window && Notification.permission === "default") { Notification.requestPermission().then(renderAlert); return; }
-    S.notify = !S.notify; ls.set("notify", S.notify);
-    if (S.notify && "Notification" in window && Notification.permission === "default") Notification.requestPermission().then(renderAlert);
-    if (S.notify && AK) AK.sw();
-    renderAlert(); beat();
-  });
+  $("fx-alert").addEventListener("click", function () { if (POP) POP.open(AK.unread(["fx"]) ? "log" : null); else toggle(); });
   function beat() { if (AK) AK.watching("fx", { on: S.notify && granted(), perm: "Notification" in window ? Notification.permission : "none", pairs: Array.isArray(S.npairs) ? S.npairs.length : PAIRS.length }); }
   beat(); setInterval(beat, 60000);
   $("fx-refresh").addEventListener("click", function () { scan(); });

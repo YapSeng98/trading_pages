@@ -672,14 +672,13 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
   <!-- the answer first -->
   <section class="verdict none live-data" id="verdict" aria-label="结论" data-en-label="Answer">
     <div>
-      <div class="v-top"><span class="v-tag"><i></i><span id="v-tag"><span data-en="Working it out">计算中</span></span></span><span id="v-chips" style="display:inline-flex;gap:6px;flex-wrap:wrap"></span></div>
+      <div class="v-top"><span class="v-tag"><i></i><span id="v-tag"><span data-en="Working it out">计算中</span></span></span><span id="v-chips" style="display:inline-flex;gap:6px;flex-wrap:wrap"></span><button type="button" class="al-btn" id="al-open" aria-haspopup="dialog"><span class="al-dot"></span><span data-en="🔔 Alerts">🔔 提醒</span><span class="al-btn-n" id="al-btn-n" hidden></span></button></div>
       <h2 class="v-title" id="v-title"><span class="sk" style="min-width:60%"></span></h2>
       <p class="v-text" id="v-text"><span class="sk" style="min-width:90%"></span></p>
       <ul class="v-reasons" id="v-reasons"></ul>
       <div id="v-next-wrap" hidden><div class="v-sub" data-en="What to do now">现在该做什么</div><ol class="v-next" id="v-next"></ol></div>
       <p class="v-proof" id="v-proof" hidden></p>
-      <div class="v-alert" id="v-alert" hidden></div>
-      <div class="v-palert" id="v-palert" hidden></div>
+      <div class="al-home" id="al-home" hidden><div class="v-alert" id="v-alert" hidden></div><div class="v-palert" id="v-palert" hidden></div></div>
     </div>
     <div class="v-side">
       <div class="v-price">
@@ -937,7 +936,7 @@ table.pf{width:100%;border-collapse:collapse;min-width:620px}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=5"></script>
 <script src="assets/pattern-guide.js?v=2"></script>
-<script src="assets/alert-kit.js?v=1"></script>
+<script src="assets/alert-kit.js?v=2"></script>
 <script>
 var T = window.T || function (zh) { return zh; };
 window.MARKET = {
@@ -1025,7 +1024,7 @@ XauPlan.setMarket({ goText: T("这个规则是在黄金上选出来的，在比�
   }).catch(function () { var b = document.getElementById("rp-body"); if (b) b.innerHTML = window.LANG === "en" ? '<p class="note">The replay results (data/btc-backtest.json) cannot be read.</p>' : '<p class="note">读不到回放结果（data/btc-backtest.json）。</p>'; });
 })();
 </script>
-<script src="assets/market-page.js?v=37"></script>
+<script src="assets/market-page.js?v=38"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
 </html>

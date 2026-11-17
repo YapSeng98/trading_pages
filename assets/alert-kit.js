@@ -254,8 +254,9 @@
   window.addEventListener("storage", function (e) { if (e.key === LOG) redraw(); });
   // a click on a notification: the page first opens what holds the record (onOpen), then the record shows that alert
   function open(id) {
+    views.forEach(function (v) { v.openId = id; });
     if (hook) try { hook(id); } catch (e) {}
-    views.forEach(function (v) { v.openId = id; }); redraw();
+    redraw();
     var el = document.getElementById("al-" + id); if (!el) return;
     el.open = true; el.scrollIntoView({ behavior: "smooth", block: "center" });
     el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
@@ -264,6 +265,49 @@
   // which pages are open and checking: the home page's status card reads it
   function watching(market, info) { var w = rd(WATCH, {}); if (!w || typeof w !== "object" || Array.isArray(w)) w = {}; w[market] = Object.assign({ at: Date.now(), page: page() }, info || {}); wr(WATCH, w); }
   if (can()) sw();                                                               // ready before the first alert
+
+  // ---------- everything about alerts behind one button ----------
+  // Owner, 2026-11-18: "can make the alert related into one popup page? like one button for user to click and view so
+  // that will not make the page so confuse and need scroll down". popup(cfg) builds that popup once around what the
+  // page gives it: cfg.tabs [{ id, label, el }] (each el is moved in and stays the page's own, so the page keeps
+  // drawing into it by id), cfg.title, cfg.markets (whose alerts count as read when the record tab "log" is shown).
+  // -> { open(tab), close(), show(tab), badge(tab, n) }. A native <dialog>: centred on a computer, a sheet from the
+  // bottom on a phone; ×, Esc or a click outside closes it; the last tab shown is remembered.
+  var SEEN = "alerts.seen";
+  function unread(markets) { var s = rd(SEEN, {}); s = s && typeof s === "object" ? s : {}; return list(markets).filter(function (r) { return r.at > (s[r.market] || 0); }).length; }
+  function seenNow(markets) { var s = rd(SEEN, {}); if (!s || typeof s !== "object" || Array.isArray(s)) s = {}; (markets || ["xau", "btc", "fx"]).forEach(function (m) { s[m] = Date.now(); }); wr(SEEN, s); redraw(); }
+  function popup(cfg) {
+    var dlg = h("dialog", { class: "al-dlg", id: cfg.id || "al-dlg", "aria-label": cfg.title }), box = h("div", { class: "al-box" }), x = h("button", { type: "button", class: "al-x", "aria-label": tr("关闭", "Close"), text: "×" });
+    var tabs = h("div", { class: "al-tabs", role: "tablist" }), panes = {}, btns = {}, nums = {}, KEY = "alerts.tab." + (cfg.id || "al-dlg"), cur = null, one = cfg.tabs.length === 1;
+    box.appendChild(h("div", { class: "al-dh" }, [h("b", { text: cfg.title }), cfg.sub ? h("span", { class: "al-sub", text: cfg.sub }) : null, x]));
+    cfg.tabs.forEach(function (t) {
+      nums[t.id] = h("span", { class: "al-tn", hidden: true });
+      btns[t.id] = h("button", { type: "button", role: "tab", "aria-selected": "false", onclick: function () { show(t.id); } }, [t.label, nums[t.id]]); tabs.appendChild(btns[t.id]);
+      panes[t.id] = h("div", { class: "al-pane", role: "tabpanel", hidden: true }); if (t.el) { t.el.hidden = false; panes[t.id].appendChild(t.el); }
+    });
+    if (!one) box.appendChild(tabs);
+    cfg.tabs.forEach(function (t) { box.appendChild(panes[t.id]); });
+    dlg.appendChild(box); document.body.appendChild(dlg);
+    function show(id) {
+      if (!panes[id]) id = cfg.tabs[0].id; cur = id;
+      Object.keys(panes).forEach(function (k) { panes[k].hidden = k !== id; btns[k].setAttribute("aria-selected", String(k === id)); });
+      wr(KEY, id); if (id === "log" && dlg.open) seenNow(cfg.markets);
+      panes[id].scrollTop = 0;
+    }
+    function unlock() { document.documentElement.style.overflow = ""; }
+    function close() { if (dlg.open) { try { dlg.close(); } catch (e) { dlg.removeAttribute("open"); } } unlock(); }
+    function open(id) {
+      document.documentElement.style.overflow = "hidden";
+      if (!dlg.open) { if (dlg.showModal) { try { dlg.showModal(); } catch (e) { dlg.setAttribute("open", ""); } } else dlg.setAttribute("open", ""); }
+      show(id || rd(KEY, cfg.tabs[0].id));
+      try { x.focus({ preventScroll: true }); } catch (e) {}
+    }
+    x.addEventListener("click", close);
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) close(); });
+    dlg.addEventListener("cancel", unlock); dlg.addEventListener("close", unlock);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && dlg.open && !dlg.showModal) close(); });
+    return { open: open, close: close, show: show, dlg: dlg, badge: function (id, n) { var b = nums[id]; if (!b) return; b.hidden = !n; b.textContent = n > 99 ? "99+" : String(n); } };
+  }
 
   // ---------- words the gold, Bitcoin and forex pages share (P: XauPlan; f: price to text) ----------
   function bias(p) { return p.bias === "bullish" ? tr("（偏多）", " (bullish)") : p.bias === "bearish" ? tr("（偏空）", " (bearish)") : tr("（没有方向）", " (no direction)"); }
@@ -319,10 +363,22 @@
     ".al-o{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.55;color:var(--text);cursor:pointer;padding:2px 0}.al-o input{margin-top:3px;flex:none;accent-color:#D4A72C}.al-o small{display:block;color:var(--dim);font-size:11.5px}" +
     ".al-wrap{margin-top:12px;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-md,14px);background:rgba(255,255,255,.02)}.al-wrap>summary{cursor:pointer;font-size:12.5px;color:var(--dim);line-height:1.6;list-style:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
     ".al-wrap>summary::-webkit-details-marker{display:none}.al-wrap>summary b{color:var(--ink)}.al-wrap[open]>summary{white-space:normal}.al-pic{margin:8px 0 0;font-size:12px;color:var(--dim);line-height:1.6}" +
-    "@media(max-width:640px){.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}}";
+    ".al-btn{display:inline-flex;align-items:center;gap:7px;margin-left:auto;border:1px solid rgba(212,167,44,.45);background:rgba(212,167,44,.08);color:var(--gold-lt,#F0D27A);font:600 12.5px/1 var(--f-d,inherit);padding:8px 13px;border-radius:999px;cursor:pointer;white-space:nowrap}.al-btn:hover{background:rgba(212,167,44,.16)}" +
+    ".al-btn .al-dot{width:7px;height:7px;border-radius:50%;background:var(--dim,#858BA3);flex:none}.al-btn.on .al-dot{background:#34D399;box-shadow:0 0 0 3px rgba(52,211,153,.2)}" +
+    ".al-btn-n,.al-tn{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#EF4444;color:#fff;font:700 11px/18px 'IBM Plex Mono',monospace;text-align:center;box-sizing:border-box}.al-tn{display:inline-block;margin-left:6px;vertical-align:1px}" +
+    ".al-dlg{margin:auto;border:0;padding:0;background:transparent;width:min(660px,calc(100vw - 32px));max-width:none;max-height:calc(100vh - 40px);color:var(--text,#C4C8D8);overflow:visible}.al-dlg::backdrop{background:rgba(4,6,14,.66)}" +
+    ".al-box{display:flex;flex-direction:column;background:var(--bg2,#0E1220);border:1px solid rgba(212,167,44,.32);border-radius:20px;max-height:calc(100vh - 40px);box-shadow:0 24px 64px rgba(0,0,0,.55);font-size:13px;line-height:1.65;overflow:hidden}" +
+    ".al-dh{display:flex;align-items:center;gap:10px;padding:16px 18px 10px}.al-dh b{font:600 16px/1.4 'Space Grotesk','Noto Sans SC',sans-serif;color:var(--ink,#F4F5FB)}.al-dh .al-sub{color:var(--dim);font-size:12px}" +
+    ".al-x{margin-left:auto;flex:none;width:36px;height:36px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--ink,#F4F5FB);font-size:20px;line-height:1;cursor:pointer}.al-x:hover{background:rgba(255,255,255,.08)}" +
+    ".al-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:0 18px 12px;border-bottom:1px solid var(--border)}.al-tabs button{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 12.5px/1.2 inherit;padding:8px 13px;border-radius:999px;cursor:pointer}" +
+    ".al-tabs button[aria-selected=\"true\"]{border-color:rgba(212,167,44,.6);background:rgba(212,167,44,.14);color:var(--gold-lt,#F0D27A)}" +
+    ".al-pane{padding:14px 18px 18px;overflow:auto;min-height:0;flex:1 1 auto}.al-pane .v-alert,.al-pane .v-alert.on,.al-pane .v-palert{margin:0;padding:0;border:0;background:none}.al-pane .al-log{margin-top:0}.al-pane .v-alert{display:block}.al-dlg [hidden],.al-btn [hidden],.btn [hidden],.al-tn[hidden],.al-btn-n[hidden]{display:none!important}.al-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
+    ".pa-more{border:0;background:none;color:var(--gold-lt,#F0D27A);font:500 12px/1.2 inherit;padding:6px 4px;cursor:pointer}" +
+    "@media(prefers-reduced-motion:no-preference){.al-dlg[open] .al-box{animation:alIn .16s ease-out}}@keyframes alIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}" +
+    "@media(max-width:640px){.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}.al-dlg{width:100vw;margin:auto 0 0;max-height:90vh}.al-box{border-radius:20px 20px 0 0;max-height:90vh}.al-dh{padding:14px 16px 8px}.al-tabs{padding:0 16px 10px}.al-tabs button{min-height:36px}.al-pane{padding:12px 16px 22px}.al-btn{min-height:36px}}";
   document.head.appendChild(st);
 
   window.AlertKit = { send: send, draw: draw, once: once, recent: recent, mark: mark, can: can, sw: sw, view: view, open: open, list: list, watching: watching,
     watched: function () { var w = rd(WATCH, {}); return w && typeof w === "object" ? w : {}; }, onOpen: function (fn) { hook = fn; }, onChange: function (fn) { subs.push(fn); }, KIND: KIND,
-    words: { bias: bias, pat: pat, patName: patName, patLine: patLine, d4: d4 } };
+    words: { bias: bias, pat: pat, patName: patName, patLine: patLine, d4: d4 }, popup: popup, unread: unread, seenNow: seenNow };
 })();
