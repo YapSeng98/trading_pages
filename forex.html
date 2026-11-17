@@ -48,6 +48,9 @@ h1 em{font-style:normal;color:var(--gold-lt)}
 .bar .stamp{font-size:12px;color:var(--dim);flex:1;min-width:200px}
 .btn{border:1px solid var(--border);background:var(--bg3);border-radius:999px;padding:9px 15px;cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink)}
 .btn.on{border-color:rgba(212,167,44,.6);color:var(--gold-lt);background:rgba(212,167,44,.08)}
+.fx-al{margin:12px 0 0;padding:12px 14px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg2)}.fx-al .al-wrap{margin-top:10px}
+.fx-pchips{display:flex;flex-wrap:wrap;gap:6px}.fx-pch{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 12px/1.2 'IBM Plex Mono',monospace;padding:6px 9px;border-radius:999px;cursor:pointer}
+.fx-pch.on{border-color:rgba(212,167,44,.55);background:rgba(212,167,44,.1);color:var(--gold-lt)}.fx-pch.all{font-family:inherit;color:var(--dim)}.fx-albtn{margin-top:10px}
 .fx-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
 /* loading must not move the page: the cards get their room before they arrive, so the sections under them start below the screen */
 .fx-list:empty{min-height:120vh}
@@ -132,6 +135,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
   .fx-tf span{min-width:0;flex:1}
   .btn{min-height:36px}
   .fx-pat>summary{padding:8px 0}
+  .fx-al{padding:12px}.fx-pch{min-height:36px;padding:9px 11px}
   .lots{padding:16px 14px}.lots-in{grid-template-columns:repeat(2,minmax(0,1fr))}.inp input{font-size:16px}
   .lots-t thead{display:none}
   .lots-t tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px;padding:10px 0;border-top:1px solid var(--border)}
@@ -166,6 +170,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
     <button class="btn" type="button" id="fx-alert">🔕 外汇信号提醒：关</button>
     <a class="btn" href="#fx-lots" data-en="🧮 Lot sizes">🧮 手数换算</a>
   </div>
+  <div class="fx-al" id="fx-al" hidden></div>
   <div class="fx-list" id="fx-list"></div>
   <section class="lots" id="fx-lots">
     <h2 data-en="🧮 Lot sizes: what 0.01 lot is">🧮 手数换算：0.01 手等于多少</h2>
@@ -188,7 +193,7 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
       <li data-en-html="&lt;b&gt;Mixed&lt;/b&gt;: the three big trends do not agree, so nothing to do; it shows the nearest step."><b>方向不一致</b>：三个大周期没有同向，不做；写出了最近的一步。</li>
       <li data-en-html="&lt;b&gt;Patterns&lt;/b&gt;: tap to open. In the replay patterns had no edge of their own: reference only."><b>形态</b>：点开看。回放里形态本身没有优势，只作参考。</li>
       <li data-en="Every call uses closed candles only, recomputed every 15 minutes. The price is the last 15-minute close, with its time on the card; over 45 minutes old it is marked «delayed». Data: Dukascopy's public charts (bid), with the day rolling at 17:00 New York like MT5; your platform's quotes may differ by a few pips.">所有判断只看已经收盘的 K 线，每 15 分钟重算一次。价格是最近一根 15 分钟 K 线的收盘，卡片右上角写了是几点的；超过 45 分钟没更新会标「延迟」。数据来自 Dukascopy 的公开图表（买价），和 MT5 一样按纽约 17:00 换日；你平台的报价可能差几个点。</li>
-      <li data-en="Alerts are off by default: switched on, any new buy or sell signal shows a notification (while the page is open).">提醒默认关：打开后，任何一个市场出现新的买入或卖出信号都会弹通知（页面开着时）。</li>
+      <li data-en="Alerts are off by default. Switched on (while the page is open), you choose what to be told about for the pairs you tick: a new buy or sell signal, the early word before one, the daily or 4-hour about to turn (the latest 15-minute close beyond its turning price, then whether the close turned it), turns confirmed at the close, and daily and 4-hour chart patterns. Each alert comes with a picture of its chart and is kept in the alert record. The forex replay lost money: reference only.">提醒默认关。打开后（页面开着时），对你勾选的货币对可以选：新的买入或卖出信号、快出信号的预警、日线或 4 小时可能转向（最新 15 分钟收盘越过转折价，收盘后再说转成了没有）、收盘确认的转向、日线和 4 小时的形态。每条提醒都带一张图，并记在提醒记录里。外汇回放里不赚钱，只作参考。</li>
     </ul>
   </section>
   <footer data-en="This page only computes and shows; it is not investment advice. Forex leverage is high and you can lose your capital. The forex replay is in research/forex/ (PLAN.md is the test written beforehand, README.md the result).">这一页只做计算和展示，不构成投资建议。外汇杠杆高，可能亏掉本金。外汇回放在 research/forex/（PLAN.md 是事先写好的检验，README.md 是结果）。</footer>
@@ -198,7 +203,8 @@ footer{margin-top:28px;font-size:12px;color:var(--dim);line-height:1.8}
 <script src="assets/xau-plan.js?v=20"></script>
 <script src="assets/pattern-chart.js?v=5"></script>
 <script src="assets/pattern-guide.js?v=2"></script>
-<script src="assets/fx-page.js?v=18"></script>
+<script src="assets/alert-kit.js?v=1"></script>
+<script src="assets/fx-page.js?v=19"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>
 </html>

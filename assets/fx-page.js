@@ -4,7 +4,7 @@
 // a trend map with the rule's prices, and says plainly that the replay found no money in them. Round 2
 // (research/forex/edges: Fed days, time of day, strong against weak currencies, the London breakout) found no method
 // that makes money on currencies after costs either; the warning box quotes both result files.
-// Alerts are off until switched on.
+// Alerts are off until switched on (then assets/alert-kit.js: signals, the daily and 4-hour, chart patterns; see alerts()).
 // Prices are scaled to whole points before the engine sees them (EUR/USD 1.08345 -> 108345): the engine rounds to
 // two decimals, and the rule itself (structure, ATR multiples) does not care about the scale.
 (function () {
@@ -100,6 +100,7 @@
     var sn = P.soonNeed(E, E.price);
     out.soon = sn ? { dir: sn.dir, tf: sn.tf, need: sn.need.map(function (g) { return { tf: g.tf, price: un(g.p) }; }) } : null;
     out.state = R.full ? (R.dir > 0 ? "buy" : "sell") : R.dir ? "ready" : "none";
+    out.E = E;                                                                  // the alerts read the turning prices and patterns from it
     // chart patterns, as on the gold page: finished ones on the daily, 4-hour and 1-hour charts, and any still forming
     out.pats = P.patternsNow(E);
     out.plans = [];
@@ -290,38 +291,261 @@
     });
   }
 
-  // ---------- alerts: a new buy / sell signal on any pair, only when switched on ----------
+  // ---------- alerts: off until switched on (assets/alert-kit.js) ----------
+  // For the pairs ticked: a new buy / sell signal, the early word before one, the daily and 4-hour (the latest 15-minute
+  // close beyond a turning price, then whether the close turned it: the owner's "potential bullish or bearish based on 1D
+  // and 4H", 2026-11-18), the weekly, daily and 4-hour turning at the close, and chart patterns on the daily and 4-hour
+  // (new, the latest close through the break level, a close through it). This page sees prices only at 15-minute closes,
+  // so that is as early as it can say so. Each alert carries a picture of its chart and is kept in the record; when one
+  // scan finds more than three, the two that matter most are sent and one summary names the rest, all kept in the record.
+  // Each says the forex replay lost money: reference only.
+  var AK = window.AlertKit || null, AW = AK ? AK.words : null;
+  S.nopt = Object.assign({ signal: true, soon: true, pre: true, turn: true, pattern: true }, ls.get("nopt", {}));
+  S.npairs = ls.get("npairs", null);                                             // null: every pair
+  S.prevDirs = {}; S.patPrev = {};
+  var REF = tr("外汇回放里这个规则不赚钱，只作参考。", "The rule lost money in the forex replay: reference only.");
+  function granted() { return "Notification" in window && Notification.permission === "granted"; }
+  function pairOn(i) { return !Array.isArray(S.npairs) || S.npairs.indexOf(i) >= 0; }
+  function upx(r, v) { return px(r.p, v / r.k); }                                // an engine price (whole points) as the pair's price
+  function hm(ms) { return sgt(ms).split(" ")[1]; }
+  function zt(tf) { var n = P.TF_ZH[tf]; return EN || !/^\d/.test(n) ? n : " " + n; }
+  function closeOf(tf) { var end = (F.bucket(Date.now() / 1000, tf) + TF_SEC[tf]) * 1000; return { end: end, t: end - Date.now() > 20 * 3600000 ? sgt(end) : hm(end) }; }
+  function fxPat(r, tf, only) { return AW && r.E ? AW.pat(P, r.E, tf, only, r.E.price) : null; }
+  function fxPatLine(r, q) { return AW && q ? AW.patLine(P, q, function (v) { return upx(r, v); }) : ""; }
+  function arrowsOf(r) { return TFS.map(function (tf) { var v = r.dirs[tf]; return (EN ? { W: "W", D: "D", "4H": "4H", "1H": "1H", "15M": "15M" } : { W: "周", D: "日", "4H": "4H", "1H": "1H", "15M": "15M" })[tf] + (v > 0 ? "↑" : v < 0 ? "↓" : "–"); }).join(" "); }
+  function stateOf(r) { return (EN ? { buy: "buy signal (lost in the replay)", sell: "sell signal (lost in the replay)", ready: "big trend " + way(r.dir) + ", waiting for the small timeframes", none: "mixed, nothing to do" } : { buy: "买入信号（回放不赚钱）", sell: "卖出信号（回放不赚钱）", ready: "大方向" + way(r.dir) + "，等小周期", none: "方向不一致，不做" })[r.state] || ""; }
+  // the picture, in engine units (whole points)
+  function fxChart(r, tf, levels, o) {
+    o = o || {}; if (!AK || !r.K) return null;
+    var q = o.pat !== undefined ? o.pat : fxPat(r, tf, true), lv = (levels || []).slice();
+    if (q && q.plan && o.patLevels) lv.push({ v: q.plan.done ? null : q.plan.trigger, kind: "trig", label: tr("突破位", "break level") }, { v: q.plan.stop, kind: "stop", label: tr("失效位", "fails") }, { v: q.plan.target, kind: "tgt", label: tr("目标", "target") });
+    return { rows: (r.K[tf] || []).filter(function (k) { return k[6] < Date.now(); }), bar: forming(r, tf), live: typeof r.price === "number" ? r.price * r.k : null, liveWord: tr("最新", "latest"),
+      levels: lv, geo: q && q.tf === tf ? q.p.geo : null, dir: q ? q.dir : 0, title: r.p.i + " · " + P.TF_ZH[tf] + (o.what ? " · " + o.what : ""),
+      tag: q && q.tf === tf ? AW.patName(P, q) + tr(" · 参考", " · reference") : "", sub: sgt(Date.now()) + " SGT", fmt: function (v) { return upx(r, v); } };
+  }
+  function sigEv(r) {
+    var p = r.p, k = r.plan, buy = r.dir > 0;
+    return { prio: 0, kind: "signal", chip: tr("信号 · 外汇回放不赚钱", "signal · lost money in the forex replay"), key: "fx:sig:" + p.i + ":" + r.state + ":" + (r.since5 || ""), tag: "fx-" + p.i, name: p.i,
+      title: (buy ? "🟢 " : "🔴 ") + p.i + " · " + (EN ? (buy ? "buy" : "sell") + " signal (lost in the replay)" : (buy ? "买入" : "卖出") + "信号（回放不赚钱）"),
+      lines: [EN ? "All five timeframes " + (buy ? "up" : "down") + " (weekly, daily, 4-hour, 1-hour, 15-min)." : "五个周期都" + (buy ? "向上" : "向下") + "（周线、日线、4 小时、1 小时、15 分钟）。",
+        EN ? (buy ? "Buy about " : "Sell about ") + px(p, k.entry) + ", stop " + px(p, k.stop) + " (" + pips(p, k.dist) + "), target " + px(p, k.tp1) + " (3R)." : (buy ? "买入约 " : "卖出约 ") + px(p, k.entry) + "，止损 " + px(p, k.stop) + "（" + pips(p, k.dist) + "），目标 " + px(p, k.tp1) + "（3R）。",
+        REF, fxPatLine(r, fxPat(r, "1H"))],
+      chart: fxChart(r, "1H", [{ v: k.stop * r.k, kind: "stop", label: tr("止损", "stop") }, { v: k.tp1 * r.k, kind: "tgt", label: tr("目标 3R", "target 3R") }], { what: EN ? (buy ? "buy" : "sell") + " signal" : (buy ? "买入" : "卖出") + "信号" }) };
+  }
+  function soonEv(r) {
+    var o = r.soon, buy = o.dir > 0;
+    return { prio: 3, kind: "soon", chip: tr("预警 · 还不是信号 · 外汇仅参考", "heads-up · not a signal yet · forex, reference only"), key: "fx:soon:" + r.p.i + ":" + o.dir + ":" + o.tf + ":" + F.bucket(Date.now() / 1000, o.tf), tag: "fx-soon-" + r.p.i, name: r.p.i,
+      title: "⏳ " + r.p.i + (EN ? " · a " + (buy ? "buy" : "sell") + " signal may come (lost in the replay)" : " · 可能出" + (buy ? "买入" : "卖出") + "信号（回放不赚钱）"),
+      lines: [soonLine(r).replace(/^⏳ /, ""), REF, fxPatLine(r, fxPat(r, o.tf))],
+      chart: fxChart(r, o.tf, o.need.map(function (g) { return { v: g.price * r.k, kind: "need", label: P.TF_S[g.tf] + tr(" 收盘线", " close") }; }), { what: tr("可能出信号", "signal may come") }) };
+  }
+  // the daily or 4-hour: the latest 15-minute close beyond the close that would turn it
+  function preEv(r, tf) {
+    var E = r.E, v = r.dirs[tf], c = closeOf(tf), last = E.price, out = null;
+    if (c.end - Date.now() < 60000) return null;                                 // closing now: the close itself settles it
+    (v ? [-v] : [1, -1]).forEach(function (to) {
+      var lvl = P.flipLevel(E, tf, to); if (out || lvl === null || (last - lvl) * to <= 0) return;
+      var start = F.bucket(Date.now() / 1000, tf), up = to > 0, dirs = Object.assign({}, r.dirs); dirs[tf] = to;
+      out = { prio: 2, kind: "pre", chip: tr("预警 · 还没收盘 · 外汇仅参考", "heads-up · not closed yet · forex, reference only"), key: "fx:pre:" + r.p.i + ":" + tf + ":" + to + ":" + start, tag: "fx-pre-" + r.p.i + "-" + tf, name: r.p.i,
+        title: (up ? "⏳📈 " : "⏳📉 ") + r.p.i + " · " + (EN ? P.TF_ZH[tf] + " may turn " + (up ? "up" : "down") + " (counts at the " + c.t + " close)" : P.TF_ZH[tf] + "可能转" + (up ? "多" : "空") + "（" + c.t + " 收盘才算）"),
+        lines: [EN ? "The latest 15-min close " + upx(r, last) + " is " + (up ? "above" : "below") + " the " + P.TF_ZH[tf] + " turning price " + upx(r, lvl) + " (the last " + (up ? "lower high, LH" : "higher low, HL") + ")." : "最新 15 分钟收盘 " + upx(r, last) + " 已" + (up ? "站上" : "跌破") + zt(tf) + "的转折价 " + upx(r, lvl) + "（上一个" + (up ? "更低的高点 LH" : "更高的低点 HL") + "）。",
+          (EN ? "If this candle closes " + (up ? "above" : "below") + " it at " + c.t + " SGT, the " + P.TF_ZH[tf] + " turns " + (up ? "up" : "down") + ". Then: " : "这根 K 线 " + c.t + " SGT 收盘还在" + (up ? "上方" : "下方") + "，" + P.TF_ZH[tf] + "就转向" + (up ? "上" : "下") + "。到时：") + AW.d4(dirs),
+          tr("还不是信号，收盘后会再告诉你转成了没有。", "Not a signal; after the close you are told whether it turned. ") + REF, fxPatLine(r, fxPat(r, tf))],
+        chart: fxChart(r, tf, [{ v: lvl, kind: "flip", label: tr("转折价", "turning price") }], { what: EN ? "may turn " + (up ? "up" : "down") : "可能转" + (up ? "多" : "空") }),
+        after: function () { var l = ls.get("prePend", []); if (!Array.isArray(l)) l = []; l.push({ i: r.p.i, tf: tf, to: to, start: start, lvl: lvl, at: Date.now() }); ls.set("prePend", l.slice(-40)); } };
+    });
+    return out;
+  }
+  // a heads-up the turn itself answers
+  function fxTold(i, tf, to, ms) {
+    var l = ls.get("prePend", []), hit = null; if (!Array.isArray(l)) return null;
+    l.forEach(function (q) { if (!hit && q.i === i && q.tf === tf && q.to === to && !q.told && ms > q.start * 1000) { q.told = true; hit = q; } });
+    if (hit) ls.set("prePend", l); return hit;
+  }
+  function turnEv(r, tf, a, to) {
+    var t = r.E.tfs[tf] || {}, lvl = t.lastEvent ? t.lastEvent.level : null, up = to > 0, since = typeof t.since === "number" ? t.since : Date.now(), warned = fxTold(r.p.i, tf, to, since);
+    var hh = a === -to ? (up ? "LL→HH" : "HH→LL") : (up ? "HH" : "LL"), at = Date.now() - since > 20 * 3600000 ? sgt(since) : hm(since);
+    return { prio: 1, kind: "turn", chip: tr("收盘确认 · 外汇仅参考", "confirmed at the close · forex, reference only"), key: "fx:chg:" + r.p.i + ":" + tf + ":" + since, tag: "fx-trend-" + r.p.i + "-" + tf, name: r.p.i,
+      title: (up ? "📈 " : "📉 ") + r.p.i + " · " + (EN ? P.TF_ZH[tf] + " structure turns " + (up ? "bullish " : "bearish ") + hh + (warned ? " (heads-up at " + hm(warned.at) + ")" : "") : P.TF_ZH[tf] + "结构转" + (up ? "多 " : "空 ") + hh + (warned ? "（" + hm(warned.at) + " 预警过）" : "")),
+      lines: [EN ? "The " + at + " close" + (lvl !== null ? (up ? " broke above the last lower high (LH) " : " broke below the last higher low (HL) ") + upx(r, lvl) : "") + ": the " + P.TF_ZH[tf] + " turned " + (up ? "up." : "down.")
+          : at + " 收盘" + (lvl !== null ? (up ? "站上上一个更低的高点（LH）" : "跌破上一个更高的低点（HL）") + upx(r, lvl) : "") + "：" + P.TF_ZH[tf] + "转向" + (up ? "上" : "下") + "。",
+        AW.d4(r.dirs), tr("现在 ", "Now ") + arrowsOf(r) + " · " + stateOf(r) + tr("。", ". ") + REF, fxPatLine(r, fxPat(r, tf))],
+      chart: fxChart(r, tf, lvl !== null ? [{ v: lvl, kind: "flip", label: up ? tr("站上的 LH", "LH broken") : tr("跌破的 HL", "HL broken") }] : [], { what: up ? tr("结构转多", "turned up") : tr("结构转空", "turned down") }) };
+  }
+  // what became of a heads-up whose candle has closed
+  function outcomeEvs(r) {
+    var l = ls.get("prePend", []), now = Date.now(), keep = [], out = []; if (!Array.isArray(l) || !l.length) return out;
+    l.forEach(function (q) {
+      if (q.i !== r.p.i) { keep.push(q); return; }
+      var end = (q.start + TF_SEC[q.tf]) * 1000, t = r.E.tfs[q.tf];
+      if (now < end + 5000) { keep.push(q); return; }
+      if (!t || t.error || !(Date.parse(t.barTime) >= q.start * 1000)) { if (now - end < 3 * 3600000) keep.push(q); return; }   // that candle is not in yet
+      if (q.told || !S.nopt.pre) return;
+      var turned = r.dirs[q.tf] === q.to, up = q.to > 0, at = hm(end), row = (r.K[q.tf] || []).filter(function (k) { return k[0] === q.start * 1000; })[0], cl = row ? row[4] : null, beyond = cl === null ? null : (cl - q.lvl) * q.to > 0;
+      out.push({ prio: turned ? 1 : 2, kind: turned ? "turn" : "pre", chip: turned ? tr("收盘确认 · 外汇仅参考", "confirmed at the close · forex, reference only") : tr("收盘结果 · 没有转向", "at the close · no turn"), key: "fx:preout:" + q.i + ":" + q.tf + ":" + q.to + ":" + q.start, tag: "fx-pre-" + q.i + "-" + q.tf, name: q.i,
+        title: turned ? (up ? "📈 " : "📉 ") + q.i + " · " + (EN ? P.TF_ZH[q.tf] + " turned " + (up ? "up" : "down") + " (heads-up at " + hm(q.at) + ")" : P.TF_ZH[q.tf] + "确认转" + (up ? "多" : "空") + "（" + hm(q.at) + " 预警过）") : "↩️ " + q.i + " · " + (EN ? P.TF_ZH[q.tf] + " did not turn " + (up ? "up" : "down") : P.TF_ZH[q.tf] + "没有转" + (up ? "多" : "空")),
+        lines: [turned ? (EN ? (beyond !== false && cl !== null ? "The " + at + " close " + upx(r, cl) + " was " + (up ? "above" : "below") + " the turning price " + upx(r, q.lvl) + ": t" : "T") + "he " + P.TF_ZH[q.tf] + " turned " + (up ? "up." : "down.") : (beyond !== false && cl !== null ? at + " 收盘 " + upx(r, cl) + "，" + (up ? "站上" : "跌破") + "转折价 " + upx(r, q.lvl) + "：" : "") + P.TF_ZH[q.tf] + "转向" + (up ? "上" : "下") + "。")
+            : (EN ? (beyond === false ? "The " + at + " close " + upx(r, cl) + " was back " + (up ? "below" : "above") + " the turning price " + upx(r, q.lvl) + ": t" : "After the " + at + " close t") + "he " + P.TF_ZH[q.tf] + " did not turn, and the heads-up from " + hm(q.at) + " is off." : (beyond === false ? at + " 收盘 " + upx(r, cl) + "，回到转折价 " + upx(r, q.lvl) + (up ? " 下方" : " 上方") + "：" : at + " 收盘后") + zt(q.tf) + "没有转，" + hm(q.at) + " 的预警作废。"),
+          AW.d4(r.dirs), tr("现在 ", "Now ") + arrowsOf(r) + " · " + stateOf(r) + tr("。", "."), fxPatLine(r, fxPat(r, q.tf))],
+        chart: fxChart(r, q.tf, [{ v: q.lvl, kind: "flip", label: tr("转折价", "turning price") }], { what: turned ? (EN ? "turned " + (up ? "up" : "down") : "确认转" + (up ? "多" : "空")) : tr("没转成", "did not turn") }) });
+    });
+    ls.set("prePend", keep);
+    return out;
+  }
+  // chart patterns (reference): the same pattern on the same pair is told once in a while however often it is found again
+  var PWIN = { D: 10 * 86400000, "4H": 3 * 86400000 };
+  function patEv(r, q, ev) {
+    var base = "fx:pat:" + r.p.i + ":" + ev + ":" + q.tf + ":" + q.p.name + (ev === "broke" ? ":" + q.way : "");
+    if (AK.recent(base, PWIN[q.tf])) return null; AK.mark(base);
+    var pl = P.patternPlan(q.p, r.E.price), dir = pl ? pl.dir : q.way || (q.p.bias === "bullish" ? 1 : q.p.bias === "bearish" ? -1 : 0), full = { tf: q.tf, p: q.p, plan: pl, way: q.way, dir: dir };
+    var nm = P.patternText(q.p), en = nm.charAt(0).toLowerCase() + nm.slice(1), f = function (v) { return upx(r, v); };
+    var rel = !dir || !r.dir ? "" : dir === r.dir ? tr("和三大周期同向。", " It points the same way as the three big trends.") : tr("和三大周期相反。", " It points against the three big trends.");
+    var lv = pl ? (EN ? (pl.done ? "From the latest close: " : "Breaks on a close " + (pl.dir > 0 ? "above " : "below ") + f(pl.trigger) + "; ") + "fails " + f(pl.stop) + ", target " + f(pl.target) + ", reward:risk " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "") + "."
+        : (pl.done ? "按最新收盘：" : "收盘" + (pl.dir > 0 ? "站上 " : "跌破 ") + f(pl.trigger) + " 算突破；") + "失效 " + f(pl.stop) + "，目标 " + f(pl.target) + "，盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") + "。")
+      : q.way ? tr("按最新收盘，形态自己的做法已经没有了（价格已过它的目标或失效位）。", "At the latest close the pattern's own trade is used up (price is past its target or where it fails).")
+      : typeof q.p.upper === "number" && typeof q.p.lower === "number" ? (EN ? "Upper edge " + f(q.p.upper) + ", lower edge " + f(q.p.lower) + ": no direction until it breaks one of them." : "上沿 " + f(q.p.upper) + "、下沿 " + f(q.p.lower) + "：突破哪一边才有方向。") : "";
+    return { prio: 4, kind: "pattern", chip: tr("参考 · 不是信号 · 外汇", "reference · not a signal · forex"), tag: "fx-pat-" + r.p.i + "-" + q.tf, name: r.p.i,
+      title: "📐 " + r.p.i + " · " + (ev === "new" ? (EN ? P.TF_ZH[q.tf] + " " + en + " forming" + AW.bias(q.p) : P.TF_ZH[q.tf] + "出现" + nm + AW.bias(q.p)) : (EN ? P.TF_ZH[q.tf] + " " + en + " broke " + (dir > 0 ? "up" : "down") : P.TF_ZH[q.tf] + nm + "已向" + (dir > 0 ? "上" : "下") + "突破")),
+      lines: [(EN ? "On the " + P.TF_ZH[q.tf] + " chart: " + en + ", " + P.statusText(q.p.status) + ". " : P.TF_ZH[q.tf] + "图：" + nm + "，" + P.statusText(q.p.status) + "。") + lv,
+        tr("参考，不是信号：回放里形态单独做没有优势。", "Reference, not a signal: patterns on their own had no edge in the replay.") + rel, tr("现在：", "Now: ") + stateOf(r) + tr("。", ". ") + REF],
+      chart: fxChart(r, q.tf, [], { pat: full, patLevels: true, what: ev === "new" ? tr("新形态", "new pattern") : tr("形态突破", "pattern broke") }) };
+  }
+  function patPreEvs(r) {
+    var out = [], last = r.E.price;
+    ["D", "4H"].forEach(function (tf) {
+      var t = r.E.tfs[tf], c = closeOf(tf); if (!t || t.error || c.end - Date.now() < 60000) return;
+      (t.patterns || []).forEach(function (p) {
+        if (!p.geo || P.patternWay(p)) return;                                   // already broken: the close told it
+        var pl = P.patternPlan(p, last), ways = [];
+        if (pl && typeof pl.trigger === "number") ways.push([pl.dir, pl.trigger]);
+        else if (!pl && typeof p.upper === "number" && typeof p.lower === "number") ways.push([1, p.upper], [-1, p.lower]);
+        ways.forEach(function (w) {
+          if ((last - w[1]) * w[0] <= 0) return;
+          var up = w[0] > 0, q = { tf: tf, p: p, plan: pl, way: 0, dir: w[0] }, nm = P.patternText(p), en = nm.charAt(0).toLowerCase() + nm.slice(1);
+          out.push({ prio: 4, kind: "pattern", chip: tr("参考 · 不是信号 · 外汇", "reference · not a signal · forex"), key: "fx:patpre:" + r.p.i + ":" + tf + ":" + p.name + ":" + w[0] + ":" + F.bucket(Date.now() / 1000, tf), tag: "fx-pat-" + r.p.i + "-" + tf, name: r.p.i,
+            title: "⏳📐 " + r.p.i + " · " + (EN ? P.TF_ZH[tf] + " " + en + " may break " + (up ? "up" : "down") + " (counts at the " + c.t + " close)" : P.TF_ZH[tf] + nm + "可能向" + (up ? "上" : "下") + "突破（" + c.t + " 收盘才算）"),
+            lines: [EN ? "The latest 15-min close " + upx(r, last) + " is " + (up ? "above" : "below") + " the " + en + "'s break level " + upx(r, w[1]) + "." : "最新 15 分钟收盘 " + upx(r, last) + " 已" + (up ? "站上" : "跌破") + nm + "的突破位 " + upx(r, w[1]) + "。",
+              EN ? "It counts only if the " + P.TF_ZH[tf] + " candle closes there at " + c.t + " SGT." + (pl ? " Then: fails " + upx(r, pl.stop) + ", target " + upx(r, pl.target) + "." : "") : "要 " + c.t + " SGT 这根" + zt(tf) + " K 线收在那边才算。" + (pl ? "到时：失效 " + upx(r, pl.stop) + "，目标 " + upx(r, pl.target) + "。" : ""),
+              tr("参考，不是信号：回放里形态单独做没有优势。", "Reference, not a signal: patterns on their own had no edge in the replay. ") + REF],
+            chart: fxChart(r, tf, [{ v: w[1], kind: "trig", label: tr("突破位", "break level") }], { pat: q, patLevels: !!pl, what: tr("可能突破", "may break") }) });
+        });
+      });
+    });
+    return out;
+  }
   function alerts() {
     var keys = {}; PAIRS.forEach(function (p) { var r = S.res[p.i]; if (r && (r.state === "buy" || r.state === "sell")) keys[p.i] = r.state + ":" + (r.since5 || ""); });
-    var opening = S.base === null;
-    PAIRS.forEach(function (p) {                                                // the early word, once per deciding candle
-      var r = S.res[p.i], o = r && r.soon; if (!o || r.state === "err") return;
-      var key = o.dir + ":" + o.tf + ":" + F.bucket(Date.now() / 1000, o.tf), sent = ls.get("sentSoon", {}); if (sent[p.i] === key) return; sent[p.i] = key; ls.set("sentSoon", sent);
-      if (opening || !S.notify || !("Notification" in window) || Notification.permission !== "granted") return;
-      try { new Notification("⏳ " + p.i + (EN ? " · a " + (o.dir > 0 ? "buy" : "sell") + " signal may come (lost in the replay)" : " · 可能出" + (o.dir > 0 ? "买入" : "卖出") + "信号（回放不赚钱）"), { body: soonLine(r), tag: "fx-soon-" + p.i, renotify: true }); } catch (e) {}
-    });
-    if (opening) { S.base = keys; return; }                                     // what the page opened with is already on screen
+    var opening = S.base === null, on = S.notify && granted() && !!AK, out = [];
     PAIRS.forEach(function (p) {
-      var key = keys[p.i]; if (!key || S.base[p.i] === key) return;
-      S.base[p.i] = key;
-      var sent = ls.get("sent", {}); if (sent[p.i] === key) return; sent[p.i] = key; ls.set("sent", sent);
-      var r = S.res[p.i], k = r.plan, buy = r.dir > 0;
-      if (!S.notify || !("Notification" in window) || Notification.permission !== "granted" || !k) return;
-      try { new Notification((buy ? "🟢 " : "🔴 ") + p.i + " · " + (EN ? (buy ? "buy" : "sell") + " signal (lost in the replay)" : (buy ? "买入" : "卖出") + "信号（回放不赚钱）"), { body: EN ? (buy ? "Buy about " : "Sell about ") + px(p, k.entry) + ", stop " + px(p, k.stop) + ", target " + px(p, k.tp1) + " (3R). In the replay this rule loses money on forex: reference only." : (buy ? "买入约 " : "卖出约 ") + px(p, k.entry) + "，止损 " + px(p, k.stop) + "，目标 " + px(p, k.tp1) + "（3R）。回放里这个规则在外汇上不赚钱，只作参考。", tag: "fx-" + p.i, renotify: true }); } catch (e) {}
+      var r = S.res[p.i]; if (!r || r.state === "err" || !r.E) return;
+      var use = on && pairOn(p.i), o = r.soon;
+      if (o) {                                                                    // the early word, once per deciding candle (not for what the page opened with)
+        var key = o.dir + ":" + o.tf + ":" + F.bucket(Date.now() / 1000, o.tf), sent = ls.get("sentSoon", {});
+        if (sent[p.i] !== key) { sent[p.i] = key; ls.set("sentSoon", sent); if (!opening && use && S.nopt.soon) out.push(soonEv(r)); }
+      }
+      if (use && S.nopt.pre) ["D", "4H"].forEach(function (tf) { var e = preEv(r, tf); if (e) out.push(e); });
+      var prev = S.prevDirs[p.i]; S.prevDirs[p.i] = Object.assign({}, r.dirs);   // turns since the last scan (the first scan is the baseline)
+      if (prev && use && S.nopt.turn) ["W", "D", "4H"].forEach(function (tf) { var a = prev[tf], b = r.dirs[tf]; if (b && a !== b) out.push(turnEv(r, tf, a, b)); });
+      if (use) outcomeEvs(r).forEach(function (e) { out.push(e); });
+      var cur = {}; ["D", "4H"].forEach(function (tf) { ((r.E.tfs[tf] || {}).patterns || []).forEach(function (q) { if (q.geo) cur[tf + "|" + q.name] = { tf: tf, p: q, way: P.patternWay(q) }; }); });
+      var pp = S.patPrev[p.i]; S.patPrev[p.i] = cur;
+      if (use && S.nopt.pattern) {
+        if (pp) Object.keys(cur).forEach(function (id) { var q = cur[id], was = pp[id]; if (!was) out.push(patEv(r, q, q.way ? "broke" : "new")); else if (!was.way && q.way) out.push(patEv(r, q, "broke")); });
+        patPreEvs(r).forEach(function (e) { out.push(e); });
+      }
     });
-    Object.keys(S.base).forEach(function (i) { if (!keys[i]) delete S.base[i]; });
+    if (opening) S.base = keys;                                                 // what the page opened with is already on screen
+    else {
+      PAIRS.forEach(function (p) {
+        var key = keys[p.i]; if (!key || S.base[p.i] === key) return;
+        S.base[p.i] = key;
+        var sent = ls.get("sent", {}); if (sent[p.i] === key) return; sent[p.i] = key; ls.set("sent", sent);
+        var r = S.res[p.i]; if (on && pairOn(p.i) && S.nopt.signal && r.plan) out.push(sigEv(r));
+      });
+      Object.keys(S.base).forEach(function (i) { if (!keys[i]) delete S.base[i]; });
+    }
+    sendAll(out.filter(Boolean));
   }
+  // up to three as they are; more: the two that matter most, then one summary of the rest (each kept in the record)
+  function sendAll(list) {
+    if (!AK || !list.length) return;
+    list.sort(function (a, b) { return a.prio - b.prio; });
+    var loud = list.length > 3 ? list.slice(0, 2) : list, quiet = [];
+    loud.forEach(function (e) { var rec = AK.send(Object.assign({ market: "fx", page: "forex.html" }, e)); if (rec && e.after) e.after(rec); });
+    list.slice(loud.length).forEach(function (e) { var rec = AK.send(Object.assign({ market: "fx", page: "forex.html", quiet: true }, e)); if (rec) { quiet.push(rec); if (e.after) e.after(rec); } });
+    if (quiet.length) AK.send({ market: "fx", page: "forex.html", kind: "more", nolog: true, tag: "fx-more", title: EN ? "🔔 Forex · " + quiet.length + " more alerts" : "🔔 外汇 · 还有 " + quiet.length + " 条提醒",
+      lines: quiet.slice(0, 6).map(function (q) { return q.title; }).concat([quiet.length > 6 ? (EN ? "…and " + (quiet.length - 6) + " more. " : "……还有 " + (quiet.length - 6) + " 条。") : "", tr("都记在外汇页的提醒记录里，点开看图。", "All are in the forex page's alert record, with their charts.")]) });
+    S.lastAlertAt = Date.now();
+  }
+  // the switch, what to be told about, which pairs, and the record
+  var NG = EN ? [
+    ["Signals", "the rule's own entries", [["signal", "A new buy / sell signal", "all five timeframes agree, with stop and target"], ["soon", "Early word before a signal", "the latest close already on the signal's side, a bigger candle not closed yet"]]],
+    ["Daily and 4-hour: the earliest word", "a possible bullish or bearish turn", [["pre", "May turn: the latest 15-min close beyond the daily or 4-hour turning price", "then, after that candle's close, whether it turned. Not a signal"], ["turn", "Turn confirmed at the close (weekly, daily, 4-hour)", "with what the daily and 4-hour say together"]]],
+    ["Chart patterns · reference", "no edge on their own in the replay", [["pattern", "Daily and 4-hour: a new pattern, the latest close through its break level, a close through it", "with the pattern drawn and its levels"]]]
+  ] : [
+    ["信号", "规则真正的买卖点", [["signal", "新的买入 / 卖出信号", "五个周期同向，带止损和目标"], ["soon", "快出信号时先说一声", "最新收盘已在会出信号的一边，大周期那根还没收盘"]]],
+    ["日线 · 4 小时：最快的预警", "潜在的偏多 / 偏空", [["pre", "可能转向：最新 15 分钟收盘越过日线或 4 小时的转折价", "那根 K 线收盘后再告诉你转成了没有。还不是信号"], ["turn", "收盘确认转向（周线、日线、4 小时）", "附日线和 4 小时合起来的方向"]]],
+    ["形态 · 参考", "回放里形态单独做没有优势", [["pattern", "日线、4 小时：出现新形态、最新收盘越过突破位、收盘突破", "附形态图和它的价位"]]]
+  ];
   function renderAlert() {
-    var b = $("fx-alert"), granted = "Notification" in window && Notification.permission === "granted";
-    b.textContent = S.notify ? (granted ? tr("🔔 外汇信号提醒：开（点一下关闭）", "🔔 Forex alerts: on (tap to turn off)") : tr("🔔 提醒已开，但浏览器还没允许通知：点一下允许", "🔔 Alerts on, but the browser has not allowed notifications: tap to allow")) : tr("🔕 外汇信号提醒：关（点一下打开）", "🔕 Forex alerts: off (tap to turn on)");
+    var b = $("fx-alert"), ok = granted();
+    b.textContent = S.notify ? (ok ? tr("🔔 外汇提醒：开（点一下关闭）", "🔔 Forex alerts: on (tap to turn off)") : tr("🔔 提醒已开，但浏览器还没允许通知：点一下允许", "🔔 Alerts on, but the browser has not allowed notifications: tap to allow")) : tr("🔕 外汇提醒：关（点一下打开）", "🔕 Forex alerts: off (tap to turn on)");
     b.className = "btn sm " + (S.notify ? "on" : "");
+    var box = $("fx-al"); if (!box || !AK) return;
+    var opt = $("fx-alopt"); if (!opt) { opt = h("div", { id: "fx-alopt" }); box.appendChild(opt); }
+    if (!$("fx-alrec")) {
+      var rec = h("details", { class: "al-wrap", id: "fx-alrec" }, [h("summary", null, [h("b", { text: tr("🗂 提醒记录", "🗂 Alert record") }), h("span", { id: "fx-allast" })]), h("div", { class: "al-log", id: "fx-allog" })]);
+      box.appendChild(rec); AK.view($("fx-allog"), { markets: ["fx"] });
+      var last = function () { var l = AK.list(["fx"])[0]; $("fx-allast").textContent = l ? tr(" · 最近 ", " · latest ") + sgt(l.at) + " " + l.title : tr(" · 还没有", " · none yet"); };
+      AK.onChange(last); last(); AK.onOpen(function () { rec.open = true; });
+    }
+    while (opt.firstChild) opt.removeChild(opt.firstChild);
+    box.hidden = false; opt.hidden = !S.notify;
+    if (!S.notify) return;
+    var grp = h("div", { class: "al-grp" });
+    NG.forEach(function (g) {
+      var gb = h("div", { class: "al-g" }, [h("div", { class: "al-gh" }, [h("b", { text: g[0] }), h("span", { text: g[1] })])]);
+      g[2].forEach(function (o) {
+        var cb = h("input", { type: "checkbox", id: "fxn-" + o[0] }); cb.checked = !!S.nopt[o[0]];
+        cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; ls.set("nopt", S.nopt); });
+        gb.appendChild(h("label", { class: "al-o", for: "fxn-" + o[0] }, [cb, h("span", null, [o[1], h("small", { text: o[2] })])]));
+      });
+      grp.appendChild(gb);
+    });
+    var pr = h("div", { class: "al-g" }, [h("div", { class: "al-gh" }, [h("b", { text: tr("提醒哪些货币对", "Which pairs") }), h("span", { text: Array.isArray(S.npairs) ? (EN ? S.npairs.length + " of " + PAIRS.length : PAIRS.length + " 个里的 " + S.npairs.length + " 个") : tr("全部", "all") })])]);
+    var chips = h("div", { class: "fx-pchips" });
+    PAIRS.forEach(function (p) {
+      var on = pairOn(p.i);
+      chips.appendChild(h("button", { type: "button", class: "fx-pch" + (on ? " on" : ""), "aria-pressed": String(on), text: p.i, onclick: function () {
+        var l = Array.isArray(S.npairs) ? S.npairs.slice() : PAIRS.map(function (x) { return x.i; }), k = l.indexOf(p.i);
+        if (k >= 0) l.splice(k, 1); else l.push(p.i);
+        S.npairs = l.length === PAIRS.length ? null : l; ls.set("npairs", S.npairs); renderAlert();
+      } }));
+    });
+    chips.appendChild(h("button", { type: "button", class: "fx-pch all", text: Array.isArray(S.npairs) ? tr("全选", "All") : tr("全不选", "None"), onclick: function () { S.npairs = Array.isArray(S.npairs) ? null : []; ls.set("npairs", S.npairs); renderAlert(); } }));
+    pr.appendChild(chips); grp.appendChild(pr);
+    opt.appendChild(grp);
+    opt.appendChild(h("p", { class: "al-pic", text: tr("这一页每根 15 分钟 K 线收盘后看一次（页面开着就行，放在后台也可以）。每条提醒都带一张图：那个周期的 K 线、提醒说到的价位和最新收盘，有形态就画上形态；一次超过三条时，先发最要紧的两条，其余的汇总成一条。全部记在下面的「提醒记录」里。", "This page looks once per 15-minute close (with the page open; in the background is fine). Every alert comes with a picture: that timeframe's candles, the prices it names and the latest close, with the chart pattern when there is one; more than three at once are sent as the two that matter most and one summary. All are kept in the «Alert record» below.") }));
+    opt.appendChild(h("div", { class: "fx-albtn" }, [h("button", { type: "button", class: "btn sm", text: tr("试一下", "Try it"), onclick: testAlert })]));
+  }
+  function testAlert() {
+    var r = PAIRS.map(function (p) { return S.res[p.i]; }).filter(function (x) { return x && x.E && pairOn(x.p.i); })[0] || PAIRS.map(function (p) { return S.res[p.i]; }).filter(function (x) { return x && x.E; })[0];
+    if (!AK) return;
+    if (!granted()) { if ("Notification" in window && Notification.permission === "default") Notification.requestPermission().then(renderAlert); return; }
+    var q = r ? fxPat(r, "4H") : null;
+    AK.send({ market: "fx", page: "forex.html", kind: "test", tag: "fx-test", name: r ? r.p.i : "", title: tr("外汇提醒测试", "Forex alert test") + (r ? " · " + r.p.i : ""),
+      lines: [tr("这是一条测试通知：真的提醒会像这样弹出，带一张那一刻的图。", "This is a test notification: a real alert pops up like this, with a picture of the chart at that moment."), r ? (fxPatLine(r, q) || tr("这个货币对现在日线、4 小时、1 小时都没有清楚的形态。", "This pair has no clear pattern on the daily, 4-hour or 1-hour right now.")) : "", REF],
+      chart: r ? fxChart(r, q ? q.tf : "4H", [], { what: tr("测试", "test") }) : null });
   }
   $("fx-alert").addEventListener("click", function () {
     if (S.notify && "Notification" in window && Notification.permission === "default") { Notification.requestPermission().then(renderAlert); return; }
     S.notify = !S.notify; ls.set("notify", S.notify);
     if (S.notify && "Notification" in window && Notification.permission === "default") Notification.requestPermission().then(renderAlert);
-    renderAlert();
+    if (S.notify && AK) AK.sw();
+    renderAlert(); beat();
   });
+  function beat() { if (AK) AK.watching("fx", { on: S.notify && granted(), perm: "Notification" in window ? Notification.permission : "none", pairs: Array.isArray(S.npairs) ? S.npairs.length : PAIRS.length }); }
+  beat(); setInterval(beat, 60000);
   $("fx-refresh").addEventListener("click", function () { scan(); });
   [["fx-bal", "balance"], ["fx-risk", "riskPct"], ["fx-lev", "lev"]].forEach(function (m) {
     var el = $(m[0]), v = S.acct[m[1]]; el.value = v === null || v === undefined ? "" : v;

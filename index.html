@@ -190,7 +190,8 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 @media(prefers-reduced-motion:reduce){.live{animation:none}}
 
 /* phones: nothing smaller than 11px */
-@media(max-width:640px){.lbl,.tile .tt small,.pv-k,.upd,.ptime,.chip{font-size:11px}.hero{padding-top:26px}.hero .acts{width:100%}.hero .acts .btn{flex:1}.gc-top .go{display:none}.sec{margin-top:32px}}
+.al-card{padding:18px 20px}.al-card .al-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.al-m{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;color:var(--text);text-decoration:none;position:relative;min-width:0}.al-m:hover{border-color:rgba(212,167,44,.45)}.al-m i{position:absolute;top:13px;right:12px;width:8px;height:8px;border-radius:50%;background:var(--dim)}.al-m.on i{background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.18)}.al-m.off i{background:var(--gold)}.al-m b{color:var(--ink);font-size:13.5px}.al-m span{font-size:12px;color:var(--dim)}.al-card .al-note{grid-column:1/-1;margin:2px 0 0;font-size:12px;color:var(--dim);line-height:1.6}.al-card .al-log{margin-top:12px}
+@media(max-width:640px){.al-card{padding:14px}.al-card .al-st{grid-template-columns:minmax(0,1fr)}.lbl,.tile .tt small,.pv-k,.upd,.ptime,.chip{font-size:11px}.hero{padding-top:26px}.hero .acts{width:100%}.hero .acts .btn{flex:1}.gc-top .go{display:none}.sec{margin-top:32px}}
 </style>
 <link rel="stylesheet" href="assets/site.css?v=12">
 <meta name="i18n" content="en">
@@ -325,6 +326,12 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
     <p class="sys-tip" id="sys-tip"></p>
   </section>
 
+  <div class="sec"><h2 data-en="Alerts on this device">提醒 · 这台设备</h2><span data-en="Which market pages are open and checking now, and the latest alerts with their charts">哪些市场页开着在检查，和最近的提醒（带图）</span></div>
+  <section class="card al-card" id="hub-al" aria-label="提醒" data-en-label="Alerts">
+    <div class="al-st" id="hub-al-st"></div>
+    <div class="al-log" id="hub-al-log"></div>
+  </section>
+
   <div class="sec"><h2 data-en="Live chart">实时图表</h2><span data-en="TradingView · gold, dollar index, silver, oil">TradingView · 金、美元指数、白银、原油</span></div>
   <div class="card chart-card">
     <div class="tape tradingview-widget-container">
@@ -345,7 +352,8 @@ footer{max-width:1240px;margin:40px auto 0;padding:0 24px 44px}
 
 <script src="assets/xau-feed.js?v=11"></script>
 <script src="assets/gold-live.js?v=2"></script>
-<script src="assets/hub-live.js?v=16"></script>
+<script src="assets/alert-kit.js?v=1"></script>
+<script src="assets/hub-live.js?v=17"></script>
 <script src="assets/tv-lazy.js?v=2"></script>
 <script src="assets/site.js?v=4" defer></script>
 </body>

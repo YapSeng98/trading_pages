@@ -1403,20 +1403,25 @@
   // timeframes those are (a 4-hour or daily close can keep a signal waiting for hours). The rule decides on closed
   // candles only, so this says which close to watch and what the trade would look like. Once per deciding candle,
   // across tabs; never on the backup feed or with the market shut.
-  var soonAt = 0, TF_SEC = { W: 604800, D: 86400, "4H": 14400, "1H": 3600, "15M": 900 };
+  var soonAt = 0, soonT = 0, TF_SEC = { W: 604800, D: 86400, "4H": 14400, "1H": 3600, "15M": 900 };
   function soonCheck() {
-    if (!S.E || !S.nopt.soon || !alertsOn() || Date.now() - soonAt < 5000) return; soonAt = Date.now();
+    if (!S.E || !S.nopt.soon || !alertsOn()) return;
+    var wait = soonAt + 5000 - Date.now();                                       // at most every 5 s; a price inside that gap is checked when it ends
+    if (wait > 0) { if (!soonT) soonT = setTimeout(function () { soonT = 0; soonCheck(); }, wait); return; }
+    soonAt = Date.now();
     if (!marketOpen() || (S.feed && S.feed.source === "paxg")) return;
     var px = num(S.live), sn = P.soonNeed(S.E, px); if (!sn) return;
     var dir = sn.dir, tf = sn.tf, start = Feed.bucket(Date.now() / 1000, tf), end = (start + TF_SEC[tf]) * 1000;
     var key = "soon:" + dir + ":" + tf + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
     var k = P.systemPlan(S.E, dir), buy = dir > 0, wd = P.words(), when = tf === "W" ? tx("本周收盘", "the weekly close") : EN ? "the " + sgt(end, tf === "D" ? "" : "t") + " close" : sgt(end, tf === "D" ? "" : "t") + " 收盘";
-    if (EN) fireAlert("⏳ " + M.name + " · a " + (buy ? "buy" : "sell") + " signal may come" + (wd.observe ? " (watch only)" : ""),
-      sn.need.map(function (g) { return "a " + P.TF_ZH[g.tf] + " close " + (buy ? "above " : "below ") + fmt(g.p, 1); }).join(" and ") + " is a " + (buy ? "buy" : "sell") + " signal. The price " + fmt(px, 1) + " is already on that side; it counts only if still there at " + when + ". Not a signal yet. " +
-      (k ? "Then about: " + (buy ? "buy " : "sell ") + fmt(px, 1) + ", stop " + fmt(px - dir * k.dist, 1) + ", target " + fmt(px + dir * 3 * k.dist, 1) + "." : ""), M.id + "-soon");
-    else fireAlert("⏳ " + M.name + " · 可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
-      sn.need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + fmt(g.p, 1); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + fmt(px, 1) + " 已经在这边，" + when + "时还在才算，现在还不是信号。" +
-      (k ? "到时约：" + (buy ? "买入 " : "卖出 ") + fmt(px, 1) + "，止损 " + fmt(px - dir * k.dist, 1) + "，目标 " + fmt(px + dir * 3 * k.dist, 1) + "。" : ""), M.id + "-soon");
+    sendAlert({ kind: "soon", key: M.id + ":" + key, tag: M.id + "-soon",
+      title: "⏳ " + M.name + " · " + (EN ? "a " + (buy ? "buy" : "sell") + " signal may come" + (wd.observe ? " (watch only)" : "") : "可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : "")),
+      lines: [EN ? sn.need.map(function (g) { return "a " + P.TF_ZH[g.tf] + " close " + (buy ? "above " : "below ") + f1(g.p); }).join(" and ") + " is a " + (buy ? "buy" : "sell") + " signal. The price " + f1(px) + " is already on that side."
+          : sn.need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + f1(g.p); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + f1(px) + " 已经在这边。",
+        EN ? "It counts only if still there at " + when + ": not a signal yet, and entering before the close did worse in the replay." : when + "时还在才算：现在还不是信号，回放里收盘前抢进做得更差。",
+        k ? (EN ? "If it comes, about: " + (buy ? "buy " : "sell ") + f1(px) + ", stop " + f1(px - dir * k.dist) + ", target " + f1(px + dir * 3 * k.dist) + "." : "到时约：" + (buy ? "买入 " : "卖出 ") + f1(px) + "，止损 " + f1(px - dir * k.dist) + "，目标 " + f1(px + dir * 3 * k.dist) + "。") : "",
+        patSentence(patFor(tf))],
+      chart: alertChart(tf, sn.need.map(function (g) { return { v: g.p, kind: "need", label: P.TF_S[g.tf] + tx(" 收盘线", " close") }; }), { what: EN ? "may give a " + (buy ? "buy" : "sell") + " signal" : "可能出" + (buy ? "买入" : "卖出") + "信号" }) });
   }
 
   // ---------- records: only what really happened ----------
@@ -1547,9 +1552,22 @@
     var done = function () { S.asking = false; renderAlert(); if (alertsOn()) toast(tx("提醒已开：出现新信号或趋势变化时会弹出通知", "Alerts on: a notification appears on a new signal or a trend change")); };
     try { var r = Notification.requestPermission(done); if (r && r.then) r.then(done, done); } catch (e) { done(); }
   }
-  // what to be told about (the owner asked on 2026-10-23 for trend changes too): a new signal, the answer changing,
-  // the weekly / daily / 4-hour trend turning, and (off by default: several times a day) the 1-hour / 15-minute
-  S.nopt = Object.assign({ signal: true, soon: true, verdict: true, big: true, h1: true, small: false }, LS.get("notifyOpts", {}));
+  // what to be told about, in four groups: the rule's signals; the daily and 4-hour (a heads-up the moment price crosses
+  // a turning price, the turn confirmed at the close, the answer changing); chart patterns (reference); the small
+  // timeframes. The owner asked on 2026-10-23 for trend changes too, and on 2026-11-18 for faster word of a possible
+  // bullish or bearish turn on the daily and 4-hour, and for the chart pattern with every alert.
+  S.nopt = Object.assign({ signal: true, soon: true, pre: true, verdict: true, big: true, pattern: true, pat1h: false, h1: true, small: false }, LS.get("notifyOpts", {}));
+  var NGROUPS = EN ? [
+    ["Signals", "the rule's own entries", [["signal", "A new buy / sell signal", "the moment all five timeframes agree, with stop and target"], ["soon", "Early word before a signal", "price already on the signal's side, that candle not closed yet"]]],
+    ["Daily and 4-hour: the earliest word", "a possible bullish or bearish turn", [["pre", "May turn: as soon as price crosses the daily or 4-hour turning price", "before the candle closes; after the close you are told whether it turned. Not a signal"], ["big", "Turn confirmed at the close (weekly, daily, 4-hour)", "HH→LL or LL→HH, with what the daily and 4-hour say together"], ["verdict", "The answer changing", "e.g. a signal ending, the big trends splitting"]]],
+    ["Chart patterns · reference", "no edge on their own in the replay", [["pattern", "Daily and 4-hour: a new pattern, price through its break level, a close through it", "with the pattern drawn, its break level, fail level and target"], ["pat1h", "1-hour patterns too", "several a day"]]],
+    ["Small timeframes", "entry timing", [["h1", "1-hour structure turning", "once or twice a day"], ["small", "15-min structure turning", "several times a day"]]]
+  ] : [
+    ["信号", "规则真正的买卖点", [["signal", "新的买入 / 卖出信号", "五个周期同向的那一刻，带止损和目标"], ["soon", "快出信号时先说一声", "价格已到会出信号的一边，那根 K 线还没收盘"]]],
+    ["日线 · 4 小时：最快的预警", "潜在的偏多 / 偏空", [["pre", "可能转向：价格一越过日线或 4 小时的转折价就提醒", "不等收盘；收盘后再告诉你转成了没有。还不是信号"], ["big", "收盘确认转向（周线、日线、4 小时）", "HH→LL 或 LL→HH，附日线和 4 小时合起来的方向"], ["verdict", "结论变化", "例如信号失效、大周期不再同向"]]],
+    ["形态 · 参考", "回放里形态单独做没有优势", [["pattern", "日线、4 小时：出现新形态、价格越过突破位、收盘突破", "附形态图、突破位、失效位和目标"], ["pat1h", "也看 1 小时形态", "一天好几个"]]],
+    ["小周期", "入场时机", [["h1", "1 小时结构转向", "一天一两次"], ["small", "15 分钟结构转向", "一天好几次"]]]
+  ];
   function alertsOn() { return NOTE_OK && S.notify && Notification.permission === "granted"; }
   function renderAlert() {
     var el = clear($("v-alert")); el.hidden = !NOTE_OK; if (!NOTE_OK) return;
@@ -1557,13 +1575,18 @@
     var t = h("div", { class: "t" });
     if (on) {
       t.appendChild(h("b", { text: tx("🔔 提醒已开，刷新或重开浏览器后也一直开着。", "🔔 Alerts are on, and stay on after a reload or a browser restart. ") })); t.appendChild(document.createTextNode(tx("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。", "With this page open (in the background is fine) it checks every 15 minutes and notifies you of what is ticked below. Phone browsers pause background pages; a computer is the most reliable.")));
-      var opts = h("div", { class: "nopts" });
-      (EN ? [["signal", "A new buy / sell signal"], ["soon", "Early word when a signal may come (price already on the signal's side, candle not closed)"], ["verdict", "The answer changing (a signal ending, the big trends splitting)"], ["big", "Weekly, daily or 4-hour structure turning (HH→LL or LL→HH)"], ["h1", "1-hour structure turning (once or twice a day)"], ["small", "15-min structure turning (several times a day)"]] : [["signal", "新的买入 / 卖出信号"], ["soon", "快出信号时提前提醒（价格已经在会出信号的一边，K 线还没收盘）"], ["verdict", "结论变化（例如信号失效、大周期不再同向）"], ["big", "周线、日线、4 小时结构转向（HH→LL 或 LL→HH）"], ["h1", "1 小时结构转向（一天一两次）"], ["small", "15 分钟结构转向（一天好几次）"]]).forEach(function (o) {
-        var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
-        cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
-        opts.appendChild(h("label", { class: "nopt", for: "nopt-" + o[0] }, [cb, o[1]]));
+      var grp = h("div", { class: "al-grp" });
+      NGROUPS.forEach(function (g) {
+        var box = h("div", { class: "al-g" }, [h("div", { class: "al-gh" }, [h("b", { text: g[0] }), h("span", { text: g[1] })])]);
+        g[2].forEach(function (o) {
+          var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
+          cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
+          box.appendChild(h("label", { class: "al-o", for: "nopt-" + o[0] }, [cb, h("span", null, [o[1], o[2] ? h("small", { text: o[2] }) : null])]));
+        });
+        grp.appendChild(box);
       });
-      t.appendChild(opts);
+      t.appendChild(grp);
+      t.appendChild(h("p", { class: "al-pic", text: tx("每条提醒都带一张图：那个周期的 K 线、提醒说到的价位（转折价、突破位、止损、目标）和现价；那个周期有形态时，形态也画在上面。每条也记在下面的「提醒记录」里，错过了也能回来看。", "Every alert comes with a picture: that timeframe's candles, the prices it names (turning price, break level, stop, target) and the price now, with the chart pattern drawn on it when that timeframe has one. Each is also kept in the «Alert record» below, so a missed one can still be read.") }));
       var snd = h("div", { class: "nsnd" + (soundOn() ? " on" : "") });
       if (soundOn()) snd.appendChild(document.createTextNode(tx("🔊 提示音已开", "🔊 Sound on") + (isApp() ? tx("（应用里打开：刷新后也不用点）", " (opened as an app: no tap needed after a reload)") : "") + tx("。电脑静音或勿扰模式时听不到。", ". Not heard when the computer is muted or on Do Not Disturb.")));
       else {
@@ -1580,7 +1603,7 @@
     else { t.appendChild(h("b", { text: tx("🔔 有新信号或趋势变化时提醒我", "🔔 Tell me about new signals or trend changes") })); t.appendChild(document.createTextNode(tx("：浏览器弹出通知，不用设置别的。", ": a browser notification, nothing else to set up."))); }
     el.appendChild(t);
     if (on) {
-      el.appendChild(h("button", { type: "button", class: "btn sm", text: tx("试一下", "Try it"), onclick: function () { ensureAudio(); renderAlert(); fireAlert(M.sym + tx(" 提醒测试", " alert test"), tx("这是一条测试通知。出现新信号时会像这样弹出，点它回到报告页。", "This is a test notification. A new signal appears like this; tap it to come back to the page."), M.id + "-test"); } }));
+      el.appendChild(h("button", { type: "button", class: "btn sm", text: tx("试一下", "Try it"), onclick: function () { ensureAudio(); renderAlert(); testAlert(); } }));
       el.appendChild(h("button", { type: "button", class: "btn sm ghost", text: tx("关闭", "Turn off"), onclick: function () { S.notify = false; LS.set("notify", false); renderAlert(); } }));
     } else el.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? tx("允许通知", "Allow notifications") : tx("开启提醒", "Turn on alerts"), onclick: function () {
       S.notify = true; LS.set("notify", true); ensureAudio(); askPermission(); renderAlert();
@@ -1649,16 +1672,182 @@
     ensureAudio(); var a = S.audio; if (!a || a.state !== "running") return;
     try { M.chime.notes.forEach(function (n) { var d = n[0], o = a.createOscillator(), g = a.createGain(); o.type = M.chime.wave; o.frequency.value = n[1]; g.gain.setValueAtTime(0.0001, a.currentTime + d); g.gain.exponentialRampToValueAtTime(0.35, a.currentTime + d + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + d + 0.32); o.connect(g); g.connect(a.destination); o.start(a.currentTime + d); o.stop(a.currentTime + d + 0.34); }); } catch (e) {}
   }
-  // own: a price alert the visitor set (below). It notifies whenever the browser allows it, even with the signal alerts
-  // switched off, and without that permission it still shows on the page and sounds.
-  function fireAlert(title, body, tag, own) {
-    if (!alertsOn() && !(own && NOTE_OK && Notification.permission === "granted")) { if (own) { toast(title); chime(); } return; }
-    try {
-      var n = new Notification(title, { body: body, tag: tag, renotify: true, requireInteraction: true, silent: false });
-      n.onclick = function () { try { window.focus(); } catch (e) {} $(own ? "v-palert" : "verdict").scrollIntoView({ behavior: "smooth", block: "start" }); n.close(); };
-    } catch (e) { toast(title + "：" + body); }
+  // ---------- sending an alert: its words, its picture, the record ----------
+  // Every alert goes out through AlertKit (assets/alert-kit.js) in one shape (owner, 2026-11-18: "i need to be clear for
+  // user"): a title that says what and where; then what happened, what it means (the rule's signal, a heads-up that is
+  // not one yet, or reference), what to do, and the chart pattern when there is one; a picture of that timeframe's
+  // chart with the prices it names; and a copy in the record under the price alerts (#al-log), which a click on the
+  // notification opens. own: a price alert the visitor set. It notifies whenever the browser allows it, even with the
+  // page's alerts switched off; without that permission it still shows on the page and sounds.
+  var AK = window.AlertKit || null;
+  function sendAlert(a) {
+    var own = !!a.own, granted = NOTE_OK && Notification.permission === "granted";
+    if (!own && !alertsOn()) return null;
+    var rec = null;
+    if (AK) { rec = AK.send(Object.assign({ market: M.id, name: M.name }, a)); if (!rec) return null; }      // null: already sent from another tab
+    else if (granted) { try { var n = new Notification(a.title, { body: (a.lines || []).filter(Boolean).join("\n"), tag: a.tag, renotify: true, requireInteraction: true }); n.onclick = function () { try { window.focus(); } catch (e) {} n.close(); }; } catch (e) {} }
+    if (!granted) toast(a.title);
     chime();
-    if (document.visibilityState !== "visible") { var t0 = S.title0 || (S.title0 = document.title); document.title = "🔔 " + title; var back = function () { if (document.visibilityState === "visible") { document.title = t0; document.removeEventListener("visibilitychange", back); } }; document.addEventListener("visibilitychange", back); }
+    if (document.visibilityState !== "visible") { var t0 = S.title0 || (S.title0 = document.title); document.title = "🔔 " + a.title; var back = function () { if (document.visibilityState === "visible") { document.title = t0; document.removeEventListener("visibilitychange", back); } }; document.addEventListener("visibilitychange", back); }
+    return rec || {};
+  }
+  function testAlert() {
+    var q = patFor("4H");
+    sendAlert({ kind: "test", tag: M.id + "-test", title: M.sym + tx(" 提醒测试", " alert test"),
+      lines: [tx("这是一条测试通知：真的提醒会像这样弹出，带一张那一刻的图。", "This is a test notification: a real alert pops up like this, with a picture of the chart at that moment."),
+        patSentence(q) || tx("日线、4 小时、1 小时现在都没有清楚的形态；有形态时会画在图上。", "No clear pattern on the daily, 4-hour or 1-hour right now; when there is one, it is drawn on the picture."),
+        tx("点它回到这一页，打开提醒记录里的这一条。", "Tap it to come back to this page, at this alert in the record.")],
+      chart: alertChart(q ? q.tf : "4H", [], { what: tx("测试", "test") }) });
+  }
+  // The picture: one timeframe's candles (with the one still forming and the price now), the prices the alert names,
+  // and that timeframe's chart pattern when it has one (with its break level, fail level and target when o.patLevels).
+  function alertChart(tf, levels, o) {
+    o = o || {}; if (!AK || !S.feed || !S.E) return null;
+    var rows = (S.feed.K[tf] || []).filter(function (k) { return k[6] < Date.now(); }), L = marketOpen() ? num(S.live) : null, fb = L !== null ? formingBar(tf) : null;
+    var q = o.pat !== undefined ? o.pat : patFor(tf, true), lv = (levels || []).slice();
+    if (q && q.plan && o.patLevels) lv.push({ v: q.plan.done ? null : q.plan.trigger, kind: "trig", label: tx("突破位", "break level") }, { v: q.plan.stop, kind: "stop", label: tx("失效位", "fails") }, { v: q.plan.target, kind: "tgt", label: tx("目标", "target") });
+    return { rows: rows, bar: fb ? [fb[0] * 1000, fb[1], fb[2], fb[3], fb[4]] : null, live: L, levels: lv, geo: q && q.tf === tf ? q.p.geo : null, dir: q ? q.dir : 0,
+      title: M.name + " · " + P.TF_ZH[tf] + (o.what ? " · " + o.what : ""), tag: q && q.tf === tf ? patName(q) + tx(" · 参考", " · reference") : "",
+      sub: sgt(Date.now()) + " SGT", fmt: function (v) { return fmt(v, 1); } };
+  }
+  // the words every page shares (assets/alert-kit.js): the chart pattern an alert names, and what the daily and 4-hour
+  // say together
+  var AW = AK ? AK.words : null;
+  function patFor(tf, only) { return AW && S.E ? AW.pat(P, S.E, tf, only, marketOpen() && num(S.live) !== null ? S.live : S.E.price) : null; }
+  function biasWord(p) { return AW ? AW.bias(p) : ""; }
+  function patName(q) { return AW ? AW.patName(P, q) : ""; }
+  function patSentence(q) { return AW && q ? AW.patLine(P, q, f1) : ""; }
+  function d4Line(dirs) { return AW ? AW.d4(dirs) : ""; }
+  function zt(tf) { var n = P.TF_ZH[tf]; return EN || !/^\d/.test(n) ? n : " " + n; }   // 「站上 4 小时」: a space before a name that starts with a figure
+  function closeAt(tf) { var end = (Feed.bucket(Date.now() / 1000, tf) + Feed.DUR[tf]) * 1000; return { end: end, t: end - Date.now() > 20 * 3600000 ? sgt(end) : sgt(end, "t") }; }
+
+  // ---------- the daily and 4-hour may turn: the earliest word ----------
+  // The owner asked on 2026-11-18 for faster word when the daily and 4-hour point to a possible bullish or bearish turn.
+  // A turn counts only at the close (the rule decides on closed candles), but the live price can stand beyond the close
+  // that would turn it hours before the candle ends. This says so at once, once per candle and direction, with what the
+  // daily and 4-hour would then say together and what the answer would become; the first refresh after that close says
+  // whether it turned (the turn alert, or preResolve). A heads-up, never a signal: entering before the close did worse in
+  // the replay (research/xau-replay/SPEED-PLAN.md), and the answer still waits for the close.
+  var preAt = 0, preT = 0;
+  function preCheck() {
+    if (!S.E || !alertsOn()) return;
+    var wait = preAt + 3000 - Date.now();                                        // at most every 3 s; a price inside that gap is checked when it ends
+    if (wait > 0) { if (!preT) preT = setTimeout(function () { preT = 0; preCheck(); }, wait); return; }
+    preAt = Date.now();
+    if (!marketOpen() || (S.feed && S.feed.source === "paxg")) return;
+    var px = num(S.live); if (px === null) return;
+    if (S.nopt.pre) ["D", "4H"].forEach(function (tf) { preTurn(tf, px); });
+    if (patTfs().length) patPre(px);
+  }
+  function preTurn(tf, px) {
+    var E = S.E, R = P.regime(E), v = R.dirs[tf], ca = closeAt(tf);
+    if (ca.end - Date.now() < 20000) return;                                     // closing now: the close itself settles it
+    (v ? [-v] : [1, -1]).forEach(function (to) {
+      var lvl = P.flipLevel(E, tf, to); if (lvl === null || (px - lvl) * to <= 0) return;
+      var start = Feed.bucket(Date.now() / 1000, tf), up = to > 0, dirs = Object.assign({}, R.dirs), E2 = Object.assign({}, E, { tfs: Object.assign({}, E.tfs) });
+      dirs[tf] = to; E2.tfs[tf] = Object.assign({}, E.tfs[tf], { trend: up ? "bullish" : "bearish", since: Date.now() });
+      var V0 = P.verdict(E), V2 = P.verdict(E2);
+      var rec = sendAlert({ kind: "pre", key: M.id + ":pre:" + tf + ":" + to + ":" + start, tag: M.id + "-pre-" + tf,
+        title: (up ? "⏳📈 " : "⏳📉 ") + M.name + " · " + (EN ? P.TF_ZH[tf] + " may turn " + (up ? "up" : "down") + " (counts at the " + ca.t + " close)" : P.TF_ZH[tf] + "可能转" + (up ? "多" : "空") + "（" + ca.t + " 收盘才算）"),
+        lines: [EN ? "Price " + f1(px) + " is already " + (up ? "above" : "below") + " the " + P.TF_ZH[tf] + " turning price " + f1(lvl) + " (the last " + (up ? "lower high, LH" : "higher low, HL") + ")." : "现价 " + f1(px) + " 已" + (up ? "站上" : "跌破") + zt(tf) + "的转折价 " + f1(lvl) + "（上一个" + (up ? "更低的高点 LH" : "更高的低点 HL") + "）。",
+          (EN ? "If this candle closes " + (up ? "above" : "below") + " it at " + ca.t + " SGT, the " + P.TF_ZH[tf] + " turns " + (up ? "up" : "down") + ". Then: " : "这根 K 线 " + ca.t + " SGT 收盘还在" + (up ? "上方" : "下方") + "，" + P.TF_ZH[tf] + "就转向" + (up ? "上" : "下") + "。到时：") + d4Line(dirs),
+          EN ? "The answer would " + (V2.tag === V0.tag ? "stay «" + V0.tag + "»" : "go from «" + V0.tag + "» to «" + V2.tag + "»") + ". Not a signal: the rule waits for the close, and you are told after it whether it turned."
+            : "结论" + (V2.tag === V0.tag ? "仍是「" + V0.tag + "」" : "会从「" + V0.tag + "」变成「" + V2.tag + "」") + "。还不是信号：规则等收盘，收盘后会再告诉你转成了没有。",
+          patSentence(patFor(tf))],
+        chart: alertChart(tf, [{ v: lvl, kind: "flip", label: tx("转折价", "turning price") }], { what: EN ? "may turn " + (up ? "up" : "down") : "可能转" + (up ? "多" : "空") }) });
+      if (rec) { var list = LS.get("prePend", []); if (!Array.isArray(list)) list = []; list.push({ tf: tf, to: to, start: start, lvl: lvl, px: px, at: Date.now() }); LS.set("prePend", list.slice(-20)); }
+    });
+  }
+  // the turn alert says it itself, with the time of the heads-up
+  function preTold(tf, to, ms) {
+    var list = LS.get("prePend", []), hit = null; if (!Array.isArray(list)) return null;
+    list.forEach(function (p) { if (!hit && p.tf === tf && p.to === to && !p.told && ms > p.start * 1000) { p.told = true; hit = p; } });
+    if (hit) LS.set("prePend", list); return hit;
+  }
+  // after each refresh: what became of a heads-up whose candle has closed
+  function preResolve(E, source) {
+    var list = LS.get("prePend", []); if (!Array.isArray(list) || !list.length || source === "paxg") return;
+    var now = Date.now(), keep = [];
+    list.forEach(function (p) {
+      var end = (p.start + Feed.DUR[p.tf]) * 1000, t = E.tfs[p.tf];
+      if (now < end + 5000) { keep.push(p); return; }
+      if (!t || t.error || !(Date.parse(t.barTime) >= p.start * 1000)) { if (now - end < 3 * 3600000) keep.push(p); return; }   // that candle is not in yet
+      if (p.told || !S.nopt.pre) return;
+      var turned = (t.trend === "bullish" ? 1 : t.trend === "bearish" ? -1 : 0) === p.to, up = p.to > 0, V = P.verdict(E), at = sgt(end, "t");
+      var row = (S.feed.K[p.tf] || []).filter(function (k) { return k[0] === p.start * 1000; })[0], cl = row ? row[4] : null, beyond = cl === null ? null : (cl - p.lvl) * p.to > 0;
+      sendAlert({ kind: turned ? "turn" : "pre", chip: turned ? null : tx("收盘结果 · 没有转向", "at the close · no turn"), key: M.id + ":preout:" + p.tf + ":" + p.to + ":" + p.start, tag: M.id + "-pre-" + p.tf,
+        title: turned ? (up ? "📈 " : "📉 ") + M.name + " · " + (EN ? P.TF_ZH[p.tf] + " turned " + (up ? "up" : "down") + " (heads-up at " + sgt(p.at, "t") + ")" : P.TF_ZH[p.tf] + "确认转" + (up ? "多" : "空") + "（" + sgt(p.at, "t") + " 预警过）")
+          : "↩️ " + M.name + " · " + (EN ? P.TF_ZH[p.tf] + " did not turn " + (up ? "up" : "down") : P.TF_ZH[p.tf] + "没有转" + (up ? "多" : "空")),
+        lines: [turned ? (EN ? (beyond !== false && cl !== null ? "The " + at + " close " + f1(cl) + " was " + (up ? "above" : "below") + " the turning price " + f1(p.lvl) + ": t" : "T") + "he " + P.TF_ZH[p.tf] + " turned " + (up ? "up." : "down.")
+              : (beyond !== false && cl !== null ? at + " 收盘 " + f1(cl) + "，" + (up ? "站上" : "跌破") + "转折价 " + f1(p.lvl) + "：" : "") + P.TF_ZH[p.tf] + "转向" + (up ? "上" : "下") + "。")
+            : (EN ? (beyond === false ? "The " + at + " close " + f1(cl) + " was back " + (up ? "below" : "above") + " the turning price " + f1(p.lvl) + ": t" : "After the " + at + " close t") + "he " + P.TF_ZH[p.tf] + " did not turn, and the heads-up from " + sgt(p.at, "t") + " is off."
+              : (beyond === false ? at + " 收盘 " + f1(cl) + "，回到转折价 " + f1(p.lvl) + (up ? " 下方" : " 上方") + "：" : at + " 收盘后") + zt(p.tf) + "没有转，" + sgt(p.at, "t") + " 的预警作废。"),
+          d4Line(P.regime(E).dirs),
+          tx("现在 ", "Now ") + arrowsNow() + tx(" · 结论：", " · answer: ") + V.tag + tx("。", "."),
+          patSentence(patFor(p.tf))],
+        chart: alertChart(p.tf, [{ v: p.lvl, kind: "flip", label: tx("转折价", "turning price") }], { what: turned ? (EN ? "turned " + (up ? "up" : "down") : "确认转" + (up ? "多" : "空")) : tx("没转成", "did not turn") }) });
+    });
+    LS.set("prePend", keep);
+  }
+
+  // ---------- chart patterns: new, through the break level, broken (reference) ----------
+  // On the daily and 4-hour (and the 1-hour when ticked): a pattern the engine has just found, the live price through
+  // its break level before the candle closes, and a close through it. Reference only: in the replay patterns had no edge
+  // on their own (research/xau-replay/pattern_check.js), and each of these alerts says so and gives the answer. The same
+  // pattern is told once in a while (10 days on the daily, 3 on the 4-hour), however often the engine finds it again.
+  var PWIN = { D: 10 * 86400000, "4H": 3 * 86400000, "1H": 18 * 3600000 };
+  function patTfs() { return (S.nopt.pattern ? ["D", "4H"] : []).concat(S.nopt.pat1h ? ["1H"] : []); }
+  function patCheck(E, source) {
+    var cur = {};
+    ["D", "4H", "1H"].forEach(function (tf) { var t = E.tfs[tf]; if (!t || t.error) return; (t.patterns || []).forEach(function (p) { if (p.geo) cur[tf + "|" + p.name] = { tf: tf, p: p, way: P.patternWay(p) }; }); });
+    var prev = S.patPrev, same = S.patSrc === source; S.patPrev = cur; S.patSrc = source;
+    if (!prev || !same || source === "paxg" || !alertsOn() || !AK) return;      // the patterns the page opened with are already on screen
+    var tfs = patTfs();
+    Object.keys(cur).forEach(function (id) {
+      var q = cur[id], was = prev[id]; if (tfs.indexOf(q.tf) < 0) return;
+      if (!was) patAlert(q, q.way ? "broke" : "new");
+      else if (!was.way && q.way) patAlert(q, "broke");
+    });
+  }
+  function patAlert(q, ev) {
+    var base = M.id + ":pat:" + ev + ":" + q.tf + ":" + q.p.name + (ev === "broke" ? ":" + q.way : "");
+    if (AK.recent(base, PWIN[q.tf])) return; AK.mark(base);
+    var px = marketOpen() && num(S.live) !== null ? S.live : S.E.price, pl = P.patternPlan(q.p, px), dir = pl ? pl.dir : q.way || (q.p.bias === "bullish" ? 1 : q.p.bias === "bearish" ? -1 : 0);
+    var full = { tf: q.tf, p: q.p, plan: pl, way: q.way, dir: dir }, R = P.regime(S.E), V = P.verdict(S.E), nm = P.patternText(q.p), en = nm.charAt(0).toLowerCase() + nm.slice(1);
+    var rel = !dir || !R.dir ? "" : dir === R.dir ? tx("和三大周期同向。", " It points the same way as the three big trends.") : tx("和三大周期相反。", " It points against the three big trends.");
+    var lv = pl ? (EN ? (pl.done ? "From the price now: " : "Breaks on a close " + (pl.dir > 0 ? "above " : "below ") + f1(pl.trigger) + "; ") + "fails " + f1(pl.stop) + ", target " + f1(pl.target) + ", reward:risk " + pl.rr.toFixed(2) + (pl.rr < 1 ? " (below 1)" : "") + "."
+        : (pl.done ? "按现价：" : "收盘" + (pl.dir > 0 ? "站上 " : "跌破 ") + f1(pl.trigger) + " 算突破；") + "失效 " + f1(pl.stop) + "，目标 " + f1(pl.target) + "，盈亏比 " + pl.rr.toFixed(2) + (pl.rr < 1 ? "（低于 1）" : "") + "。")
+      : q.way ? tx("按现价，形态自己的做法已经没有了（价格已过它的目标或失效位）。", "At the price now the pattern's own trade is used up (price is past its target or where it fails).")
+      : num(q.p.upper) !== null && num(q.p.lower) !== null ? (EN ? "Upper edge " + f1(q.p.upper) + ", lower edge " + f1(q.p.lower) + ": no direction until it breaks one of them." : "上沿 " + f1(q.p.upper) + "、下沿 " + f1(q.p.lower) + "：突破哪一边才有方向。") : "";
+    sendAlert({ kind: "pattern", tag: M.id + "-pat-" + q.tf,
+      title: "📐 " + M.name + " · " + (ev === "new" ? (EN ? P.TF_ZH[q.tf] + " " + en + " forming" + biasWord(q.p) : P.TF_ZH[q.tf] + "出现" + nm + biasWord(q.p)) : (EN ? P.TF_ZH[q.tf] + " " + en + " broke " + (dir > 0 ? "up" : "down") : P.TF_ZH[q.tf] + nm + "已向" + (dir > 0 ? "上" : "下") + "突破")),
+      lines: [(EN ? "On the " + P.TF_ZH[q.tf] + " chart: " + en + ", " + P.statusText(q.p.status) + ". " : P.TF_ZH[q.tf] + "图：" + nm + "，" + P.statusText(q.p.status) + "。") + lv,
+        tx("参考，不是信号：回放里形态单独做没有优势（约六成赢，平均约 0R）。", "Reference, not a signal: patterns on their own had no edge in the replay (about six in ten won, about 0R on average).") + rel,
+        tx("进场仍按结论：「", "Entries still go by the answer: «") + V.tag + tx("」。", "».")],
+      chart: alertChart(q.tf, [], { pat: full, patLevels: true, what: ev === "new" ? tx("新形态", "new pattern") : tx("形态突破", "pattern broke") }) });
+  }
+  // the live price through a pattern's break level, before the candle closes (a range or symmetrical triangle: either edge)
+  function patPre(px) {
+    var E = S.E;
+    patTfs().forEach(function (tf) {
+      var t = E.tfs[tf], ca = closeAt(tf); if (!t || t.error || ca.end - Date.now() < 20000) return;
+      (t.patterns || []).forEach(function (p) {
+        if (!p.geo || P.patternWay(p)) return;                                   // already broken: the close told it
+        var pl = P.patternPlan(p, px), ways = [];
+        if (pl && num(pl.trigger) !== null) ways.push([pl.dir, pl.trigger]);
+        else if (!pl && num(p.upper) !== null && num(p.lower) !== null) ways.push([1, p.upper], [-1, p.lower]);
+        ways.forEach(function (w) {
+          if ((px - w[1]) * w[0] <= 0) return;
+          var up = w[0] > 0, q = { tf: tf, p: p, plan: pl, way: 0, dir: w[0] }, V = P.verdict(E), nm = P.patternText(p), en = nm.charAt(0).toLowerCase() + nm.slice(1);
+          sendAlert({ kind: "pattern", key: M.id + ":patpre:" + tf + ":" + p.name + ":" + w[0] + ":" + Feed.bucket(Date.now() / 1000, tf), tag: M.id + "-pat-" + tf,
+            title: "⏳📐 " + M.name + " · " + (EN ? P.TF_ZH[tf] + " " + en + " may break " + (up ? "up" : "down") + " (counts at the " + ca.t + " close)" : P.TF_ZH[tf] + nm + "可能向" + (up ? "上" : "下") + "突破（" + ca.t + " 收盘才算）"),
+            lines: [EN ? "Price " + f1(px) + " is " + (up ? "above" : "below") + " the " + en + "'s break level " + f1(w[1]) + "." : "现价 " + f1(px) + " 已" + (up ? "站上" : "跌破") + nm + "的突破位 " + f1(w[1]) + "。",
+              EN ? "It counts only if the " + P.TF_ZH[tf] + " candle closes there at " + ca.t + " SGT." + (pl ? " Then: fails " + f1(pl.stop) + ", target " + f1(pl.target) + "." : "") : "要 " + ca.t + " SGT 这根" + zt(tf) + " K 线收在那边才算。" + (pl ? "到时：失效 " + f1(pl.stop) + "，目标 " + f1(pl.target) + "。" : ""),
+              tx("参考，不是信号：回放里形态单独做没有优势。进场仍按结论：「", "Reference, not a signal: patterns on their own had no edge in the replay. Entries still go by the answer: «") + V.tag + tx("」。", "».")],
+            chart: alertChart(tf, [{ v: w[1], kind: "trig", label: tx("突破位", "break level") }], { pat: q, patLevels: !!pl, what: tx("可能突破", "may break") }) });
+        });
+      });
+    });
   }
   // ---------- price alerts: the visitor's own levels ----------
   // The owner asked on 2026-11-15 for alerts at levels they pick: one the page shows (the price that changes the answer,
@@ -1726,7 +1915,12 @@
     var title = EN ? "🔔 " + M.name + " · " + (up ? "up to" : "down to") + " your level " + fmt(a.price, 1) : "🔔 " + M.name + " · 到你的价位 " + fmt(a.price, 1);
     var what = a.bar ? (EN ? "The 15-minute candle that closed at " + sgt(a.bar, "t") + " SGT closed at " + fmt(a.hit, 1) + ", " + (up ? "above" : "below") + " your level" : sgt(a.bar, "t") + " 收盘的 15 分钟 K 线收在 " + fmt(a.hit, 1) + "，" + (up ? "站上" : "跌破") + "了你设的价位")
       : (EN ? "Price " + fmt(a.hit, 1) + " has reached your level" + (past ? " and gone past it" : "") : "现价 " + fmt(a.hit, 1) + "，已" + (up ? "涨到" : "跌到") + "你设的价位" + (past ? "并越过" : ""));
-    fireAlert(title, what + (w ? (EN ? " (" + w + ")" : "（" + w + "）") : "") + tx("。这是你自己设的提醒，不是信号；进场仍按页面的结论。", ". Your own alert, not a signal; entries still go by the page's answer."), M.id + "-pal-" + a.id, true);
+    var tf = a.bar ? "15M" : "1H";
+    sendAlert({ kind: "price", own: true, tag: M.id + "-pal-" + a.id, title: title,
+      lines: [what + (w ? (EN ? " (" + w + ")" : "（" + w + "）") : "") + tx("。", "."),
+        tx("这是你自己设的提醒，不是信号；进场仍按页面的结论：「", "Your own alert, not a signal; entries still go by the page's answer: «") + P.verdict(S.E).tag + tx("」。", "»."),
+        patSentence(patFor(tf))],
+      chart: alertChart(tf, [{ v: a.price, kind: "own", label: tx("你的价位", "your level") }], { what: tx("你的价位", "your level") }) });
   }
   // the levels the page shows, for one tap (a price listed twice keeps its first name); the chart pattern's own levels
   // are offered under its chart (renderPatPal)
@@ -1815,10 +2009,13 @@
     LS.set("notified", key);
     if (!S.nopt.signal) return;
     var k = sysPlanNow(false), nw = newsCheck(), buy = R.dir > 0, wd = P.words();
-    if (EN) fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "buy" : "sell") + " signal" + (wd.observe ? " (watch only)" : ""),
-      "All five timeframes " + (buy ? "up" : "down") + ". " + (k ? (buy ? "Buy" : "Sell") + " about " + fmt(S.live, 1) + ", stop " + fmt(k.stop, 1) + ", target " + fmt(k.tp1, 1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price. " : "") + (wd.exitNote ? wd.exitNote + " " : "") + (nw && nw.ok === false ? "Note: " + nw.detail + ". " : "") + "Open it for the plan.", M.id + "-signal");
-    else fireAlert((buy ? "🟢 " : "🔴 ") + M.name + " · " + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : ""),
-      "五个周期都" + (buy ? "向上" : "向下") + "。" + (k ? (buy ? "买入" : "卖出") + "约 " + fmt(S.live, 1) + "，止损 " + fmt(k.stop, 1) + "，目标 " + fmt(k.tp1, 1) + "（3R）；或不设目标、每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。" : "") + (wd.exitNote || "") + (nw && nw.ok === false ? "注意：" + nw.detail + "。" : "") + "点开看计划。", M.id + "-signal");
+    sendAlert({ kind: "signal", key: M.id + ":" + key, tag: M.id + "-signal", chip: wd.observe ? tx("规则的信号 · 仅观察，不用真钱", "the rule's signal · watch only, no real money") : null,
+      title: (buy ? "🟢 " : "🔴 ") + M.name + " · " + (EN ? (buy ? "buy" : "sell") + " signal" + (wd.observe ? " (watch only)" : "") : (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : "")),
+      lines: [EN ? "All five timeframes are " + (buy ? "up" : "down") + " (weekly, daily, 4-hour, 1-hour, 15-min): the rule's " + (buy ? "buy" : "sell") + " signal." : "五个周期都" + (buy ? "向上" : "向下") + "（周线、日线、4 小时、1 小时、15 分钟）：规则的" + (buy ? "买入" : "卖出") + "信号。",
+        k ? (EN ? (buy ? "Buy" : "Sell") + " about " + f1(S.live) + ", stop " + f1(k.stop) + ", target " + f1(k.tp1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price." : (buy ? "买入" : "卖出") + "约 " + f1(S.live) + "，止损 " + f1(k.stop) + "，目标 " + f1(k.tp1) + "（3R）；或不设目标，每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。") : "",
+        (wd.exitNote ? wd.exitNote + (EN ? " " : "") : "") + (nw && nw.ok === false ? tx("注意：", "Note: ") + nw.detail + tx("。", ". ") : "") + tx("点开看计划和手数。", "Open the page for the plan and the lot size."),
+        patSentence(patFor("1H"))],
+      chart: alertChart("1H", k ? [{ v: k.stop, kind: "stop", label: tx("止损", "stop") }, { v: k.tp1, kind: "tgt", label: tx("目标 3R", "target 3R") }] : [], { what: EN ? (buy ? "buy" : "sell") + " signal" : (buy ? "买入" : "卖出") + "信号" }) });
   }
 
   // The answer moving from one state to another (a new "go" has its own alert above): e.g. the signal fading to
@@ -1830,7 +2027,10 @@
     var stamp = key + ":" + Math.floor(Date.now() / 900000);                    // once per quarter hour across tabs
     if (LS.get("notifiedLevel", "") === stamp) return; LS.set("notifiedLevel", stamp);
     if (!S.nopt.verdict) return;
-    fireAlert(M.sym + tx(" 结论变了：", " answer changed: ") + V.tag, V.title + tx("。现在 ", ". Now ") + arrowsNow() + tx("。", ". ") + (S.pos ? tx("你有持仓：看「我的持仓」里写的做法。", "You have a position: see what «My position» says.") : ""), M.id + "-level");
+    sendAlert({ kind: "answer", key: M.id + ":lvl:" + stamp, tag: M.id + "-level", title: "🔄 " + M.name + tx(" · 结论变了：", " · answer changed: ") + V.tag,
+      lines: [V.title + tx("。", "."), tx("现在 ", "Now ") + arrowsNow() + tx("。", ".") + (V.lines && V.lines[0] ? (EN ? " What changes it next: " : "接下来改变结论的价位：") + V.lines.slice(0, 2).map(function (l) { return f1(l.price); }).join(tx("、", ", ")) + tx("。", ".") : ""),
+        S.pos ? tx("你有持仓：看「我的持仓」里写的做法。", "You have a position: see what «My position» says.") : "", patSentence(patFor("4H"))],
+      chart: alertChart("4H", (V.lines || []).slice(0, 2).map(function (l) { return { v: l.price, kind: "flip", label: tx("改变结论", "changes it") }; }), { what: tx("结论变了", "answer changed") }) });
   }
   var TW = EN ? { bullish: "up", bearish: "down", unclear: "unclear", mixed: "unclear" } : { bullish: "向上", bearish: "向下", unclear: "不明", mixed: "不明" };
   // HH→LL only when it really came from the opposite structure; out of an unclear stretch there was no HH to lose
@@ -1851,11 +2051,19 @@
       var t = E.tfs[tf], ch = { ms: num(t.since) !== null ? t.since : closeMs, tf: tf, from: a, to: b, price: S.feed ? S.feed.price : null, level: t.lastEvent ? t.lastEvent.level : null,
         a3: E.overall.agree3, a5: E.overall.agree5, live: true };
       S.liveChanges.push(ch);
-      var key = "chg:" + tf + ":" + ch.ms; if (LS.get("notifiedChg", "") === key) return; LS.set("notifiedChg", key);
       var big = tf === "W" || tf === "D" || tf === "4H";
       if (big ? !S.nopt.big : tf === "1H" ? !S.nopt.h1 : !S.nopt.small) return;
-      var V = P.verdict(E), dn = b === "bearish";
-      fireAlert((dn ? "📉 " : b === "bullish" ? "📈 " : "") + M.name + " · " + P.TF_ZH[tf] + structWord(b, a), EN ? "Close " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " below the last higher low (HL) " : " above the last lower high (LH) ") + fmt(ch.level, 1) : "") + ": " + P.TF_ZH[tf] + (dn ? (a === "bullish" ? " went from HH/HL to LL, " : " made an LL, ") + "turning down" : b === "bullish" ? (a === "bearish" ? " went from LH/LL to HH, " : " made an HH, ") + "turning up" : " structure unclear") + ". Now " + arrowsNow() + " · answer: " + V.tag + "." : "收盘 " + (ch.price !== null ? fmt(ch.price, 1) : "—") + (ch.level !== null ? (dn ? " 跌破上一个更高的低点（HL）" : " 站上上一个更低的高点（LH）") + fmt(ch.level, 1) : "") + "：" + P.TF_ZH[tf] + (dn ? (a === "bullish" ? "从 HH/HL 变成 LL，" : "走出 LL，") + "转向下" : b === "bullish" ? (a === "bearish" ? "从 LH/LL 变成 HH，" : "走出 HH，") + "转向上" : "结构不明") + "。现在 " + arrowsNow() + " · 结论：" + V.tag + "。", M.id + "-trend-" + tf);
+      var V = P.verdict(E), R = P.regime(E), dn = b === "bearish", to = dn ? -1 : b === "bullish" ? 1 : 0, warned = to ? preTold(tf, to, ch.ms) : null, at = Date.now() - ch.ms > 20 * 3600000 ? sgt(ch.ms) : sgt(ch.ms, "t");
+      var cl = Date.parse(t.barTime) + Feed.DUR[tf] * 1000 === ch.ms ? num(t.close) : null;   // the close that turned it, when it is the latest
+      var what = EN ? "The " + at + " close" + (cl !== null ? " " + f1(cl) : "") + (ch.level !== null ? (dn ? " broke below the last higher low (HL) " : " broke above the last lower high (LH) ") + f1(ch.level) : "") + ": the " + P.TF_ZH[tf] + (dn ? (a === "bullish" ? " went from HH/HL to LL, turning down." : " made an LL, turning down.") : to > 0 ? (a === "bearish" ? " went from LH/LL to HH, turning up." : " made an HH, turning up.") : " structure is unclear.")
+        : at + " 收盘" + (cl !== null ? " " + f1(cl) : "") + (ch.level !== null ? (dn ? "，跌破上一个更高的低点（HL）" : "，站上上一个更低的高点（LH）") + f1(ch.level) : "") + "：" + P.TF_ZH[tf] + (dn ? (a === "bullish" ? "从 HH/HL 变成 LL，转向下。" : "走出 LL，转向下。") : to > 0 ? (a === "bearish" ? "从 LH/LL 变成 HH，转向上。" : "走出 HH，转向上。") : "结构不明。");
+      var mean = big ? d4Line(R.dirs) : !R.dir ? tx("三大周期不一致：小周期转向不会出信号。", "The three big trends do not agree: a small-timeframe turn gives no signal.")
+        : to === R.dir ? (EN ? "Same way as the three big trends (" + (R.dir > 0 ? "up" : "down") + "): the small timeframes are coming round." : "和三大周期（" + (R.dir > 0 ? "向上" : "向下") + "）同向：小周期正在转过来。")
+        : (EN ? "Against the three big trends (" + (R.dir > 0 ? "up" : "down") + "): a " + (R.dir > 0 ? "pullback" : "bounce") + ", no trade that way." : "和三大周期（" + (R.dir > 0 ? "向上" : "向下") + "）相反：" + (R.dir > 0 ? "回调" : "反弹") + "，不往这边做。");
+      sendAlert({ kind: "turn", key: M.id + ":chg:" + tf + ":" + ch.ms, tag: M.id + "-trend-" + tf,
+        title: (dn ? "📉 " : to > 0 ? "📈 " : "") + M.name + " · " + P.TF_ZH[tf] + structWord(b, a) + (warned ? (EN ? " (heads-up at " + sgt(warned.at, "t") + ")" : "（" + sgt(warned.at, "t") + " 预警过）") : ""),
+        lines: [what, mean, tx("现在 ", "Now ") + arrowsNow() + tx(" · 结论：", " · answer: ") + V.tag + tx("。", ".") + (V.level === "go" ? tx("点开看计划。", " Open the page for the plan.") : ""), patSentence(patFor(tf))],
+        chart: alertChart(tf, ch.level !== null ? [{ v: ch.level, kind: "flip", label: dn ? tx("跌破的 HL", "HL broken") : tx("站上的 LH", "LH broken") }] : [], { what: structWord(b, a).trim() }) });
     });
     renderChanges();
   }
@@ -2101,7 +2309,7 @@
   var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
   function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
   function onPrice() {
-    checkVerdict(); soonCheck(); palCheck();
+    checkVerdict(); soonCheck(); preCheck(); palCheck();
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
@@ -2230,7 +2438,7 @@
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
       renderAll(); setStamp(); palCheck(true);
-      renderProof(); trendCheck(E, feed.source); renderChanges();
+      renderProof(); trendCheck(E, feed.source); preResolve(E, feed.source); patCheck(E, feed.source); renderChanges();
       if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
       $("err").hidden = false; $("err-t").textContent = (e && e.message ? e.message : tx("网络异常", "network problem")) + tx("。", ". ") + (S.E ? tx("页面保留上一次的结果。", "The page keeps the last result.") : "");
@@ -2239,9 +2447,9 @@
   function tick() {
     if (!S.E || S.busy) return;
     var vis = document.visibilityState === "visible";
-    if (!vis) { if (!streamOn() && palArmed("touch")) fetchTick().then(function () { palCheck(true); }); return; }
+    if (!vis) { if (!streamOn() && (palArmed("touch") || alertsOn())) fetchTick().then(function () { palCheck(true); soonCheck(); preCheck(); }); return; }   // no stream: the alerts still follow the price
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
-      calibrate(); checkVerdict(); setStamp(); palCheck(true);
+      calibrate(); checkVerdict(); setStamp(); palCheck(true); soonCheck(); preCheck();
       if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
@@ -2289,7 +2497,21 @@
   var rz; window.addEventListener("resize", function () { clearTimeout(rz); closePop(); rz = setTimeout(function () { if (S.E) drawChart(); }, 150); });
 
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
-  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert();
+  // ---------- the alert record ----------
+  // Every alert this browser was sent for this market, newest first, with its words and the picture that went with it,
+  // so a missed notification can still be read; a click on a notification opens it here (assets/alert-kit.js). The
+  // page also says every minute that it is open and checking, which the home page's status card shows.
+  function setupRecord() {
+    var after = $("v-palert"); if (!AK || !after || $("al-wrap")) return;
+    var wrap = h("details", { class: "al-wrap", id: "al-wrap" }, [h("summary", null, [h("b", { text: tx("🗂 提醒记录", "🗂 Alert record") }), h("span", { id: "al-last" })]), h("div", { class: "al-log", id: "al-log" })]);
+    after.parentNode.insertBefore(wrap, after.nextSibling);
+    AK.view($("al-log"), { markets: [M.id] });
+    var last = function () { var l = AK.list([M.id])[0]; $("al-last").textContent = l ? tx(" · 最近 ", " · latest ") + (sgt(l.at, "d") === sgt(Date.now(), "d") ? sgt(l.at, "t") : sgt(l.at)) + " " + l.title : tx(" · 还没有", " · none yet"); };
+    AK.onChange(last); last();
+    AK.onOpen(function () { wrap.open = true; });
+  }
+  function beat() { if (AK) AK.watching(M.id, { on: alertsOn(), perm: NOTE_OK ? Notification.permission : "none", own: palList().filter(function (a) { return !a.at; }).length }); }
+  syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert(); setupRecord(); beat(); setInterval(beat, 60000);
   refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds();
   connectStream(); setTimeout(loop, 30000);
   // The answer can only change when a 15-minute candle closes: recompute just after each quarter hour. The feed

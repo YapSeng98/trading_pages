@@ -379,6 +379,9 @@
       var bp = typeof seen0.bPx === "number" && typeof b.price === "number" ? (EN ? " " : "") + fmt(seen0.bPx, 0) + " → " + fmt(b.price, 0) + (EN ? " (" : "（") + pct(seen0.bPx, b.price) + (EN ? ")." : "）。") : "";
       lines.push([bSame ? "" : "chg", bSame ? (EN ? "Bitcoin's answer is the same (watch only)." : "比特币结论没变（仅观察）。") : (EN ? "Bitcoin's answer changed: " + bOld + " → " + bNow + "." : "比特币结论变了：" + bOld + " → " + bNow + "。"), bp]);
     }
+    // the alerts this device was sent in between
+    var al = window.AlertKit ? AlertKit.list().filter(function (r) { return r.at > at; }) : [];
+    if (al.length) lines.push(["chg", (EN ? al.length + " alert" + (al.length > 1 ? "s" : "") + ", latest: " : "提醒 " + al.length + " 条，最近一条：") + al[0].title + tr("。", "."), "", "#hub-al"]);
     // headlines
     var nn = SN.news && SN.news.items ? SN.news.items.filter(function (i) { return i.ms > at; }).length : 0;
     if (nn) lines.push(["", EN ? nn + " new headline" + (nn > 1 ? "s" : "") + " on gold." : "黄金新头条 " + nn + " 条。", "", "report.html#read-news"]);
@@ -400,8 +403,34 @@
     document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") saveSeen(); });
     setTimeout(function () { if (document.visibilityState === "visible") saveSeen(); }, 60000);
   }
+  // ---------- 提醒 · this device ----------
+  // The market pages check for alerts themselves while they are open (assets/alert-kit.js), and each says every minute
+  // that it is open and checking. This card shows which are, and the latest alerts of all three markets with the
+  // picture that went with each, from this browser's own record (owner, 2026-11-18: alerts "clear for user", and the
+  // whole system live).
+  function paintAlerts() {
+    var st = $("hub-al-st"); if (!st || !window.AlertKit) return;
+    var w = AlertKit.watched(), now = Date.now(), perm = "Notification" in window ? Notification.permission : "none";
+    while (st.firstChild) st.removeChild(st.firstChild);
+    [["xau", "report.html", tr("黄金", "Gold")], ["btc", "btc.html", tr("比特币", "Bitcoin")], ["fx", "forex.html", tr("外汇", "Forex")]].forEach(function (m) {
+      var x = w[m[0]], open = !!(x && now - x.at < 150000), on = open && !!x.on, a = el("a", "al-m " + (on ? "on" : open ? "off" : "closed"));
+      a.href = m[1]; a.appendChild(el("i")); a.appendChild(el("b", null, m[2]));
+      a.appendChild(el("span", null, on ? tr("开着 · 正在提醒", "open · alerting") : open ? tr("开着 · 提醒没开", "open · alerts off") : x ? (EN ? "not open · last " : "没开 · 上次 ") + sinceWhen(x.at) : tr("没开", "not open")));
+      st.appendChild(a);
+    });
+    st.appendChild(el("p", "al-note", perm === "denied" ? tr("这个浏览器不让网站弹通知：到地址栏左边的网站设置 → 通知 → 允许。", "This browser does not let the site show notifications: site settings at the left of the address bar → Notifications → Allow.")
+      : perm === "none" ? tr("这个浏览器不支持网页通知。", "This browser does not support web notifications.")
+      : perm !== "granted" ? tr("这个浏览器还没允许通知：打开黄金、比特币或外汇页，开启提醒时允许一次。", "This browser has not allowed notifications yet: open the gold, Bitcoin or forex page and allow them once when turning alerts on.")
+      : tr("提醒由开着的市场页检查（放在后台也行），没开的页面不会提醒。每条带一张图，点通知会打开那一条。", "Alerts are checked by the market pages that are open (in the background is fine); a page that is not open does not alert. Each comes with a picture; tapping a notification opens it.")));
+  }
+  function startAlerts() {
+    if (!window.AlertKit || !$("hub-al")) return;
+    paintAlerts(); setInterval(paintAlerts, 30000);
+    window.addEventListener("storage", function (e) { if (e.key === "alerts.watch") paintAlerts(); });
+    AlertKit.view($("hub-al-log"), { limit: 5, others: true, noClear: true, empty: tr("还没有提醒。打开黄金、比特币或外汇页并开启提醒后，每条提醒都会记在这里，带上那一刻的图。", "No alerts yet. With the gold, Bitcoin or forex page open and its alerts on, each alert is kept here with its chart at that moment.") });
+  }
   function start() {
-    startSince();
+    startSince(); startAlerts();
     btc(); setInterval(btc, 60000);
     loadFiles().then(function () { if (window.GoldLive) GoldLive.on(fromGoldLive); else { livePrice(); setInterval(livePrice, 60000); } liveVerdict(); });
     setInterval(loadFiles, 15 * 60000);
