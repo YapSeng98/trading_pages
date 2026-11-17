@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 03:16 SGT",
+ "updated": "2026-11-18 03:57 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Could Target $7,000 as a Bullish Wedge Meets 8-Year Oversold Readings",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-could-target-7000-as-a-bullish-wedge-meets-8year-oversold-readings-200691771",
+   "ms": 1794944220000,
+   "time": "11/18 03:37"
+  },
   {
    "t": "Gold recovers its retail sales drop and holds above Monday's low",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE00VDN1NmE2Y2Z4b0RmS2JWdlkzdTE1dlI2QkRMaXExSmxPV18xVDMwRWRtZ1FpUVNlV1V3Vl9wT2dfZVZ2SDZtdEYyY2YxYzZHZjNDSFZrUjFpMVFuRjlBS1N6UjIteGlSYTJ0c1Nn?oc=5",
    "ms": 1794924480000,
    "time": "11/17 22:08"
-  },
-  {
-   "t": "Gold trades near one-year low as U.S. retail sales slow - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNVBMcGpQbmJMNUNTUmt3NkVvVm1TU3JGZ1lEVDFZeXB3cjdsb05lckt1NDAwakNiaVh0cDdYMHF5WGU3VDV6NUE2NXlCZWFFTEJRSUNSN05HRTM5aXJDV2ROTktwbWFCRmZPVjZpM2YyNnhPVmNYVHoxT3Nyb0huY2xrSWRjRTFGNlp3SkJwUFRfdTBrUXFGeFBha1hvUDVZeW9WaTFXRmM3TVlCTWNNa2JB?oc=5",
-   "ms": 1794923697000,
-   "time": "11/17 21:54"
   }
  ]
 }
