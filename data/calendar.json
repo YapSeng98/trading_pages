@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 05:51 SGT",
+ "updated": "2026-11-18 05:45 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -59,7 +59,7 @@
    "impact": "medium",
    "title": "Philly Fed Manufacturing Index",
    "zh": "费城联储制造业指数",
-   "forecast": "19.2",
+   "forecast": "20.6",
    "previous": "20.9"
   },
   {
@@ -71,7 +71,7 @@
    "impact": "medium",
    "title": "Unemployment Claims",
    "zh": "初请失业金人数",
-   "forecast": "199K",
+   "forecast": "198K",
    "previous": "200K"
   },
   {
@@ -83,7 +83,7 @@
    "impact": "medium",
    "title": "Revised UoM Consumer Sentiment",
    "zh": "密歇根消费者信心终值",
-   "forecast": "52.1",
+   "forecast": "51.7",
    "previous": "51.0"
   },
   {
