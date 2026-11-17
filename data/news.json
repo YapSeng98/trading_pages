@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 06:25 SGT",
+ "updated": "2026-11-18 06:39 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold struggles near one-year lows, silver rebounds as stocks slide, Fed hike bets persist - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPV1BJTVFELVMzTzdSNWZydElEbzRtUDFsQ2RET0dab0lTM3VNZDVSVHgxeVdDbDhENmktSk5IbVlXVHkwSjZaOURlTUkza0dVSXBISTV4eTFUbmZyR3JwcU9aTE9jbDFKdnphSkdLbkdndjg0eUctNUI4MGczTEJEV1I4ZUduWWVIY1FZeEpfMVB2SzJILXJqcGFvazVLY29ZU2JSLWJKWWdCRGp1OUZ0QlBGSHhQSlM5?oc=5",
+   "ms": 1794953184000,
+   "time": "11/18 06:06"
+  },
   {
    "t": "Fed's Williams still favors tighter monetary policy, but says now is not the time for 'dramatic action'",
    "src": "Kitco",
@@ -42,11 +49,11 @@
    "time": "11/18 02:57"
   },
   {
-   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
+   "t": "China’s concentrate-fed copper smelting capacity nears a ceiling in 2026, association says",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
-   "ms": 1794941713000,
-   "time": "11/18 02:55"
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY082NmJfTXQxdE16cnlxbzl1T1V1ZkdFNGY4c3d6TnpVaG1tMzhWRXFNQ2xqdGdyQThDZlZaRFFYRFVRWlpkUTNmYTlPMTRwdTI0WEd4SVYwQ2F5TlRtLXYxQlNwUjUtdTcyS1E1RlJ1Tk4xcU5jU3NSYVViUXFaSDd5QUFiajc5ek5aYUJkZVpmMUViZGhKLTdHeDVtak10dXVWVXV2a29vOTFhU3NOaGZWekpWSWtY?oc=5",
+   "ms": 1794941072000,
+   "time": "11/18 02:44"
   },
   {
    "t": "Stocks are sliding again, and it's not just AI — the dollar wrecking ball has already leveled the debasement trade",
@@ -102,13 +109,6 @@
    "src": "Yahoo Finance UK",
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUDJuREJBSTFrM1VBWWU2dkhfblZ2dHkxWEJsa1ZvVjVtVG9aTTJJZG1oeS1WM3QxblV0Z2JoWXE4Y0RkemFWZUpXcGczeUx4X09EeUIwVXBPNk1rSlNCRHZNM05PWEh4RkhldFdNNS14M1RwNnJTWDJvYjU4WkR2bTZfbU4?oc=5",
    "ms": 1794928915000,
-   "time": "11/17 23:21"
-  },
-  {
-   "t": "Fed's Waller says central bank will work with private sector on digital finance",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTEdzOWtsMkxSSDQtd1dTMEd1TGNNRGNLOS1UVjl4RkR0T0ZYLTBwdkdIYTF2Ym5HbVBVSkZScktGV20wcTVCZkd6aG5NUkZPc3lfT3VadUYtd0tRQVFQdXZUeHN6SG1SM2ZUYmdNQjJrWmZoSDA4ZjFaaGZmZUFMTlNGa2FzX1o2aGVrbHlDSTNFOGpkcXRSeUNPNmc5eXk2eFRPU2c0OG5nY2tTTFBXaFRWWUI0SVFEck00eGFn?oc=5",
-   "ms": 1794928863000,
    "time": "11/17 23:21"
   }
  ]
