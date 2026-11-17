@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 21:24 SGT",
+ "updated": "2026-11-17 21:38 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
+   "ms": 1794921481000,
+   "time": "11/17 21:18"
+  },
   {
    "t": "Gold: Volatile near term on Fed outlook – ING",
    "src": "FXStreet",
@@ -33,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNT1JjY0lMOE1WbG9XbXJYb3M5VW1YbDZjSDhOQzIzd1kzeGhHeUZPU3MyU3lBSXZ5SEloRk1xWGJxUDB5UVVVZEtUaU9ucUFzRE1naDdQVm05T3NSa3FXallpakwtUjAyTEd2Tlk0SmRHem1zRTI3eWNpcUREeTFoNjFXU3NVUDZPa3ZTejJlZnV6MUFnNi05WU9xMzV3ZFNaV3FZS3p3YUZkRHdyYlp5eGhnYWs1OV9kem1CamdoVEljQVBk?oc=5",
    "ms": 1794916544000,
    "time": "11/17 19:55"
-  },
-  {
-   "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
-   "ms": 1794913328000,
-   "time": "11/17 19:02"
   },
   {
    "t": "Gold Moves Higher After 14-Month Low as Precious Metals Gain Ahead of Fed Minutes",
