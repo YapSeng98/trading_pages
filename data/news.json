@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 20:17 SGT",
+ "updated": "2026-11-17 20:30 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price today, Tuesday, November 17, 2026: Gold opens at lowest price since September 29, 2025",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPRzRfYWNDVS12TDhBNlhFS2EtWDBGSnlhS1RmaGw5bVRYRXlLOHVkR2JiUnRWS05YOVBKcnBkdWoxSEowb1dPQzZqZmdJLXpicjVGZU10VDFlRk5sbTUyb0lCSDEtNWd4SndPb2IyaTRuUUlVSXdSSXR5OVQyUzdmekNtUk5sUU1TWkNMN1BqdE9oZjBKU1lHS0FYWTYwcF9wMzBraEpqVy0yZnF3LU5KZEU3Mk42SXhCVFdDQXFBcjRNV01tZ2dMcXhUc0RNRF9zb2wxTGJRb0I3SHZlT1ZaSTZ4bmpnSDhFNVZEVnluNzVsZEhaMUVER2JYbnQ?oc=5",
+   "ms": 1794917661000,
+   "time": "11/17 20:14"
+  },
   {
    "t": "Guinea's miners stockpile gold after refinery rules halted exports, sources say",
    "src": "Reuters",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
    "ms": 1794892800000,
    "time": "11/17 13:20"
-  },
-  {
-   "t": "Gold Struggling for a Bid",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-struggling-for-a-bid-200691699",
-   "ms": 1794891300000,
-   "time": "11/17 12:55"
   }
  ]
 }
