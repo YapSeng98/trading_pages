@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-17 21:38 SGT",
+ "updated": "2026-11-17 21:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Fed's Musalem: US likely needs several rate hikes by spring to control inflation",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORmhac0pYbVVGNThfeU9RWGFoTVNjREYyZkdpdXZFaUFkSUMzaG1LeG9oUnh2cnh4NlFGTnVsUHRMdE1YSkU0VDI2R0tDNUgtVVhxWlVpX2JZQ0RfelItTEFUZG9sZFQ2R2pnSUVpbnE1cE5FSUFSMlhYUk96T3pDT1N4WUM4QThFaFYyWTFhRXc1NEJwVWlzTXUxVmlXVnVvWWVFWEtabzJwek5zR21NSGhiWQ?oc=5",
+   "ms": 1794923193000,
+   "time": "11/17 21:46"
+  },
+  {
+   "t": "Gold price drops to $3,848/oz after September retail sales rise 0.2%, core rises 0.6%",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZkg4SlE3cVZnUFZiQVdMdE9nYTBsbC1mUzFLNzc1LUJPTC1QTHVjSENaRXU4ZDZlQWlfVVFOLUdYbW1RVDRBTlhyVE1FdmpOOUducE02ZV9TazRmYlAyMG41QjdLTW5UTHhKa1ZZYjlxSGZLbFl0ZmIwVkN6WDlKa09xWWVVRC1JdHVSaFBqX2xTTkc4YUl3V1hoWERCVHhxdWx1OUlJSWdNYnlsbUFZa1VHclNIQWtjZnF2Tw?oc=5",
+   "ms": 1794922222000,
+   "time": "11/17 21:30"
+  },
   {
    "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
    "src": "FXStreet",
@@ -26,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOUWxQdG1wQVJSRHJnd3hLOVFadl91eno5X2NSZlpxcmdUNHd4b29tREdBVU9sQjJyY3V3dERjUDRmMnVBVldDY3J4RUZOcGVKSXhxNG1WMXlpVU9VNVNQMDZ6bHhHYjF5V0ZzcXkzdnlLYVJuNXpEbWZuWVM2YzZjdWkxRHNNbzduSUJzSDFhOUZFVC14Y29heUU0aDEwUzZaODc5MV95bU9Tc3ZKbVJV?oc=5",
    "ms": 1794919027000,
    "time": "11/17 20:37"
+  },
+  {
+   "t": "Fed’s Musalem Says ‘Several’ Rate Hikes Likely Needed by Spring",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSkZydFlvcVY4NVJKN2hQbkdROU1adjRJNGVSaVNvTmRlQVBZUzJQMmFLaFhWemtURVFqNDNVd1NTT2ZFQ0V6VDdpLUdYcEhUdGlxNXh3dWQ0TFdJVjM4aDZONzkzd0xiSTliSVhKWkFlSnNDWmhxOEpYbDNLdFhPRjhoY19KRnNreTNZOXV4TTNtNnB5M1E3V1dUSGtJMlJYLUtVUnRzMWk5VlN1UVduZnVR?oc=5",
+   "ms": 1794918600000,
+   "time": "11/17 20:30"
   },
   {
    "t": "Gold price today, Tuesday, November 17, 2026: Gold opens at lowest price since September 29, 2025",
@@ -89,27 +110,6 @@
    "url": "https://www.investing.com/analysis/oil-prices-slide-as-global-glut-fears-eclipse-hormuz-attacks-200691719",
    "ms": 1794904320000,
    "time": "11/17 16:32"
-  },
-  {
-   "t": "Gold: Medium-term constructive bias maintained – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbTBuWXQxOTZoZGJNOENfOGlNUzdrSjF0TUtkbElhUEluYW1ZUnVrcW5mQ2J6ZFpzQU5sODE2NXRLNGJpM1dPM2p2T0NUMXBaMl95NHd3SXRvOWlWUGw2RGNkTXNNMEdpN0wwY0RSUVp4a0FTYzlDLXJLMmZjWmFaRzR1a2tSSnpyY041SDBsR0lJNnRoNzBrbQ?oc=5",
-   "ms": 1794901012000,
-   "time": "11/17 15:36"
-  },
-  {
-   "t": "Gold and Silver Crash: Is a Major Trend Reversal Approaching?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silver-crash-is-a-major-trend-reversal-approaching-200691711",
-   "ms": 1794896640000,
-   "time": "11/17 14:24"
-  },
-  {
-   "t": "Gold Faces Fresh Selling Pressure as $3,838 Support Comes Into Focus",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-faces-fresh-selling-pressure-as-3838-support-comes-into-focus-200691710",
-   "ms": 1794896640000,
-   "time": "11/17 14:24"
   }
  ]
 }
