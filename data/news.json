@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 15:06 SGT",
+ "updated": "2026-11-17 15:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and Silver Alert: Is a Precious Metals Reversal Ahead?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-and-silver-alert-is-a-precious-metals-reversal-ahead-200691702",
+   "ms": 1794899220000,
+   "time": "11/17 15:07"
+  },
   {
    "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
    "src": "Bloomberg.com",
@@ -21,11 +28,18 @@
    "time": "11/17 12:46"
   },
   {
-   "t": "Gold Eases As A Firmer US Dollar And Hawkish Fed Signals Weigh On Investor Mood By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQdDY3OWZTZ0ZtMW10VVNwMGhieW9JTUpzd0d1UDZOM1oyVG9vRlhkR003MVdvcFkyZnE0UEpVYThoZG9nTW1MaGRMOG96TE5qSFlmQlpxRERLVVZWMlBfNHlTQmIzZ3pnRnM4MW9udWRmY3BsMHBCSG8wQXFGQ2MxQ3JmOC1TRl9TODRMcGw3RGxBMlRpRlo1S1VvYkNBRkdiclYyVG8taFpzSUZOTFJZSF9WMmMwM1dtZUtBWE5PZ3B6Mzk3SXlYTGFWMExJVmc?oc=5",
-   "ms": 1794888159000,
-   "time": "11/17 12:02"
+   "t": "Gold Heads for Worst Year Since 2015. Why Is It Losing to a 5% Treasury?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMWpabmpKS09maFNtRGRMVGdlRkdXZGJ2UUU5TDFZU0MxcDU0S1RQanRTTjV6TkdJcWJPbGpBRXowWVUtYVJBNEF1eVQ4dENaN05Dd0Q4VnU2ZGZ6ckpWRm5OMnE2TnRpVEVEVEp4QjlBZFNpWlRjb2g4VGpoSW1FNzg0cVgwZ3pKQjFPb2w2cXF5bXN4cHVwejcwQldjdw?oc=5",
+   "ms": 1794889800000,
+   "time": "11/17 12:30"
+  },
+  {
+   "t": "Gold down 23%, silver plunges 55%: Why precious metals are losing their shine",
+   "src": "Fortune India",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZWJ4NmZKbEk0eE9XS1psa05hNjVyekUtaHRMMW91TURQOVRtbGp2M192aVowYzlQOF83N2NpQXRZbHY3cnBsRWxsQkYtU3BYRU1zVkgxQzY5YjRIME50V2NRRDRnVjZ1T1FmaDREdDZhVFBTZVpjbXprUHM0d2x1ZHlIdXl5ZVlNd1JSc0czdnFILWpXNm0tWXFzTnVsTkNGY19qSHZEWURoVVV1cVBjQzZYdlhmNEta0gHGAUFVX3lxTFBkd0EwUXczb0J1YlJaLW0xYnBVTEVRSFNSSGFZLUNWZXVGVzNwT09YZmM5UjBjM0R4LUtNTmtXN0YwMThnS0l4QXpOcWE1MXk3azV1TFZqSjNHbXc3a3BZQ1l5S0I0WnI2U0RtUkNxUFlseTYzZUZreVBENVJ2R091TUVPWGFlUU5lSzFkOUZGVFhVdDYzWXNjUEoyWUw2VjU4Tjh2Uk9FMUFfQzUzM1QyTUY4WUNnMXZSa01vSzJvckM0OGZBQQ?oc=5",
+   "ms": 1794888976000,
+   "time": "11/17 12:16"
   },
   {
    "t": "Gold recovers from YTD low; Fed hike bets and bullish USD to cap further gains",
@@ -63,11 +77,11 @@
    "time": "11/17 09:47"
   },
   {
-   "t": "Gold hovers near 14-month low as Fed hike bets and tech selloff weigh",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTzBjZ0ViN1Bpa202alp3MUd0aXJ6ZUZHRnNOM21ZZHd3eXh5M2tiRHE2ZWdKcERHY3FKOXhpYnBJT3NpVWdGeGRocllNQWI0U2NrakVRVi1GVS1FNWktbnZ2S0lSeTBPdE5mMWYwa1JmR3M2QmhiOFAxZi0yaFNhQnpna21jc1pXLUxrQTRaRWRkYkUtV1BHZUl1VHhta2Qtcld3WnBpNFpHZHZCNzhZRHM4WGR4dl82dUwzMl9NZkIzZw?oc=5",
-   "ms": 1794880006000,
-   "time": "11/17 09:46"
+   "t": "Precious metals break to new 52-week lows as us dollar reaches new 19-month high",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNU2Q4Umg3MHpwRlFERzN5SW9RSWRpZTY0VlpQc2RmTnhEN094MVNvclhtZ0lVUmlYXzVDNFFoV3hxM1Jfb2V0c08xYUZJdjMyQzhuWDFXMlQ4NXptRkxTVkRuNW5DSlljbGRzNEk0SlZoU3FMSDFyRU0zU0J3RldKSnc0OXhvZk5pOF9ZS2NISFhjVDNFeDBWMDBoNDJ2ZGRBX29HVFhvQkw3T29IaGVHZ3Q5TjZnUQ?oc=5",
+   "ms": 1794880020000,
+   "time": "11/17 09:47"
   },
   {
    "t": "Gold falls to one-year low near $3,850 on strong US Dollar, rising Fed hike bets",
@@ -96,20 +110,6 @@
    "url": "https://www.mining.com/web/central-bank-buying-to-support-golds-climb-to-4650-oz-by-end-2027-goldman-says/",
    "ms": 1794864898000,
    "time": "11/17 05:34"
-  },
-  {
-   "t": "TSX hits 11-day low as energy and gold mining shares slide",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUHVxWl9hRWVsanhEbEhURDdvZHAwRG1NNmtQSFN3dlZIMDYxLUtWeVo0YVYtWjRETkJkdTdaU3JGZXNULUNTQnc1VTg5MGFudmpIWUdfdzNvQVFMU3J3R21DRnh4UjRyZHFzR1c1ZUtJMXZFMXE5Z1lialdKR3NEdUR4ak9zUjBwcVZXaFF0YUc0eHlwSEpHNXFETkt6RlY0Q01KbzFn?oc=5",
-   "ms": 1794864113000,
-   "time": "11/17 05:21"
-  },
-  {
-   "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-breaks-longterm-support-as-platinum-approaches-another-bearish-target-200691688",
-   "ms": 1794862320000,
-   "time": "11/17 04:52"
   }
  ]
 }
