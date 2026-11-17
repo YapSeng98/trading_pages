@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 05:58 SGT",
+ "updated": "2026-11-18 06:12 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Fed's Williams still favors tighter monetary policy, but says now is not the time for 'dramatic action'",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV2lLaEpiUVlSSHZrbXBIekczMk5BZzI2MHZENHFVclFCY19UckxlUXBOblJTSlZBbzEwbGhxeTgzdy11MUl4d1lkRlV2QmtOUnp6TzhidVlpRFkycFczN0xrY0wxLTZDSl9wZVZWSmtsLWNpZkItd1hVZUpyZXJ0V2VtcC1nY2ZnRkJzMzhrVXVuenRFU0JpeUdFbG1uZk9UT3lUdi10eUxGV1RfcEdYSFczYXh0aERudmpR?oc=5",
+   "ms": 1794953127000,
+   "time": "11/18 06:05"
+  },
   {
    "t": "Guinea's miners stockpile gold after refinery rules halted exports, sources say",
    "src": "Reuters",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPTEdzOWtsMkxSSDQtd1dTMEd1TGNNRGNLOS1UVjl4RkR0T0ZYLTBwdkdIYTF2Ym5HbVBVSkZScktGV20wcTVCZkd6aG5NUkZPc3lfT3VadUYtd0tRQVFQdXZUeHN6SG1SM2ZUYmdNQjJrWmZoSDA4ZjFaaGZmZUFMTlNGa2FzX1o2aGVrbHlDSTNFOGpkcXRSeUNPNmc5eXk2eFRPU2c0OG5nY2tTTFBXaFRWWUI0SVFEck00eGFn?oc=5",
    "ms": 1794928863000,
    "time": "11/17 23:21"
-  },
-  {
-   "t": "Gold and Silver Rally as Nvidia, Deutsche Bank Scandals Hit Equities",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNEJWd1JhT1ZXaDhLREZQWjZTbUNHc04tSXN3MXkxazlvWm9WeGY3ZDN1UnBNS0l6Sy1Pbkk1aFFVeXNuT0xEOHZveGFYSlphVU1MTm91UUtZaGpiSzFzTlQ1WGQxdTNpQzlOOXliSnhzVjVCNFk2V2pZWTBiTm12SVp4djJWNFlweENkb3ZfVk9MMWVa?oc=5",
-   "ms": 1794928512000,
-   "time": "11/17 23:15"
   }
  ]
 }
