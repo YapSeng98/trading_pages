@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 02:49 SGT",
+ "updated": "2026-11-18 03:03 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "China’s concentrate-fed copper smelting capacity nears a ceiling in 2026, association says",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY082NmJfTXQxdE16cnlxbzl1T1V1ZkdFNGY4c3d6TnpVaG1tMzhWRXFNQ2xqdGdyQThDZlZaRFFYRFVRWlpkUTNmYTlPMTRwdTI0WEd4SVYwQ2F5TlRtLXYxQlNwUjUtdTcyS1E1RlJ1Tk4xcU5jU3NSYVViUXFaSDd5QUFiajc5ek5aYUJkZVpmMUViZGhKLTdHeDVtak10dXVWVXV2a29vOTFhU3NOaGZWekpWSWtY?oc=5",
+   "ms": 1794941072000,
+   "time": "11/18 02:44"
+  },
   {
    "t": "Why Silver and Gold Miners Are Taking Bigger Losses Than Stocks in the Sell-Off",
    "src": "Investing.com",
@@ -63,13 +70,6 @@
    "time": "11/17 23:10"
   },
   {
-   "t": "The price of gold today, Nov. 17, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa0doRkFmRmdZak9BZDFNN0k1amNIR2tuNl9zQTJISDRBbTlOZTNXNlFEb2xrREl5Rk5NcTNzNEJnY3hIWnBLSlhBaExxTTU0WXM3aXY2SWhHZjgyeERfMUsxX3hLLW1SRHEwX2F2ME42Z9IBd0FVX3lxTE1PZlBvMkkycUY0b0Z5OUNnYmo2RzZDZFRIQU1KV0xlSEpuWEdZYV9mWmZTRVRCWnZYRWFoMDR0ZTg5SlBjR1pPME84SXVzVkwzMGxfdWxESkw4NTJOWVZvb2JleE5VMTR5QmZHOTNiUzNaS3pEZG1B?oc=5",
-   "ms": 1794927859000,
-   "time": "11/17 23:04"
-  },
-  {
    "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
@@ -105,11 +105,11 @@
    "time": "11/17 21:30"
   },
   {
-   "t": "Here’s when Goldman expects gold prices to reach $5,600/oz By Investing.com",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOTl9lMDhxU00wS05ETGNUbkVNQkEwRWREZzVFU1RsNW14VTFnRDVtOURtemZ1WDdqczFEbUNYSDJyOGlQc085NlNmV0tYYXhlWEl4NHVFcGtLWUpzVVZFRTlSdTNqWWRlWVlFbjR4T2FVNk93YTM3c0lxWnllQXpaT0dJQ1dlZ1VMSEs1NTZIcmhCU1B0dGQ2VlBnWHZ0dE4xLU82RGpWbmZVWEtabEE?oc=5",
-   "ms": 1794920368000,
-   "time": "11/17 20:59"
+   "t": "Gold: Volatile near term on Fed outlook – ING",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQb29zcE1sMG5BTjNvUy1ZY2t5U015Xy1fMm5NU0tiQnZnVWdMbTZVazB1dUNGZnNmMWh1M3padGU3UkplSWhFSnFXMURnODE2ZjRCZVNLc0NZQXlnQlI0M0NuZktRa3NQaWViRVVvQ1ltR1BCeEZzT0MwR1pwNnYtWjFCa0g4SGhkYURyMWF3?oc=5",
+   "ms": 1794919948000,
+   "time": "11/17 20:52"
   }
  ]
 }
