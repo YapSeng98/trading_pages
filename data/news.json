@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 04:51 SGT",
+ "updated": "2026-11-18 05:04 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Guinea's miners stockpile gold after refinery rules halted exports, sources say",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNT1JjY0lMOE1WbG9XbXJYb3M5VW1YbDZjSDhOQzIzd1kzeGhHeUZPU3MyU3lBSXZ5SEloRk1xWGJxUDB5UVVVZEtUaU9ucUFzRE1naDdQVm05T3NSa3FXallpakwtUjAyTEd2Tlk0SmRHem1zRTI3eWNpcUREeTFoNjFXU3NVUDZPa3ZTejJlZnV6MUFnNi05WU9xMzV3ZFNaV3FZS3p3YUZkRHdyYlp5eGhnYWs1OV9kem1CamdoVEljQVBk?oc=5",
+   "ms": 1794948980000,
+   "time": "11/18 04:56"
+  },
   {
    "t": "Gold Could Target $7,000 as a Bullish Wedge Meets 8-Year Oversold Readings",
    "src": "Investing.com",
@@ -26,6 +33,13 @@
    "url": "https://www.investing.com/analysis/why-silver-and-gold-miners-are-taking-bigger-losses-than-stocks-in-the-selloff-200691766",
    "ms": 1794941820000,
    "time": "11/18 02:57"
+  },
+  {
+   "t": "China’s concentrate-fed copper smelting capacity nears a ceiling in 2026, association says",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY082NmJfTXQxdE16cnlxbzl1T1V1ZkdFNGY4c3d6TnpVaG1tMzhWRXFNQ2xqdGdyQThDZlZaRFFYRFVRWlpkUTNmYTlPMTRwdTI0WEd4SVYwQ2F5TlRtLXYxQlNwUjUtdTcyS1E1RlJ1Tk4xcU5jU3NSYVViUXFaSDd5QUFiajc5ek5aYUJkZVpmMUViZGhKLTdHeDVtak10dXVWVXV2a29vOTFhU3NOaGZWekpWSWtY?oc=5",
+   "ms": 1794941072000,
+   "time": "11/18 02:44"
   },
   {
    "t": "Stocks are sliding again, and it's not just AI — the dollar wrecking ball has already leveled the debasement trade",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb0c2d0N3TGdSX211bDdHeHhLc2tmN0xWMlBFUGxIWUU5RmVjak5UbUhWYi1xTmZObXZldF81VnFjMmVDSkNjOHBTRkxsbURITG9hOGdVM2YzQW5kUDlxV3h3S25HNFh2d0xITnhFQnNCZ1dIeVFQdmpKcHY0SjRtVHNJcXNubFF0Tnp6TWw1M3VleHBXczRfZllSX29mX0xwbFd5NVRyakVZRlpNME5zcmJnN084ZlUyZi01cExkdzU?oc=5",
    "ms": 1794928061000,
    "time": "11/17 23:07"
-  },
-  {
-   "t": "The price of gold today, Nov. 17, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa0doRkFmRmdZak9BZDFNN0k1amNIR2tuNl9zQTJISDRBbTlOZTNXNlFEb2xrREl5Rk5NcTNzNEJnY3hIWnBLSlhBaExxTTU0WXM3aXY2SWhHZjgyeERfMUsxX3hLLW1SRHEwX2F2ME42Z9IBd0FVX3lxTE1PZlBvMkkycUY0b0Z5OUNnYmo2RzZDZFRIQU1KV0xlSEpuWEdZYV9mWmZTRVRCWnZYRWFoMDR0ZTg5SlBjR1pPME84SXVzVkwzMGxfdWxESkw4NTJOWVZvb2JleE5VMTR5QmZHOTNiUzNaS3pEZG1B?oc=5",
-   "ms": 1794928053000,
-   "time": "11/17 23:07"
-  },
-  {
-   "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
-   "ms": 1794926859000,
-   "time": "11/17 22:47"
   }
  ]
 }
