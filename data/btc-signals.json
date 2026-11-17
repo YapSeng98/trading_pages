@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1794932100000,
+ "lastChecked": 1794933000000,
  "a3": -1,
- "a5": 0,
+ "a5": -1,
  "open": 5,
- "nextId": 9,
+ "nextId": 10,
  "signals": [
   {
    "id": 1,
@@ -126,6 +126,20 @@
    "spread": 19.28,
    "status": "skipped",
    "why": "已有纸面持仓"
+  },
+  {
+   "id": 9,
+   "time": "2026-11-18 00:30 SGT",
+   "ms": 1794933000000,
+   "side": "做空",
+   "entry": 63905.56,
+   "stop": 65644.51,
+   "target": 58688.71,
+   "risk": 1738.95,
+   "atr": 579.65,
+   "spread": 19.17,
+   "status": "skipped",
+   "why": "已有纸面持仓"
   }
  ],
  "events": [
@@ -194,10 +208,16 @@
    "time": "2026-11-17 17:15 SGT",
    "type": "skipped",
    "text": "信号 #8（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1794933000000,
+   "time": "2026-11-18 00:30 SGT",
+   "type": "skipped",
+   "text": "信号 #9（做空）已有纸面持仓，按规则跳过"
   }
  ],
  "summary": {
-  "signals": 8,
+  "signals": 9,
   "taken": 3,
   "closed": 2,
   "wins": 2,
@@ -1195,6 +1215,17 @@
    "level": 64755.57,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1794933000000,
+   "time": "2026-11-18 00:30 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 63905.56,
+   "level": 64079.83,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
@@ -1202,7 +1233,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bullish"
+  "15M": "bearish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1212,8 +1243,8 @@
     "name": "同一信号，跟踪止损出场",
     "open": 2,
     "nextId": 3,
-    "skipped": 6,
-    "prev": 0,
+    "skipped": 7,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1264,8 +1295,8 @@
     "name": "不看周线，目标 3R",
     "open": 4,
     "nextId": 5,
-    "skipped": 5,
-    "prev": 0,
+    "skipped": 6,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1356,8 +1387,8 @@
     "name": "不看周线，跟踪止损出场",
     "open": 3,
     "nextId": 4,
-    "skipped": 6,
-    "prev": 0,
+    "skipped": 7,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
