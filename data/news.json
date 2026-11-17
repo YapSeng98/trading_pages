@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 21:51 SGT",
+ "updated": "2026-11-17 22:18 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold trades near one-year low as U.S. retail sales slow - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNVBMcGpQbmJMNUNTUmt3NkVvVm1TU3JGZ1lEVDFZeXB3cjdsb05lckt1NDAwakNiaVh0cDdYMHF5WGU3VDV6NUE2NXlCZWFFTEJRSUNSN05HRTM5aXJDV2ROTktwbWFCRmZPVjZpM2YyNnhPVmNYVHoxT3Nyb0huY2xrSWRjRTFGNlp3SkJwUFRfdTBrUXFGeFBha1hvUDVZeW9WaTFXRmM3TVlCTWNNa2JB?oc=5",
+   "ms": 1794923697000,
+   "time": "11/17 21:54"
+  },
   {
    "t": "Fed's Musalem: US likely needs several rate hikes by spring to control inflation",
    "src": "Kitco",
@@ -21,11 +28,25 @@
    "time": "11/17 21:30"
   },
   {
+   "t": "Gold price drops to $3,848/oz after October retail sales rise 0.2%, core rises 0.6%",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdXNLbU1TNG8wbkdSLXhsV3I1N0ZBUjdzdGc0M2l5RW5qRzFodjRjX0MxX0kxQlVVUVl2YW9UYldCYVZUUHpSRzI2OGN2Rm1TdGV5YnE1RXJFZWpfZ1VveEVMblduTm8xY1dOUXB1VnZ6RWM4S3hTb3VablduVnNJODRBWktHcmhPUFh4Vk92cmxPU0NxNWx6ZHEzOU9laTBFSGJiWHRkRUQ1MkpDZEFEdXBnYm4tUlFZS1E?oc=5",
+   "ms": 1794922222000,
+   "time": "11/17 21:30"
+  },
+  {
    "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
    "ms": 1794921481000,
    "time": "11/17 21:18"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
+   "ms": 1794920138000,
+   "time": "11/17 20:55"
   },
   {
    "t": "Gold: Volatile near term on Fed outlook – ING",
@@ -70,13 +91,6 @@
    "time": "11/17 18:17"
   },
   {
-   "t": "Guinea grants permit to PDI Gold permit, potentially easing miners' concerns",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYXkydGc4QmlKOXdqS1Z4eXFXdlhQSnN0LWdYdEN1VlRsdWQ0R2xNN0tsZ0JIX3BsSnd5M3YyTERzTXdFMnR0TEdDYWN3R05RWGg2NTdQbGY5T0FfRXl6NUNwbGp3MG1TNmpVZk44ZGI1ZzVFRERJMWVTZkNjMUJQVy1iSGVPeXV4ai1LbDFzUXkxVzNzdkZDX1FBZWpWbFZtWHo3VnFjcWRHUXdEd1hZOTZTS0ZDeU5XTjFuLQ?oc=5",
-   "ms": 1794908167000,
-   "time": "11/17 17:36"
-  },
-  {
    "t": "India’s Big Battery Gold Rush Pulls In Tile and Medicine Makers",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMHdXazZvMWVoemczLUtrS3R6aW81SVY0V3h1ekVTMUJ4YXMxSWdabUwzX3oxM0pkSW4xR1U5T0JhRnU5X3FzNExKLTlMYUUzb05aRER4UjNBdHY5Qmw3UjlmQmpyMHZ1OGc1TTRoQTZPNmdIeHNROWxvTjJjeDlQcVdHQ3gyUHhDT2R0cDdJOENFVmlTT3Y4OXFtNFFkVjk3UXF3WlkxNGRMcHZMWUhUaDRKY3BDQQ?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-stays-fragile-below-4000-as-us-dollar-strength-and-ratehike-bets-weigh-200691726",
    "ms": 1794907500000,
    "time": "11/17 17:25"
-  },
-  {
-   "t": "Gold trims intraday recovery gains as Fed hike bets and Iran risks support USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdkdYRTJnZ0NNNTI2X0wxektWV2FYY2s0TWFxQnNjdFFlSVliQUVFNWd6Q1ZyMmR3bVpJMkF1bFI4TWY4azBkb1pfM2tmY3JOYU8zY3FDcWRack5QV1Z1czVEUjBGNGZYLTZlNkg5aTg2SjdDUlgyX2JPandYS25kbVk0WU5QcHhqUHRpdHpNODBhU2tiYmsyYVFfc3BYTmRnTHVoaEpuREg0QVZYQkU0S0JSVzFmcmJxXzhrMQ?oc=5",
-   "ms": 1794904655000,
-   "time": "11/17 16:37"
-  },
-  {
-   "t": "Oil Prices Slide as Global Glut Fears Eclipse Hormuz Attacks",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/oil-prices-slide-as-global-glut-fears-eclipse-hormuz-attacks-200691719",
-   "ms": 1794904320000,
-   "time": "11/17 16:32"
   }
  ]
 }
