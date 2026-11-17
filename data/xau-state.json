@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-17 07:12 SGT",
+ "updated": "2026-11-17 08:06 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3856.4,
- "priceTime": "2026-11-17 06:00 SGT",
+ "price": 3862.6,
+ "priceTime": "2026-11-17 08:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
-  "open": null,
-  "high": null,
-  "low": null,
-  "changeFromPrevClose": 0,
-  "changePct": 0,
+  "open": 3856,
+  "high": 3864.4,
+  "low": 3851.4,
+  "changeFromPrevClose": 6.2,
+  "changePct": 0.16,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -86,11 +86,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3856.4,
-  "stop": 3905.7,
-  "target": 3708.3,
-  "stopDistance": 49.3,
-  "trailDistance": 98.7,
+  "entry": 3862.6,
+  "stop": 3911.2,
+  "target": 3716.8,
+  "stopDistance": 48.6,
+  "trailDistance": 97.2,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -183,22 +183,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-10 18:00 SGT",
-   "rsi": 44.2,
-   "atr": 16.45,
-   "ema20": 3864.8,
-   "ema50": 3886.9,
-   "ema200": 3969.9,
+   "rsi": 47.3,
+   "atr": 16.2,
+   "ema20": 3864.5,
+   "ema50": 3886,
+   "ema200": 3968.8,
    "emaOrder": "空头排列",
    "range": {
     "top": 3901.1,
     "bottom": 3832.1,
-    "positionPct": 35
+    "positionPct": 44
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3867.6,
-    "barsAgo": 17
+    "barsAgo": 18
    },
    "turnsUpAbove": 3888.8,
    "turnsDownBelow": 3832.1
@@ -208,25 +208,25 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-17 00:00 SGT",
-   "rsi": 47.5,
-   "atr": 6.22,
-   "ema20": 3857.5,
-   "ema50": 3861.3,
-   "ema200": 3887.3,
-   "emaOrder": "空头排列",
+   "rsi": 54.8,
+   "atr": 6.48,
+   "ema20": 3857.1,
+   "ema50": 3860.5,
+   "ema200": 3886.1,
+   "emaOrder": "交错",
    "range": {
     "top": 3888.8,
     "bottom": 3841,
-    "positionPct": 32
+    "positionPct": 45
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 3861.2,
-    "barsAgo": 24
+    "barsAgo": 28
    },
    "turnsUpAbove": 3866.4,
-   "turnsDownBelow": 3841
+   "turnsDownBelow": 3848.7
   }
  ],
  "resistance": [
