@@ -487,16 +487,14 @@
     ["日线 · 4 小时：最快的预警", "潜在的偏多 / 偏空", [["pre", "可能转向：最新 15 分钟收盘越过日线或 4 小时的转折价", "那根 K 线收盘后再告诉你转成了没有。还不是信号"], ["turn", "收盘确认转向（周线、日线、4 小时）", "附日线和 4 小时合起来的方向"]]],
     ["形态 · 参考", "回放里形态单独做没有优势", [["pattern", "日线、4 小时：出现新形态、最新收盘越过突破位、收盘突破", "附形态图和它的价位"]]]
   ];
-  // Everything about alerts sits behind the one button in the bar (#fx-alert; owner, 2026-11-18: "one button for user to
-  // click and view so that will not make the page so confuse"): a popup with the switch, what to be told about and which
-  // pairs, and the record. The button says whether alerts are on and how many came since the record was last looked at.
+  // Everything about alerts sits behind the 🔔 in the navbar (assets/site.js, the same on every page; owner, 2026-11-18:
+  // "one button for user to click and view so that will not make the page so confuse", "fir all not only gold"): a popup
+  // with the switch, what to be told about and which pairs, and the record. The bell shows a green dot when forex alerts
+  // are on and a red number of alerts not yet seen.
   var POP = null;
   function paintFxBtn() {
-    var b = $("fx-alert"), n = AK && AK.unread ? AK.unread(["fx"]) : 0; while (b.firstChild) b.removeChild(b.firstChild);
-    b.appendChild(document.createTextNode(S.notify ? (granted() ? tr("🔔 外汇提醒：开", "🔔 Forex alerts: on") : tr("🔔 提醒：等浏览器允许", "🔔 Alerts: waiting for the browser")) : tr("🔕 外汇提醒：关", "🔕 Forex alerts: off")));
-    if (n) b.appendChild(h("span", { class: "al-btn-n", text: n > 99 ? "99+" : String(n) }));
-    b.className = "btn sm " + (S.notify ? "on" : ""); b.setAttribute("aria-haspopup", "dialog");
-    if (POP) POP.badge("log", n);
+    if (POP && AK.unread) POP.badge("log", AK.unread(["fx"]));
+    try { document.dispatchEvent(new CustomEvent("alerts:change")); } catch (e) {}
   }
   function toggle() {
     var ask = function () { Notification.requestPermission().then(function () { renderAlert(); beat(); }); };
@@ -512,7 +510,9 @@
     if (!POP) {
       var log = h("div", { class: "al-log", id: "fx-allog" });
       POP = AK.popup({ id: "fx-dlg", title: tr("🔔 外汇提醒", "🔔 Forex alerts"), markets: ["fx"], tabs: [{ id: "set", label: tr("提醒设置", "Settings"), el: h("div", { id: "fx-alset" }) }, { id: "log", label: tr("提醒记录", "Record"), el: log }] });
-      AK.view(log, { markets: ["fx"] }); AK.onOpen(function () { POP.open("log"); }); AK.onChange(paintFxBtn); paintFxBtn();
+      AK.view(log, { markets: ["fx"] }); AK.onOpen(function () { POP.open("log"); }); AK.onChange(paintFxBtn);
+      window.AlertPopup = { open: function (tab) { POP.open(tab || (AK.unread(["fx"]) ? "log" : null)); }, state: function () { return { on: !!S.notify && granted(), n: AK.unread(["fx"]) }; } };
+      paintFxBtn();
     }
     var opt = $("fx-alset"), ok = granted(), perm = "Notification" in window ? Notification.permission : "none";
     while (opt.firstChild) opt.removeChild(opt.firstChild);
@@ -562,7 +562,6 @@
       lines: [tr("这是一条测试通知：真的提醒会像这样弹出，带一张那一刻的图。", "This is a test notification: a real alert pops up like this, with a picture of the chart at that moment."), r ? (fxPatLine(r, q) || tr("这个货币对现在日线、4 小时、1 小时都没有清楚的形态。", "This pair has no clear pattern on the daily, 4-hour or 1-hour right now.")) : "", REF],
       chart: r ? fxChart(r, q ? q.tf : "4H", [], { what: tr("测试", "test") }) : null });
   }
-  $("fx-alert").addEventListener("click", function () { if (POP) POP.open(AK.unread(["fx"]) ? "log" : null); else toggle(); });
   function beat() { if (AK) AK.watching("fx", { on: S.notify && granted(), perm: "Notification" in window ? Notification.permission : "none", pairs: Array.isArray(S.npairs) ? S.npairs.length : PAIRS.length }); }
   beat(); setInterval(beat, 60000);
   $("fx-refresh").addEventListener("click", function () { scan(); });

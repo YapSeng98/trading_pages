@@ -13,8 +13,8 @@
   var NAV_EN = { "report.html": "Gold", "btc.html": "Bitcoin", "forex.html": "Forex", "journal.html": "P&L Journal", "strategy.html": "Strategy", "stocks.html": "Stocks", "potential.html": "High Potential" };
   var EN_DONE = "每一页都有英文版。每日分析的正文由每天的自动更新用中文写成，过期收起时也是中文。";
   var UI = {
-    zh: { title: "设置", lang: "语言 · Language", note: EN_DONE, top: "回到顶部", gear: "设置", close: "关闭" },
-    en: { title: "Settings", lang: "Language · 语言", note: "Every page is in English. The daily brief's written analysis is produced in Chinese by the daily update; while it is out of date it stays folded.", top: "Back to top", gear: "Settings", close: "Close" }
+    zh: { title: "设置", lang: "语言 · Language", note: EN_DONE, top: "回到顶部", gear: "设置", close: "关闭", bell: "提醒", on: " · 已开", fresh: " 条新", all: "🔔 提醒 · 这台设备", sub: "黄金 · 比特币 · 外汇", rec: "提醒记录", pages: "哪些页在提醒", none: "还没有提醒。打开黄金、比特币或外汇页，点导航栏的 🔔 开启提醒；每条提醒都会记在这里，带上那一刻的图。" },
+    en: { title: "Settings", lang: "Language · 语言", note: "Every page is in English. The daily brief's written analysis is produced in Chinese by the daily update; while it is out of date it stays folded.", top: "Back to top", gear: "Settings", close: "Close", bell: "Alerts", on: " · on", fresh: " new", all: "🔔 Alerts · this device", sub: "Gold · Bitcoin · Forex", rec: "Record", pages: "Pages alerting", none: "No alerts yet. Open the gold, Bitcoin or forex page and turn its alerts on from the 🔔 in the navbar; each alert is kept here with its chart at that moment." }
   };
   var T = UI[pick], embedded = root.classList.contains("embedded"), NS = "http://www.w3.org/2000/svg";
   function icon(d) { var s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", "0 0 24 24"); s.setAttribute("aria-hidden", "true"); s.innerHTML = d; return s; }
@@ -45,6 +45,47 @@
     gear.addEventListener("click", function (ev) { ev.stopPropagation(); if (panel) close(); else open(); });
     nav.appendChild(gear);
   }
+  // ---------- 🔔 alerts: the same bell on every page ----------
+  // Owner, 2026-11-18: "can make the alert related into one popup page? like one button for user to click and view so
+  // that will not make the page so confuse", then "fir all not only gold". On the gold, Bitcoin and forex pages the bell
+  // opens that page's alerts popup (settings, price alerts, record: window.AlertPopup, set by market-page.js and
+  // fx-page.js); the home page's opens its record of every market; elsewhere it loads assets/alert-kit.js on the first
+  // click and opens the record of every market with which pages are checking. A red number: alerts not yet seen (that
+  // market's on a market page, all of them elsewhere); a green dot: that page's alerts are on.
+  var bell = null, gpop = null, kit = null, MK = { "report.html": "xau", "btc.html": "btc", "forex.html": "fx" }[location.pathname.split("/").pop()] || null;
+  function unseen() {
+    try { var l = JSON.parse(localStorage.getItem("alerts.log")) || [], s = JSON.parse(localStorage.getItem("alerts.seen")) || {};
+      return l.filter(function (r) { return r && (!MK || r.market === MK) && r.at > (s[r.market] || 0); }).length; } catch (e) { return 0; }
+  }
+  function paintBell() {
+    if (!bell) return;
+    var st = window.AlertPopup && AlertPopup.state ? AlertPopup.state() : null, n = st && typeof st.n === "number" ? st.n : unseen(), b = bell.lastChild;
+    b.hidden = !n; b.textContent = n > 99 ? "99+" : String(n);
+    bell.classList.toggle("mk", !!(st && typeof st.on === "boolean")); bell.classList.toggle("on", !!(st && st.on));
+    bell.title = T.bell + (st && st.on ? T.on : "") + (n ? " · " + n + T.fresh : ""); bell.setAttribute("aria-label", bell.title);
+  }
+  function bellSetup() {
+    bell = h("button", { type: "button", class: "nav-bell", "aria-haspopup": "dialog" }, [icon('<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>'), h("span", { class: "nav-bd" }), h("span", { class: "nav-bn", hidden: true })]);
+    bell.addEventListener("click", function (ev) { ev.stopPropagation(); close(); openAlerts(); });
+    nav.insertBefore(bell, gear);
+    paintBell(); setInterval(paintBell, 30000);
+    window.addEventListener("storage", function (e) { if (/^alerts\./.test(e.key || "")) paintBell(); });
+    document.addEventListener("alerts:change", paintBell);
+    if (/^#al-/.test(location.hash) && !MK && !window.AlertPopup) openAlerts();  // a notification opened on a page without its own popup
+  }
+  function openAlerts() {
+    if (window.AlertPopup) { AlertPopup.open(); return; }
+    (window.AlertKit ? Promise.resolve() : kit || (kit = new Promise(function (ok, no) { var sc = document.createElement("script"); sc.src = "assets/alert-kit.js?v=3"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); }))).then(function () {
+      if (!gpop) {
+        var log = h("div", { class: "al-log" }), st = h("div", { class: "al-st" });
+        gpop = AlertKit.popup({ id: "site-al-dlg", title: T.all, sub: T.sub, markets: ["xau", "btc", "fx"], tabs: [{ id: "log", label: T.rec, el: log }, { id: "pages", label: T.pages, el: st }] });
+        AlertKit.view(log, { limit: 30, others: true, noClear: true, empty: T.none });
+        AlertKit.onChange(paintBell); gpop.st = st;
+      }
+      AlertKit.status(gpop.st); gpop.open(unseen() ? "log" : null);
+    }).catch(function () { location.href = "index.html#hub-al"; });
+  }
+  if (nav && !embedded) bellSetup();                                             // after the variables above are set
   function open() {
     if (panel) return;
     var list = h("div", { class: "set-langs", role: "radiogroup", "aria-label": T.lang });

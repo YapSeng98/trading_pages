@@ -408,21 +408,7 @@
   // that it is open and checking. This card shows which are, and the latest alerts of all three markets with the
   // picture that went with each, from this browser's own record (owner, 2026-11-18: alerts "clear for user", and the
   // whole system live).
-  function paintAlerts() {
-    var st = $("hub-al-st"); if (!st || !window.AlertKit) return;
-    var w = AlertKit.watched(), now = Date.now(), perm = "Notification" in window ? Notification.permission : "none";
-    while (st.firstChild) st.removeChild(st.firstChild);
-    [["xau", "report.html", tr("黄金", "Gold")], ["btc", "btc.html", tr("比特币", "Bitcoin")], ["fx", "forex.html", tr("外汇", "Forex")]].forEach(function (m) {
-      var x = w[m[0]], open = !!(x && now - x.at < 150000), on = open && !!x.on, a = el("a", "al-m " + (on ? "on" : open ? "off" : "closed"));
-      a.href = m[1]; a.appendChild(el("i")); a.appendChild(el("b", null, m[2]));
-      a.appendChild(el("span", null, on ? tr("开着 · 正在提醒", "open · alerting") : open ? tr("开着 · 提醒没开", "open · alerts off") : x ? (EN ? "not open · last " : "没开 · 上次 ") + sinceWhen(x.at) : tr("没开", "not open")));
-      st.appendChild(a);
-    });
-    st.appendChild(el("p", "al-note", perm === "denied" ? tr("这个浏览器不让网站弹通知：到地址栏左边的网站设置 → 通知 → 允许。", "This browser does not let the site show notifications: site settings at the left of the address bar → Notifications → Allow.")
-      : perm === "none" ? tr("这个浏览器不支持网页通知。", "This browser does not support web notifications.")
-      : perm !== "granted" ? tr("这个浏览器还没允许通知：打开黄金、比特币或外汇页，开启提醒时允许一次。", "This browser has not allowed notifications yet: open the gold, Bitcoin or forex page and allow them once when turning alerts on.")
-      : tr("提醒由开着的市场页检查（放在后台也行），没开的页面不会提醒。每条带一张图，点通知会打开那一条。", "Alerts are checked by the market pages that are open (in the background is fine); a page that is not open does not alert. Each comes with a picture; tapping a notification opens it.")));
-  }
+  function paintAlerts() { if (window.AlertKit && AlertKit.status) AlertKit.status($("hub-al-st")); }
   // every market's alerts behind one button, in the same popup the market pages use (owner, 2026-11-18: "one button for
   // user to click and view")
   var ALPOP = null;
@@ -442,6 +428,7 @@
     $("hub-al-open").addEventListener("click", function () { ALPOP.open("log"); });
     AlertKit.onOpen(function () { ALPOP.open("log"); });
     AlertKit.onChange(paintAlBtn); paintAlBtn();
+    window.AlertPopup = { open: function () { ALPOP.open("log"); }, state: function () { return { n: AlertKit.unread() }; } };   // the navbar's 🔔 (assets/site.js)
   }
   function start() {
     startSince(); startAlerts();

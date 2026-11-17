@@ -2001,7 +2001,7 @@
       var have = wait.some(function (a) { return a.price === v && a.mode === S.palMode; });
       el.appendChild(h("button", { type: "button", class: "pa-pick" + (have ? " on" : ""), "aria-pressed": String(have), text: (have ? "✓ " : "") + x[2] + " " + fmt(v, 1), onclick: function () { if (!have) palAdd(v, { src: x[1], tf: S.patTf, pat: p.name }); } }));
     });
-    if (POP) el.appendChild(h("button", { type: "button", class: "pa-more", text: tx("全部提醒 →", "All alerts →"), onclick: function () { POP.open("price"); } }));
+    if (POP) el.appendChild(h("button", { type: "button", class: "pa-more", text: tx("全部提醒 →", "All alerts →"), onclick: function () { window.AlertPopup.open("price"); } }));
   }
 
   // called with every new answer: alert when it has just become "go"
@@ -2504,33 +2504,31 @@
   var gl = $("gloss"); Object.keys(GLOSS).forEach(function (k) { gl.appendChild(h("div", null, [h("b", { text: GLOSS[k][0] }), h("span", { text: GLOSS[k][1] })])); });
   // ---------- everything about alerts behind one button ----------
   // Owner, 2026-11-18: "can make the alert related into one popup page? like one button for user to click and view so
-  // that will not make the page so confuse and need scroll down". The 🔔 提醒 button at the top of the answer (#al-open)
-  // opens one popup (AlertKit.popup) with three tabs: what to be told about (#v-alert), the price alerts (#v-palert) and
-  // the record of alerts sent (#al-log). The button shows whether alerts are on and how many alerts came since the record
-  // was last looked at; a click on a notification opens the record at that alert. The page also says every minute that it
-  // is open and checking, which the home page's alerts card shows.
+  // that will not make the page so confuse and need scroll down", then "fir all not only gold". The 🔔 in the navbar
+  // (assets/site.js, the same on every page) opens this page's popup (AlertKit.popup) with three tabs: what to be told
+  // about (#v-alert), the price alerts (#v-palert) and the record of alerts sent (#al-log). The bell shows a green dot when
+  // this page's alerts are on and a red number of alerts not yet seen; a click on a notification opens the record at that
+  // alert. The page also says every minute that it is open and checking, which the home page's alerts card shows.
   var POP = null;
   function setupPopup() {
-    var btn = $("al-open"), home = $("al-home"); if (!btn) return;
-    if (!AK || !AK.popup) { btn.hidden = true; if (home) home.hidden = false; return; }   // without the alert file the panels stay on the page
+    var home = $("al-home");
+    if (!AK || !AK.popup) { if (home) home.hidden = false; return; }               // without the alert file the panels stay on the page
     var log = h("div", { class: "al-log", id: "al-log" });
-    POP = AK.popup({ id: "al-dlg", title: tx("🔔 提醒", "🔔 Alerts"), markets: [M.id], tabs: [
+    POP = AK.popup({ id: "al-dlg", title: tx("🔔 提醒", "🔔 Alerts") + " · " + M.name, markets: [M.id], tabs: [
       { id: "set", label: tx("提醒设置", "Settings"), el: $("v-alert") },
       { id: "price", label: tx("价格提醒", "Price alerts"), el: $("v-palert") },
       { id: "log", label: tx("提醒记录", "Record"), el: log }] });
     if (home && home.parentNode) home.parentNode.removeChild(home);
     AK.view(log, { markets: [M.id] });
-    btn.addEventListener("click", function () { ensureAudio(); askPermission(); POP.open(AK.unread([M.id]) ? "log" : null); });
+    window.AlertPopup = { open: function (tab) { ensureAudio(); askPermission(); POP.open(tab || (AK.unread([M.id]) ? "log" : null)); }, state: function () { return { on: alertsOn(), n: AK.unread([M.id]) }; } };
     AK.onOpen(function () { POP.open("log"); });
     AK.onChange(paintAlBtn); paintAlBtn(); setInterval(paintAlBtn, 60000);
   }
+  // the navbar's bell (assets/site.js) and the record tab's count follow the switch, the price alerts and the record
   function paintAlBtn() {
-    var btn = $("al-open"); if (!btn || !AK || !AK.unread) return;
-    var on = alertsOn(), wait = palList().filter(function (a) { return !a.at; }).length, n = AK.unread([M.id]), last = AK.list([M.id])[0], b = $("al-btn-n");
-    btn.classList.toggle("on", on); b.hidden = !n; b.textContent = n > 99 ? "99+" : String(n);
-    btn.title = (on ? tx("提醒已开", "Alerts on") : NOTE_OK && Notification.permission === "denied" ? tx("浏览器拒绝了通知", "The browser blocked notifications") : tx("提醒没开", "Alerts off")) +
-      (wait ? (EN ? " · " + wait + " price alert" + (wait > 1 ? "s" : "") + " waiting" : " · " + wait + " 个价格提醒在等") : "") + (n ? (EN ? " · " + n + " new" : " · " + n + " 条新提醒") : "") + (last ? tx(" · 最近：", " · latest: ") + last.title : "");
-    if (POP) POP.badge("log", n);
+    if (!AK || !AK.unread) return;
+    if (POP) POP.badge("log", AK.unread([M.id]));
+    try { document.dispatchEvent(new CustomEvent("alerts:change")); } catch (e) {}
   }
   function beat() { if (AK) AK.watching(M.id, { on: alertsOn(), perm: NOTE_OK ? Notification.permission : "none", own: palList().filter(function (a) { return !a.at; }).length }); }
   syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert(); setupPopup(); beat(); setInterval(beat, 60000);

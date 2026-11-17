@@ -250,7 +250,7 @@
     if (!el) return; var v = { el: el, o: o || {} }; views.push(v); paintLog(v);
     var m = location.hash.match(/^#al-([a-z0-9]+)$/); if (m && document.getElementById("al-" + m[1])) setTimeout(function () { open(m[1]); }, 400);
   }
-  function redraw() { views.forEach(function (v) { if (v.el.isConnected) paintLog(v); }); subs.forEach(function (fn) { try { fn(); } catch (e) {} }); }
+  function redraw() { views.forEach(function (v) { if (v.el.isConnected) paintLog(v); }); subs.forEach(function (fn) { try { fn(); } catch (e) {} }); try { document.dispatchEvent(new CustomEvent("alerts:change")); } catch (e) {} }
   window.addEventListener("storage", function (e) { if (e.key === LOG) redraw(); });
   // a click on a notification: the page first opens what holds the record (onOpen), then the record shows that alert
   function open(id) {
@@ -265,6 +265,20 @@
   // which pages are open and checking: the home page's status card reads it
   function watching(market, info) { var w = rd(WATCH, {}); if (!w || typeof w !== "object" || Array.isArray(w)) w = {}; w[market] = Object.assign({ at: Date.now(), page: page() }, info || {}); wr(WATCH, w); }
   if (can()) sw();                                                               // ready before the first alert
+  // which market pages are open and checking now (each says so every minute), with a word on notifications
+  function status(el) {
+    if (!el) return; clear(el);
+    var w = rd(WATCH, {}), now = Date.now(), perm = "Notification" in window ? Notification.permission : "none"; w = w && typeof w === "object" ? w : {};
+    [["xau", "report.html", tr("黄金", "Gold")], ["btc", "btc.html", tr("比特币", "Bitcoin")], ["fx", "forex.html", tr("外汇", "Forex")]].forEach(function (m) {
+      var x = w[m[0]], open = !!(x && now - x.at < 150000), on = open && !!x.on;
+      el.appendChild(h("a", { class: "al-m " + (on ? "on" : open ? "off" : "closed"), href: m[1] }, [h("i"), h("b", { text: m[2] }),
+        h("span", { text: on ? tr("开着 · 正在提醒", "open · alerting") : open ? tr("开着 · 提醒没开", "open · alerts off") : x ? (EN ? "not open · last " : "没开 · 上次 ") + when(x.at) : tr("没开", "not open") })]));
+    });
+    el.appendChild(h("p", { class: "al-note", text: perm === "denied" ? tr("这个浏览器不让网站弹通知：到地址栏左边的网站设置 → 通知 → 允许。", "This browser does not let the site show notifications: site settings at the left of the address bar → Notifications → Allow.")
+      : perm === "none" ? tr("这个浏览器不支持网页通知。", "This browser does not support web notifications.")
+      : perm !== "granted" ? tr("这个浏览器还没允许通知：打开黄金、比特币或外汇页，点导航栏的 🔔 开启提醒时允许一次。", "This browser has not allowed notifications yet: open the gold, Bitcoin or forex page and allow them once when turning alerts on from the 🔔 in the navbar.")
+      : tr("提醒由开着的市场页检查（放在后台也行），没开的页面不会提醒。点上面的市场去设置它的提醒。", "Alerts are checked by the market pages that are open (in the background is fine); a page that is not open does not alert. Tap a market above to set its alerts.") }));
+  }
 
   // ---------- everything about alerts behind one button ----------
   // Owner, 2026-11-18: "can make the alert related into one popup page? like one button for user to click and view so
@@ -373,12 +387,15 @@
     ".al-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:0 18px 12px;border-bottom:1px solid var(--border)}.al-tabs button{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#C9C4BD;font:500 12.5px/1.2 inherit;padding:8px 13px;border-radius:999px;cursor:pointer}" +
     ".al-tabs button[aria-selected=\"true\"]{border-color:rgba(212,167,44,.6);background:rgba(212,167,44,.14);color:var(--gold-lt,#F0D27A)}" +
     ".al-pane{padding:14px 18px 18px;overflow:auto;min-height:0;flex:1 1 auto}.al-pane .v-alert,.al-pane .v-alert.on,.al-pane .v-palert{margin:0;padding:0;border:0;background:none}.al-pane .al-log{margin-top:0}.al-pane .v-alert{display:block}.al-dlg [hidden],.al-btn [hidden],.btn [hidden],.al-tn[hidden],.al-btn-n[hidden]{display:none!important}.al-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}" +
+    ".al-st{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.al-m{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;color:var(--text);text-decoration:none;position:relative;min-width:0}" +
+    ".al-m:hover{border-color:rgba(212,167,44,.45)}.al-m i{position:absolute;top:13px;right:12px;width:8px;height:8px;border-radius:50%;background:var(--dim)}.al-m.on i{background:#34D399;box-shadow:0 0 0 3px rgba(52,211,153,.18)}.al-m.off i{background:var(--gold,#D4A72C)}" +
+    ".al-m b{color:var(--ink);font-size:13.5px}.al-m span{font-size:12px;color:var(--dim)}.al-st .al-note{grid-column:1/-1;margin:2px 0 0;font-size:12px;color:var(--dim);line-height:1.6}" +
     ".pa-more{border:0;background:none;color:var(--gold-lt,#F0D27A);font:500 12px/1.2 inherit;padding:6px 4px;cursor:pointer}" +
     "@media(prefers-reduced-motion:no-preference){.al-dlg[open] .al-box{animation:alIn .16s ease-out}}@keyframes alIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}" +
-    "@media(max-width:640px){.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}.al-dlg{width:100vw;margin:auto 0 0;max-height:90vh}.al-box{border-radius:20px 20px 0 0;max-height:90vh}.al-dh{padding:14px 16px 8px}.al-tabs{padding:0 16px 10px}.al-tabs button{min-height:36px}.al-pane{padding:12px 16px 22px}.al-btn{min-height:36px}}";
+    "@media(max-width:640px){.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}.al-dlg{width:100vw;margin:auto 0 0;max-height:90vh}.al-box{border-radius:20px 20px 0 0;max-height:90vh}.al-dh{padding:14px 16px 8px}.al-tabs{padding:0 16px 10px}.al-tabs button{min-height:36px}.al-pane{padding:12px 16px 22px}.al-btn{min-height:36px}.al-st{grid-template-columns:minmax(0,1fr)}}";
   document.head.appendChild(st);
 
   window.AlertKit = { send: send, draw: draw, once: once, recent: recent, mark: mark, can: can, sw: sw, view: view, open: open, list: list, watching: watching,
-    watched: function () { var w = rd(WATCH, {}); return w && typeof w === "object" ? w : {}; }, onOpen: function (fn) { hook = fn; }, onChange: function (fn) { subs.push(fn); }, KIND: KIND,
+    watched: function () { var w = rd(WATCH, {}); return w && typeof w === "object" ? w : {}; }, onOpen: function (fn) { hook = fn; }, onChange: function (fn) { subs.push(fn); }, status: status, KIND: KIND,
     words: { bias: bias, pat: pat, patName: patName, patLine: patLine, d4: d4 }, popup: popup, unread: unread, seenNow: seenNow };
 })();
