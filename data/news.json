@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-17 16:27 SGT",
+ "updated": "2026-11-17 17:07 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold: Medium-term constructive bias maintained – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbTBuWXQxOTZoZGJNOENfOGlNUzdrSjF0TUtkbElhUEluYW1ZUnVrcW5mQ2J6ZFpzQU5sODE2NXRLNGJpM1dPM2p2T0NUMXBaMl95NHd3SXRvOWlWUGw2RGNkTXNNMEdpN0wwY0RSUVp4a0FTYzlDLXJLMmZjWmFaRzR1a2tSSnpyY041SDBsR0lJNnRoNzBrbQ?oc=5",
-   "ms": 1794901012000,
-   "time": "11/17 15:36"
-  },
   {
    "t": "Great Gold Trap of 2026: How Wall Street Sold a $6,000 Dream to Retail Investors",
    "src": "Investing.com Australia",
@@ -56,13 +49,6 @@
    "time": "11/17 13:29"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
-   "ms": 1794892800000,
-   "time": "11/17 13:20"
-  },
-  {
    "t": "Gold Struggling for a Bid",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-struggling-for-a-bid-200691699",
@@ -79,7 +65,7 @@
   {
    "t": "Gold hovers near over one-year low as firm dollar, Fed-hike bets weigh",
    "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZ2ZieG5kV0JmVE5EY1ZpbHZJRHlTaF9PdEtETnpWRy0yVGNYbzlFbmd6eF9OOEFtY1NLQjJ4RHBxc2VYU2xHNC1Hd2puN2lya1U0S2piMjhqaVN0VW1rYjZGYW9yVWU0Vk9JZlZ6RG0zcS1jM3YzREQxUVh3RHl2TDkxNVE3TVV1SGVENVRvZHd6VHd3cFhIRnlZV3FaZnV5emNNUnZkTU01Z9IBrwFBVV95cUxQZTd5RWd0eVY0a3UxblpTUnBuRXI5ek5ndmtidUVrOFZLSzVtaXZib3ctRExISUsxdXdHTVN3V24zdXBSUWNHb3VuLUdQNExVM1ZGVHYtZXlmTUppa2NOcjROQkFLVkwteXZKMDk1YWVkaER5ZmRkbGJjc1hzNm1QRWY4STFQSVk3M2ZVTk4wNjB6anBQXzVKOW5acnBRMGpST1RnZG1rYUdLMlhNelBn?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQZTd5RWd0eVY0a3UxblpTUnBuRXI5ek5ndmtidUVrOFZLSzVtaXZib3ctRExISUsxdXdHTVN3V24zdXBSUWNHb3VuLUdQNExVM1ZGVHYtZXlmTUppa2NOcjROQkFLVkwteXZKMDk1YWVkaER5ZmRkbGJjc1hzNm1QRWY4STFQSVk3M2ZVTk4wNjB6anBQXzVKOW5acnBRMGpST1RnZG1rYUdLMlhNelBn0gGvAUFVX3lxTFBlN3lFZ3R5VjRrdTFuWlNScG5Fcjl6Tmd2a2J1RWs4VktLNW1pdmJvdy1ETEhJSzF1d0dNU3dXbjN1cFJRY0dvdW4tR1A0TFUzVkZUdi1leWZNSmlrY05yNE5CQUtWTC15dkowOTVhZWRoRHlmZGRsYmNzWHM2bVBFZjhJMVBJWTczZlVOTjA2MHpqcFBfNUo5blpycFEwalJPVGdkbWthR0syWE16UGc?oc=5",
    "ms": 1794889080000,
    "time": "11/17 12:18"
   },
@@ -105,11 +91,25 @@
    "time": "11/17 11:37"
   },
   {
-   "t": "United States Dollar Index retreats from 19-month high of 103.70, outlook remains bullish",
+   "t": "Gold prices are falling: China is buying anyway",
    "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOb1VOSEo5UDJnVm5MNzh0MjlMbG92LTdwdkgzUUlzVWNIeDhGbVpoRzdwNWZxLU41el9sMk4tek9sNmF6cHJqTUNISnZIdF9zbmx6RGpkbVpzTVFZb1hkY3NpUmdzSmY2X0V0MW9McHdRNmJKV1F3M1VKOFAyVFNJaHhWQXlmMGFRR0FXWmNnWEZLSlhiSXR6MzhDcEx6RFJOcXJqSWlKQWhIbFp2WXJfZUVOU3AyS1hQWVlzal95WENNaHhBbi1HMHdB?oc=5",
-   "ms": 1794885660000,
-   "time": "11/17 11:21"
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQlVRTTNYdTdhR1ZXcHZxT1RxNEp0TnBKNHRIcjN4dWdMV0JiQ05aOFdUUjRGQjFkLVNYYzJMbG80TmRtVEs2blI1MEJpdHJYNThBa19SSnB2WmtIM1AybGNxUjZkeFo1U1hzUTBDbTJwNWVyZTYwZlN5eDJ0dzFCZzRTMGhIRWZRd3ZIaGRfWUtEdnowaFZDOQ?oc=5",
+   "ms": 1794881105000,
+   "time": "11/17 10:05"
+  },
+  {
+   "t": "Gold lingers near more-than-one-year low on Fed hike bets",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNVGd6c05RMXpCQzBvWjhLZlZ6cjc4OUZ0cjZaSWxzZk9leV9WbG1EVmhoVlJfTHZZRFkxZml4Rll3TXd6SGc0dmtiSHFsYkVQWThZdkpxb3dGQkhpSkgyVC1HQlV5WkZQaHU4N3B2b2RELWdDaGpZLWtmbHo2cllMNE9tN29pYnJGM1Z4eFJ6bmNQdHJFX0lNTHZtV0x4MlNhT284LThTc1hTY2xlcEEta0wwNjg?oc=5",
+   "ms": 1794880020000,
+   "time": "11/17 09:47"
+  },
+  {
+   "t": "Gold falls to one-year low near $3,850 on strong US Dollar, rising Fed hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUHpVZUx2OEFZd3dWdy1WZDNVVWY3dGNveEs3eHVtOHRVX2Y0NjhVZ3Y3UjdDNmlmdTl2LVdiaURMa1U2UzAxdGpUVG9PU09OT2VXQVZWc3VlcXFldnpXWWZaLVBMV1pXcW5HdjVMTlFzQkVpOV9qdFMyYWkzbExKTmZJRUM3OEVrWUMydE41ODNvRTNaTW5mNmhtUWVVTXRsWExTaVFURzJ5ZDJwcGlNZGExS0FNaDFFVkgyUUp3?oc=5",
+   "ms": 1794871675000,
+   "time": "11/17 07:27"
   }
  ]
 }
