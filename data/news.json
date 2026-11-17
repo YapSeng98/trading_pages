@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 00:07 SGT",
+ "updated": "2026-11-18 00:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold: Fed expectations could help prices find a floor – Commerzbank",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTkhoYXNCY202ZThpclIyUmxncVZTdkVHdVg4VEYzTDB6QkRmWnI5bDZOdjlGN2dEZlpVUGs1SlVlc3dVNmF4eGZ0RHRQV2s0ZEx6N0ZLczhqNV9sQVg2WXdaQk8zNnY5UzhsZ1ZBdjZvdkxTX3ZadDhYQ1FWQk1hUklCSjlFZU0wWGI1cDFlVTJ1bGFmSFl5bC1wdkF3X0p5LVM3NzE1Q1dFY2M?oc=5",
+   "ms": 1794933352000,
+   "time": "11/18 00:35"
+  },
   {
    "t": "Fed's Waller says central bank will work with private sector on digital finance",
    "src": "Kitco",
@@ -80,8 +87,8 @@
    "t": "Here’s when Goldman expects gold prices to reach $5,600/oz",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOUWxQdG1wQVJSRHJnd3hLOVFadl91eno5X2NSZlpxcmdUNHd4b29tREdBVU9sQjJyY3V3dERjUDRmMnVBVldDY3J4RUZOcGVKSXhxNG1WMXlpVU9VNVNQMDZ6bHhHYjF5V0ZzcXkzdnlLYVJuNXpEbWZuWVM2YzZjdWkxRHNNbzduSUJzSDFhOUZFVC14Y29heUU0aDEwUzZaODc5MV95bU9Tc3ZKbVJV?oc=5",
-   "ms": 1794918950000,
-   "time": "11/17 20:35"
+   "ms": 1794919027000,
+   "time": "11/17 20:37"
   },
   {
    "t": "Gold price today, Tuesday, November 17, 2026: Gold opens at lowest price since September 29, 2025",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPa3daeHBIODlWRGRaQ3I0azgwaURxaGpIVmowVU0yaGJLR2Jya0REVi1EUEU4OU8yRmtpNExUMzNlYkJOT3dscjRIUmZ2enAyQXhDekwzemZId0RmZkdBVlBYMVYxMDRGMW81WXlOR1V4dWNFX3NmSlhIR215emc2ZQ?oc=5",
    "ms": 1794910634000,
    "time": "11/17 18:17"
-  },
-  {
-   "t": "India’s Big Battery Gold Rush Pulls In Tile and Medicine Makers",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNMHdXazZvMWVoemczLUtrS3R6aW81SVY0V3h1ekVTMUJ4YXMxSWdabUwzX3oxM0pkSW4xR1U5T0JhRnU5X3FzNExKLTlMYUUzb05aRER4UjNBdHY5Qmw3UjlmQmpyMHZ1OGc1TTRoQTZPNmdIeHNROWxvTjJjeDlQcVdHQ3gyUHhDT2R0cDdJOENFVmlTT3Y4OXFtNFFkVjk3UXF3WlkxNGRMcHZMWUhUaDRKY3BDQQ?oc=5",
-   "ms": 1794907891000,
-   "time": "11/17 17:31"
   }
  ]
 }
