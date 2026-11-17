@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 04:24 SGT",
+ "updated": "2026-11-18 04:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -10,8 +10,8 @@
    "t": "Gold Could Target $7,000 as a Bullish Wedge Meets 8-Year Oversold Readings",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-could-target-7000-as-a-bullish-wedge-meets-8year-oversold-readings-200691771",
-   "ms": 1794944220000,
-   "time": "11/18 03:37"
+   "ms": 1794946680000,
+   "time": "11/18 04:18"
   },
   {
    "t": "Gold recovers its retail sales drop and holds above Monday's low",
@@ -28,18 +28,11 @@
    "time": "11/18 02:57"
   },
   {
-   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
-   "ms": 1794941713000,
-   "time": "11/18 02:55"
-  },
-  {
-   "t": "China’s concentrate-fed copper smelting capacity nears a ceiling in 2026, association says",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOY082NmJfTXQxdE16cnlxbzl1T1V1ZkdFNGY4c3d6TnpVaG1tMzhWRXFNQ2xqdGdyQThDZlZaRFFYRFVRWlpkUTNmYTlPMTRwdTI0WEd4SVYwQ2F5TlRtLXYxQlNwUjUtdTcyS1E1RlJ1Tk4xcU5jU3NSYVViUXFaSDd5QUFiajc5ek5aYUJkZVpmMUViZGhKLTdHeDVtak10dXVWVXV2a29vOTFhU3NOaGZWekpWSWtY?oc=5",
-   "ms": 1794941072000,
-   "time": "11/18 02:44"
+   "t": "Stocks are sliding again, and it's not just AI — the dollar wrecking ball has already leveled the debasement trade",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNdFJrYmNfS2x4QjJsX2dRMUpKSUFTSjFFbF9aNVhwQ2I3WGt0ei10Z29yLXc4NkhnUk51cWV5eDRNelo0S2NoZHlleWplTmNMLUxwYkZ5Z3dFS1Q4R1lPXzV2aUlKTFZnM1NpRTBaZVpaNjZKZWtRSnJDdlh5NmtWWEdwdEp6dmZsVndYTmtLWGExZ3FURGZnc1B2VmJYdTY3MUVJY2RhNzMwZEd2Q2V4c3htd0dyWkdEY0ZPekYxdHFwa3A4NFB2czF1aTNpRG1YekhPR3h5TzZEdG94Z1F6LTVteW04QkxHbnRGcDJBY0JMOFk5dEdrOXBvdGU?oc=5",
+   "ms": 1794939693000,
+   "time": "11/18 02:21"
   },
   {
    "t": "Will Gold Prices Rise After the Fed's Expected December Rate Hike?",
@@ -108,8 +101,15 @@
    "t": "The price of gold today, Nov. 17, 2026 — and the best places to buy",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xa0doRkFmRmdZak9BZDFNN0k1amNIR2tuNl9zQTJISDRBbTlOZTNXNlFEb2xrREl5Rk5NcTNzNEJnY3hIWnBLSlhBaExxTTU0WXM3aXY2SWhHZjgyeERfMUsxX3hLLW1SRHEwX2F2ME42Z9IBd0FVX3lxTE1PZlBvMkkycUY0b0Z5OUNnYmo2RzZDZFRIQU1KV0xlSEpuWEdZYV9mWmZTRVRCWnZYRWFoMDR0ZTg5SlBjR1pPME84SXVzVkwzMGxfdWxESkw4NTJOWVZvb2JleE5VMTR5QmZHOTNiUzNaS3pEZG1B?oc=5",
-   "ms": 1794927859000,
-   "time": "11/17 23:04"
+   "ms": 1794928053000,
+   "time": "11/17 23:07"
+  },
+  {
+   "t": "Gold struggles near $3,850 as traders bet on back-to-back Fed rate hikes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcEtWTjJMVFRtUzNQWVJIMlhHTV9DcHJHbXFfb3V2dl9talY1NFZTWGF1YlhqdUlUZkpyaWd0aGhJWk1tR1hUd1hjQjlLa2FJUEZBajdTNVZEbHdwN2ZjZUg1WTR0YmtmYm5VcTh6ZWZSMHJFMEpJVlFEM3o4WHFERzZOampRZUZtNlRCRWZ6RnF1NnVtNlUySTNhVWUxQXNjMkRjd1VQakRtRGkyd2g5ZG9VYUo?oc=5",
+   "ms": 1794926859000,
+   "time": "11/17 22:47"
   }
  ]
 }
