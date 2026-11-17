@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 22:18 SGT",
+ "updated": "2026-11-17 22:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Current price of gold as of November 17, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE00VDN1NmE2Y2Z4b0RmS2JWdlkzdTE1dlI2QkRMaXExSmxPV18xVDMwRWRtZ1FpUVNlV1V3Vl9wT2dfZVZ2SDZtdEYyY2YxYzZHZjNDSFZrUjFpMVFuRjlBS1N6UjIteGlSYTJ0c1Nn?oc=5",
+   "ms": 1794924480000,
+   "time": "11/17 22:08"
+  },
   {
    "t": "Gold trades near one-year low as U.S. retail sales slow - Kitco AM Report",
    "src": "Kitco",
@@ -24,13 +31,6 @@
    "t": "Gold price drops to $3,848/oz after September retail sales rise 0.2%, core rises 0.6%",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZkg4SlE3cVZnUFZiQVdMdE9nYTBsbC1mUzFLNzc1LUJPTC1QTHVjSENaRXU4ZDZlQWlfVVFOLUdYbW1RVDRBTlhyVE1FdmpOOUducE02ZV9TazRmYlAyMG41QjdLTW5UTHhKa1ZZYjlxSGZLbFl0ZmIwVkN6WDlKa09xWWVVRC1JdHVSaFBqX2xTTkc4YUl3V1hoWERCVHhxdWx1OUlJSWdNYnlsbUFZa1VHclNIQWtjZnF2Tw?oc=5",
-   "ms": 1794922222000,
-   "time": "11/17 21:30"
-  },
-  {
-   "t": "Gold price drops to $3,848/oz after October retail sales rise 0.2%, core rises 0.6%",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdXNLbU1TNG8wbkdSLXhsV3I1N0ZBUjdzdGc0M2l5RW5qRzFodjRjX0MxX0kxQlVVUVl2YW9UYldCYVZUUHpSRzI2OGN2Rm1TdGV5YnE1RXJFZWpfZ1VveEVMblduTm8xY1dOUXB1VnZ6RWM4S3hTb3VablduVnNJODRBWktHcmhPUFh4Vk92cmxPU0NxNWx6ZHEzOU9laTBFSGJiWHRkRUQ1MkpDZEFEdXBnYm4tUlFZS1E?oc=5",
    "ms": 1794922222000,
    "time": "11/17 21:30"
   },
