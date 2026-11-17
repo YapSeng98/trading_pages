@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-17 09:27 SGT",
+ "updated": "2026-11-17 09:28 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
+   "ms": 1794873600000,
+   "time": "11/17 08:00"
+  },
   {
    "t": "Gold falls to one-year low near $3,850 on strong US Dollar, rising Fed hike bets",
    "src": "FXStreet",
@@ -35,6 +42,13 @@
    "time": "11/17 05:34"
   },
   {
+   "t": "Fed's Warsh says emerging technologies to have 'significant impact,' but there are risks",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQjBEWTRZekl4NlZXbUFpUW93VUNEU3JOUkVnZFk5VDAyRFBNRXYyTGNCREVZRFNEd2JEdWY4VmxsUGtxdnAwQnhZSlFiX3p2WWRHVU1iS1dIbXpDel8waEpsT25wdjFhTHlPNG8xMnJWdHdtc09aMnBDa2I5MGN3SkVjendsRWFOTUxvdnZrMmFKdDN6RmV3OXRISEdERjhuSEpDYmQ4dkVldmx2dENTcGRZR0NuVk9xYk85OTJCVmRteEk?oc=5",
+   "ms": 1794862663000,
+   "time": "11/17 04:57"
+  },
+  {
    "t": "Gold Breaks Long-Term Support as Platinum Approaches Another Bearish Target",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-breaks-longterm-support-as-platinum-approaches-another-bearish-target-200691688",
@@ -47,6 +61,13 @@
    "url": "https://www.mining.com/web/gold-drops-to-more-than-one-year-low-as-us-dollar-marches-higher/",
    "ms": 1794861986000,
    "time": "11/17 04:46"
+  },
+  {
+   "t": "Fed's Hammack reiterates case for slow, steady rate hikes -Bloomberg TV",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYk9kal9uc0hmSGMySFhuVE1BbTd3dkV1SkdjbEx3U2NuZFdoMFI1TThKSHVnLUNGTVNOOVpRM3VVUnBZdkxISEhKdVloQzBxUGlEcm15ZkQyUGZjWW5IbVhhZVNKWnBleE1PZzAyNUtmQUVrWHZ1R2YwU1FSZWVjczdVWXcwX3Z4VWhsVXZwUE1EaWMtZ3I0d1I2WlVOdm5rdGdZMFl4VVJENHRaSUE?oc=5",
+   "ms": 1794860200000,
+   "time": "11/17 04:16"
   },
   {
    "t": "Goldman Forecasts Gold to Take Two Years to Recapture All-Time Highs",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOai16a295Z0xBSGRIYkZyRW94bUsyVHFKOU5FVzBWY2k2TkRpUldqTy1pQnlJZjJVZzFPMHFPOTNuVlRsMnZRQ3RISldyVlV5b1BlNzl4eFdzUVpaUWZVTm5TaEpPTEgybnpyWUlVSjk3YTEtX3g2WXJreWNaUVFPaUVITlVWdFBqODB1a3NibVdSd2FpZTRrY1l2RThuYkRmVkNtc1l5NjFfUWNBZWdfNHJhWnI2a1RHck13?oc=5",
    "ms": 1794856767000,
    "time": "11/17 03:19"
-  },
-  {
-   "t": "Gold Selloff Shows How Rising Real Yields Can Overwhelm Haven Demand",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-selloff-shows-how-rising-real-yields-can-overwhelm-haven-demand-200691680",
-   "ms": 1794854040000,
-   "time": "11/17 02:34"
-  },
-  {
-   "t": "Gold sinks to 1-year low as Treasury yields and dollar bite, set for worst year since 2015",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOVkNEMWt0MEpVV2U4c0tCZEQ0N3FJRnBMWEFJRktVNVpBNGZ4RWFjVXA0TnR0VE8yam5OenZaaF9KWVhuc3RCQkZXWGlwb0pPRElEM0JoU0Rsb3BpX2ZTUjBLUG52SUM1V2RkcHRKLVdLR1ZmeXFISlplcTRQU0xJMzZHcFBFbUZPVWtYeGpqbWxKU1gtQjMxZXBMZU5rdldKOTRaWXpNSkZqd3MwajRHUzVvSVI2QTBOb1dJMGc3U3VzdTFP?oc=5",
-   "ms": 1794852186000,
-   "time": "11/17 02:03"
-  },
-  {
-   "t": "Silver Leads Gold to New 2026 Lows: What the Ratio Says",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-leads-gold-to-new-2026-lows-what-the-ratio-says-200691678",
-   "ms": 1794851640000,
-   "time": "11/17 01:54"
   }
  ]
 }
