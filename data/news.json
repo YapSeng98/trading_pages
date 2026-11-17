@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-17 17:42 SGT",
+ "updated": "2026-11-17 18:02 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Turkish Households Buckle Under Gold-Price Slide, Funds Crisis",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVi10UE0yMEdRNGxLamVGY2Iycl9OSXF5WWJTbVFlbm9RbDNKMExPaFRlUGdVdE10RllDaGRaekx3WHZxcF9rV1Q1OFRFSVljNlA1SlliVDBURTk3ZHFyWS0tdzNIVTQxekMwY2kwdEU5ZVNvQmlxcVNSMi1sQjFyek5wcm9SMERad25zQ3FOQlJWTzdCUWRfdWxpTXFienA3dkx0ekhRRzNPYXdMQVFFMDVn?oc=5",
-   "ms": 1794907523000,
-   "time": "11/17 17:25"
-  },
   {
    "t": "Gold Stays Fragile Below 4,000 as US Dollar Strength and Rate-Hike Bets Weigh",
    "src": "Investing.com",
@@ -26,13 +19,6 @@
    "url": "https://www.investing.com/analysis/oil-prices-slide-as-global-glut-fears-eclipse-hormuz-attacks-200691719",
    "ms": 1794904320000,
    "time": "11/17 16:32"
-  },
-  {
-   "t": "Gold: Medium-term constructive bias maintained – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbTBuWXQxOTZoZGJNOENfOGlNUzdrSjF0TUtkbElhUEluYW1ZUnVrcW5mQ2J6ZFpzQU5sODE2NXRLNGJpM1dPM2p2T0NUMXBaMl95NHd3SXRvOWlWUGw2RGNkTXNNMEdpN0wwY0RSUVp4a0FTYzlDLXJLMmZjWmFaRzR1a2tSSnpyY041SDBsR0lJNnRoNzBrbQ?oc=5",
-   "ms": 1794901012000,
-   "time": "11/17 15:36"
   },
   {
    "t": "Gold bulls seem hesitant below $3,900 as Fed rate hike bets offset softer USD",
@@ -77,25 +63,11 @@
    "time": "11/17 13:29"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPMDI4MEt3a3M4XzFhaC01R3pmSzdkOXZ2ZWhUWjhPb1lOZWZPbjdXTWFydWVFcmZNS21rZGZLUmZ6S21OcXFDUUkyN0NLc3BiZnlCWUJ1QmMxbHh0aWtZUjEzZFBuQng0bkRiVFZxN0pOUUJBQXRqQ0NGTUFZcEtLRUx6NkVWZklRTjhxOTNJMzdVUldYX21ieEFQcDlnTks2NFAxMDBrY1ktNmtlVzZYR2FxRQ?oc=5",
-   "ms": 1794892800000,
-   "time": "11/17 13:20"
-  },
-  {
    "t": "Gold Struggling for a Bid",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-struggling-for-a-bid-200691699",
    "ms": 1794891300000,
    "time": "11/17 12:55"
-  },
-  {
-   "t": "Gold Heads for Worst Year Since 2015. Why Is It Losing to a 5% Treasury?",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMWpabmpKS09maFNtRGRMVGdlRkdXZGJ2UUU5TDFZU0MxcDU0S1RQanRTTjV6TkdJcWJPbGpBRXowWVUtYVJBNEF1eVQ4dENaN05Dd0Q4VnU2ZGZ6ckpWRm5OMnE2TnRpVEVEVEp4QjlBZFNpWlRjb2g4VGpoSW1FNzg0cVgwZ3pKQjFPb2w2cXF5bXN4cHVwejcwQldjdw?oc=5",
-   "ms": 1794889800000,
-   "time": "11/17 12:30"
   },
   {
    "t": "Gold hovers near over one-year low as firm dollar, Fed-hike bets weigh",
@@ -105,11 +77,39 @@
    "time": "11/17 12:18"
   },
   {
-   "t": "Gold down 23%, silver plunges 55%: Why precious metals are losing their shine",
-   "src": "Fortune India",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZWJ4NmZKbEk0eE9XS1psa05hNjVyekUtaHRMMW91TURQOVRtbGp2M192aVowYzlQOF83N2NpQXRZbHY3cnBsRWxsQkYtU3BYRU1zVkgxQzY5YjRIME50V2NRRDRnVjZ1T1FmaDREdDZhVFBTZVpjbXprUHM0d2x1ZHlIdXl5ZVlNd1JSc0czdnFILWpXNm0tWXFzTnVsTkNGY19qSHZEWURoVVV1cVBjQzZYdlhmNEta0gHGAUFVX3lxTFBkd0EwUXczb0J1YlJaLW0xYnBVTEVRSFNSSGFZLUNWZXVGVzNwT09YZmM5UjBjM0R4LUtNTmtXN0YwMThnS0l4QXpOcWE1MXk3azV1TFZqSjNHbXc3a3BZQ1l5S0I0WnI2U0RtUkNxUFlseTYzZUZreVBENVJ2R091TUVPWGFlUU5lSzFkOUZGVFhVdDYzWXNjUEoyWUw2VjU4Tjh2Uk9FMUFfQzUzM1QyTUY4WUNnMXZSa01vSzJvckM0OGZBQQ?oc=5",
-   "ms": 1794888976000,
-   "time": "11/17 12:16"
+   "t": "Gold Eases As A Firmer US Dollar And Hawkish Fed Signals Weigh On Investor Mood By Kedia Advisory",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQdDY3OWZTZ0ZtMW10VVNwMGhieW9JTUpzd0d1UDZOM1oyVG9vRlhkR003MVdvcFkyZnE0UEpVYThoZG9nTW1MaGRMOG96TE5qSFlmQlpxRERLVVZWMlBfNHlTQmIzZ3pnRnM4MW9udWRmY3BsMHBCSG8wQXFGQ2MxQ3JmOC1TRl9TODRMcGw3RGxBMlRpRlo1S1VvYkNBRkdiclYyVG8taFpzSUZOTFJZSF9WMmMwM1dtZUtBWE5PZ3B6Mzk3SXlYTGFWMExJVmc?oc=5",
+   "ms": 1794888159000,
+   "time": "11/17 12:02"
+  },
+  {
+   "t": "Gold Price Forecast: XAU/USD stays vulnerable amid Fed hike bets, geopolitical uncertainty",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQYnBqMTVHa2ZYbHBiNkdZZEtVM0sxWEpUS3NTQTJxTEpKQ2c0bEpRV3JzV1RrcXZjYUtReG9VLVJ2TGo3LXBTUlRITGR5dUdhRnNvbEdiSEJEeEM3VFdNckNycThBNW5SVEJXaXJ2RjBOMzkxNUYzZC1hUHlsa0duX2ZfMVZVWDZOeDg2Rl9pTEhyeXhyZDBRbFJ4dGZxOHNDUm80M1gyakp0UEJyTm1nbWl4NzBCcVlWVnloN3NwcjNEM0NOMThCR010ZEh3VW9H?oc=5",
+   "ms": 1794886623000,
+   "time": "11/17 11:37"
+  },
+  {
+   "t": "Gold lingers near more-than-one-year low on Fed hike bets",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNVGd6c05RMXpCQzBvWjhLZlZ6cjc4OUZ0cjZaSWxzZk9leV9WbG1EVmhoVlJfTHZZRFkxZml4Rll3TXd6SGc0dmtiSHFsYkVQWThZdkpxb3dGQkhpSkgyVC1HQlV5WkZQaHU4N3B2b2RELWdDaGpZLWtmbHo2cllMNE9tN29pYnJGM1Z4eFJ6bmNQdHJFX0lNTHZtV0x4MlNhT284LThTc1hTY2xlcEEta0wwNjg?oc=5",
+   "ms": 1794880020000,
+   "time": "11/17 09:47"
+  },
+  {
+   "t": "Gold falls to one-year low near $3,850 on strong US Dollar, rising Fed hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUHpVZUx2OEFZd3dWdy1WZDNVVWY3dGNveEs3eHVtOHRVX2Y0NjhVZ3Y3UjdDNmlmdTl2LVdiaURMa1U2UzAxdGpUVG9PU09OT2VXQVZWc3VlcXFldnpXWWZaLVBMV1pXcW5HdjVMTlFzQkVpOV9qdFMyYWkzbExKTmZJRUM3OEVrWUMydE41ODNvRTNaTW5mNmhtUWVVTXRsWExTaVFURzJ5ZDJwcGlNZGExS0FNaDFFVkgyUUp3?oc=5",
+   "ms": 1794871675000,
+   "time": "11/17 07:27"
+  },
+  {
+   "t": "Gold, silver extend losses as tech selloff, dollar pressure metals- Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWUpDRWNWQmNETVJrQXMxTlE5YWtIN1BsM01mQXcwRmdaMFBLckxRblViNHJHeEVtVkcxU0JuU1k0TEg0dTV5X25fbXBGZ2ptcXJsVEJFN2ZSbHIwVnh5ZG1zZXFhWnp0RHZZa29majhzYzc1ZzhaVmVueGJhTnFiSDA5Q3pPUHdGcFVTcmpfUDEzYzRRaW5DUG9oUWRQVjdGMEtMVnFkejYtVjdHODRxTm8zUExBUFk?oc=5",
+   "ms": 1794868785000,
+   "time": "11/17 06:39"
   }
  ]
 }
