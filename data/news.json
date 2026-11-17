@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 01:15 SGT",
+ "updated": "2026-11-18 01:28 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Prices Rebound on Trump’s Comments, but Key Resistance Keeps Sellers Alert",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-prices-rebound-on-trumps-comments-but-key-resistance-keeps-sellers-alert-200691762",
+   "ms": 1794935340000,
+   "time": "11/18 01:09"
+  },
   {
    "t": "Gold Steadies Near 14-Month Low as Inflation Pressure Persists",
    "src": "Bloomberg.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPRzRfYWNDVS12TDhBNlhFS2EtWDBGSnlhS1RmaGw5bVRYRXlLOHVkR2JiUnRWS05YOVBKcnBkdWoxSEowb1dPQzZqZmdJLXpicjVGZU10VDFlRk5sbTUyb0lCSDEtNWd4SndPb2IyaTRuUUlVSXdSSXR5OVQyUzdmekNtUk5sUU1TWkNMN1BqdE9oZjBKU1lHS0FYWTYwcF9wMzBraEpqVy0yZnF3LU5KZEU3Mk42SXhCVFdDQXFBcjRNV01tZ2dMcXhUc0RNRF9zb2wxTGJRb0I3SHZlT1ZaSTZ4bmpnSDhFNVZEVnluNzVsZEhaMUVER2JYbnQ?oc=5",
    "ms": 1794917661000,
    "time": "11/17 20:14"
-  },
-  {
-   "t": "Guinea's miners stockpile gold after refinery rules halted exports, sources say",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNT1JjY0lMOE1WbG9XbXJYb3M5VW1YbDZjSDhOQzIzd1kzeGhHeUZPU3MyU3lBSXZ5SEloRk1xWGJxUDB5UVVVZEtUaU9ucUFzRE1naDdQVm05T3NSa3FXallpakwtUjAyTEd2Tlk0SmRHem1zRTI3eWNpcUREeTFoNjFXU3NVUDZPa3ZTejJlZnV6MUFnNi05WU9xMzV3ZFNaV3FZS3p3YUZkRHdyYlp5eGhnYWs1OV9kem1CamdoVEljQVBk?oc=5",
-   "ms": 1794916544000,
-   "time": "11/17 19:55"
   }
  ]
 }
