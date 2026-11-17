@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 06:52 SGT",
+ "updated": "2026-11-18 07:06 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold will reclaim $5,600/oz in 2028 as rate cuts bring Western investors back to precious metals – Goldman Sachs",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSkFNSTNMZjM2c2VOOW1qQmlURFQ2UFNPaVBlLTd0Mm11WVN1c1ptLWxqMlF6MmVTU2ctZlUtWXBHMGsxenpqUGo3RlVDY1Bsd0JIRE8xNUNKV2x4anJJT0FqaFJOZ2VLVE85eXUxZzhJU0IzcEUxc1lfblkxTFA5VXVPVElrcDVTLV9FaDJETTBKc080ZGFYWFU3ZXhGaThoblBNN0xoLTBvWGNQNHR2dDJHWTk?oc=5",
+   "ms": 1794954290000,
+   "time": "11/18 06:24"
+  },
   {
    "t": "Gold struggles near one-year lows, silver rebounds as stocks slide, Fed hike bets persist - Kitco PM Report",
    "src": "Kitco",
@@ -49,6 +56,13 @@
    "time": "11/18 02:57"
   },
   {
+   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
+   "ms": 1794941713000,
+   "time": "11/18 02:55"
+  },
+  {
    "t": "Stocks are sliding again, and it's not just AI — the dollar wrecking ball has already leveled the debasement trade",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNdFJrYmNfS2x4QjJsX2dRMUpKSUFTSjFFbF9aNVhwQ2I3WGt0ei10Z29yLXc4NkhnUk51cWV5eDRNelo0S2NoZHlleWplTmNMLUxwYkZ5Z3dFS1Q4R1lPXzV2aUlKTFZnM1NpRTBaZVpaNjZKZWtRSnJDdlh5NmtWWEdwdEp6dmZsVndYTmtLWGExZ3FURGZnc1B2VmJYdTY3MUVJY2RhNzMwZEd2Q2V4c3htd0dyWkdEY0ZPekYxdHFwa3A4NFB2czF1aTNpRG1YekhPR3h5TzZEdG94Z1F6LTVteW04QkxHbnRGcDJBY0JMOFk5dEdrOXBvdGU?oc=5",
@@ -89,20 +103,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOTkhoYXNCY202ZThpclIyUmxncVZTdkVHdVg4VEYzTDB6QkRmWnI5bDZOdjlGN2dEZlpVUGs1SlVlc3dVNmF4eGZ0RHRQV2s0ZEx6N0ZLczhqNV9sQVg2WXdaQk8zNnY5UzhsZ1ZBdjZvdkxTX3ZadDhYQ1FWQk1hUklCSjlFZU0wWGI1cDFlVTJ1bGFmSFl5bC1wdkF3X0p5LVM3NzE1Q1dFY2M?oc=5",
    "ms": 1794933352000,
    "time": "11/18 00:35"
-  },
-  {
-   "t": "Gold will reclaim $5,600/oz in 2028 as rate cuts bring Western investors back to precious metals – Goldman Sachs",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSkFNSTNMZjM2c2VOOW1qQmlURFQ2UFNPaVBlLTd0Mm11WVN1c1ptLWxqMlF6MmVTU2ctZlUtWXBHMGsxenpqUGo3RlVDY1Bsd0JIRE8xNUNKV2x4anJJT0FqaFJOZ2VLVE85eXUxZzhJU0IzcEUxc1lfblkxTFA5VXVPVElrcDVTLV9FaDJETTBKc080ZGFYWFU3ZXhGaThoblBNN0xoLTBvWGNQNHR2dDJHWTk?oc=5",
-   "ms": 1794932563000,
-   "time": "11/18 00:22"
-  },
-  {
-   "t": "Why gold and silver prices have fallen to their lowest in over a year",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUDJuREJBSTFrM1VBWWU2dkhfblZ2dHkxWEJsa1ZvVjVtVG9aTTJJZG1oeS1WM3QxblV0Z2JoWXE4Y0RkemFWZUpXcGczeUx4X09EeUIwVXBPNk1rSlNCRHZNM05PWEh4RkhldFdNNS14M1RwNnJTWDJvYjU4WkR2bTZfbU4?oc=5",
-   "ms": 1794928915000,
-   "time": "11/17 23:21"
   },
   {
    "t": "Fed's Waller says central bank will work with private sector on digital finance",
