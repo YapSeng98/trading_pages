@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 18:29 SGT",
+ "updated": "2026-11-17 18:42 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -42,25 +42,11 @@
    "time": "11/17 16:32"
   },
   {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1794903034000,
-   "time": "11/17 16:10"
-  },
-  {
    "t": "Gold: Medium-term constructive bias maintained – OCBC",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbTBuWXQxOTZoZGJNOENfOGlNUzdrSjF0TUtkbElhUEluYW1ZUnVrcW5mQ2J6ZFpzQU5sODE2NXRLNGJpM1dPM2p2T0NUMXBaMl95NHd3SXRvOWlWUGw2RGNkTXNNMEdpN0wwY0RSUVp4a0FTYzlDLXJLMmZjWmFaRzR1a2tSSnpyY041SDBsR0lJNnRoNzBrbQ?oc=5",
    "ms": 1794901012000,
    "time": "11/17 15:36"
-  },
-  {
-   "t": "Gold and Silver Alert: Is a Precious Metals Reversal Ahead?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silver-alert-is-a-precious-metals-reversal-ahead-200691702",
-   "ms": 1794899220000,
-   "time": "11/17 15:07"
   },
   {
    "t": "Gold and Silver Crash: Is a Major Trend Reversal Approaching?",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMWpabmpKS09maFNtRGRMVGdlRkdXZGJ2UUU5TDFZU0MxcDU0S1RQanRTTjV6TkdJcWJPbGpBRXowWVUtYVJBNEF1eVQ4dENaN05Dd0Q4VnU2ZGZ6ckpWRm5OMnE2TnRpVEVEVEp4QjlBZFNpWlRjb2g4VGpoSW1FNzg0cVgwZ3pKQjFPb2w2cXF5bXN4cHVwejcwQldjdw?oc=5",
    "ms": 1794889800000,
    "time": "11/17 12:30"
+  },
+  {
+   "t": "Gold hovers near over one-year low as firm dollar, Fed-hike bets weigh",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZ2ZieG5kV0JmVE5EY1ZpbHZJRHlTaF9PdEtETnpWRy0yVGNYbzlFbmd6eF9OOEFtY1NLQjJ4RHBxc2VYU2xHNC1Hd2puN2lya1U0S2piMjhqaVN0VW1rYjZGYW9yVWU0Vk9JZlZ6RG0zcS1jM3YzREQxUVh3RHl2TDkxNVE3TVV1SGVENVRvZHd6VHd3cFhIRnlZV3FaZnV5emNNUnZkTU01Z9IBrwFBVV95cUxQZTd5RWd0eVY0a3UxblpTUnBuRXI5ek5ndmtidUVrOFZLSzVtaXZib3ctRExISUsxdXdHTVN3V24zdXBSUWNHb3VuLUdQNExVM1ZGVHYtZXlmTUppa2NOcjROQkFLVkwteXZKMDk1YWVkaER5ZmRkbGJjc1hzNm1QRWY4STFQSVk3M2ZVTk4wNjB6anBQXzVKOW5acnBRMGpST1RnZG1rYUdLMlhNelBn?oc=5",
+   "ms": 1794889080000,
+   "time": "11/17 12:18"
+  },
+  {
+   "t": "Gold down 23%, silver plunges 55%: Why precious metals are losing their shine",
+   "src": "Fortune India",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZWJ4NmZKbEk0eE9XS1psa05hNjVyekUtaHRMMW91TURQOVRtbGp2M192aVowYzlQOF83N2NpQXRZbHY3cnBsRWxsQkYtU3BYRU1zVkgxQzY5YjRIME50V2NRRDRnVjZ1T1FmaDREdDZhVFBTZVpjbXprUHM0d2x1ZHlIdXl5ZVlNd1JSc0czdnFILWpXNm0tWXFzTnVsTkNGY19qSHZEWURoVVV1cVBjQzZYdlhmNEta0gHGAUFVX3lxTFBkd0EwUXczb0J1YlJaLW0xYnBVTEVRSFNSSGFZLUNWZXVGVzNwT09YZmM5UjBjM0R4LUtNTmtXN0YwMThnS0l4QXpOcWE1MXk3azV1TFZqSjNHbXc3a3BZQ1l5S0I0WnI2U0RtUkNxUFlseTYzZUZreVBENVJ2R091TUVPWGFlUU5lSzFkOUZGVFhVdDYzWXNjUEoyWUw2VjU4Tjh2Uk9FMUFfQzUzM1QyTUY4WUNnMXZSa01vSzJvckM0OGZBQQ?oc=5",
+   "ms": 1794888976000,
+   "time": "11/17 12:16"
   }
  ]
 }
