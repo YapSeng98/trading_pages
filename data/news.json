@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 02:09 SGT",
+ "updated": "2026-11-18 02:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Why Silver and Gold Miners Are Taking Bigger Losses Than Stocks in the Sell-Off",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/why-silver-and-gold-miners-are-taking-bigger-losses-than-stocks-in-the-selloff-200691766",
+   "ms": 1794938880000,
+   "time": "11/18 02:08"
+  },
   {
    "t": "Gold struggles to rebound from one-year low as US dollar, yields advance",
    "src": "Kitco",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQb29zcE1sMG5BTjNvUy1ZY2t5U015Xy1fMm5NU0tiQnZnVWdMbTZVazB1dUNGZnNmMWh1M3padGU3UkplSWhFSnFXMURnODE2ZjRCZVNLc0NZQXlnQlI0M0NuZktRa3NQaWViRVVvQ1ltR1BCeEZzT0MwR1pwNnYtWjFCa0g4SGhkYURyMWF3?oc=5",
    "ms": 1794919948000,
    "time": "11/17 20:52"
-  },
-  {
-   "t": "Here’s when Goldman expects gold prices to reach $5,600/oz",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOUWxQdG1wQVJSRHJnd3hLOVFadl91eno5X2NSZlpxcmdUNHd4b29tREdBVU9sQjJyY3V3dERjUDRmMnVBVldDY3J4RUZOcGVKSXhxNG1WMXlpVU9VNVNQMDZ6bHhHYjF5V0ZzcXkzdnlLYVJuNXpEbWZuWVM2YzZjdWkxRHNNbzduSUJzSDFhOUZFVC14Y29heUU0aDEwUzZaODc5MV95bU9Tc3ZKbVJV?oc=5",
-   "ms": 1794919027000,
-   "time": "11/17 20:37"
   }
  ]
 }
