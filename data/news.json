@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17 17:34 SGT",
+ "updated": "2026-11-17 17:42 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,25 @@
  ],
  "items": [
   {
+   "t": "Turkish Households Buckle Under Gold-Price Slide, Funds Crisis",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVi10UE0yMEdRNGxLamVGY2Iycl9OSXF5WWJTbVFlbm9RbDNKMExPaFRlUGdVdE10RllDaGRaekx3WHZxcF9rV1Q1OFRFSVljNlA1SlliVDBURTk3ZHFyWS0tdzNIVTQxekMwY2kwdEU5ZVNvQmlxcVNSMi1sQjFyek5wcm9SMERad25zQ3FOQlJWTzdCUWRfdWxpTXFienA3dkx0ekhRRzNPYXdMQVFFMDVn?oc=5",
+   "ms": 1794907523000,
+   "time": "11/17 17:25"
+  },
+  {
+   "t": "Gold Stays Fragile Below 4,000 as US Dollar Strength and Rate-Hike Bets Weigh",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-stays-fragile-below-4000-as-us-dollar-strength-and-ratehike-bets-weigh-200691726",
+   "ms": 1794907500000,
+   "time": "11/17 17:25"
+  },
+  {
    "t": "Oil Prices Slide as Global Glut Fears Eclipse Hormuz Attacks",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/oil-prices-slide-as-global-glut-fears-eclipse-hormuz-attacks-200691719",
    "ms": 1794904320000,
    "time": "11/17 16:32"
-  },
-  {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9LRXk3WmZ5Y1MwZVR2TUhJNEJYakk2Z3ZPbHkyWklVNkdJTnB3bjBpb0ctRzhrUzNhUmstaFJfUkJ0SVZ3VmRGTVJGS3F3aG95?oc=5",
-   "ms": 1794903034000,
-   "time": "11/17 16:10"
   },
   {
    "t": "Gold: Medium-term constructive bias maintained – OCBC",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZWJ4NmZKbEk0eE9XS1psa05hNjVyekUtaHRMMW91TURQOVRtbGp2M192aVowYzlQOF83N2NpQXRZbHY3cnBsRWxsQkYtU3BYRU1zVkgxQzY5YjRIME50V2NRRDRnVjZ1T1FmaDREdDZhVFBTZVpjbXprUHM0d2x1ZHlIdXl5ZVlNd1JSc0czdnFILWpXNm0tWXFzTnVsTkNGY19qSHZEWURoVVV1cVBjQzZYdlhmNEta0gHGAUFVX3lxTFBkd0EwUXczb0J1YlJaLW0xYnBVTEVRSFNSSGFZLUNWZXVGVzNwT09YZmM5UjBjM0R4LUtNTmtXN0YwMThnS0l4QXpOcWE1MXk3azV1TFZqSjNHbXc3a3BZQ1l5S0I0WnI2U0RtUkNxUFlseTYzZUZreVBENVJ2R091TUVPWGFlUU5lSzFkOUZGVFhVdDYzWXNjUEoyWUw2VjU4Tjh2Uk9FMUFfQzUzM1QyTUY4WUNnMXZSa01vSzJvckM0OGZBQQ?oc=5",
    "ms": 1794888976000,
    "time": "11/17 12:16"
-  },
-  {
-   "t": "Gold Eases As A Firmer US Dollar And Hawkish Fed Signals Weigh On Investor Mood By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQdDY3OWZTZ0ZtMW10VVNwMGhieW9JTUpzd0d1UDZOM1oyVG9vRlhkR003MVdvcFkyZnE0UEpVYThoZG9nTW1MaGRMOG96TE5qSFlmQlpxRERLVVZWMlBfNHlTQmIzZ3pnRnM4MW9udWRmY3BsMHBCSG8wQXFGQ2MxQ3JmOC1TRl9TODRMcGw3RGxBMlRpRlo1S1VvYkNBRkdiclYyVG8taFpzSUZOTFJZSF9WMmMwM1dtZUtBWE5PZ3B6Mzk3SXlYTGFWMExJVmc?oc=5",
-   "ms": 1794888159000,
-   "time": "11/17 12:02"
   }
  ]
 }
