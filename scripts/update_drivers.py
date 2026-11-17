@@ -24,6 +24,7 @@ import sys
 import time
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 OUT = "data/drivers.json"
 FRED_AGENT = "trading_pages-drivers/1.0 (+https://github.com/YapSeng98/trading_pages)"   # FRED turns away a bare "Mozilla/5.0"
@@ -46,6 +47,35 @@ def get(url, timeout=25, agent="Mozilla/5.0"):
         return r.read()
 
 
+def zone(meta):
+    """The exchange's own time zone, summer time included. Dating bars with `gmtoffset` (today's offset) put every
+    futures bar from before the clocks changed a day early: they are stamped at midnight New York, and midnight in
+    summer is 23:00 the day before in winter time. Gold then met the 10-year yield, the real yield and the S&P 500
+    (stamped later in the day, so dated right) a day out of step, which pulled those correlations towards zero."""
+    try:
+        return ZoneInfo(meta.get("exchangeTimezoneName") or "")
+    except Exception:  # noqa: BLE001 - no usable name: the offset Yahoo gives
+        return timezone(timedelta(seconds=meta.get("gmtoffset", 0)))
+
+
+def unpublished(ts, closes, last_t, bar_t, at, tz):
+    """The session whose close Yahoo has not published yet, when the live price comes after it: Monday's gold, oil,
+    silver and dollar-index settlements were still empty at 07:30-09:30 SGT on 2026-11-17, hours after the 17:00 New
+    York close. Until they come, the last close is two sessions back and the move since it is not today's."""
+    day = (datetime.fromtimestamp(at, tz) + timedelta(hours=6)).date()   # futures: the session from 18:00 New York is the next day's
+    while day.weekday() >= 5:
+        day += timedelta(days=1)
+    prev = day - timedelta(days=1)
+    while prev.weekday() >= 5:
+        prev -= timedelta(days=1)
+    last = datetime.fromtimestamp(last_t, tz).date()
+    if last >= prev:
+        return None
+    empty = any(c is None and last < datetime.fromtimestamp(t, tz).date() <= prev and datetime.fromtimestamp(t, tz).weekday() < 5 for t, c in zip(ts, closes))
+    carried = bar_t != at and datetime.fromtimestamp(bar_t, tz).date() <= prev   # that session's own bar still taking the new prices
+    return prev.isoformat() if empty or carried else None   # neither: a holiday, and the last close is the right one
+
+
 def yahoo(symbol):
     last = None
     for attempt in range(2):  # both hosts, twice: shared runners are sometimes rate-limited
@@ -55,12 +85,13 @@ def yahoo(symbol):
                 ts, closes = res["timestamp"], res["indicators"]["quote"][0]["close"]
                 bars = [(t, c) for t, c in zip(ts, closes) if c is not None]
                 reg = (res["meta"].get("currentTradingPeriod") or {}).get("regular") or {}
+                tz = zone(res["meta"])
                 live = None
                 if bars and reg.get("start") and reg.get("end") and bars[-1][0] >= reg["start"] and time.time() < reg["end"] + 600:
                     live, bars = bars[-1], bars[:-1]  # today's bar while the exchange is still trading: not a close yet
                     at = res["meta"].get("regularMarketTime") or live[0]   # when that price traded (only the time is taken from meta)
-                    live = (at, live[1]) if 0 <= time.time() - at < 3 * 3600 else None   # no trade for hours (a holiday session): not a price "now"
-                tz = timezone(timedelta(seconds=res["meta"].get("gmtoffset", 0)))
+                    wait = unpublished(ts, closes, bars[-1][0], live[0], at, tz) if bars else None
+                    live = (at, live[1], wait) if 0 <= time.time() - at < 3 * 3600 else None   # no trade for hours (a holiday session): not a price "now"
                 return [(datetime.fromtimestamp(t, tz).strftime("%Y-%m-%d"), c) for t, c in bars], live
             except Exception as e:  # noqa: BLE001 - try the next host, then report
                 last = e
@@ -181,6 +212,8 @@ def main():
             a, b = bars[-1][1], live[1]
             row["now"] = {"price": round(b, 4), "at": datetime.fromtimestamp(live[0], timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M SGT"),
                           "chg": round(b - a, 3) if kind == "pp" else round((b / a - 1) * 100, 2)}
+            if live[2]:  # the close of that session is not out yet: `chg` runs from `date`'s close, so it is more than today's move
+                row["now"]["wait"] = live[2]
         if sid != "gold":
             row["corr60"] = corr(gold, bars, kind, 60)
             row["corr250"] = corr(gold, bars, kind, 250)

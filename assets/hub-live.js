@@ -199,7 +199,7 @@
     if (!gold) { top.textContent = tr("驱动因素的数据暂时读不到。", "The drivers data is not available right now."); return; }
     var ch = function (s) { var v = s.chg1w; if (typeof v !== "number") return ["—", ""]; if (s.kind === "pp") { var bp = Math.round(v * 100); return [(bp > 0 ? "+" : bp < 0 ? "−" : "") + Math.abs(bp) + " bp", bp > 0 ? "up" : bp < 0 ? "dn" : ""]; } return [sgn(v, 2) + "%", v > 0 ? "up" : v < 0 ? "dn" : ""]; };
     var g = ch(gold); top.appendChild(document.createTextNode(tr("黄金（期货）这一周 ", "Gold (futures) this week "))); top.appendChild(el("b", g[1], g[0]));
-    var gn = gold.now && typeof gold.now.chg === "number" ? gold.now : null;   // trading when the data job last ran: today's move so far
+    var gn = gold.now && !gold.now.wait && typeof gold.now.chg === "number" ? gold.now : null;   // trading when the data job last ran: today's move so far (`wait`: the last session's close is not out yet, so it would not be today's)
     if (gn) { top.appendChild(document.createTextNode(tr(" · 今天 ", " · today "))); top.appendChild(el("b", gn.chg > 0 ? "up" : gn.chg < 0 ? "dn" : "", sgn(gn.chg, 2) + "%")); }
     rows.forEach(function (s) {
       if (!DRV[s.id]) return;

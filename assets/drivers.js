@@ -83,12 +83,18 @@
   }
   function today(gold, rows) {     // while markets trade: the move since the last close, at the data job's last run
     if (!gold.now || typeof gold.now.chg !== "number") return null;
-    var g = chg(gold, gold.now.chg), out = [h("b", { text: tx("今天到目前", "Today so far") }), tx("（数据 ", " (data ") + hm(gold.now.at) + " SGT" + tx("）：金价 ", "): gold "), h("b", { class: g.c, text: g.t })];
-    var parts = rows.filter(function (s) { return s.id !== "gold" && s.now && typeof s.now.chg === "number"; }).map(function (s) {
+    // `wait`: Yahoo has not published the last session's close yet (it can take hours after the 17:00 New York close),
+    // so the change runs from an older close and is not today's
+    var waits = rows.filter(function (s) { return s.now && s.now.wait; }), wd = waits.length ? waits[0].now.wait.slice(5) : "";
+    var out = [h("b", { text: tx("今天到目前", "Today so far") }), tx("（数据 ", " (data ") + hm(gold.now.at) + " SGT" + tx("）：", "): ")];
+    if (gold.now.wait) { out.push(tx("Yahoo 还没给出 " + wd + " 的收盘，今天的涨跌要等它出来才算得出；下面的价格是盘中的。", "Yahoo has not published the " + wd + " closes yet, so today's moves cannot be worked out until it does; the prices below are intraday.")); return out; }
+    var g = chg(gold, gold.now.chg); out.push(tx("金价 ", "gold "), h("b", { class: g.c, text: g.t }));
+    var parts = rows.filter(function (s) { return s.id !== "gold" && s.now && !s.now.wait && typeof s.now.chg === "number"; }).map(function (s) {
       var p = PUSH[s.id], side = !p || s.now.chg === 0 ? "" : s.now.chg * p < 0 ? tx("，不利", ", headwind") : tx("，有利", ", tailwind");
       return NAME[s.id][0] + " " + chg(s, s.now.chg).t + side;
     });
     if (parts.length) out.push(tx("；", "; ") + parts.join(tx("；", "; ")));
+    if (waits.length) out.push(tx("；" + waits.map(function (s) { return NAME[s.id][0]; }).join("、") + "要等 " + wd + " 的收盘", "; " + waits.map(function (s) { return NAME[s.id][0]; }).join(", ") + (waits.length > 1 ? " wait" : " waits") + " for the " + wd + " close"));
     out.push(tx("。", "."));
     return out;
   }
@@ -104,16 +110,16 @@
     list.appendChild(h("div", { class: "drv-row drv-head", role: "row" }, [tx("品种", "Market"), lives.length ? tx("最新", "Latest") : tx("最新收盘", "Latest close"), lives.length ? tx("今天 / 1 天", "Today / 1 day") : tx("1 天", "1 day"), tx("1 周", "1 week"), tx("1 个月", "1 month"), tx("近 60 天", "Last 60 days"), tx("和金价的关系（60 天）", "Link with gold (60 days)")].map(function (t) { return h("span", { role: "columnheader", text: t }); })));
     [gold].concat(rows.filter(function (s) { return s.id !== "gold"; })).forEach(function (s) {
       var live = s.now && typeof s.now.price === "number" ? s.now : null;      // trading when the data job last ran: that price, and the move since the last close
-      var c1 = chg(s, live ? live.chg : s.chg1d), c2 = chg(s, s.chg1w), c3 = chg(s, s.chg1m), isG = s.id === "gold";
+      var c1 = chg(s, live ? (live.wait ? null : live.chg) : s.chg1d), c2 = chg(s, s.chg1w), c3 = chg(s, s.chg1m), isG = s.id === "gold";
       var k = isG ? h("div", { class: "drv-k" }, [h("span", { text: tx("参照", "the reference") })]) : (function () {
         var c = s.corr60, bar = h("div", { class: "bar" }), i = h("i");
         if (typeof c === "number") { var w = Math.min(1, Math.abs(c)) * 50; i.style.width = w + "%"; i.style.left = c >= 0 ? "50%" : (50 - w) + "%"; i.style.background = c >= 0 ? "var(--gold,#D4A72C)" : "#7CC4FF"; bar.appendChild(i); }
         return h("div", { class: "drv-k", title: tx("相关系数：60 天 ", "Correlation: 60 days ") + (c === null || c === undefined ? "—" : c) + tx("，250 天 ", ", 250 days ") + (typeof s.corr250 === "number" ? s.corr250 : "—") }, [bar, h("span", null, [h("b", { text: typeof c === "number" ? (c > 0 ? "+" : "") + c.toFixed(2) : "—" }), " " + link(c)])]);
       })();
       list.appendChild(h("div", { class: "drv-row" + (isG ? " drv-gold" : "") + (live ? " live" : ""), role: "row" }, [
-        h("div", { class: "drv-nm" }, [h("b", { text: NAME[s.id][0] }), h("small", null, [s.symbol + " · ", live ? h("b", { text: tx("盘中 ", "intraday ") + hm(live.at) }) : tx("收盘 ", "close ") + s.date, s.stale ? tx(" · 未更新", " · not updated") : ""])]),
+        h("div", { class: "drv-nm" }, [h("b", { text: NAME[s.id][0] }), h("small", null, [s.symbol + " · ", live ? h("b", { text: tx("盘中 ", "intraday ") + hm(live.at) }) : tx("收盘 ", "close ") + s.date, live && live.wait ? tx(" · 收盘到 ", " · closes to ") + s.date : "", s.stale ? tx(" · 未更新", " · not updated") : ""])]),
         h("div", { class: "drv-v", text: val(s, live ? live.price : s.last) }),
-        h("div", { class: "drv-chs" }, [h("span", { class: "drv-c " + c1.c, "data-l": live ? tx("今天", "today") : tx("1天", "1d"), text: c1.t }), h("span", { class: "drv-c " + c2.c, "data-l": tx("1周", "1w"), text: c2.t }), h("span", { class: "drv-c " + c3.c, "data-l": tx("1月", "1m"), text: c3.t })]),
+        h("div", { class: "drv-chs" }, [h("span", { class: "drv-c " + c1.c, "data-l": live ? tx("今天", "today") : tx("1天", "1d"), title: live && live.wait ? tx(live.wait + " 的收盘还没出来", "The " + live.wait + " close is not out yet") : null, text: c1.t }), h("span", { class: "drv-c " + c2.c, "data-l": tx("1周", "1w"), text: c2.t }), h("span", { class: "drv-c " + c3.c, "data-l": tx("1月", "1m"), text: c3.t })]),
         h("div", { class: "drv-sp" }, [spark(s.spark)]), k]));
     });
     body.appendChild(list);
