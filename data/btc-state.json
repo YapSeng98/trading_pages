@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-18 13:11 SGT",
+ "updated": "2026-11-18 14:05 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 64425.2,
- "priceTime": "2026-11-18 13:00 SGT",
+ "price": 64680.2,
+ "priceTime": "2026-11-18 14:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 64947.4,
   "high": 65002,
   "low": 64136,
-  "changeFromPrevClose": -522.2,
-  "changePct": -0.8,
+  "changeFromPrevClose": -267.2,
+  "changePct": -0.41,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 64425.2,
-  "stop": 65983.3,
-  "target": 59750.8,
-  "stopDistance": 1558.1,
-  "trailDistance": 3116.3
+  "entry": 64680.2,
+  "stop": 66237.6,
+  "target": 60007.9,
+  "stopDistance": 1557.4,
+  "trailDistance": 3114.8
  },
  "watch": [
   {
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-16 21:00 SGT",
-   "rsi": 48.8,
-   "atr": 519.38,
+   "rsi": 52.8,
+   "atr": 519.14,
    "turnsUpAbove": 65268,
    "turnsDownBelow": 63336
   },
@@ -134,17 +134,17 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-18 00:30 SGT",
-   "rsi": 48.2,
-   "atr": 216.7,
+   "rsi": 55.5,
+   "atr": 205.83,
    "turnsUpAbove": 65268,
    "turnsDownBelow": 64136
   }
  ],
  "resistance": [
   {
-   "price": 64575.9,
-   "what": "4小时区间中点",
-   "strength": 1
+   "price": 65148.7,
+   "what": "1小时头肩底关键位",
+   "strength": 2
   },
   {
    "price": 65268,
@@ -160,9 +160,19 @@
    "price": 65696.2,
    "what": "4小时前高、4小时区间顶、1小时区间顶",
    "strength": 5
+  },
+  {
+   "price": 67239.8,
+   "what": "1小时头肩底目标",
+   "strength": 1
   }
  ],
  "support": [
+  {
+   "price": 64575.9,
+   "what": "4小时区间中点",
+   "strength": 1
+  },
   {
    "price": 64136,
    "what": "1小时近期小低点",
@@ -180,13 +190,8 @@
   },
   {
    "price": 63336,
-   "what": "昨日低点、1小时双顶关键位、1小时前低、4小时近期小低点",
-   "strength": 7
-  },
-  {
-   "price": 62006,
-   "what": "上周低点、周线区间底、日线区间底",
-   "strength": 10
+   "what": "昨日低点、1小时前低、4小时近期小低点",
+   "strength": 5
   }
  ],
  "record": {
