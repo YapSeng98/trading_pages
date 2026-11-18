@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 15:26 SGT",
+ "updated": "2026-11-18 15:39 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -26,6 +26,20 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYkNuMHp2TkNveWdkVWxCN2c3NUtNUWQwdkhvQjlPLWZFRjFwRGdQTGEzSWxPaGpzMGxkb3M5aVFza01lU19xZ2dLc1piT1RScW1xNUFVakdKU1ZlNDkxcVVKUXg1a3pxUnAtZ04tSXFCaUV1Y3E2dXBGQjNSaFhkbEJzS3BXemJQSFVlOVBWWXEtdUxPcGVoRjEyUVJJVW1VVXkwa3hDTjVrYkE?oc=5",
    "ms": 1794980700000,
    "time": "11/18 13:45"
+  },
+  {
+   "t": "Gold Selling Pressure Intensifies — Is a Major Technical Reversal Approaching?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-selling-pressure-intensifies--is-a-major-technical-reversal-approaching-200691787",
+   "ms": 1794978480000,
+   "time": "11/18 13:08"
+  },
+  {
+   "t": "Gold’s Liquidity Trap: Forget the $5,600 Forecast, Watch the Fed",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-liquidity-trap-forget-the-5600-forecast-watch-the-fed-200691785",
+   "ms": 1794978120000,
+   "time": "11/18 13:02"
   },
   {
    "t": "Indian Stocks Open Lower as Oil and Gold Prices Retreat By Investing.com",
@@ -63,13 +77,6 @@
    "time": "11/18 11:10"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
-   "ms": 1794968160000,
-   "time": "11/18 10:16"
-  },
-  {
    "t": "Japanese Yen softens after BoJ Ueda’s remarks, FOMC Minutes in focus",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZUMtd3UyRVV5LU43TzRfRlVpMEVBbkczcUFJVFFYM1pPWGFBMEhJUkxBVzJ2Y29seVdDUFp6RTZsVm9WLUpoRUktT0N1ZE1Ib1pjX1U5VDF4Q0Rzb0h3bVdXMUh3UHprdU1Wc29SdUhzbGx1OE1UTXpveDhkalRQeTRLWE5hZ0x4SDcxS0Y0VTlMR2J6em9TX3dUMWRfRkp1ZXNteFdBanBTbW1YQ3JMSl9R?oc=5",
@@ -84,6 +91,13 @@
    "time": "11/18 09:14"
   },
   {
+   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
+   "ms": 1794958432000,
+   "time": "11/18 07:33"
+  },
+  {
    "t": "Gold holds steady near $3,850 ahead of FOMC Minutes",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNOVZrZ1k5azNqcC02SU9yOV9RZ1lJNEpRam1ScmNCNnR5b1Rxa3Jud19xUEJrclZfRGlRZTZzUnl1a2ZyUTNtRl9vMURhb1V1UV9Rc0FPd1RLV2ZuSm1DQmVSeGt5WGJiekJRLVRtemNmaV9oU0Z2RVpOc2xUQ1hEOS02X1N5eU1MSzlmd2haeDAxVlZId1VSWg?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPV1BJTVFELVMzTzdSNWZydElEbzRtUDFsQ2RET0dab0lTM3VNZDVSVHgxeVdDbDhENmktSk5IbVlXVHkwSjZaOURlTUkza0dVSXBISTV4eTFUbmZyR3JwcU9aTE9jbDFKdnphSkdLbkdndjg0eUctNUI4MGczTEJEV1I4ZUduWWVIY1FZeEpfMVB2SzJILXJqcGFvazVLY29ZU2JSLWJKWWdCRGp1OUZ0QlBGSHhQSlM5?oc=5",
    "ms": 1794953184000,
    "time": "11/18 06:06"
-  },
-  {
-   "t": "Fed's Williams still favors tighter monetary policy, but says now is not the time for 'dramatic action'",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV2lLaEpiUVlSSHZrbXBIekczMk5BZzI2MHZENHFVclFCY19UckxlUXBOblJTSlZBbzEwbGhxeTgzdy11MUl4d1lkRlV2QmtOUnp6TzhidVlpRFkycFczN0xrY0wxLTZDSl9wZVZWSmtsLWNpZkItd1hVZUpyZXJ0V2VtcC1nY2ZnRkJzMzhrVXVuenRFU0JpeUdFbG1uZk9UT3lUdi10eUxGV1RfcEdYSFczYXh0aERudmpR?oc=5",
-   "ms": 1794953127000,
-   "time": "11/18 06:05"
-  },
-  {
-   "t": "Silver below $50: How much further could it fall?",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQejB5NGFJaGhoTEhTc3Bwdk5UR1pCay1uWFFVdnQ1RWZJMXNxOFpCZVdiaHRZZ3U0ZUJNQkdrcUZBV3BvNjBuSXIxcEZhRDVhdXJtN1JrRWl4VDBuNGlrNUZrYVgyeFc5X21sRGFoRXM5UDY0Vy1LWmhBcFhwSXFLTklfaVM4TW5acGptZlJQSUw?oc=5",
-   "ms": 1794951283000,
-   "time": "11/18 05:34"
   }
  ]
 }
