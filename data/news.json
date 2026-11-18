@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 04:46 SGT",
+ "updated": "2026-11-19 04:59 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold’s Decline Could Deepen as Dirty Bomb Doubts Add to Market Uncertainty",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-decline-could-deepen-as-dirty-bomb-doubts-add-to-market-uncertainty-200691853",
+   "ms": 1795034160000,
+   "time": "11/19 04:36"
+  },
   {
    "t": "Silver and copper lead gold lower as the dollar rises",
    "src": "Kitco",
@@ -33,6 +40,13 @@
    "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
    "ms": 1795028520000,
    "time": "11/19 03:02"
+  },
+  {
+   "t": "As silver underperforms gold, has its bubble popped?",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYm5LUXloRDZhX1dwMmZEdnZtcUg0aEp3TWdIOVdsNDBLdHRMNU5zbzJEclFubTNMeV91LUJsazRWc040VWRXV2pQME9DRlMtZmZ4SDUyUW5ybFFlUVlTbDN4ZzNUUHBydzRXcVJrOVJMYmRtREtJR2N4UzJsekpNU0R2bTlwNE5ZOXFNaHJBTHQ0SGdZM1hzbg?oc=5",
+   "ms": 1795028153000,
+   "time": "11/19 02:55"
   },
   {
    "t": "Gold and silver weather a perfect storm as demand holds firm",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRHdPVUR5QjJ5U083QUozRDZ1NUs0c0NaU2pFSDdzSGFVWlpsSGlydFZxV21jWjJlOGQ4NVZ1bkNMT1J4ME5UN3BPTzlOdkhQTnpvNVd4WVBya2RRWlhFX0R2dURaVnR6NnJVT0RJcGxfc2piZ2hiYjVmRkdLOHNDb1VPV3YyRjdsenM1M2t6SHA5ekVOc0duZTFpRWNkUTBXUF81c2JRU2toRHlxZGstYUxB?oc=5",
    "ms": 1795018681000,
    "time": "11/19 00:18"
-  },
-  {
-   "t": "Gold and Silver 'Can't Find a Floor' as Waller Calls for Fed Rate Hike",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTG1PTzRTaDdGTFl0dDhWSVRRRTBjZmQtTWNZTGlCNnM0Q0YzM014dTkycjVOVWZiOS1nRWZQSUlmNkc1YUdBNUZoalEtSW9zMS1MX1Zod3lRRnltWjY0NVNCY3U5Vllld0g5cldYdkRCUVNaZlVLNnpQdnFVTFBzb2VIVV9fVVlNeG1YWnRhSlNubm9tTHhZ?oc=5",
-   "ms": 1795017616000,
-   "time": "11/19 00:00"
-  },
-  {
-   "t": "The price of gold today, Nov. 18, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBhUDZuOXRMaFhNSTVRWVAxTXQ2a0RlVF9VdUFJejduNXc3NGlTT3VLNWU1OHAwRkVXMkhscmxSTEpsZVNsaUc4VkVvMFR3YmZGS0FiVUlQRTROTS1oVVFxamdBRTZoaUVYSTQ3dDNzd29jUdIBd0FVX3lxTE5melJQODN1ZTMzcDJmRk5BNDY1QnExdERObzFoWHoxMWNPZnh0eGV0S1hqMThTNmFacVk2MDhlSU5acFVETGRYUml4eVMxQXJPMGM3c0hMUHlXQ3pGeXNGdUtZOWlvVGtvS1JEbFBxX0FIN2ZhVU8w?oc=5",
-   "ms": 1795015178000,
-   "time": "11/18 23:19"
   }
  ]
 }
