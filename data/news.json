@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 00:01 SGT",
+ "updated": "2026-11-19 00:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and Silver 'Can't Find a Floor' as Waller Calls for Fed Rate Hike",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTG1PTzRTaDdGTFl0dDhWSVRRRTBjZmQtTWNZTGlCNnM0Q0YzM014dTkycjVOVWZiOS1nRWZQSUlmNkc1YUdBNUZoalEtSW9zMS1MX1Zod3lRRnltWjY0NVNCY3U5Vllld0g5cldYdkRCUVNaZlVLNnpQdnFVTFBzb2VIVV9fVVlNeG1YWnRhSlNubm9tTHhZ?oc=5",
+   "ms": 1795017616000,
+   "time": "11/19 00:00"
+  },
   {
    "t": "Spot gold slides to $3,756/oz as U.S. pending home sales drop 4.7% in October",
    "src": "Kitco",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZkR3Y29fTDlVSFJxaEtENUxuU01zMDdIY2ZHbldjS1Q1MnVJY2Eyb1YwcEJHXzBURUFUcVhMLWZGN2gzZ2dubnZRSDA5OFI2VWhYVV9jQ0hoZWFyNnRjZGExb1BfMnAydjg1UHlObGRFUTZLVlJ5YzJDNU8zWXFCTEdobmJ1Z2dRN0tRVTgzaWpUSmk2RnVxRFByQTNpN09WTTJmTFM3MEpLRU82aG5MbWUxaw?oc=5",
    "ms": 1795006877000,
    "time": "11/18 21:01"
-  },
-  {
-   "t": "Oil Prices Drop Despite Escalating US-Iran Conflict",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/oil-prices-drop-despite-escalating-usiran-conflict-200691833",
-   "ms": 1795004760000,
-   "time": "11/18 20:26"
   }
  ]
 }
