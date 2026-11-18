@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 21:18 SGT",
+ "updated": "2026-11-18 21:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "TSX futures slip amid lower gold, oil prices; Nvidia earnings in focus",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeFRHb2Y0Y1pCZlBYQlJ0Q2F5NTUyb0hGR2ZLSm03YXloSDIzZ0hFNUppdGVtUzRsSm5FMjhzNktUSXlRcTFfLXlxMWJnWVlobE5YMUhpTWJYRm1ZZUtOaURPT3dNbi1nWEJNUll6QTFqRVpNeTdtZGY5M2Zudjlxel9kTnFpczlnVmhuZHlTSjd5Mkd3VW41RlJuSlFydTcwYnlCZi0tSThlUmNCeWVxYk5UNWIyNVJKdzRFaXRNUkRjR0k?oc=5",
+   "ms": 1795007405000,
+   "time": "11/18 21:10"
+  },
   {
    "t": "Gold tumbles to its lowest in over a year as Fed rate hike bets build",
    "src": "FXStreet",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB5c01pVXVBSW1KcU1lTTNCT1JuMm1BTjRVSWp2U3hFSHVURURibFdoVEh5WEdYU2wxY0FHSlk0WGMxQzlOeEhEdHBEX0JDd1QyQlRKeVRXSWNDbl8tNkRTbkZXLXZmckZHczR2MlJSQ2FZZzVKZlJVQUtHSW91Zw?oc=5",
    "ms": 1795000500000,
    "time": "11/18 19:15"
+  },
+  {
+   "t": "Rand Leads Emerging-Market Losses as Gold Drops Below $3,800",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUGcyOWlra1BNMTZQZUIyM29teUFnYW5IeWsyQ0ctMkd0RmVaMFJZbU9Jazc5OTk4UTdaa1FVczFkN0pKVDZrYVpwRmJRY25CQUU3bllRc3ZJamxOQjVtMUZQYm1BOTBZOW03UEpxVG1UdFZPc3JmZTJ4bHA5V2R2VE0zMWNSNk5MZUdRZGlxZXBEeFRtcWhRZ2huSmtiT0ZFR1VJOUs2SW9SeTB4YzBR?oc=5",
+   "ms": 1795000091000,
+   "time": "11/18 19:08"
   },
   {
    "t": "Gold drops below $3,800 as Fed hike bets deepen bullion selloff",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-selling-pressure-intensifies--is-a-major-technical-reversal-approaching-200691787",
    "ms": 1794978480000,
    "time": "11/18 13:08"
-  },
-  {
-   "t": "Gold’s Liquidity Trap: Forget the $5,600 Forecast, Watch the Fed",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-liquidity-trap-forget-the-5600-forecast-watch-the-fed-200691785",
-   "ms": 1794978120000,
-   "time": "11/18 13:02"
-  },
-  {
-   "t": "$3,800 caves in: Gold sellers remain unstoppable ahead of FOMC Minutes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRnVkNTNmVW53LUw4TUdGbzk1b2M2NlQ1ZDZORWNQM3Y2Ny1tY2hxdVA1TFV2VzJhZEs4eEpwZ05kVnA3bW9KU1lISXFhMmYxbjZGWXd4SExaVHN0REVfZU9US0lqRmszaktMTFIzYV9fbTFidmprMHBqNnBDbm9hSUVCM2pNa1piU04waV9ucXFtUzdvSkNYSHJEUUluZzdWWjNCeWUxcXk3VkdKVEI0WEE1bDZ2UQ?oc=5",
-   "ms": 1794973877000,
-   "time": "11/18 11:51"
   }
  ]
 }
