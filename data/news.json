@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 12:04 SGT",
+ "updated": "2026-11-18 12:17 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Indian Stocks Open Lower as Oil and Gold Prices Retreat By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMVp4S0FibGd0ZURVenI3em1iZkxZbi1UMXZQTjFwSlg1aUl6alhLWmtJTFBTMGxBUU84TUFKREZIV2Zqa2tBMlpPeXoxMjNSY2c5bnZoX0hndGR3d0NfdEM1djNLdkNqZ3FtaUJSYl90ZDRFYW1NYzh5SjBiTUF0VEhHZWhuR1NtWkVVRVZXT19GbEVTd3B0MWZsVlN1Y3FGR0JyTHNfaVhMZkpvd1BzRA?oc=5",
+   "ms": 1794974701000,
+   "time": "11/18 12:05"
+  },
   {
    "t": "$3,800 caves in: Gold sellers remain unstoppable ahead of FOMC Minutes",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb0c2d0N3TGdSX211bDdHeHhLc2tmN0xWMlBFUGxIWUU5RmVjak5UbUhWYi1xTmZObXZldF81VnFjMmVDSkNjOHBTRkxsbURITG9hOGdVM2YzQW5kUDlxV3h3S25HNFh2d0xITnhFQnNCZ1dIeVFQdmpKcHY0SjRtVHNJcXNubFF0Tnp6TWw1M3VleHBXczRfZllSX29mX0xwbFd5NVRyakVZRlpNME5zcmJnN084ZlUyZi01cExkdzU?oc=5",
    "ms": 1794946641000,
    "time": "11/18 04:17"
-  },
-  {
-   "t": "Gold recovers its retail sales drop and holds above Monday's low",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPazhfczA1dVJTMzRFbVd5RXFOcXFKYXlTSm1RZllXNFFMMkVja3R5NXpDMG15ZHZNeUhhTWk1dldvVVdsVVhGdzZNOF8tSlVCMDVUNDVERG1BcktwMzBYbHA3NUtRbUxIS3h2anRKb1U2UlBJN1E2UFljOEcyaEdsUm5BRTlJeGVNZXFKV3Y3bWgyMzRqMURGemVtRENvZW52MWg0Q3c3bmZhQQ?oc=5",
-   "ms": 1794942109000,
-   "time": "11/18 03:01"
   }
  ]
 }
