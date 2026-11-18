@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 04:19 SGT",
+ "updated": "2026-11-19 04:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Silver and copper lead gold lower as the dollar rises",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPV3hfUkdxX3pBT1Q1QVo4UmRhZHVtelJVdkJVajd5ZXo3V29uS1JXaXREOEc5bjA0N3E5djd4VVRtSWxPUGM0eWU5VDMxY3ZxQldPUTFIMkw3ODB4SmsxUzV1dExhMDktQk10MldsVEtRRGNkX3h4YnVlVUZuenBqaVA5WmFyM3VSQVRTTUh5b3Q?oc=5",
+   "ms": 1795032595000,
+   "time": "11/19 04:09"
+  },
   {
    "t": "Gold prices remain under pressure as Fed minutes show central bank committed to cooling inflation",
    "src": "Kitco",
@@ -26,13 +33,6 @@
    "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
    "ms": 1795028520000,
    "time": "11/19 03:02"
-  },
-  {
-   "t": "Silver and Copper lead Gold lower as the Dollar rises",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTlNQWXNWRmJKRFZmVnRjUko3YUcxcExhY2dRSmpIMEpEUFcxVmZ4YVljOXpYZi1LejN4NVE4MWRjbk41ZjI2dlg2Y0dUM0Rsb2FlaXVlRnFqdWY2Q00xTGY1WVpTZEpJS09xVGl4Y0NfUHg3dmNRRmhoRy1ndElYT1FQNzNoZUVaTFRFaFdKTS1JZjNlaEpudURuTVd3MDdBUHc?oc=5",
-   "ms": 1795028174000,
-   "time": "11/19 02:56"
   },
   {
    "t": "Gold and silver weather a perfect storm as demand holds firm",
