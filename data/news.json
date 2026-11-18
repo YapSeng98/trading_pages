@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 07:46 SGT",
+ "updated": "2026-11-18 08:13 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -70,6 +70,13 @@
    "time": "11/18 02:57"
   },
   {
+   "t": "Guinea clears PDI Gold permit, raising hopes of easing mining backlog",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVl2WW1PNk1nNnY0MDljOElKLVFVaXZDc1k0aEtEV1RXZUcxNTFGUUdGOHF0Zm8wajZnN1duUVdMNG42Q0I2ZUlBSDB5RWZZbnljc2dLS3YyNEwyVlhlN0dRcEZnZ2N6T0ZQeTZFNVFic2dGbVNIVmhCY0VkMGNVWU9ZaFItMlEzR3FIY1lZMnJtLTV0ZXRaZGs1dy10UVhOT1R6aldNVExzUzVIckZ2dVdTMzVCM00?oc=5",
+   "ms": 1794941713000,
+   "time": "11/18 02:55"
+  },
+  {
    "t": "Forex Today: FOMC Minutes and UK CPI come to the fore",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbjlZZ00wRDByX0FDZ2dDMUZEQTZ5QjlGNGNSWXl6X2hvUmx1LUlfeG1oRUpSMUQ3YmFMSlpGYUlxTmlHLUlkbUlNN3FXbUV6YmxBdVFpLXBac3BTODgycEZCUm43N0w0UVE1eksta3pmb3pFMzBoSmVsVURHOHpxMjVVcjlIdXUwVkI3RW51TENIZXpyeFdNTXp2QQ?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOM2RhMzU5VGtPVEZOYXFvUTZHT0pnelh5ZnBHTHBZMUJIaXdiTm9Jb0hVcEctN1BMdU1FbWcwU3o5anY5Z0w1Y1JnTFpidzg4SFNUWDVZRTRCQ3BLeE1oUzY3RUZ4Nll6Wm1JekItQWRxcUFkRlFHMXk2WWc4WTBZTjFDWmdoQlQyNzJabTFYdWwzeHBHY2VWa0xkdzdkYU92ZVhVemE4Wkw4S0lYaUwxdw?oc=5",
    "ms": 1794936270000,
    "time": "11/18 01:24"
-  },
-  {
-   "t": "Gold Prices Rebound on Trump’s Comments, but Key Resistance Keeps Sellers Alert",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-rebound-on-trumps-comments-but-key-resistance-keeps-sellers-alert-200691762",
-   "ms": 1794935340000,
-   "time": "11/18 01:09"
   }
  ]
 }
