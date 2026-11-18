@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 05:53 SGT",
+ "updated": "2026-11-19 06:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold plunges below $3,750, silver tumbles as hawkish Fed minutes pressure metals - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQclJNeHVDcHRDMkU5SHdkUXJNNnFHZnZkb2dwS1dDeDN2UW5fOHhjeWxNbUh1M25uOVNLZFBrakVwVWgtUXdJcU9uV1VyVUhfYzNDek5zUTZCeWVLQ254SS10TjUyNmpyWFdydk5JNnlvUXJ5SWJSY1FSd3cxMkJ4WEYwYW9RUU5JcmlFMEFjZENFSXhMbWdKS0pkQkpuanJzeDQ2T1hlXzNXcDhMdzY3bVE5b3pQSUJaU3VvTg?oc=5",
+   "ms": 1795039355000,
+   "time": "11/19 06:02"
+  },
   {
    "t": "Gold Breaks $3,800 as Rate Hike Bets Overwhelm Safe-Haven Demand",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTGRod0lSZTVWOEl1UFYtSUkwYS05VjdwR2RpdC1aQVhTbkN2SHVaMmM2VDNqVndTeVlCYm13azZyS3FNN1gxNWJGS1F2bHVoX3NtRTFEQm54X19CcThzdEFobjZZMUhLQzY2UEJ1UnhxcUNvVXY1STB0ZERnRDJoX1l1VDVxY0wxdzdwOTVlVHVfaHFfbHQ2YlRwOA?oc=5",
    "ms": 1795020198000,
    "time": "11/19 00:43"
-  },
-  {
-   "t": "Gold Is Reliving 2022, but the Selloff Is Already Worse",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-is-reliving-2022-but-the-selloff-is-already-worse-200691847",
-   "ms": 1795019400000,
-   "time": "11/19 00:30"
   }
  ]
 }
