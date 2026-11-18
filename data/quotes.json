@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 08:28 SGT",
+ "updated": "2026-11-18 10:11 SGT",
  "source": "Yahoo Finance chart API, daily bars",
  "failed": [],
  "quotes": {
@@ -433,7 +433,7 @@
    "prev": 2.43,
    "chg": 0.0,
    "date": "2026-11-17",
-   "hi52": 3.65,
+   "hi52": 3.61,
    "lo52": 2.41,
    "pos52": 2,
    "r1m": -4.71,
