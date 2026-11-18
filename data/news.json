@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 17:00 SGT",
+ "updated": "2026-11-18 17:03 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
    "ms": 1794990491000,
    "time": "11/18 16:28"
+  },
+  {
+   "t": "United Kingdom CPI inflation picks up to 3.6% YoY in October, misses estimates",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYkNuMHp2TkNveWdkVWxCN2c3NUtNUWQwdkhvQjlPLWZFRjFwRGdQTGEzSWxPaGpzMGxkb3M5aVFza01lU19xZ2dLc1piT1RScW1xNUFVakdKU1ZlNDkxcVVKUXg1a3pxUnAtZ04tSXFCaUV1Y3E2dXBGQjNSaFhkbEJzS3BXemJQSFVlOVBWWXEtdUxPcGVoRjEyUVJJVW1VVXkwa3hDTjVrYkE?oc=5",
+   "ms": 1794987506000,
+   "time": "11/18 15:38"
   },
   {
    "t": "Gold drops below $3,800 as Fed hike bets deepen bullion selloff By Investing.com",
@@ -33,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdV9IVnZLcFhYNmM5d3UyYzVXV19hTE5GYUxSOXYxNDNZbHZJRWtkcVZQQl9MTVQ5Tl96cmhYNTVJX3FMNG9pMVF6bUphTUxaRXBwV3dBcTZzclBZb0I2QXFKNl9LbFJHTHc0WVRYM3MyREFzT1VXZ0w4VXFJcjlUV1ZhWmloZk9MeUd5ZTJUbW9yT2RXeWtpY0pJdk5ROVhXRG83Qk5wZ2EtVlVwY2hEQ1Rza0J2bmFqckE?oc=5",
    "ms": 1794984955000,
    "time": "11/18 14:55"
-  },
-  {
-   "t": "Will a hotter UK CPI print make a December BoE hike more likely?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYkNuMHp2TkNveWdkVWxCN2c3NUtNUWQwdkhvQjlPLWZFRjFwRGdQTGEzSWxPaGpzMGxkb3M5aVFza01lU19xZ2dLc1piT1RScW1xNUFVakdKU1ZlNDkxcVVKUXg1a3pxUnAtZ04tSXFCaUV1Y3E2dXBGQjNSaFhkbEJzS3BXemJQSFVlOVBWWXEtdUxPcGVoRjEyUVJJVW1VVXkwa3hDTjVrYkE?oc=5",
-   "ms": 1794980700000,
-   "time": "11/18 13:45"
   },
   {
    "t": "Gold Selling Pressure Intensifies — Is a Major Technical Reversal Approaching?",
