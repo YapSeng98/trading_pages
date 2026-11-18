@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-18 14:59 SGT",
+ "updated": "2026-11-18 15:26 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold drops below $3,800 as Fed hike bets deepen bullion selloff By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM1d5T3FvLWcxWFI1OGw2NFFLdUs1MG5KakQtb1NiVW5ycm80dUxBRWZLZGUxRGpPWnAyUVdLUk1jbGxQbU4wT09oSkFOQ3NCTDU0Z3liNWh5LUZ5VXprWW4zVDlybm9iQ3RPLVN4UmhwbzdDRW1sTl9SNVJoNzdzTm1STC1xd241ZmNoa1R6b2FPV0ZzNExGS1B5dk56ZkVTWmpsRV9uMjNEMGNwcVpwaXlHVHNEdy1s?oc=5",
+   "ms": 1794985133000,
+   "time": "11/18 14:58"
+  },
+  {
+   "t": "Gold drops below $3,800 as Fed hike bets deepen bullion selloff",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdV9IVnZLcFhYNmM5d3UyYzVXV19hTE5GYUxSOXYxNDNZbHZJRWtkcVZQQl9MTVQ5Tl96cmhYNTVJX3FMNG9pMVF6bUphTUxaRXBwV3dBcTZzclBZb0I2QXFKNl9LbFJHTHc0WVRYM3MyREFzT1VXZ0w4VXFJcjlUV1ZhWmloZk9MeUd5ZTJUbW9yT2RXeWtpY0pJdk5ROVhXRG83Qk5wZ2EtVlVwY2hEQ1Rza0J2bmFqckE?oc=5",
+   "ms": 1794984955000,
+   "time": "11/18 14:55"
+  },
   {
    "t": "Will a hotter UK CPI print make a December BoE hike more likely?",
    "src": "FXStreet",
@@ -63,24 +77,10 @@
    "time": "11/18 10:06"
   },
   {
-   "t": "Gold falls toward $3,800 as Fed hawks reinforce rate-hike outlook By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM1d5T3FvLWcxWFI1OGw2NFFLdUs1MG5KakQtb1NiVW5ycm80dUxBRWZLZGUxRGpPWnAyUVdLUk1jbGxQbU4wT09oSkFOQ3NCTDU0Z3liNWh5LUZ5VXprWW4zVDlybm9iQ3RPLVN4UmhwbzdDRW1sTl9SNVJoNzdzTm1STC1xd241ZmNoa1R6b2FPV0ZzNExGS1B5dk56ZkVTWmpsRV9uMjNEMGNwcVpwaXlHVHNEdy1s?oc=5",
-   "ms": 1794964585000,
-   "time": "11/18 09:16"
-  },
-  {
    "t": "Gold steadies near lows as peristent inflation worries investors of Fed tightening",
    "src": "CNBC TV18",
    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxObFNQSnZUV0tJazByQ09fdHkyNUh0UzFQRU5aRG1MQVpnU01LUVRTSUc4cThZNFFXYVVfVGk3Q2hMRXRqYXVtVGlNWWFYMmdGckJNbkVHeDRWWlRZa19Mc3RFbjI3WW53TEM2VV9SdTY2c3BFQXgzZjBVRjVudVRqZExUcG1iX2tPaWMtdXphTlJ5R2JkcFNtWkFFNVg2NTgzNExMX0cyMHFxdm1VeVNDenFsNHMzNWRXWVFEWHFpTEo3SkQzOGdlWmR3Q2V1TWx0RkHSAdcBQVVfeXFMTVh2SmNuM1ZOYzdSUHlwUXVmcmpJdG9ZZzdUYlhoVDNuWjJNanMyNjZoQjItYlphbi1xaUt6Vlk3TWZwaDRleXcyT0RRRTludEVaeERFNF9ablJ0VEVSR1BLSy00YnRCOHdRQlJRSl9PVmZsbHN5ek1qUW5hOGxXZVg4b3E5Mk9CZmNqVE96T2NHM051c3FrY0IwcDExelFBVUFzUDZ4VzBFWjdsSk1WcWlxZHZnR0ZfNngxUEthbmROWk1CTGc2Y181VVY0SFFKdW1FdTM3c0E?oc=5",
    "ms": 1794964475000,
-   "time": "11/18 09:14"
-  },
-  {
-   "t": "Gold falls toward $3,800 as Fed hawks reinforce rate-hike outlook",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPdV9IVnZLcFhYNmM5d3UyYzVXV19hTE5GYUxSOXYxNDNZbHZJRWtkcVZQQl9MTVQ5Tl96cmhYNTVJX3FMNG9pMVF6bUphTUxaRXBwV3dBcTZzclBZb0I2QXFKNl9LbFJHTHc0WVRYM3MyREFzT1VXZ0w4VXFJcjlUV1ZhWmloZk9MeUd5ZTJUbW9yT2RXeWtpY0pJdk5ROVhXRG83Qk5wZ2EtVlVwY2hEQ1Rza0J2bmFqckE?oc=5",
-   "ms": 1794964442000,
    "time": "11/18 09:14"
   },
   {
