@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-18 14:05 SGT",
+ "updated": "2026-11-18 14:59 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3788.9,
- "priceTime": "2026-11-18 14:00 SGT",
+ "price": 3780.3,
+ "priceTime": "2026-11-18 14:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3852.5,
   "high": 3857.3,
-  "low": 3779.9,
-  "changeFromPrevClose": -60.2,
-  "changePct": -1.57,
+  "low": 3775.8,
+  "changeFromPrevClose": -68.8,
+  "changePct": -1.79,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -86,9 +86,9 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3788.9,
-  "stop": 3839.8,
-  "target": 3636,
+  "entry": 3780.3,
+  "stop": 3831.2,
+  "target": 3627.5,
   "stopDistance": 50.9,
   "trailDistance": 101.9,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
@@ -208,22 +208,22 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-18 08:15 SGT",
-   "rsi": 29.7,
-   "atr": 8.83,
-   "ema20": 3798.7,
-   "ema50": 3820.6,
-   "ema200": 3856.2,
+   "rsi": 27.1,
+   "atr": 8.51,
+   "ema20": 3794.1,
+   "ema50": 3816.1,
+   "ema200": 3854,
    "emaOrder": "空头排列",
    "range": {
     "top": 3858,
-    "bottom": 3780,
-    "positionPct": 11
+    "bottom": 3775.8,
+    "positionPct": 6
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 3841.7,
-    "barsAgo": 23
+    "barsAgo": 26
    },
    "turnsUpAbove": 3858,
    "turnsDownBelow": null
@@ -257,11 +257,6 @@
   }
  ],
  "support": [
-  {
-   "price": 3782.6,
-   "what": "1小时双顶目标",
-   "strength": 1
-  },
   {
    "price": 3780,
    "what": "4小时区间底、1小时区间底",
