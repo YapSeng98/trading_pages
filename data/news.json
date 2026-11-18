@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 00:32 SGT",
+ "updated": "2026-11-19 00:55 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Is Reliving 2022, but the Selloff Is Already Worse",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-is-reliving-2022-but-the-selloff-is-already-worse-200691847",
+   "ms": 1795019400000,
+   "time": "11/19 00:30"
+  },
   {
    "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
    "src": "Bloomberg.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQQWhGN1E2UXNpY3pGQ0tRZlhOdjdubThHNmdRX3NaZzlPSnNNZGlHY3NEeGo4aGIxRGU0N0ZfaFM2WFQ5cFJOQ2dZTjhSTjgzSnJWYXhFTUkybzcxN2tlTXl5NGlmaGRpVklhcmM5Q09wQnZvdjBYSDdTNnd2RWgtOC13?oc=5",
    "ms": 1795008729000,
    "time": "11/18 21:32"
-  },
-  {
-   "t": "Gold just broke below $3,800 for the first time in 14 months",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcUpSaEZCWHFvUTlwZWVHQmk2SEwxVHZ4NndUd3N0azhtVmVkRk1SZi16TXB4a29CSTN2WDd6Mzh2SHlXVl9fa0lERjhqQ1YxUEgzR0lCamc4c0ZLY1VERDVEZy1mbC1KT2hCQ1lsNWF5RUtzZkZ2OEYtV0txUmZqeHNhcVd5YktwM0N4MWUwMnN1YWtHWjRkUk5oRlpuNUFsdWdSQ2w3MFIydw?oc=5",
-   "ms": 1795008130000,
-   "time": "11/18 21:22"
   }
  ]
 }
