@@ -1,11 +1,39 @@
 {
- "updated": "2026-11-19 02:57 SGT",
+ "updated": "2026-11-19 03:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Silver Is Falling Faster Than Gold as Rising Rates and Weak Demand Take Their Toll",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
+   "ms": 1795028520000,
+   "time": "11/19 03:02"
+  },
+  {
+   "t": "The Dollar climbs higher as Gold breaks below 3800",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNMU4yU1NuRk5VLU5GNTdfM25JMzhnWTQzWXZyeU1DVnBUdGpsUUdlNzJ4ZmdEYVR6OXBxV1E5NmFzWVhZanRDS04teEs4dUtqdUN4VU9JUWlMTUVrVVo3NGdRdHQ2M3NIN3lkR2R3dHM1aWVZbGR0RXM2enQ4T3hKakdnU3plRXlJNXZuT2I1X0pvd2NvcHpoczIxVF9tZw?oc=5",
+   "ms": 1795028380000,
+   "time": "11/19 02:59"
+  },
+  {
+   "t": "Silver and Copper lead Gold lower as the Dollar rises",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTlNQWXNWRmJKRFZmVnRjUko3YUcxcExhY2dRSmpIMEpEUFcxVmZ4YVljOXpYZi1LejN4NVE4MWRjbk41ZjI2dlg2Y0dUM0Rsb2FlaXVlRnFqdWY2Q00xTGY1WVpTZEpJS09xVGl4Y0NfUHg3dmNRRmhoRy1ndElYT1FQNzNoZUVaTFRFaFdKTS1JZjNlaEpudURuTVd3MDdBUHc?oc=5",
+   "ms": 1795028174000,
+   "time": "11/19 02:56"
+  },
+  {
+   "t": "Gold price follows the dollar in the short-term, but real yields over the long haul – Heraeus",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPNnVBVHhjV2JQWDVXRHB1RE53eU5tU1hOeV85c3pxUWtRNGQxdEtQWXRod0EwcWM5MkhVdU5Td3VZaTJtUEl4ZEpZSDcxek54cWFjelBiaFFsa0lBTWo3WnhFS0dyVTRmSGNkamNnZldrbTN3UmsxRkFPQ1YwNy1wbkc2bnFpNlgtQ0pabkhCUklEdktJd1I1VjVsVEFWSVRGY0xfb1lISTU3U1JBSU1rQzczaDJBLVFt?oc=5",
+   "ms": 1795025414000,
+   "time": "11/19 02:10"
+  },
   {
    "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
    "src": "Bloomberg.com",
@@ -82,34 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-strikes-back-but-will-the-momentum-last-200691842",
    "ms": 1795012440000,
    "time": "11/18 22:34"
-  },
-  {
-   "t": "South African Rand Hits Eight-Month Low on Gold, Fed Hike Bets",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUGcyOWlra1BNMTZQZUIyM29teUFnYW5IeWsyQ0ctMkd0RmVaMFJZbU9Jazc5OTk4UTdaa1FVczFkN0pKVDZrYVpwRmJRY25CQUU3bllRc3ZJamxOQjVtMUZQYm1BOTBZOW03UEpxVG1UdFZPc3JmZTJ4bHA5V2R2VE0zMWNSNk5MZUdRZGlxZXBEeFRtcWhRZ2huSmtiT0ZFR1VJOUs2SW9SeTB4YzBR?oc=5",
-   "ms": 1795011834000,
-   "time": "11/18 22:23"
-  },
-  {
-   "t": "Gold plunges to 14-month low, silver tumbles as Fed rate hike bets intensify - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNQ1lPTzhpcGxNNEc1UnNNUl95N0tVaWhyM21jaHlsY1BkWFlKM25DclBGZXBoaDFZaWJNbzNubU9FZTV4UzgzMW52Tm1TUkVkRVRfbjlrekhKVmxzcWdHT19zTXJpbjdiaGNDTU5XenB2bWo2aXd1cHh4emdfR0xmaVU2MmtZdjB0akt3MHhnSXNUeGNVemRCZHVWN3lmS0h4Mm9QbGVBdHlUUndrSVpDVDV0VDl6RmFyYjJENkRB?oc=5",
-   "ms": 1795010787000,
-   "time": "11/18 22:06"
-  },
-  {
-   "t": "Current price of gold as of November 18, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE13QlJrYVU5UGJsSmZfeF9TdkZUMlJfS1JVdUN3UjhfYlptcDRVeWJhSVZSc3VxZHRRdXkyclJmY2k1TEt4Zm9PZXBKcHNWeFlUM09WV0N0OUZSZXRhRHJwblRHcEstay16NFNFaUhB?oc=5",
-   "ms": 1795010460000,
-   "time": "11/18 22:01"
-  },
-  {
-   "t": "Central banks rethink gold as global risks mount",
-   "src": "mining.com",
-   "url": "https://www.mining.com/central-banks-rethink-gold-as-global-risks-mount/",
-   "ms": 1795010400000,
-   "time": "11/18 22:00"
   }
  ]
 }
