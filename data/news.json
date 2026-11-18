@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-19 01:36 SGT",
+ "updated": "2026-11-19 02:03 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "US Dollar: Topside pressure building as Fed seen tightening – ING",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVVNrSk44bVdNdUdxUE1qWW4xaHVzbDFxM1Y0cVQySUN4VG5lZk5TeDVTM2FRblFuWm9TUmpoeFdfbHFjM0wyeHMzd0xTVHU3WVBtdjVpOTJ0M1kxOVJueFNVc1BEd0RHck80U1hBbTc3WklUQ3Fxc0NvZ0E1YkVBeDhGclB3bXVENXFxdzhIMDhBXzJVMnVUa0VKbF9KUVVHMmMxR0JSbVk?oc=5",
+   "ms": 1795021765000,
+   "time": "11/19 01:09"
+  },
+  {
+   "t": "Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTGRod0lSZTVWOEl1UFYtSUkwYS05VjdwR2RpdC1aQVhTbkN2SHVaMmM2VDNqVndTeVlCYm13azZyS3FNN1gxNWJGS1F2bHVoX3NtRTFEQm54X19CcThzdEFobjZZMUhLQzY2UEJ1UnhxcUNvVXY1STB0ZERnRDJoX1l1VDVxY0wxdzdwOTVlVHVfaHFfbHQ2YlRwOA?oc=5",
+   "ms": 1795020198000,
+   "time": "11/19 00:43"
+  },
   {
    "t": "Gold Is Reliving 2022, but the Selloff Is Already Worse",
    "src": "Investing.com",
@@ -96,20 +110,6 @@
    "url": "https://www.mining.com/central-banks-rethink-gold-as-global-risks-mount/",
    "ms": 1795010400000,
    "time": "11/18 22:00"
-  },
-  {
-   "t": "Gold drops 2% to over one-year low as hawkish Fed signals boost dollar",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQQ0VJSlZDemZHTlZuTnlwbHdTYmV5dFRfWHlIZUlIbXF0RWN0aWNRMUFoNW5PSEttRkdLa29MbDYwRkhvTDRxSlhzM0JPQnNLNGpuVTVoNlFsak9BLVJLY2l6TV9MUXJKcjlyZzZ6eDNtaVJCb2NWVjh0WGNOV05YMW5MZk90bjRtMlgwaWFoS3l5djUyMGphd1RGOVVaQU4yazVOVm9NbTFUYml1M1p2U0xlODU?oc=5",
-   "ms": 1795009537000,
-   "time": "11/18 21:45"
-  },
-  {
-   "t": "Why is SPDR Gold Shares sliding today?",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPYnV2QzUwUUNoeDF0MWxzbVJuQnlNOElDbThic0xhajBadVFVbWplVGRiUmExX19Pak43U0FtNm9HdnMxWDZkTXBLZXhHQUw4OU9lOHFIMGpBU0JncTZtRnQwVGM0LVAteks2Q2E3NkMzdDRzSjNKaXgtXzJ3NFQzMHcxRXVVYUZueC1JRl9KZnpVVjJaSzBxejR0LTJ3XzJj?oc=5",
-   "ms": 1795009278000,
-   "time": "11/18 21:41"
   }
  ]
 }
