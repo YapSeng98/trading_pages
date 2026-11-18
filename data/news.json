@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-18 12:17 SGT",
+ "updated": "2026-11-18 12:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Indian Stocks Open Lower as Oil and Gold Prices Retreat By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMVp4S0FibGd0ZURVenI3em1iZkxZbi1UMXZQTjFwSlg1aUl6alhLWmtJTFBTMGxBUU84TUFKREZIV2Zqa2tBMlpPeXoxMjNSY2c5bnZoX0hndGR3d0NfdEM1djNLdkNqZ3FtaUJSYl90ZDRFYW1NYzh5SjBiTUF0VEhHZWhuR1NtWkVVRVZXT19GbEVTd3B0MWZsVlN1Y3FGR0JyTHNfaVhMZkpvd1BzRA?oc=5",
-   "ms": 1794974701000,
-   "time": "11/18 12:05"
-  },
   {
    "t": "$3,800 caves in: Gold sellers remain unstoppable ahead of FOMC Minutes",
    "src": "FXStreet",
@@ -40,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
    "ms": 1794967964000,
    "time": "11/18 10:12"
-  },
-  {
-   "t": "Gold falls toward $3,800 as Fed hawks reinforce rate-hike outlook By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM1d5T3FvLWcxWFI1OGw2NFFLdUs1MG5KakQtb1NiVW5ycm80dUxBRWZLZGUxRGpPWnAyUVdLUk1jbGxQbU4wT09oSkFOQ3NCTDU0Z3liNWh5LUZ5VXprWW4zVDlybm9iQ3RPLVN4UmhwbzdDRW1sTl9SNVJoNzdzTm1STC1xd241ZmNoa1R6b2FPV0ZzNExGS1B5dk56ZkVTWmpsRV9uMjNEMGNwcVpwaXlHVHNEdy1s?oc=5",
-   "ms": 1794964585000,
-   "time": "11/18 09:16"
   },
   {
    "t": "Gold steadies near lows as peristent inflation worries investors of Fed tightening",
@@ -105,11 +91,25 @@
    "time": "11/18 04:18"
   },
   {
-   "t": "Gold prices hover near 13-month low in subdued trading By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQb0c2d0N3TGdSX211bDdHeHhLc2tmN0xWMlBFUGxIWUU5RmVjak5UbUhWYi1xTmZObXZldF81VnFjMmVDSkNjOHBTRkxsbURITG9hOGdVM2YzQW5kUDlxV3h3S25HNFh2d0xITnhFQnNCZ1dIeVFQdmpKcHY0SjRtVHNJcXNubFF0Tnp6TWw1M3VleHBXczRfZllSX29mX0xwbFd5NVRyakVZRlpNME5zcmJnN084ZlUyZi01cExkdzU?oc=5",
-   "ms": 1794946641000,
-   "time": "11/18 04:17"
+   "t": "Gold recovers its retail sales drop and holds above Monday's low",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPazhfczA1dVJTMzRFbVd5RXFOcXFKYXlTSm1RZllXNFFMMkVja3R5NXpDMG15ZHZNeUhhTWk1dldvVVdsVVhGdzZNOF8tSlVCMDVUNDVERG1BcktwMzBYbHA3NUtRbUxIS3h2anRKb1U2UlBJN1E2UFljOEcyaEdsUm5BRTlJeGVNZXFKV3Y3bWgyMzRqMURGemVtRENvZW52MWg0Q3c3bmZhQQ?oc=5",
+   "ms": 1794942109000,
+   "time": "11/18 03:01"
+  },
+  {
+   "t": "Why Silver and Gold Miners Are Taking Bigger Losses Than Stocks in the Sell-Off",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/why-silver-and-gold-miners-are-taking-bigger-losses-than-stocks-in-the-selloff-200691766",
+   "ms": 1794941820000,
+   "time": "11/18 02:57"
+  },
+  {
+   "t": "Forex Today: FOMC Minutes and UK CPI come to the fore",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbjlZZ00wRDByX0FDZ2dDMUZEQTZ5QjlGNGNSWXl6X2hvUmx1LUlfeG1oRUpSMUQ3YmFMSlpGYUlxTmlHLUlkbUlNN3FXbUV6YmxBdVFpLXBac3BTODgycEZCUm43N0w0UVE1eksta3pmb3pFMzBoSmVsVURHOHpxMjVVcjlIdXUwVkI3RW51TENIZXpyeFdNTXp2QQ?oc=5",
+   "ms": 1794941521000,
+   "time": "11/18 02:52"
   }
  ]
 }
