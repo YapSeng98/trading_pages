@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795004100000,
+ "lastChecked": 1795006800000,
  "a3": -1,
  "a5": -1,
- "open": 13,
+ "open": null,
  "nextId": 18,
  "signals": [
   {
@@ -203,7 +203,12 @@
    "risk": 47.64,
    "atr": 15.88,
    "spread": 0.58,
-   "status": "open"
+   "status": "target",
+   "exitTime": "2026-11-18 21:00 SGT",
+   "exitMs": 1795006800000,
+   "exitPrice": 3744.92,
+   "nights": 3,
+   "R": 3
   },
   {
    "id": 14,
@@ -400,16 +405,22 @@
    "time": "2026-11-18 08:15 SGT",
    "type": "skipped",
    "text": "信号 #17（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1795006800000,
+   "time": "2026-11-18 21:00 SGT",
+   "type": "closed",
+   "text": "做空 #13 到目标，+3.00R"
   }
  ],
  "summary": {
   "signals": 17,
   "taken": 5,
-  "closed": 4,
-  "wins": 2,
-  "totalR": 4,
-  "avgR": 1,
-  "open": 1
+  "closed": 5,
+  "wins": 3,
+  "totalR": 7,
+  "avgR": 1.4,
+  "open": 0
  },
  "changes": [
   {
@@ -1157,7 +1168,7 @@
       "target": null,
       "risk": 54.21,
       "spread": 0.6,
-      "best": 3757.765,
+      "best": 3743.15,
       "day": 20775,
       "status": "open"
      }
@@ -1173,7 +1184,7 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 6,
     "prev": -1,
@@ -1211,16 +1222,21 @@
       "spread": 0.58,
       "best": 3887.84,
       "day": 20770,
-      "status": "open"
+      "status": "target",
+      "exitTime": "2026-11-18 21:00 SGT",
+      "exitMs": 1795006800000,
+      "exitPrice": 3744.92,
+      "nights": 3,
+      "R": 3
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 3,
+     "closed": 2,
+     "wins": 2,
+     "totalR": 6,
      "avgR": 3,
-     "open": 1
+     "open": 0
     }
    },
    "noWtrail": {
@@ -1241,7 +1257,7 @@
       "target": null,
       "risk": 54.21,
       "spread": 0.6,
-      "best": 3757.765,
+      "best": 3743.15,
       "day": 20775,
       "status": "open"
      }
