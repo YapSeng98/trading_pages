@@ -2,11 +2,11 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1794959100000,
+ "lastChecked": 1794960900000,
  "a3": -1,
- "a5": 0,
+ "a5": -1,
  "open": 13,
- "nextId": 17,
+ "nextId": 18,
  "signals": [
   {
    "id": 1,
@@ -246,6 +246,20 @@
    "spread": 0.58,
    "status": "skipped",
    "why": "已有纸面持仓"
+  },
+  {
+   "id": 17,
+   "time": "2026-11-18 08:15 SGT",
+   "ms": 1794960900000,
+   "side": "做空",
+   "entry": 3839.87,
+   "stop": 3885.31,
+   "target": 3703.52,
+   "risk": 45.45,
+   "atr": 15.15,
+   "spread": 0.58,
+   "status": "skipped",
+   "why": "已有纸面持仓"
   }
  ],
  "events": [
@@ -380,10 +394,16 @@
    "time": "2026-11-17 17:30 SGT",
    "type": "skipped",
    "text": "信号 #16（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1794960900000,
+   "time": "2026-11-18 08:15 SGT",
+   "type": "skipped",
+   "text": "信号 #17（做空）已有纸面持仓，按规则跳过"
   }
  ],
  "summary": {
-  "signals": 16,
+  "signals": 17,
   "taken": 5,
   "closed": 4,
   "wins": 2,
@@ -1095,6 +1115,17 @@
    "level": 3870.86,
    "a3": -1,
    "a5": 0
+  },
+  {
+   "ms": 1794960900000,
+   "time": "2026-11-18 08:15 SGT",
+   "tf": "15M",
+   "from": "bullish",
+   "to": "bearish",
+   "price": 3839.87,
+   "level": 3841.74,
+   "a3": -1,
+   "a5": -1
   }
  ],
  "trends": {
@@ -1102,7 +1133,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bullish"
+  "15M": "bearish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1112,8 +1143,8 @@
     "name": "同一信号，跟踪止损出场",
     "open": 1,
     "nextId": 2,
-    "skipped": 6,
-    "prev": 0,
+    "skipped": 7,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1127,7 +1158,7 @@
       "risk": 54.21,
       "spread": 0.6,
       "best": 3832.738,
-      "day": 20774,
+      "day": 20775,
       "status": "open"
      }
     ],
@@ -1144,8 +1175,8 @@
     "name": "不看周线，目标 3R",
     "open": 2,
     "nextId": 3,
-    "skipped": 5,
-    "prev": 0,
+    "skipped": 6,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1196,8 +1227,8 @@
     "name": "不看周线，跟踪止损出场",
     "open": 1,
     "nextId": 2,
-    "skipped": 6,
-    "prev": 0,
+    "skipped": 7,
+    "prev": -1,
     "trades": [
      {
       "id": 1,
@@ -1211,7 +1242,7 @@
       "risk": 54.21,
       "spread": 0.6,
       "best": 3832.738,
-      "day": 20774,
+      "day": 20775,
       "status": "open"
      }
     ],
