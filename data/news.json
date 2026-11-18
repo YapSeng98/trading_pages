@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 17:41 SGT",
+ "updated": "2026-11-18 18:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
    "ms": 1794990491000,
    "time": "11/18 16:28"
+  },
+  {
+   "t": "Gold Faces Another Leg Lower as Key Support Levels Turn Into Resistance",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-faces-another-leg-lower-as-key-support-levels-turn-into-resistance-200691805",
+   "ms": 1794990180000,
+   "time": "11/18 16:23"
   },
   {
    "t": "United Kingdom CPI inflation picks up to 3.6% YoY in October, misses estimates",
@@ -70,7 +77,7 @@
    "time": "11/18 11:21"
   },
   {
-   "t": "Gold slips to over one-year low on firm dollar, US rate outlook",
+   "t": "Gold drops 2% to over one-year low as hawkish Fed signals boost dollar",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVlk2MG4xbDV2emVoNk9vRVhTcTlRbkZLMDgwMjBMTEdVeXFDV21zX0NVdmF0YzQzRDZ4TkowaDJQQlZlTDBsbm9BWHFXNXpYZzVVejAtTGRZTTFHRjV4dllJV0ZxVzVvbVJCN1lxdk50NXVaNkRxTGJQbDYyZjhNNElTUElOWVU0eW0ySnBRMndSU1ZrTGE4ZlNMdDk0UXVmUjZLSEVfQlc?oc=5",
    "ms": 1794971400000,
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQV2lLaEpiUVlSSHZrbXBIekczMk5BZzI2MHZENHFVclFCY19UckxlUXBOblJTSlZBbzEwbGhxeTgzdy11MUl4d1lkRlV2QmtOUnp6TzhidVlpRFkycFczN0xrY0wxLTZDSl9wZVZWSmtsLWNpZkItd1hVZUpyZXJ0V2VtcC1nY2ZnRkJzMzhrVXVuenRFU0JpeUdFbG1uZk9UT3lUdi10eUxGV1RfcEdYSFczYXh0aERudmpR?oc=5",
    "ms": 1794953127000,
    "time": "11/18 06:05"
-  },
-  {
-   "t": "Silver below $50: How much further could it fall?",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQejB5NGFJaGhoTEhTc3Bwdk5UR1pCay1uWFFVdnQ1RWZJMXNxOFpCZVdiaHRZZ3U0ZUJNQkdrcUZBV3BvNjBuSXIxcEZhRDVhdXJtN1JrRWl4VDBuNGlrNUZrYVgyeFc5X21sRGFoRXM5UDY0Vy1LWmhBcFhwSXFLTklfaVM4TW5acGptZlJQSUw?oc=5",
-   "ms": 1794951283000,
-   "time": "11/18 05:34"
   }
  ]
 }
