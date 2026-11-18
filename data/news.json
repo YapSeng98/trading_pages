@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-19 05:40 SGT",
+ "updated": "2026-11-19 05:53 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Breaks $3,800 as Rate Hike Bets Overwhelm Safe-Haven Demand",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-breaks-3800-as-rate-hike-bets-overwhelm-safehaven-demand-200691870",
+   "ms": 1795037040000,
+   "time": "11/19 05:24"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
+   "ms": 1795035803000,
+   "time": "11/19 05:03"
+  },
   {
    "t": "Gold’s Decline Could Deepen as Dirty Bomb Doubts Add to Market Uncertainty",
    "src": "Investing.com",
@@ -77,13 +91,6 @@
    "time": "11/19 02:10"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
-   "ms": 1795025007000,
-   "time": "11/19 02:03"
-  },
-  {
    "t": "US Dollar: Topside pressure building as Fed seen tightening – ING",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVVNrSk44bVdNdUdxUE1qWW4xaHVzbDFxM1Y0cVQySUN4VG5lZk5TeDVTM2FRblFuWm9TUmpoeFdfbHFjM0wyeHMzd0xTVHU3WVBtdjVpOTJ0M1kxOVJueFNVc1BEd0RHck80U1hBbTc3WklUQ3Fxc0NvZ0E1YkVBeDhGclB3bXVENXFxdzhIMDhBXzJVMnVUa0VKbF9KUVVHMmMxR0JSbVk?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-is-reliving-2022-but-the-selloff-is-already-worse-200691847",
    "ms": 1795019400000,
    "time": "11/19 00:30"
-  },
-  {
-   "t": "UAE top destination for smuggled African gold despite tighter measures, NGO says",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObmxOSFNrVGdTTjFzdmxReVZQVmFBVUp0LVFvaS05di1vSG5STzZpRWZPckpvdnVybVhhSWVCMTBzNlFWWGd2QXRNQXFmU0FIejhUN0xyeVNvWTYwZUNWaVBGSWdiM3drbmdHOTA1bGRpZnhpNDZMaWZuUDhKTFFYQ1I5S1FnTGo2bDcxdjhONjFiOHFRYTJ5SW9xLXRIaFVBNjhPdG8wcjV5eTQ4RklkbU5vZDBTYmlhWXNTcjdyV3JYeUg1YUpNRg?oc=5",
-   "ms": 1795018867000,
-   "time": "11/19 00:21"
   }
  ]
 }
