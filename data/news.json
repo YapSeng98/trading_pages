@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 22:12 SGT",
+ "updated": "2026-11-18 22:26 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -14,11 +14,18 @@
    "time": "11/18 21:45"
   },
   {
+   "t": "Sailing's Gold Cup seeks Olympic berth with football World Cup-inspired format",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOFRVUmkwNWJLSlNvM3MxWDltbVpVbEl6MHRGbWhvSUptSUd1T2Ixb25MMUlrVzJfYzladnpZb0E3d3BOcGljU1MxRWQ5bDVnaEg0RVRsWTljaU50dXotblVGMzdLWEFUVnRLdE1PYlNGRFNtcDV3TjlodHVqMXE4NUVoMVp1R3locWhUZVBFbDRkZHBFZDRGV2l5NkZtYmJRVno3bG84Z3FXekNZaE5UYzh0dzZCUVVkZFFEUA?oc=5",
+   "ms": 1795009305000,
+   "time": "11/18 21:41"
+  },
+  {
    "t": "TSX futures slip amid lower gold, oil prices; Nvidia earnings in focus",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeFRHb2Y0Y1pCZlBYQlJ0Q2F5NTUyb0hGR2ZLSm03YXloSDIzZ0hFNUppdGVtUzRsSm5FMjhzNktUSXlRcTFfLXlxMWJnWVlobE5YMUhpTWJYRm1ZZUtOaURPT3dNbi1nWEJNUll6QTFqRVpNeTdtZGY5M2Zudjlxel9kTnFpczlnVmhuZHlTSjd5Mkd3VW41RlJuSlFydTcwYnlCZi0tSThlUmNCeWVxYk5UNWIyNVJKdzRFaXRNUkRjR0k?oc=5",
-   "ms": 1795007405000,
-   "time": "11/18 21:10"
+   "src": "Yahoo Finance Singapore",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQQWhGN1E2UXNpY3pGQ0tRZlhOdjdubThHNmdRX3NaZzlPSnNNZGlHY3NEeGo4aGIxRGU0N0ZfaFM2WFQ5cFJOQ2dZTjhSTjgzSnJWYXhFTUkybzcxN2tlTXl5NGlmaGRpVklhcmM5Q09wQnZvdjBYSDdTNnd2RWgtOC13?oc=5",
+   "ms": 1795008729000,
+   "time": "11/18 21:32"
   },
   {
    "t": "Fed's Waller: Fed should hike 50 bps now or signal faster rate increases",
@@ -84,6 +91,13 @@
    "time": "11/18 18:26"
   },
   {
+   "t": "Why gold and silver prices have fallen to their lowest in over a year",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNUDJuREJBSTFrM1VBWWU2dkhfblZ2dHkxWEJsa1ZvVjVtVG9aTTJJZG1oeS1WM3QxblV0Z2JoWXE4Y0RkemFWZUpXcGczeUx4X09EeUIwVXBPNk1rSlNCRHZNM05PWEh4RkhldFdNNS14M1RwNnJTWDJvYjU4WkR2bTZfbU4?oc=5",
+   "ms": 1794995668000,
+   "time": "11/18 17:54"
+  },
+  {
    "t": "Dollar breaks higher as markets watch geopolitical developments",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOczd4aW9laVc3dEpla21TYnp1S2xWZUtQSHJGZWVGRjdWejdyVk1KTkdoZEZUeWpZX0F0TTloV2xjeHZtUmNNcG9xaFRMOU1wTzl2RDlaMFlEWUY1LVVlclZRY1JlcTRMRHBuMy11angyR1JUc3ZNWllXdzMwY3hVWGhqNGV1a0NZb3ZhZExZM01sNnRTQS1SUnFiYmZxSnVpVjh6dHRhVEc1VG5PMmNj?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
    "ms": 1794990491000,
    "time": "11/18 16:28"
-  },
-  {
-   "t": "Gold Faces Another Leg Lower as Key Support Levels Turn Into Resistance",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-faces-another-leg-lower-as-key-support-levels-turn-into-resistance-200691805",
-   "ms": 1794990180000,
-   "time": "11/18 16:23"
-  },
-  {
-   "t": "United Kingdom CPI inflation picks up to 3.6% YoY in October, misses estimates",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYkNuMHp2TkNveWdkVWxCN2c3NUtNUWQwdkhvQjlPLWZFRjFwRGdQTGEzSWxPaGpzMGxkb3M5aVFza01lU19xZ2dLc1piT1RScW1xNUFVakdKU1ZlNDkxcVVKUXg1a3pxUnAtZ04tSXFCaUV1Y3E2dXBGQjNSaFhkbEJzS3BXemJQSFVlOVBWWXEtdUxPcGVoRjEyUVJJVW1VVXkwa3hDTjVrYkE?oc=5",
-   "ms": 1794987506000,
-   "time": "11/18 15:38"
   }
  ]
 }
