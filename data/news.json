@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 01:22 SGT",
+ "updated": "2026-11-19 01:36 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://www.investing.com/analysis/gold-is-reliving-2022-but-the-selloff-is-already-worse-200691847",
    "ms": 1795019400000,
    "time": "11/19 00:30"
+  },
+  {
+   "t": "Gold tumbles over 2% to lowest since September 2025 on hawkish Fed bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRHdPVUR5QjJ5U083QUozRDZ1NUs0c0NaU2pFSDdzSGFVWlpsSGlydFZxV21jWjJlOGQ4NVZ1bkNMT1J4ME5UN3BPTzlOdkhQTnpvNVd4WVBya2RRWlhFX0R2dURaVnR6NnJVT0RJcGxfc2piZ2hiYjVmRkdLOHNDb1VPV3YyRjdsenM1M2t6SHA5ekVOc0duZTFpRWNkUTBXUF81c2JRU2toRHlxZGstYUxB?oc=5",
+   "ms": 1795018681000,
+   "time": "11/19 00:18"
   },
   {
    "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
@@ -68,13 +75,6 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQUGcyOWlra1BNMTZQZUIyM29teUFnYW5IeWsyQ0ctMkd0RmVaMFJZbU9Jazc5OTk4UTdaa1FVczFkN0pKVDZrYVpwRmJRY25CQUU3bllRc3ZJamxOQjVtMUZQYm1BOTBZOW03UEpxVG1UdFZPc3JmZTJ4bHA5V2R2VE0zMWNSNk5MZUdRZGlxZXBEeFRtcWhRZ2huSmtiT0ZFR1VJOUs2SW9SeTB4YzBR?oc=5",
    "ms": 1795011834000,
    "time": "11/18 22:23"
-  },
-  {
-   "t": "Gold tumbles to its lowest in over a year as Fed rate hike bets build",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRHdPVUR5QjJ5U083QUozRDZ1NUs0c0NaU2pFSDdzSGFVWlpsSGlydFZxV21jWjJlOGQ4NVZ1bkNMT1J4ME5UN3BPTzlOdkhQTnpvNVd4WVBya2RRWlhFX0R2dURaVnR6NnJVT0RJcGxfc2piZ2hiYjVmRkdLOHNDb1VPV3YyRjdsenM1M2t6SHA5ekVOc0duZTFpRWNkUTBXUF81c2JRU2toRHlxZGstYUxB?oc=5",
-   "ms": 1795011247000,
-   "time": "11/18 22:14"
   },
   {
    "t": "Gold plunges to 14-month low, silver tumbles as Fed rate hike bets intensify - Kitco AM Report",
