@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 13:24 SGT",
+ "updated": "2026-11-18 13:38 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,6 +21,13 @@
    "time": "11/18 11:51"
   },
   {
+   "t": "Gold falls below $3,800 for the first time since September 2025 on Fed bets, bullish USD",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
+   "ms": 1794973801000,
+   "time": "11/18 11:50"
+  },
+  {
    "t": "Gold slides to over one-year low on firm dollar, U.S. rate outlook",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTXRXUlc4TVVGam9kXzJabE84a2tVS2g4dEUyUE9KbUhaNnVlU1VDaGdZX0RkZHJYaDhKdzVnVkdzVS1TOGF3RjlrVnBUOW5yUVpWa3p3dGR6XzNKZWp6R2c5VXdSR1BmQjJrUlFLZXNkWjNQS2lvcFQyX3RTWHJjQlFOX3dtRlhzSDU2Q01oZWtfVFpIbUF0X0V3WkZreTZGLVHSAacBQVVfeXFMT1BQel9WZ3VlTGtfVFBmR1V6OTRMWEhjQVVYejNzYUFZaWpGRU4xTUxVbjJmQnZSZHVmamI1VGVhekpQYkdIdEI1anpqLS1QM0lBM2x2eXMtbGVjSi1vYmN3em1tRjQ0ZVVyNFN5RVNJaFhGRG5rSlloT3FHOXZyQndBNEVzUTVMOWNDWDZpN3pHa3EtWkdMRWVRTGg1bUlRN0liMVkxNVE?oc=5",
@@ -33,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
    "ms": 1794968160000,
    "time": "11/18 10:16"
-  },
-  {
-   "t": "Breaking: Gold falls below $3,800 on hawkish Fed and strong dollar",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONHdiTUl5N0VVQkRKXzJCUWlqNEJHMnlTY2xOYktlclozNm9XdG5oWjZyRUtkZ0VweVNGUjNteHhMaFkxRzQwcGFMRS1RN2pTOUdJVVZJYWdyMjVleEFSVWtrSlBXaXN4ZDFkbFhDUkxmdmtibm5pRXJid3FkbGY1cmVNdFNHdFZxeXN3cnFDRWVROTJ0ZFNYUVN1RFVPVjBNdUFCdndoVElSTWdBVHVaUU1MR3UwSExoaS05QjdqZUp2LTVhczUtXw?oc=5",
-   "ms": 1794967964000,
-   "time": "11/18 10:12"
   },
   {
    "t": "Japanese Yen softens after BoJ Ueda’s remarks, FOMC Minutes in focus",
