@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 19:43 SGT",
+ "updated": "2026-11-18 20:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
+   "ms": 1795002987000,
+   "time": "11/18 19:56"
+  },
   {
    "t": "Gold still heading for $5,000 despite sharp sell-off, UBS says",
    "src": "Yahoo Finance UK",
@@ -33,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNM1d5T3FvLWcxWFI1OGw2NFFLdUs1MG5KakQtb1NiVW5ycm80dUxBRWZLZGUxRGpPWnAyUVdLUk1jbGxQbU4wT09oSkFOQ3NCTDU0Z3liNWh5LUZ5VXprWW4zVDlybm9iQ3RPLVN4UmhwbzdDRW1sTl9SNVJoNzdzTm1STC1xd241ZmNoa1R6b2FPV0ZzNExGS1B5dk56ZkVTWmpsRV9uMjNEMGNwcVpwaXlHVHNEdy1s?oc=5",
    "ms": 1794998475000,
    "time": "11/18 18:41"
+  },
+  {
+   "t": "Gold Slides to $3,790 as Fed Tightening Expectations Push Prices Towards 14-Month Lows",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9pUFFOLTd6X0prV3VHaTBGWE5kZy1vcGFnZnBwTE01eGFMVG5FdGU2SFBnSVlXZFN5cHQ2akVkSHU1blRkVG9jcm53Q0xnTklLbDBWYldnbDZJZkloZ0wtRERDWTRpRTNiTjEySW5oQ0NSOW9vZzV3Q193?oc=5",
+   "ms": 1794997774000,
+   "time": "11/18 18:29"
   },
   {
    "t": "Gold Falls Below $3,800 as Federal Reserve Rate Hike Expectations Pressure Precious Metals",
@@ -70,13 +84,6 @@
    "time": "11/18 15:38"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
-   "ms": 1794984960000,
-   "time": "11/18 14:56"
-  },
-  {
    "t": "Gold Selling Pressure Intensifies — Is a Major Technical Reversal Approaching?",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-selling-pressure-intensifies--is-a-major-technical-reversal-approaching-200691787",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTXRXUlc4TVVGam9kXzJabE84a2tVS2g4dEUyUE9KbUhaNnVlU1VDaGdZX0RkZHJYaDhKdzVnVkdzVS1TOGF3RjlrVnBUOW5yUVpWa3p3dGR6XzNKZWp6R2c5VXdSR1BmQjJrUlFLZXNkWjNQS2lvcFQyX3RTWHJjQlFOX3dtRlhzSDU2Q01oZWtfVFpIbUF0X0V3WkZreTZGLVHSAacBQVVfeXFMT1BQel9WZ3VlTGtfVFBmR1V6OTRMWEhjQVVYejNzYUFZaWpGRU4xTUxVbjJmQnZSZHVmamI1VGVhekpQYkdIdEI1anpqLS1QM0lBM2x2eXMtbGVjSi1vYmN3em1tRjQ0ZVVyNFN5RVNJaFhGRG5rSlloT3FHOXZyQndBNEVzUTVMOWNDWDZpN3pHa3EtWkdMRWVRTGg1bUlRN0liMVkxNVE?oc=5",
    "ms": 1794972060000,
    "time": "11/18 11:21"
-  },
-  {
-   "t": "Gold drops 2% to over one-year low as hawkish Fed signals boost dollar",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVlk2MG4xbDV2emVoNk9vRVhTcTlRbkZLMDgwMjBMTEdVeXFDV21zX0NVdmF0YzQzRDZ4TkowaDJQQlZlTDBsbm9BWHFXNXpYZzVVejAtTGRZTTFHRjV4dllJV0ZxVzVvbVJCN1lxdk50NXVaNkRxTGJQbDYyZjhNNElTUElOWVU0eW0ySnBRMndSU1ZrTGE4ZlNMdDk0UXVmUjZLSEVfQlc?oc=5",
-   "ms": 1794971400000,
-   "time": "11/18 11:10"
   }
  ]
 }
