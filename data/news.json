@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 03:38 SGT",
+ "updated": "2026-11-19 03:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold prices remain under pressure as Fed minutes show central bank committed to cooling inflation",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE43b3JrcGdsOTVjUndOSjM0NWdzWmQyQ3dibWNBM1h4NVA5N0FlTzBTWGFXMURsUTR5RzVqbktoRVJlM2IzZEd3NVMzV0xFWnlCYU1IVDB1bkcxTzVaYW1ZYzYtem9lQUdmaVF5U0dlcXRicW93c0F3TXJiWHBsbkQtT19kTTg0d3d4aTNIdGJqd3FBUXVQb1ZZNmNOTFNINmJjaDlzUUZKZWdMdWhDYWdLT0lCMDVGNnFz?oc=5",
+   "ms": 1795030985000,
+   "time": "11/19 03:43"
+  },
   {
    "t": "Gold price drops to 14-month low as dollar, yields rise on hawkish Fed rhetoric",
    "src": "mining.com",
@@ -33,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQTlNQWXNWRmJKRFZmVnRjUko3YUcxcExhY2dRSmpIMEpEUFcxVmZ4YVljOXpYZi1LejN4NVE4MWRjbk41ZjI2dlg2Y0dUM0Rsb2FlaXVlRnFqdWY2Q00xTGY1WVpTZEpJS09xVGl4Y0NfUHg3dmNRRmhoRy1ndElYT1FQNzNoZUVaTFRFaFdKTS1JZjNlaEpudURuTVd3MDdBUHc?oc=5",
    "ms": 1795028174000,
    "time": "11/19 02:56"
-  },
-  {
-   "t": "As silver underperforms gold, has its bubble popped?",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYm5LUXloRDZhX1dwMmZEdnZtcUg0aEp3TWdIOVdsNDBLdHRMNU5zbzJEclFubTNMeV91LUJsazRWc040VWRXV2pQME9DRlMtZmZ4SDUyUW5ybFFlUVlTbDN4ZzNUUHBydzRXcVJrOVJMYmRtREtJR2N4UzJsekpNU0R2bTlwNE5ZOXFNaHJBTHQ0SGdZM1hzbg?oc=5",
-   "ms": 1795028153000,
-   "time": "11/19 02:55"
   },
   {
    "t": "Gold price follows the dollar in the short-term, but real yields over the long haul – Heraeus",
