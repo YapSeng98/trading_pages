@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 23:47 SGT",
+ "updated": "2026-11-19 00:01 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -91,6 +91,13 @@
    "time": "11/18 21:32"
   },
   {
+   "t": "Gold just broke below $3,800 for the first time in 14 months",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcUpSaEZCWHFvUTlwZWVHQmk2SEwxVHZ4NndUd3N0azhtVmVkRk1SZi16TXB4a29CSTN2WDd6Mzh2SHlXVl9fa0lERjhqQ1YxUEgzR0lCamc4c0ZLY1VERDVEZy1mbC1KT2hCQ1lsNWF5RUtzZkZ2OEYtV0txUmZqeHNhcVd5YktwM0N4MWUwMnN1YWtHWjRkUk5oRlpuNUFsdWdSQ2w3MFIydw?oc=5",
+   "ms": 1795008130000,
+   "time": "11/18 21:22"
+  },
+  {
    "t": "Fed's Waller: Fed should hike 50 bps now or signal faster rate increases",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZkR3Y29fTDlVSFJxaEtENUxuU01zMDdIY2ZHbldjS1Q1MnVJY2Eyb1YwcEJHXzBURUFUcVhMLWZGN2gzZ2dubnZRSDA5OFI2VWhYVV9jQ0hoZWFyNnRjZGExb1BfMnAydjg1UHlObGRFUTZLVlJ5YzJDNU8zWXFCTEdobmJ1Z2dRN0tRVTgzaWpUSmk2RnVxRFByQTNpN09WTTJmTFM3MEpLRU82aG5MbWUxaw?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/oil-prices-drop-despite-escalating-usiran-conflict-200691833",
    "ms": 1795004760000,
    "time": "11/18 20:26"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795004340000,
-   "time": "11/18 20:19"
   }
  ]
 }
