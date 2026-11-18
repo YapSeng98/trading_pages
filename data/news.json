@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 10:56 SGT",
+ "updated": "2026-11-18 11:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slides to over one-year low on firm dollar, US rate outlook",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVlk2MG4xbDV2emVoNk9vRVhTcTlRbkZLMDgwMjBMTEdVeXFDV21zX0NVdmF0YzQzRDZ4TkowaDJQQlZlTDBsbm9BWHFXNXpYZzVVejAtTGRZTTFHRjV4dllJV0ZxVzVvbVJCN1lxdk50NXVaNkRxTGJQbDYyZjhNNElTUElOWVU0eW0ySnBRMndSU1ZrTGE4ZlNMdDk0UXVmUjZLSEVfQlc?oc=5",
+   "ms": 1794971400000,
+   "time": "11/18 11:10"
+  },
   {
    "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
    "src": "Bloomberg.com",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/why-silver-and-gold-miners-are-taking-bigger-losses-than-stocks-in-the-selloff-200691766",
    "ms": 1794941820000,
    "time": "11/18 02:57"
-  },
-  {
-   "t": "Forex Today: FOMC Minutes and UK CPI come to the fore",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNbjlZZ00wRDByX0FDZ2dDMUZEQTZ5QjlGNGNSWXl6X2hvUmx1LUlfeG1oRUpSMUQ3YmFMSlpGYUlxTmlHLUlkbUlNN3FXbUV6YmxBdVFpLXBac3BTODgycEZCUm43N0w0UVE1eksta3pmb3pFMzBoSmVsVURHOHpxMjVVcjlIdXUwVkI3RW51TENIZXpyeFdNTXp2QQ?oc=5",
-   "ms": 1794941521000,
-   "time": "11/18 02:52"
   }
  ]
 }
