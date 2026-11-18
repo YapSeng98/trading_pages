@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-18 21:31 SGT",
+ "updated": "2026-11-18 21:45 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Spot gold at $3,775/oz after U.S. housing starts rise 9.9%, building permits fall 7.4% in October",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRXREYm85LTRrQUdrclNDaFJrYms2djZpNkg5ZWplTW1iVWlicDhiX1Y0LTVYQ0c5MmluV3dCSlNuN1Z1Qm84UUhMQVdjMjhPY2FfODI3QkJiN3R3c2RHVmxEUkRQVWJQeVdXTk5tYWMyamhIRjlnWFZJYXlpRHU1VzJwU1RNUndrSjNGT1VtY0MybXFCN3VoaV9lN18wQjB2aVBnMlZKM1hDNmJBQXRZTXhXelRNd2c0bTVR?oc=5",
+   "ms": 1795008623000,
+   "time": "11/18 21:30"
+  },
   {
    "t": "TSX futures slip amid lower gold, oil prices; Nvidia earnings in focus",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNYkNuMHp2TkNveWdkVWxCN2c3NUtNUWQwdkhvQjlPLWZFRjFwRGdQTGEzSWxPaGpzMGxkb3M5aVFza01lU19xZ2dLc1piT1RScW1xNUFVakdKU1ZlNDkxcVVKUXg1a3pxUnAtZ04tSXFCaUV1Y3E2dXBGQjNSaFhkbEJzS3BXemJQSFVlOVBWWXEtdUxPcGVoRjEyUVJJVW1VVXkwa3hDTjVrYkE?oc=5",
    "ms": 1794987506000,
    "time": "11/18 15:38"
-  },
-  {
-   "t": "Gold Selling Pressure Intensifies — Is a Major Technical Reversal Approaching?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-selling-pressure-intensifies--is-a-major-technical-reversal-approaching-200691787",
-   "ms": 1794978480000,
-   "time": "11/18 13:08"
   }
  ]
 }
