@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 00:28 SGT",
+ "updated": "2026-11-19 00:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
+   "ms": 1795018099000,
+   "time": "11/19 00:08"
+  },
   {
    "t": "Gold and Silver 'Can't Find a Floor' as Waller Calls for Fed Rate Hike",
    "src": "BullionVault",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPcUpSaEZCWHFvUTlwZWVHQmk2SEwxVHZ4NndUd3N0azhtVmVkRk1SZi16TXB4a29CSTN2WDd6Mzh2SHlXVl9fa0lERjhqQ1YxUEgzR0lCamc4c0ZLY1VERDVEZy1mbC1KT2hCQ1lsNWF5RUtzZkZ2OEYtV0txUmZqeHNhcVd5YktwM0N4MWUwMnN1YWtHWjRkUk5oRlpuNUFsdWdSQ2w3MFIydw?oc=5",
    "ms": 1795008130000,
    "time": "11/18 21:22"
-  },
-  {
-   "t": "Fed's Waller: Fed should hike 50 bps now or signal faster rate increases",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZkR3Y29fTDlVSFJxaEtENUxuU01zMDdIY2ZHbldjS1Q1MnVJY2Eyb1YwcEJHXzBURUFUcVhMLWZGN2gzZ2dubnZRSDA5OFI2VWhYVV9jQ0hoZWFyNnRjZGExb1BfMnAydjg1UHlObGRFUTZLVlJ5YzJDNU8zWXFCTEdobmJ1Z2dRN0tRVTgzaWpUSmk2RnVxRFByQTNpN09WTTJmTFM3MEpLRU82aG5MbWUxaw?oc=5",
-   "ms": 1795006877000,
-   "time": "11/18 21:01"
   }
  ]
 }
