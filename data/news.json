@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 18:57 SGT",
+ "updated": "2026-11-19 19:24 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold buyers remain cautious amid prospects of faster Fed rate hikes",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
+   "ms": 1795086614000,
+   "time": "11/19 19:10"
+  },
   {
    "t": "Gold: Under pressure below 3800 – OCBC",
    "src": "FXStreet",
@@ -18,6 +25,13 @@
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0wUzJvMkhHSG05dnNaQzhDWGRMWUhOaVQ4OWx5cHFiUi1YNC1LQk9OTWxrSjl4a1lyUG83blI0d3o4UUpjdWVjRDkwcmdGZkNpTXVmR1BTcHhJUDdXZURtdDVJakpSc0JlNEt1dE1YRUdfalNtZ0E?oc=5",
    "ms": 1795081736000,
+   "time": "11/19 17:48"
+  },
+  {
+   "t": "Gold floats around 14-month low amid Fed hike bets",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcUlFY0VnMGJXN0RPbFFwbl82cGlFdFZ3TGN3QzZaY1FMVW9CVVdVclUwTF9Icmo3OGhEQXdWbENCaFBMelNIVlNFcmJVQ3dDN1pOQ2tZRUN5bExZYWVEcWNONGtPNkwzUHRLVmxwZl9JemxIRUo3eGl6Y1ZMNmNPVHUwTmxhR1FlTDJoYTFxYjJWUUtSOTZ6aDBXNVpsR0JiaXZ5My11WXdvVVRsVTZ5T1NDc2M4Y0lLdlhGSFNpcnRQQm1UUWE5TDY0TXVZN0Vh?oc=5",
+   "ms": 1795081699000,
    "time": "11/19 17:48"
   },
   {
@@ -84,7 +98,7 @@
    "time": "11/19 14:53"
   },
   {
-   "t": "Gold Falls Below $4,000 as Rising US Treasury Yields and Fed Rate Expectations Inf",
+   "t": "Gold Falls Below $4,000 as Treasury Yields Rise and Fed Rate Outlook Shifts",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-falls-below-4000-as-rising-us-treasury-yields-and-fed-rate-expectations-inf-200691887",
    "ms": 1795068540000,
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
    "ms": 1795067414000,
    "time": "11/19 13:50"
-  },
-  {
-   "t": "Gold Just Sank to a One-Year Low. Costco Members Who Bought Bars in September Are Down About $700 Each, and Launch Buyers Are Still Up 88%",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOd3Yyb1ZBNEpVaUhtU01EVmd1ZmJqcEVMOUJDTnNobVpfLWtNblZjRXIyekg1Zng1NnRUZDRpRXJaRWZOTHAyQlhYSG42Ukd4eGNPU1ZFVTZFY294aU9FdXVMOWxOQWFTMHJZRVdKb0ItMXBoNkVpeDh6LTZrSUItbUhFMjlOTjJLa21HUHZFa0tGazlxWHU4?oc=5",
-   "ms": 1795061820000,
-   "time": "11/19 12:17"
-  },
-  {
-   "t": "$3,700 breached: Gold sellers extend control on hawkish Fed outlook",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTXlJZENJQktLQk5BeUluWVptTzI5dDJKczRTc0V1RjNjZmx5QTdtUzFFcnNYMldEd1Z4WENEbmgwbG5Pc1Rkc21JVGNJYTNNYmRMYmRWM1RmNXNEeEg5azd4LVNjSlBSMnA0VGhwQXdoMTBGdlhnYkkxQkpQSnYtN1hrbEVIUHhsaHE3dWZseXg0X3Y0cWlVQlZIbXVvenNPUUlJYU42d1FEaUdobnZXZ3BB?oc=5",
-   "ms": 1795060674000,
-   "time": "11/19 11:57"
   }
  ]
 }
