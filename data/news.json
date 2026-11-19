@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 20:18 SGT",
+ "updated": "2026-11-19 20:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold prices today, Thursday, November 19, 2026: Gold price opened at the lowest level in 14 months",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOaG9pRFQ5emN4TkZLd3VWNGIxSFh4cTc4SGM5djlKUF9NelBPdTg0cXhwVVpLZk9NSDI0ZzdnVkl3WUo3SVRvYWM3Qk5Id3gzX2dmSF9UQmdCS2RFQ0s5clhUNFBUX1ZFWFMzdUk0ZVcwX1hpZlBoX1lucjZIYzVCaW14QU1TTGpseFdXc2U5eFF4Um1RYW9Gb056MDhya2xpa25POEtNeXpxRzA5LXhxS213b0I2Y3MwOEw5NUF2MlZpY2ZidXpMa0NyTlN2RWllY2h2d1ZPcEE2VmZwUlZDQWVFNDJDZDRNcDNEcllHYzY4UGo3NzRkYXZjY0lzbFk?oc=5",
+   "ms": 1795090978000,
+   "time": "11/19 20:22"
+  },
   {
    "t": "Gold buyers remain cautious amid prospects of faster Fed rate hikes",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-at-a-critical-turning-point-is-a-major-reversal-approaching-200691877",
    "ms": 1795072620000,
    "time": "11/19 15:17"
-  },
-  {
-   "t": "Gold Rebounds as Iran Tensions Escalate, but $3,667 Support Faces a Test",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebounds-as-iran-tensions-escalate-but-3667-support-faces-a-test-200691892",
-   "ms": 1795072080000,
-   "time": "11/19 15:08"
   }
  ]
 }
