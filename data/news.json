@@ -1,11 +1,32 @@
 {
- "updated": "2026-11-19 15:20 SGT",
+ "updated": "2026-11-19 15:34 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Price Forecast: Will It Continue Its Downtrend After Testing $3,700?",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOckxJTWQwMmJ0ZTByTFBfZWxPYUgwTEJjNzFrRFh2TjlpdGNjamd4ekFQaWhPdFRPenc1U2toTktVb3B3R05iRGhhR2pOOUNDWk0tdi1EY3QzWVduTXh5ME1BUjZYQXlUSTREd1dtUmxQV2doZmVVMDlDRnVoLVJmU3ctVFF2dk1SS1BVbFBRbnhGTlRaUEdfV1Vna2UtWFQzZWFacU5yNzJpLTdudm1VdnJ6amY?oc=5",
+   "ms": 1795073537000,
+   "time": "11/19 15:32"
+  },
+  {
+   "t": "Gold at a Critical Turning Point: Is a Major Reversal Approaching?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-at-a-critical-turning-point-is-a-major-reversal-approaching-200691877",
+   "ms": 1795072620000,
+   "time": "11/19 15:17"
+  },
+  {
+   "t": "Gold Rebounds as Iran Tensions Escalate, but $3,667 Support Faces a Test",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-rebounds-as-iran-tensions-escalate-but-3667-support-faces-a-test-200691892",
+   "ms": 1795072080000,
+   "time": "11/19 15:08"
+  },
   {
    "t": "Gold edges up from 14-month low as markets assess Fed rate outlook",
    "src": "Reuters",
@@ -26,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
    "ms": 1795067414000,
    "time": "11/19 13:50"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
+   "ms": 1795063260000,
+   "time": "11/19 12:41"
   },
   {
    "t": "$3,700 breached: Gold sellers extend control on hawkish Fed outlook",
@@ -56,11 +84,11 @@
    "time": "11/19 09:37"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
-   "ms": 1795044246000,
-   "time": "11/19 07:24"
+   "t": "Euro moves little as US Dollar remains stable amid hawkish Fed signals",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQck0xeXplVHY4c3ZDcWVhc1MxcHFhZVpKMVc4R0NEeGlzQkRFQWdRS3NhS0dZZXdwM0ZTaWh1aDZLUEQ1STlZNzlmYjlYcDdtRWhrbDQ4NjNNWl9RQVdNemtrLTJ1RmlTeFloSWtsQ1l1ckJ0bnJPMmJpZTJfODB2eWRnQlNPYW1UUnljczZZRGcxNTVKRUlabTNoVl94d0dyTXN2S3Z0b2lRSWRkbmJLVXZ1Yw?oc=5",
+   "ms": 1795050430000,
+   "time": "11/19 09:07"
   },
   {
    "t": "Gold plunges below $3,750, silver tumbles as hawkish Fed minutes pressure metals - Kitco PM Report",
@@ -82,34 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
    "ms": 1795035803000,
    "time": "11/19 05:03"
-  },
-  {
-   "t": "Gold’s Decline Could Deepen as Dirty Bomb Doubts Add to Market Uncertainty",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-decline-could-deepen-as-dirty-bomb-doubts-add-to-market-uncertainty-200691853",
-   "ms": 1795034160000,
-   "time": "11/19 04:36"
-  },
-  {
-   "t": "Silver and copper lead gold lower as the dollar rises",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPV3hfUkdxX3pBT1Q1QVo4UmRhZHVtelJVdkJVajd5ZXo3V29uS1JXaXREOEc5bjA0N3E5djd4VVRtSWxPUGM0eWU5VDMxY3ZxQldPUTFIMkw3ODB4SmsxUzV1dExhMDktQk10MldsVEtRRGNkX3h4YnVlVUZuenBqaVA5WmFyM3VSQVRTTUh5b3Q?oc=5",
-   "ms": 1795032595000,
-   "time": "11/19 04:09"
-  },
-  {
-   "t": "Gold prices remain under pressure as Fed minutes show central bank committed to cooling inflation",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE43b3JrcGdsOTVjUndOSjM0NWdzWmQyQ3dibWNBM1h4NVA5N0FlTzBTWGFXMURsUTR5RzVqbktoRVJlM2IzZEd3NVMzV0xFWnlCYU1IVDB1bkcxTzVaYW1ZYzYtem9lQUdmaVF5U0dlcXRicW93c0F3TXJiWHBsbkQtT19kTTg0d3d4aTNIdGJqd3FBUXVQb1ZZNmNOTFNINmJjaDlzUUZKZWdMdWhDYWdLT0lCMDVGNnFz?oc=5",
-   "ms": 1795030985000,
-   "time": "11/19 03:43"
-  },
-  {
-   "t": "Gold price drops to 14-month low as dollar, yields rise on hawkish Fed rhetoric",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-drops-to-14-month-low-as-dollar-yields-rise-on-hawkish-fed-rhetoric/",
-   "ms": 1795029162000,
-   "time": "11/19 03:12"
   }
  ]
 }
