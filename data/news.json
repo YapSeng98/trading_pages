@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 13:32 SGT",
+ "updated": "2026-11-19 14:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Gold records fresh nearly 14-month lows amid escalating Iran conflict",
+   "t": "Gold experiences volatility nearly 14-month lows",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
-   "ms": 1795061621000,
-   "time": "11/19 12:13"
+   "ms": 1795067414000,
+   "time": "11/19 13:50"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
+   "ms": 1795063260000,
+   "time": "11/19 12:41"
   },
   {
    "t": "$3,700 breached: Gold sellers extend control on hawkish Fed outlook",
@@ -37,7 +44,7 @@
   {
    "t": "Gold recovers from over one-year low as markets assess Fed rate outlook",
    "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XUFdGeE9XNk5RaFotNFFWT2xScXU1ZVVMLXB0Yl9Tb1g0N19PRXJ4c25kYXZwU0Z1WFFEQnA2WlhGSWFqUnc1X1RkaENjazVhUnYzVTI0RGFLRjRlOVNaeXVoTjVFSVUyU2FoaklERWxlUkhoUzVXWjlHLXM1VHPSAX9BVV95cUxNV1BXRnhPVzZOUWhaLTRRVk9sUnF1NWVVTC1wdGJfU29YNDdfT0VyeHNuZGF2cFNGdVhRREJwNlpYRklhalJ3NV9UZGhDY2s1YVJ2M1UyNERhS0Y0ZTlTWnl1aE41RUlVMlNhaGpJREVsZVJIaFM1V1o5Ry1zNVRz?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBzSmhHOXhFdnBjdTJSSHQ5eENObngzd3UwdF9SOFNkV1NlSlRONkEzSzJXaGZZNTlxV3VlXzVNV2E5MV9hb3RKREJfS0VCM213X1VZTUpTRGNFanc2dHBHLVZzRk9qVkFIVlZwcVBtOUhaMHNmUkRBNGF30gF_QVVfeXFMTVdQV0Z4T1c2TlFoWi00UVZPbFJxdTVlVUwtcHRiX1NvWDQ3X09FcnhzbmRhdnBTRnVYUURCcDZaWEZJYWpSdzVfVGRoQ2NrNWFSdjNVMjREYUtGNGU5U1p5dWhONUVJVTJTYWhqSURFbGVSSGhTNVdaOUctczVUcw?oc=5",
    "ms": 1795058880000,
    "time": "11/19 11:28"
   },
@@ -45,8 +52,8 @@
    "t": "Gold rebounds from 14-month low as bargain hunters emerge despite Fed hike risks",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcUlFY0VnMGJXN0RPbFFwbl82cGlFdFZ3TGN3QzZaY1FMVW9CVVdVclUwTF9Icmo3OGhEQXdWbENCaFBMelNIVlNFcmJVQ3dDN1pOQ2tZRUN5bExZYWVEcWNONGtPNkwzUHRLVmxwZl9JemxIRUo3eGl6Y1ZMNmNPVHUwTmxhR1FlTDJoYTFxYjJWUUtSOTZ6aDBXNVpsR0JiaXZ5My11WXdvVVRsVTZ5T1NDc2M4Y0lLdlhGSFNpcnRQQm1UUWE5TDY0TXVZN0Vh?oc=5",
-   "ms": 1795052068000,
-   "time": "11/19 09:34"
+   "ms": 1795052222000,
+   "time": "11/19 09:37"
   },
   {
    "t": "Euro moves little as US Dollar remains stable amid hawkish Fed signals",
@@ -54,13 +61,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQck0xeXplVHY4c3ZDcWVhc1MxcHFhZVpKMVc4R0NEeGlzQkRFQWdRS3NhS0dZZXdwM0ZTaWh1aDZLUEQ1STlZNzlmYjlYcDdtRWhrbDQ4NjNNWl9RQVdNemtrLTJ1RmlTeFloSWtsQ1l1ckJ0bnJPMmJpZTJfODB2eWRnQlNPYW1UUnljczZZRGcxNTVKRUlabTNoVl94d0dyTXN2S3Z0b2lRSWRkbmJLVXZ1Yw?oc=5",
    "ms": 1795050430000,
    "time": "11/19 09:07"
-  },
-  {
-   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
-   "ms": 1795050180000,
-   "time": "11/19 09:03"
   },
   {
    "t": "Gold plunges below $3,750, silver tumbles as hawkish Fed minutes pressure metals - Kitco PM Report",
@@ -78,7 +78,7 @@
   },
   {
    "t": "Gold Steadies Near 14-Month Low as Rate-Hike Pressure Mounts",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmlWeXc5bFpQUDI1bkQyQVVEMmpSRC1ZUWpkZDczNDU5RUxoNFBzOXpreXZnOTctS0s1NGRBcW5Bb2ZUVGxMSWRiZU5ydWpKYkpaM1EteFZsdHF2Q1JVN1hWOW9aQm13ZlFmVWVuWVI5S0xJVFdUaERVT0hab2tCOUpBSzhvM2ZvczNFd0hNYndoREJ2d3llcVRRdVZ2VUFqZ1VBSGVYY0d5MVREZEp1MA?oc=5",
    "ms": 1795035803000,
    "time": "11/19 05:03"
