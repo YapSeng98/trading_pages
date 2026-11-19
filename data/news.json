@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 12:38 SGT",
+ "updated": "2026-11-19 12:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -40,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcUlFY0VnMGJXN0RPbFFwbl82cGlFdFZ3TGN3QzZaY1FMVW9CVVdVclUwTF9Icmo3OGhEQXdWbENCaFBMelNIVlNFcmJVQ3dDN1pOQ2tZRUN5bExZYWVEcWNONGtPNkwzUHRLVmxwZl9JemxIRUo3eGl6Y1ZMNmNPVHUwTmxhR1FlTDJoYTFxYjJWUUtSOTZ6aDBXNVpsR0JiaXZ5My11WXdvVVRsVTZ5T1NDc2M4Y0lLdlhGSFNpcnRQQm1UUWE5TDY0TXVZN0Vh?oc=5",
    "ms": 1795052068000,
    "time": "11/19 09:34"
+  },
+  {
+   "t": "Euro moves little as US Dollar remains stable amid hawkish Fed signals",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQck0xeXplVHY4c3ZDcWVhc1MxcHFhZVpKMVc4R0NEeGlzQkRFQWdRS3NhS0dZZXdwM0ZTaWh1aDZLUEQ1STlZNzlmYjlYcDdtRWhrbDQ4NjNNWl9RQVdNemtrLTJ1RmlTeFloSWtsQ1l1ckJ0bnJPMmJpZTJfODB2eWRnQlNPYW1UUnljczZZRGcxNTVKRUlabTNoVl94d0dyTXN2S3Z0b2lRSWRkbmJLVXZ1Yw?oc=5",
+   "ms": 1795050430000,
+   "time": "11/19 09:07"
   },
   {
    "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeE01T3JfZ2pnNUxDQnFDdVdLQWI5T1AzLWZlb2VxUlN0VEJnOTBOdWZYelJrZTRET3ZOQVBHUWQxeVVVTE1DZmptUkRucHF1VVBTQ1VLQmZXaWFIaWNUendUUU1GbHM0UEdsZ1lZYVotU1Q0c245R2phMXpwOFpubVhkdzJvWmNCU0tBWW16VG9TUnFqNHVDZk4xRGhSWGd0dWd1elR1X3V1UzJkQVNseXB4WDd5VHM?oc=5",
    "ms": 1795028776000,
    "time": "11/19 03:06"
-  },
-  {
-   "t": "Silver Is Falling Faster Than Gold as Rising Rates and Weak Demand Take Their Toll",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
-   "ms": 1795028520000,
-   "time": "11/19 03:02"
   }
  ]
 }
