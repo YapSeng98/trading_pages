@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 23:27 SGT",
+ "updated": "2026-11-20 00:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold falls to a 14-month low as Fed rate-hike bets build",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
+   "ms": 1795106229000,
+   "time": "11/20 00:37"
+  },
   {
    "t": "Gold Prices Face a Critical Support Test as Bearish Technical Patterns Emerge",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNM0UxcGtNNTdmZTQ5LWo3aXRDVWsxeElncjJSeXJxRnp6cXRDUkZOWGFMcjUtYk8zZjFjWHF5dUJ0Ni01Y3ctTUl0OU10VGRqcnR5MUNSOGVsRWFQc3Rab2xQaHdERWxYNWJKdFZsQUtIUFpSLVIybzRwaFZ4dDlOeQ?oc=5",
    "ms": 1795086040000,
    "time": "11/19 19:00"
-  },
-  {
-   "t": "Gold Hits 14-Month Low Near $3,693 as Fed Tightening Risks Persist",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-hits-14month-low-near-3693-as-fed-tightening-risks-persist-200691912",
-   "ms": 1795084500000,
-   "time": "11/19 18:35"
   }
  ]
 }
