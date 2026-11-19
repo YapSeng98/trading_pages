@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 19:24 SGT",
+ "updated": "2026-11-19 20:04 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
    "ms": 1795086614000,
    "time": "11/19 19:10"
+  },
+  {
+   "t": "Gold Hits 14-Month Low Near $3,693 as Fed Tightening Risks Persist",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-hits-14month-low-near-3693-as-fed-tightening-risks-persist-200691912",
+   "ms": 1795084500000,
+   "time": "11/19 18:35"
   },
   {
    "t": "Gold: Under pressure below 3800 – OCBC",
@@ -50,7 +57,7 @@
   },
   {
    "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
    "ms": 1795081044000,
    "time": "11/19 17:37"
@@ -77,6 +84,13 @@
    "time": "11/19 15:32"
   },
   {
+   "t": "Forex Today: Hawkish repricing of Fed policy outlook continues to support US Dollar",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSDhEMDdETlRrb2lBUUtlazhfTVpMMlFwR1pFdWw4cTAyampkN3VUa1ZBWE9XYjIyUS1PTlc1c3ZERDFqbXVnMG9MbXd3b2NjM0xjeURmRVkwdWRwOUc3MWVOTjNQSGNobE50SVpGTHlzdzh0VU5jSUlQR3Z1WnRBVnRqZjAyNldvYkxUejE0MmdSYUw5a3NHTm4xbmlMQ1NZVVRuMEZFS3BwQUlBaEs0RWRac0ZBSjgzVk1ROXpIc1d2X2M?oc=5",
+   "ms": 1795072887000,
+   "time": "11/19 15:21"
+  },
+  {
    "t": "Gold at a Critical Turning Point: Is a Major Reversal Approaching?",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-at-a-critical-turning-point-is-a-major-reversal-approaching-200691877",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ0RVRVVhd0g1djYyRGpzbTcyZXFtSXd3cTV1T0REekJaYm9FOTlzblJzU3hlMmsxSkF0UmtzZ1gwWVFiUzI3VXdGNzJLTndoZC1oVkpXSnRmZ0ZmNkEybVRFSnhIVzFCNnlTS2hQRGV2bnNGTHVsaUZ5RmllU0otWWcxV2wwejMwcXpTOWFxam1xb2dRMXMyQ1c0T0RkZy1SX09YR3lYdmxkQQ?oc=5",
    "ms": 1795071180000,
    "time": "11/19 14:53"
-  },
-  {
-   "t": "Gold Falls Below $4,000 as Treasury Yields Rise and Fed Rate Outlook Shifts",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-falls-below-4000-as-rising-us-treasury-yields-and-fed-rate-expectations-inf-200691887",
-   "ms": 1795068540000,
-   "time": "11/19 14:09"
-  },
-  {
-   "t": "Gold experiences volatility nearly 14-month lows",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
-   "ms": 1795067414000,
-   "time": "11/19 13:50"
   }
  ]
 }
