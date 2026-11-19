@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 03:58 SGT",
+ "updated": "2026-11-20 04:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Retirement savers see gold’s appeal. Why do so few own it?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSTNzQVVXY0JYRE1uRDFqLTBGYm1zcDhlRm9LUkx0T3F0eW9QLVVFcTc5aHY2SXdKckE4dFJUdk1jaE5BX3hIQUxFQ25EVFBsYy1ISkgteFB2ZzlvRVlwZ1NzV085MVk2bnFlQUphVHhGT2hBMk1uaXotdWh4M3ZoTVJOeldpUXVIcnNLMmhIWHhWQ1VtbVF3TzNScFdoQzdvOENZT3RDU2hvN00yYTdmS29ycnhrdnlQ?oc=5",
+   "ms": 1795118306000,
+   "time": "11/20 03:58"
+  },
   {
    "t": "Gold’s Breakdown Below $3,700 Signals a Deeper Rate-Driven Selloff",
    "src": "Investing.com",
@@ -77,6 +84,13 @@
    "time": "11/19 23:14"
   },
   {
+   "t": "The price of gold today, Nov. 19, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1BUXBZNlhtSjVTQmxhNlduZExpcGhJNFREQ0hvM1JhWUNQVmI2Qm9jaG1aUmcxeWJXeTFXX2ZvV180SERTNEN2TS1oZXlxbzZESmxtQzVYTUs4WWxvTHNRejJjVGgyMW5pNTMwVkZCVDFNZ9IBd0FVX3lxTE1CWThmLWY0NFpPcERMSGJ0a2Q5X2M2Wnl4cGFULXpPX3hXRXROd2hBY09FdXpDMy1lWGo1N21wSzU4VUVBYk1XM2d4Q1lzbUJmNS1rakVqYlpYM280Yy10bGs3Qk4zNGN1U00xZ0NzTnVwN0Zxb2lN?oc=5",
+   "ms": 1795100289000,
+   "time": "11/19 22:58"
+  },
+  {
    "t": "Gold struggles near 14-month low amid prospects of faster Fed rate hikes",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBDUDl3RzJpZ0NsR1JVNkstMEkxQzhmQzhzUnhuZ29FdXpReWFpTVBOOUFZME93emJmVHNiS19aUkFqdXVFSGhZMk1ITXpxSlB6M0hwek03cmZuN2tVelBKQ0dUcXhENnBOMXhYX1RB?oc=5",
    "ms": 1795097580000,
    "time": "11/19 22:13"
-  },
-  {
-   "t": "Gold struggles near $3,700 despite weaker Philly Fed, renewed Hormuz tensions - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOMTdzaHBscEFHNFRYSjhEeXF0T2JQdjJjQjg1a1F4QmQ4bE95c254OWNTeFhEWkNYSzJDTlRWNk9Eckk1U280SXd1WFFIZDVoX2xHSUkyTUpIQkF4OU9wMjVKdGZtdENGNDctck5MZFVPU1gwd3V6NWRaZXlIdFZqTHR1V3F3bnZxZXlsbnRoMGdnMHVTNE9WZ1JtdVktTnhaVnByU0M2UnhNM1Jqcnh6QnR0WEd2NDJ0Y2szWg?oc=5",
-   "ms": 1795097043000,
-   "time": "11/19 22:04"
-  },
-  {
-   "t": "Gold recoups from 14-month low, tighter Fed outlook caps gains",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbGZnaW9FeERVOVlVOUJYMjJlYUZqOTgxaDgyWHc5eWxrNVR6Z191a2NROGE2X0tGekxIcDdNZTFpc2tVU2RHSWhhVGYwVVRwSXNuRjg5aFF0UHY5cDVWZkJBV1NibGE5REpsZVBSSnpkeVppUENjQ1FtY2EyMFBqSVp6bFBxR3Z1OUl3OUtqcGxvX1ZlOENQenJ1NTZqbkhoaE1XY2VEQ2M5a1E?oc=5",
-   "ms": 1795096955000,
-   "time": "11/19 22:02"
   }
  ]
 }
