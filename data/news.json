@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-20 04:52 SGT",
+ "updated": "2026-11-20 05:06 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
-   "ms": 1795120398000,
-   "time": "11/20 04:33"
-  },
   {
    "t": "Retirement savers see gold’s appeal. Why do so few own it?",
    "src": "Yahoo Finance",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/gold-prices-fall-nearly-34-below-their-ath-following-sharp-decline-200691930",
    "ms": 1795098180000,
    "time": "11/19 22:23"
+  },
+  {
+   "t": "Current price of gold as of November 19, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBDUDl3RzJpZ0NsR1JVNkstMEkxQzhmQzhzUnhuZ29FdXpReWFpTVBOOUFZME93emJmVHNiS19aUkFqdXVFSGhZMk1ITXpxSlB6M0hwek03cmZuN2tVelBKQ0dUcXhENnBOMXhYX1RB?oc=5",
+   "ms": 1795097580000,
+   "time": "11/19 22:13"
   }
  ]
 }
