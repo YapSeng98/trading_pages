@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 12:52 SGT",
+ "updated": "2026-11-19 13:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold records fresh nearly 14-month lows amid escalating Iran conflict",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
+   "ms": 1795061621000,
+   "time": "11/19 12:13"
+  },
   {
    "t": "$3,700 breached: Gold sellers extend control on hawkish Fed outlook",
    "src": "FXStreet",
@@ -28,11 +35,11 @@
    "time": "11/19 11:29"
   },
   {
-   "t": "Gold rebounds after hitting 14-month lows",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdWhCRVBZemtoSmVZeG9DbmhLTEVJQVN3N2ItMnFra0hhdDlFR3JfVmRleDMxaFc3RjlWMFlOd04wNmhDcThRazh1QkdEMWhZb0hibVBBUHFWMldLQUVkeGVRNFpFbjd3emxZYVJUbXRHUFBMMmp4TVZ0cTRKaXd1b29kXzNKUFlydEZyR1NDZlJiOE9scnJLajF1dHYyX3g1b3RLLUtqTEI?oc=5",
-   "ms": 1795057009000,
-   "time": "11/19 10:56"
+   "t": "Gold recovers from over one-year low as markets assess Fed rate outlook",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XUFdGeE9XNk5RaFotNFFWT2xScXU1ZVVMLXB0Yl9Tb1g0N19PRXJ4c25kYXZwU0Z1WFFEQnA2WlhGSWFqUnc1X1RkaENjazVhUnYzVTI0RGFLRjRlOVNaeXVoTjVFSVUyU2FoaklERWxlUkhoUzVXWjlHLXM1VHPSAX9BVV95cUxNV1BXRnhPVzZOUWhaLTRRVk9sUnF1NWVVTC1wdGJfU29YNDdfT0VyeHNuZGF2cFNGdVhRREJwNlpYRklhalJ3NV9UZGhDY2s1YVJ2M1UyNERhS0Y0ZTlTWnl1aE41RUlVMlNhaGpJREVsZVJIaFM1V1o5Ry1zNVRz?oc=5",
+   "ms": 1795058880000,
+   "time": "11/19 11:28"
   },
   {
    "t": "Gold rebounds from 14-month low as bargain hunters emerge despite Fed hike risks",
@@ -103,13 +110,6 @@
    "url": "https://www.mining.com/web/gold-price-drops-to-14-month-low-as-dollar-yields-rise-on-hawkish-fed-rhetoric/",
    "ms": 1795029162000,
    "time": "11/19 03:12"
-  },
-  {
-   "t": "Breaking: Fed Minutes keep further rate hikes firmly on the table",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeE01T3JfZ2pnNUxDQnFDdVdLQWI5T1AzLWZlb2VxUlN0VEJnOTBOdWZYelJrZTRET3ZOQVBHUWQxeVVVTE1DZmptUkRucHF1VVBTQ1VLQmZXaWFIaWNUendUUU1GbHM0UEdsZ1lZYVotU1Q0c245R2phMXpwOFpubVhkdzJvWmNCU0tBWW16VG9TUnFqNHVDZk4xRGhSWGd0dWd1elR1X3V1UzJkQVNseXB4WDd5VHM?oc=5",
-   "ms": 1795028776000,
-   "time": "11/19 03:06"
   }
  ]
 }
