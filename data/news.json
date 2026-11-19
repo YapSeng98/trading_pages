@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 05:06 SGT",
+ "updated": "2026-11-20 05:19 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
+  },
   {
    "t": "Retirement savers see gold’s appeal. Why do so few own it?",
    "src": "Yahoo Finance",
@@ -33,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
    "ms": 1795112798000,
    "time": "11/20 02:26"
+  },
+  {
+   "t": "Gold's 14-month low looks mild next to Silver's fall from $121 to $44",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMzUtN3dzUUdicERCVDZnYU9iMDdMQVJrSFJxaTVJUTNDVWhIa1p2WVpSZHFhYVBkN09mNE5BNTRtYUU5SWQ2Tk1KVXAzQmtfTHlLeDZEeVJ0bDgycjgyVTlVTVQtaWd3bHlXMzFlRWN3QkwzWjVJSl9EajZNa0szYnpRNUVUSk1EaXN6SVRYb2tGd2dHeDVQb1RmWW9FSHNtWW1VSmlObzVNNGhhUGJueHhB?oc=5",
+   "ms": 1795112674000,
+   "time": "11/20 02:24"
   },
   {
    "t": "“Buckle up” Gold price reset [Video]",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
    "ms": 1795099094000,
    "time": "11/19 22:38"
-  },
-  {
-   "t": "Gold Prices Fall Nearly 34% Below Their ATH Following Sharp Decline",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-fall-nearly-34-below-their-ath-following-sharp-decline-200691930",
-   "ms": 1795098180000,
-   "time": "11/19 22:23"
-  },
-  {
-   "t": "Current price of gold as of November 19, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBDUDl3RzJpZ0NsR1JVNkstMEkxQzhmQzhzUnhuZ29FdXpReWFpTVBOOUFZME93emJmVHNiS19aUkFqdXVFSGhZMk1ITXpxSlB6M0hwek03cmZuN2tVelBKQ0dUcXhENnBOMXhYX1RB?oc=5",
-   "ms": 1795097580000,
-   "time": "11/19 22:13"
   }
  ]
 }
