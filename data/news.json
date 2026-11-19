@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 11:44 SGT",
+ "updated": "2026-11-19 12:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,25 @@
  ],
  "items": [
   {
+   "t": "$3,700 breached: Gold sellers extend control on hawkish Fed outlook",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTXlJZENJQktLQk5BeUluWVptTzI5dDJKczRTc0V1RjNjZmx5QTdtUzFFcnNYMldEd1Z4WENEbmgwbG5Pc1Rkc21JVGNJYTNNYmRMYmRWM1RmNXNEeEg5azd4LVNjSlBSMnA0VGhwQXdoMTBGdlhnYkkxQkpQSnYtN1hrbEVIUHhsaHE3dWZseXg0X3Y0cWlVQlZIbXVvenNPUUlJYU42d1FEaUdobnZXZ3BB?oc=5",
+   "ms": 1795060674000,
+   "time": "11/19 11:57"
+  },
+  {
+   "t": "Gold Falls As A Firmer US Dollar And Higher US Interest Rate Expectations Weigh By Kedia Advisory",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNZ20zeWNwMmFBdW1rWHVwR19zLWZSMGtrbk9sVzdXX1AzSy1HLUd0NTc1S1BwOTR1SnFieThfdF82LTRLOXVnUkJfZWZCZHEtdF9sVTdNSDc4bmMzZmoyYXViQTJ1ZnB5X3pCN3hwQncwdXFWMURHODBKZjhlVmRzamRuUjdrWDRZNmxsZ1QxRHV6S0FESkU5bTlhWm90dVhNWkJreVNrRDNHdWVOQW5pVGU2Y3RKa1NzNmt0MldYTXR6TnBFbHU3YjdhUUFKZkE?oc=5",
+   "ms": 1795060185000,
+   "time": "11/19 11:49"
+  },
+  {
    "t": "US dollar up 2% over last 7 sessions, gold down by 10% in the same period",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPV0J3ZUduVkptNUFSMVI3VzFGR2RvZVlBWElpMjVNdXNFVHVNcWlDVzROVE5Xc1lHYnhkWFpUWjJDOHpMNGF4a3EwSHUyY1BDNWc1RVpFS2F3aGliMUZMNDd1UDhQdW9PQ0FCaTRSMzQ3cTVNbDhyV0FCWXZkajBnbVBwOWRhY0xoTW8zYndORk1yR0ZFWFMtc3RmVzN5R00?oc=5",
    "ms": 1795058950000,
    "time": "11/19 11:29"
-  },
-  {
-   "t": "Gold recovers from over one-year low as markets assess Fed rate outlook",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBzSmhHOXhFdnBjdTJSSHQ5eENObngzd3UwdF9SOFNkV1NlSlRONkEzSzJXaGZZNTlxV3VlXzVNV2E5MV9hb3RKREJfS0VCM213X1VZTUpTRGNFanc2dHBHLVZzRk9qVkFIVlZwcVBtOUhaMHNmUkRBNGF30gF_QVVfeXFMTVdQV0Z4T1c2TlFoWi00UVZPbFJxdTVlVUwtcHRiX1NvWDQ3X09FcnhzbmRhdnBTRnVYUURCcDZaWEZJYWpSdzVfVGRoQ2NrNWFSdjNVMjREYUtGNGU5U1p5dWhONUVJVTJTYWhqSURFbGVSSGhTNVdaOUctczVUcw?oc=5",
-   "ms": 1795058880000,
-   "time": "11/19 11:28"
   },
   {
    "t": "Gold rebounds after hitting 14-month lows",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
    "ms": 1795028520000,
    "time": "11/19 03:02"
-  },
-  {
-   "t": "As silver underperforms gold, has its bubble popped?",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOYm5LUXloRDZhX1dwMmZEdnZtcUg0aEp3TWdIOVdsNDBLdHRMNU5zbzJEclFubTNMeV91LUJsazRWc040VWRXV2pQME9DRlMtZmZ4SDUyUW5ybFFlUVlTbDN4ZzNUUHBydzRXcVJrOVJMYmRtREtJR2N4UzJsekpNU0R2bTlwNE5ZOXFNaHJBTHQ0SGdZM1hzbg?oc=5",
-   "ms": 1795028153000,
-   "time": "11/19 02:55"
   }
  ]
 }
