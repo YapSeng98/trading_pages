@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 04:11 SGT",
+ "updated": "2026-11-20 04:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
+  },
   {
    "t": "Retirement savers see gold’s appeal. Why do so few own it?",
    "src": "Yahoo Finance",
@@ -26,6 +33,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPb21Fc1g4Vm1ScFJ0ZFRiU0N2Mnktb2tyVWFZMFZPVlFyNm9UanhzR09CXzdteUxJdFdDemgwbXJBSjktUzBObDEzZHJTT1lhTF9PT2Z6U0lnNkhhTUNnT1ozaWt4WmdIWENSXzhYdTVRVXBGc2dwMU1LR0duVy00czM0dHlmQkxfNVplZWo3ZmFoanAyVXktTFZPVGRuOGc4R0d1S1hjNk5wTDlHZzQycVlDUHRhNktLMGxJ?oc=5",
    "ms": 1795113927000,
    "time": "11/20 02:45"
+  },
+  {
+   "t": "Gold hits new lows amid scorching Fed rate hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
+   "ms": 1795112798000,
+   "time": "11/20 02:26"
   },
   {
    "t": "“Buckle up” Gold price reset [Video]",
@@ -54,13 +68,6 @@
    "url": "https://www.investing.com/analysis/golds-bear-market-through-the-lens-of-probability-theory-200691941",
    "ms": 1795107540000,
    "time": "11/20 00:59"
-  },
-  {
-   "t": "Gold falls to a 14-month low as Fed rate-hike bets build",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
-   "ms": 1795106229000,
-   "time": "11/20 00:37"
   },
   {
    "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-prices-fall-nearly-34-below-their-ath-following-sharp-decline-200691930",
    "ms": 1795098180000,
    "time": "11/19 22:23"
-  },
-  {
-   "t": "Current price of gold as of November 19, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBDUDl3RzJpZ0NsR1JVNkstMEkxQzhmQzhzUnhuZ29FdXpReWFpTVBOOUFZME93emJmVHNiS19aUkFqdXVFSGhZMk1ITXpxSlB6M0hwek03cmZuN2tVelBKQ0dUcXhENnBOMXhYX1RB?oc=5",
-   "ms": 1795097580000,
-   "time": "11/19 22:13"
   }
  ]
 }
