@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 14:40 SGT",
+ "updated": "2026-11-19 15:07 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold edges up from 14-month low as markets assess Fed rate outlook",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ0RVRVVhd0g1djYyRGpzbTcyZXFtSXd3cTV1T0REekJaYm9FOTlzblJzU3hlMmsxSkF0UmtzZ1gwWVFiUzI3VXdGNzJLTndoZC1oVkpXSnRmZ0ZmNkEybVRFSnhIVzFCNnlTS2hQRGV2bnNGTHVsaUZ5RmllU0otWWcxV2wwejMwcXpTOWFxam1xb2dRMXMyQ1c0T0RkZy1SX09YR3lYdmxkQQ?oc=5",
+   "ms": 1795071180000,
+   "time": "11/19 14:53"
+  },
   {
    "t": "Gold Falls Below $4,000 as Rising US Treasury Yields and Fed Rate Expectations Inf",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPV3hfUkdxX3pBT1Q1QVo4UmRhZHVtelJVdkJVajd5ZXo3V29uS1JXaXREOEc5bjA0N3E5djd4VVRtSWxPUGM0eWU5VDMxY3ZxQldPUTFIMkw3ODB4SmsxUzV1dExhMDktQk10MldsVEtRRGNkX3h4YnVlVUZuenBqaVA5WmFyM3VSQVRTTUh5b3Q?oc=5",
    "ms": 1795032595000,
    "time": "11/19 04:09"
-  },
-  {
-   "t": "Gold prices remain under pressure as Fed minutes show central bank committed to cooling inflation",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE43b3JrcGdsOTVjUndOSjM0NWdzWmQyQ3dibWNBM1h4NVA5N0FlTzBTWGFXMURsUTR5RzVqbktoRVJlM2IzZEd3NVMzV0xFWnlCYU1IVDB1bkcxTzVaYW1ZYzYtem9lQUdmaVF5U0dlcXRicW93c0F3TXJiWHBsbkQtT19kTTg0d3d4aTNIdGJqd3FBUXVQb1ZZNmNOTFNINmJjaDlzUUZKZWdMdWhDYWdLT0lCMDVGNnFz?oc=5",
-   "ms": 1795030985000,
-   "time": "11/19 03:43"
   }
  ]
 }
