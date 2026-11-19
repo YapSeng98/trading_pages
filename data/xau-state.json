@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-20 02:23 SGT",
+ "updated": "2026-11-20 03:17 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3676,
- "priceTime": "2026-11-20 02:15 SGT",
+ "price": 3675.1,
+ "priceTime": "2026-11-20 03:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3727.2,
   "high": 3758.4,
   "low": 3667.4,
-  "changeFromPrevClose": -49.1,
-  "changePct": -1.32,
+  "changeFromPrevClose": -50,
+  "changePct": -1.34,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -86,11 +86,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3676,
-  "stop": 3735.4,
-  "target": 3497.6,
-  "stopDistance": 59.5,
-  "trailDistance": 118.9,
+  "entry": 3675.1,
+  "stop": 3732.7,
+  "target": 3502.1,
+  "stopDistance": 57.7,
+  "trailDistance": 115.3,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -183,22 +183,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-10 18:00 SGT",
-   "rsi": 32.4,
-   "atr": 19.82,
-   "ema20": 3719.3,
-   "ema50": 3758.9,
-   "ema200": 3878,
+   "rsi": 32.8,
+   "atr": 19.22,
+   "ema20": 3715.6,
+   "ema50": 3755.8,
+   "ema200": 3876,
    "emaOrder": "空头排列",
    "range": {
     "top": 3744.2,
     "bottom": 3667.4,
-    "positionPct": 16
+    "positionPct": 17
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3693.3,
-    "barsAgo": 2
+    "barsAgo": 3
    },
    "turnsUpAbove": 3758.4,
    "turnsDownBelow": null
@@ -208,25 +208,25 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-19 11:00 SGT",
-   "rsi": 36.2,
-   "atr": 10.58,
-   "ema20": 3692.2,
-   "ema50": 3708.9,
-   "ema200": 3759.6,
+   "rsi": 38.3,
+   "atr": 9.9,
+   "ema20": 3688,
+   "ema50": 3704.5,
+   "ema200": 3756.4,
    "emaOrder": "空头排列",
    "range": {
     "top": 3727.2,
     "bottom": 3667.4,
-    "positionPct": 14
+    "positionPct": 13
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3710.4,
-    "barsAgo": 15
+    "barsAgo": 19
    },
-   "turnsUpAbove": 3727.2,
-   "turnsDownBelow": null
+   "turnsUpAbove": 3692.2,
+   "turnsDownBelow": 3667.4
   }
  ],
  "resistance": [
