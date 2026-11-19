@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 03:17 SGT",
+ "updated": "2026-11-20 03:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -40,13 +40,6 @@
    "url": "https://www.investing.com/analysis/golds-bear-market-through-the-lens-of-probability-theory-200691941",
    "ms": 1795107540000,
    "time": "11/20 00:59"
-  },
-  {
-   "t": "Strong dollar, tighter Fed policy bets leave gold to languish at 14-month low",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOM2drbXRBZVIwdXJOdTRyVk10Wm94MnBZVEhDWWY0MjJ2bTcxeVBfQVpYQTY5a0tGX05qS1B2R19tWVlVUXhYcmhib1lneHNqOWJDbHdVTGNLV2hQeUZQMGpocWpHWGRqY2Fsa1FnNlhuQmVFVnBZa09DRzJ6REJ3eFBIQ3VwQ080cXJjR3RQbjlUZ1hEOElQZnU5N0hqVnVpd3huWXdSNTdYa3ktWU9HT3BCdEZNSE0tbFBxRXF3?oc=5",
-   "ms": 1795106402000,
-   "time": "11/20 00:40"
   },
   {
    "t": "Gold falls to a 14-month low as Fed rate-hike bets build",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOMTdzaHBscEFHNFRYSjhEeXF0T2JQdjJjQjg1a1F4QmQ4bE95c254OWNTeFhEWkNYSzJDTlRWNk9Eckk1U280SXd1WFFIZDVoX2xHSUkyTUpIQkF4OU9wMjVKdGZtdENGNDctck5MZFVPU1gwd3V6NWRaZXlIdFZqTHR1V3F3bnZxZXlsbnRoMGdnMHVTNE9WZ1JtdVktTnhaVnByU0M2UnhNM1Jqcnh6QnR0WEd2NDJ0Y2szWg?oc=5",
    "ms": 1795097043000,
    "time": "11/19 22:04"
+  },
+  {
+   "t": "Gold recoups from 14-month low, tighter Fed outlook caps gains",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbGZnaW9FeERVOVlVOUJYMjJlYUZqOTgxaDgyWHc5eWxrNVR6Z191a2NROGE2X0tGekxIcDdNZTFpc2tVU2RHSWhhVGYwVVRwSXNuRjg5aFF0UHY5cDVWZkJBV1NibGE5REpsZVBSSnpkeVppUENjQ1FtY2EyMFBqSVp6bFBxR3Z1OUl3OUtqcGxvX1ZlOENQenJ1NTZqbkhoaE1XY2VEQ2M5a1E?oc=5",
+   "ms": 1795096955000,
+   "time": "11/19 22:02"
   }
  ]
 }
