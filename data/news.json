@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 12:11 SGT",
+ "updated": "2026-11-19 12:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -26,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPV0J3ZUduVkptNUFSMVI3VzFGR2RvZVlBWElpMjVNdXNFVHVNcWlDVzROVE5Xc1lHYnhkWFpUWjJDOHpMNGF4a3EwSHUyY1BDNWc1RVpFS2F3aGliMUZMNDd1UDhQdW9PQ0FCaTRSMzQ3cTVNbDhyV0FCWXZkajBnbVBwOWRhY0xoTW8zYndORk1yR0ZFWFMtc3RmVzN5R00?oc=5",
    "ms": 1795058950000,
    "time": "11/19 11:29"
+  },
+  {
+   "t": "Gold recovers from over one-year low as markets assess Fed rate outlook",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1XUFdGeE9XNk5RaFotNFFWT2xScXU1ZVVMLXB0Yl9Tb1g0N19PRXJ4c25kYXZwU0Z1WFFEQnA2WlhGSWFqUnc1X1RkaENjazVhUnYzVTI0RGFLRjRlOVNaeXVoTjVFSVUyU2FoaklERWxlUkhoUzVXWjlHLXM1VHPSAX9BVV95cUxNV1BXRnhPVzZOUWhaLTRRVk9sUnF1NWVVTC1wdGJfU29YNDdfT0VyeHNuZGF2cFNGdVhRREJwNlpYRklhalJ3NV9UZGhDY2s1YVJ2M1UyNERhS0Y0ZTlTWnl1aE41RUlVMlNhaGpJREVsZVJIaFM1V1o5Ry1zNVRz?oc=5",
+   "ms": 1795058880000,
+   "time": "11/19 11:28"
   },
   {
    "t": "Gold rebounds after hitting 14-month lows",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOeE01T3JfZ2pnNUxDQnFDdVdLQWI5T1AzLWZlb2VxUlN0VEJnOTBOdWZYelJrZTRET3ZOQVBHUWQxeVVVTE1DZmptUkRucHF1VVBTQ1VLQmZXaWFIaWNUendUUU1GbHM0UEdsZ1lZYVotU1Q0c245R2phMXpwOFpubVhkdzJvWmNCU0tBWW16VG9TUnFqNHVDZk4xRGhSWGd0dWd1elR1X3V1UzJkQVNseXB4WDd5VHM?oc=5",
    "ms": 1795028776000,
    "time": "11/19 03:06"
-  },
-  {
-   "t": "Silver Is Falling Faster Than Gold as Rising Rates and Weak Demand Take Their Toll",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-is-falling-faster-than-gold-as-rising-rates-and-weak-demand-take-their-toll-200691863",
-   "ms": 1795028520000,
-   "time": "11/19 03:02"
   }
  ]
 }
