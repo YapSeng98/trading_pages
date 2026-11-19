@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-20 06:55 SGT",
+ "updated": "2026-11-20 07:49 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3625.6,
- "priceTime": "2026-11-20 06:00 SGT",
+ "price": 3608.5,
+ "priceTime": "2026-11-20 07:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
-  "open": null,
-  "high": null,
-  "low": null,
-  "changeFromPrevClose": 0,
-  "changePct": 0,
+  "open": 3627.5,
+  "high": 3636.4,
+  "low": 3590.3,
+  "changeFromPrevClose": -17,
+  "changePct": -0.47,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -86,9 +86,9 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3625.6,
-  "stop": 3686.4,
-  "target": 3443,
+  "entry": 3608.5,
+  "stop": 3669.4,
+  "target": 3425.9,
   "stopDistance": 60.9,
   "trailDistance": 121.7,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
@@ -208,28 +208,33 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-19 11:00 SGT",
-   "rsi": 19.7,
-   "atr": 10.44,
-   "ema20": 3663.6,
-   "ema50": 3686.8,
-   "ema200": 3746,
+   "rsi": 18.2,
+   "atr": 12.59,
+   "ema20": 3652.4,
+   "ema50": 3679.4,
+   "ema200": 3742.3,
    "emaOrder": "空头排列",
    "range": {
     "top": 3692.2,
-    "bottom": 3619.8,
-    "positionPct": 8
+    "bottom": 3590.3,
+    "positionPct": 18
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3667.4,
-    "barsAgo": 7
+    "barsAgo": 10
    },
    "turnsUpAbove": 3692.2,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
+  {
+   "price": 3619.8,
+   "what": "昨日低点、日线区间底、4小时区间底、1小时区间底",
+   "strength": 9
+  },
   {
    "price": 3693.3,
    "what": "1小时向下突破位",
@@ -249,20 +254,9 @@
    "price": 3758.4,
    "what": "昨日高点、1小时前高",
    "strength": 4
-  },
-  {
-   "price": 3832.1,
-   "what": "4小时向下突破位",
-   "strength": 1
   }
  ],
- "support": [
-  {
-   "price": 3619.8,
-   "what": "昨日低点、日线区间底、4小时区间底、1小时区间底",
-   "strength": 9
-  }
- ],
+ "support": [],
  "rules": "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
  "record": {
   "since": "2026-10-12 17:30 SGT",
