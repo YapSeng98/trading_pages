@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-19 12:52 SGT",
+ "updated": "2026-11-19 13:46 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3723.3,
- "priceTime": "2026-11-19 12:45 SGT",
+ "price": 3739.5,
+ "priceTime": "2026-11-19 13:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3727.2,
   "high": 3758.4,
   "low": 3693.3,
-  "changeFromPrevClose": -1.7,
-  "changePct": -0.05,
+  "changeFromPrevClose": 14.5,
+  "changePct": 0.39,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -65,7 +65,7 @@
   "level": "go",
   "tag": "可以顺势做空",
   "title": "五个周期都向下，可以顺势做空",
-  "text": "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。信号刚出现不久。",
+  "text": "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。信号已出现一段时间：现在进的话，止损和目标按现价重新算（下面的价位就是）。",
   "reasons": [
    {
     "label": "大方向",
@@ -86,11 +86,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3723.3,
-  "stop": 3787,
-  "target": 3532.2,
-  "stopDistance": 63.7,
-  "trailDistance": 127.4,
+  "entry": 3739.5,
+  "stop": 3800.5,
+  "target": 3556.5,
+  "stopDistance": 61,
+  "trailDistance": 122,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -183,22 +183,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-10 18:00 SGT",
-   "rsi": 36.2,
-   "atr": 21.23,
-   "ema20": 3751.6,
-   "ema50": 3793.1,
-   "ema200": 3902.3,
+   "rsi": 37.8,
+   "atr": 20.33,
+   "ema20": 3749,
+   "ema50": 3790.4,
+   "ema200": 3900.6,
    "emaOrder": "空头排列",
    "range": {
     "top": 3758.4,
     "bottom": 3693.3,
-    "positionPct": 42
+    "positionPct": 48
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3719.7,
-    "barsAgo": 1
+    "barsAgo": 2
    },
    "turnsUpAbove": 3790.3,
    "turnsDownBelow": null
@@ -208,22 +208,22 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-19 11:00 SGT",
-   "rsi": 45.3,
-   "atr": 10.79,
-   "ema20": 3729.1,
-   "ema50": 3739.3,
-   "ema200": 3792.3,
-   "emaOrder": "空头排列",
+   "rsi": 55,
+   "atr": 10.78,
+   "ema20": 3730.2,
+   "ema50": 3738.2,
+   "ema200": 3790,
+   "emaOrder": "交错",
    "range": {
     "top": 3758.4,
     "bottom": 3693.3,
-    "positionPct": 46
+    "positionPct": 71
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向下",
     "level": 3722.8,
-    "barsAgo": 7
+    "barsAgo": 11
    },
    "turnsUpAbove": 3758.4,
    "turnsDownBelow": 3693.3
