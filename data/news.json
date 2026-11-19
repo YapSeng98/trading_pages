@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 17:49 SGT",
+ "updated": "2026-11-19 18:03 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Anthropic to go live",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0wUzJvMkhHSG05dnNaQzhDWGRMWUhOaVQ4OWx5cHFiUi1YNC1LQk9OTWxrSjl4a1lyUG83blI0d3o4UUpjdWVjRDkwcmdGZkNpTXVmR1BTcHhJUDdXZURtdDVJakpSc0JlNEt1dE1YRUdfalNtZ0E?oc=5",
+   "ms": 1795081736000,
+   "time": "11/19 17:48"
+  },
   {
    "t": "Gold, silver prices tumble to 1-year lows: What is driving the precious metals crash?",
    "src": "Fortune India",
@@ -42,7 +49,7 @@
    "time": "11/19 15:08"
   },
   {
-   "t": "Gold edges up from 14-month low as markets assess Fed rate outlook",
+   "t": "Gold recoups from 14-month low, tighter Fed outlook caps gains",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ0RVRVVhd0g1djYyRGpzbTcyZXFtSXd3cTV1T0REekJaYm9FOTlzblJzU3hlMmsxSkF0UmtzZ1gwWVFiUzI3VXdGNzJLTndoZC1oVkpXSnRmZ0ZmNkEybVRFSnhIVzFCNnlTS2hQRGV2bnNGTHVsaUZ5RmllU0otWWcxV2wwejMwcXpTOWFxam1xb2dRMXMyQ1c0T0RkZy1SX09YR3lYdmxkQQ?oc=5",
    "ms": 1795071180000,
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOcUlFY0VnMGJXN0RPbFFwbl82cGlFdFZ3TGN3QzZaY1FMVW9CVVdVclUwTF9Icmo3OGhEQXdWbENCaFBMelNIVlNFcmJVQ3dDN1pOQ2tZRUN5bExZYWVEcWNONGtPNkwzUHRLVmxwZl9JemxIRUo3eGl6Y1ZMNmNPVHUwTmxhR1FlTDJoYTFxYjJWUUtSOTZ6aDBXNVpsR0JiaXZ5My11WXdvVVRsVTZ5T1NDc2M4Y0lLdlhGSFNpcnRQQm1UUWE5TDY0TXVZN0Vh?oc=5",
    "ms": 1795052222000,
    "time": "11/19 09:37"
-  },
-  {
-   "t": "Euro moves little as US Dollar remains stable amid hawkish Fed signals",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQck0xeXplVHY4c3ZDcWVhc1MxcHFhZVpKMVc4R0NEeGlzQkRFQWdRS3NhS0dZZXdwM0ZTaWh1aDZLUEQ1STlZNzlmYjlYcDdtRWhrbDQ4NjNNWl9RQVdNemtrLTJ1RmlTeFloSWtsQ1l1ckJ0bnJPMmJpZTJfODB2eWRnQlNPYW1UUnljczZZRGcxNTVKRUlabTNoVl94d0dyTXN2S3Z0b2lRSWRkbmJLVXZ1Yw?oc=5",
-   "ms": 1795050430000,
-   "time": "11/19 09:07"
   }
  ]
 }
