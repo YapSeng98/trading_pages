@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 17:50 SGT",
+ "updated": "2026-11-20 02:40 SGT",
  "source": "Yahoo Finance chart API, daily bars",
  "failed": [
   "SNDK"
@@ -119,8 +119,8 @@
    "r1m": -8.79,
    "r3m": 0.05,
    "ytd": 32.06,
-   "divTtm": 8.83,
-   "yield": 4.29,
+   "divTtm": 7.12,
+   "yield": 3.46,
    "symbol": "CVX",
    "market": "US",
    "cur": "$"
