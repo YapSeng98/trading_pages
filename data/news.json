@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 23:14 SGT",
+ "updated": "2026-11-19 23:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Prices Face a Critical Support Test as Bearish Technical Patterns Emerge",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
+   "ms": 1795101240000,
+   "time": "11/19 23:14"
+  },
   {
    "t": "Gold struggles near 14-month low amid prospects of faster Fed rate hikes",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-hits-14month-low-near-3693-as-fed-tightening-risks-persist-200691912",
    "ms": 1795084500000,
    "time": "11/19 18:35"
-  },
-  {
-   "t": "Gold: Under pressure below 3800 – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOaGhZY3NGVFBxQ3FxRE5ncm9rS2RsN2xrWVZHajRPVVMtUnhUcEhTVHZpR0NtSkdleFRIWXNMTjhoZ1hyWVJSdUdwSlVVdGJXNU95ZV9TOWllOEVGZy1XbFFkUDBiU25HcTY3Z2k0YUh3QUVRS2JqRFVKdzRjeU1rVDJaUVA?oc=5",
-   "ms": 1795081996000,
-   "time": "11/19 17:53"
   }
  ]
 }
