@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19 20:04 SGT",
+ "updated": "2026-11-19 20:18 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
    "ms": 1795086614000,
    "time": "11/19 19:10"
+  },
+  {
+   "t": "Gold Rebounds From 14-Month Low as Investors Seek Bargains Despite Fed Rate Hike Outlook",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNM0UxcGtNNTdmZTQ5LWo3aXRDVWsxeElncjJSeXJxRnp6cXRDUkZOWGFMcjUtYk8zZjFjWHF5dUJ0Ni01Y3ctTUl0OU10VGRqcnR5MUNSOGVsRWFQc3Rab2xQaHdERWxYNWJKdFZsQUtIUFpSLVIybzRwaFZ4dDlOeQ?oc=5",
+   "ms": 1795086040000,
+   "time": "11/19 19:00"
   },
   {
    "t": "Gold Hits 14-Month Low Near $3,693 as Fed Tightening Risks Persist",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-rebounds-as-iran-tensions-escalate-but-3667-support-faces-a-test-200691892",
    "ms": 1795072080000,
    "time": "11/19 15:08"
-  },
-  {
-   "t": "Gold recoups from 14-month low, tighter Fed outlook caps gains",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ0RVRVVhd0g1djYyRGpzbTcyZXFtSXd3cTV1T0REekJaYm9FOTlzblJzU3hlMmsxSkF0UmtzZ1gwWVFiUzI3VXdGNzJLTndoZC1oVkpXSnRmZ0ZmNkEybVRFSnhIVzFCNnlTS2hQRGV2bnNGTHVsaUZ5RmllU0otWWcxV2wwejMwcXpTOWFxam1xb2dRMXMyQ1c0T0RkZy1SX09YR3lYdmxkQQ?oc=5",
-   "ms": 1795071180000,
-   "time": "11/19 14:53"
   }
  ]
 }
