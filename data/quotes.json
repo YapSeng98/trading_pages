@@ -1,7 +1,9 @@
 {
- "updated": "2026-11-19 10:11 SGT",
+ "updated": "2026-11-19 15:39 SGT",
  "source": "Yahoo Finance chart API, daily bars",
- "failed": [],
+ "failed": [
+  "SNDK"
+ ],
  "quotes": {
   "NVDA": {
    "price": 150.96,
@@ -86,7 +88,8 @@
    "yield": 0.0,
    "symbol": "SNDK",
    "market": "US",
-   "cur": "$"
+   "cur": "$",
+   "stale": true
   },
   "ABBV": {
    "price": 286.01,
@@ -116,8 +119,8 @@
    "r1m": -8.79,
    "r3m": 0.05,
    "ytd": 32.06,
-   "divTtm": 7.05,
-   "yield": 3.42,
+   "divTtm": 8.83,
+   "yield": 4.29,
    "symbol": "CVX",
    "market": "US",
    "cur": "$"
