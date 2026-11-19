@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 16:41 SGT",
+ "updated": "2026-11-19 17:49 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold, silver prices tumble to 1-year lows: What is driving the precious metals crash?",
+   "src": "Fortune India",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQXzB2Z080LV9QY1pEMTJHa18yOFZIRFJyZ0lnM3hIa2JMWURoTHhteEtSSXZXUElBLUJxUlVkNkZiT21LaDBQN0pWT0ZHcmJpdzVGcTd5UEVLVkNCWXhTV3VLeFNPRnVsc3U3ZEJEdWhIUXRzdksyOHhCNGN1cjJTZ2pZbkVzNXBlak0teXk2dHh3czlId1hwTWZxM3JUUFh0eUQ2Yl9kMmlIcFhZanFOWVdHUUMzTHpjajRHNU9oWXFYVGRWaTlkcUFqNzFyemwt0gHeAUFVX3lxTFBUUUZPSXY0R1c0NU5fYlNnSFc3ODl5REVYNzRqWVZfTzhod00ydy0xUmNBSXJHOHQ3UU40T1NnbG10aHZvS3Z5d1VXT3BfVVdWaHdTUGNwYXBYNkFORXgzRF9QX2tITU5ibzh1VnJ3QkxkMTdNU0VuSElhSGh1Mjlmd0wxLVRtQlJEWUNzTWZFclN3cU1fbFNkeGtrUEIyOGNfNUg4cDk5Q1JidUMwaVpkdWd2RHJhUDRoMjFGa2xvMEFsb0NWblFQQnZMSmhMeGp2aWFvdkIzU2hGa2ZEUQ?oc=5",
+   "ms": 1795079804000,
+   "time": "11/19 17:16"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD regains ground below $3,700, outlook remains fragile",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQck0xeXplVHY4c3ZDcWVhc1MxcHFhZVpKMVc4R0NEeGlzQkRFQWdRS3NhS0dZZXdwM0ZTaWh1aDZLUEQ1STlZNzlmYjlYcDdtRWhrbDQ4NjNNWl9RQVdNemtrLTJ1RmlTeFloSWtsQ1l1ckJ0bnJPMmJpZTJfODB2eWRnQlNPYW1UUnljczZZRGcxNTVKRUlabTNoVl94d0dyTXN2S3Z0b2lRSWRkbmJLVXZ1Yw?oc=5",
    "ms": 1795050430000,
    "time": "11/19 09:07"
-  },
-  {
-   "t": "Gold plunges below $3,750, silver tumbles as hawkish Fed minutes pressure metals - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQclJNeHVDcHRDMkU5SHdkUXJNNnFHZnZkb2dwS1dDeDN2UW5fOHhjeWxNbUh1M25uOVNLZFBrakVwVWgtUXdJcU9uV1VyVUhfYzNDek5zUTZCeWVLQ254SS10TjUyNmpyWFdydk5JNnlvUXJ5SWJSY1FSd3cxMkJ4WEYwYW9RUU5JcmlFMEFjZENFSXhMbWdKS0pkQkpuanJzeDQ2T1hlXzNXcDhMdzY3bVE5b3pQSUJaU3VvTg?oc=5",
-   "ms": 1795039355000,
-   "time": "11/19 06:02"
   }
  ]
 }
