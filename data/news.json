@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 01:02 SGT",
+ "updated": "2026-11-20 01:15 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and Silver Sink Again in China, Then London, as Anthropic Floats",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVHZqVHpBTVZXQURjdlNpUmxWN0x3Qm0wOU1ZVzVFbWUtdkJQQVNPdlBtVG5jWEE0b2M4bkFkeHRxbHlZTmZYNTF0dS1XUDNJOHdHYkRFU0kyazlEdWxKbHlnUXU3S0d5dEhnd1d0cUg4N1VOM1FRV2N6Q0NxOVJVeXRSQ1hLYWdObzhjUUFCcHM3LW94Q18tTnNpVVl6Y0JSeVE?oc=5",
+   "ms": 1795108416000,
+   "time": "11/20 01:13"
+  },
   {
    "t": "Gold falls to a 14-month low as Fed rate-hike bets build",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMTJMejVXRFdObzZUVURRUzEycExfQnNzYUsyM0VxTnFydEJLbnc2U2I0U2tCUVR0dHJKUGlCQVNJMlYxS2dwWEVnN3VibzlfOTNfeFNLd05fbzh5TmFGVzNVSkVIZGEwSFNUcmdaV1dCRnpraGFjd3ZOalJaMS1KUFR3YmJGZlA2eEhyYkFKZGJBT0RHRVdHUXduTjhyaUxSRXZkY3RYTUZYZw?oc=5",
    "ms": 1795087684000,
    "time": "11/19 19:28"
-  },
-  {
-   "t": "Gold Hits 14-Month Low Near $3,693 as Fed Tightening Risks Persist",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-hits-14month-low-near-3693-as-fed-tightening-risks-persist-200691912",
-   "ms": 1795084500000,
-   "time": "11/19 18:35"
   }
  ]
 }
