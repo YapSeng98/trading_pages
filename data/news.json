@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-19 14:27 SGT",
+ "updated": "2026-11-19 14:40 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Falls Below $4,000 as Rising US Treasury Yields and Fed Rate Expectations Inf",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-falls-below-4000-as-rising-us-treasury-yields-and-fed-rate-expectations-inf-200691887",
+   "ms": 1795068540000,
+   "time": "11/19 14:09"
+  },
   {
    "t": "Gold experiences volatility nearly 14-month lows",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE43b3JrcGdsOTVjUndOSjM0NWdzWmQyQ3dibWNBM1h4NVA5N0FlTzBTWGFXMURsUTR5RzVqbktoRVJlM2IzZEd3NVMzV0xFWnlCYU1IVDB1bkcxTzVaYW1ZYzYtem9lQUdmaVF5U0dlcXRicW93c0F3TXJiWHBsbkQtT19kTTg0d3d4aTNIdGJqd3FBUXVQb1ZZNmNOTFNINmJjaDlzUUZKZWdMdWhDYWdLT0lCMDVGNnFz?oc=5",
    "ms": 1795030985000,
    "time": "11/19 03:43"
-  },
-  {
-   "t": "Gold price drops to 14-month low as dollar, yields rise on hawkish Fed rhetoric",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-drops-to-14-month-low-as-dollar-yields-rise-on-hawkish-fed-rhetoric/",
-   "ms": 1795029162000,
-   "time": "11/19 03:12"
   }
  ]
 }
