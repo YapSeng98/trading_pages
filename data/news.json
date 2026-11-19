@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 03:31 SGT",
+ "updated": "2026-11-20 03:58 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold’s Breakdown Below $3,700 Signals a Deeper Rate-Driven Selloff",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-breakdown-below-3700-signals-a-deeper-ratedriven-selloff-200691953",
+   "ms": 1795117500000,
+   "time": "11/20 03:45"
+  },
   {
    "t": "Gold prices could fall another 5% to $3,500 as Fed tightening fears grow – Razaqzada",
    "src": "Kitco",
@@ -68,13 +75,6 @@
    "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
    "ms": 1795101240000,
    "time": "11/19 23:14"
-  },
-  {
-   "t": "The price of gold today, Nov. 19, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1BUXBZNlhtSjVTQmxhNlduZExpcGhJNFREQ0hvM1JhWUNQVmI2Qm9jaG1aUmcxeWJXeTFXX2ZvV180SERTNEN2TS1oZXlxbzZESmxtQzVYTUs4WWxvTHNRejJjVGgyMW5pNTMwVkZCVDFNZ9IBd0FVX3lxTE1CWThmLWY0NFpPcERMSGJ0a2Q5X2M2Wnl4cGFULXpPX3hXRXROd2hBY09FdXpDMy1lWGo1N21wSzU4VUVBYk1XM2d4Q1lzbUJmNS1rakVqYlpYM280Yy10bGs3Qk4zNGN1U00xZ0NzTnVwN0Zxb2lN?oc=5",
-   "ms": 1795100289000,
-   "time": "11/19 22:58"
   },
   {
    "t": "Gold struggles near 14-month low amid prospects of faster Fed rate hikes",
