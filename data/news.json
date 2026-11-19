@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-20 05:19 SGT",
+ "updated": "2026-11-20 05:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold the top commodity pick for 2027 even as broader commodities likely to underperform – Morgan Stanley",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdlhJdHg0aEg5QXkwU0VUNXJCazVXaTlEQ0NjZ1pRRnEtNHJvaGFrWnFUVHUyVU1pSkRiemxWMld1czNOdDFYb3pERnZzN0w2OHhyc29Sbk80N0g2NVFQUmR2YW5QSlNBQ1BocHRpXzRDZ0lWZC1HTjh2Uzd5VDNyVlZPMDhma0dJUzk2V1A4bmZPaTBiVXFMUWtBdUwzajJSbW94ZG03Z29MUHlwLWpLTWxiQzVQc2FWZGFn?oc=5",
+   "ms": 1795123814000,
+   "time": "11/20 05:30"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
+   "ms": 1795123675000,
+   "time": "11/20 05:27"
+  },
   {
    "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
    "src": "Kitco",
@@ -77,11 +91,11 @@
    "time": "11/20 00:59"
   },
   {
-   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
-   "ms": 1795104942000,
-   "time": "11/20 00:15"
+   "t": "Gold falls to a 14-month low as Fed rate-hike bets build",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
+   "ms": 1795106229000,
+   "time": "11/20 00:37"
   },
   {
    "t": "Gold today: 3 bearish forecasts, and the next stop sits near $3,600",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
    "ms": 1795101240000,
    "time": "11/19 23:14"
-  },
-  {
-   "t": "The price of gold today, Nov. 19, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1BUXBZNlhtSjVTQmxhNlduZExpcGhJNFREQ0hvM1JhWUNQVmI2Qm9jaG1aUmcxeWJXeTFXX2ZvV180SERTNEN2TS1oZXlxbzZESmxtQzVYTUs4WWxvTHNRejJjVGgyMW5pNTMwVkZCVDFNZ9IBd0FVX3lxTE1CWThmLWY0NFpPcERMSGJ0a2Q5X2M2Wnl4cGFULXpPX3hXRXROd2hBY09FdXpDMy1lWGo1N21wSzU4VUVBYk1XM2d4Q1lzbUJmNS1rakVqYlpYM280Yy10bGs3Qk4zNGN1U00xZ0NzTnVwN0Zxb2lN?oc=5",
-   "ms": 1795100289000,
-   "time": "11/19 22:58"
-  },
-  {
-   "t": "Gold struggles near 14-month low amid prospects of faster Fed rate hikes",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMzlUaWd3VVZ1eVRjcTFxLVAzNkpBbU5wVkJGc2w2NVhHbnBpYmtBZXRWWDBJSVdrSGl2S0NvN0ZKNGV6dFVkZE9ETHRsYkp4MXNHVVJXdXBwRUVGTThSQkpfal9mc1dqbEY3OW9MVDlQamU1NGI4VEV6dllROUZtbUo5SXRIMVZSYUFyOENtUVhmN2s2Rnh2THVobTR3RGJKemlFcllscWIwNTBMdjkw?oc=5",
-   "ms": 1795099094000,
-   "time": "11/19 22:38"
   }
  ]
 }
