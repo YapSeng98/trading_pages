@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 12:07 SGT",
+ "updated": "2026-11-20 12:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -42,13 +42,6 @@
    "time": "11/20 10:05"
   },
   {
-   "t": "2.3%: Japan’s National CPI climbs in October",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTTdBTGxrSWdNQ3RIVmQyUzhTMmZyTm5pY2xRZnBJZFkycFJSSnBDSzRQQ2dTaWJOYUZBRHRfdnRELXlHaE1SVWVBZjZDSEpaU1lIYVRjQ2VzZzF0N1ZmYXhIeTJSSGNMWURXMXd0NWVBeS1aNV82S3MzWUYyWW90ZHNUTkNBbXFSVUZn?oc=5",
-   "ms": 1795131072000,
-   "time": "11/20 07:31"
-  },
-  {
    "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWxBZ2JuMWhKMWhRUVFycmxGNTZ0cUNESWZDdnljWTl4b3ZGNk81cVR5MlVRc2NMenIzUlVJcDRhWGxVTjd6N09RVXd5QkZsODNna1YtNm1uZ21YU2RQVWZjZ2hfYkhWUEpaLWx4N1pnWHRQckNfS2trenIza3U2LWNKb1d0WFZyNVAxdXhyOU50SldsNVVWX2xtZTBFNVdTUVA5azFLbw?oc=5",
@@ -77,6 +70,13 @@
    "time": "11/20 05:27"
   },
   {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
+  },
+  {
    "t": "Retirement savers see gold's appeal. Why do so few own it?",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSTNzQVVXY0JYRE1uRDFqLTBGYm1zcDhlRm9LUkx0T3F0eW9QLVVFcTc5aHY2SXdKckE4dFJUdk1jaE5BX3hIQUxFQ25EVFBsYy1ISkgteFB2ZzlvRVlwZ1NzV085MVk2bnFlQUphVHhGT2hBMk1uaXotdWh4M3ZoTVJOeldpUXVIcnNLMmhIWHhWQ1VtbVF3TzNScFdoQzdvOENZT3RDU2hvN00yYTdmS29ycnhrdnlQ?oc=5",
@@ -98,18 +98,18 @@
    "time": "11/20 02:45"
   },
   {
-   "t": "Forex Today: Japan CPI alongside UK consumer spending data will set the tone",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUmc2TDZGYncwdE1mM2s3aE5wOHBSaWdWckhyLUJwYlBPSVlFdVBOcmkyVkh1U2U4d0lrTXBMLTBOWERGNFkwOHhsYTEwaVdxMnZxVHZGNDVXNnJRSUkwMnUzaGhiS2d4ZEFDbGdIMXBzdkNMUUxydFBzTk5rMlhIdnVuT1BqV0w2Q1ZDOG1LZW9WYUJnbzJ1NERDd2U2YTZKX0hiVnBzcm45c0FmRzFrYnZNRzlHcHZJYnc?oc=5",
-   "ms": 1795113282000,
-   "time": "11/20 02:34"
-  },
-  {
    "t": "Gold hits new lows amid scorching Fed rate hike bets",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
    "ms": 1795112798000,
    "time": "11/20 02:26"
+  },
+  {
+   "t": "Gold's 14-month low looks mild next to Silver's fall from $121 to $44",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMzUtN3dzUUdicERCVDZnYU9iMDdMQVJrSFJxaTVJUTNDVWhIa1p2WVpSZHFhYVBkN09mNE5BNTRtYUU5SWQ2Tk1KVXAzQmtfTHlLeDZEeVJ0bDgycjgyVTlVTVQtaWd3bHlXMzFlRWN3QkwzWjVJSl9EajZNa0szYnpRNUVUSk1EaXN6SVRYb2tGd2dHeDVQb1RmWW9FSHNtWW1VSmlObzVNNGhhUGJueHhB?oc=5",
+   "ms": 1795112674000,
+   "time": "11/20 02:24"
   }
  ]
 }

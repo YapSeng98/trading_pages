@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-20 11:26 SGT",
+ "updated": "2026-11-20 12:20 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3523.2,
- "priceTime": "2026-11-20 11:15 SGT",
+ "price": 3543,
+ "priceTime": "2026-11-20 12:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3627.5,
   "high": 3636.4,
-  "low": 3521,
-  "changeFromPrevClose": -102.3,
-  "changePct": -2.82,
+  "low": 3517.2,
+  "changeFromPrevClose": -82.6,
+  "changePct": -2.28,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -53,7 +53,7 @@
  ],
  "thisWeek": {
   "high": 3901.1,
-  "low": 3526
+  "low": 3517.2
  },
  "previousWeek": {
   "open": 4064.9,
@@ -86,11 +86,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3523.2,
-  "stop": 3602,
-  "target": 3287,
-  "stopDistance": 78.8,
-  "trailDistance": 157.5,
+  "entry": 3543,
+  "stop": 3624.5,
+  "target": 3298.6,
+  "stopDistance": 81.5,
+  "trailDistance": 163,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -183,22 +183,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-10 18:00 SGT",
-   "rsi": 14.2,
-   "atr": 26.25,
-   "ema20": 3657.8,
-   "ema50": 3719.2,
-   "ema200": 3857.9,
+   "rsi": 15.5,
+   "atr": 27.16,
+   "ema20": 3647.5,
+   "ema50": 3712.6,
+   "ema200": 3854.8,
    "emaOrder": "空头排列",
    "range": {
     "top": 3744.2,
-    "bottom": 3526,
-    "positionPct": 10
+    "bottom": 3517.2,
+    "positionPct": 14
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3693.3,
-    "barsAgo": 10
+    "barsAgo": 11
    },
    "turnsUpAbove": 3758.4,
    "turnsDownBelow": null
@@ -208,33 +208,28 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-19 11:00 SGT",
-   "rsi": 20.6,
-   "atr": 19.44,
-   "ema20": 3584.8,
-   "ema50": 3632.1,
-   "ema200": 3720.1,
+   "rsi": 33.9,
+   "atr": 19.22,
+   "ema20": 3571.1,
+   "ema50": 3618.9,
+   "ema200": 3713.2,
    "emaOrder": "空头排列",
    "range": {
     "top": 3692.2,
-    "bottom": 3521.1,
-    "positionPct": 1
+    "bottom": 3517.2,
+    "positionPct": 15
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3667.4,
-    "barsAgo": 24
+    "barsAgo": 28
    },
    "turnsUpAbove": 3692.2,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
-  {
-   "price": 3526,
-   "what": "1小时区间底",
-   "strength": 1
-  },
   {
    "price": 3556.7,
    "what": "4小时区间底",
@@ -254,13 +249,18 @@
    "price": 3723.7,
    "what": "4小时区间中点",
    "strength": 1
+  },
+  {
+   "price": 3744.2,
+   "what": "1小时区间顶、1小时近期小高点",
+   "strength": 2
   }
  ],
  "support": [
   {
-   "price": 3244.9,
-   "what": "周线等低点（止损密集）",
-   "strength": 2
+   "price": 3517.2,
+   "what": "1小时区间底",
+   "strength": 1
   }
  ],
  "rules": "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
