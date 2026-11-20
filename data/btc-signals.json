@@ -2,9 +2,9 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1795135500000,
+ "lastChecked": 1795137300000,
  "a3": -1,
- "a5": -1,
+ "a5": 0,
  "open": 5,
  "nextId": 12,
  "signals": [
@@ -1310,6 +1310,17 @@
    "level": 63582,
    "a3": -1,
    "a5": -1
+  },
+  {
+   "ms": 1795137300000,
+   "time": "2026-11-20 09:15 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 62346.01,
+   "level": 62344.9,
+   "a3": -1,
+   "a5": 0
   }
  ],
  "trends": {
@@ -1317,7 +1328,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bearish"
+  "15M": "bullish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1328,7 +1339,7 @@
     "open": 2,
     "nextId": 3,
     "skipped": 9,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1380,7 +1391,7 @@
     "open": 4,
     "nextId": 5,
     "skipped": 8,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1472,7 +1483,7 @@
     "open": 3,
     "nextId": 4,
     "skipped": 9,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
