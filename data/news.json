@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 06:48 SGT",
+ "updated": "2026-11-21 07:01 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "There are five trillion reasons not to give up on gold just yet",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQV3VXc2psa2JIVGdVZVVaLUJVN3hNZG42a2tTRkg0aGNFZHFPN202TkdtREExVW1BSDRBcWgtUTFwbENJbHJlY1RpZl93d3ZIZldSRkVhb3JlbzNqc3JyTXlpejBiZER5TGp2QWdCdDlZQ1lqOS10RnlxaFUyQzhyaFdQVldzd1dRVm9yMElLMGJQc3VWRE1rbXp5X21vRUo5?oc=5",
+   "ms": 1795215188000,
+   "time": "11/21 06:53"
+  },
+  {
    "t": "Wall Street stays bearish after gold’s slide to $3,500, Main Street pessimism deepens ahead of holiday week",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPMzNZSEhWdkUzUk5sejZ4cDNvV3YyZ1I5d1RSUFdrLXNILVZIS1RmZU1ROTE3RG5fZllqc2lZNzh0UkpyYmk1Uk5GUjlxOGVxdW81WTdsRFZzMlpQdkJNUjhLM1EwZlg0Y2ZXb0VJLTB6U0FtMjlxVUF2UkFGNEVYNWZ1THNBM1cxTkxCd2hUY3Y3ckRrUE9zZFpkbHphdkN0aDhWOE5LT1RwMTFYRVVLeE05Ti1remM?oc=5",
    "ms": 1795213609000,
    "time": "11/21 06:26"
+  },
+  {
+   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
+   "ms": 1795212759000,
+   "time": "11/21 06:12"
   },
   {
    "t": "Gold and silver suffer brutal losses as liquidity crunch deepens, but analysts see signs of a bottom",
@@ -49,11 +63,11 @@
    "time": "11/21 03:20"
   },
   {
-   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
-   "ms": 1795202080000,
-   "time": "11/21 03:14"
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795201128000,
+   "time": "11/21 02:58"
   },
   {
    "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZ1FnbGMtajVDa2FNWUQ5eGVERmkxaUNRcjNIMUNDNUprbGlCajZ6dE8zSEdubFNjY0hwYlhxTTlQdmd6UzNIUnVGbGtnVzBXOTZPbTQ4NnRIS1ROaE1oN09HbXl6OXYwZnF2M1AzZVktbmZyTDRGRkV0emw3b1pBSDItQkk5dXJmODRIbi1wYTBsZFVuOXllTWJEWTVibXJkdlE?oc=5",
    "ms": 1795191185000,
    "time": "11/21 00:13"
-  },
-  {
-   "t": "Gold heads for worst week since March as Fed rate hike bets and forced selling weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
-   "ms": 1795190005000,
-   "time": "11/20 23:53"
-  },
-  {
-   "t": "The price of gold today, Nov. 20, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE05aHZxcTVKaTRqejRrdm1xSTlld3lhcUxtZDlfM09qeDFoWmZNR3Y1T05zRDZtYlQ3bkFvV2NUVVVzVGdiN1lQNDBEb0pub0JDSFJiZXcyM1hPM0NDMFZkclJ3dXJSNUFXSDBRTU1UVWZSUdIBd0FVX3lxTE5iVkNFQjVLNUdQWTlMQ09VNC1tbWZvQlVtYmpEYzV1TXh0Rk1OZ1Q3VElSSS1fMjdhRHJFSjRCQ2dNWnFJVVVjSGJqY3dTcExTaFNQa3ZNNTFONW1JbXUxLVRwWndUejVVaE42NWh0MFZaZTROeTU4?oc=5",
-   "ms": 1795188621000,
-   "time": "11/20 23:30"
   }
  ]
 }
