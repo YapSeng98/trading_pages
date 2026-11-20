@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 05:14 SGT",
+ "updated": "2026-11-21 05:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -51,9 +51,16 @@
   {
    "t": "Gold Mining Stocks Look Historically Cheap as Earnings Defy Rising Costs",
    "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMDl5MG5SRDNfVU9WWlMycWI1eW1fWW1nenkxMzZ6X20wT0hXZGpqWkdvQm1haU04Ri1jNC1uc3pQYlNwb04teHItOU42M1hXc2tmemozNmdoVXhTLXdNWXRnSHM3Qm5CTWk0bjk2cXdMbWR4SHpKd1g2NVE1M1k3WlNlSWtjcE5LaGx6UXJ6MHZKV2dmd0U4N1pVSlpUM1ZaYWhtZjNJenpNMTA1bm9OM1NHOVlodnZj?oc=5",
-   "ms": 1795194590000,
-   "time": "11/21 01:09"
+   "url": "https://www.investing.com/analysis/gold-mining-stocks-look-historically-cheap-as-earnings-defy-rising-costs-200692021",
+   "ms": 1795194360000,
+   "time": "11/21 01:06"
+  },
+  {
+   "t": "TAG: real Treasury yields",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE53N3B3MVpudlFmWTNUUFA0dUpIQlY2NnhHTzltcFIyaHhoZVFXQ0lYcWs0Y0liRi1CZ1d0dU10M1lSLXJjRE1FaUZoMmJiMTVzakZ3Zl9rMXNhMF85SU5iNQ?oc=5",
+   "ms": 1795193382000,
+   "time": "11/21 00:49"
   },
   {
    "t": "Gold under a hiking Fed: central-bank demand versus real rates",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTVBiWGxOR25KTVE5WUQ0M3hLTTRsWTZONDVaenhLN2pYVDFncHZvdmZDMmQ2Qkx3V2dvMUhyZktvcFJhYVd4Y2JoSTZNN1RRZjFFYTQ1TURHYWdWdjlzOU5seGFwNlFnMEJNYnU4Z3dCei1nTjh2NFlwUnJiRXk0TXJ4MFdCX1gxdE5YR1RobXlNSjBDQlBHQXpFdW1RVEl1cVJLM1JaczlpRUkzRXptYjU4Rk5sQ3Y2WGpV?oc=5",
    "ms": 1795186447000,
    "time": "11/20 22:54"
-  },
-  {
-   "t": "Gold and Silver Hit Downside Targets, but Why the Rebound Could Be a Bull Trap",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silver-hit-downside-targets-but-why-the-rebound-could-be-a-bull-trap-200692010",
-   "ms": 1795185540000,
-   "time": "11/20 22:39"
   }
  ]
 }
