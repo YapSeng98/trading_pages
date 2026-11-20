@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 19:32 SGT",
+ "updated": "2026-11-20 19:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
    "ms": 1795173827000,
    "time": "11/20 19:23"
+  },
+  {
+   "t": "Peter Schiff says there’s something ‘most investors don’t understand’ about gold as it crashes — is the glitter gone?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQQmkxU3M1SDdLeWlqYV9iMXBLZ0lYNXA5Wk0zY3FFdGJsRnJhbUZvakl0c3BoekpfaGdJSW5IUHc4ak52eVJKVW83OXhqcjVKTmRNQWNiaUpiSGxpYXVSc1VsQ0JhX3N6dXBNYktMaG42R1dmVFNlQ0ZkWVF5WVc1bl9tbHpqUjY3d2ZiNVFUM3hCX1NweEUyb01FaW9CY29sT1ZIbw?oc=5",
+   "ms": 1795172400000,
+   "time": "11/20 19:00"
   },
   {
    "t": "Gold on pace for steepest weekly drop in eight months amid Fed hike bets",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-breaks-below-weekly-ascending-triangle-as-3500-support-comes-into-focus-200691976",
    "ms": 1795152240000,
    "time": "11/20 13:24"
-  },
-  {
-   "t": "Hormuz Oil Exports Could Decline amid Inbound Tanker Shortage",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/hormuz-oil-exports-could-decline-amid-inbound-tanker-shortage-200691973",
-   "ms": 1795151160000,
-   "time": "11/20 13:06"
   }
  ]
 }
