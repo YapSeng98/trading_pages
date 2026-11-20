@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-20 18:11 SGT",
+ "updated": "2026-11-20 18:38 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold on pace for steepest weekly drop in eight months amid Fed hike bets",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQUVyWWlOa1p5akt2NFlMd01jdTBaSks2ZGM3YnZmeFlpbkVJdjgzX2REeF9VcTdMa3drOVpLekltUnVrcUxZT2ZITENMT2dZeXFtdDcteGlDYWR0YU05THVCWmlGWTE0MnlwcVpVd2xMdk0xa2RKbERCOFpoVHNHR0ZmSzRvZDA2bTZHaXhLUlgwSS1kS3pEcWlZOHdUS0ZNa3NuTVVnd3VXWHNwSkI3Zy1hRlc1VTVvVnpj?oc=5",
+   "ms": 1795170246000,
+   "time": "11/20 18:24"
+  },
+  {
+   "t": "Gold Prices Hit 14-Month Low as Strong Dollar and Fed Rate Hike Bets Drive Weekly Sell-Off",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9hZlFpTWljQTB3bFhudTY3NW1yVEdYelJBVGNpZDI4NVp1T3pucGRfR1FLSl9GNFhHVVplNHB5TVN2UEd2TEVYVE56bGQ4YV9ONU9KZTl2RzFWTGdqeDNjdkZvS1liYnp2WFVlVWRlb0RvZVBKY1pSVXdYd0ltQQ?oc=5",
+   "ms": 1795168359000,
+   "time": "11/20 17:52"
+  },
   {
    "t": "The Fed’s intentions remain key for the markets",
    "src": "FXStreet",
@@ -21,18 +35,18 @@
    "time": "11/20 16:20"
   },
   {
-   "t": "Gold slides to 14-mth low, set for weekly drop amid Fed hike bets",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQUVyWWlOa1p5akt2NFlMd01jdTBaSks2ZGM3YnZmeFlpbkVJdjgzX2REeF9VcTdMa3drOVpLekltUnVrcUxZT2ZITENMT2dZeXFtdDcteGlDYWR0YU05THVCWmlGWTE0MnlwcVpVd2xMdk0xa2RKbERCOFpoVHNHR0ZmSzRvZDA2bTZHaXhLUlgwSS1kS3pEcWlZOHdUS0ZNa3NuTVVnd3VXWHNwSkI3Zy1hRlc1VTVvVnpj?oc=5",
-   "ms": 1795161150000,
-   "time": "11/20 15:52"
-  },
-  {
    "t": "Gold Tests 100% Support as Bearish Momentum Pauses, Awaiting Breakout Confirmation",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-tests-100-support-as-bearish-momentum-pauses-awaiting-breakout-confirmation-200691983",
    "ms": 1795159140000,
    "time": "11/20 15:19"
+  },
+  {
+   "t": "Gold slides to 14-mth low, set for weekly drop amid Fed hike bets By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOemJpZTVNS29fblpyUlhJbHN2LXZkclMyc0h6S2d1MFdOMEF4ZmJEanQwUmJzR0s1bDM0Q3VJMlZmdWFJcXc4WjUzRk1STzFaWEpGdVYzV1NZM0Y1V0pmLU4tM3pfb2U2WWJJWDFmSy1nbi1TTzdXT1M0ekdjNHFhYnFNSV9zQ2JMUDVkaXduRmFiRkhjX3NKS2JDNnhWUzY1ZmxEQndIS1UweDktUGZjTHdsVjlrVGFtbnc?oc=5",
+   "ms": 1795159003000,
+   "time": "11/20 15:16"
   },
   {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
@@ -91,25 +105,11 @@
    "time": "11/20 13:05"
   },
   {
-   "t": "Gold slides toward worst week in eight months on hawkish Fed outlook",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMFFjdnZJUDZiUXhKNUdPUWMtQ2tkd0ZKdmN4TTZ3bnQyb09SQ3cxSS1hNVYtcmF5WGpNSlJzS1dWYkdBUzBJZ2s5TnhLQ29mNWNIUy10MGJkN294UndsTmRmOF9GelkyVkdWRl8wcVJQNnRaRGp0a3NIMWNHT1dJSHhZRk1BT3FRV2pFcHVGa3ozS1ZCdjJXenJvSXlBOEdxLUp2MVVVTVBDY0NGX3ZRRUN3?oc=5",
-   "ms": 1795145040000,
-   "time": "11/20 11:24"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD in a freefall - is a bottom in sight?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWEptRXhqV2tPNVFzbXFFN0t4d0xYaFBmaU1EaHdoLTlXSUNSdEJQdlZUUVpPNmtyV2t1MV9ZUEcwSTR4YWs4X2QyYWhiR0JlRlRkUEVnODFZajRyU3F6VlpFREwwOXItYmlwaTRpTmt4V0VqenRkRVUwZzczOHpkZVJxM3JFeXBLc3NPTEpHNF9JbHhVUUYzRVpLSnNMaDd0bDJjRW1Xb04tSk1Ld0E?oc=5",
-   "ms": 1795143883000,
-   "time": "11/20 11:04"
-  },
-  {
-   "t": "Gold futures sink below $3,700 as 5% yields pull money out of bullion",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlJNYXNXZkw3b1RUbHlCY0hkVHF0OEFjQnpaMDlNc2dYREpHTUpVSHdiVTFsMHlYbXFjX3RhX0VFN3Z5WFZSUFBtRUplVUs3TWx3SWk1UmJYTDk0LWxQOFhIaU1JNS1hQm9QaDlSalNLU1JkRDd5QU9YUHZyTEsxalNySWo0YVUwVkNjZE55SXplYkJMOVJHQkIySk5YM05rV1Bj?oc=5",
-   "ms": 1795140302000,
-   "time": "11/20 10:05"
+   "t": "Gold slides to 14-mth low, set for weekly drop amid Fed hike bets",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOV1NKUW52a0Q5bk5MZnNHSW93UVk1ZklhYi10UzBPZlNsQVZJZXdLTmFMVVUtTzQxRm1KYkptZWhqV3ZXalRTNjd5dHZ3YUtxOWdwVWw0R0k5MjlFOFJFRWF3cUNjVDRTa0NaNE5PMTFmOUxPLVQ4amVYMkhaU2E3R0c2SkNyWlNIOXQteXZLMDNROGRTbmg5QXN5YWhjbkItMzZwYkR2MmItUWRlUG5idXpCSGlMZGtCV3c?oc=5",
+   "ms": 1795149240000,
+   "time": "11/20 12:34"
   }
  ]
 }
