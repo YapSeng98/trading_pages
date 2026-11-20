@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-20 14:49 SGT",
+ "updated": "2026-11-20 15:43 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 61799.5,
- "priceTime": "2026-11-20 14:45 SGT",
+ "price": 61658.2,
+ "priceTime": "2026-11-20 15:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 61986.7,
   "high": 62639.5,
   "low": 61290.6,
-  "changeFromPrevClose": -187.2,
-  "changePct": -0.3,
+  "changeFromPrevClose": -328.6,
+  "changePct": -0.53,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 61799.5,
-  "stop": 63797.4,
-  "target": 55805.9,
-  "stopDistance": 1997.9,
-  "trailDistance": 3995.8
+  "entry": 61658.2,
+  "stop": 63591.2,
+  "target": 55859.1,
+  "stopDistance": 1933,
+  "trailDistance": 3866
  },
  "watch": [
   {
@@ -124,9 +124,9 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-16 21:00 SGT",
-   "rsi": 42.2,
-   "atr": 665.96,
-   "turnsUpAbove": 64080.8,
+   "rsi": 44,
+   "atr": 644.34,
+   "turnsUpAbove": 62639.5,
    "turnsDownBelow": null
   },
   {
@@ -134,8 +134,8 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-20 10:00 SGT",
-   "rsi": 47,
-   "atr": 298.09,
+   "rsi": 43.7,
+   "atr": 294.93,
    "turnsUpAbove": 62403.6,
    "turnsDownBelow": 61389.1
   }
@@ -148,13 +148,13 @@
   },
   {
    "price": 62639.5,
-   "what": "1小时双底关键位、1小时近期小高点、4小时区间中点",
-   "strength": 4
+   "what": "1小时双底关键位、1小时前高、1小时近期小高点、4小时区间中点",
+   "strength": 5
   },
   {
    "price": 64080.8,
-   "what": "昨日高点、4小时区间顶、1小时前高、1小时区间顶、1小时双底目标、4小时近期小高点",
-   "strength": 9
+   "what": "昨日高点、4小时区间顶、1小时区间顶、1小时双底目标、4小时近期小高点",
+   "strength": 8
   },
   {
    "price": 65508.9,
