@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-20 20:26 SGT",
+ "updated": "2026-11-20 21:20 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 61421.1,
- "priceTime": "2026-11-20 20:15 SGT",
+ "price": 61543.1,
+ "priceTime": "2026-11-20 21:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 61986.7,
   "high": 62639.5,
   "low": 61230,
-  "changeFromPrevClose": -565.6,
-  "changePct": -0.91,
+  "changeFromPrevClose": -443.7,
+  "changePct": -0.72,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 61421.1,
-  "stop": 63191.9,
-  "target": 56108.8,
-  "stopDistance": 1770.8,
-  "trailDistance": 3541.6
+  "entry": 61543.1,
+  "stop": 63319.1,
+  "target": 56215,
+  "stopDistance": 1776,
+  "trailDistance": 3552.1
  },
  "watch": [
   {
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-16 21:00 SGT",
-   "rsi": 43,
-   "atr": 590.26,
+   "rsi": 40.4,
+   "atr": 592.01,
    "turnsUpAbove": 62639.5,
    "turnsDownBelow": 61290.6
   },
@@ -134,27 +134,27 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-20 20:15 SGT",
-   "rsi": 38.6,
-   "atr": 264.89,
+   "rsi": 43,
+   "atr": 257.34,
    "turnsUpAbove": 62341.9,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
   {
-   "price": 61428.3,
-   "what": "昨日低点、日线区间底、日线熊旗关键位",
-   "strength": 8
-  },
-  {
    "price": 62006,
    "what": "上周低点、周线区间底、4小时向下突破位、1小时向下突破位",
    "strength": 9
   },
   {
+   "price": 62341.9,
+   "what": "1小时近期小高点",
+   "strength": 1
+  },
+  {
    "price": 62639.5,
-   "what": "1小时双底关键位、1小时前高、1小时近期小高点、4小时区间中点",
-   "strength": 5
+   "what": "1小时双底关键位、1小时前高、4小时区间中点",
+   "strength": 4
   },
   {
    "price": 63988.5,
@@ -169,12 +169,17 @@
  ],
  "support": [
   {
-   "price": 61290.6,
-   "what": "4小时区间底、1小时熊旗关键位、1小时前低、1小时区间底、4小时近期小低点、1小时近期小低点",
+   "price": 61428.3,
+   "what": "昨日低点、日线区间底、日线熊旗关键位",
    "strength": 8
   },
   {
-   "price": 58794.6,
+   "price": 61230,
+   "what": "1小时熊旗关键位、4小时区间底、1小时前低、1小时区间底、4小时近期小低点、1小时近期小低点",
+   "strength": 8
+  },
+  {
+   "price": 58734,
    "what": "1小时熊旗目标",
    "strength": 1
   }
