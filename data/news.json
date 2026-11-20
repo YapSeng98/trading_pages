@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-21 00:57 SGT",
+ "updated": "2026-11-21 01:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "TAG: real Treasury yields",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE53N3B3MVpudlFmWTNUUFA0dUpIQlY2NnhHTzltcFIyaHhoZVFXQ0lYcWs0Y0liRi1CZ1d0dU10M1lSLXJjRE1FaUZoMmJiMTVzakZ3Zl9rMXNhMF85SU5iNQ?oc=5",
-   "ms": 1795193382000,
-   "time": "11/21 00:49"
-  },
   {
    "t": "Gold under a hiking Fed: central-bank demand versus real rates",
    "src": "Kitco",
@@ -63,9 +56,9 @@
    "time": "11/20 22:42"
   },
   {
-   "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbTEtOE85bklMWGFXUktXS24yal9EYWNmaHZMLUJ4YnEzTlB4TVZ3TnhoQlhFUnBrX0RjLXlCYmVRSGlKMWJYOGdvcG1RalhiQTNuczdRWlVNWklSSGFEelZyLWlYTjJTMFpDXy1ocldibDBXbXoxeDVLN1NNNTE1b1NyTDVJY2J6RFhDOVNsR0pucTloZjBvcWxwdmRDVlBiWWdHZlkwck9lazlnVWtLSTFsbVhWRG9heVprZmZR?oc=5",
+   "t": "Gold and Silver Hit Downside Targets, but Why the Rebound Could Be a Bull Trap",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-and-silver-hit-downside-targets-but-why-the-rebound-could-be-a-bull-trap-200692010",
    "ms": 1795185540000,
    "time": "11/20 22:39"
   },
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbWtVZ3ZCNFl6M2Qyd2h4bUNlVkw0akd5RFZUWjVPTEZ4b09MNnV6dlBCTHVqU3JRaUZBT1d0dC1NTm9sQ2RyS1VGakJlOThaWDBhM0xvZHl1Mm92d2ptOWtSTmFzQzJLQTdJY2RaWW5CcG81cGYzLXlROVhyNWM5NWtLT1RjU3FlOVhTbVRjRFRTM1BIZ2hvZzEwN1RRUXR4b1RVeDRyZkpjUDBQNE14X042Skl0Vi1kNkE?oc=5",
    "ms": 1795181648000,
    "time": "11/20 21:34"
+  },
+  {
+   "t": "Oil Prices Slide Despite Rising Tanker Attacks in the Strait of Hormuz",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/iran-steps-up-hormuz-tanker-attacks-as-oil-prices-slide-200692005",
+   "ms": 1795180980000,
+   "time": "11/20 21:23"
   }
  ]
 }
