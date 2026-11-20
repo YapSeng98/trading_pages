@@ -1,9 +1,7 @@
 {
- "updated": "2026-11-20 10:11 SGT",
+ "updated": "2026-11-20 15:30 SGT",
  "source": "Yahoo Finance chart API, daily bars",
- "failed": [
-  "SNDK"
- ],
+ "failed": [],
  "quotes": {
   "NVDA": {
    "price": 145.98,
@@ -50,8 +48,8 @@
    "r1m": -6.5,
    "r3m": 3.12,
    "ytd": 5.36,
-   "divTtm": 3.64,
-   "yield": 0.73,
+   "divTtm": 4.62,
+   "yield": 0.93,
    "symbol": "MSFT",
    "market": "US",
    "cur": "$"
@@ -74,22 +72,21 @@
    "cur": "$"
   },
   "SNDK": {
-   "price": 776.22,
-   "prev": 797.24,
-   "chg": -2.64,
-   "date": "2026-11-18",
-   "hi52": 2354.3899,
-   "lo52": 183.0,
-   "pos52": 27,
-   "r1m": -43.15,
-   "r3m": -51.51,
-   "ytd": 182.02,
+   "price": 94.395,
+   "prev": 97.0275,
+   "chg": -2.71,
+   "date": "2026-11-19",
+   "hi52": 294.2987,
+   "lo52": 22.875,
+   "pos52": 26,
+   "r1m": -45.21,
+   "r3m": -52.69,
+   "ytd": 174.36,
    "divTtm": 0,
    "yield": 0.0,
    "symbol": "SNDK",
    "market": "US",
-   "cur": "$",
-   "stale": true
+   "cur": "$"
   },
   "ABBV": {
    "price": 283.54,
