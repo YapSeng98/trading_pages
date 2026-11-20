@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-21 05:00 SGT",
+ "updated": "2026-11-21 05:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and silver prices fall again: How much lower could they go?",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbkh2d29XWFItYzI5aWhZeTZuZmNTMFJoaGYzQy02MHQxR1Iwc0RCelhrUGZaYkNYSEs2NDNsLVJqU3ZoeW9ndWxxeWdnamxDak5GbE1YX2hNM2lZNVlQQU52QkF5X0V1eDF3eVI4d2ZVdk1yWFNiMTNMT1B3RjFuSlpQaXhhZlVBbmd0SlpPdDZ3RF9VMTBDdDJQN0d3OVFEbG1VZ2hn?oc=5",
+   "ms": 1795208425000,
+   "time": "11/21 05:00"
+  },
   {
    "t": "Gold price could drop $300 if $3,500/oz fails, and buyers might hold off until the Fed – Walsh Trading’s Lusk",
    "src": "Kitco",
@@ -101,13 +108,6 @@
    "t": "Gold and Silver Hit Downside Targets, but Why the Rebound Could Be a Bull Trap",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-and-silver-hit-downside-targets-but-why-the-rebound-could-be-a-bull-trap-200692010",
-   "ms": 1795185540000,
-   "time": "11/20 22:39"
-  },
-  {
-   "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbTEtOE85bklMWGFXUktXS24yal9EYWNmaHZMLUJ4YnEzTlB4TVZ3TnhoQlhFUnBrX0RjLXlCYmVRSGlKMWJYOGdvcG1RalhiQTNuczdRWlVNWklSSGFEelZyLWlYTjJTMFpDXy1ocldibDBXbXoxeDVLN1NNNTE1b1NyTDVJY2J6RFhDOVNsR0pucTloZjBvcWxwdmRDVlBiWWdHZlkwck9lazlnVWtLSTFsbVhWRG9heVprZmZR?oc=5",
    "ms": 1795185540000,
    "time": "11/20 22:39"
   }
