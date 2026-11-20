@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 06:07 SGT",
+ "updated": "2026-11-21 06:21 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -77,13 +77,6 @@
    "time": "11/21 01:09"
   },
   {
-   "t": "TAG: real Treasury yields",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE53N3B3MVpudlFmWTNUUFA0dUpIQlY2NnhHTzltcFIyaHhoZVFXQ0lYcWs0Y0liRi1CZ1d0dU10M1lSLXJjRE1FaUZoMmJiMTVzakZ3Zl9rMXNhMF85SU5iNQ?oc=5",
-   "ms": 1795193382000,
-   "time": "11/21 00:49"
-  },
-  {
    "t": "Gold under a hiking Fed: central-bank demand versus real rates",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZ1FnbGMtajVDa2FNWUQ5eGVERmkxaUNRcjNIMUNDNUprbGlCajZ6dE8zSEdubFNjY0hwYlhxTTlQdmd6UzNIUnVGbGtnVzBXOTZPbTQ4NnRIS1ROaE1oN09HbXl6OXYwZnF2M1AzZVktbmZyTDRGRkV0emw3b1pBSDItQkk5dXJmODRIbi1wYTBsZFVuOXllTWJEWTVibXJkdlE?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZmFLaVVWR2NZYjVsWXk2ZHBsQTB0S01xWVZLX2EwY0RJcFJXREZ4cE81SGwwNUROSlRhbGxXNTNVZ1BTa0tzaHdQNFh5WHFSdy1iQjMzRGxOUGI3dlFBZzJqUG1HT1NsbENDMmJPZEJnbnZZUEpJZVBRUlRNT293MzRnVjBXbEpZcE9MTTJaVjlGdk9WWGtxX3pTdU0wT3lWeXJkYWZWenZKUzA?oc=5",
    "ms": 1795188019000,
    "time": "11/20 23:20"
+  },
+  {
+   "t": "Gold price trades near $3,568/oz after final Consumer Sentiment rises to 51.5, inflation expectations drop",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQaXV0UWUtUHFyVkwzek85UFJvS1V1UFBacFI1TGkyMmJ3OUl3MWFlOXl6QTVJRkg1ckdZbkpJZnA1TzhQOEFNNGhwT2k3S3Y5SmZZZVlZMkdjd1lTWmlTclhDbm1xVGRMOHZXcEFIckEyY3djWUdCWGE1TDdCTHF6SlZJOWZzMWpIaWZOOTNFSWZkVWlMLS0zT1ZyZmJPWUQ2WjNhT29OQ09UNzFUSHRWeVZoUW5EeUk?oc=5",
+   "ms": 1795186825000,
+   "time": "11/20 23:00"
   }
  ]
 }
