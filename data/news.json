@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 10:59 SGT",
+ "updated": "2026-11-20 11:13 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Price Forecast: XAU/USD in a freefall - is a bottom in sight?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWEptRXhqV2tPNVFzbXFFN0t4d0xYaFBmaU1EaHdoLTlXSUNSdEJQdlZUUVpPNmtyV2t1MV9ZUEcwSTR4YWs4X2QyYWhiR0JlRlRkUEVnODFZajRyU3F6VlpFREwwOXItYmlwaTRpTmt4V0VqenRkRVUwZzczOHpkZVJxM3JFeXBLc3NPTEpHNF9JbHhVUUYzRVpLSnNMaDd0bDJjRW1Xb04tSk1Ld0E?oc=5",
+   "ms": 1795143883000,
+   "time": "11/20 11:04"
+  },
   {
    "t": "Gold slumps below $3,550, fresh low since September 2025 as Fed bets, Iran risks lift USD",
    "src": "FXStreet",
@@ -19,13 +26,6 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlJNYXNXZkw3b1RUbHlCY0hkVHF0OEFjQnpaMDlNc2dYREpHTUpVSHdiVTFsMHlYbXFjX3RhX0VFN3Z5WFZSUFBtRUplVUs3TWx3SWk1UmJYTDk0LWxQOFhIaU1JNS1hQm9QaDlSalNLU1JkRDd5QU9YUHZyTEsxalNySWo0YVUwVkNjZE55SXplYkJMOVJHQkIySk5YM05rV1Bj?oc=5",
    "ms": 1795140302000,
    "time": "11/20 10:05"
-  },
-  {
-   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
-   "ms": 1795136640000,
-   "time": "11/20 09:04"
   },
   {
    "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
@@ -77,25 +77,11 @@
    "time": "11/20 02:45"
   },
   {
-   "t": "Forex Today: Japan CPI alongside UK consumer spending data will set the tone",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPUmc2TDZGYncwdE1mM2s3aE5wOHBSaWdWckhyLUJwYlBPSVlFdVBOcmkyVkh1U2U4d0lrTXBMLTBOWERGNFkwOHhsYTEwaVdxMnZxVHZGNDVXNnJRSUkwMnUzaGhiS2d4ZEFDbGdIMXBzdkNMUUxydFBzTk5rMlhIdnVuT1BqV0w2Q1ZDOG1LZW9WYUJnbzJ1NERDd2U2YTZKX0hiVnBzcm45c0FmRzFrYnZNRzlHcHZJYnc?oc=5",
-   "ms": 1795113282000,
-   "time": "11/20 02:34"
-  },
-  {
    "t": "Gold hits new lows amid scorching Fed rate hike bets",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
    "ms": 1795112798000,
    "time": "11/20 02:26"
-  },
-  {
-   "t": "Gold's 14-month low looks mild next to Silver's fall from $121 to $44",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMzUtN3dzUUdicERCVDZnYU9iMDdMQVJrSFJxaTVJUTNDVWhIa1p2WVpSZHFhYVBkN09mNE5BNTRtYUU5SWQ2Tk1KVXAzQmtfTHlLeDZEeVJ0bDgycjgyVTlVTVQtaWd3bHlXMzFlRWN3QkwzWjVJSl9EajZNa0szYnpRNUVUSk1EaXN6SVRYb2tGd2dHeDVQb1RmWW9FSHNtWW1VSmlObzVNNGhhUGJueHhB?oc=5",
-   "ms": 1795112674000,
-   "time": "11/20 02:24"
   },
   {
    "t": "“Buckle up” Gold price reset [Video]",
@@ -105,11 +91,25 @@
    "time": "11/20 01:17"
   },
   {
-   "t": "Gold adds resilience despite near-term headwinds, copper will hit $15,500/t in 2027 – UBS",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQY0cwSHl4UnJ0dTRIcmRmam5OOWhCOWFOT2hZeXNrMW0zc29XN1l3S19FQWhuRnlHbFh2UUhJaS1EdU9uT1Zzd0JUT2dNbGpsRjdPeFJPU21OTU5aYmhWRm51WmliY1hIMTNCUmJsV0lQaVlYY1VpQUdBWkdQWEh1WjcxdDIxVzBZWHNZdFI1VDhRbGpXc1JCVGJaSFNGcVBMNVhkTUpnb3RRUzVuT2ltMFhOclB4Sm5K?oc=5",
-   "ms": 1795108486000,
+   "t": "Gold and Silver Sink Again in China, Then London, as Anthropic Floats",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOVHZqVHpBTVZXQURjdlNpUmxWN0x3Qm0wOU1ZVzVFbWUtdkJQQVNPdlBtVG5jWEE0b2M4bkFkeHRxbHlZTmZYNTF0dS1XUDNJOHdHYkRFU0kyazlEdWxKbHlnUXU3S0d5dEhnd1d0cUg4N1VOM1FRV2N6Q0NxOVJVeXRSQ1hLYWdObzhjUUFCcHM3LW94Q18tTnNpVVl6Y0JSeVE?oc=5",
+   "ms": 1795108465000,
    "time": "11/20 01:14"
+  },
+  {
+   "t": "Gold’s Bear Market Through the Lens of Probability Theory",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-bear-market-through-the-lens-of-probability-theory-200691941",
+   "ms": 1795107540000,
+   "time": "11/20 00:59"
+  },
+  {
+   "t": "Gold Prices Face a Critical Support Test as Bearish Technical Patterns Emerge",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
+   "ms": 1795101240000,
+   "time": "11/19 23:14"
   }
  ]
 }
