@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 05:54 SGT",
+ "updated": "2026-11-21 06:07 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -35,11 +35,25 @@
    "time": "11/21 03:26"
   },
   {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1795202426000,
+   "time": "11/21 03:20"
+  },
+  {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
    "ms": 1795202080000,
    "time": "11/21 03:14"
+  },
+  {
+   "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbmZEOFB4dnVmcGlMTnVxS3pNVTFjbFF3d25NelhTMy1yZmtWMmlOZndzbVBzS1dRV1pYNDVoazFTb25fX3dXQTdkZUJ2bjUxV3FETnJvUHhWQlRLVUE5SkVvQVpYRS1kWU1IeDhlWW05ekVDSF8wd1p5V2c5bFQxZi1uOWdmSTZPeTRXc3hBSTBJU3poWXUxaG9yUHhVbnBaVURycWsyQTlrV0F5NER1UUd4aHhvLXhRLXVpNQ?oc=5",
+   "ms": 1795198287000,
+   "time": "11/21 02:11"
   },
   {
    "t": "Gold’s Three Black Crows Pattern Points to $3,231 if Trump Backs Netanyahu",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZmFLaVVWR2NZYjVsWXk2ZHBsQTB0S01xWVZLX2EwY0RJcFJXREZ4cE81SGwwNUROSlRhbGxXNTNVZ1BTa0tzaHdQNFh5WHFSdy1iQjMzRGxOUGI3dlFBZzJqUG1HT1NsbENDMmJPZEJnbnZZUEpJZVBRUlRNT293MzRnVjBXbEpZcE9MTTJaVjlGdk9WWGtxX3pTdU0wT3lWeXJkYWZWenZKUzA?oc=5",
    "ms": 1795188019000,
    "time": "11/20 23:20"
-  },
-  {
-   "t": "Gold price trades near $3,568/oz after final Consumer Sentiment rises to 51.5, inflation expectations drop",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQaXV0UWUtUHFyVkwzek85UFJvS1V1UFBacFI1TGkyMmJ3OUl3MWFlOXl6QTVJRkg1ckdZbkpJZnA1TzhQOEFNNGhwT2k3S3Y5SmZZZVlZMkdjd1lTWmlTclhDbm1xVGRMOHZXcEFIckEyY3djWUdCWGE1TDdCTHF6SlZJOWZzMWpIaWZOOTNFSWZkVWlMLS0zT1ZyZmJPWUQ2WjNhT29OQ09UNzFUSHRWeVZoUW5EeUk?oc=5",
-   "ms": 1795186825000,
-   "time": "11/20 23:00"
-  },
-  {
-   "t": "Gold: Bull case shaken yet intact – TD Securities",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcld5VlJ5eUc3OWJLT3pCWmZ1akJnVWFXcUxUQ3FLYUJfdzEyVzYzOUdZLUFBcy1PcnA1azBuZHRsWEJlakJZd05MSkFJRG04WjhXWlQybjZwTzJwaDBnSjNXR0gyLVVjUTN6akJXU3BWeFN4MHlaTTE2NVVscUlZSzAwZnk0QnRIMmVUVFdRNVVNd0E?oc=5",
-   "ms": 1795186715000,
-   "time": "11/20 22:58"
   }
  ]
 }
