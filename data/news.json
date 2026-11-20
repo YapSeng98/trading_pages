@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 09:37 SGT",
+ "updated": "2026-11-20 09:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
+   "ms": 1795134660000,
+   "time": "11/20 08:31"
+  },
   {
    "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
    "src": "FXStreet",
@@ -33,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
    "ms": 1795123675000,
    "time": "11/20 05:27"
+  },
+  {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
   },
   {
    "t": "Retirement savers see gold’s appeal. Why do so few own it?",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/golds-bear-market-through-the-lens-of-probability-theory-200691941",
    "ms": 1795107540000,
    "time": "11/20 00:59"
-  },
-  {
-   "t": "Gold today: 3 bearish forecasts, and the next stop sits near $3,600",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQWHItTmFPZl9oNHk3SEhfS1JOdFotcGZzZmNkUndRYmpsUnhwZVhVMjRZUzRuUXhleUNZWmxvRFV3WldkalNDWTZRU0tZZUNTbE9KUEpSRnJ6X0FxMHFaTnZhQ0NrTHZzUW5aRWNiLU5tQnVhV0kxY05zMHVhOW1HYTJMMXB1Y21Id2FJMzJhM0JGNWl2ejdOcUgyQ3NmRzNRU3lZeUpJM1l2SEp1YTh3eg?oc=5",
-   "ms": 1795101985000,
-   "time": "11/19 23:26"
-  },
-  {
-   "t": "Gold Prices Face a Critical Support Test as Bearish Technical Patterns Emerge",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
-   "ms": 1795101240000,
-   "time": "11/19 23:14"
   }
  ]
 }
