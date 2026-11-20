@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 02:05 SGT",
+ "updated": "2026-11-21 02:18 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
+   "t": "Gold’s Three Black Crows Pattern Points to $3,231 if Trump Backs Netanyahu",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-three-black-crows-pattern-points-to-3231-if-trump-backs-netanyahu-200692023",
+   "ms": 1795197720000,
+   "time": "11/21 02:02"
+  },
+  {
    "t": "Gold Mining Stocks Look Historically Cheap as Earnings Defy Rising Costs",
    "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-mining-stocks-look-historically-cheap-as-earnings-defy-rising-costs-200692021",
-   "ms": 1795194360000,
-   "time": "11/21 01:06"
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMDl5MG5SRDNfVU9WWlMycWI1eW1fWW1nenkxMzZ6X20wT0hXZGpqWkdvQm1haU04Ri1jNC1uc3pQYlNwb04teHItOU42M1hXc2tmemozNmdoVXhTLXdNWXRnSHM3Qm5CTWk0bjk2cXdMbWR4SHpKd1g2NVE1M1k3WlNlSWtjcE5LaGx6UXJ6MHZKV2dmd0U4N1pVSlpUM1ZaYWhtZjNJenpNMTA1bm9OM1NHOVlodnZj?oc=5",
+   "ms": 1795194590000,
+   "time": "11/21 01:09"
   },
   {
    "t": "Gold under a hiking Fed: central-bank demand versus real rates",
@@ -70,6 +77,13 @@
    "time": "11/20 22:39"
   },
   {
+   "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbTEtOE85bklMWGFXUktXS24yal9EYWNmaHZMLUJ4YnEzTlB4TVZ3TnhoQlhFUnBrX0RjLXlCYmVRSGlKMWJYOGdvcG1RalhiQTNuczdRWlVNWklSSGFEelZyLWlYTjJTMFpDXy1ocldibDBXbXoxeDVLN1NNNTE1b1NyTDVJY2J6RFhDOVNsR0pucTloZjBvcWxwdmRDVlBiWWdHZlkwck9lazlnVWtLSTFsbVhWRG9heVprZmZR?oc=5",
+   "ms": 1795185540000,
+   "time": "11/20 22:39"
+  },
+  {
    "t": "Gold Weekly Forecast: Hawkish Fed rhetoric, possible deleveraging weigh heavily on precious metal",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPY2NOWTZodFczanU4QmxUSVdhQW1idjNGSmdRSHFVQUdXSTBwZXBmYVkyd0FEMXMwZ0pCNTFPdlRiS2dueGdfQUdxLUVDYjc2eUkzTkhhVXdQR1ctM2NDVklObDRZenl6SUJ1WDFVVEdxUVFvWVl4c0tNYkdMRkRiZkJ2a2ppZVJ3d0NET1FZQVJGajdQd2FKSlprV2tjcm9WTlFXR0E0dTh2Q0U1cGEzeHBnWlpSVDh3Z1k4Zm4tX1l2QkF5NDhUZG1CUGFUVVhRci10d0EwRk1yQQ?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqN2NaMndvQXRqeGZuSHlKdnAzUnd6V3pBamdFWHdYTkltMmJIVHBHZWNUY2JRVHZzd0Z2cFNDQVN3QURHSU1kWHVmbUNpODBUaDBZY0RxTFJWSFlNalRhSFQ1MTdZbGQxdzhZeXJn?oc=5",
    "ms": 1795183620000,
    "time": "11/20 22:07"
-  },
-  {
-   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
-   "ms": 1795182527000,
-   "time": "11/20 21:48"
-  },
-  {
-   "t": "TSX futures slip as lower oil, gold prices weigh; retail sales data eyed",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbWtVZ3ZCNFl6M2Qyd2h4bUNlVkw0akd5RFZUWjVPTEZ4b09MNnV6dlBCTHVqU3JRaUZBT1d0dC1NTm9sQ2RyS1VGakJlOThaWDBhM0xvZHl1Mm92d2ptOWtSTmFzQzJLQTdJY2RaWW5CcG81cGYzLXlROVhyNWM5NWtLT1RjU3FlOVhTbVRjRFRTM1BIZ2hvZzEwN1RRUXR4b1RVeDRyZkpjUDBQNE14X042Skl0Vi1kNkE?oc=5",
-   "ms": 1795181648000,
-   "time": "11/20 21:34"
   }
  ]
 }
