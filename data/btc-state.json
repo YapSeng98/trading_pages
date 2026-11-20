@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-21 03:39 SGT",
+ "updated": "2026-11-21 04:33 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 58175.3,
- "priceTime": "2026-11-21 03:30 SGT",
+ "price": 58758.3,
+ "priceTime": "2026-11-21 04:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 61986.7,
   "high": 62639.5,
   "low": 57778.4,
-  "changeFromPrevClose": -3811.5,
-  "changePct": -6.15,
+  "changeFromPrevClose": -3228.4,
+  "changePct": -5.21,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 58175.3,
-  "stop": 60624.4,
-  "target": 50828,
-  "stopDistance": 2449.1,
-  "trailDistance": 4898.2
+  "entry": 58758.3,
+  "stop": 61274,
+  "target": 51211.3,
+  "stopDistance": 2515.7,
+  "trailDistance": 5031.4
  },
  "watch": [
   {
@@ -114,8 +114,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-11-06 16:00 SGT",
-   "rsi": 23,
-   "atr": 1198.87,
+   "rsi": 20.5,
+   "atr": 1273.73,
    "turnsUpAbove": 65696.2,
    "turnsDownBelow": null
   },
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-16 21:00 SGT",
-   "rsi": 22.6,
-   "atr": 816.37,
+   "rsi": 24.5,
+   "atr": 838.56,
    "turnsUpAbove": 62341.9,
    "turnsDownBelow": null
   },
@@ -134,17 +134,17 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-20 20:15 SGT",
-   "rsi": 23.6,
-   "atr": 463.88,
+   "rsi": 39.5,
+   "atr": 468.38,
    "turnsUpAbove": 62179.5,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
   {
-   "price": 59388,
-   "what": "4小时区间底",
-   "strength": 2
+   "price": 60929.6,
+   "what": "4小时区间中点",
+   "strength": 1
   },
   {
    "price": 61290.6,
@@ -157,21 +157,21 @@
    "strength": 8
   },
   {
-   "price": 61734.4,
-   "what": "4小时区间中点",
-   "strength": 1
-  },
-  {
    "price": 62006,
    "what": "上周低点、周线区间底、4小时向下突破位、1小时近期小高点",
    "strength": 9
+  },
+  {
+   "price": 62341.9,
+   "what": "1小时前高、1小时区间顶",
+   "strength": 2
   }
  ],
  "support": [
   {
-   "price": 58055,
-   "what": "1小时区间底",
-   "strength": 1
+   "price": 57778.4,
+   "what": "4小时区间底、1小时区间底",
+   "strength": 3
   }
  ],
  "record": {
