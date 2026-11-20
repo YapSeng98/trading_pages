@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 04:46 SGT",
+ "updated": "2026-11-21 05:00 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
+   "t": "Gold price could drop $300 if $3,500/oz fails, and buyers might hold off until the Fed – Walsh Trading’s Lusk",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
+   "ms": 1795205533000,
+   "time": "11/21 04:12"
+  },
+  {
    "t": "Gold Price Crash Tests $3,500 as Fed Hike Bets Reach 97%",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZ0pScGRiYmZpdXBhdWhGdUM5RXFDTEliYjZvRDQ3UTloeUFsQWRtVzN3YzlCQXJ2bjRCaHVIRkxwb0d4QVlYRzJCSmc1bTd5aHAzNjBiM2pUbzNudDBKVV8yUlJkbGtsWFo2UDRIZjFHd2c2SkZfdXBPV2tsdWtvRy1OYmY2M2NJYWFZa2FmRm1aYmQxbWVIUHNrU0s5Zw?oc=5",
-   "ms": 1795205796000,
-   "time": "11/21 04:16"
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-price-crash-tests-3500-as-fed-hike-bets-reach-97-200692028",
+   "ms": 1795202760000,
+   "time": "11/21 03:26"
   },
   {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
@@ -98,18 +105,11 @@
    "time": "11/20 22:39"
   },
   {
-   "t": "Gold Weekly Forecast: Hawkish Fed rhetoric, possible deleveraging weigh heavily on precious metal",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPY2NOWTZodFczanU4QmxUSVdhQW1idjNGSmdRSHFVQUdXSTBwZXBmYVkyd0FEMXMwZ0pCNTFPdlRiS2dueGdfQUdxLUVDYjc2eUkzTkhhVXdQR1ctM2NDVklObDRZenl6SUJ1WDFVVEdxUVFvWVl4c0tNYkdMRkRiZkJ2a2ppZVJ3d0NET1FZQVJGajdQd2FKSlprV2tjcm9WTlFXR0E0dTh2Q0U1cGEzeHBnWlpSVDh3Z1k4Zm4tX1l2QkF5NDhUZG1CUGFUVVhRci10d0EwRk1yQQ?oc=5",
-   "ms": 1795185032000,
-   "time": "11/20 22:30"
-  },
-  {
-   "t": "Gold and Silver reverse at my $3,522 and $41.22 targets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQl9sUWlHWDBlV0tzZ2hnYnlFUnlocWg3YWY4dDNLT0RSYTlEMnJTOFdJNjdSSlc1ZmF1MEtJcWhZa04xNm1GWW0yQ09VdE1Fb2pYRUdzdGtJOVBUeUFua2lYam1aNXlveFoxb1VzUGRRQlFFV3I3T0pzNnoyazItaWMxbG5ZdTlwSlZ0R1d3NThURkpvQktpTmpvV3VzLS1r?oc=5",
-   "ms": 1795184936000,
-   "time": "11/20 22:28"
+   "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbTEtOE85bklMWGFXUktXS24yal9EYWNmaHZMLUJ4YnEzTlB4TVZ3TnhoQlhFUnBrX0RjLXlCYmVRSGlKMWJYOGdvcG1RalhiQTNuczdRWlVNWklSSGFEelZyLWlYTjJTMFpDXy1ocldibDBXbXoxeDVLN1NNNTE1b1NyTDVJY2J6RFhDOVNsR0pucTloZjBvcWxwdmRDVlBiWWdHZlkwck9lazlnVWtLSTFsbVhWRG9heVprZmZR?oc=5",
+   "ms": 1795185540000,
+   "time": "11/20 22:39"
   }
  ]
 }
