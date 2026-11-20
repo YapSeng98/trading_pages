@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 23:08 SGT",
+ "updated": "2026-11-20 23:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "The price of gold today, Nov. 20, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE05aHZxcTVKaTRqejRrdm1xSTlld3lhcUxtZDlfM09qeDFoWmZNR3Y1T05zRDZtYlQ3bkFvV2NUVVVzVGdiN1lQNDBEb0pub0JDSFJiZXcyM1hPM0NDMFZkclJ3dXJSNUFXSDBRTU1UVWZSUdIBd0FVX3lxTE5iVkNFQjVLNUdQWTlMQ09VNC1tbWZvQlVtYmpEYzV1TXh0Rk1OZ1Q3VElSSS1fMjdhRHJFSjRCQ2dNWnFJVVVjSGJqY3dTcExTaFNQa3ZNNTFONW1JbXUxLVRwWndUejVVaE42NWh0MFZaZTROeTU4?oc=5",
+   "ms": 1795187824000,
+   "time": "11/20 23:17"
+  },
+  {
+   "t": "Gold price trades near $3,568/oz after final Consumer Sentiment rises to 51.5, inflation expectations drop",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQaXV0UWUtUHFyVkwzek85UFJvS1V1UFBacFI1TGkyMmJ3OUl3MWFlOXl6QTVJRkg1ckdZbkpJZnA1TzhQOEFNNGhwT2k3S3Y5SmZZZVlZMkdjd1lTWmlTclhDbm1xVGRMOHZXcEFIckEyY3djWUdCWGE1TDdCTHF6SlZJOWZzMWpIaWZOOTNFSWZkVWlMLS0zT1ZyZmJPWUQ2WjNhT29OQ09UNzFUSHRWeVZoUW5EeUk?oc=5",
+   "ms": 1795186825000,
+   "time": "11/20 23:00"
+  },
+  {
    "t": "Gold is sold first in a dollar squeeze, and Jeff Currie says the real test comes later",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTVBiWGxOR25KTVE5WUQ0M3hLTTRsWTZONDVaenhLN2pYVDFncHZvdmZDMmQ2Qkx3V2dvMUhyZktvcFJhYVd4Y2JoSTZNN1RRZjFFYTQ1TURHYWdWdjlzOU5seGFwNlFnMEJNYnU4Z3dCei1nTjh2NFlwUnJiRXk0TXJ4MFdCX1gxdE5YR1RobXlNSjBDQlBHQXpFdW1RVEl1cVJLM1JaczlpRUkzRXptYjU4Rk5sQ3Y2WGpV?oc=5",
    "ms": 1795186447000,
    "time": "11/20 22:54"
+  },
+  {
+   "t": "Gold heads for worst week since March as Fed rate hike bets and forced selling weigh",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
+   "ms": 1795185733000,
+   "time": "11/20 22:42"
   },
   {
    "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
@@ -70,13 +91,6 @@
    "time": "11/20 19:52"
   },
   {
-   "t": "Gold set for steepest weekly drop since March as Fed hike bets and forced selling weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
-   "ms": 1795173827000,
-   "time": "11/20 19:23"
-  },
-  {
    "t": "Peter Schiff says there’s something ‘most investors don’t understand’ about gold as it crashes — is the glitter gone?",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQQmkxU3M1SDdLeWlqYV9iMXBLZ0lYNXA5Wk0zY3FFdGJsRnJhbUZvakl0c3BoekpfaGdJSW5IUHc4ak52eVJKVW83OXhqcjVKTmRNQWNiaUpiSGxpYXVSc1VsQ0JhX3N6dXBNYktMaG42R1dmVFNlQ0ZkWVF5WVc1bl9tbHpqUjY3d2ZiNVFUM3hCX1NweEUyb01FaW9CY29sT1ZIbw?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9hZlFpTWljQTB3bFhudTY3NW1yVEdYelJBVGNpZDI4NVp1T3pucGRfR1FLSl9GNFhHVVplNHB5TVN2UEd2TEVYVE56bGQ4YV9ONU9KZTl2RzFWTGdqeDNjdkZvS1liYnp2WFVlVWRlb0RvZVBKY1pSVXdYd0ltQQ?oc=5",
    "ms": 1795168359000,
    "time": "11/20 17:52"
-  },
-  {
-   "t": "Gold Falls to 14-Month Low as Fed Rate Hike Expectations Trigger Sharp Weekly Losses",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOQkVQbVdaa0h4S1ZxRlBHMGEzSkticGRFZmhCcnJ5Ri1KeTBPQ0ZOVVRKNmxFUjd6WS1seEpzdmc3WnJfTFVyb1lGMk16blhKckVtSmlod3FwZm9fV1huVGVlMDJJTFVjWWFYbWZ0cFNMN2x0bVh0MVhoOTV3cldvWUQzSVNIbUFMTjhXZXViVGxlM2Q2ZVhIQQ?oc=5",
-   "ms": 1795168279000,
-   "time": "11/20 17:51"
-  },
-  {
-   "t": "US Dollar: Hawkish Fed risks and safe-haven demand support USD – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbTVTNDRCM013ZXRrdmhVZFBheG5WaU1ILW02ckhxLTR2Nmw3cms1WldBRUNzOUZqTC1OV1lta09PWWI3WUtObU1SSF9DbV9Bc2xSUmp0S1hlbVNic1h0aTVmb3gxQjFuTHNDUjdtVXdPZFc5TXFkdjZ3d2xRS1oyRkM0QWR5ZlJhaENTdTZPX0l4aHNFNHptalpGX1E2UXZ0Qkp0NnpUOXQ1TjVyOWc?oc=5",
-   "ms": 1795167019000,
-   "time": "11/20 17:30"
   }
  ]
 }
