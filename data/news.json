@@ -1,11 +1,32 @@
 {
- "updated": "2026-11-20 18:52 SGT",
+ "updated": "2026-11-20 19:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold on pace for steepest weekly drop in eight months amid Fed hike bets",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOQUVyWWlOa1p5akt2NFlMd01jdTBaSks2ZGM3YnZmeFlpbkVJdjgzX2REeF9VcTdMa3drOVpLekltUnVrcUxZT2ZITENMT2dZeXFtdDcteGlDYWR0YU05THVCWmlGWTE0MnlwcVpVd2xMdk0xa2RKbERCOFpoVHNHR0ZmSzRvZDA2bTZHaXhLUlgwSS1kS3pEcWlZOHdUS0ZNa3NuTVVnd3VXWHNwSkI3Zy1hRlc1VTVvVnpj?oc=5",
+   "ms": 1795170246000,
+   "time": "11/20 18:24"
+  },
+  {
+   "t": "Gold Prices Hit 14-Month Low as Strong Dollar and Fed Rate Hike Bets Drive Weekly Sell-Off",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9hZlFpTWljQTB3bFhudTY3NW1yVEdYelJBVGNpZDI4NVp1T3pucGRfR1FLSl9GNFhHVVplNHB5TVN2UEd2TEVYVE56bGQ4YV9ONU9KZTl2RzFWTGdqeDNjdkZvS1liYnp2WFVlVWRlb0RvZVBKY1pSVXdYd0ltQQ?oc=5",
+   "ms": 1795168359000,
+   "time": "11/20 17:52"
+  },
+  {
+   "t": "Gold Falls to 14-Month Low as Fed Rate Hike Expectations Trigger Sharp Weekly Losses",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOQkVQbVdaa0h4S1ZxRlBHMGEzSkticGRFZmhCcnJ5Ri1KeTBPQ0ZOVVRKNmxFUjd6WS1seEpzdmc3WnJfTFVyb1lGMk16blhKckVtSmlod3FwZm9fV1huVGVlMDJJTFVjWWFYbWZ0cFNMN2x0bVh0MVhoOTV3cldvWUQzSVNIbUFMTjhXZXViVGxlM2Q2ZVhIQQ?oc=5",
+   "ms": 1795168279000,
+   "time": "11/20 17:51"
+  },
   {
    "t": "The Fed’s intentions remain key for the markets",
    "src": "FXStreet",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMFFjdnZJUDZiUXhKNUdPUWMtQ2tkd0ZKdmN4TTZ3bnQyb09SQ3cxSS1hNVYtcmF5WGpNSlJzS1dWYkdBUzBJZ2s5TnhLQ29mNWNIUy10MGJkN294UndsTmRmOF9GelkyVkdWRl8wcVJQNnRaRGp0a3NIMWNHT1dJSHhZRk1BT3FRV2pFcHVGa3ozS1ZCdjJXenJvSXlBOEdxLUp2MVVVTVBDY0NGX3ZRRUN3?oc=5",
    "ms": 1795145040000,
    "time": "11/20 11:24"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD in a freefall - is a bottom in sight?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWEptRXhqV2tPNVFzbXFFN0t4d0xYaFBmaU1EaHdoLTlXSUNSdEJQdlZUUVpPNmtyV2t1MV9ZUEcwSTR4YWs4X2QyYWhiR0JlRlRkUEVnODFZajRyU3F6VlpFREwwOXItYmlwaTRpTmt4V0VqenRkRVUwZzczOHpkZVJxM3JFeXBLc3NPTEpHNF9JbHhVUUYzRVpLSnNMaDd0bDJjRW1Xb04tSk1Ld0E?oc=5",
-   "ms": 1795143883000,
-   "time": "11/20 11:04"
-  },
-  {
-   "t": "Gold futures sink below $3,700 as 5% yields pull money out of bullion",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlJNYXNXZkw3b1RUbHlCY0hkVHF0OEFjQnpaMDlNc2dYREpHTUpVSHdiVTFsMHlYbXFjX3RhX0VFN3Z5WFZSUFBtRUplVUs3TWx3SWk1UmJYTDk0LWxQOFhIaU1JNS1hQm9QaDlSalNLU1JkRDd5QU9YUHZyTEsxalNySWo0YVUwVkNjZE55SXplYkJMOVJHQkIySk5YM05rV1Bj?oc=5",
-   "ms": 1795140302000,
-   "time": "11/20 10:05"
-  },
-  {
-   "t": "Euro faces pressure as Fed rate hike bets strengthen US Dollar",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcWI0NUJ0c0luMTAyVTNTZHZndzZ2ZHd0OXo3NDk4LVFPT3FRXzR5eTBFUXU3Z2ZOZ3NMTUx1dEtvRWFtODZfeFE4Y1Z5cXhrdTZqb2tRUlFmbXl1SUlubG5VOHRNSUw1RXRlb1VwX2lDdkdTVjB6UXhEbnkxYmtsSlo2VzJvY2pZY0o2UGF6Z0hTYnNvVFlsU1JYWnp0LV9rcmh6Rl9rUDg?oc=5",
-   "ms": 1795137247000,
-   "time": "11/20 09:14"
   }
  ]
 }
