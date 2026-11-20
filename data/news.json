@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-20 13:14 SGT",
+ "updated": "2026-11-20 13:55 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold languishes near YTD low, eyes $3,500 as Fed hike bets counter USD pullback",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVENhRzhuZWRGZXc5MnZpaU1ORENZUHZRN2Yzd08tOHFXYzY5RlZsd2lXWEhGeVV0ekQyZmplX0xhZXVnR0NJcDVDWkNGMEdfbFlXNU5naEYyUnBkZnVuTXBBNVRUWWpFc08zLThLZkxPUFZfWUplcmp6VUNUZDFsbnY0V3ZiRnRqeXhwOWVCMTNJbGNuOG5MQ21XYW14dDE5VzRSR0dNYTBTeUxydzJfNXZRVVBlQ0hOTW1kSFRMa01MbWxlQkVUNg?oc=5",
+   "ms": 1795153179000,
+   "time": "11/20 13:39"
+  },
   {
    "t": "Gold slides to 14-mth low, set for weekly drop amid Fed hike bets",
    "src": "Investing.com",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWEptRXhqV2tPNVFzbXFFN0t4d0xYaFBmaU1EaHdoLTlXSUNSdEJQdlZUUVpPNmtyV2t1MV9ZUEcwSTR4YWs4X2QyYWhiR0JlRlRkUEVnODFZajRyU3F6VlpFREwwOXItYmlwaTRpTmt4V0VqenRkRVUwZzczOHpkZVJxM3JFeXBLc3NPTEpHNF9JbHhVUUYzRVpLSnNMaDd0bDJjRW1Xb04tSk1Ld0E?oc=5",
    "ms": 1795143883000,
    "time": "11/20 11:04"
-  },
-  {
-   "t": "Gold slumps below $3,550, fresh low since September 2025 as Fed bets, Iran risks lift USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVENhRzhuZWRGZXc5MnZpaU1ORENZUHZRN2Yzd08tOHFXYzY5RlZsd2lXWEhGeVV0ekQyZmplX0xhZXVnR0NJcDVDWkNGMEdfbFlXNU5naEYyUnBkZnVuTXBBNVRUWWpFc08zLThLZkxPUFZfWUplcmp6VUNUZDFsbnY0V3ZiRnRqeXhwOWVCMTNJbGNuOG5MQ21XYW14dDE5VzRSR0dNYTBTeUxydzJfNXZRVVBlQ0hOTW1kSFRMa01MbWxlQkVUNg?oc=5",
-   "ms": 1795141635000,
-   "time": "11/20 10:27"
   },
   {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
@@ -84,6 +84,13 @@
    "time": "11/20 05:27"
   },
   {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
+  },
+  {
    "t": "Retirement savers see gold's appeal. Why do so few own it?",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSTNzQVVXY0JYRE1uRDFqLTBGYm1zcDhlRm9LUkx0T3F0eW9QLVVFcTc5aHY2SXdKckE4dFJUdk1jaE5BX3hIQUxFQ25EVFBsYy1ISkgteFB2ZzlvRVlwZ1NzV085MVk2bnFlQUphVHhGT2hBMk1uaXotdWh4M3ZoTVJOeldpUXVIcnNLMmhIWHhWQ1VtbVF3TzNScFdoQzdvOENZT3RDU2hvN00yYTdmS29ycnhrdnlQ?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPb21Fc1g4Vm1ScFJ0ZFRiU0N2Mnktb2tyVWFZMFZPVlFyNm9UanhzR09CXzdteUxJdFdDemgwbXJBSjktUzBObDEzZHJTT1lhTF9PT2Z6U0lnNkhhTUNnT1ozaWt4WmdIWENSXzhYdTVRVXBGc2dwMU1LR0duVy00czM0dHlmQkxfNVplZWo3ZmFoanAyVXktTFZPVGRuOGc4R0d1S1hjNk5wTDlHZzQycVlDUHRhNktLMGxJ?oc=5",
    "ms": 1795113927000,
    "time": "11/20 02:45"
-  },
-  {
-   "t": "Gold hits new lows amid scorching Fed rate hike bets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
-   "ms": 1795112798000,
-   "time": "11/20 02:26"
   }
  ]
 }
