@@ -1,25 +1,11 @@
 {
- "updated": "2026-11-21 00:02 SGT",
+ "updated": "2026-11-21 00:16 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "The price of gold today, Nov. 20, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE05aHZxcTVKaTRqejRrdm1xSTlld3lhcUxtZDlfM09qeDFoWmZNR3Y1T05zRDZtYlQ3bkFvV2NUVVVzVGdiN1lQNDBEb0pub0JDSFJiZXcyM1hPM0NDMFZkclJ3dXJSNUFXSDBRTU1UVWZSUdIBd0FVX3lxTE5iVkNFQjVLNUdQWTlMQ09VNC1tbWZvQlVtYmpEYzV1TXh0Rk1OZ1Q3VElSSS1fMjdhRHJFSjRCQ2dNWnFJVVVjSGJqY3dTcExTaFNQa3ZNNTFONW1JbXUxLVRwWndUejVVaE42NWh0MFZaZTROeTU4?oc=5",
-   "ms": 1795188150000,
-   "time": "11/20 23:22"
-  },
-  {
-   "t": "Tether Insiders Seek to Turn Gold Into a 4% Yield Machine",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZmFLaVVWR2NZYjVsWXk2ZHBsQTB0S01xWVZLX2EwY0RJcFJXREZ4cE81SGwwNUROSlRhbGxXNTNVZ1BTa0tzaHdQNFh5WHFSdy1iQjMzRGxOUGI3dlFBZzJqUG1HT1NsbENDMmJPZEJnbnZZUEpJZVBRUlRNT293MzRnVjBXbEpZcE9MTTJaVjlGdk9WWGtxX3pTdU0wT3lWeXJkYWZWenZKUzA?oc=5",
-   "ms": 1795188019000,
-   "time": "11/20 23:20"
-  },
   {
    "t": "Gold price trades near $3,568/oz after final Consumer Sentiment rises to 51.5, inflation expectations drop",
    "src": "Kitco",
@@ -45,13 +31,6 @@
    "t": "Gold and Silver Hit Downside Targets, but Why the Rebound Could Be a Bull Trap",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-and-silver-hit-downside-targets-but-why-the-rebound-could-be-a-bull-trap-200692010",
-   "ms": 1795185540000,
-   "time": "11/20 22:39"
-  },
-  {
-   "t": "Dollar set for fourth weekly gain, supported by Fed tightening expectations, AI-driven haven bid",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPbTEtOE85bklMWGFXUktXS24yal9EYWNmaHZMLUJ4YnEzTlB4TVZ3TnhoQlhFUnBrX0RjLXlCYmVRSGlKMWJYOGdvcG1RalhiQTNuczdRWlVNWklSSGFEelZyLWlYTjJTMFpDXy1ocldibDBXbXoxeDVLN1NNNTE1b1NyTDVJY2J6RFhDOVNsR0pucTloZjBvcWxwdmRDVlBiWWdHZlkwck9lazlnVWtLSTFsbVhWRG9heVprZmZR?oc=5",
    "ms": 1795185540000,
    "time": "11/20 22:39"
   },
@@ -105,11 +84,32 @@
    "time": "11/20 21:23"
   },
   {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795179896000,
+   "time": "11/20 21:04"
+  },
+  {
    "t": "Gold price today, Friday, November 20, 2026: Gold prices continue to fall as rate hike expectations crystallize",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPTWVucXBjLXNwR3NFaDRBOEtsSTVNUnFfeXRCb3hndUlvT0V4VGpuV0ZLbnI1dzEzZmtOTnNMMlFZdVVkaFFTQ0M2aXY1S3dFOFRja1FwRFpYUFpXM0J4dGxCV0pMcEhoclJfa0NxR1loR2NEalljdjNMZEpVdkNzeS1QWUtZS1laRHYydWRGTFQwNi01MDdaNmhpZzlDTGZtUExVUURYWHJ0bTNiY3R5ZXhhbThvQmtadWtOOGxmc1EzeTdVSl9keGJxdGxvTzZkNHVTQjhZQWtlY0w0M1gtOFd1VlhLRXo0aFNTdEszb0ltQ0NZOXJfVXRqdE43TERBR0U2bWUzb3U4TVRwQ3hOdw?oc=5",
    "ms": 1795176676000,
    "time": "11/20 20:11"
+  },
+  {
+   "t": "Gold Plunges 8% Over a Passing Week: A Technical Rebound Before Another Selloff?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-plunges-8-over-a-passing-week-a-technical-rebound-before-another-selloff-200691998",
+   "ms": 1795175520000,
+   "time": "11/20 19:52"
+  },
+  {
+   "t": "Peter Schiff says there’s something ‘most investors don’t understand’ about gold as it crashes — is the glitter gone?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQQmkxU3M1SDdLeWlqYV9iMXBLZ0lYNXA5Wk0zY3FFdGJsRnJhbUZvakl0c3BoekpfaGdJSW5IUHc4ak52eVJKVW83OXhqcjVKTmRNQWNiaUpiSGxpYXVSc1VsQ0JhX3N6dXBNYktMaG42R1dmVFNlQ0ZkWVF5WVc1bl9tbHpqUjY3d2ZiNVFUM3hCX1NweEUyb01FaW9CY29sT1ZIbw?oc=5",
+   "ms": 1795172400000,
+   "time": "11/20 19:00"
   }
  ]
 }
