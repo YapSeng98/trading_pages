@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795197600000,
+ "lastChecked": 1795201200000,
  "a3": -1,
  "a5": -1,
  "open": 19,
@@ -1261,7 +1261,7 @@
       "target": null,
       "risk": 54.21,
       "spread": 0.6,
-      "best": 3514.955,
+      "best": 3503.29,
       "day": 20777,
       "status": "open"
      }
@@ -1385,7 +1385,7 @@
       "target": null,
       "risk": 54.21,
       "spread": 0.6,
-      "best": 3514.955,
+      "best": 3503.29,
       "day": 20777,
       "status": "open"
      }
