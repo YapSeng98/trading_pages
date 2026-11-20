@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 14:08 SGT",
+ "updated": "2026-11-20 14:49 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -56,6 +56,13 @@
    "time": "11/20 09:14"
   },
   {
+   "t": "2.3%: Japan’s National CPI climbs in October",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTTdBTGxrSWdNQ3RIVmQyUzhTMmZyTm5pY2xRZnBJZFkycFJSSnBDSzRQQ2dTaWJOYUZBRHRfdnRELXlHaE1SVWVBZjZDSEpaU1lIYVRjQ2VzZzF0N1ZmYXhIeTJSSGNMWURXMXd0NWVBeS1aNV82S3MzWUYyWW90ZHNUTkNBbXFSVUZn?oc=5",
+   "ms": 1795131072000,
+   "time": "11/20 07:31"
+  },
+  {
    "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWxBZ2JuMWhKMWhRUVFycmxGNTZ0cUNESWZDdnljWTl4b3ZGNk81cVR5MlVRc2NMenIzUlVJcDRhWGxVTjd6N09RVXd5QkZsODNna1YtNm1uZ21YU2RQVWZjZ2hfYkhWUEpaLWx4N1pnWHRQckNfS2trenIza3U2LWNKb1d0WFZyNVAxdXhyOU50SldsNVVWX2xtZTBFNVdTUVA5azFLbw?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPb21Fc1g4Vm1ScFJ0ZFRiU0N2Mnktb2tyVWFZMFZPVlFyNm9UanhzR09CXzdteUxJdFdDemgwbXJBSjktUzBObDEzZHJTT1lhTF9PT2Z6U0lnNkhhTUNnT1ozaWt4WmdIWENSXzhYdTVRVXBGc2dwMU1LR0duVy00czM0dHlmQkxfNVplZWo3ZmFoanAyVXktTFZPVGRuOGc4R0d1S1hjNk5wTDlHZzQycVlDUHRhNktLMGxJ?oc=5",
    "ms": 1795113927000,
    "time": "11/20 02:45"
-  },
-  {
-   "t": "Gold hits new lows amid scorching Fed rate hike bets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
-   "ms": 1795112798000,
-   "time": "11/20 02:26"
   }
  ]
 }
