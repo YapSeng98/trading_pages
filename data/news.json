@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-20 22:14 SGT",
+ "updated": "2026-11-20 22:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Weekly Forecast: Hawkish Fed rhetoric, possible deleveraging weigh heavily on precious metal",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPY2NOWTZodFczanU4QmxUSVdhQW1idjNGSmdRSHFVQUdXSTBwZXBmYVkyd0FEMXMwZ0pCNTFPdlRiS2dueGdfQUdxLUVDYjc2eUkzTkhhVXdQR1ctM2NDVklObDRZenl6SUJ1WDFVVEdxUVFvWVl4c0tNYkdMRkRiZkJ2a2ppZVJ3d0NET1FZQVJGajdQd2FKSlprV2tjcm9WTlFXR0E0dTh2Q0U1cGEzeHBnWlpSVDh3Z1k4Zm4tX1l2QkF5NDhUZG1CUGFUVVhRci10d0EwRk1yQQ?oc=5",
+   "ms": 1795185032000,
+   "time": "11/20 22:30"
+  },
+  {
+   "t": "Current price of gold as of November 20, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBqN2NaMndvQXRqeGZuSHlKdnAzUnd6V3pBamdFWHdYTkltMmJIVHBHZWNUY2JRVHZzd0Z2cFNDQVN3QURHSU1kWHVmbUNpODBUaDBZY0RxTFJWSFlNalRhSFQ1MTdZbGQxdzhZeXJn?oc=5",
+   "ms": 1795183620000,
+   "time": "11/20 22:07"
+  },
   {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
    "src": "Bloomberg.com",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1QXZsekRWUUR6bWkyTU9COWxYVF9QSHhXZnRUbVF4SHBSZUhrQzFvT3A3TUdra0l3T3FST21NcWRBSGxVR0VmOXFDdDZyYVZNdHAwVVI4MGJUcE1CeEZ1bXNmUXJJbVl5SlFUNEV5dU9QMzJ3dTZ6V0RnUFdoQnM?oc=5",
    "ms": 1795165923000,
    "time": "11/20 17:12"
-  },
-  {
-   "t": "Gold Hits 15-Month Low; Oversold Bounce Before Next Drop?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-hits-15month-low-oversold-bounce-before-next-drop-200691987",
-   "ms": 1795162800000,
-   "time": "11/20 16:20"
-  },
-  {
-   "t": "Gold Tests 100% Support as Bearish Momentum Pauses, Awaiting Breakout Confirmation",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-tests-100-support-as-bearish-momentum-pauses-awaiting-breakout-confirmation-200691983",
-   "ms": 1795159140000,
-   "time": "11/20 15:19"
   }
  ]
 }
