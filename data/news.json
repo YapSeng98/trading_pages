@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 01:11 SGT",
+ "updated": "2026-11-21 01:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold Mining Stocks Look Historically Cheap as Earnings Defy Rising Costs",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-mining-stocks-look-historically-cheap-as-earnings-defy-rising-costs-200692021",
+   "ms": 1795194360000,
+   "time": "11/21 01:06"
+  },
+  {
    "t": "Gold under a hiking Fed: central-bank demand versus real rates",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZ1FnbGMtajVDa2FNWUQ5eGVERmkxaUNRcjNIMUNDNUprbGlCajZ6dE8zSEdubFNjY0hwYlhxTTlQdmd6UzNIUnVGbGtnVzBXOTZPbTQ4NnRIS1ROaE1oN09HbXl6OXYwZnF2M1AzZVktbmZyTDRGRkV0emw3b1pBSDItQkk5dXJmODRIbi1wYTBsZFVuOXllTWJEWTVibXJkdlE?oc=5",
    "ms": 1795191185000,
    "time": "11/21 00:13"
+  },
+  {
+   "t": "Gold heads for worst week since March as Fed rate hike bets and forced selling weigh",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
+   "ms": 1795190005000,
+   "time": "11/20 23:53"
   },
   {
    "t": "The price of gold today, Nov. 20, 2026 — and the best places to buy",
@@ -47,13 +61,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQTVBiWGxOR25KTVE5WUQ0M3hLTTRsWTZONDVaenhLN2pYVDFncHZvdmZDMmQ2Qkx3V2dvMUhyZktvcFJhYVd4Y2JoSTZNN1RRZjFFYTQ1TURHYWdWdjlzOU5seGFwNlFnMEJNYnU4Z3dCei1nTjh2NFlwUnJiRXk0TXJ4MFdCX1gxdE5YR1RobXlNSjBDQlBHQXpFdW1RVEl1cVJLM1JaczlpRUkzRXptYjU4Rk5sQ3Y2WGpV?oc=5",
    "ms": 1795186447000,
    "time": "11/20 22:54"
-  },
-  {
-   "t": "Gold heads for worst week since March as Fed rate hike bets and forced selling weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUHdUSjAxbnhzMHFmUjZheXJxNUZ5SDJzZGVvVGxycXNYRm1SejNWaFdLblI1dFFOdVVpWmZhZ1FJVlI3YVFsNlZ3T0VlTWYyRkNQcTczSjhxeXJ2eHlSQVJBQ3ZRQVdodmdkYUVMekdqakJXSFRiMmY3X29tRHFUSzNEY3VTNGdSZWVmVm1pSk8zUTRqYlBRbE9HMVdWaGJyc0JBX012cHJCc3pSUDFUZ2cxd255Wmhqc3BaVWhHbnZKWjVuaVZkLU93?oc=5",
-   "ms": 1795185733000,
-   "time": "11/20 22:42"
   },
   {
    "t": "Gold and Silver Hit Downside Targets, but Why the Rebound Could Be a Bull Trap",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbWtVZ3ZCNFl6M2Qyd2h4bUNlVkw0akd5RFZUWjVPTEZ4b09MNnV6dlBCTHVqU3JRaUZBT1d0dC1NTm9sQ2RyS1VGakJlOThaWDBhM0xvZHl1Mm92d2ptOWtSTmFzQzJLQTdJY2RaWW5CcG81cGYzLXlROVhyNWM5NWtLT1RjU3FlOVhTbVRjRFRTM1BIZ2hvZzEwN1RRUXR4b1RVeDRyZkpjUDBQNE14X042Skl0Vi1kNkE?oc=5",
    "ms": 1795181648000,
    "time": "11/20 21:34"
-  },
-  {
-   "t": "Oil Prices Slide Despite Rising Tanker Attacks in the Strait of Hormuz",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/iran-steps-up-hormuz-tanker-attacks-as-oil-prices-slide-200692005",
-   "ms": 1795180980000,
-   "time": "11/20 21:23"
   }
  ]
 }
