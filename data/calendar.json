@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18 05:45 SGT",
+ "updated": "2026-11-20 21:47 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -97,6 +97,18 @@
    "zh": "密歇根通胀预期终值",
    "forecast": "",
    "previous": "4.3%"
+  },
+  {
+   "ms": 1795194000000,
+   "date": "11月21日",
+   "weekday": "周六",
+   "time": "01:00",
+   "allDay": false,
+   "impact": "medium",
+   "title": "President Trump Speaks",
+   "zh": "美国总统 Trump 讲话",
+   "forecast": "",
+   "previous": ""
   }
  ]
 }

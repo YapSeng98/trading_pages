@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-20 21:20 SGT",
+ "updated": "2026-11-20 21:47 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "TSX futures slip as lower oil, gold prices weigh; retail sales data eyed",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPbWtVZ3ZCNFl6M2Qyd2h4bUNlVkw0akd5RFZUWjVPTEZ4b09MNnV6dlBCTHVqU3JRaUZBT1d0dC1NTm9sQ2RyS1VGakJlOThaWDBhM0xvZHl1Mm92d2ptOWtSTmFzQzJLQTdJY2RaWW5CcG81cGYzLXlROVhyNWM5NWtLT1RjU3FlOVhTbVRjRFRTM1BIZ2hvZzEwN1RRUXR4b1RVeDRyZkpjUDBQNE14X042Skl0Vi1kNkE?oc=5",
+   "ms": 1795181648000,
+   "time": "11/20 21:34"
+  },
+  {
+   "t": "Oil Prices Slide Despite Rising Tanker Attacks in the Strait of Hormuz",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/iran-steps-up-hormuz-tanker-attacks-as-oil-prices-slide-200692005",
+   "ms": 1795180980000,
+   "time": "11/20 21:23"
+  },
   {
    "t": "Gold price today, Friday, November 20, 2026: Gold prices continue to fall as rate hike expectations crystallize",
    "src": "Yahoo Finance",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOeWZ5c0JWejRjandLdXZVSndsazdkOWtmaFczTVZUU2lnX0J3NFo0bnpCUnpXQkxUOVdyenJ2dWVValZHZHhCRk9oUURHVWdWNXJMZEJJRG1RbFRCc0d4UVNST0lPLXdINkZzX0VIbjBJd0EzT0VqaDRRc3Zia0dLRXpXall4dUZsX3FjS2VHT3lCdHUtbkJHaHhyRGY5ZGlMOThjRkZSTy1jQVdnQ0c4NU1CYw?oc=5",
    "ms": 1795158776000,
    "time": "11/20 15:12"
-  },
-  {
-   "t": "Gold and Silver’s Deepening US Dollar Dilemma",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silvers-deepening-us-dollar-dilemma-200691971",
-   "ms": 1795158180000,
-   "time": "11/20 15:03"
-  },
-  {
-   "t": "Gold: Market Volatility Rises as Trump Calls for Durable US-Iran Resolution",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-market-volatility-rises-as-trump-calls-for-durable-usiran-resolution-200691980",
-   "ms": 1795158180000,
-   "time": "11/20 15:03"
   }
  ]
 }
