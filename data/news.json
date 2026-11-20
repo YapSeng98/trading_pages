@@ -1,11 +1,74 @@
 {
- "updated": "2026-11-20 10:32 SGT",
+ "updated": "2026-11-20 10:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slumps below $3,550, fresh low since September 2025 as Fed bets, Iran risks lift USD",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVENhRzhuZWRGZXc5MnZpaU1ORENZUHZRN2Yzd08tOHFXYzY5RlZsd2lXWEhGeVV0ekQyZmplX0xhZXVnR0NJcDVDWkNGMEdfbFlXNU5naEYyUnBkZnVuTXBBNVRUWWpFc08zLThLZkxPUFZfWUplcmp6VUNUZDFsbnY0V3ZiRnRqeXhwOWVCMTNJbGNuOG5MQ21XYW14dDE5VzRSR0dNYTBTeUxydzJfNXZRVVBlQ0hOTW1kSFRMa01MbWxlQkVUNg?oc=5",
+   "ms": 1795141635000,
+   "time": "11/20 10:27"
+  },
+  {
+   "t": "Gold futures sink below $3,700 as 5% yields pull money out of bullion",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlJNYXNXZkw3b1RUbHlCY0hkVHF0OEFjQnpaMDlNc2dYREpHTUpVSHdiVTFsMHlYbXFjX3RhX0VFN3Z5WFZSUFBtRUplVUs3TWx3SWk1UmJYTDk0LWxQOFhIaU1JNS1hQm9QaDlSalNLU1JkRDd5QU9YUHZyTEsxalNySWo0YVUwVkNjZE55SXplYkJMOVJHQkIySk5YM05rV1Bj?oc=5",
+   "ms": 1795140302000,
+   "time": "11/20 10:05"
+  },
+  {
+   "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
+   "ms": 1795136640000,
+   "time": "11/20 09:04"
+  },
+  {
+   "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQbWxBZ2JuMWhKMWhRUVFycmxGNTZ0cUNESWZDdnljWTl4b3ZGNk81cVR5MlVRc2NMenIzUlVJcDRhWGxVTjd6N09RVXd5QkZsODNna1YtNm1uZ21YU2RQVWZjZ2hfYkhWUEpaLWx4N1pnWHRQckNfS2trenIza3U2LWNKb1d0WFZyNVAxdXhyOU50SldsNVVWX2xtZTBFNVdTUVA5azFLbw?oc=5",
+   "ms": 1795130509000,
+   "time": "11/20 07:21"
+  },
+  {
+   "t": "Gold falls below $3,650, silver tumbles as Fed rate concerns pressure metals - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRlpVQ2czMnU5WnpBbm5Nc0VXMlRlMmU3ZnROX2UzXy1mTVlSSGZVcG01NWl6al94MzY3UFl4WGdyNEZocmdibEZtcm9lSU14NURNZnFQakJOaGoxQ0dSSVEyT0REU0pLc0VkZHAzQ1lWMkVPazhXRlZwQkVpNHFINS1GOWZ2dlBZTlMwNkZrdi12YzFOVnJEU0RRRDZqU2hsSFE0NnlDXy1pd1dmWTV1d3p6NVJxSzA?oc=5",
+   "ms": 1795125328000,
+   "time": "11/20 05:55"
+  },
+  {
+   "t": "Gold the top commodity pick for 2027 even as broader commodities likely to underperform – Morgan Stanley",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNdlhJdHg0aEg5QXkwU0VUNXJCazVXaTlEQ0NjZ1pRRnEtNHJvaGFrWnFUVHUyVU1pSkRiemxWMld1czNOdDFYb3pERnZzN0w2OHhyc29Sbk80N0g2NVFQUmR2YW5QSlNBQ1BocHRpXzRDZ0lWZC1HTjh2Uzd5VDNyVlZPMDhma0dJUzk2V1A4bmZPaTBiVXFMUWtBdUwzajJSbW94ZG03Z29MUHlwLWpLTWxiQzVQc2FWZGFn?oc=5",
+   "ms": 1795123814000,
+   "time": "11/20 05:30"
+  },
+  {
+   "t": "Gold Steadies Near 14-Month Low as Fed Signals More Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQXdmV3hhblFoX2xZNXU1UVFXemNQdDJXUlpqV3o3bmxiNUVxNTFWRkVRektBa1o0d1N2LWhFcWJYZ0VYWWUydHhnVjFrQ3VYOUI1Z25abXdHV0JucmhFcTFBZTNKSjR6WXB1MnFVanVTekJxY2cyNG9HdzB4NlkyTUtaM3N5bFQwSVd5UGQwaHJNNlRNUU5KU2tCOU5uaEVoRXY5cUhEMHBtZEtxY1B2VkRtRQ?oc=5",
+   "ms": 1795123675000,
+   "time": "11/20 05:27"
+  },
+  {
+   "t": "US Fed tells regional staff to expect lower pay increases in 2027, Bloomberg News reports",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQNGJLU254U1ZDWU5jMDFoNDRLWllKVW12Y2tvWjk0T0tuczRtUGFFc1JjT1FWT19WQXlmTl9mY0hIemw4Yi1pZ3JuUWNkM3NsZ0xwbEY5bEdMX3FfeWhYa1VvV1dvNFlsMllNZVo2NU1IMFcwd3BYa1psZ2NGaFFSbWNlbnpKcWxDaXB3aUp5bGVzYm4wMVdVQkwxYXhwR3ZDaDhYZG9aZFFweHZOdU0wOEhQZ3IwR29LT3RCSA?oc=5",
+   "ms": 1795120398000,
+   "time": "11/20 04:33"
+  },
+  {
+   "t": "Retirement savers see gold's appeal. Why do so few own it?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSTNzQVVXY0JYRE1uRDFqLTBGYm1zcDhlRm9LUkx0T3F0eW9QLVVFcTc5aHY2SXdKckE4dFJUdk1jaE5BX3hIQUxFQ25EVFBsYy1ISkgteFB2ZzlvRVlwZ1NzV085MVk2bnFlQUphVHhGT2hBMk1uaXotdWh4M3ZoTVJOeldpUXVIcnNLMmhIWHhWQ1VtbVF3TzNScFdoQzdvOENZT3RDU2hvN00yYTdmS29ycnhrdnlQ?oc=5",
+   "ms": 1795118306000,
+   "time": "11/20 03:58"
+  },
   {
    "t": "Gold’s Breakdown Below $3,700 Signals a Deeper Rate-Driven Selloff",
    "src": "Investing.com",
@@ -14,53 +77,39 @@
    "time": "11/20 03:45"
   },
   {
-   "t": "Gold’s Bear Market Through the Lens of Probability Theory",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-bear-market-through-the-lens-of-probability-theory-200691941",
-   "ms": 1795107540000,
-   "time": "11/20 00:59"
+   "t": "Gold prices could fall another 5% to $3,500 as Fed tightening fears grow – Razaqzada",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPb21Fc1g4Vm1ScFJ0ZFRiU0N2Mnktb2tyVWFZMFZPVlFyNm9UanhzR09CXzdteUxJdFdDemgwbXJBSjktUzBObDEzZHJTT1lhTF9PT2Z6U0lnNkhhTUNnT1ozaWt4WmdIWENSXzhYdTVRVXBGc2dwMU1LR0duVy00czM0dHlmQkxfNVplZWo3ZmFoanAyVXktTFZPVGRuOGc4R0d1S1hjNk5wTDlHZzQycVlDUHRhNktLMGxJ?oc=5",
+   "ms": 1795113927000,
+   "time": "11/20 02:45"
   },
   {
-   "t": "Gold Prices Face a Critical Support Test as Bearish Technical Patterns Emerge",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-face-a-critical-support-test-as-bearish-technical-patterns-emerge-200691931",
-   "ms": 1795101240000,
-   "time": "11/19 23:14"
+   "t": "Gold hits new lows amid scorching Fed rate hike bets",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLVpqRXppeXVjWm5DTEFsdkVEV2EyYWFKZUJHVlZIb2JuZjFKOXN5RldlSGNpZWlVemp2b20tMGFnSkJmZ2ZLaE9nTWttd3VFcE1sWG02elVzUm1ZMzhkWW5jUV81VUI2NjE1ZjZfUVpXLTM1RUtpTW1SOEIxQnZHNUxycS03UU12M3VKalliTUNBWFg5U1NKcHZIRy1sWkwy?oc=5",
+   "ms": 1795112798000,
+   "time": "11/20 02:26"
   },
   {
-   "t": "Gold Prices Fall Nearly 34% Below Their ATH Following Sharp Decline",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-fall-nearly-34-below-their-ath-following-sharp-decline-200691930",
-   "ms": 1795098180000,
-   "time": "11/19 22:23"
+   "t": "Gold's 14-month low looks mild next to Silver's fall from $121 to $44",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMzUtN3dzUUdicERCVDZnYU9iMDdMQVJrSFJxaTVJUTNDVWhIa1p2WVpSZHFhYVBkN09mNE5BNTRtYUU5SWQ2Tk1KVXAzQmtfTHlLeDZEeVJ0bDgycjgyVTlVTVQtaWd3bHlXMzFlRWN3QkwzWjVJSl9EajZNa0szYnpRNUVUSk1EaXN6SVRYb2tGd2dHeDVQb1RmWW9FSHNtWW1VSmlObzVNNGhhUGJueHhB?oc=5",
+   "ms": 1795112674000,
+   "time": "11/20 02:24"
   },
   {
-   "t": "Central banks rethink gold as global risks mount",
-   "src": "mining.com",
-   "url": "https://www.mining.com/central-banks-rethink-gold-as-global-risks-mount/",
-   "ms": 1795096800000,
-   "time": "11/19 22:00"
+   "t": "“Buckle up” Gold price reset [Video]",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQYTZpcnhPbVBYbG5xVURzZ1RmaXR1ZXdySjYzUE8wdVVIamZWYmZ4elZjdEZPVUlaUHA5alNiajB5TUFVbDJpQ2xHUHlXTURJYUc2bl9zTlp3NlNET2FpYm10QVdqaEtQRC1GZWI3YW9KTU9ZQ3V1V29Ic1R1a1VuaUZkSkNUQQ?oc=5",
+   "ms": 1795108647000,
+   "time": "11/20 01:17"
   },
   {
-   "t": "Gold and Silver Prices Under Pressure: What’s Next Today?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silver-prices-under-pressure-whats-next-today-200691920",
-   "ms": 1795090500000,
-   "time": "11/19 20:15"
-  },
-  {
-   "t": "Gold Hits 14-Month Low Near $3,693 as Fed Tightening Risks Persist",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-hits-14month-low-near-3693-as-fed-tightening-risks-persist-200691912",
-   "ms": 1795084500000,
-   "time": "11/19 18:35"
-  },
-  {
-   "t": "Gold price drops to 14-month low as dollar, yields rise on hawkish Fed rhetoric",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-drops-to-14-month-low-as-dollar-yields-rise-on-hawkish-fed-rhetoric/",
-   "ms": 1795029162000,
-   "time": "11/19 03:12"
+   "t": "Gold adds resilience despite near-term headwinds, copper will hit $15,500/t in 2027 – UBS",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQY0cwSHl4UnJ0dTRIcmRmam5OOWhCOWFOT2hZeXNrMW0zc29XN1l3S19FQWhuRnlHbFh2UUhJaS1EdU9uT1Zzd0JUT2dNbGpsRjdPeFJPU21OTU5aYmhWRm51WmliY1hIMTNCUmJsV0lQaVlYY1VpQUdBWkdQWEh1WjcxdDIxVzBZWHNZdFI1VDhRbGpXc1JCVGJaSFNGcVBMNVhkTUpnb3RRUzVuT2ltMFhOclB4Sm5K?oc=5",
+   "ms": 1795108486000,
+   "time": "11/20 01:14"
   }
  ]
 }
