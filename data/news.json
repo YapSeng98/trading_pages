@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20 12:47 SGT",
+ "updated": "2026-11-20 13:01 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,11 @@
  ],
  "items": [
   {
-   "t": "Gold slides to 14-mth low, set for weekly drop amid Fed hike bets By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOemJpZTVNS29fblpyUlhJbHN2LXZkclMyc0h6S2d1MFdOMEF4ZmJEanQwUmJzR0s1bDM0Q3VJMlZmdWFJcXc4WjUzRk1STzFaWEpGdVYzV1NZM0Y1V0pmLU4tM3pfb2U2WWJJWDFmSy1nbi1TTzdXT1M0ekdjNHFhYnFNSV9zQ2JMUDVkaXduRmFiRkhjX3NKS2JDNnhWUzY1ZmxEQndIS1UweDktUGZjTHdsVjlrVGFtbnc?oc=5",
-   "ms": 1795149675000,
-   "time": "11/20 12:41"
-  },
-  {
    "t": "Gold set for worst week in eight months as firm dollar, Fed hike bets weigh",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMFFjdnZJUDZiUXhKNUdPUWMtQ2tkd0ZKdmN4TTZ3bnQyb09SQ3cxSS1hNVYtcmF5WGpNSlJzS1dWYkdBUzBJZ2s5TnhLQ29mNWNIUy10MGJkN294UndsTmRmOF9GelkyVkdWRl8wcVJQNnRaRGp0a3NIMWNHT1dJSHhZRk1BT3FRV2pFcHVGa3ozS1ZCdjJXenJvSXlBOEdxLUp2MVVVTVBDY0NGX3ZRRUN3?oc=5",
-   "ms": 1795145143000,
-   "time": "11/20 11:25"
+   "ms": 1795145040000,
+   "time": "11/20 11:24"
   },
   {
    "t": "Gold Price Forecast: XAU/USD in a freefall - is a bottom in sight?",
@@ -47,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlJNYXNXZkw3b1RUbHlCY0hkVHF0OEFjQnpaMDlNc2dYREpHTUpVSHdiVTFsMHlYbXFjX3RhX0VFN3Z5WFZSUFBtRUplVUs3TWx3SWk1UmJYTDk0LWxQOFhIaU1JNS1hQm9QaDlSalNLU1JkRDd5QU9YUHZyTEsxalNySWo0YVUwVkNjZE55SXplYkJMOVJHQkIySk5YM05rV1Bj?oc=5",
    "ms": 1795140302000,
    "time": "11/20 10:05"
+  },
+  {
+   "t": "Euro faces pressure as Fed rate hike bets strengthen US Dollar",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcWI0NUJ0c0luMTAyVTNTZHZndzZ2ZHd0OXo3NDk4LVFPT3FRXzR5eTBFUXU3Z2ZOZ3NMTUx1dEtvRWFtODZfeFE4Y1Z5cXhrdTZqb2tRUlFmbXl1SUlubG5VOHRNSUw1RXRlb1VwX2lDdkdTVjB6UXhEbnkxYmtsSlo2VzJvY2pZY0o2UGF6Z0hTYnNvVFlsU1JYWnp0LV9rcmh6Rl9rUDg?oc=5",
+   "ms": 1795137247000,
+   "time": "11/20 09:14"
   },
   {
    "t": "Gold falls to 14-month low below $3,650 on hawkish Fed signals",
