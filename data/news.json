@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-22 00:32 SGT",
+ "updated": "2026-11-22 01:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Inside California’s modern-day gold rush, where miners can bring in millions",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9wWUZPZWN4MlhpRE03WmpYbTAtejJlbDA0TEhjTnJ0QWJmMGlGUVNWUVlmT2pxRE10MmlOc3p6dm9sQWNRV3B5S2RNWDJmYjI4ck5qamY0R2FIemNwMGZFOXBvYUR3bEk?oc=5",
+   "ms": 1795281714000,
+   "time": "11/22 01:21"
+  },
+  {
+   "t": "Goldman favours gold over silver as central bank demand supports prices",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOZTBsQV9MVlZ6RW9nMVFiUHJYSjFIRFZPcE9mMEdlY2dFRmlsRUQycDBhVlNXMWQyb1RROE1pN0piVWlRSld4STVfRzdiREI3R3lRdXlNZXZxMjltRmRINm5pSUM2UGJsVktyaTVnNFpDR1dEa1BGRk5mSEE2aFF6VWNjSkszZV9qaWdMM3dfTXMwNDdZS2xma0E5R3FtVWFxcnNRQnhEdWdTc2lvdkdQMDRsaFpFSzBTRVpXZ2VwU0NKZ0hR?oc=5",
+   "ms": 1795280640000,
+   "time": "11/22 01:04"
+  },
   {
    "t": "Inside California’s modern-day gold rush",
    "src": "CNBC",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNS2x0dWpmckxNTVZoMG9Lc2xsUloyWllIRnJKeEN2OGhmdjNYbmFZV3dRZ0otUjRXNEJtOGI5NXprVk0xRkhISHJLY2NLRkNDMjU1cjhVSmw1YTlVLUtZVTFUNE9wd1g0ZGZjeEllTldTX1BIU3pIRW83MGdtWkd4Yjk3UW9UUkhDT3RobGh4OEpmN2c4Z1ptUVJ2UUJUWl90SEwyVU14WkNIM1ZCLWF0eTM5dFIxb0JwZ1hyM1BiTQ?oc=5",
    "ms": 1795202579000,
    "time": "11/21 03:22"
-  },
-  {
-   "t": "Australian Dollar remains under pressure as Fed and RBA outlooks diverge",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeDl1ZENsdFJoZmtSTlFDWWZYZ3MwNDBmd3FCM3hFVm42djJhWTZCZG1EeGpaa0ZzazRLdnB3Q0NnSUVvZFBkc29PSUZwOGNPM1FHcldOdmxabHI5OU1xNEQwZ1dRVzZVQTF2dDN2ejRSdXdqbVhoSFJaZ3dxNlJ0ekkzaU0zS3FHc0VaODZSNkM4SzRuQm4xTFVId01BNVUtcFh3Y3F3NlRpaUY0UWtoMU9BdmsyUQ?oc=5",
-   "ms": 1795199605000,
-   "time": "11/21 02:33"
-  },
-  {
-   "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbmZEOFB4dnVmcGlMTnVxS3pNVTFjbFF3d25NelhTMy1yZmtWMmlOZndzbVBzS1dRV1pYNDVoazFTb25fX3dXQTdkZUJ2bjUxV3FETnJvUHhWQlRLVUE5SkVvQVpYRS1kWU1IeDhlWW05ekVDSF8wd1p5V2c5bFQxZi1uOWdmSTZPeTRXc3hBSTBJU3poWXUxaG9yUHhVbnBaVURycWsyQTlrV0F5NER1UUd4aHhvLXhRLXVpNQ?oc=5",
-   "ms": 1795198287000,
-   "time": "11/21 02:11"
   }
  ]
 }
