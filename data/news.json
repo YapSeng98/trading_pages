@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 11:05 SGT",
+ "updated": "2026-11-21 11:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -26,13 +26,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOUmVvLUV0T3haSzRmSUsxVEtmaTBVNDBZTE4wOFpEQ01pYmZzX1lwa2dxRmxFRzE1eThieXRrdW9Wd05QQXhUREZSb1RiNE02VkxUcEE3eXFFaUx5eFN2dThuLUhyWVNFT2V0OURvWXBSdmN1UjhzQnlCQlIyV0dUclpLQjVXanJ5VEpIdFNDSG0tTUtTQ0Z6c245TnluOFJ0X1E?oc=5",
    "ms": 1795215188000,
    "time": "11/21 06:53"
-  },
-  {
-   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
-   "ms": 1795213968000,
-   "time": "11/21 06:32"
   },
   {
    "t": "Wall Street stays bearish after gold’s slide to $3,500, Main Street pessimism deepens ahead of holiday week",
@@ -82,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
    "ms": 1795205533000,
    "time": "11/21 04:12"
+  },
+  {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795203371000,
+   "time": "11/21 03:36"
   },
   {
    "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
