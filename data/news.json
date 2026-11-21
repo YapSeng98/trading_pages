@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 09:03 SGT",
+ "updated": "2026-11-21 09:43 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -47,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPMzNZSEhWdkUzUk5sejZ4cDNvV3YyZ1I5d1RSUFdrLXNILVZIS1RmZU1ROTE3RG5fZllqc2lZNzh0UkpyYmk1Uk5GUjlxOGVxdW81WTdsRFZzMlpQdkJNUjhLM1EwZlg0Y2ZXb0VJLTB6U0FtMjlxVUF2UkFGNEVYNWZ1THNBM1cxTkxCd2hUY3Y3ckRrUE9zZFpkbHphdkN0aDhWOE5LT1RwMTFYRVVLeE05Ti1remM?oc=5",
    "ms": 1795213609000,
    "time": "11/21 06:26"
+  },
+  {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795213119000,
+   "time": "11/21 06:18"
   },
   {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/golds-three-black-crows-pattern-points-to-3231-if-trump-backs-netanyahu-200692023",
    "ms": 1795197720000,
    "time": "11/21 02:02"
-  },
-  {
-   "t": "Gold is cheap. The world's biggest buyers know something we don't.",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOODZqdHhFZkFjaGYxN1RXVGtEbkV6RXo5LW9NcjhGNWduSzdpNlkzVHFZcHgwaHo5eXlzcFppeTJ4VTlNSXgxNGFWeFZqRFFjdDV4WTE4VFBCeGZaaFJXSW9QRXBxZVNuVTRRbVV3bGM2ZElwbDE3d3NRVmVUdGlZNFdxc1hJTWNxUGNFOXZfUldCTWQ1ZEVsUUQtQXE?oc=5",
-   "ms": 1795196235000,
-   "time": "11/21 01:37"
   }
  ]
 }
