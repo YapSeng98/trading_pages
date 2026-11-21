@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 07:42 SGT",
+ "updated": "2026-11-21 08:36 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": false,
@@ -58,8 +58,8 @@
  "previousWeek": {
   "open": 3864,
   "high": 3901.1,
-  "low": 3590.3,
-  "close": 3607.2
+  "low": 3502.7,
+  "close": 3538.2
  },
  "verdict": {
   "level": "go",
@@ -236,11 +236,6 @@
    "strength": 1
   },
   {
-   "price": 3590.3,
-   "what": "上周低点",
-   "strength": 4
-  },
-  {
    "price": 3595.1,
    "what": "1小时前高、4小时近期小高点",
    "strength": 2
@@ -254,6 +249,11 @@
    "price": 3693.3,
    "what": "1小时向下突破位、4小时区间中点",
    "strength": 2
+  },
+  {
+   "price": 3744.2,
+   "what": "1小时区间顶",
+   "strength": 1
   }
  ],
  "support": [
@@ -264,8 +264,8 @@
   },
   {
    "price": 3502.7,
-   "what": "昨日低点、日线区间底、4小时区间底、4小时熊旗关键位、1小时区间底、1小时近期小低点",
-   "strength": 12
+   "what": "上周低点、昨日低点、日线区间底、4小时区间底、4小时熊旗关键位、1小时区间底、1小时近期小低点",
+   "strength": 16
   },
   {
    "price": 3307.9,
