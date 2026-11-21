@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 09:43 SGT",
+ "updated": "2026-11-21 09:57 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -49,13 +49,6 @@
    "time": "11/21 06:26"
   },
   {
-   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
-   "ms": 1795213119000,
-   "time": "11/21 06:18"
-  },
-  {
    "t": "Gold Set for Worst Week Since March on Hawkish Fed, AI Selloff",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRkRDQWZYNXlObXhXM0Q1TEFtSXhxV24ySVdMUnNCVWRRSnJDTkVBLWtJR1lTWEliYzRIbWhWeEFRYzUySHFObzRJajNFWW5wd2lmZ0tIeXpQaFZfdlRZaFJEUTdRVkFKUW1HNDZ1dWhXU1QzSFpIOF80MUJkSWJsdTY1ME9CRUVVYVY0SllFVFYzR0pVVER4YjVSNGp6Y2tIR0ZSRW5yS1VHSHV2OU9MU2lB?oc=5",
@@ -84,18 +77,18 @@
    "time": "11/21 05:00"
   },
   {
+   "t": "Gold Price Crash Tests $3,500 as Fed Hike Bets Reach 97%",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZ0pScGRiYmZpdXBhdWhGdUM5RXFDTEliYjZvRDQ3UTloeUFsQWRtVzN3YzlCQXJ2bjRCaHVIRkxwb0d4QVlYRzJCSmc1bTd5aHAzNjBiM2pUbzNudDBKVV8yUlJkbGtsWFo2UDRIZjFHd2c2SkZfdXBPV2tsdWtvRy1OYmY2M2NJYWFZa2FmRm1aYmQxbWVIUHNrU0s5Zw?oc=5",
+   "ms": 1795205796000,
+   "time": "11/21 04:16"
+  },
+  {
    "t": "Gold price could drop $300 if $3,500/oz fails, and buyers might hold off until the Fed – Walsh Trading’s Lusk",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
    "ms": 1795205533000,
    "time": "11/21 04:12"
-  },
-  {
-   "t": "Gold Price Crash Tests $3,500 as Fed Hike Bets Reach 97%",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-price-crash-tests-3500-as-fed-hike-bets-reach-97-200692028",
-   "ms": 1795202760000,
-   "time": "11/21 03:26"
   },
   {
    "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/golds-three-black-crows-pattern-points-to-3231-if-trump-backs-netanyahu-200692023",
    "ms": 1795197720000,
    "time": "11/21 02:02"
+  },
+  {
+   "t": "Gold is cheap. The world's biggest buyers know something we don't.",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOODZqdHhFZkFjaGYxN1RXVGtEbkV6RXo5LW9NcjhGNWduSzdpNlkzVHFZcHgwaHo5eXlzcFppeTJ4VTlNSXgxNGFWeFZqRFFjdDV4WTE4VFBCeGZaaFJXSW9QRXBxZVNuVTRRbVV3bGM2ZElwbDE3d3NRVmVUdGlZNFdxc1hJTWNxUGNFOXZfUldCTWQ1ZEVsUUQtQXE?oc=5",
+   "ms": 1795196235000,
+   "time": "11/21 01:37"
   }
  ]
 }
