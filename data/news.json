@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-21 18:16 SGT",
+ "updated": "2026-11-21 19:09 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795233083000,
-   "time": "11/21 11:51"
-  },
   {
    "t": "Gold Takes a Beating as Hawkish Fed Sparks Worst Week in Eight Months",
    "src": "Yahoo Finance",
@@ -89,6 +82,13 @@
    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNS2x0dWpmckxNTVZoMG9Lc2xsUloyWllIRnJKeEN2OGhmdjNYbmFZV3dRZ0otUjRXNEJtOGI5NXprVk0xRkhISHJLY2NLRkNDMjU1cjhVSmw1YTlVLUtZVTFUNE9wd1g0ZGZjeEllTldTX1BIU3pIRW83MGdtWkd4Yjk3UW9UUkhDT3RobGh4OEpmN2c4Z1ptUVJ2UUJUWl90SEwyVU14WkNIM1ZCLWF0eTM5dFIxb0JwZ1hyM1BiTQ?oc=5",
    "ms": 1795202579000,
    "time": "11/21 03:22"
+  },
+  {
+   "t": "Australian Dollar remains under pressure as Fed and RBA outlooks diverge",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeDl1ZENsdFJoZmtSTlFDWWZYZ3MwNDBmd3FCM3hFVm42djJhWTZCZG1EeGpaa0ZzazRLdnB3Q0NnSUVvZFBkc29PSUZwOGNPM1FHcldOdmxabHI5OU1xNEQwZ1dRVzZVQTF2dDN2ejRSdXdqbVhoSFJaZ3dxNlJ0ekkzaU0zS3FHc0VaODZSNkM4SzRuQm4xTFVId01BNVUtcFh3Y3F3NlRpaUY0UWtoMU9BdmsyUQ?oc=5",
+   "ms": 1795199605000,
+   "time": "11/21 02:33"
   },
   {
    "t": "Buy the dip: Société Générale sees gold hitting $5,000 in 2027 despite sharp selloff",
