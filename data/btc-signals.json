@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1795233600000,
+ "lastChecked": 1795234500000,
  "a3": -1,
  "a5": -1,
- "open": 5,
+ "open": null,
  "nextId": 14,
  "signals": [
   {
@@ -83,7 +83,12 @@
    "risk": 2579.13,
    "atr": 859.71,
    "spread": 19.17,
-   "status": "open"
+   "status": "target",
+   "exitTime": "2026-11-21 12:15 SGT",
+   "exitMs": 1795234500000,
+   "exitPrice": 56163.87,
+   "nights": 6,
+   "R": 2.94
   },
   {
    "id": 6,
@@ -294,16 +299,22 @@
    "time": "2026-11-20 20:15 SGT",
    "type": "skipped",
    "text": "信号 #13（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1795234500000,
+   "time": "2026-11-21 12:15 SGT",
+   "type": "closed",
+   "text": "做空 #5 到目标，+2.94R"
   }
  ],
  "summary": {
   "signals": 13,
   "taken": 3,
-  "closed": 2,
-  "wins": 2,
-  "totalR": 5.89,
-  "avgR": 2.95,
-  "open": 1
+  "closed": 3,
+  "wins": 3,
+  "totalR": 8.83,
+  "avgR": 2.94,
+  "open": 0
  },
  "changes": [
   {
@@ -1445,7 +1456,7 @@
       "target": null,
       "risk": 1674.3,
       "spread": 19.25,
-      "best": 56419.25,
+      "best": 55574.8,
       "day": 20778,
       "status": "open"
      }
@@ -1461,7 +1472,7 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 4,
+    "open": null,
     "nextId": 5,
     "skipped": 10,
     "prev": -1,
@@ -1539,16 +1550,21 @@
       "spread": 19.17,
       "best": 63901.26,
       "day": 20772,
-      "status": "open"
+      "status": "target",
+      "exitTime": "2026-11-21 12:15 SGT",
+      "exitMs": 1795234500000,
+      "exitPrice": 56163.87,
+      "nights": 6,
+      "R": 2.94
      }
     ],
     "summary": {
      "taken": 4,
-     "closed": 3,
-     "wins": 3,
-     "totalR": 8.83,
+     "closed": 4,
+     "wins": 4,
+     "totalR": 11.77,
      "avgR": 2.94,
-     "open": 1
+     "open": 0
     }
    },
    "noWtrail": {
@@ -1609,7 +1625,7 @@
       "target": null,
       "risk": 1674.3,
       "spread": 19.25,
-      "best": 56419.25,
+      "best": 55574.8,
       "day": 20778,
       "status": "open"
      }
