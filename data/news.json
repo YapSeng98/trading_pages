@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-22 02:19 SGT",
+ "updated": "2026-11-22 02:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "UBS flags further gold weakness before Fed rate-cut expectations return By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdHNNSWhkR0llNE82Rm54MlJaRDQ1MUlpckdhZzdnc2RLaEQ4Yzh4NTBZY0tfVXJ5TjFpdm5uelZFLUk1ZzJkSzlOMFo3eEp2dnFjM0NDTmpfb2VhV2M2a0hPeS02ZGt5Z0phOUhoanV4aTQ1U1NNT0RRMU9UTHpsWDJGUGVGZEYzLWVXRjZOOW5ZRmI1dmhmVWhBLXVUaHFmRzhKSTZmYjVqY1JMdVppcFQ5ZG1SRjREc1paUnFTTlpRRjA?oc=5",
-   "ms": 1795284157000,
-   "time": "11/22 02:02"
-  },
   {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return",
    "src": "Investing.com Australia",
@@ -38,8 +31,8 @@
    "t": "Inside California’s modern-day gold rush",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTkRJTjlnSzkydTRmT1BYUjU4ZzFJQmtZdllGRExQZ2lQd3VmYzRKcjU2QnBtYy0zRmZCbUJ5YTRDcllMbk84WVNoX1R6VENVYkNEbTdZbFRaMmd5c3RkY3lrX1ZKY1kza2s5Z0hiU0QzRGpjN1NJdFdkU0dVb18tY2hDdFFpUFc0blE?oc=5",
-   "ms": 1795264246000,
-   "time": "11/21 20:30"
+   "ms": 1795267235000,
+   "time": "11/21 21:20"
   },
   {
    "t": "Gold Takes a Beating as Hawkish Fed Sparks Worst Week in Eight Months",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbUFSQ1BqTTJFVk9QLWhaTlMzaEFLZ3ljUlo0X1RFODhsZnFTQkFEX0VWaVRnM3VYa0MxbHdsRlhOQTBJaEo0akFXVWF0UkNwUzBsZzdJaHkxcXYydzcxRndDZVEzOExaUk1RaHFEZkFtNzd2MWVsU1R5SlVyLTlIVkM2MlAzbFRGOGczSXZHb2ZQejVJVzJSUmNxS092UkE?oc=5",
    "ms": 1795205140000,
    "time": "11/21 04:05"
+  },
+  {
+   "t": "Gold fell 34% in 2008, then soared 166%: Is this the buying opportunity of a lifetime? [Video]",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOYkdzLVFsVm5SSXU4S2tXWnZQbVdfNnR6M29wTjRWNG01eElEMW0yRTlySWhlNVZpdm03akZNLTlSZlpxZU1jZVBuOFBCb09kYmstdVFiTVZOYzdLLThEbWVCcTltNlZmRVdiQ0p2clRZNGVJWURlSFJIcncyVWJwT3RPZXhSSTlGYV9ZVUJ6LTJtcG14UFg0U04wMEF3dDZ2NWdXV3M2bE5yYTZ6WExtUXNTTDM3V2xkOGZtWHA2N1lEaDBXdzVlRkVkNmZUczg?oc=5",
+   "ms": 1795203220000,
+   "time": "11/21 03:33"
   }
  ]
 }
