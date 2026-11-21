@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22 05:01 SGT",
+ "updated": "2026-11-22 05:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -33,6 +33,13 @@
    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
    "ms": 1795276691000,
    "time": "11/21 23:58"
+  },
+  {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795268691000,
+   "time": "11/21 21:44"
   },
   {
    "t": "Inside California’s modern-day gold rush",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
    "ms": 1795205533000,
    "time": "11/21 04:12"
-  },
-  {
-   "t": "Gold fell 34% in 2008, then soared 166%: Is this the buying opportunity of a lifetime? [Video]",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOYkdzLVFsVm5SSXU4S2tXWnZQbVdfNnR6M29wTjRWNG01eElEMW0yRTlySWhlNVZpdm03akZNLTlSZlpxZU1jZVBuOFBCb09kYmstdVFiTVZOYzdLLThEbWVCcTltNlZmRVdiQ0p2clRZNGVJWURlSFJIcncyVWJwT3RPZXhSSTlGYV9ZVUJ6LTJtcG14UFg0U04wMEF3dDZ2NWdXV3M2bE5yYTZ6WExtUXNTTDM3V2xkOGZtWHA2N1lEaDBXdzVlRkVkNmZUczg?oc=5",
-   "ms": 1795203220000,
-   "time": "11/21 03:33"
   }
  ]
 }
