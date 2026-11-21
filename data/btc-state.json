@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-21 14:14 SGT",
+ "updated": "2026-11-21 15:08 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 55792.8,
- "priceTime": "2026-11-21 14:00 SGT",
+ "price": 58066.7,
+ "priceTime": "2026-11-21 15:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 58951.5,
   "high": 59248.1,
-  "low": 55555.6,
-  "changeFromPrevClose": -3158.7,
-  "changePct": -5.36,
+  "low": 55130,
+  "changeFromPrevClose": -884.8,
+  "changePct": -1.5,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 55792.8,
-  "stop": 58322.6,
-  "target": 48203.5,
-  "stopDistance": 2529.8,
-  "trailDistance": 5059.6
+  "entry": 58066.7,
+  "stop": 61055.4,
+  "target": 49100.6,
+  "stopDistance": 2988.7,
+  "trailDistance": 5977.4
  },
  "watch": [
   {
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-16 21:00 SGT",
-   "rsi": 18,
-   "atr": 843.26,
+   "rsi": 41.2,
+   "atr": 996.24,
    "turnsUpAbove": 62341.9,
    "turnsDownBelow": null
   },
@@ -134,23 +134,13 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-20 20:15 SGT",
-   "rsi": 21.6,
-   "atr": 426.07,
+   "rsi": 59,
+   "atr": 553.78,
    "turnsUpAbove": 59248.1,
    "turnsDownBelow": 55555.6
   }
  ],
  "resistance": [
-  {
-   "price": 56400,
-   "what": "4小时区间底",
-   "strength": 2
-  },
-  {
-   "price": 57778.4,
-   "what": "昨日低点、日线区间底、1小时向下突破位",
-   "strength": 7
-  },
   {
    "price": 59410.6,
    "what": "1小时区间顶、1小时近期小高点",
@@ -165,11 +155,31 @@
    "price": 62006,
    "what": "上周低点、周线区间底、4小时向下突破位",
    "strength": 8
+  },
+  {
+   "price": 62341.9,
+   "what": "1小时前高",
+   "strength": 1
+  },
+  {
+   "price": 62639.5,
+   "what": "昨日高点",
+   "strength": 3
   }
  ],
  "support": [
   {
-   "price": 55555.6,
+   "price": 57778.4,
+   "what": "昨日低点、日线区间底、1小时向下突破位",
+   "strength": 7
+  },
+  {
+   "price": 56400,
+   "what": "4小时区间底",
+   "strength": 2
+  },
+  {
+   "price": 55130,
    "what": "1小时区间底",
    "strength": 1
   }
