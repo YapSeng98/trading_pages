@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22 08:23 SGT",
+ "updated": "2026-11-22 08:49 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -10,8 +10,8 @@
    "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795287306000,
-   "time": "11/22 02:55"
+   "ms": 1795298207000,
+   "time": "11/22 05:56"
   },
   {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return",
@@ -40,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTkRJTjlnSzkydTRmT1BYUjU4ZzFJQmtZdllGRExQZ2lQd3VmYzRKcjU2QnBtYy0zRmZCbUJ5YTRDcllMbk84WVNoX1R6VENVYkNEbTdZbFRaMmd5c3RkY3lrX1ZKY1kza2s5Z0hiU0QzRGpjN1NJdFdkU0dVb18tY2hDdFFpUFc0blE?oc=5",
    "ms": 1795266000000,
    "time": "11/21 21:00"
-  },
-  {
-   "t": "UK maritime agency reports two tanker attacks near Oman; Iran says vessel hit mine east of Hormuz",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQUmFyQWpXTk9nTzJGUDgtdW5qMm1CZU9VWTZiTWZjUEhuSWRfd3Etc18zc09KR0JfbGQ1emx3ZHpuY1d6WFctZVREZDlnTDd3LThMcndkejR6S3pUdVp2eFpMRFZyUU0zQ2lSMDU2Q2dsVzEwUGl4b3lHejk1MGoyOU81dmVIdDdwSVpBcnRGQ1IxLUV5T3kxZ9IBngFBVV95cUxQb2o5YWI3QUp1R2trSUFzQVV6MVVmcUItN1VBSXhXWk13bHhRdWdGcmVqdjJ3S2F3WkN4WXpzYTR6TEVlSUNGS1RueGduYVgtTXlQS1JXVjRpSkotVHJLWjFvbVJqY3J0aWE0bjM4cDRsaS04b3NMY3pyZWMwZnpBd0I5dmpPYUVEYkJkRlJiRi1EbXMwYzRBX21lU3dUUQ?oc=5",
-   "ms": 1795259725000,
-   "time": "11/21 19:15"
   },
   {
    "t": "Gold Takes a Beating as Hawkish Fed Sparks Worst Week in Eight Months",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
    "ms": 1795205533000,
    "time": "11/21 04:12"
+  },
+  {
+   "t": "Gold Price Crash Tests $3,500 as Fed Hike Bets Reach 97%",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQbUFSQ1BqTTJFVk9QLWhaTlMzaEFLZ3ljUlo0X1RFODhsZnFTQkFEX0VWaVRnM3VYa0MxbHdsRlhOQTBJaEo0akFXVWF0UkNwUzBsZzdJaHkxcXYydzcxRndDZVEzOExaUk1RaHFEZkFtNzd2MWVsU1R5SlVyLTlIVkM2MlAzbFRGOGczSXZHb2ZQejVJVzJSUmNxS092UkE?oc=5",
+   "ms": 1795205140000,
+   "time": "11/21 04:05"
   }
  ]
 }
