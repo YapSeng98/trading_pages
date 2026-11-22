@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1795303800000,
+ "lastChecked": 1795307400000,
  "a3": -1,
  "a5": 0,
  "open": null,
@@ -1431,7 +1431,7 @@
   "books": {
    "trail": {
     "name": "同一信号，跟踪止损出场",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 11,
     "prev": 0,
@@ -1462,23 +1462,28 @@
       "ms": 1794834000000,
       "side": "做空",
       "entry": 64169.58,
-      "stop": 61146.2,
+      "stop": 58497.85,
       "initStop": 65843.88,
       "target": null,
       "risk": 1674.3,
       "spread": 19.25,
       "best": 55149.25,
-      "day": 20778,
-      "status": "open"
+      "day": 20779,
+      "status": "stop",
+      "exitTime": "2026-11-22 08:15 SGT",
+      "exitMs": 1795306500000,
+      "exitPrice": 60235.03,
+      "nights": 6,
+      "R": 2.25
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 7.04,
-     "avgR": 7.04,
-     "open": 1
+     "closed": 2,
+     "wins": 2,
+     "totalR": 9.29,
+     "avgR": 4.64,
+     "open": 0
     }
    },
    "noW": {
@@ -1580,7 +1585,7 @@
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
-    "open": 3,
+    "open": null,
     "nextId": 4,
     "skipped": 11,
     "prev": 0,
@@ -1631,23 +1636,28 @@
       "ms": 1794834000000,
       "side": "做空",
       "entry": 64169.58,
-      "stop": 61146.2,
+      "stop": 58497.85,
       "initStop": 65843.88,
       "target": null,
       "risk": 1674.3,
       "spread": 19.25,
       "best": 55149.25,
-      "day": 20778,
-      "status": "open"
+      "day": 20779,
+      "status": "stop",
+      "exitTime": "2026-11-22 08:15 SGT",
+      "exitMs": 1795306500000,
+      "exitPrice": 60235.03,
+      "nights": 6,
+      "R": 2.25
      }
     ],
     "summary": {
      "taken": 3,
-     "closed": 2,
-     "wins": 2,
-     "totalR": 7.16,
-     "avgR": 3.58,
-     "open": 1
+     "closed": 3,
+     "wins": 3,
+     "totalR": 9.41,
+     "avgR": 3.14,
+     "open": 0
     }
    }
   }
