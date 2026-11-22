@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-22 21:50 SGT",
+ "updated": "2026-11-22 22:03 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Royal Gold Heads 3 Top Gold Stocks To Watch",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPLXk5a3pOYWtZaGNGeW02bGszNDdLelJDQThHMTdzbVdXR0dsY0gza2xoNHE5Mnd3RG9kOVdaajlCeVo4dkJpSVZMbTM0VjZPZ0VGZ1A2R3I2VHQ2X0JCZ1NVUXVoZXRVVTNiUVpLOWlTaWY0MmZkdGs1My1GM21GNEVhYlZjREZvLTdqUFNfVnktVl9EcGVr?oc=5",
-   "ms": 1795306380000,
-   "time": "11/22 08:13"
-  },
   {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return By Investing.com",
    "src": "Investing.com India",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPS25YaVZ3dVV0VzFmRWhLb01OcFRxLVItNmNFb2NYZ0JPMGtLMlNuYkZELTE3QS1tNzlWUUJ3cFV1Vjg2YUVvTnI4NU1vLUVlcmt1SWlEQ0ZOa2NUbnc3OFlqMVdHZUgyYjFQajVRVE5QMXNoOGtsOE13c2NLU2haQ1N5ZTRaNExmd1dJVE5OclF2dTBWazhYR2VucnRnWkFnM2tld3V5RDJzSk9aTTJKZENYRFpYdUlsblJHdw?oc=5",
    "ms": 1795209194000,
    "time": "11/21 05:13"
+  },
+  {
+   "t": "Gold and silver prices fall again: How much lower could they go?",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbkh2d29XWFItYzI5aWhZeTZuZmNTMFJoaGYzQy02MHQxR1Iwc0RCelhrUGZaYkNYSEs2NDNsLVJqU3ZoeW9ndWxxeWdnamxDak5GbE1YX2hNM2lZNVlQQU52QkF5X0V1eDF3eVI4d2ZVdk1yWFNiMTNMT1B3RjFuSlpQaXhhZlVBbmd0SlpPdDZ3RF9VMTBDdDJQN0d3OVFEbG1VZ2hn?oc=5",
+   "ms": 1795208425000,
+   "time": "11/21 05:00"
   }
  ]
 }
