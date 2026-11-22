@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1795348800000,
+ "lastChecked": 1795350600000,
  "a3": -1,
  "a5": 0,
- "open": 14,
+ "open": null,
  "nextId": 15,
  "signals": [
   {
@@ -213,7 +213,12 @@
    "risk": 1824.75,
    "atr": 608.25,
    "spread": 17.95,
-   "status": "open"
+   "status": "stop",
+   "exitTime": "2026-11-22 20:30 SGT",
+   "exitMs": 1795350600000,
+   "exitPrice": 61672.77,
+   "nights": 0,
+   "R": -1
   }
  ],
  "events": [
@@ -324,16 +329,22 @@
    "time": "2026-11-22 10:30 SGT",
    "type": "go",
    "text": "信号 #14：做空 59,848.0"
+  },
+  {
+   "ms": 1795350600000,
+   "time": "2026-11-22 20:30 SGT",
+   "type": "closed",
+   "text": "做空 #14 止损，−1.00R"
   }
  ],
  "summary": {
   "signals": 14,
   "taken": 4,
-  "closed": 3,
+  "closed": 4,
   "wins": 3,
-  "totalR": 8.83,
-  "avgR": 2.94,
-  "open": 1
+  "totalR": 7.83,
+  "avgR": 1.96,
+  "open": 0
  },
  "changes": [
   {
@@ -1483,7 +1494,7 @@
   "books": {
    "trail": {
     "name": "同一信号，跟踪止损出场",
-    "open": 3,
+    "open": null,
     "nextId": 4,
     "skipped": 11,
     "prev": 0,
@@ -1541,21 +1552,26 @@
       "spread": 17.95,
       "best": 58786.46,
       "day": 20779,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-22 20:30 SGT",
+      "exitMs": 1795350600000,
+      "exitPrice": 61672.77,
+      "nights": 0,
+      "R": -1
      }
     ],
     "summary": {
      "taken": 3,
-     "closed": 2,
+     "closed": 3,
      "wins": 2,
-     "totalR": 9.29,
-     "avgR": 4.64,
-     "open": 1
+     "totalR": 8.29,
+     "avgR": 2.76,
+     "open": 0
     }
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 5,
+    "open": null,
     "nextId": 6,
     "skipped": 10,
     "prev": 0,
@@ -1653,21 +1669,26 @@
       "spread": 17.95,
       "best": 59848.02,
       "day": 20779,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-22 20:30 SGT",
+      "exitMs": 1795350600000,
+      "exitPrice": 61672.77,
+      "nights": 0,
+      "R": -1
      }
     ],
     "summary": {
      "taken": 5,
-     "closed": 4,
+     "closed": 5,
      "wins": 4,
-     "totalR": 11.77,
-     "avgR": 2.94,
-     "open": 1
+     "totalR": 10.77,
+     "avgR": 2.15,
+     "open": 0
     }
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
-    "open": 4,
+    "open": null,
     "nextId": 5,
     "skipped": 11,
     "prev": 0,
@@ -1745,16 +1766,21 @@
       "spread": 17.95,
       "best": 58786.46,
       "day": 20779,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-22 20:30 SGT",
+      "exitMs": 1795350600000,
+      "exitPrice": 61672.77,
+      "nights": 0,
+      "R": -1
      }
     ],
     "summary": {
      "taken": 4,
-     "closed": 3,
+     "closed": 4,
      "wins": 3,
-     "totalR": 9.41,
-     "avgR": 3.14,
-     "open": 1
+     "totalR": 8.41,
+     "avgR": 2.1,
+     "open": 0
     }
    }
   }
