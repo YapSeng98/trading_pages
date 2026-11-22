@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-23 01:38 SGT",
+ "updated": "2026-11-23 02:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "UBS flags further gold weakness before Fed rate-cut expectations return By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUllBQ21ZWW90TEJhRU0temx1dGFpSk9fRmw3WGhZZmJmWk5TUk9VX3lMVmtkRkFkQTVJOVhtSjR4RVo2VmZEQnBvU09velN5TUZONDExNmd3TXl5czgxQkJoNVJOWjE0WFZhbmhNZi14dFFtYll0OE5vZE9fN1FIRkpRWWlONEZ5Z2l4VW9oNzRwZ1VfZ01GUGNfLXkxMmlRemIzdV9aMGhVek9hVTNiTTdoUFZlUmFKRDZuSW1DSDR5VG8?oc=5",
-   "ms": 1795283628000,
-   "time": "11/22 01:53"
-  },
   {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return",
    "src": "Investing.com",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMFFjdnZJUDZiUXhKNUdPUWMtQ2tkd0ZKdmN4TTZ3bnQyb09SQ3cxSS1hNVYtcmF5WGpNSlJzS1dWYkdBUzBJZ2s5TnhLQ29mNWNIUy10MGJkN294UndsTmRmOF9GelkyVkdWRl8wcVJQNnRaRGp0a3NIMWNHT1dJSHhZRk1BT3FRV2pFcHVGa3ozS1ZCdjJXenJvSXlBOEdxLUp2MVVVTVBDY0NGX3ZRRUN3?oc=5",
    "ms": 1795205620000,
    "time": "11/21 04:13"
+  },
+  {
+   "t": "Gold price could drop $300 if $3,500/oz fails, and buyers might hold off until the Fed – Walsh Trading’s Lusk",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
+   "ms": 1795205533000,
+   "time": "11/21 04:12"
   }
  ]
 }
