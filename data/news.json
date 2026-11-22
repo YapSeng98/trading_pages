@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-22 12:11 SGT",
+ "updated": "2026-11-22 12:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795298207000,
-   "time": "11/22 05:56"
-  },
   {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return",
    "src": "Investing.com Australia",
@@ -47,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQUmFyQWpXTk9nTzJGUDgtdW5qMm1CZU9VWTZiTWZjUEhuSWRfd3Etc18zc09KR0JfbGQ1emx3ZHpuY1d6WFctZVREZDlnTDd3LThMcndkejR6S3pUdVp2eFpMRFZyUU0zQ2lSMDU2Q2dsVzEwUGl4b3lHejk1MGoyOU81dmVIdDdwSVpBcnRGQ1IxLUV5T3kxZ9IBngFBVV95cUxQb2o5YWI3QUp1R2trSUFzQVV6MVVmcUItN1VBSXhXWk13bHhRdWdGcmVqdjJ3S2F3WkN4WXpzYTR6TEVlSUNGS1RueGduYVgtTXlQS1JXVjRpSkotVHJLWjFvbVJqY3J0aWE0bjM4cDRsaS04b3NMY3pyZWMwZnpBd0I5dmpPYUVEYkJkRlJiRi1EbXMwYzRBX21lU3dUUQ?oc=5",
    "ms": 1795259725000,
    "time": "11/21 19:15"
+  },
+  {
+   "t": "Gold Takes a Beating as Hawkish Fed Sparks Worst Week in Eight Months",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOdHRqR1J2alFiOXd3Y2tteUlQenZGRXhiVlR2Tk4xSEVSTUd5Q2pwV2lMcmpvYm1uWFAzTWZ1T2lsYkZEczNGZlVsOGhTZW5zMXl6Wkg0Q1ZtcV9sd2t6YzQ3Ri1tejZtbUlFYVdObWNJZUU1N19GR3V6RkxTWi1QbXNnVHVuUmdtLU5hQjdyeklTSTB0cUludHFvWGtod2RvaXc?oc=5",
+   "ms": 1795215379000,
+   "time": "11/21 06:56"
   },
   {
    "t": "Gold falls toward $3,500, silver slides as stock markets enter correction territory - Kitco PM Report",
