@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22 19:08 SGT",
+ "updated": "2026-11-22 20:15 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,11 @@
  ],
  "items": [
   {
-   "t": "UBS flags further gold weakness before Fed rate-cut expectations return By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQUllBQ21ZWW90TEJhRU0temx1dGFpSk9fRmw3WGhZZmJmWk5TUk9VX3lMVmtkRkFkQTVJOVhtSjR4RVo2VmZEQnBvU09velN5TUZONDExNmd3TXl5czgxQkJoNVJOWjE0WFZhbmhNZi14dFFtYll0OE5vZE9fN1FIRkpRWWlONEZ5Z2l4VW9oNzRwZ1VfZ01GUGNfLXkxMmlRemIzdV9aMGhVek9hVTNiTTdoUFZlUmFKRDZuSW1DSDR5VG8?oc=5",
-   "ms": 1795283628000,
-   "time": "11/22 01:53"
-  },
-  {
    "t": "UBS flags further gold weakness before Fed rate-cut expectations return",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUlo5dHE1SWxqV19SaFYxVEl2OFZ0a0lsTEw2Tjc5anRmZHBxaWp6QUEybWpnTk1Kci01YkJrWkpxb2VVaEFCWG1uaU9zY1J5eDh1UHdzai1TdVlNYm44TldXOFdHTFk3YVhrVGFrcmJSeWpWd0Zic1pIanRZVmpIcDlCQVkxZUZEeUlPZXpZQXFoOHlNd21uWEF3OWFhUExjSVk2VFdDS2QtU2JVR05BSGZ1Ymt2UkpsbHQ4eGc0MGw5d0oz?oc=5",
-   "ms": 1795283530000,
-   "time": "11/22 01:52"
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQcmJzeTVEeGx3TGZYano1b1ZLY2F6UVd6N0lOdER6WHhVRGphemNFcUZ0cFlUcUFRUnZLeHRwVVFYWENyejRURG1MQ2FoSlZXSFVBY21SNFBaMEhFRXNvXzQzUWEtX21ZTGdMVktrb0VoUXdEdnV5Y2dUSHR2TTNGeXN5SDJnRmhTUkxZemhhWS11eHVkV3lnM1ZTNVF3aVdFX3RV?oc=5",
+   "ms": 1795285239000,
+   "time": "11/22 02:20"
   },
   {
    "t": "Goldman favours gold over silver as central bank demand supports prices",
@@ -47,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQUmFyQWpXTk9nTzJGUDgtdW5qMm1CZU9VWTZiTWZjUEhuSWRfd3Etc18zc09KR0JfbGQ1emx3ZHpuY1d6WFctZVREZDlnTDd3LThMcndkejR6S3pUdVp2eFpMRFZyUU0zQ2lSMDU2Q2dsVzEwUGl4b3lHejk1MGoyOU81dmVIdDdwSVpBcnRGQ1IxLUV5T3kxZ9IBngFBVV95cUxQb2o5YWI3QUp1R2trSUFzQVV6MVVmcUItN1VBSXhXWk13bHhRdWdGcmVqdjJ3S2F3WkN4WXpzYTR6TEVlSUNGS1RueGduYVgtTXlQS1JXVjRpSkotVHJLWjFvbVJqY3J0aWE0bjM4cDRsaS04b3NMY3pyZWMwZnpBd0I5dmpPYUVEYkJkRlJiRi1EbXMwYzRBX21lU3dUUQ?oc=5",
    "ms": 1795259725000,
    "time": "11/21 19:15"
+  },
+  {
+   "t": "US Market Crash: Nasdaq enters 'bear market' - 10 things for investors to know",
+   "src": "CNBC TV18",
+   "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOUUdKaHNnU3dHQUFyM2dtRW1DaVFQRC1JZ1BxWjRLdkJIMzlTQnExcUpjYXhqQl9JYmw0S1NiOG9MMEZ2VE9VWWtXaFVSbThvekpHeWt5V01ORkxPWVl1d0JVbDZBOE52dUFUaEZqVTdGWlRGYk93d0stN29YZzJCOXFGU1l2Zk9ndjc2R0NubHR4SGNXQjdkV1ctVUF0R0RwOGFxRWhVNGZZRUNfM3J3ZFJIa19LaVZfcjQ3eW1oUUtxSXhiZXE3TUtWaTJrY3ZBQUVmeVdXeU8tclVsVTJqak1PLTI4X05jLVZZZlZDVGRGWnBs0gH0AUFVX3lxTE5RR0poc2dTd0dBQXIzZ21FbUNpUVBELUlnUHFaNEt2QkgzOVNCcTFxSmNheGpCX0libDRLU2I4b0wwRnZUT1VZa1doVVJtOG96Skd5a3lXTU5GTE9ZWXV3QlVsNkE4TnZ1QVRoRmpVN0ZaVEZiT3d3Sy03b1hnMkI5cUZTWXZmT2d2NzZHQ25sdHhIY1dCN2RXVy1VQXRHRHA4YXFFaFU0ZllFQ18zcndkUkhrX0tpVl9yNDd5bWhRS3FJeGJlcTdNS1ZpMmtjdkFBRWZ5V1d5Ty1yVWxVMmpqTU8tMjhfTmMtVllmVkNUZEZacGw?oc=5",
+   "ms": 1795228162000,
+   "time": "11/21 10:29"
   },
   {
    "t": "Tech leads global stocks rout, Treasury yields fall",
