@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795395600000,
+ "lastChecked": 1795398300000,
  "a3": -1,
  "a5": 0,
  "open": 19,
@@ -1256,7 +1256,7 @@
   "books": {
    "trail": {
     "name": "同一信号，跟踪止损出场",
-    "open": 1,
+    "open": null,
     "nextId": 2,
     "skipped": 9,
     "prev": 0,
@@ -1274,16 +1274,21 @@
       "spread": 0.6,
       "best": 3503.29,
       "day": 20780,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-23 09:15 SGT",
+      "exitMs": 1795396500000,
+      "exitPrice": 3611.71,
+      "nights": 13,
+      "R": 7.5
      }
     ],
     "summary": {
      "taken": 1,
-     "closed": 0,
-     "wins": 0,
-     "totalR": 0,
-     "avgR": null,
-     "open": 1
+     "closed": 1,
+     "wins": 1,
+     "totalR": 7.5,
+     "avgR": 7.5,
+     "open": 0
     }
    },
    "noW": {
@@ -1380,7 +1385,7 @@
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
-    "open": 1,
+    "open": null,
     "nextId": 2,
     "skipped": 9,
     "prev": 0,
@@ -1398,16 +1403,21 @@
       "spread": 0.6,
       "best": 3503.29,
       "day": 20780,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-23 09:15 SGT",
+      "exitMs": 1795396500000,
+      "exitPrice": 3611.71,
+      "nights": 13,
+      "R": 7.5
      }
     ],
     "summary": {
      "taken": 1,
-     "closed": 0,
-     "wins": 0,
-     "totalR": 0,
-     "avgR": null,
-     "open": 1
+     "closed": 1,
+     "wins": 1,
+     "totalR": 7.5,
+     "avgR": 7.5,
+     "open": 0
     }
    }
   }
