@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 03:04 SGT",
+ "updated": "2026-11-24 03:26 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold reclaims $3,650 as Nvidia news sparks rally ahead of US PCE",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVnBvekdxUE5QSkRORzlVcXRVdXBRMW9oWTZMV1haTFZTNHhzRThZRE5idWxIdVU4TmhyUGxWa0JOS2hRaXhlT1lFRGEzVmM3OUk5Y3NmRUFEeEJ6QzNrN21HcDAtRWNwYmg2ZThCM2QtZGVqU3dudURZVE42MDhsSTg5RVk5UlBTVTdqNGpzT0oxRUhpR2x0TDZEYUticmNVN2tDUFdDRXlDdw?oc=5",
+   "ms": 1795461413000,
+   "time": "11/24 03:16"
+  },
   {
    "t": "Gold price rises as bargain hunters step in after steep weekly drop",
    "src": "mining.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQS0lhLTB5bUY2VHB2T1VlNXJUYndCNWdnWDM4WDk5T2xMMlhwV2RDajRrQ182Vm5mV1RXMFdTdDQ5TkJ3S0FuVFNNMXlrMGtkaWZNWk5tOVNfUG1LRjk0aU5ackt2a3VlaEJTNlBud1NJMDI0ZFk0Vk5icGwzUElDcFkzY2R6Um5KX0lienoxTzA3aWRNVWJMUkhhel9id0JyeDBnM2ZlNmhGX2dS?oc=5",
    "ms": 1795442243000,
    "time": "11/23 21:57"
-  },
-  {
-   "t": "Gold climbs more than 2% as dollar rally pauses",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQREJZa3IteGp0UmxLNVhRY0Z4T0MyUFpfS3lPZUtDWXJhcVZMdldvVjZ2eV9MU1ViMnZmYjc2M3lKcG5BUVh2QnZoNm9PRU02VzJMREh2cVNaaDAzQ25jekRHbHJpako0cFdjM2dLV2VTeU1hNWh5T3pFMTY4UGEwMl90YUUxd1ZaV0k0TmtqTkpPdmc?oc=5",
-   "ms": 1795441224000,
-   "time": "11/23 21:40"
   }
  ]
 }
