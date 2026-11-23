@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 22:47 SGT",
+ "updated": "2026-11-23 23:01 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,6 +21,13 @@
    "time": "11/23 22:18"
   },
   {
+   "t": "Turkey May Use Gold Tools to Improve FX Position, Governor Says",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVjNubVlnb0hDU1FUZ0k0OFNxYTJZTHRDS1VlVzMwNmdfWnVINkJPR0huVjNyT0tyY2dybTJNb3ZIVVRrcmtINFpXU244WU9jZTM5OTkxNHNNNzJ2X1FxTG8tODl0amxCYjlDRE5GNUNsVkVINktqcGJZbTBqY2JGY0piUEtMYzQ3WEdrdF80dERpcHhVcEk2NGNnN1BWVDBlODJJWnRUQ1YzSlVJbFdONWRwaw?oc=5",
+   "ms": 1795443260000,
+   "time": "11/23 22:14"
+  },
+  {
    "t": "US Dollar: Macro support from firm data and Fed path – TD Securities",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQS0lhLTB5bUY2VHB2T1VlNXJUYndCNWdnWDM4WDk5T2xMMlhwV2RDajRrQ182Vm5mV1RXMFdTdDQ5TkJ3S0FuVFNNMXlrMGtkaWZNWk5tOVNfUG1LRjk0aU5ackt2a3VlaEJTNlBud1NJMDI0ZFk0Vk5icGwzUElDcFkzY2R6Um5KX0lienoxTzA3aWRNVWJMUkhhel9id0JyeDBnM2ZlNmhGX2dS?oc=5",
@@ -28,11 +35,11 @@
    "time": "11/23 21:57"
   },
   {
-   "t": "Gold climbs more than 2% as dollar rally pauses",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQREJZa3IteGp0UmxLNVhRY0Z4T0MyUFpfS3lPZUtDWXJhcVZMdldvVjZ2eV9MU1ViMnZmYjc2M3lKcG5BUVh2QnZoNm9PRU02VzJMREh2cVNaaDAzQ25jekRHbHJpako0cFdjM2dLV2VTeU1hNWh5T3pFMTY4UGEwMl90YUUxd1ZaV0k0TmtqTkpPdmc?oc=5",
-   "ms": 1795441224000,
-   "time": "11/23 21:40"
+   "t": "Gold consolidates gains as US Dollar climbs to fresh 19-month high",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbVZxM1F1VXJ3dDBHWld0OG1tMERFXzdvcjlfMjhYSnRydjQ2aHJhT1RxUUc0OWFfOTFkeXMtYVlCYTJDUTRsM3d4d1NGWUNEVlI2YmFyZF9XZTNGSkotMGRpaU5jMXpFUklfOUpvUlhZaWFjbUhlZUpiUjVzRzZ6X0xNWHVOdTVGQ1p3YUhKSVN3ZmRLdUttOVFpeC1VRFJvaUc2RjI1ZTBDbUY1MFE?oc=5",
+   "ms": 1795439943000,
+   "time": "11/23 21:19"
   },
   {
    "t": "Gold Rebound Faces Pressure as Trump Keeps Military Action Against Iran on Table",
@@ -40,13 +47,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-faces-pressure-as-trump-keeps-military-action-against-iran-on-table-200692134",
    "ms": 1795437060000,
    "time": "11/23 20:31"
-  },
-  {
-   "t": "Gold prices today, Monday, November 23, 2026: Gold prices opened at lowest point since 9/2/25",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNaklyYWhvcmQ0ZjI1RDFmdmNycGVkaTRlWEs4TEVMTS0xLWFabjhWYU9zWnNBS01uY3g1NTJ2ekpSWXNSSXNKQ19MUWE4ekY0T1AyRXdoX2tsdlBRSUFUd1dWNDNVZWMtTjBLQ1lDY04zT2llMzFLV05XSDdQNWFMaDJYZk1oVS02MF9yZFdVRG0zbGhoWWV2aXpQYnFVUUwwRy1vTG9JejFuS1lkVFZ4U3ppSTlzMy1WSHVCTjkwVEtXamNreDBQNzgwVTd0eFRoZ0F3SzByWXo0WGdtSnVEcG9zZkVXXzc2TG5qTUFHZzBXWm9VNkE?oc=5",
-   "ms": 1795436655000,
-   "time": "11/23 20:24"
   },
   {
    "t": "Gold Recovers Ground, but the Bulls Aren’t Out of the Woods Yet",
@@ -70,25 +70,18 @@
    "time": "11/23 19:51"
   },
   {
-   "t": "Gold jumps over 2% as half-point Fed hike bets fade, US PCE in focus",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbVZxM1F1VXJ3dDBHWld0OG1tMERFXzdvcjlfMjhYSnRydjQ2aHJhT1RxUUc0OWFfOTFkeXMtYVlCYTJDUTRsM3d4d1NGWUNEVlI2YmFyZF9XZTNGSkotMGRpaU5jMXpFUklfOUpvUlhZaWFjbUhlZUpiUjVzRzZ6X0xNWHVOdTVGQ1p3YUhKSVN3ZmRLdUttOVFpeC1VRFJvaUc2RjI1ZTBDbUY1MFE?oc=5",
-   "ms": 1795432615000,
-   "time": "11/23 19:16"
-  },
-  {
-   "t": "Treasury yields jump as stock futures rebound, investors await New York Fed President Williams speech",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9QemJ4Zi1KUVFXdk1NTDJLQWtnQmpPSnBiZTY3ZFV3SmRwZmFFay1kLTZoNk1MclNIZW5SVzh4MzlfRHBZTWR5N003aU9udHVCczNUd3R5SWxmMnIzb3QyS0R6akhuUzFJMlkyT2ZUd9IBdEFVX3lxTE1EVlVKZHJ6WUhjRGtoM2RrSjMtT0ZaanpZeThYZXNkdHRyY2FtNFc3SGJiREt5Rm5fc29DWWtMZ0FKVzNES09RMHBOVjVMY0Y4R0xHdW5ybW9fVW9CenRxWGtwYnRnVUZJQlNJR1RpUk9lbzNU?oc=5",
-   "ms": 1795428919000,
-   "time": "11/23 18:15"
-  },
-  {
    "t": "Gold Is Trading the Fed, Not the Fear",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQUWFsaDVBY21wTUM1NmFRU2lCcEV4TG03dHcyRzd3UEhsRlMteldBa2ZmMEFkS3g0aGM3cmRXWWs5ZGpiSjN2aDJpN05MeEI4WWdwZmRTNlo4Wkd2NjNKUXdnc0RGQkJ6UDVWcjhTYng2c3lJSC1Ya05PX2V1N1g0N2tNUHZPc291?oc=5",
    "ms": 1795428455000,
    "time": "11/23 18:07"
+  },
+  {
+   "t": "Iran says it will use all its tools to confront US naval blockade",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNaWxsYjRUNUVtQlVrWm1YSFE3eHduckRPNW5CN0llMTJydFI3dGJIa2ZiTENBSU9HYVYtejVzM2JVUy1nbW9wQmdOZGJhdTlMT2R6cTBYNmFUME9aZ1BhTFI2THpRdlJRY21UeW9odHdFWGZxSjlTSVQ5VlBOV2pSckFraW1JWUtOd3dqVWFDZC0yM0t4RFRKWEktV29YTFdLTlJlZ1NsNlcyZ3phdzlVcTlCQ0pTM29GODhJUDVjUQ?oc=5",
+   "ms": 1795428064000,
+   "time": "11/23 18:01"
   },
   {
    "t": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
@@ -98,18 +91,25 @@
    "time": "11/23 18:00"
   },
   {
-   "t": "Gold Prices Rebound From 14-Month Low as Technology Sell-Off Boosts Safe-Haven Demand",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNS3NaR0Q3MDBhcEc0VWI4S0dGWWdVWkxhTDZCVTU1WVJHSjhMOXljMHVIYldZV0pIWWUxU3l4Vnc2SER0Um9QOUxnZDhmeW80bDNlc0RIaGFnUzRkTmhJM2tQTHNhUUVUbGRheXBoUVhGZHhjME4zYkljQWlGTkJENmR4LS12Y1JDTXJJSkFNTGg4NU91VWVwSHdiSEFfdTg?oc=5",
-   "ms": 1795427233000,
-   "time": "11/23 17:47"
-  },
-  {
    "t": "Gold’s Relief Rally Is Running Into Inflation Data Again",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-relief-rally-is-running-into-inflation-data-again-200692113",
    "ms": 1795423500000,
    "time": "11/23 16:45"
+  },
+  {
+   "t": "Gold struggles to build on fragile recovery from YTD low as Fed bets cap upside",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
+   "ms": 1795422521000,
+   "time": "11/23 16:28"
+  },
+  {
+   "t": "Gold Market Weekly: Dare to Catch a Falling Knife?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-market-weekly-dare-to-catch-a-falling-knife-200692110",
+   "ms": 1795422360000,
+   "time": "11/23 16:26"
   }
  ]
 }
