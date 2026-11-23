@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 22:33 SGT",
+ "updated": "2026-11-23 22:47 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold snaps a five-day losing streak as Bessent warns the Fed against overtightening",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVEQzcU5VWTU5OE11NV9BaE5Fc0lwUDRBN3lSLTM4QTctQVZFenZaM3NCdlhYakVDWHlTM2JubzdzcXRtZmg2dTdCc1AweGViWXdRcWZ0QmZoZ2dtNm5Hc3ZxMXNuWG9YbkFMODBPQnpJeWtqN0QzRll2aEtXNXZxOG9HMXhEUTdKaTBDaklTX2pTQVVEb1ljcXFpVENvdzV6bFh1aG5MbDlhZXFCWmlPRzZFRG1xZXVlREQ2bWNfelJiUm9TUjd6YW93?oc=5",
+   "ms": 1795443843000,
+   "time": "11/23 22:24"
+  },
+  {
    "t": "Gold price rallies above $3,600 as AI selloff reshapes Fed outlook - Kitco AM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPenF6LTV0TWdncXg5WDBQNS1Dc2lSVEUwNmpsRzR0UGg4a0VOM21NN2hTNnN1Mk1fZDhmcWs1WU41UW9qcUFieEJnemYyRTdhZy1hakhLbHRXemltSTFVTnBFaEhLdDR5LTYyeElnTjBKdEVNeUFXRnFEQlh5bWllNU1vOEw3eHlaRXZBZzV1WlNXUWd6R3BHdmlTajdyZUJueU5vNTlCUmhvclZtLVRlamJyel9USGM?oc=5",
    "ms": 1795443484000,
    "time": "11/23 22:18"
+  },
+  {
+   "t": "US Dollar: Macro support from firm data and Fed path – TD Securities",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQS0lhLTB5bUY2VHB2T1VlNXJUYndCNWdnWDM4WDk5T2xMMlhwV2RDajRrQ182Vm5mV1RXMFdTdDQ5TkJ3S0FuVFNNMXlrMGtkaWZNWk5tOVNfUG1LRjk0aU5ackt2a3VlaEJTNlBud1NJMDI0ZFk0Vk5icGwzUElDcFkzY2R6Um5KX0lienoxTzA3aWRNVWJMUkhhel9id0JyeDBnM2ZlNmhGX2dS?oc=5",
+   "ms": 1795442243000,
+   "time": "11/23 21:57"
   },
   {
    "t": "Gold climbs more than 2% as dollar rally pauses",
@@ -21,11 +35,25 @@
    "time": "11/23 21:40"
   },
   {
+   "t": "Gold Rebound Faces Pressure as Trump Keeps Military Action Against Iran on Table",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-rebound-faces-pressure-as-trump-keeps-military-action-against-iran-on-table-200692134",
+   "ms": 1795437060000,
+   "time": "11/23 20:31"
+  },
+  {
    "t": "Gold prices today, Monday, November 23, 2026: Gold prices opened at lowest point since 9/2/25",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNaklyYWhvcmQ0ZjI1RDFmdmNycGVkaTRlWEs4TEVMTS0xLWFabjhWYU9zWnNBS01uY3g1NTJ2ekpSWXNSSXNKQ19MUWE4ekY0T1AyRXdoX2tsdlBRSUFUd1dWNDNVZWMtTjBLQ1lDY04zT2llMzFLV05XSDdQNWFMaDJYZk1oVS02MF9yZFdVRG0zbGhoWWV2aXpQYnFVUUwwRy1vTG9JejFuS1lkVFZ4U3ppSTlzMy1WSHVCTjkwVEtXamNreDBQNzgwVTd0eFRoZ0F3SzByWXo0WGdtSnVEcG9zZkVXXzc2TG5qTUFHZzBXWm9VNkE?oc=5",
    "ms": 1795436655000,
    "time": "11/23 20:24"
+  },
+  {
+   "t": "Gold Recovers Ground, but the Bulls Aren’t Out of the Woods Yet",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-recovers-ground-but-the-bulls-arent-out-of-the-woods-yet-200692131",
+   "ms": 1795435260000,
+   "time": "11/23 20:01"
   },
   {
    "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
@@ -77,39 +105,11 @@
    "time": "11/23 17:47"
   },
   {
-   "t": "Gold rebounds from 14-mth low as tech selloff lifts safe-haven demand",
-   "src": "Investing.com Australia",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQmY0bU9hUTNnWjlrVTdQZTdlVWozUkxoM3JRM0dzanVEcG9RMzYtTjR4MGVHa3lkUGFxRWc0UXpvNnJEcnl2emVWRzVqS3FMX29yUGt6SFc3UlMwaGpaQjZBYU5yYjQ4Rkxxc2ZyNjFlcjFuQUNVcUJxaHdoUXI5LXgwLVYyZ0hRNzZTTFdHZ2s4a09uc0hqdHNhejNoT3NLb2ViaTJRMHlDYUJ2alV5bV8wRUwzenpweHFWMnc5NA?oc=5",
-   "ms": 1795423921000,
-   "time": "11/23 16:52"
-  },
-  {
-   "t": "Gold struggles to build on fragile recovery from YTD low as Fed bets cap upside",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
-   "ms": 1795422521000,
-   "time": "11/23 16:28"
-  },
-  {
-   "t": "Forex Today: Gold rebounds above $3,600, US Dollar retreats ahead of PMI data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFVnWGd3U2lOSjBhQzFyRHpkVW9sZGJSbVhVYng2dlA1RnJCUXNOZzRidjYtR00xeEpsX04yMGRNN3NGRXZDSXlCeGxjV19KU2JGRkhzVXJjelRleG5WOUVkUG9LbEFTSHRiQ2J5cEF3QXpGcmFfeWNTc25tb3lYZFZxOU8xNklzSGM2bjNLNHlwSXFvZGpzV05zN1FSejBqSWFaT2xFUkI0Q25VbnJmS2dKM3cxVHhZ?oc=5",
-   "ms": 1795419312000,
-   "time": "11/23 15:35"
-  },
-  {
-   "t": "British Pound edges higher above 1.3100 as traders pare Fed rate hike bets",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPOVlLN29Ibm82dDZSY2lfVzA5OG9vdXM3LWU4eTZsTy03cjM2d0o0a2hBaWJPX29NVlpKZDZzNV9mRWx1S2xTdVBJal9zeDhxWEx5ZGgtZWluYV9qN1lHX1IxOHR2WVlGNURMb0RiRGZNS04xUUwxYm9XNFFxNG9jWEU3UVBoYjlmUjZDMEUwYTU3YkNuQUxmRjY4YTluc1VhSldkWVVzRTVoamxTMXdzMlg4OXZPQkk?oc=5",
-   "ms": 1795415333000,
-   "time": "11/23 14:28"
-  },
-  {
-   "t": "Gold Falls as Hawkish Fed Expectations Lift the Dollar and U.S. Treasury Yields By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPOU1wRTNsRDRsX3NBMDlxWkhuZXp1UWdsNmQtb3ZNYWNicUZJcW1nbVZhNnJZN1ZnRmk3Y00zVGpfLU1NbXJ4TmdZNVBXV1AyMFdKU185ZWsyaDlld052OERTS3FsZDNFSGFEeng0Z1pMaUQ1YzZVd01ON25acVVTcHY3am1ZRVplemZFYUFaWjhqY3IycUJIZ0FnbnhMRFAtcmliOW1lZTZsd2JYczBEcng1eHQ1X2FmMlNDN3FiRzhsNkFaUDdvcUJray0?oc=5",
-   "ms": 1795409341000,
-   "time": "11/23 12:49"
+   "t": "Gold’s Relief Rally Is Running Into Inflation Data Again",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-relief-rally-is-running-into-inflation-data-again-200692113",
+   "ms": 1795423500000,
+   "time": "11/23 16:45"
   }
  ]
 }
