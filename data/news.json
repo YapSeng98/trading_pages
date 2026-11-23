@@ -1,11 +1,39 @@
 {
- "updated": "2026-11-23 15:34 SGT",
+ "updated": "2026-11-23 15:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Forex Today: Gold rebounds above $3,600, US Dollar retreats ahead of PMI data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFVnWGd3U2lOSjBhQzFyRHpkVW9sZGJSbVhVYng2dlA1RnJCUXNOZzRidjYtR00xeEpsX04yMGRNN3NGRXZDSXlCeGxjV19KU2JGRkhzVXJjelRleG5WOUVkUG9LbEFTSHRiQ2J5cEF3QXpGcmFfeWNTc25tb3lYZFZxOU8xNklzSGM2bjNLNHlwSXFvZGpzV05zN1FSejBqSWFaT2xFUkI0Q25VbnJmS2dKM3cxVHhZ?oc=5",
+   "ms": 1795419312000,
+   "time": "11/23 15:35"
+  },
+  {
+   "t": "Treasury Futures Fall as Rising Stock Futures Damp Haven Demand",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNU2FnY19ZVXo4MGlTUlpSamM4Z0Fwd2J0aGxxMWlDYXNXMkFYc2ZtSkpfRS1aQ2VLdFdKSEVPaHdmanA0NzBONHd2dFhUbXlKWE1JRGhZaXVOcG5PdlZqLU9xMGd3UWFid0NuMmpYYnByMmxad2FpZXgza2U1NHRVbDZnV2szanN3aUxROW5JSmFUQnZKbFpnbWZMdmhzQTZKanlsV0pxZWI2TTh1MzdmZGQyTmk?oc=5",
+   "ms": 1795418760000,
+   "time": "11/23 15:26"
+  },
+  {
+   "t": "Gold Rebounds From 14-Month Low as Iran Tensions Keep Safe-Haven Demand Alive",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-rebounds-from-14month-low-as-iran-tensions-keep-safehaven-demand-alive-200692104",
+   "ms": 1795417680000,
+   "time": "11/23 15:08"
+  },
+  {
+   "t": "Gold and Silver Well-Undervalued - S&P Still Way-Overvalued",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-and-silver-wellundervalued--sp-still-wayovervalued-200692103",
+   "ms": 1795417620000,
+   "time": "11/23 15:07"
+  },
   {
    "t": "Gold, Silver: Liquidity-Driven Correction Offers Generational Buying Opportunity",
    "src": "Investing.com",
@@ -28,6 +56,13 @@
    "time": "11/23 13:42"
   },
   {
+   "t": "Gold Futures: Testing Critical Support After a Major Weekly Correction",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-futures-testing-critical-support-after-a-major-weekly-correction-200692083",
+   "ms": 1795410360000,
+   "time": "11/23 13:06"
+  },
+  {
    "t": "Gold Falls as Hawkish Fed Expectations Lift the Dollar and U.S. Treasury Yields By Kedia Advisory",
    "src": "Investing.com India",
    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPOU1wRTNsRDRsX3NBMDlxWkhuZXp1UWdsNmQtb3ZNYWNicUZJcW1nbVZhNnJZN1ZnRmk3Y00zVGpfLU1NbXJ4TmdZNVBXV1AyMFdKU185ZWsyaDlld052OERTS3FsZDNFSGFEeng0Z1pMaUQ1YzZVd01ON25acVVTcHY3am1ZRVplemZFYUFaWjhqY3IycUJIZ0FnbnhMRFAtcmliOW1lZTZsd2JYczBEcng1eHQ1X2FmMlNDN3FiRzhsNkFaUDdvcUJray0?oc=5",
@@ -40,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795408800000,
    "time": "11/23 12:40"
+  },
+  {
+   "t": "Gold Is Trading Like A Speculative Asset, Says Morningstar Analyst As Price Plunges 17% In 2026",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWjlTWVZjWnNvR2ZFaExuUzltcFB0amluQTFiVWNBUC14cnZQb2p6cGxtR3U4RFdqR19KMWx1d1pyS3RQd3ljdDdoLXBlcDkyaGtPRG94bUlfRC1YeHczZmNYaWFqSjgyb2ZmWU5GSHBzQ0tmWjNFVUQzd21XelViM3czckFDSE94ZnBOTEJhdVQwazg2dVVSaDdMNjhKLUtiTlpRQnA5SXY?oc=5",
+   "ms": 1795406460000,
+   "time": "11/23 12:01"
   },
   {
    "t": "Gold Price Forecast: XAU/USD rebounds, but is it out of the woods?",
@@ -68,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSzdCMDZGNVJSUUFTYmstaU9ZeUU1RkNYbnc5M2VkOUlFcVRyUGRkSzBSNkw0MkdVT0xGWXU4M3U5Q3RSS0xtaDNkMU5OODNJa3I1dDc5d2NTOUJ1WHZKM1had3diQjVKSDhod2cxTVZsczc4b0ptaUNhaTIyRDllVk9pWjRzU1hZb0tyQVJZd19xVzZvWnlSVm1sMk1uR1FYNnA0Z1J6dUNQR2xST1owNQ?oc=5",
    "ms": 1795396160000,
    "time": "11/23 09:09"
-  },
-  {
-   "t": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOFZzdnVBMkZsMW5oa0gzM2NSakFMYWVkQ2U3bVdKQU9rdUh2eG1QTENaWTQ1RlhJTFUxNl9CR1VkM1JzRU5Vd1N4Qzg0ajNKZTEwdVctTG0wQ3IwNkdETTlsLUlCcl80YzZGc3lmTlVMNHlEZEJITXpfclNZb2lWTmxjR0VpZWVzMW9DcXBhLVZpZG1kZEQxUUN4VjFXOHByN1NHUFd5X3pPcWVSVV9r?oc=5",
-   "ms": 1795388400000,
-   "time": "11/23 07:00"
   }
  ]
 }
