@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-23 17:23 SGT",
+ "updated": "2026-11-23 17:36 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold’s Relief Rally Is Running Into Inflation Data Again",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-relief-rally-is-running-into-inflation-data-again-200692113",
+   "ms": 1795423500000,
+   "time": "11/23 16:45"
+  },
   {
    "t": "Gold Market Weekly: Dare to Catch a Falling Knife?",
    "src": "Investing.com",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFVnWGd3U2lOSjBhQzFyRHpkVW9sZGJSbVhVYng2dlA1RnJCUXNOZzRidjYtR00xeEpsX04yMGRNN3NGRXZDSXlCeGxjV19KU2JGRkhzVXJjelRleG5WOUVkUG9LbEFTSHRiQ2J5cEF3QXpGcmFfeWNTc25tb3lYZFZxOU8xNklzSGM2bjNLNHlwSXFvZGpzV05zN1FSejBqSWFaT2xFUkI0Q25VbnJmS2dKM3cxVHhZ?oc=5",
    "ms": 1795419312000,
    "time": "11/23 15:35"
-  },
-  {
-   "t": "Treasury Futures Fall as Rising Stock Futures Damp Haven Demand",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNU2FnY19ZVXo4MGlTUlpSamM4Z0Fwd2J0aGxxMWlDYXNXMkFYc2ZtSkpfRS1aQ2VLdFdKSEVPaHdmanA0NzBONHd2dFhUbXlKWE1JRGhZaXVOcG5PdlZqLU9xMGd3UWFid0NuMmpYYnByMmxad2FpZXgza2U1NHRVbDZnV2szanN3aUxROW5JSmFUQnZKbFpnbWZMdmhzQTZKanlsV0pxZWI2TTh1MzdmZGQyTmk?oc=5",
-   "ms": 1795418760000,
-   "time": "11/23 15:26"
   },
   {
    "t": "Gold Rebounds From 14-Month Low as Iran Tensions Keep Safe-Haven Demand Alive",
