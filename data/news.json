@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 04:00 SGT",
+ "updated": "2026-11-24 04:40 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -19,13 +19,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVnBvekdxUE5QSkRORzlVcXRVdXBRMW9oWTZMV1haTFZTNHhzRThZRE5idWxIdVU4TmhyUGxWa0JOS2hRaXhlT1lFRGEzVmM3OUk5Y3NmRUFEeEJ6QzNrN21HcDAtRWNwYmg2ZThCM2QtZGVqU3dudURZVE42MDhsSTg5RVk5UlBTVTdqNGpzT0oxRUhpR2x0TDZEYUticmNVN2tDUFdDRXlDdw?oc=5",
    "ms": 1795461413000,
    "time": "11/24 03:16"
-  },
-  {
-   "t": "Gold price rises as bargain hunters step in after steep weekly drop",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-rises-as-bargain-hunters-step-in-after-steep-weekly-drop/",
-   "ms": 1795458708000,
-   "time": "11/24 02:31"
   },
   {
    "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVjNubVlnb0hDU1FUZ0k0OFNxYTJZTHRDS1VlVzMwNmdfWnVINkJPR0huVjNyT0tyY2dybTJNb3ZIVVRrcmtINFpXU244WU9jZTM5OTkxNHNNNzJ2X1FxTG8tODl0amxCYjlDRE5GNUNsVkVINktqcGJZbTBqY2JGY0piUEtMYzQ3WEdrdF80dERpcHhVcEk2NGNnN1BWVDBlODJJWnRUQ1YzSlVJbFdONWRwaw?oc=5",
    "ms": 1795443260000,
    "time": "11/23 22:14"
+  },
+  {
+   "t": "Current price of gold as of November 23, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9jSXg1NnZPb2Q4ZWlxMG9abUt4VC16clFTWWNzMTJaY2pxNkFyWlpyOEVIcDJCckVXQUtwSTloLUJMUVRxX1ZMNmd5N1FmMl9DS3J3enF5U19ZYndteTYxSnhzUW5tZzZiQWZVQ0VB?oc=5",
+   "ms": 1795442700000,
+   "time": "11/23 22:05"
   }
  ]
 }
