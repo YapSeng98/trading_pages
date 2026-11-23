@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 13:06 SGT",
+ "updated": "2026-11-23 13:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -14,6 +14,13 @@
    "time": "11/23 12:49"
   },
   {
+   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
+   "ms": 1795408800000,
+   "time": "11/23 12:40"
+  },
+  {
    "t": "Gold recovers from September 2025 lows; retakes $3600 on softer USD and safe-haven flows",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVjhRdHpuX1BTX3k2bnp2d2l0ajRsVnc1TjZKd1NybjdoUndxa0U1S1d1N0lYOGNoeFozaWR4OEtFQ0Z3NVdIV2ZLa09xVVhUYXVjWHB6UEhEMDBqaW1TTVBnZk5qRmpIdzdHbHYwd3JiM3lrMXlPLWNzUjBDeG45MkJfNHJNWHFpb2tjM2NjVHQxdGVJM3F4MTBZVGtoa2ZMOTY4VWFMcWFaUGs1LU9J?oc=5",
    "ms": 1795404955000,
    "time": "11/23 11:35"
-  },
-  {
-   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
-   "ms": 1795400340000,
-   "time": "11/23 10:19"
   },
   {
    "t": "Gold recovers above $3,550 as AI trade concern spurs safe-haven flows",
