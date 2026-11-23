@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 02:24 SGT",
+ "updated": "2026-11-24 02:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price rises as bargain hunters step in after steep weekly drop",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-price-rises-as-bargain-hunters-step-in-after-steep-weekly-drop/",
+   "ms": 1795458708000,
+   "time": "11/24 02:31"
+  },
   {
    "t": "Gold is having a rough year. Does it still belong in your portfolio?",
    "src": "Yahoo Finance",
@@ -45,8 +52,8 @@
    "t": "Gold, Silver Prices Rebound with US Stocks from Markets-Wide 'Washout'",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjVzcGgyNmt6VFJvWjk3Vk1ZWGJ4YjdOVnRpeEdYQV9vUFQzaDhFWl9LemZzcEhUSGF5bFpueG1uLVNfclpEbDBzX3o2YVlkbzJRbjk4Smg2OHpaQjZYM0ZETFFibFlQSFEzWnhrN3MwSVR6TEtLelc3ODBQMzVITHhLQzVIYmlUSnh4ekdQRzR2UQ?oc=5",
-   "ms": 1795445473000,
-   "time": "11/23 22:51"
+   "ms": 1795445645000,
+   "time": "11/23 22:54"
   },
   {
    "t": "Gold SWOT: UBS and Goldman Sachs see gold recovering by late 2027",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQREJZa3IteGp0UmxLNVhRY0Z4T0MyUFpfS3lPZUtDWXJhcVZMdldvVjZ2eV9MU1ViMnZmYjc2M3lKcG5BUVh2QnZoNm9PRU02VzJMREh2cVNaaDAzQ25jekRHbHJpako0cFdjM2dLV2VTeU1hNWh5T3pFMTY4UGEwMl90YUUxd1ZaV0k0TmtqTkpPdmc?oc=5",
    "ms": 1795441224000,
    "time": "11/23 21:40"
-  },
-  {
-   "t": "Will US S&P Global PMI challenge expectations for further Fed rate hikes?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMkFCZWo2LWxJYjZWX0oyb1VjbUt6OGtlZEVrSjhLVE5WQjFpa3cxSVZYMkNYV0FXOGk3MTlCMmpmdUt1UHhSOUdodFNvZU1UbVB5bmhqblB5czdzQW0yUDRwYmpJMExXNXZwQjJUdzRfZnRGSnhaWnFiX1dyUmdLdjlMUllINHVfdXB4TUVoLUh6UQ?oc=5",
-   "ms": 1795438800000,
-   "time": "11/23 21:00"
   }
  ]
 }
