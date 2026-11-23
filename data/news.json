@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-23 18:17 SGT",
+ "updated": "2026-11-23 18:31 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOFZzdnVBMkZsMW5oa0gzM2NSakFMYWVkQ2U3bVdKQU9rdUh2eG1QTENaWTQ1RlhJTFUxNl9CR1VkM1JzRU5Vd1N4Qzg0ajNKZTEwdVctTG0wQ3IwNkdETTlsLUlCcl80YzZGc3lmTlVMNHlEZEJITXpfclNZb2lWTmxjR0VpZWVzMW9DcXBhLVZpZG1kZEQxUUN4VjFXOHByN1NHUFd5X3pPcWVSVV9r?oc=5",
+   "ms": 1795428020000,
+   "time": "11/23 18:00"
+  },
+  {
+   "t": "2 years ago, Saudi Arabia quietly canceled the ‘petrodollar’ deal with America that wired the world economy for 50 years. Then war broke out in Iran",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUhuT3BBQzlvUFBEQjNDam1wcHc0Mkc0dWFTMHFlUjhvVG13M1BVYzBQZkpSQWFPUU10eVJGT1RJTkhvZU5yeGUzTUxZVWJnRjZzeVpLRWJHOFFHUlRidkpzMzdCZUItT1hDVElXMFdkd1d3OEFDRzRtbWM5NTQtTG0wbUFuYTRNXzZ4UmlxTlI0cGVKb0NhdFViQmdTZDNUN0E?oc=5",
+   "ms": 1795427807000,
+   "time": "11/23 17:56"
+  },
   {
    "t": "Gold Prices Rebound From 14-Month Low as Technology Sell-Off Boosts Safe-Haven Demand",
    "src": "Yahoo Finance",
@@ -26,6 +40,13 @@
    "url": "https://www.investing.com/analysis/golds-relief-rally-is-running-into-inflation-data-again-200692113",
    "ms": 1795423500000,
    "time": "11/23 16:45"
+  },
+  {
+   "t": "Gold struggles to build on fragile recovery from YTD low as Fed bets cap upside",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
+   "ms": 1795422521000,
+   "time": "11/23 16:28"
   },
   {
    "t": "Gold Market Weekly: Dare to Catch a Falling Knife?",
@@ -70,13 +91,6 @@
    "time": "11/23 15:03"
   },
   {
-   "t": "Gold holds above $3,600 as safe-haven flows and weaker USD support fragile recovery",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
-   "ms": 1795417258000,
-   "time": "11/23 15:00"
-  },
-  {
    "t": "British Pound edges higher above 1.3100 as traders pare Fed rate hike bets",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPOVlLN29Ibm82dDZSY2lfVzA5OG9vdXM3LWU4eTZsTy03cjM2d0o0a2hBaWJPX29NVlpKZDZzNV9mRWx1S2xTdVBJal9zeDhxWEx5ZGgtZWluYV9qN1lHX1IxOHR2WVlGNURMb0RiRGZNS04xUUwxYm9XNFFxNG9jWEU3UVBoYjlmUjZDMEUwYTU3YkNuQUxmRjY4YTluc1VhSldkWVVzRTVoamxTMXdzMlg4OXZPQkk?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZ2JoZHpCc3VicTV4YkFsUE1XMjFGY1VPMlpQRU1rblNRbTRnM0xFRHUwVWtDRGFsWGh3cmJ1ODc4eDktQ1JjN3JLZFo3eTZCdXZZaWl0eU41eUxVekJwSmNvemtXeENPbXVwd2FYamsxSDJGRkxKM0ZBNmJEVEVKeFJMa3BYSEp4em52VmwzODk3YzAtVWUzWkx0em9TbXo4MXfSAacBQVVfeXFMUDdja1psWm1WcnBQUHBiTGZ1dDdnY2ZBS2xhTG5xX0ZTeXNYNWNIeDZRLWlpWDVfQ0VSZkdsenFtM09DN0FWYUVaMzJRRDBVWUs0dkU4N2xtSjBqQmFfQXRkdVV3cTZIQ2lobC16YUN6S2dHT2QtUUhPbVpiSEJfWEFvY19QRFJHeHFobzdmUjlaYlJrTVZCRkRJbHc3MWY0R1pLaS02QUk?oc=5",
    "ms": 1795412834000,
    "time": "11/23 13:47"
-  },
-  {
-   "t": "Gold Futures: Testing Critical Support After a Major Weekly Correction",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-testing-critical-support-after-a-major-weekly-correction-200692083",
-   "ms": 1795410360000,
-   "time": "11/23 13:06"
-  },
-  {
-   "t": "Gold Falls as Hawkish Fed Expectations Lift the Dollar and U.S. Treasury Yields By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPOU1wRTNsRDRsX3NBMDlxWkhuZXp1UWdsNmQtb3ZNYWNicUZJcW1nbVZhNnJZN1ZnRmk3Y00zVGpfLU1NbXJ4TmdZNVBXV1AyMFdKU185ZWsyaDlld052OERTS3FsZDNFSGFEeng0Z1pMaUQ1YzZVd01ON25acVVTcHY3am1ZRVplemZFYUFaWjhqY3IycUJIZ0FnbnhMRFAtcmliOW1lZTZsd2JYczBEcng1eHQ1X2FmMlNDN3FiRzhsNkFaUDdvcUJray0?oc=5",
-   "ms": 1795409341000,
-   "time": "11/23 12:49"
   }
  ]
 }
