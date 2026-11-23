@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 20:46 SGT",
+ "updated": "2026-11-23 20:59 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,11 +21,18 @@
    "time": "11/23 20:01"
   },
   {
-   "t": "Gold rebounds amid dip-buying, pared back Fed rate expectations By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQWpvV3hucjk3UUZqZ3E4UXZsaDh0WklMd2ZzSzlDa2FYN2J1UlpHdFk5Znlwd05oc3JBSlI1c0FEMU54VkpxUV9kWnE4QUFCLVA5OTd3WjFsNlVBZUI3Ukg3SVRwQlV0S1NzOEpEQlM1TDN0MmxqN1JXMzdPR2lOMktOLUtEQ2hLYkJSSU14U1haNXQ0QWU5SUdCVDdzblhBNTdwTGFUemV5SkVLcFZPQUxwcGJGd2F2REhiZ01Lcw?oc=5",
-   "ms": 1795435030000,
-   "time": "11/23 19:57"
+   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
+   "ms": 1795434835000,
+   "time": "11/23 19:53"
+  },
+  {
+   "t": "Gold rebounds amid dip-buying, pared back Fed rate expectations",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZmVhR3d3NjFDSkZLR0ZDY182RVJPZVNoSWFxREZBMW1UUnQ5WlZ4Y28wYzg3VXRmVE9jOGJfY0N5eE1kS25yVWh5XzN3aUVWNDJlUUkzd01nMDNrWk5yeXFudjNVeDE2MWFGeXJ1WnhNZ0JOVnRvY3BYQkhMaXExaVR4VFVjcGh1MnhXNjJOUjRzWlVDRFV5a1FTekFvSENnSlZYQlAtYm9yVXFBUEo4c21xLTFFQ0xjenBGNmo2Ykc?oc=5",
+   "ms": 1795434687000,
+   "time": "11/23 19:51"
   },
   {
    "t": "2 years ago, Saudi Arabia quietly canceled the ‘petrodollar’ deal with America that wired the world economy for 50 years. Then war broke out in Iran",
@@ -49,11 +56,11 @@
    "time": "11/23 19:00"
   },
   {
-   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSWM0VXgxUVd2OWtSdm5zTWZEVmc1X3FwODlVQ0l3UmRDeWZ1NTlQWlBuNV9ZUzk4NEVkRVZHRE1IQThDQThUX0QzNnRWallXeTJFVnBQQzM1QVFWUWJEZ2ZhSXpjbmRlQXBmdER2aHg2d0daWFhEa2JoaVRSMm5KVG1QcVc3WURzUmplbHFjaHJDeDNMVXlZVUV2Z1RGOGhCc1dN?oc=5",
-   "ms": 1795430319000,
-   "time": "11/23 18:38"
+   "t": "Treasury yields jump as stock futures rebound, investors await New York Fed President Williams speech",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9QemJ4Zi1KUVFXdk1NTDJLQWtnQmpPSnBiZTY3ZFV3SmRwZmFFay1kLTZoNk1MclNIZW5SVzh4MzlfRHBZTWR5N003aU9udHVCczNUd3R5SWxmMnIzb3QyS0R6akhuUzFJMlkyT2ZUd9IBdEFVX3lxTE1EVlVKZHJ6WUhjRGtoM2RrSjMtT0ZaanpZeThYZXNkdHRyY2FtNFc3SGJiREt5Rm5fc29DWWtMZ0FKVzNES09RMHBOVjVMY0Y4R0xHdW5ybW9fVW9CenRxWGtwYnRnVUZJQlNJR1RpUk9lbzNU?oc=5",
+   "ms": 1795428919000,
+   "time": "11/23 18:15"
   },
   {
    "t": "Iran says it will use all its tools to confront US naval blockade",
@@ -84,6 +91,13 @@
    "time": "11/23 17:26"
   },
   {
+   "t": "Gold rebounds from 14-mth low as tech selloff lifts safe-haven demand By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbXRMZThCb0VPY3lmM0JXOGQzVk1pa0RwbWNOc1BULTJEOVY5aVBubzdLalRMNjNibU1FV0JHQnl5a3ZfbmtFYmJlX0lvR3NacDN3TERGdm90YmE2bVdpQVVLdXNsWGVzY2dSOFFBTGExRjhTSTlIODMwZFJMMnBva3o3QnZrY2lDMVBWVUJPVjE1Q0dQNm1WWXc3Ykc5WHRySW5FbVN5QzhGZFNVdnU4aXhkdXY0bG5rSXVWUjdpSQ?oc=5",
+   "ms": 1795424321000,
+   "time": "11/23 16:58"
+  },
+  {
    "t": "Gold’s Relief Rally Is Running Into Inflation Data Again",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-relief-rally-is-running-into-inflation-data-again-200692113",
@@ -91,25 +105,11 @@
    "time": "11/23 16:45"
   },
   {
-   "t": "Gold rebounds from 14-mth low as tech selloff lifts safe-haven demand",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZmVhR3d3NjFDSkZLR0ZDY182RVJPZVNoSWFxREZBMW1UUnQ5WlZ4Y28wYzg3VXRmVE9jOGJfY0N5eE1kS25yVWh5XzN3aUVWNDJlUUkzd01nMDNrWk5yeXFudjNVeDE2MWFGeXJ1WnhNZ0JOVnRvY3BYQkhMaXExaVR4VFVjcGh1MnhXNjJOUjRzWlVDRFV5a1FTekFvSENnSlZYQlAtYm9yVXFBUEo4c21xLTFFQ0xjenBGNmo2Ykc?oc=5",
-   "ms": 1795422967000,
-   "time": "11/23 16:36"
-  },
-  {
    "t": "Gold struggles to build on fragile recovery from YTD low as Fed bets cap upside",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
    "ms": 1795422521000,
    "time": "11/23 16:28"
-  },
-  {
-   "t": "Gold Market Weekly: Dare to Catch a Falling Knife?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-market-weekly-dare-to-catch-a-falling-knife-200692110",
-   "ms": 1795422360000,
-   "time": "11/23 16:26"
   }
  ]
 }
