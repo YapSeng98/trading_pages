@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-23 07:42 SGT",
+ "updated": "2026-11-23 08:49 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNY0lEYWJSeDk1Q3NQT3hfMlNkdkp0cFkyZDNtZ2ZkX3JZNWNrR3I1Xy1QaWxzdmtSd2ZTUURaMEQ4eHZxN0R0UUhQeTMxNXJoNjBoUjY2MWM4N1hYNWhxdG5nbUQ2M2tkVXdBWWktaUpFSHFvdTI3WWJpTzFYSk5feGdBTEVHend3YURLZVVEU2lxaG9YOHR5WFhjdTZoUGJ6WXZBRkRNZjhRSE1TQlU2Q1dwYTU5Vjhwbmp5dXA5QlRoVWE2a1hfR09jUDFCQTNqYUE?oc=5",
+   "ms": 1795393680000,
+   "time": "11/23 08:28"
+  },
   {
    "t": "Inside California’s modern-day gold rush",
    "src": "CNBC",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOMFFjdnZJUDZiUXhKNUdPUWMtQ2tkd0ZKdmN4TTZ3bnQyb09SQ3cxSS1hNVYtcmF5WGpNSlJzS1dWYkdBUzBJZ2s5TnhLQ29mNWNIUy10MGJkN294UndsTmRmOF9GelkyVkdWRl8wcVJQNnRaRGp0a3NIMWNHT1dJSHhZRk1BT3FRV2pFcHVGa3ozS1ZCdjJXenJvSXlBOEdxLUp2MVVVTVBDY0NGX3ZRRUN3?oc=5",
    "ms": 1795205620000,
    "time": "11/21 04:13"
-  },
-  {
-   "t": "Gold price could drop $300 if $3,500/oz fails, and buyers might hold off until the Fed – Walsh Trading’s Lusk",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY1gxakxUOS1VZGh6VUEwdDhhdDAySkdGT3JQU2pUMnVXN2RiNFRHV3g1MEtsaEtfQUVVNGNPRnJTSVJiSGdVTmRFVVVGLTZhcG1jenZPb2JKYWtweUltNi1fLWlFSXVlVWFPNEU2aHlPSkNkUFQyaDEyZlAwVy1waVFZY0dtSGtGTUVUOWw4eUFTRTJ5RENUVUw4Qk9nMFJKbGNTamNHU3F6NDEydHZHU3RLMUhXb2NGd2Jz?oc=5",
-   "ms": 1795205533000,
-   "time": "11/21 04:12"
   }
  ]
 }
