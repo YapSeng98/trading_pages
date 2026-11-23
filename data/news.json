@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 07:36 SGT",
+ "updated": "2026-11-24 07:50 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -26,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795468582000,
    "time": "11/24 05:16"
+  },
+  {
+   "t": "TAG: gold market liquidity",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1fdzVwM0N6RGgwUFBCZkNNSGtVSTVsbkRUUXhPMjVIVWc1VlpERTFyckxkYk9kUmV2aVdiNWJWdHZGSEJGVFU2d1l0cnRLNEYtWTZ0VUFfckxYSVotNTZmUWhR?oc=5",
+   "ms": 1795462931000,
+   "time": "11/24 03:42"
   },
   {
    "t": "Gold Prices Rebound. What the Charts Say About a Nasdaq Bottom.",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbVZxM1F1VXJ3dDBHWld0OG1tMERFXzdvcjlfMjhYSnRydjQ2aHJhT1RxUUc0OWFfOTFkeXMtYVlCYTJDUTRsM3d4d1NGWUNEVlI2YmFyZF9XZTNGSkotMGRpaU5jMXpFUklfOUpvUlhZaWFjbUhlZUpiUjVzRzZ6X0xNWHVOdTVGQ1p3YUhKSVN3ZmRLdUttOVFpeC1VRFJvaUc2RjI1ZTBDbUY1MFE?oc=5",
    "ms": 1795445758000,
    "time": "11/23 22:55"
-  },
-  {
-   "t": "Gold, Silver Prices Rebound with US Stocks from Markets-Wide 'Washout'",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjVzcGgyNmt6VFJvWjk3Vk1ZWGJ4YjdOVnRpeEdYQV9vUFQzaDhFWl9LemZzcEhUSGF5bFpueG1uLVNfclpEbDBzX3o2YVlkbzJRbjk4Smg2OHpaQjZYM0ZETFFibFlQSFEzWnhrN3MwSVR6TEtLelc3ODBQMzVITHhLQzVIYmlUSnh4ekdQRzR2UQ?oc=5",
-   "ms": 1795445645000,
-   "time": "11/23 22:54"
   }
  ]
 }
