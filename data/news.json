@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-24 07:22 SGT",
+ "updated": "2026-11-24 07:36 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold rebounds above $3,600 as CEO Nvidia returns, markets trim Fed hike",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
+   "ms": 1795476405000,
+   "time": "11/24 07:26"
+  },
+  {
+   "t": "Gold, silver prices see sharp rebounds as AI shares rally, renewed Fed uncertainty - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdEl6eDh4a0ZXaUNNYjlDSzNYOF9IMEd3bkEwWlRuaHdXeUFmZzlNY01ZVk4xQVdOcGdMYUxWTmlHdGZLcmxlaHU0OV9yZGdYczAyODQxOHV1dTRlc0xId1Bpc2c4NEdHUnFBXzZCcnlNQW5zVnhXT0NGeHA3Vkl3cnJoSkdrSjROS3kyZHBqTmg2QVRfYWJJM3RYa1ZUQ0tRR080b2NNeFFyRGRtX19KUg?oc=5",
+   "ms": 1795475085000,
+   "time": "11/24 07:04"
+  },
   {
    "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
    "src": "Bloomberg.com",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjVzcGgyNmt6VFJvWjk3Vk1ZWGJ4YjdOVnRpeEdYQV9vUFQzaDhFWl9LemZzcEhUSGF5bFpueG1uLVNfclpEbDBzX3o2YVlkbzJRbjk4Smg2OHpaQjZYM0ZETFFibFlQSFEzWnhrN3MwSVR6TEtLelc3ODBQMzVITHhLQzVIYmlUSnh4ekdQRzR2UQ?oc=5",
    "ms": 1795445645000,
    "time": "11/23 22:54"
-  },
-  {
-   "t": "Gold SWOT: UBS and Goldman Sachs see gold recovering by late 2027",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMXRRUnZHY1k2NWpkTUZ5ZXE2VXFja3FxNGJLcWw1OVZTWklJei0wd2Y4STM3Q2ZndTBZbEsybkJ1UGsyeExsc3pyUEdmbGNUdldTXzRqdDFwNXcteW9HT0FSYzRlWU50QzNGVkFIUEZqSmx0RnJlRzAzeGVyUVp6MjhtNUVFVHh4V2ZoM2VuWnctaUsybHJIOXFQVEtxWll0T2xSQQ?oc=5",
-   "ms": 1795445312000,
-   "time": "11/23 22:48"
-  },
-  {
-   "t": "Gold snaps a five-day losing streak as Bessent warns the Fed against overtightening",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVEQzcU5VWTU5OE11NV9BaE5Fc0lwUDRBN3lSLTM4QTctQVZFenZaM3NCdlhYakVDWHlTM2JubzdzcXRtZmg2dTdCc1AweGViWXdRcWZ0QmZoZ2dtNm5Hc3ZxMXNuWG9YbkFMODBPQnpJeWtqN0QzRll2aEtXNXZxOG9HMXhEUTdKaTBDaklTX2pTQVVEb1ljcXFpVENvdzV6bFh1aG5MbDlhZXFCWmlPRzZFRG1xZXVlREQ2bWNfelJiUm9TUjd6YW93?oc=5",
-   "ms": 1795443843000,
-   "time": "11/23 22:24"
   }
  ]
 }
