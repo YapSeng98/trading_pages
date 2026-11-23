@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 20:32 SGT",
+ "updated": "2026-11-23 20:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "Gold prices today, Monday, November 23, 2026: Gold prices opened at lowest point since 9/2/25",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNaklyYWhvcmQ0ZjI1RDFmdmNycGVkaTRlWEs4TEVMTS0xLWFabjhWYU9zWnNBS01uY3g1NTJ2ekpSWXNSSXNKQ19MUWE4ekY0T1AyRXdoX2tsdlBRSUFUd1dWNDNVZWMtTjBLQ1lDY04zT2llMzFLV05XSDdQNWFMaDJYZk1oVS02MF9yZFdVRG0zbGhoWWV2aXpQYnFVUUwwRy1vTG9JejFuS1lkVFZ4U3ppSTlzMy1WSHVCTjkwVEtXamNreDBQNzgwVTd0eFRoZ0F3SzByWXo0WGdtSnVEcG9zZkVXXzc2TG5qTUFHZzBXWm9VNkE?oc=5",
+   "ms": 1795436655000,
+   "time": "11/23 20:24"
+  },
+  {
    "t": "Gold Recovers Ground, but the Bulls Aren’t Out of the Woods Yet",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-recovers-ground-but-the-bulls-arent-out-of-the-woods-yet-200692131",
    "ms": 1795435260000,
    "time": "11/23 20:01"
+  },
+  {
+   "t": "Gold rebounds amid dip-buying, pared back Fed rate expectations By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQWpvV3hucjk3UUZqZ3E4UXZsaDh0WklMd2ZzSzlDa2FYN2J1UlpHdFk5Znlwd05oc3JBSlI1c0FEMU54VkpxUV9kWnE4QUFCLVA5OTd3WjFsNlVBZUI3Ukg3SVRwQlV0S1NzOEpEQlM1TDN0MmxqN1JXMzdPR2lOMktOLUtEQ2hLYkJSSU14U1haNXQ0QWU5SUdCVDdzblhBNTdwTGFUemV5SkVLcFZPQUxwcGJGd2F2REhiZ01Lcw?oc=5",
+   "ms": 1795435030000,
+   "time": "11/23 19:57"
+  },
+  {
+   "t": "2 years ago, Saudi Arabia quietly canceled the ‘petrodollar’ deal with America that wired the world economy for 50 years. Then war broke out in Iran",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUhuT3BBQzlvUFBEQjNDam1wcHc0Mkc0dWFTMHFlUjhvVG13M1BVYzBQZkpSQWFPUU10eVJGT1RJTkhvZU5yeGUzTUxZVWJnRjZzeVpLRWJHOFFHUlRidkpzMzdCZUItT1hDVElXMFdkd1d3OEFDRzRtbWM5NTQtTG0wbUFuYTRNXzZ4UmlxTlI0cGVKb0NhdFViQmdTZDNUN0E?oc=5",
+   "ms": 1795433207000,
+   "time": "11/23 19:26"
   },
   {
    "t": "Gold jumps over 2% as half-point Fed hike bets fade, US PCE in focus",
@@ -35,18 +56,18 @@
    "time": "11/23 18:38"
   },
   {
+   "t": "Iran says it will use all its tools to confront US naval blockade",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNaWxsYjRUNUVtQlVrWm1YSFE3eHduckRPNW5CN0llMTJydFI3dGJIa2ZiTENBSU9HYVYtejVzM2JVUy1nbW9wQmdOZGJhdTlMT2R6cTBYNmFUME9aZ1BhTFI2THpRdlJRY21UeW9odHdFWGZxSjlTSVQ5VlBOV2pSckFraW1JWUtOd3dqVWFDZC0yM0t4RFRKWEktV29YTFdLTlJlZ1NsNlcyZ3phdzlVcTlCQ0pTM29GODhJUDVjUQ?oc=5",
+   "ms": 1795428064000,
+   "time": "11/23 18:01"
+  },
+  {
    "t": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOFZzdnVBMkZsMW5oa0gzM2NSakFMYWVkQ2U3bVdKQU9rdUh2eG1QTENaWTQ1RlhJTFUxNl9CR1VkM1JzRU5Vd1N4Qzg0ajNKZTEwdVctTG0wQ3IwNkdETTlsLUlCcl80YzZGc3lmTlVMNHlEZEJITXpfclNZb2lWTmxjR0VpZWVzMW9DcXBhLVZpZG1kZEQxUUN4VjFXOHByN1NHUFd5X3pPcWVSVV9r?oc=5",
    "ms": 1795428020000,
    "time": "11/23 18:00"
-  },
-  {
-   "t": "2 years ago, Saudi Arabia quietly canceled the ‘petrodollar’ deal with America that wired the world economy for 50 years. Then war broke out in Iran",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUhuT3BBQzlvUFBEQjNDam1wcHc0Mkc0dWFTMHFlUjhvVG13M1BVYzBQZkpSQWFPUU10eVJGT1RJTkhvZU5yeGUzTUxZVWJnRjZzeVpLRWJHOFFHUlRidkpzMzdCZUItT1hDVElXMFdkd1d3OEFDRzRtbWM5NTQtTG0wbUFuYTRNXzZ4UmlxTlI0cGVKb0NhdFViQmdTZDNUN0E?oc=5",
-   "ms": 1795427807000,
-   "time": "11/23 17:56"
   },
   {
    "t": "Gold Prices Rebound From 14-Month Low as Technology Sell-Off Boosts Safe-Haven Demand",
@@ -89,27 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-market-weekly-dare-to-catch-a-falling-knife-200692110",
    "ms": 1795422360000,
    "time": "11/23 16:26"
-  },
-  {
-   "t": "Forex Today: Gold rebounds above $3,600, US Dollar retreats ahead of PMI data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFVnWGd3U2lOSjBhQzFyRHpkVW9sZGJSbVhVYng2dlA1RnJCUXNOZzRidjYtR00xeEpsX04yMGRNN3NGRXZDSXlCeGxjV19KU2JGRkhzVXJjelRleG5WOUVkUG9LbEFTSHRiQ2J5cEF3QXpGcmFfeWNTc25tb3lYZFZxOU8xNklzSGM2bjNLNHlwSXFvZGpzV05zN1FSejBqSWFaT2xFUkI0Q25VbnJmS2dKM3cxVHhZ?oc=5",
-   "ms": 1795419312000,
-   "time": "11/23 15:35"
-  },
-  {
-   "t": "Gold Rebounds From 14-Month Low as Iran Tensions Keep Safe-Haven Demand Alive",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebounds-from-14month-low-as-iran-tensions-keep-safehaven-demand-alive-200692104",
-   "ms": 1795417680000,
-   "time": "11/23 15:08"
-  },
-  {
-   "t": "Gold and Silver Well-Undervalued - S&P Still Way-Overvalued",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-silver-wellundervalued--sp-still-wayovervalued-200692103",
-   "ms": 1795417620000,
-   "time": "11/23 15:07"
   }
  ]
 }
