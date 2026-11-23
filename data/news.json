@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-23 18:04 SGT",
+ "updated": "2026-11-23 18:17 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Prices Rebound From 14-Month Low as Technology Sell-Off Boosts Safe-Haven Demand",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNS3NaR0Q3MDBhcEc0VWI4S0dGWWdVWkxhTDZCVTU1WVJHSjhMOXljMHVIYldZV0pIWWUxU3l4Vnc2SER0Um9QOUxnZDhmeW80bDNlc0RIaGFnUzRkTmhJM2tQTHNhUUVUbGRheXBoUVhGZHhjME4zYkljQWlGTkJENmR4LS12Y1JDTXJJSkFNTGg4NU91VWVwSHdiSEFfdTg?oc=5",
+   "ms": 1795427233000,
+   "time": "11/23 17:47"
+  },
   {
    "t": "Gold Is Trading the Fed, Not the Fear",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPOU1wRTNsRDRsX3NBMDlxWkhuZXp1UWdsNmQtb3ZNYWNicUZJcW1nbVZhNnJZN1ZnRmk3Y00zVGpfLU1NbXJ4TmdZNVBXV1AyMFdKU185ZWsyaDlld052OERTS3FsZDNFSGFEeng0Z1pMaUQ1YzZVd01ON25acVVTcHY3am1ZRVplemZFYUFaWjhqY3IycUJIZ0FnbnhMRFAtcmliOW1lZTZsd2JYczBEcng1eHQ1X2FmMlNDN3FiRzhsNkFaUDdvcUJray0?oc=5",
    "ms": 1795409341000,
    "time": "11/23 12:49"
-  },
-  {
-   "t": "Gold Is Trading Like A Speculative Asset, Says Morningstar Analyst As Price Plunges 17% In 2026",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWjlTWVZjWnNvR2ZFaExuUzltcFB0amluQTFiVWNBUC14cnZQb2p6cGxtR3U4RFdqR19KMWx1d1pyS3RQd3ljdDdoLXBlcDkyaGtPRG94bUlfRC1YeHczZmNYaWFqSjgyb2ZmWU5GSHBzQ0tmWjNFVUQzd21XelViM3czckFDSE94ZnBOTEJhdVQwazg2dVVSaDdMNjhKLUtiTlpRQnA5SXY?oc=5",
-   "ms": 1795406460000,
-   "time": "11/23 12:01"
   }
  ]
 }
