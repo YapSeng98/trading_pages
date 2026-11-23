@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-23 23:28 SGT",
+ "updated": "2026-11-23 23:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold prices jump 3% as bargain hunting overshadows slowing U.S. manufacturing and services activity",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVnRWWWJiS0Fpd2k1dGZkM0U1aFc5RGhvQ3Vod05hN0N0X3JJdnl5Nm5JbkY0cW9RczI3T2NDZlloMGtwWV9RNWFmd1FGdl9JRUdIMC0xTzVrV3VIemZQWXRlVFhPSVJEaUFRQzB2MFNydUNERVk4ZktGNnVnMDFyYjc1UTMzMWlSTHBDaTZiLVc0MGJrN3NQd0FPeUhhREdYWWNxUGlfQVhVSDFORnQ4cmdrUUtjaTJNVUFtZTNn?oc=5",
+   "ms": 1795446026000,
+   "time": "11/23 23:00"
+  },
   {
    "t": "Gold, Silver Prices Rebound with US Stocks from Markets-Wide 'Washout'",
    "src": "BullionVault",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVjNubVlnb0hDU1FUZ0k0OFNxYTJZTHRDS1VlVzMwNmdfWnVINkJPR0huVjNyT0tyY2dybTJNb3ZIVVRrcmtINFpXU244WU9jZTM5OTkxNHNNNzJ2X1FxTG8tODl0amxCYjlDRE5GNUNsVkVINktqcGJZbTBqY2JGY0piUEtMYzQ3WEdrdF80dERpcHhVcEk2NGNnN1BWVDBlODJJWnRUQ1YzSlVJbFdONWRwaw?oc=5",
    "ms": 1795443260000,
    "time": "11/23 22:14"
+  },
+  {
+   "t": "Current price of gold as of November 23, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9jSXg1NnZPb2Q4ZWlxMG9abUt4VC16clFTWWNzMTJaY2pxNkFyWlpyOEVIcDJCckVXQUtwSTloLUJMUVRxX1ZMNmd5N1FmMl9DS3J3enF5U19ZYndteTYxSnhzUW5tZzZiQWZVQ0VB?oc=5",
+   "ms": 1795442700000,
+   "time": "11/23 22:05"
   },
   {
    "t": "US Dollar: Macro support from firm data and Fed path – TD Securities",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795434835000,
    "time": "11/23 19:53"
-  },
-  {
-   "t": "Treasury yields jump as stock futures rebound, investors await New York Fed President Williams speech",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9QemJ4Zi1KUVFXdk1NTDJLQWtnQmpPSnBiZTY3ZFV3SmRwZmFFay1kLTZoNk1MclNIZW5SVzh4MzlfRHBZTWR5N003aU9udHVCczNUd3R5SWxmMnIzb3QyS0R6akhuUzFJMlkyT2ZUd9IBdEFVX3lxTE1EVlVKZHJ6WUhjRGtoM2RrSjMtT0ZaanpZeThYZXNkdHRyY2FtNFc3SGJiREt5Rm5fc29DWWtMZ0FKVzNES09RMHBOVjVMY0Y4R0xHdW5ybW9fVW9CenRxWGtwYnRnVUZJQlNJR1RpUk9lbzNU?oc=5",
-   "ms": 1795428919000,
-   "time": "11/23 18:15"
-  },
-  {
-   "t": "Gold Deluge Keeps China’s $1 Trillion Trade Surplus in Check",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOFZzdnVBMkZsMW5oa0gzM2NSakFMYWVkQ2U3bVdKQU9rdUh2eG1QTENaWTQ1RlhJTFUxNl9CR1VkM1JzRU5Vd1N4Qzg0ajNKZTEwdVctTG0wQ3IwNkdETTlsLUlCcl80YzZGc3lmTlVMNHlEZEJITXpfclNZb2lWTmxjR0VpZWVzMW9DcXBhLVZpZG1kZEQxUUN4VjFXOHByN1NHUFd5X3pPcWVSVV9r?oc=5",
-   "ms": 1795428020000,
-   "time": "11/23 18:00"
   }
  ]
 }
