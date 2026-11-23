@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 07:09 SGT",
+ "updated": "2026-11-24 07:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
+   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
+   "ms": 1795468582000,
+   "time": "11/24 05:16"
+  },
+  {
+   "t": "Gold Prices Rebound. What the Charts Say About a Nasdaq Bottom.",
+   "src": "Barron's",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSDBFMXd2R3VnQm1rTzJYX2lJaHRQblJiRkV4X2x6QTlNY1A5cENqNjF0WTdGTUM5bndFcVNRVV9zYmp5Ti12ZlJ2WU9XOVcxekpsZ2cwcl9fa2VoT1RyaGRHQlktX3pySV8tMC1ubzRLTXVlSmVmNFg0b05hVUVtVlZiUURNMUh0QTY3T1Jn?oc=5",
+   "ms": 1795462560000,
+   "time": "11/24 03:36"
+  },
+  {
+   "t": "Gold reclaims $3,650 as Nvidia news sparks rally ahead of US PCE",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVnBvekdxUE5QSkRORzlVcXRVdXBRMW9oWTZMV1haTFZTNHhzRThZRE5idWxIdVU4TmhyUGxWa0JOS2hRaXhlT1lFRGEzVmM3OUk5Y3NmRUFEeEJ6QzNrN21HcDAtRWNwYmg2ZThCM2QtZGVqU3dudURZVE42MDhsSTg5RVk5UlBTVTdqNGpzT0oxRUhpR2x0TDZEYUticmNVN2tDUFdDRXlDdw?oc=5",
+   "ms": 1795461413000,
+   "time": "11/24 03:16"
+  },
+  {
    "t": "Gold price rises as bargain hunters step in after steep weekly drop",
    "src": "mining.com",
    "url": "https://www.mining.com/web/gold-price-rises-as-bargain-hunters-step-in-after-steep-weekly-drop/",
    "ms": 1795458708000,
    "time": "11/24 02:31"
+  },
+  {
+   "t": "Gold's recovery may be short-lived as Natixis warns of drop to $3,340",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRkk5X19wTjc3R0Q5dFVnTlp5SjBHZkJxSHpFTlBjWWRxSUcyaXNubGJIOTJhb25UcVR2MEZRZEU2OC1Kcm5sTDcxTjcwWTdlSGlLTlYzUFdobzlBNnNtM1pzQnpndmt2YXFId3pJVm91ckptRjFNU2xzdDBCUE9WT1F3UXpIemVDbHktNG9COHZqdV82NERlVmJ3eU4xZS1Pb2gxVER3?oc=5",
+   "ms": 1795456184000,
+   "time": "11/24 01:49"
+  },
+  {
+   "t": "Gold is having a rough year. Does it still belong in your portfolio?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPS0l5TjFXc1RMcVYzV05tYS1jRUk4NlRSaHFmaTBURHhfWlFMWG5sQkkyLXpIaXMzcld1U0JRcHYzSHhySlYtZVluZktpcjM0WS03RGhvOG1OWlAzc0phakpMRVBKSWxSTXYzbTlXZ0I2TTNlTUZxRHZFekV3NURHTzVvQ0p6QW84azF1eTFxNC16NnlBbUJhdGhGVmdaOUFmYk9ta2RTOEZYbExhMEplUzdOVDVyd2RpNnEtcVZKVGlaQUNMdnI2NGRQeTJDeHplSWl5T0FCQk9QZw?oc=5",
+   "ms": 1795456012000,
+   "time": "11/24 01:46"
+  },
+  {
+   "t": "The Fed can’t save both the Dollar and the markets [Video]",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOOEx6cjRndEtyOE5KRWlnMlRyb3ZpLV96Y1RuanZmTVpON1dJQ0tVbU9RdzZDalNwYVlYN0FsdzVlbkxhWlpYQmtLWjdYMFlocml3Mko2R0dydi1JNmZ1U3hkWjdSVXdtOWJrVU5TOGtob2hFTFhHYnJWQlpTRjRHTFZkbWVLTFowaHF3TEFEcVlTallDM0tQRFpaZ3k5ZmxKT1hseg?oc=5",
+   "ms": 1795453765000,
+   "time": "11/24 01:09"
   },
   {
    "t": "Gold Surges Nearly 5% After Black Friday Bloodbath",
@@ -21,25 +63,53 @@
    "time": "11/24 00:26"
   },
   {
-   "t": "Gold Rebound Faces Pressure as Trump Keeps Military Action Against Iran on Table",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebound-faces-pressure-as-trump-keeps-military-action-against-iran-on-table-200692134",
-   "ms": 1795437060000,
-   "time": "11/23 20:31"
+   "t": "COT data is flashing bullish signals across precious metals - but patience may still be required",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQaHJURk1xYWhicVJWek5qWUk2WkJkdzZiWVJGUE1fUGU4aG9JeXhhazdsdXdkVFFHZl81UU9pQnZhWWpXUmNGV1VGZmN4bnJNUm1OVjJyZWh5SUxUMHRmQ3QwdDNDMFQ1OF9YclpXakQtb1JESGxUY2dYeGptUVBzekdEaTR2SjJseG1KaWx0VFlXYVFVcWxiRklRN2dlZ3I1RDFkdjNPZS00NnNkWXJ2dzF1RnBmYWc5RTlj?oc=5",
+   "ms": 1795447359000,
+   "time": "11/23 23:22"
   },
   {
-   "t": "Gold Recovers Ground, but the Bulls Aren’t Out of the Woods Yet",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-recovers-ground-but-the-bulls-arent-out-of-the-woods-yet-200692131",
-   "ms": 1795435260000,
-   "time": "11/23 20:01"
+   "t": "Gold: Fragile flows but structural support – TD Securities",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZ1lzcG5GZzYzQmJSMXpoamxnR2RTWks4b2Z6djVDOFVxVENzWGxLcU1sUGllOF9sYm5mMFY3bVRFMXdvSUlyQzcyc29OWlEtMzZtenY5aTR5T2hydUJJRnNtdlA4THhONEIweTVvLXA2UlpnSVVMbGhJYUNqdnY1TjhJSFI3dXF4ZlRESzEyV2ZQM1hnWFhPRDUtd2hFWXM?oc=5",
+   "ms": 1795446055000,
+   "time": "11/23 23:00"
   },
   {
-   "t": "Gold price fall nears $3,500 as miners face soaring costs",
-   "src": "mining.com",
-   "url": "https://www.mining.com/gold-price-falls-nears-3500-as-miners-face-soaring-costs/",
-   "ms": 1795177743000,
-   "time": "11/20 20:29"
+   "t": "Gold prices jump 3% as bargain hunting overshadows slowing U.S. manufacturing and services activity",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQVnRWWWJiS0Fpd2k1dGZkM0U1aFc5RGhvQ3Vod05hN0N0X3JJdnl5Nm5JbkY0cW9RczI3T2NDZlloMGtwWV9RNWFmd1FGdl9JRUdIMC0xTzVrV3VIemZQWXRlVFhPSVJEaUFRQzB2MFNydUNERVk4ZktGNnVnMDFyYjc1UTMzMWlSTHBDaTZiLVc0MGJrN3NQd0FPeUhhREdYWWNxUGlfQVhVSDFORnQ4cmdrUUtjaTJNVUFtZTNn?oc=5",
+   "ms": 1795446026000,
+   "time": "11/23 23:00"
+  },
+  {
+   "t": "Gold recovers from 14-month low as Nvidia reinstates Jensen Huang as CEO",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQbVZxM1F1VXJ3dDBHWld0OG1tMERFXzdvcjlfMjhYSnRydjQ2aHJhT1RxUUc0OWFfOTFkeXMtYVlCYTJDUTRsM3d4d1NGWUNEVlI2YmFyZF9XZTNGSkotMGRpaU5jMXpFUklfOUpvUlhZaWFjbUhlZUpiUjVzRzZ6X0xNWHVOdTVGQ1p3YUhKSVN3ZmRLdUttOVFpeC1VRFJvaUc2RjI1ZTBDbUY1MFE?oc=5",
+   "ms": 1795445758000,
+   "time": "11/23 22:55"
+  },
+  {
+   "t": "Gold, Silver Prices Rebound with US Stocks from Markets-Wide 'Washout'",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjVzcGgyNmt6VFJvWjk3Vk1ZWGJ4YjdOVnRpeEdYQV9vUFQzaDhFWl9LemZzcEhUSGF5bFpueG1uLVNfclpEbDBzX3o2YVlkbzJRbjk4Smg2OHpaQjZYM0ZETFFibFlQSFEzWnhrN3MwSVR6TEtLelc3ODBQMzVITHhLQzVIYmlUSnh4ekdQRzR2UQ?oc=5",
+   "ms": 1795445645000,
+   "time": "11/23 22:54"
+  },
+  {
+   "t": "Gold SWOT: UBS and Goldman Sachs see gold recovering by late 2027",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMXRRUnZHY1k2NWpkTUZ5ZXE2VXFja3FxNGJLcWw1OVZTWklJei0wd2Y4STM3Q2ZndTBZbEsybkJ1UGsyeExsc3pyUEdmbGNUdldTXzRqdDFwNXcteW9HT0FSYzRlWU50QzNGVkFIUEZqSmx0RnJlRzAzeGVyUVp6MjhtNUVFVHh4V2ZoM2VuWnctaUsybHJIOXFQVEtxWll0T2xSQQ?oc=5",
+   "ms": 1795445312000,
+   "time": "11/23 22:48"
+  },
+  {
+   "t": "Gold snaps a five-day losing streak as Bessent warns the Fed against overtightening",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQVEQzcU5VWTU5OE11NV9BaE5Fc0lwUDRBN3lSLTM4QTctQVZFenZaM3NCdlhYakVDWHlTM2JubzdzcXRtZmg2dTdCc1AweGViWXdRcWZ0QmZoZ2dtNm5Hc3ZxMXNuWG9YbkFMODBPQnpJeWtqN0QzRll2aEtXNXZxOG9HMXhEUTdKaTBDaklTX2pTQVVEb1ljcXFpVENvdzV6bFh1aG5MbDlhZXFCWmlPRzZFRG1xZXVlREQ2bWNfelJiUm9TUjd6YW93?oc=5",
+   "ms": 1795443843000,
+   "time": "11/23 22:24"
   }
  ]
 }
