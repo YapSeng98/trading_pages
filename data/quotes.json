@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21 08:23 SGT",
+ "updated": "2026-11-23 10:11 SGT",
  "source": "Yahoo Finance chart API, daily bars",
  "failed": [],
  "quotes": {
@@ -201,8 +201,8 @@
    "r1m": -16.2,
    "r3m": -18.8,
    "ytd": 2.73,
-   "divTtm": 0.24,
-   "yield": 2.78,
+   "divTtm": 0.25,
+   "yield": 2.89,
    "symbol": "S63.SI",
    "market": "SG",
    "cur": "S$"
@@ -371,8 +371,8 @@
    "r1m": -25.79,
    "r3m": -28.07,
    "ytd": 0.66,
-   "divTtm": 0.03,
-   "yield": 0.98,
+   "divTtm": 0.04,
+   "yield": 1.31,
    "symbol": "5005.KL",
    "market": "MY",
    "cur": "RM"
