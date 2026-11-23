@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22 13:45 SGT",
+ "updated": "2026-11-24 01:43 SGT",
  "source": "ForexFactory weekly calendar (this week only); times in Singapore time",
  "events": [
   {
@@ -73,18 +73,6 @@
    "zh": "GDP 季率修正值",
    "forecast": "3.5%",
    "previous": "3.4%"
-  },
-  {
-   "ms": 1795613400000,
-   "date": "11月25日",
-   "weekday": "周三",
-   "time": "21:30",
-   "allDay": false,
-   "impact": "medium",
-   "title": "Unemployment Claims",
-   "zh": "初请失业金人数",
-   "forecast": "201K",
-   "previous": "203K"
   },
   {
    "ms": 1795698000000,
