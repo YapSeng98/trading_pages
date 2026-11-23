@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23 15:21 SGT",
+ "updated": "2026-11-23 15:34 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,6 +21,13 @@
    "time": "11/23 13:49"
   },
   {
+   "t": "Gold sticks to recovery gains above $3,600 on softer USD; upside seems limited",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
+   "ms": 1795412560000,
+   "time": "11/23 13:42"
+  },
+  {
    "t": "Gold Falls as Hawkish Fed Expectations Lift the Dollar and U.S. Treasury Yields By Kedia Advisory",
    "src": "Investing.com India",
    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPOU1wRTNsRDRsX3NBMDlxWkhuZXp1UWdsNmQtb3ZNYWNicUZJcW1nbVZhNnJZN1ZnRmk3Y00zVGpfLU1NbXJ4TmdZNVBXV1AyMFdKU185ZWsyaDlld052OERTS3FsZDNFSGFEeng0Z1pMaUQ1YzZVd01ON25acVVTcHY3am1ZRVplemZFYUFaWjhqY3IycUJIZ0FnbnhMRFAtcmliOW1lZTZsd2JYczBEcng1eHQ1X2FmMlNDN3FiRzhsNkFaUDdvcUJray0?oc=5",
@@ -35,13 +42,6 @@
    "time": "11/23 12:40"
   },
   {
-   "t": "Gold recovers from September 2025 lows; retakes $3600 on softer USD and safe-haven flows",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxONF9YMzdhc09tMGduY3paeFFObkRtZWRuRDk3aGNvUmdTc1J5T2txclhpT2h0ZTU2RjliQ0FGamxMWlZ5c1hqTHRRNkxwcDZsOWJDYnZTWlRRT21NTzBUZUdRYjhEWk13SXpUTVhiS3VDWjV6cDhpem9nMHJWWjZyaTM0VUxVWVBtZUtqZkd1VGFxQTc2QTcxZjFtWTdjcUROOG9qaTJpLVEtZk82TUhEQlpadVdYZDNvT2FQYjUwa2ZEcF93U1RCRw?oc=5",
-   "ms": 1795407749000,
-   "time": "11/23 12:22"
-  },
-  {
    "t": "Gold Price Forecast: XAU/USD rebounds, but is it out of the woods?",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVjhRdHpuX1BTX3k2bnp2d2l0ajRsVnc1TjZKd1NybjdoUndxa0U1S1d1N0lYOGNoeFozaWR4OEtFQ0Z3NVdIV2ZLa09xVVhUYXVjWHB6UEhEMDBqaW1TTVBnZk5qRmpIdzdHbHYwd3JiM3lrMXlPLWNzUjBDeG45MkJfNHJNWHFpb2tjM2NjVHQxdGVJM3F4MTBZVGtoa2ZMOTY4VWFMcWFaUGs1LU9J?oc=5",
@@ -54,6 +54,13 @@
    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPbEQ1RnRBN1FzWWRfcWx2TzZaV3dHeXZBeHBaZUpqRXdoZXZmR0xETWxuVEZuN3VLcUxKYWRKaDc1M3kwS2UwZDJGNWlleHdZajRpOGVuMVV1dEIxT0N5LXlEUlR2U0h5RUJJOVk1T0xUMVpKNElnODRYVnh2M29IT3BGQVlIRjZQby1TU2ZISW81bmlhTVgzWkJ5UWNuV0tPbnFNWS03Z0tHZHgzMk9sT01pMGRJdGMzeDhXN3lXcml1MFQwSERYT20yVzR0MUk?oc=5",
    "ms": 1795398846000,
    "time": "11/23 09:54"
+  },
+  {
+   "t": "US Dollar Weekly Forecast: Fed rate hike bets fuel US Dollar rally",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNS2x0dWpmckxNTVZoMG9Lc2xsUloyWllIRnJKeEN2OGhmdjNYbmFZV3dRZ0otUjRXNEJtOGI5NXprVk0xRkhISHJLY2NLRkNDMjU1cjhVSmw1YTlVLUtZVTFUNE9wd1g0ZGZjeEllTldTX1BIU3pIRW83MGdtWkd4Yjk3UW9UUkhDT3RobGh4OEpmN2c4Z1ptUVJ2UUJUWl90SEwyVU14WkNIM1ZCLWF0eTM5dFIxb0JwZ1hyM1BiTQ?oc=5",
+   "ms": 1795396260000,
+   "time": "11/23 09:11"
   },
   {
    "t": "Gold recovers above $3,550 as AI trade concern spurs safe-haven flows",
