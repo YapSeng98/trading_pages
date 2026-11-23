@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 01:30 SGT",
+ "updated": "2026-11-24 01:57 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold is having a rough year. Does it still belong in your portfolio?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPS0l5TjFXc1RMcVYzV05tYS1jRUk4NlRSaHFmaTBURHhfWlFMWG5sQkkyLXpIaXMzcld1U0JRcHYzSHhySlYtZVluZktpcjM0WS03RGhvOG1OWlAzc0phakpMRVBKSWxSTXYzbTlXZ0I2TTNlTUZxRHZFekV3NURHTzVvQ0p6QW84azF1eTFxNC16NnlBbUJhdGhGVmdaOUFmYk9ta2RTOEZYbExhMEplUzdOVDVyd2RpNnEtcVZKVGlaQUNMdnI2NGRQeTJDeHplSWl5T0FCQk9QZw?oc=5",
+   "ms": 1795456012000,
+   "time": "11/24 01:46"
+  },
   {
    "t": "Gold Surges Nearly 5% After Black Friday Bloodbath",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQMkFCZWo2LWxJYjZWX0oyb1VjbUt6OGtlZEVrSjhLVE5WQjFpa3cxSVZYMkNYV0FXOGk3MTlCMmpmdUt1UHhSOUdodFNvZU1UbVB5bmhqblB5czdzQW0yUDRwYmpJMExXNXZwQjJUdzRfZnRGSnhaWnFiX1dyUmdLdjlMUllINHVfdXB4TUVoLUh6UQ?oc=5",
    "ms": 1795438800000,
    "time": "11/23 21:00"
-  },
-  {
-   "t": "Gold Rebound Faces Pressure as Trump Keeps Military Action Against Iran on Table",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebound-faces-pressure-as-trump-keeps-military-action-against-iran-on-table-200692134",
-   "ms": 1795437060000,
-   "time": "11/23 20:31"
   }
  ]
 }
