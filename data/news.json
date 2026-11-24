@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 02:32 SGT",
+ "updated": "2026-11-25 02:45 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -63,13 +63,6 @@
    "time": "11/24 23:01"
   },
   {
-   "t": "Current price of gold: Month Day, Year",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
-   "ms": 1795532100000,
-   "time": "11/24 22:55"
-  },
-  {
    "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
    "ms": 1795518120000,
    "time": "11/24 19:02"
+  },
+  {
+   "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-holds-3600-lifeline-as-markets-pivot-from-ai-relief-to-us-pce-200692210",
+   "ms": 1795514400000,
+   "time": "11/24 18:00"
   }
  ]
 }
