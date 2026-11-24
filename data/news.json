@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 15:29 SGT",
+ "updated": "2026-11-24 15:42 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Rebound Stalls as Bearish Hammer Signals Fresh Downside Risk",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-rebound-stalls-as-bearish-hammer-signals-fresh-downside-risk-200692189",
+   "ms": 1795497960000,
+   "time": "11/24 13:26"
+  },
   {
    "t": "Gold slips after sharp rebound as Fed rate bets keep pressure on bullion",
    "src": "Investing.com",
@@ -40,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdkZVcTlWMFNRdDFoTC1qUzJNNEh2b1FHZDc0Q3BGRTV4VmxNM0l3cEZUak51OV84MW9TbUNfM3M3VTF6UzRDeFJ4XzhvdlJBRHBnbUt1bFFzTjdSNERkbGl4S3VEWU9HUjZmSVBINWZ6RXliMVh5TUhxYlJydVk4dFlyTU5GelNGc0pSa3l5d1VOaXIzbGZBV0V5TkozYjR1X0hn?oc=5",
    "ms": 1795492516000,
    "time": "11/24 11:55"
-  },
-  {
-   "t": "Oil prices near three-month lows as rising supply offsets Hormuz threat",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
-   "ms": 1795488960000,
-   "time": "11/24 10:56"
   },
   {
    "t": "WTI declines to 3-month low as Libyan pipeline restarts despite US-Iran tensions",
