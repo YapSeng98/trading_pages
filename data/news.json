@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 13:27 SGT",
+ "updated": "2026-11-24 13:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "2 years ago, Saudi Arabia quietly canceled the ‘petrodollar’ deal with America that wired the world economy for 50 years. Then war broke out in Iran",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOOUhuT3BBQzlvUFBEQjNDam1wcHc0Mkc0dWFTMHFlUjhvVG13M1BVYzBQZkpSQWFPUU10eVJGT1RJTkhvZU5yeGUzTUxZVWJnRjZzeVpLRWJHOFFHUlRidkpzMzdCZUItT1hDVElXMFdkd1d3OEFDRzRtbWM5NTQtTG0wbUFuYTRNXzZ4UmlxTlI0cGVKb0NhdFViQmdTZDNUN0E?oc=5",
-   "ms": 1795498007000,
-   "time": "11/24 13:26"
+   "t": "Gold slips after sharp rebound as Fed rate bets keep pressure on bullion",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcU9Cd2xHVXVEMWNPM3pIMWRDakVBcVRzZkFyUHJGVi04VEdIY1EwRXVSS251ZExra2swcW45Z1BkbVdmWFl4dFU0c3JLdTFZRmNGaE5ZMHlYTmtqMTJGTjc4RG42YVVLei1PaTQ3N05xQkpjQ09nYmVTU2lEVlZ4WHl5R3hoU2w1Rk1COGNRZ2RpeVRqUi01RWs1bXZuU0hDdHJERDl1SE5rZVkwR0VIM3NzVkpJenAxdlNZdklHR0J2ZU4zUjVzZ1RyOHRrNk0?oc=5",
+   "ms": 1795497700000,
+   "time": "11/24 13:21"
+  },
+  {
+   "t": "Gold gives back early gains as global AI stocks regain traction",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
+   "ms": 1795492931000,
+   "time": "11/24 12:02"
   },
   {
    "t": "Dollar climbs as renewed AI euphoria fuels Fed hike bets",
@@ -28,7 +35,7 @@
    "time": "11/24 09:13"
   },
   {
-   "t": "Gold ticks up on bargain buying; US inflation data awaited",
+   "t": "Gold edges higher on bargain buying; US inflation data awaited",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
    "ms": 1795481820000,
@@ -47,13 +54,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPYUhDOEVnamlfeUk1LW1sRGs3R1puaHpXOFZxMVpBYU53T2p1cFVoTHQ0NEZqanFTUU5VcGloRGRMWXJYaXU5aDVHWTVFWmM2NlhMRWdKTnlQbU91ckVWeHZadTV3SklUa19JSUVDX0NaTlQ5VlNlaVhLam40clFwaC0zbm40SVpwcURmaFV6bVpBWWgtZS1Rdnh6RmRkaS1XVW1UU1BCSjJLUQ?oc=5",
    "ms": 1795477321000,
    "time": "11/24 07:42"
-  },
-  {
-   "t": "Gold rebounds from one-year low to above $3,600 as Nvidia CEO returns, traders buy the dip",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
-   "ms": 1795476405000,
-   "time": "11/24 07:26"
   },
   {
    "t": "Gold, silver prices see sharp rebounds as AI shares rally, renewed Fed uncertainty - Kitco PM Report",
