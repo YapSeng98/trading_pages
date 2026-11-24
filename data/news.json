@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 05:27 SGT",
+ "updated": "2026-11-25 05:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -22,17 +22,10 @@
   },
   {
    "t": "Royal Gold at Renmark virtual non-deal roadshow: growth and discipline",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPaE5qQkY2a3JoOS1xM3hvWDhmVVRkZmNLV2Rva1AtZzRmcDI5NWFQWjN5SlpqVkFjOEZjMlI0X3RTWTBkYU5kR1d2dmNuVGFqaXJMQS1jcGtJREtJbWhlRXdSZVRrYXdjaWpzbjNiZHhITUlvcFB4NHNxa3l1RTlJVG1aV2ZXNDhCNlRiNm9GY0xVSUdFQzIwSXYyRzMyUXc5SGtqUE1iY2VoOUp6dW1zQ1F6MEVEY29hWVlIN3hnNG1sR0E0elIwUg?oc=5",
-   "ms": 1795546290000,
-   "time": "11/25 02:51"
-  },
-  {
-   "t": "HSBC, J.P. Morgan and StoneX complete first live trades using Pooled Gold Interests (PGI)",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYmp1eDY4elpsRmlmZWh3aHBhalp6QWF6b29hU29TUUJKeHRsaTh0WjRfak9aOFZDaGR6NlN0cGFOU3FTVDNWSlVySS1PcWZ0MTFkT0d0VHNPQVI2RVIyQ2NvSEhJdGN6Tk9CVkZOX3A5cW9TQmFfVExtT3pDNERMR0RSc2hZc1E4S0FzT0tuc2tkbGNOTEc4LURpZjJZZmFkeXFqc1NxTTg4TjdTWVRVOVFQdlIyNG8?oc=5",
-   "ms": 1795546143000,
-   "time": "11/25 02:49"
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQc1gxLXNXdVQ0Y1ZLOXZaZ3lGYVhlMm4xdUZYdjBXWTBrbUMxM0M5ZzBZY2VEZ1Y2UkpMekJNZ2dsVEIyVVluU0I2bGpnZnd0NU5SU0dIa25vekQ3d3BmX24zLWlUMlI3cl9ldzFHNDRqLXZXTFZPS2FiMEhkSDNrLWdNVGU2VXltUXZxaGNUS1VaeVJxZFRYdElXbzFwRzJ1UTA4QnRmRGlaRmoyRXZScURWTlVyLWloczVZdF85R1dGdw?oc=5",
+   "ms": 1795547392000,
+   "time": "11/25 03:09"
   },
   {
    "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
@@ -84,13 +77,6 @@
    "time": "11/25 00:06"
   },
   {
-   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQQVU4eW1tVjljTjZiVWxLcER4V3V6SERQMUdNV0FTdURxSTkzd3U3djhiV09ERV9FdVFrTFZwaUdNVEpOMDBUdjBnZUlacjc4bHNtYUlGN3ZsM2s5czNYTnl3Z1h5SnFDRVFTQllpY25KUTZnd19ZczZQVkRtN21qQXFsT1VmN2RvUEFVNzlUMVVlQ2E1RkFEanIxY3RRRFdHRFpnZ2U5cWNiVmoxWUpRWTdzUkxhVWdnN0ZOLWcwQjRiVm1GOEtUeFpmVjU2UQ?oc=5",
-   "ms": 1795533776000,
-   "time": "11/24 23:22"
-  },
-  {
    "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
@@ -105,11 +91,25 @@
    "time": "11/24 23:01"
   },
   {
-   "t": "Current price of gold: Month Day, Year",
+   "t": "Current price of gold as of November 24, 2026",
    "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9rZFNMWVhPQ1F4b0U2S3J0UnF0QXVWQnF6QXhNVUV2TjU2ek1sbERhWFhHQjUzdXhtc19SZFQ2Zm9vaFhWTmpHMU5DOHEyX1Z1S1JqNDAtbnlCbUt4Ym5TS3ItOWVJQzFLelBlcg?oc=5",
    "ms": 1795532100000,
    "time": "11/24 22:55"
+  },
+  {
+   "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
+   "ms": 1795531943000,
+   "time": "11/24 22:52"
+  },
+  {
+   "t": "MetalsBackedWealth Launches Free Gold IRA Planning Tools to Help Retirement Savers Understand Investment Costs and Break-Even Requirements",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOelFkUjlMT2ItSXZGZ2lDZUJ0c2JMZ1ZqY1BuQ1V1bGdGVXcyY293RFMybVJlaGo1WldMaTk4ajEtM0xYSVRZWTd0akh6dEl6TkFzc0Y2amYteldWN3JoS0FPRmFfbmR4cl85dk4tWnFYUEdNUUw3cEFDWDI4Qzl2UkZJcDZURXlBbkNxSjRpTU9uVWgtR25XRFR3eTAxdV9BUVB4dGxPQXRSbnhIYngyVA?oc=5",
+   "ms": 1795528800000,
+   "time": "11/24 22:00"
   }
  ]
 }
