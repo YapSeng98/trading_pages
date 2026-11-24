@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 09:51 SGT",
+ "updated": "2026-11-24 10:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
+   "ms": 1795482780000,
+   "time": "11/24 09:13"
+  },
   {
    "t": "Gold spot/US Dollar sliding between 0.382 and 0.236 arcs. Downside target at 3,590",
    "src": "FXStreet",
@@ -47,6 +54,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795468582000,
    "time": "11/24 05:16"
+  },
+  {
+   "t": "US imposes sanctions on dozens linked to Iran's shadow banking networks",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxON2NaMVlXcGRFQ3BpRFVieGtVRzR4bXFtTXRTRnpSV3JmNzY1REhheG5xNlV5MlptZ1lIM1BQWUhGcTBZNWpHckdxZG1kWUZoZUdxSnRneHJhVzBpUzg0ZGpXQ1lQblItbHg5WXpNUXBqbHpWZ0NqZzdQZEdhNTZKbDZXaHNydXhYM05hd2YtY1lvU0JkVnJBQ3diRVNDV210Z0pZdm5mRnMtUEk4TTNkOXNDMGpvbmpD?oc=5",
+   "ms": 1795462783000,
+   "time": "11/24 03:39"
   },
   {
    "t": "Gold Prices Rebound. What the Charts Say About a Nasdaq Bottom.",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-surges-nearly-5-after-black-friday-bloodbath-200692149",
    "ms": 1795451160000,
    "time": "11/24 00:26"
-  },
-  {
-   "t": "The price of gold today, Nov. 23, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5DLUlzdzV5RDJ5SVVWMkdKWFQyNHRXS01MVTlodHQ5Q0I3WUNNaGQ3LU9jNXpRMkxBc0lFMTBqcTdDMlp2UENMbzJGUDZ5NUhrTkNMSW1rUWN4dnV1TnpKdnhKR3c0TTNabXU2ZjFacjdtUdIBd0FVX3lxTE5DdGZpajdlUUlvN0lPNHJEdDNjREtNaUNpbVhLb3lqd3JrSXhWMzRqVTNoc2g4Wk9BN0tqcWN5V1JYMjNsbll5NDZ2SlVJWGYxbFlRS2VjeUhJUHprdE8wcGVFcGUxQlZ0alpWdjI4UGRhU1Z1R2hR?oc=5",
-   "ms": 1795449016000,
-   "time": "11/23 23:50"
-  },
-  {
-   "t": "COT data is flashing bullish signals across precious metals - but patience may still be required",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQaHJURk1xYWhicVJWek5qWUk2WkJkdzZiWVJGUE1fUGU4aG9JeXhhazdsdXdkVFFHZl81UU9pQnZhWWpXUmNGV1VGZmN4bnJNUm1OVjJyZWh5SUxUMHRmQ3QwdDNDMFQ1OF9YclpXakQtb1JESGxUY2dYeGptUVBzekdEaTR2SjJseG1KaWx0VFlXYVFVcWxiRklRN2dlZ3I1RDFkdjNPZS00NnNkWXJ2dzF1RnBmYWc5RTlj?oc=5",
-   "ms": 1795447359000,
-   "time": "11/23 23:22"
   }
  ]
 }
