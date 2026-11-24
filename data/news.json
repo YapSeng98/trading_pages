@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 07:29 SGT",
+ "updated": "2026-11-25 07:42 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -56,6 +56,13 @@
    "time": "11/25 03:09"
   },
   {
+   "t": "HSBC, J.P. Morgan and StoneX complete first live trades using Pooled Gold Interests (PGI)",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYmp1eDY4elpsRmlmZWh3aHBhalp6QWF6b29hU29TUUJKeHRsaTh0WjRfak9aOFZDaGR6NlN0cGFOU3FTVDNWSlVySS1PcWZ0MTFkT0d0VHNPQVI2RVIyQ2NvSEhJdGN6Tk9CVkZOX3A5cW9TQmFfVExtT3pDNERMR0RSc2hZc1E4S0FzT0tuc2tkbGNOTEc4LURpZjJZZmFkeXFqc1NxTTg4TjdTWVRVOVFQdlIyNG8?oc=5",
+   "ms": 1795546143000,
+   "time": "11/25 02:49"
+  },
+  {
    "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjhPY25yQXRaRWxrZmlnVzJqcmxybUNuZnd0ZTRQN1FpbXk3ZWdnN1U3VzIxUWpERFRCczJGbjJLS2hJbjJqbXpJdmtlMmhVWmJNbkFkZDl2NW02a2tNZnFfZmVfZl9fbzIwYmdEWk84RGlSRTRhdU5HV0ZHeDhTaURIWVJSdTdKanZjSkhFSlRPYnR0akNYT1NoYm5fM3Y5REk5Z1VucVJZNVpPUkhqWFFpcEcweUhB?oc=5",
@@ -68,13 +75,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
    "ms": 1795542498000,
    "time": "11/25 01:48"
-  },
-  {
-   "t": "Gold producer offers 86% upside as Canadian mine deal adds value for its investors By Investing.com",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNbnRwdUE1NnZ6TmFFdE44eGtDbVFFUzlUQmNPSU5BVzY3emp4Z1MwMzFxZjF0SGZsX1pFV0VDSy00WTdITU5sa0lWOXRjeWphNl9OSjJ1b2EwbTFyT1JYeHd3WkctcDRRMzV2RFBCMGpja3NtNFRBRllWVnk1elVVRTF2X0ZqUlRDal9LSDhYSTRfWEhVTlU0cTF1X0JzSERtX0RmRHB0aTRXYnVLQWVRYXh1dkpUZXpuU1Bhb1VFSTRWVFBqVm1PM2F4Smo2SDBXS01wLQ?oc=5",
-   "ms": 1795541631000,
-   "time": "11/25 01:33"
   },
   {
    "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
@@ -98,18 +98,18 @@
    "time": "11/25 00:06"
   },
   {
-   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQQVU4eW1tVjljTjZiVWxLcER4V3V6SERQMUdNV0FTdURxSTkzd3U3djhiV09ERV9FdVFrTFZwaUdNVEpOMDBUdjBnZUlacjc4bHNtYUlGN3ZsM2s5czNYTnl3Z1h5SnFDRVFTQllpY25KUTZnd19ZczZQVkRtN21qQXFsT1VmN2RvUEFVNzlUMVVlQ2E1RkFEanIxY3RRRFdHRFpnZ2U5cWNiVmoxWUpRWTdzUkxhVWdnN0ZOLWcwQjRiVm1GOEtUeFpmVjU2UQ?oc=5",
-   "ms": 1795533776000,
-   "time": "11/24 23:22"
-  },
-  {
    "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
    "ms": 1795532820000,
    "time": "11/24 23:07"
+  },
+  {
+   "t": "Gold price testing support near $3,600 as US Consumer Confidence sees sharp rise in November",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
+   "ms": 1795532507000,
+   "time": "11/24 23:01"
   }
  ]
 }
