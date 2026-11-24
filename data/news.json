@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 15:02 SGT",
+ "updated": "2026-11-24 15:15 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slips after sharp rebound as Fed rate bets keep pressure on bullion",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcU9Cd2xHVXVEMWNPM3pIMWRDakVBcVRzZkFyUHJGVi04VEdIY1EwRXVSS251ZExra2swcW45Z1BkbVdmWFl4dFU0c3JLdTFZRmNGaE5ZMHlYTmtqMTJGTjc4RG42YVVLei1PaTQ3N05xQkpjQ09nYmVTU2lEVlZ4WHl5R3hoU2w1Rk1COGNRZ2RpeVRqUi01RWs1bXZuU0hDdHJERDl1SE5rZVkwR0VIM3NzVkpJenAxdlNZdklHR0J2ZU4zUjVzZ1RyOHRrNk0?oc=5",
+   "ms": 1795497700000,
+   "time": "11/24 13:21"
+  },
   {
    "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
    "src": "Bloomberg.com",
@@ -49,18 +56,18 @@
    "time": "11/24 09:35"
   },
   {
-   "t": "Dollar climbs as renewed AI euphoria fuels Fed hike bets",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWk01SnRnY1hzWHBOdlQ5eGdldmlIQkd5QUM4SFJ5S3Z5YWtVQnlYWVp3LXlqajM1QTA5UTBBSFNrOFdjVGdWME54WUJYdFRGUXJDYlVmUDFETjlITTZtYkFiWW9IcU9sVTM0R0otbjlmMXNCdC1HSEVNOXJMaDlIMC1YUnFBUDZNMXh6RlRwMVM5MDFRTy1YQXc3U21zYU0?oc=5",
-   "ms": 1795482840000,
-   "time": "11/24 09:14"
-  },
-  {
-   "t": "Gold edges higher on bargain buying; US inflation data awaited",
+   "t": "Gold edges lower as markets await US inflation data",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
    "ms": 1795481820000,
    "time": "11/24 08:57"
+  },
+  {
+   "t": "Gold spot/US Dollar sliding between 0.382 and 0.236 arcs. Downside target at 3,590",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRUZlc2F4WmUzX05Kc21lQXVXVHliNEwzeEpCSVpxV3Y1REpIdXFMb2xTZnc1RmFqa1Q0N1ZCV29LbFNfVEdKYnMtbExjNHNYZWJwNXRtRldlUURVdWt6bE5TX1ZGUTRTRU9LaDBack1jODEzbFgzVjhTeHlKQTQ4MXEwUEJuSm5HN3Uwb0szQWtkNk9ONnIxWkIwM2NldG1rdjRzQ3piY05kbm0yTmFYeG1WUXpTMERaT0FRZGpjRVpHdUpm?oc=5",
+   "ms": 1795479333000,
+   "time": "11/24 08:15"
   },
   {
    "t": "Qatar warns Middle Eas cannot afford another US-Iran escalation",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVnBvekdxUE5QSkRORzlVcXRVdXBRMW9oWTZMV1haTFZTNHhzRThZRE5idWxIdVU4TmhyUGxWa0JOS2hRaXhlT1lFRGEzVmM3OUk5Y3NmRUFEeEJ6QzNrN21HcDAtRWNwYmg2ZThCM2QtZGVqU3dudURZVE42MDhsSTg5RVk5UlBTVTdqNGpzT0oxRUhpR2x0TDZEYUticmNVN2tDUFdDRXlDdw?oc=5",
    "ms": 1795461413000,
    "time": "11/24 03:16"
-  },
-  {
-   "t": "Gold price rises as bargain hunters step in after steep weekly drop",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-rises-as-bargain-hunters-step-in-after-steep-weekly-drop/",
-   "ms": 1795458708000,
-   "time": "11/24 02:31"
   }
  ]
 }
