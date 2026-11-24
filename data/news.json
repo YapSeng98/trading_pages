@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-25 04:20 SGT",
+ "updated": "2026-11-25 04:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Near $3,500: Can Key Support Hold as Copper’s Downtrend Deepens?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-near-3500-can-key-support-hold-as-coppers-downtrend-deepens-200692245",
+   "ms": 1795548420000,
+   "time": "11/25 03:27"
+  },
+  {
+   "t": "Gold is doing something strange. Here's one way to play it",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM0d3a1BWNzY3enNfZkhlTG16YW90c3BRZllsX1YyVEhNZWkwcG5BT3lYSTBkWWh2S0pmd0k4V1RUb3QwYlNoNEhIVWEyQVJIQW5ZTk55aFE0Zkt5TUN2OXBqN2dQOFBuMnY1bmE3OXRxaWZLZnZzdVNRUno0V1VwbWFPM19iSW9SUGQ1TUtFRk9vVzFiVDNJalVn0gGfAUFVX3lxTE5ILXREaWZnSWpjMThIRXpiQWxsaDA2OU9vbUJUOTU0NDZkU1ZwZVp0N0lyWkZLdnF0M1Zlb0hiMWhpYWk1SjJmaWV2QXlTYVZGM2s3SnRaaWdOVEJZMTRMQXR4dUdZTHJmT0U1Rkk1Uk1abFNGNzVEY2FNMDdNeUJ4MVUzbjlITWZLSktmdDUwY1ZqeHk0VGc3TzRnUTlQRQ?oc=5",
+   "ms": 1795548248000,
+   "time": "11/25 03:24"
+  },
   {
    "t": "Royal Gold at Renmark virtual non-deal roadshow: growth and discipline",
    "src": "Investing.com Canada",
@@ -56,6 +70,13 @@
    "time": "11/25 00:15"
   },
   {
+   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQQVU4eW1tVjljTjZiVWxLcER4V3V6SERQMUdNV0FTdURxSTkzd3U3djhiV09ERV9FdVFrTFZwaUdNVEpOMDBUdjBnZUlacjc4bHNtYUlGN3ZsM2s5czNYTnl3Z1h5SnFDRVFTQllpY25KUTZnd19ZczZQVkRtN21qQXFsT1VmN2RvUEFVNzlUMVVlQ2E1RkFEanIxY3RRRFdHRFpnZ2U5cWNiVmoxWUpRWTdzUkxhVWdnN0ZOLWcwQjRiVm1GOEtUeFpmVjU2UQ?oc=5",
+   "ms": 1795533776000,
+   "time": "11/24 23:22"
+  },
+  {
    "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRXZLTW5tSldXS2RtLTBnUXc0MFZ6QkRwYjNINlNUdThxVXNnMElPTE5ZUjE3T1hQdktPdUx2VTZPTjZFa0Y4NVlvamQxRGFJUWg0UEhVZnF5OTdtYkpYWURzSFpGNktoR2REcjJ5bkkteHEycG52Q0I2b3QtaDVOeFNKU0dFTmFGYnVLTmM3R21KVzlFeFJlejVXV3RfbTZSdHFiZFNGWFhUb01JZW1sU2xJdFpsa3Q4R1Br?oc=5",
    "ms": 1795527925000,
    "time": "11/24 21:45"
-  },
-  {
-   "t": "Gold: Headwinds set to ease into 2027 – Commerzbank",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSmNXb2VfYWM5bXg4dVNTeVctQkdWZER0NE40RUZBVnI1Yk4tdHZjMVhEdlNIRFk3TjI3NEZROXA1emtJTjFBWEFpMHRtV3dRRjZjcS1fNENZbkxLNzlGNjlqM2NCbEhMVzJrcm41ZXRsTG51T19DazdFWkY0NjdTeERxdkJJcVNyUTNrTTNGTnJQakE4TVE?oc=5",
-   "ms": 1795526662000,
-   "time": "11/24 21:24"
-  },
-  {
-   "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
-   "ms": 1795522701000,
-   "time": "11/24 20:18"
-  },
-  {
-   "t": "JPMorgan, HSBC Trade New London Digital Gold for First Time",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcFlzMFE1YnAybnhxbkVOM1I0VERWWXUybENVVVhXc0Vtakwzc0IzVzFzbHRINmZsWXE1TU9QNTk4dHZFXzhpeVJOMlNqekJpSnBaMm1hSzlVc29YU2UyNVBBYkhtaTJXSzJyRTFEQkMyTXdBUU01VU9sT05XM3ZleVZNdTEzQ3gzRU1zdksyWVlsdUs0VWlmZWVrRDBwM192TGlhU2tPa3BiVDEwSXl1b1pn?oc=5",
-   "ms": 1795521314000,
-   "time": "11/24 19:55"
   }
  ]
 }
