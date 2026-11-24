@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 06:08 SGT",
+ "updated": "2026-11-25 06:21 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold’s selloff is sowing the seeds of its next rally – Theo’s Iggy Ioppe",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPaU9yVzNUcmVFZklrRGdlVTV1c2pjVDEyU0s3Zkd2ZmdwN0UyMDJIdllyQjZKZ3hwaU5lalkwcDlTV053YUVwWlRHUHM4d3RYTEdBVzl0LUEwMXVGQ2c3aEs4SlNKUGJGVEpFU1pETXA1V2lfX2VhSVQzcUVaU1RUNW55dWVpaUgtc0hJNTNob29WbFF3ZXN4TGdzTlFZQjJkRkNEYU5FYw?oc=5",
+   "ms": 1795557553000,
+   "time": "11/25 05:59"
+  },
   {
    "t": "Gold price falls 2% on hawkish Fed bets, US inflation data in focus",
    "src": "mining.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
    "ms": 1795532507000,
    "time": "11/24 23:01"
-  },
-  {
-   "t": "Current price of gold: Month Day, Year",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
-   "ms": 1795532100000,
-   "time": "11/24 22:55"
   }
  ]
 }
