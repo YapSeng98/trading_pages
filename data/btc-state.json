@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-24 21:06 SGT",
+ "updated": "2026-11-24 22:00 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 60485,
- "priceTime": "2026-11-24 21:00 SGT",
+ "price": 60014.6,
+ "priceTime": "2026-11-24 22:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 61270.9,
   "high": 61682,
   "low": 59390.9,
-  "changeFromPrevClose": -786,
-  "changePct": -1.28,
+  "changeFromPrevClose": -1256.3,
+  "changePct": -2.05,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 60485,
-  "stop": 62349.7,
-  "target": 54890.8,
-  "stopDistance": 1864.7,
-  "trailDistance": 3729.4
+  "entry": 60014.6,
+  "stop": 61926.9,
+  "target": 54277.7,
+  "stopDistance": 1912.3,
+  "trailDistance": 3824.6
  },
  "watch": [
   {
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 11:00 SGT",
-   "rsi": 45.7,
-   "atr": 621.57,
+   "rsi": 40.3,
+   "atr": 637.43,
    "turnsUpAbove": 61682,
    "turnsDownBelow": 59455.3
   },
@@ -134,13 +134,18 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-24 03:45 SGT",
-   "rsi": 56.2,
-   "atr": 282.69,
-   "turnsUpAbove": 60564,
+   "rsi": 45.9,
+   "atr": 324.42,
+   "turnsUpAbove": 60642.9,
    "turnsDownBelow": 59390.9
   }
  ],
  "resistance": [
+  {
+   "price": 60386,
+   "what": "昨日低点",
+   "strength": 3
+  },
   {
    "price": 60763.4,
    "what": "1小时向下转折位、1小时近期小高点",
@@ -160,21 +165,11 @@
    "price": 64603.1,
    "what": "昨日高点、4小时前高、4小时区间顶、4小时近期小高点",
    "strength": 8
-  },
-  {
-   "price": 65696.2,
-   "what": "上周高点",
-   "strength": 4
   }
  ],
  "support": [
   {
-   "price": 60386,
-   "what": "昨日低点",
-   "strength": 3
-  },
-  {
-   "price": 60018.8,
+   "price": 59975,
    "what": "1小时头肩顶关键位",
    "strength": 2
   },
@@ -189,9 +184,14 @@
    "strength": 3
   },
   {
-   "price": 56398,
+   "price": 56354.2,
    "what": "1小时头肩顶目标",
    "strength": 1
+  },
+  {
+   "price": 55130,
+   "what": "上周低点、周线区间底、日线区间底、4小时前低、4小时区间底",
+   "strength": 14
   }
  ],
  "record": {

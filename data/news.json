@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 21:47 SGT",
+ "updated": "2026-11-24 22:00 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,6 +12,13 @@
    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSmNXb2VfYWM5bXg4dVNTeVctQkdWZER0NE40RUZBVnI1Yk4tdHZjMVhEdlNIRFk3TjI3NEZROXA1emtJTjFBWEFpMHRtV3dRRjZjcS1fNENZbkxLNzlGNjlqM2NCbEhMVzJrcm41ZXRsTG51T19DazdFWkY0NjdTeERxdkJJcVNyUTNrTTNGTnJQakE4TVE?oc=5",
    "ms": 1795526662000,
    "time": "11/24 21:24"
+  },
+  {
+   "t": "COMMENTARY: Middle East crude oil exports trend lower amid fake Iran stalemate",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVzZpMHFTclFHbWV5MGFQbmJCOHhtaS02NUQyVmFmU09tZHVJRXZCeHRNWTFNQ0hVenFvQ1JnS2p0aHd0LVFjRE5KTi0tQkVZdElhcko2YXRmWnpkbGtkc0lJX0JjVGtXSE1TbWwyVklTcHVrSWNaTExxT1hYV3JEdG92Ny03TEFNWEJ0Q1hIY2lReVVlZHhkRS0zUUlkZkFiTHhiV0UwVF9RMVdxS2RlS1pseXBJQ3ZwaDBqak5zd29Hd3NGYW5nNUVfZERkR0pI?oc=5",
+   "ms": 1795523528000,
+   "time": "11/24 20:32"
   },
   {
    "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-stalls-as-bearish-hammer-signals-fresh-downside-risk-200692189",
    "ms": 1795497960000,
    "time": "11/24 13:26"
-  },
-  {
-   "t": "Gold Futures: Testing the $3,640 VC PMI Pivot – Is a Reversal Underway?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-testing-the-3640-vc-pmi-pivot--is-a-reversal-underway-200692187",
-   "ms": 1795497840000,
-   "time": "11/24 13:24"
   }
  ]
 }
