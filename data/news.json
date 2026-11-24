@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 01:10 SGT",
+ "updated": "2026-11-25 01:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,13 +21,6 @@
    "time": "11/25 00:15"
   },
   {
-   "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
-   "ms": 1795532820000,
-   "time": "11/24 23:07"
-  },
-  {
    "t": "Gold price testing support near $3,600 as US Consumer Confidence sees sharp rise in November",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
@@ -47,6 +40,13 @@
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
    "ms": 1795531943000,
    "time": "11/24 22:52"
+  },
+  {
+   "t": "The price of gold today, Nov. 24, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5aa3pHZHZqdmN2a0diYVdtYUllR21VVkVxLXZJd1dhQUJJMDJzNEtTVXVtS2NTd2xYMlRJbm5vbWNiWlk5NTY2MUk3UlROUlVxLXByNFg3N2F2T1RtbzdITVVYT3lMdHVVUW5wUk1hRWp4QdIBd0FVX3lxTE9faThvTTNkZkVzSUNEV2Z6U01sQmZYdTg5bDZkTlhueW90TldHbkVPUEVwVGJPd0ljMTRGOTFnMDRzcGdMZmp3X0U3Zzc1N1k1amNCVmR4WTFTeEpLQTVCem5YLXhVRUhKWlNuYzdRTzZQWTZWUE5Z?oc=5",
+   "ms": 1795531543000,
+   "time": "11/24 22:45"
   },
   {
    "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
@@ -77,6 +77,13 @@
    "time": "11/24 21:24"
   },
   {
+   "t": "Gold slips with spotlight on US inflation data",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRzhXeUNfaXRmbHRDUmRzbFVZUmp0Q0czRkFEVW5seGlnbGZmbmJXajNMWTZId1lhOUJwWF84V0ZOdi0xcm5zUnBSM0x6djVjSU9TU3dVX2Ztb2stVGxaaFprUjJXUjQwX0NmUFpqMTVpREdSS2FPN2xRVE9FX182NGNROUZPWDBYc1hnaGdEUEtqNTA?oc=5",
+   "ms": 1795525870000,
+   "time": "11/24 21:11"
+  },
+  {
    "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
@@ -98,18 +105,11 @@
    "time": "11/24 19:37"
   },
   {
-   "t": "Gold: Relief Bounce From $3,500 Runs Into a Wall Near $3,700",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
-   "ms": 1795518120000,
-   "time": "11/24 19:02"
-  },
-  {
-   "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-holds-3600-lifeline-as-markets-pivot-from-ai-relief-to-us-pce-200692210",
-   "ms": 1795514400000,
-   "time": "11/24 18:00"
+   "t": "Gold turns upside down amid revival of global AI trade",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
+   "ms": 1795509606000,
+   "time": "11/24 16:40"
   }
  ]
 }
