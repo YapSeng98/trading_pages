@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 15:56 SGT",
+ "updated": "2026-11-24 16:09 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "Oil Prices Hold Near 3-Month Lows Despite Hormuz Mine Claims",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/oil-prices-hold-near-3month-lows-despite-hormuz-mine-claims-200692203",
+   "ms": 1795504800000,
+   "time": "11/24 15:20"
+  },
+  {
+   "t": "Gold Outlook: Sliding Between 0.382 and 0.236 Arcs With Downside Target at $3,590",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-outlook-sliding-between-0382-and-0236-arcs-with-downside-target-at-3590-200692198",
+   "ms": 1795501920000,
+   "time": "11/24 14:32"
+  },
+  {
    "t": "Gold Rebound Stalls as Bearish Hammer Signals Fresh Downside Risk",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-rebound-stalls-as-bearish-hammer-signals-fresh-downside-risk-200692189",
    "ms": 1795497960000,
    "time": "11/24 13:26"
+  },
+  {
+   "t": "Gold Futures: Testing the $3,640 VC PMI Pivot – Is a Reversal Underway?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-futures-testing-the-3640-vc-pmi-pivot--is-a-reversal-underway-200692187",
+   "ms": 1795497840000,
+   "time": "11/24 13:24"
   },
   {
    "t": "Gold slips after sharp rebound as Fed rate bets keep pressure on bullion",
@@ -49,13 +70,6 @@
    "time": "11/24 11:55"
   },
   {
-   "t": "Oil prices near three-month lows as rising supply offsets Hormuz threat",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
-   "ms": 1795488960000,
-   "time": "11/24 10:56"
-  },
-  {
    "t": "WTI declines to 3-month low as Libyan pipeline restarts despite US-Iran tensions",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPczlvUEZkVWxxMXlULWdCU3cydDV0Q0NmQjRSUjF1U3FuRXNYUVN0VW1SUlFyMDZHZjBSNzBsYnp1RkZCYmpLU2NxSGFXNGxVSmRNVlN1bzIxVVJOTjdJbW1IZzYwS0hUMV9YYmJiTEhGMmlXcElNRFV5djAwZVpYUzB6am1YUTZQeHNfeFZwZksxRU5jUkVuQ2dJaENMdnBsVVduR2E2WnI3MXh0MkVHX3NGU2pGTmJLb2Q2VjVhbWc?oc=5",
@@ -84,32 +98,18 @@
    "time": "11/24 08:15"
   },
   {
+   "t": "2008, 2020, now 2026: The Gold and Silver club sees a great wealth transfer in commodities",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQc1FWMkF2eTU3ZlQ4QUg2T1ByVE83eE9qTUw2VVVDWUhSQ0Q3cnpxQ0tGY0EwcGg0Sm5fRnZkUUZCQURmdHYwRkdGTUhlVGF6VjFuamNNRVdsYkZVeFIzNm9LUkI1TUhTMFJsZWo3TjRneXhwRm1KdWNZUDNqbEJBLXJIa0xWYWNldkVKODdESGYwQXBaaHJtRkN5VTFzUmlYNWVNLWVxVHFBMlJiYTFscl9PRUZ3cXBjUmpQYWpzRnZHenVDTzhVSy1VcjJyU0E?oc=5",
+   "ms": 1795479178000,
+   "time": "11/24 08:12"
+  },
+  {
    "t": "Qatar warns Middle Eas cannot afford another US-Iran escalation",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPYUhDOEVnamlfeUk1LW1sRGs3R1puaHpXOFZxMVpBYU53T2p1cFVoTHQ0NEZqanFTUU5VcGloRGRMWXJYaXU5aDVHWTVFWmM2NlhMRWdKTnlQbU91ckVWeHZadTV3SklUa19JSUVDX0NaTlQ5VlNlaVhLam40clFwaC0zbm40SVpwcURmaFV6bVpBWWgtZS1Rdnh6RmRkaS1XVW1UU1BCSjJLUQ?oc=5",
    "ms": 1795477321000,
    "time": "11/24 07:42"
-  },
-  {
-   "t": "Gold, silver prices see sharp rebounds as AI shares rally, renewed Fed uncertainty - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdEl6eDh4a0ZXaUNNYjlDSzNYOF9IMEd3bkEwWlRuaHdXeUFmZzlNY01ZVk4xQVdOcGdMYUxWTmlHdGZLcmxlaHU0OV9yZGdYczAyODQxOHV1dTRlc0xId1Bpc2c4NEdHUnFBXzZCcnlNQW5zVnhXT0NGeHA3Vkl3cnJoSkdrSjROS3kyZHBqTmg2QVRfYWJJM3RYa1ZUQ0tRR080b2NNeFFyRGRtX19KUg?oc=5",
-   "ms": 1795475085000,
-   "time": "11/24 07:04"
-  },
-  {
-   "t": "Iran carries out flogging of singer and her team, Iranian website says",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQaTdQZHhWWEpadDE4WGc0WkR4ZW5Ud3pHQ3dKS2xaUGtMdGNnd0JKRC1sNk1qUUt4MG9UUGJlRU91NlJiVHhHNFVZWWluTjJpMWVmNkwtNTYzN0g5cFZVNVg4ZWFCYTRaQlNQWTU0djI4bTZBUnBWNmVIWjF3ZEFfYVp3UVJEdml1c0xEVkxSYzh1UlNNU3BiaG53Z2ctRExWLXVMNENwdjVPNEoxZ25vX2FvUjZGNmk2eGZjeGRR?oc=5",
-   "ms": 1795472502000,
-   "time": "11/24 06:21"
-  },
-  {
-   "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
-   "ms": 1795468582000,
-   "time": "11/24 05:16"
   }
  ]
 }
