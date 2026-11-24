@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 02:18 SGT",
+ "updated": "2026-11-25 02:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjhPY25yQXRaRWxrZmlnVzJqcmxybUNuZnd0ZTRQN1FpbXk3ZWdnN1U3VzIxUWpERFRCczJGbjJLS2hJbjJqbXpJdmtlMmhVWmJNbkFkZDl2NW02a2tNZnFfZmVfZl9fbzIwYmdEWk84RGlSRTRhdU5HV0ZHeDhTaURIWVJSdTdKanZjSkhFSlRPYnR0akNYT1NoYm5fM3Y5REk5Z1VucVJZNVpPUkhqWFFpcEcweUhB?oc=5",
+   "ms": 1795543276000,
+   "time": "11/25 02:01"
+  },
   {
    "t": "Gold slides despite weaker US Dollar as Fed hike bets dominate",
    "src": "FXStreet",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNbnRwdUE1NnZ6TmFFdE44eGtDbVFFUzlUQmNPSU5BVzY3emp4Z1MwMzFxZjF0SGZsX1pFV0VDSy00WTdITU5sa0lWOXRjeWphNl9OSjJ1b2EwbTFyT1JYeHd3WkctcDRRMzV2RFBCMGpja3NtNFRBRllWVnk1elVVRTF2X0ZqUlRDal9LSDhYSTRfWEhVTlU0cTF1X0JzSERtX0RmRHB0aTRXYnVLQWVRYXh1dkpUZXpuU1Bhb1VFSTRWVFBqVm1PM2F4Smo2SDBXS01wLQ?oc=5",
    "ms": 1795541631000,
    "time": "11/25 01:33"
+  },
+  {
+   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
+   "ms": 1795541050000,
+   "time": "11/25 01:24"
   },
   {
    "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
@@ -49,11 +63,11 @@
    "time": "11/24 23:01"
   },
   {
-   "t": "The price of gold today, Nov. 24, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5aa3pHZHZqdmN2a0diYVdtYUllR21VVkVxLXZJd1dhQUJJMDJzNEtTVXVtS2NTd2xYMlRJbm5vbWNiWlk5NTY2MUk3UlROUlVxLXByNFg3N2F2T1RtbzdITVVYT3lMdHVVUW5wUk1hRWp4QdIBd0FVX3lxTE9faThvTTNkZkVzSUNEV2Z6U01sQmZYdTg5bDZkTlhueW90TldHbkVPUEVwVGJPd0ljMTRGOTFnMDRzcGdMZmp3X0U3Zzc1N1k1amNCVmR4WTFTeEpLQTVCem5YLXhVRUhKWlNuYzdRTzZQWTZWUE5Z?oc=5",
-   "ms": 1795532187000,
-   "time": "11/24 22:56"
+   "t": "Current price of gold: Month Day, Year",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
+   "ms": 1795532100000,
+   "time": "11/24 22:55"
   },
   {
    "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
@@ -61,13 +75,6 @@
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
    "ms": 1795531943000,
    "time": "11/24 22:52"
-  },
-  {
-   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
-   "ms": 1795529925000,
-   "time": "11/24 22:18"
   },
   {
    "t": "MetalsBackedWealth Launches Free Gold IRA Planning Tools to Help Retirement Savers Understand Investment Costs and Break-Even Requirements",
@@ -91,13 +98,6 @@
    "time": "11/24 21:24"
   },
   {
-   "t": "Gold slips with spotlight on US inflation data",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRzhXeUNfaXRmbHRDUmRzbFVZUmp0Q0czRkFEVW5seGlnbGZmbmJXajNMWTZId1lhOUJwWF84V0ZOdi0xcm5zUnBSM0x6djVjSU9TU3dVX2Ztb2stVGxaaFprUjJXUjQwX0NmUFpqMTVpREdSS2FPN2xRVE9FX182NGNROUZPWDBYc1hnaGdEUEtqNTA?oc=5",
-   "ms": 1795525870000,
-   "time": "11/24 21:11"
-  },
-  {
    "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
@@ -105,11 +105,11 @@
    "time": "11/24 20:18"
   },
   {
-   "t": "JPMorgan, HSBC Trade New London Digital Gold for First Time",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcFlzMFE1YnAybnhxbkVOM1I0VERWWXUybENVVVhXc0Vtakwzc0IzVzFzbHRINmZsWXE1TU9QNTk4dHZFXzhpeVJOMlNqekJpSnBaMm1hSzlVc29YU2UyNVBBYkhtaTJXSzJyRTFEQkMyTXdBUU01VU9sT05XM3ZleVZNdTEzQ3gzRU1zdksyWVlsdUs0VWlmZWVrRDBwM192TGlhU2tPa3BiVDEwSXl1b1pn?oc=5",
-   "ms": 1795521314000,
-   "time": "11/24 19:55"
+   "t": "Gold: Relief Bounce From $3,500 Runs Into a Wall Near $3,700",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
+   "ms": 1795518120000,
+   "time": "11/24 19:02"
   }
  ]
 }
