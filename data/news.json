@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 08:44 SGT",
+ "updated": "2026-11-24 08:57 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold spot/US Dollar sliding between 0.382 and 0.236 arcs. Downside target at 3,590",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRUZlc2F4WmUzX05Kc21lQXVXVHliNEwzeEpCSVpxV3Y1REpIdXFMb2xTZnc1RmFqa1Q0N1ZCV29LbFNfVEdKYnMtbExjNHNYZWJwNXRtRldlUURVdWt6bE5TX1ZGUTRTRU9LaDBack1jODEzbFgzVjhTeHlKQTQ4MXEwUEJuSm5HN3Uwb0szQWtkNk9ONnIxWkIwM2NldG1rdjRzQ3piY05kbm0yTmFYeG1WUXpTMERaT0FRZGpjRVpHdUpm?oc=5",
+   "ms": 1795479333000,
+   "time": "11/24 08:15"
+  },
   {
    "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
    "src": "Bloomberg.com",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795468582000,
    "time": "11/24 05:16"
+  },
+  {
+   "t": "Gold rises as bargain hunters step in after steep weekly drop",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPS3dWM1VabElwdU1ZUGh4U2ZNYlVyQTZKdlh6QlpmV3VQSDIxczJFMFc0REZYd1ZkbDA2N29Oa1dIQmE2aHlBLWpnMVFiVXNrUFRBMHlaT3IxR1pyZW5VWFF1S3JjVWV2MkE3QTNkYThkakpSYUwyLUh2R2JEYWJHVkNHdEI3amtaUElkQk1qcS1WcWgxbjZxOWQtWExjZHVmb1dzY3g3eWYtdw?oc=5",
+   "ms": 1795464730000,
+   "time": "11/24 04:12"
   },
   {
    "t": "TAG: gold market liquidity",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-surges-nearly-5-after-black-friday-bloodbath-200692149",
    "ms": 1795451160000,
    "time": "11/24 00:26"
-  },
-  {
-   "t": "COT data is flashing bullish signals across precious metals - but patience may still be required",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQaHJURk1xYWhicVJWek5qWUk2WkJkdzZiWVJGUE1fUGU4aG9JeXhhazdsdXdkVFFHZl81UU9pQnZhWWpXUmNGV1VGZmN4bnJNUm1OVjJyZWh5SUxUMHRmQ3QwdDNDMFQ1OF9YclpXakQtb1JESGxUY2dYeGptUVBzekdEaTR2SjJseG1KaWx0VFlXYVFVcWxiRklRN2dlZ3I1RDFkdjNPZS00NnNkWXJ2dzF1RnBmYWc5RTlj?oc=5",
-   "ms": 1795447359000,
-   "time": "11/23 23:22"
-  },
-  {
-   "t": "Gold: Fragile flows but structural support – TD Securities",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOZ1lzcG5GZzYzQmJSMXpoamxnR2RTWks4b2Z6djVDOFVxVENzWGxLcU1sUGllOF9sYm5mMFY3bVRFMXdvSUlyQzcyc29OWlEtMzZtenY5aTR5T2hydUJJRnNtdlA4THhONEIweTVvLXA2UlpnSVVMbGhJYUNqdnY1TjhJSFI3dXF4ZlRESzEyV2ZQM1hnWFhPRDUtd2hFWXM?oc=5",
-   "ms": 1795446055000,
-   "time": "11/23 23:00"
   }
  ]
 }
