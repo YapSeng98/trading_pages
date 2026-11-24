@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 23:08 SGT",
+ "updated": "2026-11-24 23:12 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -56,13 +56,6 @@
    "time": "11/24 19:55"
   },
   {
-   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcU9Cd2xHVXVEMWNPM3pIMWRDakVBcVRzZkFyUHJGVi04VEdIY1EwRXVSS251ZExra2swcW45Z1BkbVdmWFl4dFU0c3JLdTFZRmNGaE5ZMHlYTmtqMTJGTjc4RG42YVVLei1PaTQ3N05xQkpjQ09nYmVTU2lEVlZ4WHl5R3hoU2w1Rk1COGNRZ2RpeVRqUi01RWs1bXZuU0hDdHJERDl1SE5rZVkwR0VIM3NzVkpJenAxdlNZdklHR0J2ZU4zUjVzZ1RyOHRrNk0?oc=5",
-   "ms": 1795520243000,
-   "time": "11/24 19:37"
-  },
-  {
    "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/oil-prices-hold-near-3month-lows-despite-hormuz-mine-claims-200692203",
    "ms": 1795504800000,
    "time": "11/24 15:20"
+  },
+  {
+   "t": "Gold Outlook: Sliding Between 0.382 and 0.236 Arcs With Downside Target at $3,590",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-outlook-sliding-between-0382-and-0236-arcs-with-downside-target-at-3590-200692198",
+   "ms": 1795501920000,
+   "time": "11/24 14:32"
   }
  ]
 }
