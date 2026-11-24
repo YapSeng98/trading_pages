@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 04:47 SGT",
+ "updated": "2026-11-25 05:00 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price falls 2% on hawkish Fed bets, US inflation data in focus",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-price-falls-2-on-hawkish-fed-bets-us-inflation-data-in-focus/",
+   "ms": 1795554018000,
+   "time": "11/25 05:00"
+  },
   {
    "t": "Gold Near $3,500: Can Key Support Hold as Copper’s Downtrend Deepens?",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
    "ms": 1795531943000,
    "time": "11/24 22:52"
-  },
-  {
-   "t": "Gold struggles to extend rebound as Fed rate hike bets pressure silver - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRXZLTW5tSldXS2RtLTBnUXc0MFZ6QkRwYjNINlNUdThxVXNnMElPTE5ZUjE3T1hQdktPdUx2VTZPTjZFa0Y4NVlvamQxRGFJUWg0UEhVZnF5OTdtYkpYWURzSFpGNktoR2REcjJ5bkkteHEycG52Q0I2b3QtaDVOeFNKU0dFTmFGYnVLTmM3R21KVzlFeFJlejVXV3RfbTZSdHFiZFNGWFhUb01JZW1sU2xJdFpsa3Q4R1Br?oc=5",
-   "ms": 1795527925000,
-   "time": "11/24 21:45"
   }
  ]
 }
