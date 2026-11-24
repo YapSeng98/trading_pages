@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 18:24 SGT",
+ "updated": "2026-11-24 18:38 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -19,6 +19,13 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
    "ms": 1795509606000,
    "time": "11/24 16:40"
+  },
+  {
+   "t": "JPMorgan and HSBC Trade Digital Gold in London for the First Time",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcFlzMFE1YnAybnhxbkVOM1I0VERWWXUybENVVVhXc0Vtakwzc0IzVzFzbHRINmZsWXE1TU9QNTk4dHZFXzhpeVJOMlNqekJpSnBaMm1hSzlVc29YU2UyNVBBYkhtaTJXSzJyRTFEQkMyTXdBUU01VU9sT05XM3ZleVZNdTEzQ3gzRU1zdksyWVlsdUs0VWlmZWVrRDBwM192TGlhU2tPa3BiVDEwSXl1b1pn?oc=5",
+   "ms": 1795507200000,
+   "time": "11/24 16:00"
   },
   {
    "t": "Oil Prices Hold Near 3-Month Lows Despite Hormuz Mine Claims",
@@ -99,13 +106,6 @@
   },
   {
    "t": "Gold slips with spotlight on US inflation data",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
-   "ms": 1795481820000,
-   "time": "11/24 08:57"
-  },
-  {
-   "t": "Gold edges lower as markets await US inflation data",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
    "ms": 1795481820000,
