@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 05:41 SGT",
+ "updated": "2026-11-25 05:54 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -26,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQc1gxLXNXdVQ0Y1ZLOXZaZ3lGYVhlMm4xdUZYdjBXWTBrbUMxM0M5ZzBZY2VEZ1Y2UkpMekJNZ2dsVEIyVVluU0I2bGpnZnd0NU5SU0dIa25vekQ3d3BmX24zLWlUMlI3cl9ldzFHNDRqLXZXTFZPS2FiMEhkSDNrLWdNVGU2VXltUXZxaGNUS1VaeVJxZFRYdElXbzFwRzJ1UTA4QnRmRGlaRmoyRXZScURWTlVyLWloczVZdF85R1dGdw?oc=5",
    "ms": 1795547392000,
    "time": "11/25 03:09"
+  },
+  {
+   "t": "HSBC, J.P. Morgan and StoneX complete first live trades using Pooled Gold Interests (PGI)",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYmp1eDY4elpsRmlmZWh3aHBhalp6QWF6b29hU29TUUJKeHRsaTh0WjRfak9aOFZDaGR6NlN0cGFOU3FTVDNWSlVySS1PcWZ0MTFkT0d0VHNPQVI2RVIyQ2NvSEhJdGN6Tk9CVkZOX3A5cW9TQmFfVExtT3pDNERMR0RSc2hZc1E4S0FzT0tuc2tkbGNOTEc4LURpZjJZZmFkeXFqc1NxTTg4TjdTWVRVOVFQdlIyNG8?oc=5",
+   "ms": 1795546143000,
+   "time": "11/25 02:49"
   },
   {
    "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
@@ -89,13 +96,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
    "ms": 1795532507000,
    "time": "11/24 23:01"
-  },
-  {
-   "t": "Current price of gold as of November 24, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9rZFNMWVhPQ1F4b0U2S3J0UnF0QXVWQnF6QXhNVUV2TjU2ek1sbERhWFhHQjUzdXhtc19SZFQ2Zm9vaFhWTmpHMU5DOHEyX1Z1S1JqNDAtbnlCbUt4Ym5TS3ItOWVJQzFLelBlcg?oc=5",
-   "ms": 1795532100000,
-   "time": "11/24 22:55"
   },
   {
    "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
