@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 11:12 SGT",
+ "updated": "2026-11-24 11:26 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -35,14 +35,7 @@
    "time": "11/24 08:15"
   },
   {
-   "t": "Fed's Williams says inflation still too high, signals more rate hikes possible",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNa3lvbHFTMGFKUm9paUJYVzFoQzd1QnQtSzAtTlZmSlFyRW5Sc1hic3p2MVV0VWVrYjFkNDdQZlFTUWMzZGFueG5yMTVMcGhLWUxwQi16Ujk5b2ppMVRWTGowaHlMZDQ4Z19xbWpCQTRFVzFHSHhxeW9kbG80OTVtSEZsb3REX29FRFFPR0xzTnFjYXh6?oc=5",
-   "ms": 1795477128000,
-   "time": "11/24 07:38"
-  },
-  {
-   "t": "Gold rebounds above $3,600 as CEO Nvidia returns, markets trim Fed hike",
+   "t": "Gold rebounds from one-year low to above $3,600 as Nvidia CEO returns, traders buy the dip",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
    "ms": 1795476405000,
@@ -54,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdEl6eDh4a0ZXaUNNYjlDSzNYOF9IMEd3bkEwWlRuaHdXeUFmZzlNY01ZVk4xQVdOcGdMYUxWTmlHdGZLcmxlaHU0OV9yZGdYczAyODQxOHV1dTRlc0xId1Bpc2c4NEdHUnFBXzZCcnlNQW5zVnhXT0NGeHA3Vkl3cnJoSkdrSjROS3kyZHBqTmg2QVRfYWJJM3RYa1ZUQ0tRR080b2NNeFFyRGRtX19KUg?oc=5",
    "ms": 1795475085000,
    "time": "11/24 07:04"
-  },
-  {
-   "t": "Iran carries out flogging of singer and her team, Iranian website says",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQaTdQZHhWWEpadDE4WGc0WkR4ZW5Ud3pHQ3dKS2xaUGtMdGNnd0JKRC1sNk1qUUt4MG9UUGJlRU91NlJiVHhHNFVZWWluTjJpMWVmNkwtNTYzN0g5cFZVNVg4ZWFCYTRaQlNQWTU0djI4bTZBUnBWNmVIWjF3ZEFfYVp3UVJEdml1c0xEVkxSYzh1UlNNU3BiaG53Z2ctRExWLXVMNENwdjVPNEoxZ25vX2FvUjZGNmk2eGZjeGRR?oc=5",
-   "ms": 1795472502000,
-   "time": "11/24 06:21"
   },
   {
    "t": "Gold Rebounds as Traders Pare Bets on Near-Term Fed Rate Hikes",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOOEx6cjRndEtyOE5KRWlnMlRyb3ZpLV96Y1RuanZmTVpON1dJQ0tVbU9RdzZDalNwYVlYN0FsdzVlbkxhWlpYQmtLWjdYMFlocml3Mko2R0dydi1JNmZ1U3hkWjdSVXdtOWJrVU5TOGtob2hFTFhHYnJWQlpTRjRHTFZkbWVLTFowaHF3TEFEcVlTallDM0tQRFpaZ3k5ZmxKT1hseg?oc=5",
    "ms": 1795453765000,
    "time": "11/24 01:09"
+  },
+  {
+   "t": "Gold Surges Nearly 5% After Black Friday Bloodbath",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-surges-nearly-5-after-black-friday-bloodbath-200692149",
+   "ms": 1795451160000,
+   "time": "11/24 00:26"
+  },
+  {
+   "t": "The price of gold today, Nov. 23, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5DLUlzdzV5RDJ5SVVWMkdKWFQyNHRXS01MVTlodHQ5Q0I3WUNNaGQ3LU9jNXpRMkxBc0lFMTBqcTdDMlp2UENMbzJGUDZ5NUhrTkNMSW1rUWN4dnV1TnpKdnhKR3c0TTNabXU2ZjFacjdtUdIBd0FVX3lxTE5DdGZpajdlUUlvN0lPNHJEdDNjREtNaUNpbVhLb3lqd3JrSXhWMzRqVTNoc2g4Wk9BN0tqcWN5V1JYMjNsbll5NDZ2SlVJWGYxbFlRS2VjeUhJUHprdE8wcGVFcGUxQlZ0alpWdjI4UGRhU1Z1R2hR?oc=5",
+   "ms": 1795449016000,
+   "time": "11/23 23:50"
   }
  ]
 }
