@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 21:20 SGT",
+ "updated": "2026-11-24 21:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold: Headwinds set to ease into 2027 – Commerzbank",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOSmNXb2VfYWM5bXg4dVNTeVctQkdWZER0NE40RUZBVnI1Yk4tdHZjMVhEdlNIRFk3TjI3NEZROXA1emtJTjFBWEFpMHRtV3dRRjZjcS1fNENZbkxLNzlGNjlqM2NCbEhMVzJrcm41ZXRsTG51T19DazdFWkY0NjdTeERxdkJJcVNyUTNrTTNGTnJQakE4TVE?oc=5",
+   "ms": 1795526662000,
+   "time": "11/24 21:24"
+  },
+  {
+   "t": "Gold slips with spotlight on US inflation data",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRzhXeUNfaXRmbHRDUmRzbFVZUmp0Q0czRkFEVW5seGlnbGZmbmJXajNMWTZId1lhOUJwWF84V0ZOdi0xcm5zUnBSM0x6djVjSU9TU3dVX2Ztb2stVGxaaFprUjJXUjQwX0NmUFpqMTVpREdSS2FPN2xRVE9FX182NGNROUZPWDBYc1hnaGdEUEtqNTA?oc=5",
+   "ms": 1795525870000,
+   "time": "11/24 21:11"
+  },
+  {
    "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
    "ms": 1795522701000,
    "time": "11/24 20:18"
-  },
-  {
-   "t": "COMMENTARY: Middle East crude oil exports trend lower amid fake Iran stalemate",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVzZpMHFTclFHbWV5MGFQbmJCOHhtaS02NUQyVmFmU09tZHVJRXZCeHRNWTFNQ0hVenFvQ1JnS2p0aHd0LVFjRE5KTi0tQkVZdElhcko2YXRmWnpkbGtkc0lJX0JjVGtXSE1TbWwyVklTcHVrSWNaTExxT1hYV3JEdG92Ny03TEFNWEJ0Q1hIY2lReVVlZHhkRS0zUUlkZkFiTHhiV0UwVF9RMVdxS2RlS1pseXBJQ3ZwaDBqak5zd29Hd3NGYW5nNUVfZERkR0pI?oc=5",
-   "ms": 1795521715000,
-   "time": "11/24 20:01"
   },
   {
    "t": "JPMorgan and HSBC Trade Digital Gold in London for the First Time",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-rebound-stalls-as-bearish-hammer-signals-fresh-downside-risk-200692189",
    "ms": 1795497960000,
    "time": "11/24 13:26"
-  },
-  {
-   "t": "Gold Futures: Testing the $3,640 VC PMI Pivot – Is a Reversal Underway?",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-testing-the-3640-vc-pmi-pivot--is-a-reversal-underway-200692187",
-   "ms": 1795497840000,
-   "time": "11/24 13:24"
   }
  ]
 }
