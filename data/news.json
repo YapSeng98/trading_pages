@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 05:14 SGT",
+ "updated": "2026-11-25 05:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -84,6 +84,13 @@
    "time": "11/25 00:06"
   },
   {
+   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQQVU4eW1tVjljTjZiVWxLcER4V3V6SERQMUdNV0FTdURxSTkzd3U3djhiV09ERV9FdVFrTFZwaUdNVEpOMDBUdjBnZUlacjc4bHNtYUlGN3ZsM2s5czNYTnl3Z1h5SnFDRVFTQllpY25KUTZnd19ZczZQVkRtN21qQXFsT1VmN2RvUEFVNzlUMVVlQ2E1RkFEanIxY3RRRFdHRFpnZ2U5cWNiVmoxWUpRWTdzUkxhVWdnN0ZOLWcwQjRiVm1GOEtUeFpmVjU2UQ?oc=5",
+   "ms": 1795533776000,
+   "time": "11/24 23:22"
+  },
+  {
    "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
@@ -98,18 +105,11 @@
    "time": "11/24 23:01"
   },
   {
-   "t": "Current price of gold as of November 24, 2026",
+   "t": "Current price of gold: Month Day, Year",
    "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9rZFNMWVhPQ1F4b0U2S3J0UnF0QXVWQnF6QXhNVUV2TjU2ek1sbERhWFhHQjUzdXhtc19SZFQ2Zm9vaFhWTmpHMU5DOHEyX1Z1S1JqNDAtbnlCbUt4Ym5TS3ItOWVJQzFLelBlcg?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
    "ms": 1795532100000,
    "time": "11/24 22:55"
-  },
-  {
-   "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
-   "ms": 1795531943000,
-   "time": "11/24 22:52"
   }
  ]
 }
