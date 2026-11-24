@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 15:42 SGT",
+ "updated": "2026-11-24 15:56 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -47,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdkZVcTlWMFNRdDFoTC1qUzJNNEh2b1FHZDc0Q3BGRTV4VmxNM0l3cEZUak51OV84MW9TbUNfM3M3VTF6UzRDeFJ4XzhvdlJBRHBnbUt1bFFzTjdSNERkbGl4S3VEWU9HUjZmSVBINWZ6RXliMVh5TUhxYlJydVk4dFlyTU5GelNGc0pSa3l5d1VOaXIzbGZBV0V5TkozYjR1X0hn?oc=5",
    "ms": 1795492516000,
    "time": "11/24 11:55"
+  },
+  {
+   "t": "Oil prices near three-month lows as rising supply offsets Hormuz threat",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
+   "ms": 1795488960000,
+   "time": "11/24 10:56"
   },
   {
    "t": "WTI declines to 3-month low as Libyan pipeline restarts despite US-Iran tensions",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVy1Pa3puQ1RUS0xLT3pTdTBrdUc0Q0J4TkFqMW81cXpOdUpQSU9LV2wtNlJIS19wOG9uMEVEUlZkZUNIQXJBcXdNeWdaV0JiXzF4WGluNWtSaVU4T09reFVtYkc0dXJOZkFLXzFMUGNzOVl1SHRVaG5PR3dvVnpwR3VTbGJibEloRHVzcjQxYWc5UWxZdWR5OWdmdGE5UTh0c1NSRF9vc09YUk1aVHNFNmFVZw?oc=5",
    "ms": 1795468582000,
    "time": "11/24 05:16"
-  },
-  {
-   "t": "Gold Prices Rebound. What the Charts Say About a Nasdaq Bottom.",
-   "src": "Barron's",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSDBFMXd2R3VnQm1rTzJYX2lJaHRQblJiRkV4X2x6QTlNY1A5cENqNjF0WTdGTUM5bndFcVNRVV9zYmp5Ti12ZlJ2WU9XOVcxekpsZ2cwcl9fa2VoT1RyaGRHQlktX3pySV8tMC1ubzRLTXVlSmVmNFg0b05hVUVtVlZiUURNMUh0QTY3T1Jn?oc=5",
-   "ms": 1795462560000,
-   "time": "11/24 03:36"
   }
  ]
 }
