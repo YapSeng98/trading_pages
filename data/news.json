@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 17:57 SGT",
+ "updated": "2026-11-24 18:24 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-holds-3600-lifeline-as-markets-pivot-from-ai-relief-to-us-pce-200692210",
+   "ms": 1795514400000,
+   "time": "11/24 18:00"
+  },
   {
    "t": "Gold turns upside down amid revival of global AI trade",
    "src": "FXStreet",
@@ -91,25 +98,18 @@
    "time": "11/24 09:35"
   },
   {
-   "t": "Gold edges lower as markets await US inflation data",
+   "t": "Gold slips with spotlight on US inflation data",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
    "ms": 1795481820000,
    "time": "11/24 08:57"
   },
   {
-   "t": "Gold spot/US Dollar sliding between 0.382 and 0.236 arcs. Downside target at 3,590",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPRUZlc2F4WmUzX05Kc21lQXVXVHliNEwzeEpCSVpxV3Y1REpIdXFMb2xTZnc1RmFqa1Q0N1ZCV29LbFNfVEdKYnMtbExjNHNYZWJwNXRtRldlUURVdWt6bE5TX1ZGUTRTRU9LaDBack1jODEzbFgzVjhTeHlKQTQ4MXEwUEJuSm5HN3Uwb0szQWtkNk9ONnIxWkIwM2NldG1rdjRzQ3piY05kbm0yTmFYeG1WUXpTMERaT0FRZGpjRVpHdUpm?oc=5",
-   "ms": 1795479333000,
-   "time": "11/24 08:15"
-  },
-  {
-   "t": "2008, 2020, now 2026: The Gold and Silver club sees a great wealth transfer in commodities",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQc1FWMkF2eTU3ZlQ4QUg2T1ByVE83eE9qTUw2VVVDWUhSQ0Q3cnpxQ0tGY0EwcGg0Sm5fRnZkUUZCQURmdHYwRkdGTUhlVGF6VjFuamNNRVdsYkZVeFIzNm9LUkI1TUhTMFJsZWo3TjRneXhwRm1KdWNZUDNqbEJBLXJIa0xWYWNldkVKODdESGYwQXBaaHJtRkN5VTFzUmlYNWVNLWVxVHFBMlJiYTFscl9PRUZ3cXBjUmpQYWpzRnZHenVDTzhVSy1VcjJyU0E?oc=5",
-   "ms": 1795479178000,
-   "time": "11/24 08:12"
+   "t": "Gold edges lower as markets await US inflation data",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
+   "ms": 1795481820000,
+   "time": "11/24 08:57"
   }
  ]
 }
