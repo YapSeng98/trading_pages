@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 01:37 SGT",
+ "updated": "2026-11-25 01:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slides despite weaker US Dollar as Fed hike bets dominate",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
+   "ms": 1795542498000,
+   "time": "11/25 01:48"
+  },
   {
    "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
    "src": "BullionVault",
@@ -14,11 +21,11 @@
    "time": "11/25 00:32"
   },
   {
-   "t": "Jamie Dimon floated $10,000 gold — now JPMorgan's strategists slash their 2026 target to $4,500 as Fed hikes loom",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWY0VjNHMUp1aFRZY0poRUUxdXMtMFQxZUJIY01aNXhpZWFwdWlrVkYtN3RLcGVaaWIzQlBiNjVaT0RLM2tMeGt2U0RURXdXYXMzRlFvaFJlYlZzWW5YOXRwQmNtTjJueG1rMUFFc05LYzdwcnFqUHdNMVI0NFdDcmNzNldfU3BwTVRFNFNYeTZ5VXIwT2FUNnpNZnU?oc=5",
-   "ms": 1795536900000,
-   "time": "11/25 00:15"
+   "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
+   "ms": 1795532820000,
+   "time": "11/24 23:07"
   },
   {
    "t": "Gold price testing support near $3,600 as US Consumer Confidence sees sharp rise in November",
@@ -26,13 +33,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
    "ms": 1795532507000,
    "time": "11/24 23:01"
-  },
-  {
-   "t": "Current price of gold: Month Day, Year",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
-   "ms": 1795532100000,
-   "time": "11/24 22:55"
   },
   {
    "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
@@ -56,13 +56,6 @@
    "time": "11/24 22:18"
   },
   {
-   "t": "MetalsBackedWealth Launches Free Gold IRA Planning Tools to Help Retirement Savers Understand Investment Costs and Break-Even Requirements",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOelFkUjlMT2ItSXZGZ2lDZUJ0c2JMZ1ZqY1BuQ1V1bGdGVXcyY293RFMybVJlaGo1WldMaTk4ajEtM0xYSVRZWTd0akh6dEl6TkFzc0Y2amYteldWN3JoS0FPRmFfbmR4cl85dk4tWnFYUEdNUUw3cEFDWDI4Qzl2UkZJcDZURXlBbkNxSjRpTU9uVWgtR25XRFR3eTAxdV9BUVB4dGxPQXRSbnhIYngyVA?oc=5",
-   "ms": 1795528800000,
-   "time": "11/24 22:00"
-  },
-  {
    "t": "Gold struggles to extend rebound as Fed rate hike bets pressure silver - Kitco AM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRXZLTW5tSldXS2RtLTBnUXc0MFZ6QkRwYjNINlNUdThxVXNnMElPTE5ZUjE3T1hQdktPdUx2VTZPTjZFa0Y4NVlvamQxRGFJUWg0UEhVZnF5OTdtYkpYWURzSFpGNktoR2REcjJ5bkkteHEycG52Q0I2b3QtaDVOeFNKU0dFTmFGYnVLTmM3R21KVzlFeFJlejVXV3RfbTZSdHFiZFNGWFhUb01JZW1sU2xJdFpsa3Q4R1Br?oc=5",
@@ -84,13 +77,6 @@
    "time": "11/24 21:11"
   },
   {
-   "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
-   "ms": 1795522701000,
-   "time": "11/24 20:18"
-  },
-  {
    "t": "JPMorgan, HSBC Trade New London Digital Gold for First Time",
    "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcFlzMFE1YnAybnhxbkVOM1I0VERWWXUybENVVVhXc0Vtakwzc0IzVzFzbHRINmZsWXE1TU9QNTk4dHZFXzhpeVJOMlNqekJpSnBaMm1hSzlVc29YU2UyNVBBYkhtaTJXSzJyRTFEQkMyTXdBUU01VU9sT05XM3ZleVZNdTEzQ3gzRU1zdksyWVlsdUs0VWlmZWVrRDBwM192TGlhU2tPa3BiVDEwSXl1b1pn?oc=5",
@@ -103,6 +89,20 @@
    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcU9Cd2xHVXVEMWNPM3pIMWRDakVBcVRzZkFyUHJGVi04VEdIY1EwRXVSS251ZExra2swcW45Z1BkbVdmWFl4dFU0c3JLdTFZRmNGaE5ZMHlYTmtqMTJGTjc4RG42YVVLei1PaTQ3N05xQkpjQ09nYmVTU2lEVlZ4WHl5R3hoU2w1Rk1COGNRZ2RpeVRqUi01RWs1bXZuU0hDdHJERDl1SE5rZVkwR0VIM3NzVkpJenAxdlNZdklHR0J2ZU4zUjVzZ1RyOHRrNk0?oc=5",
    "ms": 1795520243000,
    "time": "11/24 19:37"
+  },
+  {
+   "t": "Gold: Relief Bounce From $3,500 Runs Into a Wall Near $3,700",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
+   "ms": 1795518120000,
+   "time": "11/24 19:02"
+  },
+  {
+   "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-holds-3600-lifeline-as-markets-pivot-from-ai-relief-to-us-pce-200692210",
+   "ms": 1795514400000,
+   "time": "11/24 18:00"
   },
   {
    "t": "Gold turns upside down amid revival of global AI trade",
