@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 23:12 SGT",
+ "updated": "2026-11-24 23:35 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
-   "t": "Current price of gold: Month Day, Year",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXYlFJN3VuWGRqdkF0ZVhSbFlKQlNKR3VVRUVBUlhLNU1MT1NMeGVqSmVEVGxOQzRYYnRtVjExeGVneERhbDBDR0J2SzB5dGQ5YmdRZktmQnVmLXVrWnlCM3QwbnI1aGdKLUpj?oc=5",
-   "ms": 1795532100000,
-   "time": "11/24 22:55"
+   "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
+   "ms": 1795532820000,
+   "time": "11/24 23:07"
+  },
+  {
+   "t": "Gold price testing support near $3,600 as US Consumer Confidence sees sharp rise in November",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxONW1hcGJjNFlvQ1ppXzM3S0l5YUpzbkZhXzg1c2FPMEhLNVZ0dklmVW1TUHY3dmtxN21ZZVNvQVNHRzh0RXBtN2lmeGZ1OHVEVW5vNFdlYTdSZFFxY0tJU05vQkh1dVRXUk1lYl9NZko0eTd1cGdjRmR1WU5lUGtaTDNXYUxKZTNfcUpsc1c1MG9IRmVWUWFrTVVDV0s5OVJiNHRXRUIwb3ZMeVZzQ0N6a09TZF90MDhOOEoyeUpB?oc=5",
+   "ms": 1795532507000,
+   "time": "11/24 23:01"
+  },
+  {
+   "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
+   "ms": 1795531943000,
+   "time": "11/24 22:52"
+  },
+  {
+   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
+   "ms": 1795529925000,
+   "time": "11/24 22:18"
   },
   {
    "t": "MetalsBackedWealth Launches Free Gold IRA Planning Tools to Help Retirement Savers Understand Investment Costs and Break-Even Requirements",
@@ -35,13 +56,6 @@
    "time": "11/24 21:24"
   },
   {
-   "t": "COMMENTARY: Middle East crude oil exports trend lower amid fake Iran stalemate",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVzZpMHFTclFHbWV5MGFQbmJCOHhtaS02NUQyVmFmU09tZHVJRXZCeHRNWTFNQ0hVenFvQ1JnS2p0aHd0LVFjRE5KTi0tQkVZdElhcko2YXRmWnpkbGtkc0lJX0JjVGtXSE1TbWwyVklTcHVrSWNaTExxT1hYV3JEdG92Ny03TEFNWEJ0Q1hIY2lReVVlZHhkRS0zUUlkZkFiTHhiV0UwVF9RMVdxS2RlS1pseXBJQ3ZwaDBqak5zd29Hd3NGYW5nNUVfZERkR0pI?oc=5",
-   "ms": 1795523528000,
-   "time": "11/24 20:32"
-  },
-  {
    "t": "Gold price today, Tuesday, November 24, 2026: Gold prices improve, lift from 14-month lows",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNUm1WdnRQTjdyY2N0S3VsSmR1WTliSS1xdXV1eTh1VUdHaURrcWVjcmw1bTVXNElvUkdFcDhEVjdBdnh2cnFSQ3ZERWFqUWI2bDBlZFBabWp6TFJFMVlHRzFYRnlUU3NudE4wbmRCREJLWUpjVWpGbEg3S1cyOExfUld0cWVldWktcU5SQ2RPSWhEbDV5WVlLNVA0Z0dIN05ocHJWS0hfMWF3c1RwWGJPejRaLTAzZVpBN1E2cmtYVlhkcG93Vl9wc2VydllMa29aNEk4cHZvQk42SXFtTXFfd05XS3lydG9ZN0xjU2xCdGg2bVE?oc=5",
@@ -56,11 +70,11 @@
    "time": "11/24 19:55"
   },
   {
-   "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
-   "ms": 1795518235000,
-   "time": "11/24 19:03"
+   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcU9Cd2xHVXVEMWNPM3pIMWRDakVBcVRzZkFyUHJGVi04VEdIY1EwRXVSS251ZExra2swcW45Z1BkbVdmWFl4dFU0c3JLdTFZRmNGaE5ZMHlYTmtqMTJGTjc4RG42YVVLei1PaTQ3N05xQkpjQ09nYmVTU2lEVlZ4WHl5R3hoU2w1Rk1COGNRZ2RpeVRqUi01RWs1bXZuU0hDdHJERDl1SE5rZVkwR0VIM3NzVkpJenAxdlNZdklHR0J2ZU4zUjVzZ1RyOHRrNk0?oc=5",
+   "ms": 1795520243000,
+   "time": "11/24 19:37"
   },
   {
    "t": "Gold: Relief Bounce From $3,500 Runs Into a Wall Near $3,700",
@@ -68,13 +82,6 @@
    "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
    "ms": 1795518120000,
    "time": "11/24 19:02"
-  },
-  {
-   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
-   "ms": 1795517895000,
-   "time": "11/24 18:58"
   },
   {
    "t": "Gold Prices Edge Lower Following Sharp Recovery as Federal Reserve Rate Expectations Weigh on Demand",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/oil-prices-hold-near-3month-lows-despite-hormuz-mine-claims-200692203",
    "ms": 1795504800000,
    "time": "11/24 15:20"
-  },
-  {
-   "t": "Gold Outlook: Sliding Between 0.382 and 0.236 Arcs With Downside Target at $3,590",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-outlook-sliding-between-0382-and-0236-arcs-with-downside-target-at-3590-200692198",
-   "ms": 1795501920000,
-   "time": "11/24 14:32"
   }
  ]
 }
