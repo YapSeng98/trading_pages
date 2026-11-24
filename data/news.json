@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-24 18:38 SGT",
+ "updated": "2026-11-24 19:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Prices Edge Lower Following Sharp Recovery as Federal Reserve Rate Expectations Weigh on Demand",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRGZxT3NPYWNCNDZDVGdvU2oycXdGMXlSSHN0UGFyTU95YkVvYW5SOHYyQ2FGaDAzeW9QdlcwNDJpRVpLcG53OWtYV2JwQUJiOS1Pb3lHM2VUUnVfcDJRTXJTdHpGOGJtMW9Bc1RYMzdCMGFPQkdYYUJGT2VOLXlEY2V6Y3FPWnk3a3NkdkcyWDEyOGJ6RGJIdzl5REJWdUVJQ1BfbQ?oc=5",
+   "ms": 1795515672000,
+   "time": "11/24 18:21"
+  },
   {
    "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
    "src": "Investing.com",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPa1duWDFrdnJQRFRzTXA0QXNSWlNWTlo5M2dUUXhEeFp1Zjd0VHQwR1kyQmtyekxRLVlCWDdmOGw2dEtEMnNxbVpLRG5fcDdyWjJ0LU8zMzVBbFVvcm1ud0xWUlp6MVZOYlpud1RUNGV3T2p2NEV4X3ZJVVZCUURMYkxraS1YbUpfbUQteHpyTDB6LUx1Wm9tX3pvRGVtMV9FOTg5cnFfMFFZbEY2T1QtU05KN0tvMDRRajBwbDctdXBJamFBX2c?oc=5",
    "ms": 1795484113000,
    "time": "11/24 09:35"
-  },
-  {
-   "t": "Gold slips with spotlight on US inflation data",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOX2lLRXdXdmpCM0FsdHVpNkdYTWttMDRZd294U3VSZGtqczloSEN5N1VfTzBpbjJLZGYwWm55RDlXSmY0b2tod0tBUl9lbkl4TW13VDBuWEVDYjgxamc4anBNdGhtWTdvUUNiYUp5MDlJVU81Sl9qa283bUIzTUNCU0lZZ1VBdXo2UW5hQmoyT191dFpWODY2aldnOVJmRzVaaV9tZDF2U0hKbmRubUg0TllIendaRzg?oc=5",
-   "ms": 1795481820000,
-   "time": "11/24 08:57"
   }
  ]
 }
