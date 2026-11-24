@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-25 00:29 SGT",
+ "updated": "2026-11-25 00:43 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWEdaYVQzMm9FLTRoc1NrWVlNazhZekM0bkFhTGlydG90aFhub3MzYjRpUGRLSXQ3VDY1eno4bnF2U2JPZ3lmQVAzd0dNX1RQMVRRdkR5Z3p4WXNFMFdRd0M3X3RfRlU1NTh6N3VhdjBSM09aTk1vWFhNV0hJRVp2eDRNQmtfcndrUk5YVDBxVm1DQQ?oc=5",
+   "ms": 1795537933000,
+   "time": "11/25 00:32"
+  },
+  {
+   "t": "Jamie Dimon floated $10,000 gold — now JPMorgan's strategists slash their 2026 target to $4,500 as Fed hikes loom",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWY0VjNHMUp1aFRZY0poRUUxdXMtMFQxZUJIY01aNXhpZWFwdWlrVkYtN3RLcGVaaWIzQlBiNjVaT0RLM2tMeGt2U0RURXdXYXMzRlFvaFJlYlZzWW5YOXRwQmNtTjJueG1rMUFFc05LYzdwcnFqUHdNMVI0NFdDcmNzNldfU3BwTVRFNFNYeTZ5VXIwT2FUNnpNZnU?oc=5",
+   "ms": 1795536900000,
+   "time": "11/25 00:15"
+  },
   {
    "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
    "src": "Investing.com",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
    "ms": 1795518120000,
    "time": "11/24 19:02"
-  },
-  {
-   "t": "Gold Prices Edge Lower Following Sharp Recovery as Federal Reserve Rate Expectations Weigh on Demand",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRGZxT3NPYWNCNDZDVGdvU2oycXdGMXlSSHN0UGFyTU95YkVvYW5SOHYyQ2FGaDAzeW9QdlcwNDJpRVpLcG53OWtYV2JwQUJiOS1Pb3lHM2VUUnVfcDJRTXJTdHpGOGJtMW9Bc1RYMzdCMGFPQkdYYUJGT2VOLXlEY2V6Y3FPWnk3a3NkdkcyWDEyOGJ6RGJIdzl5REJWdUVJQ1BfbQ?oc=5",
-   "ms": 1795515672000,
-   "time": "11/24 18:21"
-  },
-  {
-   "t": "Gold Holds $3,600 Lifeline as Markets Pivot From AI Relief to US PCE",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-holds-3600-lifeline-as-markets-pivot-from-ai-relief-to-us-pce-200692210",
-   "ms": 1795514400000,
-   "time": "11/24 18:00"
   }
  ]
 }

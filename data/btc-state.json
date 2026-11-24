@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-24 23:49 SGT",
+ "updated": "2026-11-25 00:43 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 59700,
- "priceTime": "2026-11-24 23:45 SGT",
+ "price": 59619,
+ "priceTime": "2026-11-25 00:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 61270.9,
   "high": 61682,
   "low": 59390.9,
-  "changeFromPrevClose": -1570.9,
-  "changePct": -2.56,
+  "changeFromPrevClose": -1652,
+  "changePct": -2.7,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -69,17 +69,17 @@
    {
     "label": "形态",
     "ok": null,
-    "text": "日线双顶（已向下突破），和大方向一致（只作参考）"
+    "text": "日线双顶（已向下突破）；1 小时头肩顶（已向下突破），和大方向一致（只作参考）"
    }
   ]
  },
  "plan": {
   "side": "做空",
-  "entry": 59700,
-  "stop": 61626.4,
-  "target": 53920.8,
-  "stopDistance": 1926.4,
-  "trailDistance": 3852.8
+  "entry": 59619,
+  "stop": 61605.9,
+  "target": 53658.3,
+  "stopDistance": 1986.9,
+  "trailDistance": 3973.8
  },
  "watch": [
   {
@@ -114,8 +114,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-11-06 16:00 SGT",
-   "rsi": 45.3,
-   "atr": 1412.93,
+   "rsi": 41.4,
+   "atr": 1389,
    "turnsUpAbove": 64603.1,
    "turnsDownBelow": 55130
   },
@@ -124,25 +124,25 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 11:00 SGT",
-   "rsi": 46.5,
-   "atr": 642.13,
+   "rsi": 39.1,
+   "atr": 662.3,
    "turnsUpAbove": 61682,
-   "turnsDownBelow": 59455.3
+   "turnsDownBelow": 59390.9
   },
   {
    "tf": "15M",
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-24 03:45 SGT",
-   "rsi": 39.4,
-   "atr": 390.56,
-   "turnsUpAbove": 60642.9,
+   "rsi": 38.9,
+   "atr": 384.03,
+   "turnsUpAbove": 60687.5,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
   {
-   "price": 59931.2,
+   "price": 59887.4,
    "what": "1小时头肩顶关键位、4小时区间中点",
    "strength": 3
   },
@@ -169,12 +169,12 @@
  ],
  "support": [
   {
-   "price": 59455.3,
-   "what": "1小时前低、1小时区间底、1小时近期小低点",
-   "strength": 3
+   "price": 59390.9,
+   "what": "1小时等低点（止损密集）、1小时前低、1小时区间底、1小时近期小低点",
+   "strength": 5
   },
   {
-   "price": 56310.4,
+   "price": 56266.6,
    "what": "1小时头肩顶目标",
    "strength": 1
   },
