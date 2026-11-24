@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 16:09 SGT",
+ "updated": "2026-11-24 16:36 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -70,6 +70,13 @@
    "time": "11/24 11:55"
   },
   {
+   "t": "Oil prices near three-month lows as rising supply offsets Hormuz threat",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
+   "ms": 1795488960000,
+   "time": "11/24 10:56"
+  },
+  {
    "t": "WTI declines to 3-month low as Libyan pipeline restarts despite US-Iran tensions",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPczlvUEZkVWxxMXlULWdCU3cydDV0Q0NmQjRSUjF1U3FuRXNYUVN0VW1SUlFyMDZHZjBSNzBsYnp1RkZCYmpLU2NxSGFXNGxVSmRNVlN1bzIxVVJOTjdJbW1IZzYwS0hUMV9YYmJiTEhGMmlXcElNRFV5djAwZVpYUzB6am1YUTZQeHNfeFZwZksxRU5jUkVuQ2dJaENMdnBsVVduR2E2WnI3MXh0MkVHX3NGU2pGTmJLb2Q2VjVhbWc?oc=5",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQc1FWMkF2eTU3ZlQ4QUg2T1ByVE83eE9qTUw2VVVDWUhSQ0Q3cnpxQ0tGY0EwcGg0Sm5fRnZkUUZCQURmdHYwRkdGTUhlVGF6VjFuamNNRVdsYkZVeFIzNm9LUkI1TUhTMFJsZWo3TjRneXhwRm1KdWNZUDNqbEJBLXJIa0xWYWNldkVKODdESGYwQXBaaHJtRkN5VTFzUmlYNWVNLWVxVHFBMlJiYTFscl9PRUZ3cXBjUmpQYWpzRnZHenVDTzhVSy1VcjJyU0E?oc=5",
    "ms": 1795479178000,
    "time": "11/24 08:12"
-  },
-  {
-   "t": "Qatar warns Middle Eas cannot afford another US-Iran escalation",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPYUhDOEVnamlfeUk1LW1sRGs3R1puaHpXOFZxMVpBYU53T2p1cFVoTHQ0NEZqanFTUU5VcGloRGRMWXJYaXU5aDVHWTVFWmM2NlhMRWdKTnlQbU91ckVWeHZadTV3SklUa19JSUVDX0NaTlQ5VlNlaVhLam40clFwaC0zbm40SVpwcURmaFV6bVpBWWgtZS1Rdnh6RmRkaS1XVW1UU1BCSjJLUQ?oc=5",
-   "ms": 1795477321000,
-   "time": "11/24 07:42"
   }
  ]
 }
