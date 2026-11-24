@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24 14:35 SGT",
+ "updated": "2026-11-24 14:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -40,6 +40,20 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQMDQ4RU9qMFd6TWl0WkFDUGVsdk5Gb3Q1dURMcjcwbGxUV3ItdjhZUGdQUTBZOVUyZEZlRzdmSEtjM3EwQTNUam1nRVZNdXFRbmNfeHhpUnNVQjNPbjNyOGtSZHVnNEZmbnpJdC1VdVA5X25rWndhMnZqemNGVWdVU1Y5OE8ybExyT2xLelF6dnZsNkM0OU55b1dKc1NuNF9sWkVGSGZJaUNxLXc4eEdGZTl3LUtFTDFuUUE?oc=5",
    "ms": 1795488960000,
    "time": "11/24 10:56"
+  },
+  {
+   "t": "WTI declines to 3-month low as Libyan pipeline restarts despite US-Iran tensions",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPczlvUEZkVWxxMXlULWdCU3cydDV0Q0NmQjRSUjF1U3FuRXNYUVN0VW1SUlFyMDZHZjBSNzBsYnp1RkZCYmpLU2NxSGFXNGxVSmRNVlN1bzIxVVJOTjdJbW1IZzYwS0hUMV9YYmJiTEhGMmlXcElNRFV5djAwZVpYUzB6am1YUTZQeHNfeFZwZksxRU5jUkVuQ2dJaENMdnBsVVduR2E2WnI3MXh0MkVHX3NGU2pGTmJLb2Q2VjVhbWc?oc=5",
+   "ms": 1795487383000,
+   "time": "11/24 10:29"
+  },
+  {
+   "t": "Japanese Yen strengthens amid intervention fears, traders await US PCE inflation data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPa1duWDFrdnJQRFRzTXA0QXNSWlNWTlo5M2dUUXhEeFp1Zjd0VHQwR1kyQmtyekxRLVlCWDdmOGw2dEtEMnNxbVpLRG5fcDdyWjJ0LU8zMzVBbFVvcm1ud0xWUlp6MVZOYlpud1RUNGV3T2p2NEV4X3ZJVVZCUURMYkxraS1YbUpfbUQteHpyTDB6LUx1Wm9tX3pvRGVtMV9FOTg5cnFfMFFZbEY2T1QtU05KN0tvMDRRajBwbDctdXBJamFBX2c?oc=5",
+   "ms": 1795484113000,
+   "time": "11/24 09:35"
   },
   {
    "t": "Gold edges higher on bargain buying; US inflation data awaited",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQVnBvekdxUE5QSkRORzlVcXRVdXBRMW9oWTZMV1haTFZTNHhzRThZRE5idWxIdVU4TmhyUGxWa0JOS2hRaXhlT1lFRGEzVmM3OUk5Y3NmRUFEeEJ6QzNrN21HcDAtRWNwYmg2ZThCM2QtZGVqU3dudURZVE42MDhsSTg5RVk5UlBTVTdqNGpzT0oxRUhpR2x0TDZEYUticmNVN2tDUFdDRXlDdw?oc=5",
    "ms": 1795461413000,
    "time": "11/24 03:16"
-  },
-  {
-   "t": "Gold price rises as bargain hunters step in after steep weekly drop",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-price-rises-as-bargain-hunters-step-in-after-steep-weekly-drop/",
-   "ms": 1795458708000,
-   "time": "11/24 02:31"
-  },
-  {
-   "t": "Gold's recovery may be short-lived as Natixis warns of drop to $3,340",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRkk5X19wTjc3R0Q5dFVnTlp5SjBHZkJxSHpFTlBjWWRxSUcyaXNubGJIOTJhb25UcVR2MEZRZEU2OC1Kcm5sTDcxTjcwWTdlSGlLTlYzUFdobzlBNnNtM1pzQnpndmt2YXFId3pJVm91ckptRjFNU2xzdDBCUE9WT1F3UXpIemVDbHktNG9COHZqdV82NERlVmJ3eU4xZS1Pb2gxVER3?oc=5",
-   "ms": 1795456184000,
-   "time": "11/24 01:49"
   }
  ]
 }
