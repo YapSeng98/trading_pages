@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 20:19 SGT",
+ "updated": "2026-11-25 20:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price today, Wednesday, November 25, 2026: Gold prices fall as inflation data and potential new tariffs loom",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPb3dFeUN5SkJCNHNoN2FGTDYzdHNOcXJtS0NVRlBDWUJtOFNiMndWMXBHNHJ0SHFRbm1ORkdDTUtBVEQ4ZUJlRC1QeU5xZ2VPVHVNTVNMa3E2SHpheU5XSGY0YVJEcS1OSmpKM21nTGx4QS1zVUxKWHVNeFd4Wko5NUltTHNTQTU2am1tRjZkX3dGTUttQ09DcUJaYmloUXExakZRUnFCVURWUy1sbENFdXFubllDSXVvZVgtVk5WejVKQzVZY1Nvbkx5N2hxNzhhelVheFlVTUFzNkJhMV9ISm9sR3cxanB0RXhlRGVyNmswd09EOXZuVU5kR3hJVXV4Vk9Wal9ReWY4M29mTGR1bHdhbw?oc=5",
+   "ms": 1795608948000,
+   "time": "11/25 20:15"
+  },
   {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
    "src": "Bloomberg",
@@ -77,6 +84,13 @@
    "time": "11/25 16:39"
   },
   {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795592276000,
+   "time": "11/25 15:37"
+  },
+  {
    "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-the-next-fed-hike-may-not-be-the-biggest-risk-200692282",
@@ -91,25 +105,11 @@
    "time": "11/25 14:57"
   },
   {
-   "t": "Gold rebounds from 14-month lows, but Fed rate fears and Trump’s tariff threats cloud recovery",
-   "src": "Fortune India",
-   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQcUl1V0hYVmhGdUtnVlM0dmNjTVNDTmlCYUVzLXozd2dWNG52UkVTREVGTHI2THdmdGlpOW9QQzVXWXF2amNhcVdFQmpQOGQ1QmpZeXRRaVkyNVBlZTFWbEd6VEhINkRYdi1CSXk2Z2phb0wyR2dYYnF3OU1vLWQ5YkxRNWowMVpvOGlqR3Q0SW50MXhSaEpQNGJJMFZIRkljLVpGTTU1clRxOGdDVUpzOFVmM2I2X2pCR2ZDZXN4T2RQY1FHN01pSmVudzZBeXFVQWhvTm1yQWpkT1RKUnfSAesBQVVfeXFMUFhJaXk5RTZpNXFibTFKQ2xLMXFXZFp6eTNjRVk4VUhFWElNdkdMbm84ckVsZmsxanRFay0tdDNiTnRVWW55Z2J3bTR6SXkyMGI5dDhZazV2OHhHbDlza0lybXRQdWFEbERsVElMYk5WTkxuM3FaTS1kZUd1S041WXNXLW81dlUtcVZ2YkIxOVF3SW5JdEZFYXQ4SUsxVFlBV1ZTaXNIN2hYRW1QTUFUa0JTdXNEWGR1M0tkY0VLcDVqS0tlNUZIdUFxQ0htNzYwRWF6X3NRbFZyLWlMaGZMVG9DUjhMMjRTUHpzcw?oc=5",
-   "ms": 1795589505000,
-   "time": "11/25 14:51"
-  },
-  {
    "t": "Gold Tests $3,515 Support as Iran Conflict Continues to Rattle Oil Markets",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-tests-3515-support-as-iran-conflict-continues-to-rattle-oil-markets-200692273",
    "ms": 1795588500000,
    "time": "11/25 14:35"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795587821000,
-   "time": "11/25 14:23"
   }
  ]
 }
