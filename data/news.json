@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-25 22:06 SGT",
+ "updated": "2026-11-25 22:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold, silver remain under pressure as strong GDP, sticky inflation reinforce Fed hike bets - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPMHlZajVKekE3OWVDWV9BSndmOXNXRGVSdjFnQmwxNnhtaFktelk2OTJpcGx1TXJUM3VjZmVFSXZjcGZMbmVnNUJ3STlsNE1TWmZzTHBYb0QyalB1eFRsbHBNMDRDSkltT09fazNnanNCbGlfOEhoMXNSMnR0TndWMXVWX1ptYm1KS2JOYVBrOENvWDhfVko2Wk5DbXhSb0szZGN6LVFmbXRxbkZyNDItVzYzSWpkWXQ1d0hwMmRn?oc=5",
+   "ms": 1795615305000,
+   "time": "11/25 22:01"
+  },
+  {
+   "t": "Gold prices drop another 1% as US Q3 GDP revised to 4.3% with contained PCE inflation",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWmZFZ1UwZHIyQTFQTTdpSUYzWjFQUElSajVhaXRrZkFzckFGY1N1SURYTjZERzM2d3VBZmpSY0FBN3Vzekl1MEhiNVFxVVIxZG8tXzNSbzdaT0h6dUVTUF9ZQ0V2aEpCcDFaaEdOb3F0T1dSVG9Nd1BSclNETTNndEEyTzBDODZDLVdhMGJBczRrY1BBSkFieGdka0tVTVZMRzcwRVZKNGFQXzdtQUt6Y1MzSlBjM2k3?oc=5",
+   "ms": 1795614676000,
+   "time": "11/25 21:51"
+  },
   {
    "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
    "src": "Investing.com",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObHdZdzk1ek1WVXB1SDBtU0NhS3JsT3prcVdiTTRaWnh5NmRNSXQydHZfQkpXT0dVWDFXSmV5RGRNQ0VoZGhIaEozeHFacDlYNDBtem5pLWY1R29tMDNhV3JibE9VSlFLUUI2UUp5VExkYm1UM0FDM1BIbjRuNUdOZ1hHbWxoSFR6aVRGbEFIQXZWMXVSQktyUnlqNA?oc=5",
    "ms": 1795600695000,
    "time": "11/25 17:58"
-  },
-  {
-   "t": "Gold stays weak below $3,550 as traders await US PCE data for Fed cues amid firmer USD",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazJfN0xfN3BadFdDQ3M0U1lZYzRPbnV3aGdjUG5OdFZhTnJVcms4dlIxelpFX2ZCUFpoc0lLc1hsTU0talE3U2JnTTQwTzd0M3d6YVoyQjkwb290WlNLZzZSdkQwdkdaNkR3ZnNVNlZQSjhEVmNPVXh5SFJEYllkUUowVlduSnptd0hrYWJsTllmSl9hMGJ6TFRVZVB1Q19nN0UyRTlzZkxUb2dZQnA3RHFJOXVxekZ5ZmdjZHBiODdVUEp1b0FEMQ?oc=5",
-   "ms": 1795595969000,
-   "time": "11/25 16:39"
-  },
-  {
-   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
-   "ms": 1795592276000,
-   "time": "11/25 15:37"
   }
  ]
 }
