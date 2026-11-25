@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 20:59 SGT",
+ "updated": "2026-11-25 21:12 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -91,13 +91,6 @@
    "time": "11/25 16:39"
   },
   {
-   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
-   "ms": 1795592276000,
-   "time": "11/25 15:37"
-  },
-  {
    "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-the-next-fed-hike-may-not-be-the-biggest-risk-200692282",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOGttVEN4VmtqemxBTFVuTVdKWk1qWVVQNVNPR0oxeURzaVM0UF92bU1oNW91RjVqQVFQRVE3ejFiczJYTERoeFlmSGVud1kyb2JGM1J2TjFfNnFja0I3R3REVFFXc1BUUzVoa3FvTFV6dzg0MmpwZXRIZHBTVmR3a1pRMnRwV2ZPaWNPTXQwZVo4dm1NUVVacVBYZFNkZ2I5cVdFcGkzdHBTNjVwLVhn?oc=5",
    "ms": 1795589853000,
    "time": "11/25 14:57"
+  },
+  {
+   "t": "Gold Tests $3,515 Support as Iran Conflict Continues to Rattle Oil Markets",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-tests-3515-support-as-iran-conflict-continues-to-rattle-oil-markets-200692273",
+   "ms": 1795588500000,
+   "time": "11/25 14:35"
   }
  ]
 }
