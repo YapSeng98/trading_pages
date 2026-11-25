@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795617900000,
+ "lastChecked": 1795620600000,
  "a3": -1,
  "a5": -1,
- "open": 20,
+ "open": null,
  "nextId": 22,
  "signals": [
   {
@@ -313,7 +313,12 @@
    "risk": 62.94,
    "atr": 20.98,
    "spread": 0.54,
-   "status": "open"
+   "status": "target",
+   "exitTime": "2026-11-25 23:30 SGT",
+   "exitMs": 1795620600000,
+   "exitPrice": 3430.37,
+   "nights": 1,
+   "R": 3
   },
   {
    "id": 21,
@@ -510,16 +515,22 @@
    "time": "2026-11-24 23:15 SGT",
    "type": "skipped",
    "text": "信号 #21（做空）已有纸面持仓，按规则跳过"
+  },
+  {
+   "ms": 1795620600000,
+   "time": "2026-11-25 23:30 SGT",
+   "type": "closed",
+   "text": "做空 #20 到目标，+3.00R"
   }
  ],
  "summary": {
   "signals": 21,
   "taken": 8,
-  "closed": 7,
-  "wins": 4,
-  "totalR": 9,
-  "avgR": 1.29,
-  "open": 1
+  "closed": 8,
+  "wins": 5,
+  "totalR": 12,
+  "avgR": 1.5,
+  "open": 0
  },
  "changes": [
   {
@@ -1397,7 +1408,7 @@
       "target": null,
       "risk": 62.94,
       "spread": 0.54,
-      "best": 3455.221,
+      "best": 3426.945,
       "day": 20782,
       "status": "open"
      }
@@ -1413,7 +1424,7 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 5,
+    "open": null,
     "nextId": 6,
     "skipped": 7,
     "prev": -1,
@@ -1511,16 +1522,21 @@
       "spread": 0.54,
       "best": 3619.19,
       "day": 20781,
-      "status": "open"
+      "status": "target",
+      "exitTime": "2026-11-25 23:30 SGT",
+      "exitMs": 1795620600000,
+      "exitPrice": 3430.37,
+      "nights": 1,
+      "R": 3
      }
     ],
     "summary": {
      "taken": 5,
-     "closed": 4,
-     "wins": 3,
-     "totalR": 8,
-     "avgR": 2,
-     "open": 1
+     "closed": 5,
+     "wins": 4,
+     "totalR": 11,
+     "avgR": 2.2,
+     "open": 0
     }
    },
    "noWtrail": {
@@ -1561,7 +1577,7 @@
       "target": null,
       "risk": 62.94,
       "spread": 0.54,
-      "best": 3455.221,
+      "best": 3426.945,
       "day": 20782,
       "status": "open"
      }
