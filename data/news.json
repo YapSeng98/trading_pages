@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 05:10 SGT",
+ "updated": "2026-11-26 05:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
+   "ms": 1795641066000,
+   "time": "11/26 05:11"
+  },
   {
    "t": "Gold sinks despite falling US yields as core PCE hits 3.3%",
    "src": "FXStreet",
@@ -40,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE82UVZkZk1uelMxYUZJcjQ4MUhILTFiZDRsZVk5YkVBQ002b09HRnFIUXJCZXU1czRaUVVLU1dWZWEzZ0l5T0x5TV80VzVhV3dXTlA4SXZVdks1cy1rTUdjYW1UZjRuOS11RENzQU5JSWdsd9IBd0FVX3lxTE1FM0tZeWN0Zy1mNncydTJ2aWhfVlRseUQ2bEhNRFFOU1FqTU85M29pVWp1TW1pU3FydkZHTFVqN09FY0NsMjI2QVNXSE5NRGhUejRZalAyd3IxZzlzLXliVktCbDlvTXFLRzBjc1RyaWJKMDd2YWNB?oc=5",
    "ms": 1795631168000,
    "time": "11/26 02:26"
-  },
-  {
-   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
-   "ms": 1795629492000,
-   "time": "11/26 01:58"
   },
   {
    "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
