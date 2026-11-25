@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 03:22 SGT",
+ "updated": "2026-11-26 03:35 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/golds-38-collapse-exposes-the-cost-of-higher-interest-rates-200692330",
+   "ms": 1795633740000,
+   "time": "11/26 03:09"
+  },
   {
    "t": "Gold price falls 3% to more than one-year low after data shows US inflation rose further",
    "src": "mining.com",
@@ -26,6 +33,13 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
    "ms": 1795629492000,
    "time": "11/26 01:58"
+  },
+  {
+   "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
+   "ms": 1795629306000,
+   "time": "11/26 01:55"
   },
   {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSVp5clFMb2NHSUd4OXNuZXJCaGl2cUhES2t1SktVQTA0ZHpGaEtkSGF5Q1AwZnlOb0xxMzYwd3M2Y2tkZVo2dVhUWU9YOUVfMktNRTljVDJyTFhWbmZwMFNjLUNwUGZkaXRPSnd5Ukw2QUpTREx1aVV6YXNNa1liS3QxeEtlOVB2LUxaQUxKWndvV2VWaE00bFhJemNVM2xJNWVLWFNSRld4MHA3aFE?oc=5",
    "ms": 1795614676000,
    "time": "11/25 21:51"
-  },
-  {
-   "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVzJnSVZSM0x3T0YzcWl1QVV3ZHBTX0xMZWNrdEFRRlIyM094NXhlQmVRb0M1VDlxRmpIbDlrcjNzMVZiRzNPRGJfcWNTU1N1MnJmVkxjS3JxMnpoeTdXbEtjYXYxSi0xZGw4T2pweW5QS2VzU0puLWFSdWxrWGZId1c5R0k4andwMEV4YS12czlvOWJQU1lGVC1OYl9aZndDOGlSV09ZOW0zSFJFTXZiMUdzSjJDTmFmUjVoaHJ3N0hKUVU?oc=5",
-   "ms": 1795614223000,
-   "time": "11/25 21:43"
-  },
-  {
-   "t": "Breaking: US core PCE inflation rises to 3.3% YoY in October vs 3.2% expected",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQUZzWXlBNFZYYlJKZzB0Sk50eDNkVDl4cGowSFlianpHVzc5d1RTc25hQzAxNFNwX3VablB3c0tmZEhkNkxvSC1pS2JsaDRvMkJMUlY4N3ZvSEF6UkcwSnZsZTM2VUxNQ2IxdGRNSGNydTJ4LVpSTFluTFZVcEZ0MVlpRnltaE94MmsxLUtxZk9RRDNpVTkwSnZtQWZ3bzI3WVYzQks2T2FkbHctbjBGcm5JR3FQendHTDNYQ2tIUC1SQTBfWUxkWGZOZFVzT2Ex?oc=5",
-   "ms": 1795614027000,
-   "time": "11/25 21:40"
   }
  ]
 }
