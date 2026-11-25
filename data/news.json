@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 14:01 SGT",
+ "updated": "2026-11-25 14:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
+   "ms": 1795585260000,
+   "time": "11/25 13:41"
+  },
   {
    "t": "Gold struggles near weekly low as Fed bets and geopolitics support USD ahead of US PCE",
    "src": "FXStreet",
@@ -14,11 +21,46 @@
    "time": "11/25 12:14"
   },
   {
+   "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
+   "ms": 1795579909000,
+   "time": "11/25 12:11"
+  },
+  {
    "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
    "ms": 1795575616000,
    "time": "11/25 11:00"
+  },
+  {
+   "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
+   "ms": 1795568408000,
+   "time": "11/25 09:00"
+  },
+  {
+   "t": "Gold holds steady ahead of US inflation data",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV1p3ZkduX2FrdGJhMEMtbmNXNTgxN05HeDFsX2xxNDBkWXZQVkFWS3NzNFpITzZ2RnRyYXVZQ1k5bmthekYzdG9aSDVxcGZGS1RxMnNTTHNRRkQyQWFoWm1zNXVfd2hVQW96VHQ1ZFd4eU04cXNTRWk0cFJ4LS1PLUd1eUFmN3Y4ZjJQbXZpVkd3UQ?oc=5",
+   "ms": 1795567740000,
+   "time": "11/25 08:49"
+  },
+  {
+   "t": "Gold falls to near $3,550 ahead of US PCE inflation data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPalplWkVyUEQ0VTVRQVpXa0tkRENWakJ3NUFFcW9nQ1VHeWZsYkNjRnNuYUxiY05ReGpibkZiUUpia1gtdmI5bTNzdUdITE9iaWtrZ3hYTFRFdllrWDYyelJlSmJKUWUxVUxxWUtYRzdTSTRSc1RuYi12NElIaGJocC1wV1hPVWtEbDBobm1RSllaRm1tNFA3dWlrdWE4eHM?oc=5",
+   "ms": 1795562516000,
+   "time": "11/25 07:21"
+  },
+  {
+   "t": "COMMENTARY: Middle East crude oil exports trend lower amid fake Iran stalemate",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPVzZpMHFTclFHbWV5MGFQbmJCOHhtaS02NUQyVmFmU09tZHVJRXZCeHRNWTFNQ0hVenFvQ1JnS2p0aHd0LVFjRE5KTi0tQkVZdElhcko2YXRmWnpkbGtkc0lJX0JjVGtXSE1TbWwyVklTcHVrSWNaTExxT1hYV3JEdG92Ny03TEFNWEJ0Q1hIY2lReVVlZHhkRS0zUUlkZkFiTHhiV0UwVF9RMVdxS2RlS1pseXBJQ3ZwaDBqak5zd29Hd3NGYW5nNUVfZERkR0pI?oc=5",
+   "ms": 1795558705000,
+   "time": "11/25 06:18"
   },
   {
    "t": "Gold, silver extend losses as tech stocks slide, Fed inflation test looms - Kitco PM Report",
@@ -32,6 +74,13 @@
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
    "ms": 1795557572000,
+   "time": "11/25 05:59"
+  },
+  {
+   "t": "Gold’s selloff is sowing the seeds of its next rally – Theo’s Iggy Ioppe",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPaU9yVzNUcmVFZklrRGdlVTV1c2pjVDEyU0s3Zkd2ZmdwN0UyMDJIdllyQjZKZ3hwaU5lalkwcDlTV053YUVwWlRHUHM4d3RYTEdBVzl0LUEwMXVGQ2c3aEs4SlNKUGJGVEpFU1pETXA1V2lfX2VhSVQzcUVaU1RUNW55dWVpaUgtc0hJNTNob29WbFF3ZXN4TGdzTlFZQjJkRkNEYU5FYw?oc=5",
+   "ms": 1795557553000,
    "time": "11/25 05:59"
   },
   {
@@ -49,67 +98,18 @@
    "time": "11/25 03:27"
   },
   {
-   "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
+   "t": "Gold hasn't been trading like a safe haven. Here's one way to play it",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPb0tRMmprX1pzbzV6RlJsQ3lNeVRDTHJWN1RacnV6Wl9QdzNsZTVnUlE5WlEtSExqaG44N1VuT29OUURlMjEzQmZHQ2p5UDBiZVRKb1A3VW55WHlrRlhiVm5sWGtvUDNMNGFGejc4b09KSExOZGRpamlDeHZZUDZUYkhFbUg0U3R2V05Qc1BKRGdwcXVBZ045ZXhoVkNlbFBNRkxZSlVEQ3ZvSU9HNlE?oc=5",
+   "ms": 1795548234000,
+   "time": "11/25 03:23"
+  },
+  {
+   "t": "HSBC, J.P. Morgan and StoneX complete first live trades using Pooled Gold Interests (PGI)",
    "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjhPY25yQXRaRWxrZmlnVzJqcmxybUNuZnd0ZTRQN1FpbXk3ZWdnN1U3VzIxUWpERFRCczJGbjJLS2hJbjJqbXpJdmtlMmhVWmJNbkFkZDl2NW02a2tNZnFfZmVfZl9fbzIwYmdEWk84RGlSRTRhdU5HV0ZHeDhTaURIWVJSdTdKanZjSkhFSlRPYnR0akNYT1NoYm5fM3Y5REk5Z1VucVJZNVpPUkhqWFFpcEcweUhB?oc=5",
-   "ms": 1795543276000,
-   "time": "11/25 02:01"
-  },
-  {
-   "t": "Gold slides despite weaker US Dollar as Fed hike bets dominate",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
-   "ms": 1795542498000,
-   "time": "11/25 01:48"
-  },
-  {
-   "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWEdaYVQzMm9FLTRoc1NrWVlNazhZekM0bkFhTGlydG90aFhub3MzYjRpUGRLSXQ3VDY1eno4bnF2U2JPZ3lmQVAzd0dNX1RQMVRRdkR5Z3p4WXNFMFdRd0M3X3RfRlU1NTh6N3VhdjBSM09aTk1vWFhNV0hJRVp2eDRNQmtfcndrUk5YVDBxVm1DQQ?oc=5",
-   "ms": 1795537933000,
-   "time": "11/25 00:32"
-  },
-  {
-   "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
-   "ms": 1795532820000,
-   "time": "11/24 23:07"
-  },
-  {
-   "t": "Gold rebound loses steam as Fed interest rate hike bets weigh",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMWtSZWRxbG91ZllDcldaMVdtNDRVT3pTbkdZNzM5RkFjUEExb1l1ZTMwaHRIZWF6VkhZSXNodVNWNE1aR2o0NnlmLXFid2ZDMFJ5OURMeXg2dU03d0FYWkVEVWFGOHF0U1F4RXpydEI4bmdjY0ZtYWNFc0R2WjlVTjJwTVFtOHNLYVFncXdGc1Z6TFJPWWNiN29rWVRTQzJmRm90X3Bhdw?oc=5",
-   "ms": 1795531943000,
-   "time": "11/24 22:52"
-  },
-  {
-   "t": "Gold struggles to extend rebound as Fed rate hike bets pressure silver - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQRXZLTW5tSldXS2RtLTBnUXc0MFZ6QkRwYjNINlNUdThxVXNnMElPTE5ZUjE3T1hQdktPdUx2VTZPTjZFa0Y4NVlvamQxRGFJUWg0UEhVZnF5OTdtYkpYWURzSFpGNktoR2REcjJ5bkkteHEycG52Q0I2b3QtaDVOeFNKU0dFTmFGYnVLTmM3R21KVzlFeFJlejVXV3RfbTZSdHFiZFNGWFhUb01JZW1sU2xJdFpsa3Q4R1Br?oc=5",
-   "ms": 1795527925000,
-   "time": "11/24 21:45"
-  },
-  {
-   "t": "Gold slips with spotlight on US inflation data",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNRzhXeUNfaXRmbHRDUmRzbFVZUmp0Q0czRkFEVW5seGlnbGZmbmJXajNMWTZId1lhOUJwWF84V0ZOdi0xcm5zUnBSM0x6djVjSU9TU3dVX2Ztb2stVGxaaFprUjJXUjQwX0NmUFpqMTVpREdSS2FPN2xRVE9FX182NGNROUZPWDBYc1hnaGdEUEtqNTA?oc=5",
-   "ms": 1795525870000,
-   "time": "11/24 21:11"
-  },
-  {
-   "t": "Gold: Relief Bounce From $3,500 Runs Into a Wall Near $3,700",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-relief-bounce-from-3500-runs-into-a-wall-near-3700-200692216",
-   "ms": 1795518120000,
-   "time": "11/24 19:02"
-  },
-  {
-   "t": "Gold turns upside down amid revival of global AI trade",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOZDZsZHFtWWUtQWMxZ1hMRzhsdFVndExaNEw1Vk45MU9ZdWtTRExYYzJOMVdNMWJzMktaT0ZwSWNubzBMeExScF81OW5JbXBESjdQMExiakdIdmFJM0VkNVBOUmhzZlVkT1h2ZlEtOGJ0cmZoT0hFU0dGalViVC10M0VIS3dPQ2pnd3Q3RUFocUxVZmViaHdIMXRGZlN1QlNpNno4dEttWnlFNHFLOXlDUmpn?oc=5",
-   "ms": 1795509606000,
-   "time": "11/24 16:40"
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQYmp1eDY4elpsRmlmZWh3aHBhalp6QWF6b29hU29TUUJKeHRsaTh0WjRfak9aOFZDaGR6NlN0cGFOU3FTVDNWSlVySS1PcWZ0MTFkT0d0VHNPQVI2RVIyQ2NvSEhJdGN6Tk9CVkZOX3A5cW9TQmFfVExtT3pDNERMR0RSc2hZc1E4S0FzT0tuc2tkbGNOTEc4LURpZjJZZmFkeXFqc1NxTTg4TjdTWVRVOVFQdlIyNG8?oc=5",
+   "ms": 1795546143000,
+   "time": "11/25 02:49"
   }
  ]
 }
