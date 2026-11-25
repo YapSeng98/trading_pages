@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-25 18:17 SGT",
+ "updated": "2026-11-25 19:11 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3533.4,
- "priceTime": "2026-11-25 18:15 SGT",
+ "price": 3532,
+ "priceTime": "2026-11-25 19:00 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3557.3,
   "high": 3575.1,
   "low": 3512.3,
-  "changeFromPrevClose": -23,
-  "changePct": -0.65,
+  "changeFromPrevClose": -24.4,
+  "changePct": -0.69,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -86,11 +86,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 3533.4,
-  "stop": 3591.8,
-  "target": 3358.4,
-  "stopDistance": 58.4,
-  "trailDistance": 116.7,
+  "entry": 3532,
+  "stop": 3588.3,
+  "target": 3362.9,
+  "stopDistance": 56.3,
+  "trailDistance": 112.7,
   "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
  },
  "watch": [
@@ -183,22 +183,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 17:00 SGT",
-   "rsi": 33.6,
-   "atr": 19.45,
-   "ema20": 3554.8,
-   "ema50": 3586.4,
-   "ema200": 3715.2,
+   "rsi": 34.8,
+   "atr": 18.78,
+   "ema20": 3552.7,
+   "ema50": 3584.2,
+   "ema200": 3713.4,
    "emaOrder": "空头排列",
    "range": {
     "top": 3646.6,
     "bottom": 3512.3,
-    "positionPct": 13
+    "positionPct": 15
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3607.4,
-    "barsAgo": 17
+    "barsAgo": 18
    },
    "turnsUpAbove": 3575.1,
    "turnsDownBelow": null
@@ -208,22 +208,22 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-24 23:15 SGT",
-   "rsi": 49.9,
-   "atr": 9.21,
-   "ema20": 3531.2,
-   "ema50": 3543.2,
-   "ema200": 3586.8,
+   "rsi": 48.9,
+   "atr": 8.39,
+   "ema20": 3531.1,
+   "ema50": 3541.8,
+   "ema200": 3585.2,
    "emaOrder": "交错",
    "range": {
     "top": 3575.1,
     "bottom": 3512.3,
-    "positionPct": 34
+    "positionPct": 31
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3533.5,
-    "barsAgo": 18
+    "barsAgo": 21
    },
    "turnsUpAbove": 3540.2,
    "turnsDownBelow": 3512.3
@@ -231,14 +231,19 @@
  ],
  "resistance": [
   {
+   "price": 3540.2,
+   "what": "1小时近期小高点",
+   "strength": 1
+  },
+  {
    "price": 3546.6,
    "what": "昨日低点",
    "strength": 3
   },
   {
    "price": 3575.1,
-   "what": "1小时前高、1小时近期小高点",
-   "strength": 2
+   "what": "1小时前高",
+   "strength": 1
   },
   {
    "price": 3607.4,
@@ -249,11 +254,6 @@
    "price": 3646.6,
    "what": "1小时区间顶",
    "strength": 1
-  },
-  {
-   "price": 3678.2,
-   "what": "昨日高点",
-   "strength": 3
   }
  ],
  "support": [

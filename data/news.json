@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 18:58 SGT",
+ "updated": "2026-11-25 19:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold holds near 15-month lows on Fed hike bets; PCE inflation awaited",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
+   "ms": 1795604352000,
+   "time": "11/25 18:59"
+  },
   {
    "t": "Gold Falls to $3,522.68 as Strong Dollar and Fed Tightening Expectations Pressure Metals",
    "src": "Yahoo Finance UK",
@@ -63,13 +70,6 @@
    "time": "11/25 14:35"
   },
   {
-   "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
-   "ms": 1795588430000,
-   "time": "11/25 14:33"
-  },
-  {
    "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
@@ -84,6 +84,13 @@
    "time": "11/25 14:13"
   },
   {
+   "t": "Gold holds steady ahead of U.S. inflation data",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBpcXRzdlI2OHBPUHRVRTFuTzVzYzc3N092aERUaG5YcW9BWTAzQUgxUEtaeVRJVlRBM1hVYUoxVEJ4bnVxbjFialMwSFZReUZZSnVlMm9nR0Q5ZjUteXVtMlIwVXpxTjhUSEtFUFYyekgybkhpWXdyZXRUTzRfem_SAYQBQVVfeXFMTjVXb2YzM0szVk81WmZKaTdDZUJhZ2lrUktxbjhFX2lZZGlCODNJLWdicEM3RU5YNDVrWUxNTHFPZlhubVdnUU14N3lZNjh1eEgybTVvSENYaVNveTJfZ2NMUVRjMjdJNXczMzlJWEdpV3pMRlI5OUVXaEg1bnBVZnM3NVdM?oc=5",
+   "ms": 1795583285000,
+   "time": "11/25 13:08"
+  },
+  {
    "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
@@ -91,11 +98,11 @@
    "time": "11/25 12:11"
   },
   {
-   "t": "Silver Price Forecast: XAG/USD slides to fresh 14-month low near $40.50, US PCE data eyed",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPR3ZiU0FaZ2FpTWNEM096WUVMQ3dvaWRtTFdGRktFa2d6NTA2Y01mSVNZNDJqR0ZKRjVVSjlod2FLSmtkd1I1LVc5cVB1SnNZZnBtdUVoUk5vaGo1MWNjbHNDU294Y1dsaGpaSVhKZHlKdUlwTzZGMGxCek5XLTNmLWgwVHloYmZHdm13VGJBTjlBUEJrdUNLdnRiS3lzNFM5d2huUnRBVF9wRU5IRHdzYy1vZGVhRVlXOUEySTFnYndOZnVsMjcw?oc=5",
-   "ms": 1795576075000,
-   "time": "11/25 11:07"
+   "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOa1c3aFF6NUs5cjU3ckpGTXpMWGRUdkhDdlNQaHJrX09HOEpkNWpObVJsZ3BIM3l2R214VGZqY3FnTnJ1SWhCZFhrNjF4Y3EwYVlsMFNYb3JjT3ZmSnpBQlQwLS0zLUh6TVRhMzFSVnR2VVNydE5IWGc0dF96Yko0T3o4cTl6eVRpRVlNVEZ4am1PX2tzUjUyN3lFT240WkhrQ0ZJUmFGOHdDNklxQ045RzZmWE9kczQ5ckRoVg?oc=5",
+   "ms": 1795575600000,
+   "time": "11/25 11:00"
   },
   {
    "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
    "ms": 1795568408000,
    "time": "11/25 09:00"
-  },
-  {
-   "t": "Gold and silver slide to key support as rate hike fears build",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdGI4TERUNUZaNnJ2dFF2eUFpRkJwT3hCbDFJRnhCdHE4Qmk2X3EzRlZoTEN0RXdqdU1ReWk2NzhGX1lnYWFjZE9FeXJfVGZRUURqdjRESloyNjdDZUM1WlFDbkZmcXYtdTREbGxTaXVVdGVzOE9JQnVDQ0ZmamN1XzdFOVRIN041anpGaHpSa1AxSFZ0TEZEanhfWUs?oc=5",
-   "ms": 1795568349000,
-   "time": "11/25 08:59"
   }
  ]
 }
