@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 21:53 SGT",
+ "updated": "2026-11-25 22:06 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVzJnSVZSM0x3T0YzcWl1QVV3ZHBTX0xMZWNrdEFRRlIyM094NXhlQmVRb0M1VDlxRmpIbDlrcjNzMVZiRzNPRGJfcWNTU1N1MnJmVkxjS3JxMnpoeTdXbEtjYXYxSi0xZGw4T2pweW5QS2VzU0puLWFSdWxrWGZId1c5R0k4andwMEV4YS12czlvOWJQU1lGVC1OYl9aZndDOGlSV09ZOW0zSFJFTXZiMUdzSjJDTmFmUjVoaHJ3N0hKUVU?oc=5",
+   "ms": 1795614223000,
+   "time": "11/25 21:43"
+  },
   {
    "t": "Gold price falls to $3,496/oz after U.S. durable goods rise 0.2% in October",
    "src": "Kitco",
@@ -40,13 +47,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQczY2eGZaeHZGUHYyNlkxbGljV0M0eEg1SHZxWG0tWmFmYlQydVdqX21Hd0NXVnBaV1ZTX1FaQTV3anowVzQ2aHZNdHpBbVlIaC13aUhWX01ZWWhJLU5UYk82YkoyNnFJaVJJdDBKZzg5b2xLS01vT0I2YTNiOEZqemxyTW9Wc2VhTWtDLXZJRGF2cFJESmRENEQtOVhocUhxM0plWk5IZUN4Zw?oc=5",
    "ms": 1795608850000,
    "time": "11/25 20:14"
-  },
-  {
-   "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-tests-3550-as-tech-stocks-fall-and-investors-turn-their-attention-to-us-pce-200692307",
-   "ms": 1795608540000,
-   "time": "11/25 20:09"
   },
   {
    "t": "Will US core PCE inflation fuel expectations of further Fed tightening?",
@@ -98,18 +98,18 @@
    "time": "11/25 17:58"
   },
   {
-   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
-   "ms": 1795597678000,
-   "time": "11/25 17:07"
-  },
-  {
    "t": "Gold stays weak below $3,550 as traders await US PCE data for Fed cues amid firmer USD",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazJfN0xfN3BadFdDQ3M0U1lZYzRPbnV3aGdjUG5OdFZhTnJVcms4dlIxelpFX2ZCUFpoc0lLc1hsTU0talE3U2JnTTQwTzd0M3d6YVoyQjkwb290WlNLZzZSdkQwdkdaNkR3ZnNVNlZQSjhEVmNPVXh5SFJEYllkUUowVlduSnptd0hrYWJsTllmSl9hMGJ6TFRVZVB1Q19nN0UyRTlzZkxUb2dZQnA3RHFJOXVxekZ5ZmdjZHBiODdVUEp1b0FEMQ?oc=5",
    "ms": 1795595969000,
    "time": "11/25 16:39"
+  },
+  {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795592276000,
+   "time": "11/25 15:37"
   }
  ]
 }
