@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 21:26 SGT",
+ "updated": "2026-11-25 21:39 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price approaches $3,500/oz after U.S. weekly jobless claims fall to 189k",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPT3k0Y2VxSndjQ0owaEtJdmc1MlBTTVlvaDlKOFQxYzNxVVc5X1REbHNDRW5TTTJPTmR6MHdMWnZGOTlGOWJVUUc5UGpPRGFld3BzMU43MDBWemRNNEpqdk83bFBVMVdPUXFlV1pxa2JsbjZraDNfQ1ZnX2dLaVJJdmV4U3NiOXcwbk5TMEp0dmw1RWU3LVVUMVk0d3JnbVAzSWhLNk10d3luRE9udENzX2dTNDRCZw?oc=5",
+   "ms": 1795612596000,
+   "time": "11/25 21:16"
+  },
   {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
    "src": "Bloomberg",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-the-next-fed-hike-may-not-be-the-biggest-risk-200692282",
    "ms": 1795592160000,
    "time": "11/25 15:36"
-  },
-  {
-   "t": "Forex Today: US Dollar rebounds ahead of critical PCE inflation data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOGttVEN4VmtqemxBTFVuTVdKWk1qWVVQNVNPR0oxeURzaVM0UF92bU1oNW91RjVqQVFQRVE3ejFiczJYTERoeFlmSGVud1kyb2JGM1J2TjFfNnFja0I3R3REVFFXc1BUUzVoa3FvTFV6dzg0MmpwZXRIZHBTVmR3a1pRMnRwV2ZPaWNPTXQwZVo4dm1NUVVacVBYZFNkZ2I5cVdFcGkzdHBTNjVwLVhn?oc=5",
-   "ms": 1795589853000,
-   "time": "11/25 14:57"
   }
  ]
 }
