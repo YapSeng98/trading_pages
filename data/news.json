@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 18:04 SGT",
+ "updated": "2026-11-25 18:17 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Cyanide Maker Sees Batteries Squeezing Supply for Gold Producers",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTVV5TGNPc2ZGRG1DZWVFczMzWFpHQ2lNcTlKanVPc2hKVzk2QVk5ZXVxMUJ0OFFWVUZ0d182Z3RXZ2R0TnVxSDN4ZEMzT0p2Z19Wc0w0Vk9RdEYwMjlTREd4MEJ0RmVSSTVGeVVZY1FZbWhzSmNBVDM0RmY2NFNfR1d2Nllnd3VMUjY1NEFQaE1VVjhOMmprc0x0YkUwZ3JpZjR5VlV1eV9UbGFlQW0yV0RYSU8xdw?oc=5",
-   "ms": 1795595098000,
-   "time": "11/25 16:24"
+   "t": "Gold Trades Near 15-Month Low as Federal Reserve Rate Hike Expectations Weigh on Prices",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObHdZdzk1ek1WVXB1SDBtU0NhS3JsT3prcVdiTTRaWnh5NmRNSXQydHZfQkpXT0dVWDFXSmV5RGRNQ0VoZGhIaEozeHFacDlYNDBtem5pLWY1R29tMDNhV3JibE9VSlFLUUI2UUp5VExkYm1UM0FDM1BIbjRuNUdOZ1hHbWxoSFR6aVRGbEFIQXZWMXVSQktyUnlqNA?oc=5",
+   "ms": 1795600695000,
+   "time": "11/25 17:58"
+  },
+  {
+   "t": "Gold stays weak below $3,550 as traders await US PCE data for Fed cues amid firmer USD",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazJfN0xfN3BadFdDQ3M0U1lZYzRPbnV3aGdjUG5OdFZhTnJVcms4dlIxelpFX2ZCUFpoc0lLc1hsTU0talE3U2JnTTQwTzd0M3d6YVoyQjkwb290WlNLZzZSdkQwdkdaNkR3ZnNVNlZQSjhEVmNPVXh5SFJEYllkUUowVlduSnptd0hrYWJsTllmSl9hMGJ6TFRVZVB1Q19nN0UyRTlzZkxUb2dZQnA3RHFJOXVxekZ5ZmdjZHBiODdVUEp1b0FEMQ?oc=5",
+   "ms": 1795595969000,
+   "time": "11/25 16:39"
   },
   {
    "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
@@ -28,18 +35,18 @@
    "time": "11/25 15:33"
   },
   {
-   "t": "Gold slides back closer to YTD lows as bears eye $3,500 amid firmer USD, ahead of US PCE",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazJfN0xfN3BadFdDQ3M0U1lZYzRPbnV3aGdjUG5OdFZhTnJVcms4dlIxelpFX2ZCUFpoc0lLc1hsTU0talE3U2JnTTQwTzd0M3d6YVoyQjkwb290WlNLZzZSdkQwdkdaNkR3ZnNVNlZQSjhEVmNPVXh5SFJEYllkUUowVlduSnptd0hrYWJsTllmSl9hMGJ6TFRVZVB1Q19nN0UyRTlzZkxUb2dZQnA3RHFJOXVxekZ5ZmdjZHBiODdVUEp1b0FEMQ?oc=5",
-   "ms": 1795590609000,
-   "time": "11/25 15:10"
-  },
-  {
    "t": "Forex Today: US Dollar rebounds ahead of critical PCE inflation data",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOGttVEN4VmtqemxBTFVuTVdKWk1qWVVQNVNPR0oxeURzaVM0UF92bU1oNW91RjVqQVFQRVE3ejFiczJYTERoeFlmSGVud1kyb2JGM1J2TjFfNnFja0I3R3REVFFXc1BUUzVoa3FvTFV6dzg0MmpwZXRIZHBTVmR3a1pRMnRwV2ZPaWNPTXQwZVo4dm1NUVVacVBYZFNkZ2I5cVdFcGkzdHBTNjVwLVhn?oc=5",
    "ms": 1795589853000,
    "time": "11/25 14:57"
+  },
+  {
+   "t": "Gold rebounds from 14-month lows, but Fed rate fears and Trump’s tariff threats cloud recovery",
+   "src": "Fortune India",
+   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQcUl1V0hYVmhGdUtnVlM0dmNjTVNDTmlCYUVzLXozd2dWNG52UkVTREVGTHI2THdmdGlpOW9QQzVXWXF2amNhcVdFQmpQOGQ1QmpZeXRRaVkyNVBlZTFWbEd6VEhINkRYdi1CSXk2Z2phb0wyR2dYYnF3OU1vLWQ5YkxRNWowMVpvOGlqR3Q0SW50MXhSaEpQNGJJMFZIRkljLVpGTTU1clRxOGdDVUpzOFVmM2I2X2pCR2ZDZXN4T2RQY1FHN01pSmVudzZBeXFVQWhvTm1yQWpkT1RKUnfSAesBQVVfeXFMUFhJaXk5RTZpNXFibTFKQ2xLMXFXZFp6eTNjRVk4VUhFWElNdkdMbm84ckVsZmsxanRFay0tdDNiTnRVWW55Z2J3bTR6SXkyMGI5dDhZazV2OHhHbDlza0lybXRQdWFEbERsVElMYk5WTkxuM3FaTS1kZUd1S041WXNXLW81dlUtcVZ2YkIxOVF3SW5JdEZFYXQ4SUsxVFlBV1ZTaXNIN2hYRW1QTUFUa0JTdXNEWGR1M0tkY0VLcDVqS0tlNUZIdUFxQ0htNzYwRWF6X3NRbFZyLWlMaGZMVG9DUjhMMjRTUHpzcw?oc=5",
+   "ms": 1795589505000,
+   "time": "11/25 14:51"
   },
   {
    "t": "Gold Tests $3,515 Support as Iran Conflict Continues to Rattle Oil Markets",
@@ -70,20 +77,6 @@
    "time": "11/25 14:13"
   },
   {
-   "t": "Gold, Silver, Platinum News, Opinion & Analysis",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE9WMTNDQnp5YzRzREV0OVpGN3dTcGh3Wi1CVXNlYW5LUzlVMU1vOWV3Tm1vNE8tRXR6UEFvNW5fQVBFRjA?oc=5",
-   "ms": 1795586476000,
-   "time": "11/25 14:01"
-  },
-  {
-   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
-   "ms": 1795584223000,
-   "time": "11/25 13:23"
-  },
-  {
    "t": "Gold holds steady ahead of U.S. inflation data",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBpcXRzdlI2OHBPUHRVRTFuTzVzYzc3N092aERUaG5YcW9BWTAzQUgxUEtaeVRJVlRBM1hVYUoxVEJ4bnVxbjFialMwSFZReUZZSnVlMm9nR0Q5ZjUteXVtMlIwVXpxTjhUSEtFUFYyekgybkhpWXdyZXRUTzRfem_SAYQBQVVfeXFMTjVXb2YzM0szVk81WmZKaTdDZUJhZ2lrUktxbjhFX2lZZGlCODNJLWdicEM3RU5YNDVrWUxNTHFPZlhubVdnUU14N3lZNjh1eEgybTVvSENYaVNveTJfZ2NMUVRjMjdJNXczMzlJWEdpV3pMRlI5OUVXaEg1bnBVZnM3NVdM?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdGI4TERUNUZaNnJ2dFF2eUFpRkJwT3hCbDFJRnhCdHE4Qmk2X3EzRlZoTEN0RXdqdU1ReWk2NzhGX1lnYWFjZE9FeXJfVGZRUURqdjRESloyNjdDZUM1WlFDbkZmcXYtdTREbGxTaXVVdGVzOE9JQnVDQ0ZmamN1XzdFOVRIN041anpGaHpSa1AxSFZ0TEZEanhfWUs?oc=5",
    "ms": 1795568349000,
    "time": "11/25 08:59"
+  },
+  {
+   "t": "Gold falters ahead of key US inflation print",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV1p3ZkduX2FrdGJhMEMtbmNXNTgxN05HeDFsX2xxNDBkWXZQVkFWS3NzNFpITzZ2RnRyYXVZQ1k5bmthekYzdG9aSDVxcGZGS1RxMnNTTHNRRkQyQWFoWm1zNXVfd2hVQW96VHQ1ZFd4eU04cXNTRWk0cFJ4LS1PLUd1eUFmN3Y4ZjJQbXZpVkd3UQ?oc=5",
+   "ms": 1795567740000,
+   "time": "11/25 08:49"
   }
  ]
 }
