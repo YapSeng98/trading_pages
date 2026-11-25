@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 02:41 SGT",
+ "updated": "2026-11-26 02:55 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -8,7 +8,7 @@
  "items": [
   {
    "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
-   "src": "Bloomberg.com",
+   "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
    "ms": 1795629492000,
    "time": "11/26 01:58"
@@ -22,7 +22,7 @@
   },
   {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg.com",
+   "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
    "ms": 1795623948000,
    "time": "11/26 00:25"
@@ -70,6 +70,27 @@
    "time": "11/25 23:04"
   },
   {
+   "t": "The silver trade that cost Felix Zulauf 50%, and why he says gold's fall is different",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSFZycWh6VkFnSlF6ZUp5N0tKTUlEV1lfeGxOVUVNdDA4RjFzaDZ2NE4ta3FMQjJYNzZDcFpPZ0tuQVJCMjI5RGhjX2JWZS1NWF9nV2R0cWYwY0lNVE9lZkdGa1VJWFRSMHFVTWQzSDZQd0xxQTNTb1lwcE1IVHV0QldpT1U3NklMUE12VWpxRVBkVFhHQ2ZjcFEzb0pKR3lvRGhTZlJBSzduUGxHc2dvVHhqS3h0cHc?oc=5",
+   "ms": 1795618013000,
+   "time": "11/25 22:46"
+  },
+  {
+   "t": "India central bank raises share of domestically held gold reserves, data shows",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPMEMwcHFHV3NkQ1FrTkJiMlUzNGdYVjJ1aXA3YXI0OVlMbWk3cEp3T3Z0ZHhvMUNVZ0k3bjc1bm81T0pnd2V0ZWU3ZjBCeDVDQ1Q0dGhZOGprTUhHeDZDMzlQWXpSQkF5Vkk5UTMwTTNSeDNvVGZsNHZSeE1CNHMzalBfZUZIZjlqNWl1V2pleDdCVHJwLUkwRFRqc2F0czF6ZmlLZWlrS0U2QU5jeThVNGJJb0M5UlJOVHA3aDFxNA?oc=5",
+   "ms": 1795617367000,
+   "time": "11/25 22:36"
+  },
+  {
+   "t": "The price of gold today, Nov. 25, 2026 — and the best places to buy",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1FM0tZeWN0Zy1mNncydTJ2aWhfVlRseUQ2bEhNRFFOU1FqTU85M29pVWp1TW1pU3FydkZHTFVqN09FY0NsMjI2QVNXSE5NRGhUejRZalAyd3IxZzlzLXliVktCbDlvTXFLRzBjc1RyaWJKMDd2YWNB0gF3QVVfeXFMTUUzS1l5Y3RnLWY2dzJ1MnZpaF9WVGx5RDZsSE1EUU5TUWpNTzkzb2lVanVNbWlTcXJ2RkdMVWo3T0VjQ2wyMjZBU1dITk1EaFR6NFlqUDJ3cjFnOXMteWJWS0JsOW9NcUtHMGNzVHJpYkowN3ZhY0E?oc=5",
+   "ms": 1795616113000,
+   "time": "11/25 22:15"
+  },
+  {
    "t": "Gold, silver remain under pressure as strong GDP, sticky inflation reinforce Fed hike bets - Kitco AM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPMHlZajVKekE3OWVDWV9BSndmOXNXRGVSdjFnQmwxNnhtaFktelk2OTJpcGx1TXJUM3VjZmVFSXZjcGZMbmVnNUJ3STlsNE1TWmZzTHBYb0QyalB1eFRsbHBNMDRDSkltT09fazNnanNCbGlfOEhoMXNSMnR0TndWMXVWX1ptYm1KS2JOYVBrOENvWDhfVko2Wk5DbXhSb0szZGN6LVFmbXRxbkZyNDItVzYzSWpkWXQ1d0hwMmRn?oc=5",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSVp5clFMb2NHSUd4OXNuZXJCaGl2cUhES2t1SktVQTA0ZHpGaEtkSGF5Q1AwZnlOb0xxMzYwd3M2Y2tkZVo2dVhUWU9YOUVfMktNRTljVDJyTFhWbmZwMFNjLUNwUGZkaXRPSnd5Ukw2QUpTREx1aVV6YXNNa1liS3QxeEtlOVB2LUxaQUxKWndvV2VWaE00bFhJemNVM2xJNWVLWFNSRld4MHA3aFE?oc=5",
    "ms": 1795614676000,
    "time": "11/25 21:51"
-  },
-  {
-   "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOVzJnSVZSM0x3T0YzcWl1QVV3ZHBTX0xMZWNrdEFRRlIyM094NXhlQmVRb0M1VDlxRmpIbDlrcjNzMVZiRzNPRGJfcWNTU1N1MnJmVkxjS3JxMnpoeTdXbEtjYXYxSi0xZGw4T2pweW5QS2VzU0puLWFSdWxrWGZId1c5R0k4andwMEV4YS12czlvOWJQU1lGVC1OYl9aZndDOGlSV09ZOW0zSFJFTXZiMUdzSjJDTmFmUjVoaHJ3N0hKUVU?oc=5",
-   "ms": 1795614223000,
-   "time": "11/25 21:43"
-  },
-  {
-   "t": "Breaking: US core PCE inflation rises to 3.3% YoY in October vs 3.2% expected",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQUZzWXlBNFZYYlJKZzB0Sk50eDNkVDl4cGowSFlianpHVzc5d1RTc25hQzAxNFNwX3VablB3c0tmZEhkNkxvSC1pS2JsaDRvMkJMUlY4N3ZvSEF6UkcwSnZsZTM2VUxNQ2IxdGRNSGNydTJ4LVpSTFluTFZVcEZ0MVlpRnltaE94MmsxLUtxZk9RRDNpVTkwSnZtQWZ3bzI3WVYzQks2T2FkbHctbjBGcm5JR3FQendHTDNYQ2tIUC1SQTBfWUxkWGZOZFVzT2Ex?oc=5",
-   "ms": 1795614027000,
-   "time": "11/25 21:40"
-  },
-  {
-   "t": "Gold price falls to $3,496/oz after U.S. durable goods rise 0.2% in October",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQWmtTc2VWTGRZcEpmNW1iNGxBaVVoRE43X3JldG5BaUNLSGZ1UWhnYzQxcDhhdFZXTFRaWUJWNk91bjRSYXhiSWNQeFAxRmFta2duN3Y1elNoVTEyUm9kdG1Ha3N2SEpPLVB6X2JtWnhaNjR1MTVOUnFVLUJ1UDNKNVFMTDRjM2VvajU1UGhFZDZ5R0pwZU9YWXdWM0FmdVBVT2JpNG9GeUszdVA2?oc=5",
-   "ms": 1795612599000,
-   "time": "11/25 21:16"
   }
  ]
 }
