@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-25 11:59 SGT",
+ "updated": "2026-11-25 12:26 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold struggles near weekly low as Fed bets and geopolitics support USD ahead of US PCE",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPazJfN0xfN3BadFdDQ3M0U1lZYzRPbnV3aGdjUG5OdFZhTnJVcms4dlIxelpFX2ZCUFpoc0lLc1hsTU0talE3U2JnTTQwTzd0M3d6YVoyQjkwb290WlNLZzZSdkQwdkdaNkR3ZnNVNlZQSjhEVmNPVXh5SFJEYllkUUowVlduSnptd0hrYWJsTllmSl9hMGJ6TFRVZVB1Q19nN0UyRTlzZkxUb2dZQnA3RHFJOXVxekZ5ZmdjZHBiODdVUEp1b0FEMQ?oc=5",
+   "ms": 1795580079000,
+   "time": "11/25 12:14"
+  },
+  {
+   "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
+   "ms": 1795579909000,
+   "time": "11/25 12:11"
+  },
   {
    "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
    "src": "Investing.com",
@@ -21,7 +35,7 @@
    "time": "11/25 09:00"
   },
   {
-   "t": "Gold ticks lower ahead of US inflation data",
+   "t": "Gold holds steady ahead of US inflation data",
    "src": "Reuters",
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV1p3ZkduX2FrdGJhMEMtbmNXNTgxN05HeDFsX2xxNDBkWXZQVkFWS3NzNFpITzZ2RnRyYXVZQ1k5bmthekYzdG9aSDVxcGZGS1RxMnNTTHNRRkQyQWFoWm1zNXVfd2hVQW96VHQ1ZFd4eU04cXNTRWk0cFJ4LS1PLUd1eUFmN3Y4ZjJQbXZpVkd3UQ?oc=5",
    "ms": 1795567740000,
@@ -77,13 +91,6 @@
    "time": "11/25 03:27"
   },
   {
-   "t": "Gold is doing something strange. Here's one way to play it",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM0d3a1BWNzY3enNfZkhlTG16YW90c3BRZllsX1YyVEhNZWkwcG5BT3lYSTBkWWh2S0pmd0k4V1RUb3QwYlNoNEhIVWEyQVJIQW5ZTk55aFE0Zkt5TUN2OXBqN2dQOFBuMnY1bmE3OXRxaWZLZnZzdVNRUno0V1VwbWFPM19iSW9SUGQ1TUtFRk9vVzFiVDNJalVn0gGfAUFVX3lxTE5ILXREaWZnSWpjMThIRXpiQWxsaDA2OU9vbUJUOTU0NDZkU1ZwZVp0N0lyWkZLdnF0M1Zlb0hiMWhpYWk1SjJmaWV2QXlTYVZGM2s3SnRaaWdOVEJZMTRMQXR4dUdZTHJmT0U1Rkk1Uk1abFNGNzVEY2FNMDdNeUJ4MVUzbjlITWZLSktmdDUwY1ZqeHk0VGc3TzRnUTlQRQ?oc=5",
-   "ms": 1795548248000,
-   "time": "11/25 03:24"
-  },
-  {
    "t": "Gold hasn't been trading like a safe haven. Here's one way to play it",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPb0tRMmprX1pzbzV6RlJsQ3lNeVRDTHJWN1RacnV6Wl9QdzNsZTVnUlE5WlEtSExqaG44N1VuT29OUURlMjEzQmZHQ2p5UDBiZVRKb1A3VW55WHlrRlhiVm5sWGtvUDNMNGFGejc4b09KSExOZGRpamlDeHZZUDZUYkhFbUg0U3R2V05Qc1BKRGdwcXVBZ045ZXhoVkNlbFBNRkxZSlVEQ3ZvSU9HNlE?oc=5",
@@ -98,18 +105,11 @@
    "time": "11/25 02:49"
   },
   {
-   "t": "BCA Research ends four-year bullish gold trade as US dollar, Fed take their toll",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjhPY25yQXRaRWxrZmlnVzJqcmxybUNuZnd0ZTRQN1FpbXk3ZWdnN1U3VzIxUWpERFRCczJGbjJLS2hJbjJqbXpJdmtlMmhVWmJNbkFkZDl2NW02a2tNZnFfZmVfZl9fbzIwYmdEWk84RGlSRTRhdU5HV0ZHeDhTaURIWVJSdTdKanZjSkhFSlRPYnR0akNYT1NoYm5fM3Y5REk5Z1VucVJZNVpPUkhqWFFpcEcweUhB?oc=5",
-   "ms": 1795543276000,
-   "time": "11/25 02:01"
-  },
-  {
-   "t": "Gold slides despite weaker US Dollar as Fed hike bets dominate",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
-   "ms": 1795542498000,
-   "time": "11/25 01:48"
+   "t": "Royal Gold at Renmark virtual non-deal roadshow: growth and discipline",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOTHhvN0hWcTA1SXlTSlZoSjBMNmFzdmotdVVWeEZyWnAyeC1LeDNnSE9aT0JVaXpBWC1ZSEk3dG0wMHFxdF90Nmh1S0RlT2RrR1E5S0daTGtXVXRMY1NUMHZqYXozbTZaTnBIcTZjWDV2UnRMRnJ4QWtmSFNOMlU5SmQwX0FyZjMwOTFYRnNRMHZlci1hQkRTZ1ZvSkhYTmVWUjFoX2lrT1Z3TkZlVDVRTHpKbFV6UkhtZVNnNHlxWTBKRUU2RFhUYQ?oc=5",
+   "ms": 1795546080000,
+   "time": "11/25 02:48"
   }
  ]
 }
