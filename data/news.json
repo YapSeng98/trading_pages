@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 11:32 SGT",
+ "updated": "2026-11-25 11:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -8,17 +8,10 @@
  "items": [
   {
    "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxOOUhjdWVnXzBaUElaVXFnbzE4UDlfSmJQcUY2M1p2aU9rZDl3dF9NV0JFRDhEc2JobzdhSEkwVlNETFRJa29pVGZwUHYzS1ludERFbFhnbjI2RldUY1laZndpeE56dlRIRE9VbU5rQ3k0MjE0NF90bTJ0cTVPZFdJWWlzWnVGV2pYT1MxOWhnVktBM0dVNU5yLVFudmpqLXAySkRvSnliWHF2QTQ5T2gtakYwX0wtM0kyVlRCR01tUmJGU3F0QkZYTzdoM3lqdFp0OGEyRHczdVhFc2NwRzZ4X1V2RWJqUjNFS2FuOGQwblNkZFdQcXZIYU1RdElRTWY2VmU1clpmLTNFdGFPRUNUOUdHZkl0UlZpN2lDUjk2bWhwOUE?oc=5",
-   "ms": 1795576926000,
-   "time": "11/25 11:22"
-  },
-  {
-   "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
-   "ms": 1795568408000,
-   "time": "11/25 09:00"
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
+   "ms": 1795575616000,
+   "time": "11/25 11:00"
   },
   {
    "t": "Gold ticks lower ahead of US inflation data",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjhPY25yQXRaRWxrZmlnVzJqcmxybUNuZnd0ZTRQN1FpbXk3ZWdnN1U3VzIxUWpERFRCczJGbjJLS2hJbjJqbXpJdmtlMmhVWmJNbkFkZDl2NW02a2tNZnFfZmVfZl9fbzIwYmdEWk84RGlSRTRhdU5HV0ZHeDhTaURIWVJSdTdKanZjSkhFSlRPYnR0akNYT1NoYm5fM3Y5REk5Z1VucVJZNVpPUkhqWFFpcEcweUhB?oc=5",
    "ms": 1795543276000,
    "time": "11/25 02:01"
+  },
+  {
+   "t": "Gold slides despite weaker US Dollar as Fed hike bets dominate",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
+   "ms": 1795542498000,
+   "time": "11/25 01:48"
   }
  ]
 }
