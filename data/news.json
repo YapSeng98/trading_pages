@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 08:09 SGT",
+ "updated": "2026-11-25 08:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
+   "ms": 1795564282000,
+   "time": "11/25 07:51"
+  },
   {
    "t": "Gold falls to near $3,550 ahead of US PCE inflation data",
    "src": "FXStreet",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2lqcG5YQlM4N3pRZHUyQkIyM2ZCZ1FLTE9ZTzNLQWNCRkxzdnFZS2VFcHVUY2Nfcjc2TzFPaV83WXNKUzd0SE5YZVZUYXYyMF9nbzBzamo2MjB0M2hUQkRQRzBUTk5wVzBPbU01ZFU0TFhyZktReS1KZ0E1MjNySU1JcHhsaTB3QlFUeGVyRzcyT01xMmxXejJzYW5BcmtJcG13SGFMZ3VKZjM1SmZYV1JFSGttM3l3NWpucw?oc=5",
    "ms": 1795558588000,
    "time": "11/25 06:16"
+  },
+  {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795557901000,
+   "time": "11/25 06:05"
   },
   {
    "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
@@ -42,11 +56,32 @@
    "time": "11/25 05:00"
   },
   {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795552759000,
+   "time": "11/25 04:39"
+  },
+  {
    "t": "Gold Near $3,500: Can Key Support Hold as Copper’s Downtrend Deepens?",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-near-3500-can-key-support-hold-as-coppers-downtrend-deepens-200692245",
    "ms": 1795548420000,
    "time": "11/25 03:27"
+  },
+  {
+   "t": "Gold is doing something strange. Here's one way to play it",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM0d3a1BWNzY3enNfZkhlTG16YW90c3BRZllsX1YyVEhNZWkwcG5BT3lYSTBkWWh2S0pmd0k4V1RUb3QwYlNoNEhIVWEyQVJIQW5ZTk55aFE0Zkt5TUN2OXBqN2dQOFBuMnY1bmE3OXRxaWZLZnZzdVNRUno0V1VwbWFPM19iSW9SUGQ1TUtFRk9vVzFiVDNJalVn0gGfAUFVX3lxTE5ILXREaWZnSWpjMThIRXpiQWxsaDA2OU9vbUJUOTU0NDZkU1ZwZVp0N0lyWkZLdnF0M1Zlb0hiMWhpYWk1SjJmaWV2QXlTYVZGM2s3SnRaaWdOVEJZMTRMQXR4dUdZTHJmT0U1Rkk1Uk1abFNGNzVEY2FNMDdNeUJ4MVUzbjlITWZLSktmdDUwY1ZqeHk0VGc3TzRnUTlQRQ?oc=5",
+   "ms": 1795548248000,
+   "time": "11/25 03:24"
+  },
+  {
+   "t": "Gold hasn't been trading like a safe haven. Here's one way to play it",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPb0tRMmprX1pzbzV6RlJsQ3lNeVRDTHJWN1RacnV6Wl9QdzNsZTVnUlE5WlEtSExqaG44N1VuT29OUURlMjEzQmZHQ2p5UDBiZVRKb1A3VW55WHlrRlhiVm5sWGtvUDNMNGFGejc4b09KSExOZGRpamlDeHZZUDZUYkhFbUg0U3R2V05Qc1BKRGdwcXVBZ045ZXhoVkNlbFBNRkxZSlVEQ3ZvSU9HNlE?oc=5",
+   "ms": 1795548234000,
+   "time": "11/25 03:23"
   },
   {
    "t": "Royal Gold at Renmark virtual non-deal roadshow: growth and discipline",
@@ -75,41 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
    "ms": 1795542498000,
    "time": "11/25 01:48"
-  },
-  {
-   "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWEdaYVQzMm9FLTRoc1NrWVlNazhZekM0bkFhTGlydG90aFhub3MzYjRpUGRLSXQ3VDY1eno4bnF2U2JPZ3lmQVAzd0dNX1RQMVRRdkR5Z3p4WXNFMFdRd0M3X3RfRlU1NTh6N3VhdjBSM09aTk1vWFhNV0hJRVp2eDRNQmtfcndrUk5YVDBxVm1DQQ?oc=5",
-   "ms": 1795537933000,
-   "time": "11/25 00:32"
-  },
-  {
-   "t": "Jamie Dimon floated $10,000 gold — now JPMorgan's strategists slash their 2026 target to $4,500 as Fed hikes loom",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWY0VjNHMUp1aFRZY0poRUUxdXMtMFQxZUJIY01aNXhpZWFwdWlrVkYtN3RLcGVaaWIzQlBiNjVaT0RLM2tMeGt2U0RURXdXYXMzRlFvaFJlYlZzWW5YOXRwQmNtTjJueG1rMUFFc05LYzdwcnFqUHdNMVI0NFdDcmNzNldfU3BwTVRFNFNYeTZ5VXIwT2FUNnpNZnU?oc=5",
-   "ms": 1795536900000,
-   "time": "11/25 00:15"
-  },
-  {
-   "t": "The price of gold today, Nov. 24, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5aa3pHZHZqdmN2a0diYVdtYUllR21VVkVxLXZJd1dhQUJJMDJzNEtTVXVtS2NTd2xYMlRJbm5vbWNiWlk5NTY2MUk3UlROUlVxLXByNFg3N2F2T1RtbzdITVVYT3lMdHVVUW5wUk1hRWp4QdIBd0FVX3lxTE9faThvTTNkZkVzSUNEV2Z6U01sQmZYdTg5bDZkTlhueW90TldHbkVPUEVwVGJPd0ljMTRGOTFnMDRzcGdMZmp3X0U3Zzc1N1k1amNCVmR4WTFTeEpLQTVCem5YLXhVRUhKWlNuYzdRTzZQWTZWUE5Z?oc=5",
-   "ms": 1795536373000,
-   "time": "11/25 00:06"
-  },
-  {
-   "t": "Gold slips after sharp rebound with inflation, Fed expectations in focus By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQQVU4eW1tVjljTjZiVWxLcER4V3V6SERQMUdNV0FTdURxSTkzd3U3djhiV09ERV9FdVFrTFZwaUdNVEpOMDBUdjBnZUlacjc4bHNtYUlGN3ZsM2s5czNYTnl3Z1h5SnFDRVFTQllpY25KUTZnd19ZczZQVkRtN21qQXFsT1VmN2RvUEFVNzlUMVVlQ2E1RkFEanIxY3RRRFdHRFpnZ2U5cWNiVmoxWUpRWTdzUkxhVWdnN0ZOLWcwQjRiVm1GOEtUeFpmVjU2UQ?oc=5",
-   "ms": 1795533776000,
-   "time": "11/24 23:22"
-  },
-  {
-   "t": "Gold Futures Face Fresh Selling Pressure as $3,531 Resistance Holds Firm",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-face-fresh-selling-pressure-as-3531-resistance-holds-firm-200692228",
-   "ms": 1795532820000,
-   "time": "11/24 23:07"
   }
  ]
 }
