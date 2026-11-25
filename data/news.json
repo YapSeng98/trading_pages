@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 19:11 SGT",
+ "updated": "2026-11-25 19:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Oil Near $91: Why Supply Fears Still Outweigh Geopolitical Risk",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/oil-near-91-why-supply-fears-still-outweigh-geopolitical-risk-200692300",
+   "ms": 1795605000000,
+   "time": "11/25 19:10"
+  },
+  {
    "t": "Gold holds near 15-month lows on Fed hike bets; PCE inflation awaited",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
    "ms": 1795604352000,
    "time": "11/25 18:59"
+  },
+  {
+   "t": "Gold Near 15-Month Lows: Why a Fed Rate Hike May Already Be Priced In",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-a-fed-rate-hike-may-already-be-priced-in-200692296",
+   "ms": 1795603740000,
+   "time": "11/25 18:49"
   },
   {
    "t": "Gold Falls to $3,522.68 as Strong Dollar and Fed Tightening Expectations Pressure Metals",
@@ -33,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQUZzWXlBNFZYYlJKZzB0Sk50eDNkVDl4cGowSFlianpHVzc5d1RTc25hQzAxNFNwX3VablB3c0tmZEhkNkxvSC1pS2JsaDRvMkJMUlY4N3ZvSEF6UkcwSnZsZTM2VUxNQ2IxdGRNSGNydTJ4LVpSTFluTFZVcEZ0MVlpRnltaE94MmsxLUtxZk9RRDNpVTkwSnZtQWZ3bzI3WVYzQks2T2FkbHctbjBGcm5JR3FQendHTDNYQ2tIUC1SQTBfWUxkWGZOZFVzT2Ex?oc=5",
    "ms": 1795599000000,
    "time": "11/25 17:30"
+  },
+  {
+   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
+   "ms": 1795597678000,
+   "time": "11/25 17:07"
   },
   {
    "t": "Gold stays weak below $3,550 as traders await US PCE data for Fed cues amid firmer USD",
@@ -77,13 +98,6 @@
    "time": "11/25 14:23"
   },
   {
-   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
-   "ms": 1795587198000,
-   "time": "11/25 14:13"
-  },
-  {
    "t": "Gold holds steady ahead of U.S. inflation data",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBpcXRzdlI2OHBPUHRVRTFuTzVzYzc3N092aERUaG5YcW9BWTAzQUgxUEtaeVRJVlRBM1hVYUoxVEJ4bnVxbjFialMwSFZReUZZSnVlMm9nR0Q5ZjUteXVtMlIwVXpxTjhUSEtFUFYyekgybkhpWXdyZXRUTzRfem_SAYQBQVVfeXFMTjVXb2YzM0szVk81WmZKaTdDZUJhZ2lrUktxbjhFX2lZZGlCODNJLWdicEM3RU5YNDVrWUxNTHFPZlhubVdnUU14N3lZNjh1eEgybTVvSENYaVNveTJfZ2NMUVRjMjdJNXczMzlJWEdpV3pMRlI5OUVXaEg1bnBVZnM3NVdM?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
    "ms": 1795579909000,
    "time": "11/25 12:11"
-  },
-  {
-   "t": "Gold holds near 15-mth lows on Fed hike bets; PCE inflation awaited",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOa1c3aFF6NUs5cjU3ckpGTXpMWGRUdkhDdlNQaHJrX09HOEpkNWpObVJsZ3BIM3l2R214VGZqY3FnTnJ1SWhCZFhrNjF4Y3EwYVlsMFNYb3JjT3ZmSnpBQlQwLS0zLUh6TVRhMzFSVnR2VVNydE5IWGc0dF96Yko0T3o4cTl6eVRpRVlNVEZ4am1PX2tzUjUyN3lFT240WkhrQ0ZJUmFGOHdDNklxQ045RzZmWE9kczQ5ckRoVg?oc=5",
-   "ms": 1795575600000,
-   "time": "11/25 11:00"
-  },
-  {
-   "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
-   "ms": 1795568408000,
-   "time": "11/25 09:00"
   }
  ]
 }
