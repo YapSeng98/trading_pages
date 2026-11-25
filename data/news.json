@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-25 16:02 SGT",
+ "updated": "2026-11-25 16:29 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-the-next-fed-hike-may-not-be-the-biggest-risk-200692282",
+   "ms": 1795592160000,
+   "time": "11/25 15:36"
+  },
+  {
+   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
+   "ms": 1795591980000,
+   "time": "11/25 15:33"
+  },
   {
    "t": "Gold slides back closer to YTD lows as bears eye $3,500 amid firmer USD, ahead of US PCE",
    "src": "FXStreet",
@@ -26,13 +40,6 @@
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3FKRmk3RDE2RVNvREo5cDZhbVozRnI2eG9HWC1QY0I3Z29SenZwd2FtUmtScGY5VW5xV1RpTldnbmZ4SUtUV3JaV3JtNUFQWGkxSERxXzRRWlRXQjUtVVJLcWpjc2kzLW1POE9INGhFNTh5V0QyTzRiV1ltZWItVWVQX1ZwaWV1UlB3cWRXLUctX1FybnNQSmJnY05jTU1INEdSaEtId0ZtQnJOU2RoYjZWZVE4T1VnZWlZTmdR?oc=5",
    "ms": 1795588430000,
    "time": "11/25 14:33"
-  },
-  {
-   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
-   "ms": 1795585260000,
-   "time": "11/25 13:41"
   },
   {
    "t": "Gold holds steady ahead of U.S. inflation data",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-near-3500-can-key-support-hold-as-coppers-downtrend-deepens-200692245",
    "ms": 1795548420000,
    "time": "11/25 03:27"
-  },
-  {
-   "t": "Gold hasn't been trading like a safe haven. Here's one way to play it",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPb0tRMmprX1pzbzV6RlJsQ3lNeVRDTHJWN1RacnV6Wl9QdzNsZTVnUlE5WlEtSExqaG44N1VuT29OUURlMjEzQmZHQ2p5UDBiZVRKb1A3VW55WHlrRlhiVm5sWGtvUDNMNGFGejc4b09KSExOZGRpamlDeHZZUDZUYkhFbUg0U3R2V05Qc1BKRGdwcXVBZ045ZXhoVkNlbFBNRkxZSlVEQ3ZvSU9HNlE?oc=5",
-   "ms": 1795548234000,
-   "time": "11/25 03:23"
   }
  ]
 }
