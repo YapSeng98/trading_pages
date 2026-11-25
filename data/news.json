@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 07:11 SGT",
+ "updated": "2026-11-26 07:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold, silver reverse early losses as Wall Street rebounds ahead of Thanksgiving - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbGtReWc2Z1pvTnk0NlczM3RfX1pnRE9pdUY2S0drWHI1dVhsSWszbFFtTzJGa0g5c2tNR1RIZ2lkaW8zRDlUNTJlalJSOVhhRWFwZTd1U2NnbnVtUWlLOHk3V3UycWZNZGY4dTh4OC16cjlnazFkYkt0UVZleHU4NFEwVk5jSmppY2VaaDYtMDI0cFZwX2pBM3RpZFRfcERfQTE0RV9OVVl6T2pCN3dvUXQyRmVwZVk5dHc?oc=5",
+   "ms": 1795643751000,
+   "time": "11/26 05:55"
+  },
   {
    "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
    "src": "Bloomberg",
@@ -70,6 +77,13 @@
    "time": "11/26 00:38"
   },
   {
+   "t": "Gold slides below $3,500 amid Fed rate hike expectations, AI stock rout By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcm1OdkFBNy1JQy0wYkFRdE93MUxHaVVUMGhIU0xWQTl0b19LejRqbWZEbm1JT2tsVVI4ZVdiR2dwMmFxUUtfdFhKZDJ2d2kzN1JLMFVja25JY0lsbm5PRkRMRmFGM2lOT20weFI2a1AzNFdRd0hWMExyT1R4TExZQ1R3LV9xYURnVExnelVwWGxVNVo1UFUxVDJTcUJSQlpKRVRjMS1ndklPYzBQLXQ5eFF5ZnBXWl9SSDJnWA?oc=5",
+   "ms": 1795620649000,
+   "time": "11/25 23:30"
+  },
+  {
    "t": "Gold Prices Slide Sharply as Fed Rate Hike Fears Trigger a Technical Breakdown",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-prices-slide-sharply-as-fed-rate-hike-fears-trigger-a-technical-breakdown-200692318",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQSW9TOGtrdmlBQjhmamwwckxsS255UEhsOE5qUzV5VC1wNzBrZmJwalFpMWFmTmozcmw2eFNqZVJ5T2JXSmVJLUJXZnNiTUZHOXg2Z3pSREFidEhNb21wX2VWOTBXdEtuQXhaME9GOG1BZFpTRzAzZTFpV1ZhbHlBY1FrSEpDc3AxWE1jSExuMXRBVGl1WlRESUdmdjh4WTJaRGJhUjF3NGRuWThJYmlBM1RTUlhTdw?oc=5",
    "ms": 1795619406000,
    "time": "11/25 23:10"
-  },
-  {
-   "t": "Gold Sinks Below $3500 as Silver Crashes Thru' $40",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVGNVc1VUaDFFVGF1WFd4X2xGOVZaQzZvcVhiQW96X1VFNGp1eGo1cGVXaTBHemY2eEZKMTl5MDRaWFROck1GQldTRmtQUjBJNEhiU250TlVDVE1MT2d5VnVlc2dQWjVDVVdkUDZKdGVBSDFFeURhT21wMW5FcWlWLVNQVWE1UHd0UDNhckhlN2tLOWViTlE?oc=5",
-   "ms": 1795619202000,
-   "time": "11/25 23:06"
-  },
-  {
-   "t": "Current price of gold as of November 25, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9CNjFBRTRDNWxlTmlLR2h1WFRqYUpDYWNxWjZDX2tibUN4QVQ4TnQ3QlktUFFJWHgwckF2cTdjSG1VWGJhV09sY29ZNVZhYnpWdFozQTBpNndYT0YxQWVGSm0ycUlzNXNBbC1CNFdB?oc=5",
-   "ms": 1795619040000,
-   "time": "11/25 23:04"
   }
  ]
 }
