@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-26 03:22 SGT",
+ "updated": "2026-11-26 04:16 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3548.6,
- "priceTime": "2026-11-26 03:15 SGT",
+ "price": 3567.1,
+ "priceTime": "2026-11-26 04:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3557.3,
   "high": 3575.1,
   "low": 3426.4,
-  "changeFromPrevClose": -7.8,
-  "changePct": -0.22,
+  "changeFromPrevClose": 10.7,
+  "changePct": 0.3,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -65,7 +65,7 @@
   "level": "ready",
   "tag": "反弹中 · 大方向向下",
   "title": "大方向向下，现在在反弹（15 分钟向上）",
-  "text": "周线、日线、4 小时都向下；15 分钟已经转向上，价格在反弹。按规则：不追这段反弹（逆着三个大周期做，回放里长期亏损），也先不卖；反弹结束、小周期转回向下，才是做空信号。4 小时收盘站上 3,689.6（差 141.0）：三个大周期不再同向，变成观望。要转成做多方向，还要日线收盘站上 4,148.6（差 600.0）、周线收盘站上 4,696.6（差 1,148.0）。",
+  "text": "周线、日线、4 小时都向下；15 分钟已经转向上，价格在反弹。按规则：不追这段反弹（逆着三个大周期做，回放里长期亏损），也先不卖；反弹结束、小周期转回向下，才是做空信号。4 小时收盘站上 3,689.6（差 122.5）：三个大周期不再同向，变成观望。要转成做多方向，还要日线收盘站上 4,148.6（差 581.5）、周线收盘站上 4,696.6（差 1,129.6）。",
   "reasons": [
    {
     "label": "大方向",
@@ -180,22 +180,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 17:00 SGT",
-   "rsi": 51.5,
-   "atr": 29.82,
-   "ema20": 3519.6,
-   "ema50": 3558.8,
-   "ema200": 3696.3,
+   "rsi": 53.2,
+   "atr": 29.32,
+   "ema20": 3522.2,
+   "ema50": 3558.3,
+   "ema200": 3694.8,
    "emaOrder": "交错",
    "range": {
     "top": 3646.6,
     "bottom": 3426.4,
-    "positionPct": 51
+    "positionPct": 54
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3607.4,
-    "barsAgo": 26
+    "barsAgo": 27
    },
    "turnsUpAbove": 3575.1,
    "turnsDownBelow": null
@@ -205,33 +205,28 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-11-26 03:15 SGT",
-   "rsi": 68.6,
-   "atr": 18.7,
-   "ema20": 3505.9,
-   "ema50": 3508.7,
-   "ema200": 3559.7,
+   "rsi": 70,
+   "atr": 18.31,
+   "ema20": 3520.9,
+   "ema50": 3514.9,
+   "ema200": 3559.3,
    "emaOrder": "交错",
    "range": {
-    "top": 3557.7,
+    "top": 3569.5,
     "bottom": 3426.4,
-    "positionPct": 93
+    "positionPct": 98
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 3540.2,
-    "barsAgo": 0
+    "barsAgo": 4
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 3426.4
   }
  ],
  "resistance": [
-  {
-   "price": 3558,
-   "what": "4小时区间中点",
-   "strength": 1
-  },
   {
    "price": 3575.1,
    "what": "1小时前高、4小时近期小高点",
@@ -251,18 +246,23 @@
    "price": 3678.2,
    "what": "昨日高点",
    "strength": 3
+  },
+  {
+   "price": 3689.6,
+   "what": "4小时前高、4小时区间顶",
+   "strength": 4
   }
  ],
  "support": [
   {
+   "price": 3558,
+   "what": "4小时区间中点",
+   "strength": 1
+  },
+  {
    "price": 3546.6,
    "what": "昨日低点",
    "strength": 3
-  },
-  {
-   "price": 3540.2,
-   "what": "1小时近期小高点",
-   "strength": 1
   },
   {
    "price": 3502.7,
@@ -273,11 +273,6 @@
    "price": 3426.4,
    "what": "4小时区间底、1小时区间底、1小时近期小低点",
    "strength": 4
-  },
-  {
-   "price": 3244.9,
-   "what": "周线等低点（止损密集）",
-   "strength": 2
   }
  ],
  "rules": "方向只在周线、日线、4 小时同向时才做；1 小时和 15 分钟也同向才进场；止损 3 倍 1 小时波幅；目标 3R 或跟踪止损。依据见 data/xau-backtest.json。",
