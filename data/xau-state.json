@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-26 02:41 SGT",
+ "updated": "2026-11-26 03:22 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3539.9,
- "priceTime": "2026-11-26 02:30 SGT",
+ "price": 3548.6,
+ "priceTime": "2026-11-26 03:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3557.3,
   "high": 3575.1,
   "low": 3426.4,
-  "changeFromPrevClose": -16.4,
-  "changePct": -0.46,
+  "changeFromPrevClose": -7.8,
+  "changePct": -0.22,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -62,10 +62,10 @@
   "close": 3538.2
  },
  "verdict": {
-  "level": "go",
-  "tag": "可以顺势做空",
-  "title": "五个周期都向下，可以顺势做空",
-  "text": "这是回放里唯一显出优势的情形。按现价进，止损放在 3 倍小时波幅之外，别放近；赢的时候让它走，目标 3R 或用跟踪止损。信号已出现一段时间：现在进的话，止损和目标按现价重新算（下面的价位就是）。",
+  "level": "ready",
+  "tag": "反弹中 · 大方向向下",
+  "title": "大方向向下，现在在反弹（15 分钟向上）",
+  "text": "周线、日线、4 小时都向下；15 分钟已经转向上，价格在反弹。按规则：不追这段反弹（逆着三个大周期做，回放里长期亏损），也先不卖；反弹结束、小周期转回向下，才是做空信号。4 小时收盘站上 3,689.6（差 141.0）：三个大周期不再同向，变成观望。要转成做多方向，还要日线收盘站上 4,148.6（差 600.0）、周线收盘站上 4,696.6（差 1,148.0）。",
   "reasons": [
    {
     "label": "大方向",
@@ -74,8 +74,8 @@
    },
    {
     "label": "小周期",
-    "ok": true,
-    "text": "1 小时和 15 分钟也向下"
+    "ok": false,
+    "text": "15 分钟还是向上，等它转回向下"
    },
    {
     "label": "形态",
@@ -84,16 +84,13 @@
    }
   ]
  },
- "plan": {
-  "side": "做空",
-  "entry": 3539.9,
-  "stop": 3627.7,
-  "target": 3276.7,
-  "stopDistance": 87.8,
-  "trailDistance": 175.5,
-  "rule": "现价进，止损 3 倍 1 小时波幅，目标 3R；或不设目标、每天把止损挪到最好价格后面 2R"
- },
+ "plan": null,
  "watch": [
+  {
+   "price": 3426.4,
+   "dir": "down",
+   "text": "15 分钟收盘跌破这里，就转回向下"
+  },
   {
    "price": 3689.6,
    "dir": "up",
@@ -101,7 +98,7 @@
   }
  ],
  "odds": null,
- "score": -10,
+ "score": -8,
  "timeframes": [
   {
    "tf": "W",
@@ -183,22 +180,22 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 17:00 SGT",
-   "rsi": 46.5,
-   "atr": 29.25,
-   "ema20": 3517.7,
-   "ema50": 3559.7,
-   "ema200": 3697.9,
-   "emaOrder": "空头排列",
+   "rsi": 51.5,
+   "atr": 29.82,
+   "ema20": 3519.6,
+   "ema50": 3558.8,
+   "ema200": 3696.3,
+   "emaOrder": "交错",
    "range": {
     "top": 3646.6,
     "bottom": 3426.4,
-    "positionPct": 40
+    "positionPct": 51
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向下",
     "level": 3607.4,
-    "barsAgo": 25
+    "barsAgo": 26
    },
    "turnsUpAbove": 3575.1,
    "turnsDownBelow": null
@@ -206,40 +203,30 @@
   {
    "tf": "15M",
    "name": "15 分钟",
-   "trend": "向下",
-   "since": "2026-11-24 23:15 SGT",
-   "rsi": 66.9,
-   "atr": 19.09,
-   "ema20": 3493.2,
-   "ema50": 3504.4,
-   "ema200": 3560.2,
+   "trend": "向上",
+   "since": "2026-11-26 03:15 SGT",
+   "rsi": 68.6,
+   "atr": 18.7,
+   "ema20": 3505.9,
+   "ema50": 3508.7,
+   "ema200": 3559.7,
    "emaOrder": "交错",
    "range": {
-    "top": 3541.1,
+    "top": 3557.7,
     "bottom": 3426.4,
-    "positionPct": 99
+    "positionPct": 93
    },
    "lastBreak": {
-    "kind": "延续",
-    "direction": "向下",
-    "level": 3484.8,
-    "barsAgo": 19
+    "kind": "转折",
+    "direction": "向上",
+    "level": 3540.2,
+    "barsAgo": 0
    },
-   "turnsUpAbove": 3540.2,
+   "turnsUpAbove": null,
    "turnsDownBelow": 3426.4
   }
  ],
  "resistance": [
-  {
-   "price": 3540.2,
-   "what": "1小时近期小高点",
-   "strength": 1
-  },
-  {
-   "price": 3546.6,
-   "what": "昨日低点",
-   "strength": 3
-  },
   {
    "price": 3558,
    "what": "4小时区间中点",
@@ -254,9 +241,29 @@
    "price": 3607.4,
    "what": "1小时向下突破位",
    "strength": 1
+  },
+  {
+   "price": 3646.6,
+   "what": "1小时区间顶",
+   "strength": 1
+  },
+  {
+   "price": 3678.2,
+   "what": "昨日高点",
+   "strength": 3
   }
  ],
  "support": [
+  {
+   "price": 3546.6,
+   "what": "昨日低点",
+   "strength": 3
+  },
+  {
+   "price": 3540.2,
+   "what": "1小时近期小高点",
+   "strength": 1
+  },
   {
    "price": 3502.7,
    "what": "上周低点、周线区间底、日线区间底、4小时向下突破位",

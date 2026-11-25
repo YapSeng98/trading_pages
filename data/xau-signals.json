@@ -2,9 +2,9 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795631400000,
+ "lastChecked": 1795634100000,
  "a3": -1,
- "a5": -1,
+ "a5": 0,
  "open": null,
  "nextId": 22,
  "signals": [
@@ -1357,6 +1357,17 @@
    "level": 3607.37,
    "a3": -1,
    "a5": -1
+  },
+  {
+   "ms": 1795634100000,
+   "time": "2026-11-26 03:15 SGT",
+   "tf": "15M",
+   "from": "bearish",
+   "to": "bullish",
+   "price": 3548.61,
+   "level": 3540.22,
+   "a3": -1,
+   "a5": 0
   }
  ],
  "trends": {
@@ -1364,7 +1375,7 @@
   "D": "bearish",
   "4H": "bearish",
   "1H": "bearish",
-  "15M": "bearish"
+  "15M": "bullish"
  },
  "shadow": {
   "since": "2026-11-07 01:15 SGT",
@@ -1375,7 +1386,7 @@
     "open": 2,
     "nextId": 3,
     "skipped": 10,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1427,7 +1438,7 @@
     "open": null,
     "nextId": 6,
     "skipped": 7,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
@@ -1544,7 +1555,7 @@
     "open": 2,
     "nextId": 3,
     "skipped": 10,
-    "prev": -1,
+    "prev": 0,
     "trades": [
      {
       "id": 1,
