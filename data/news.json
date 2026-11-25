@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 18:44 SGT",
+ "updated": "2026-11-25 18:58 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold Falls to $3,522.68 as Strong Dollar and Fed Tightening Expectations Pressure Metals",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5jeHVBOV9xUVo3VVp3QnJKV3ZDNF9YQk84dkk5QjJmZnFhdUFPVFJibmNzUUs0bmwzMk1UMUJMSG00MUVKek5FWUVnRXNncjBHcGFfUjJKNW9YNGtXb0w1aUZyTGRkQkRwTHpVRlF5bnFRa29qMDdz?oc=5",
+   "ms": 1795600804000,
+   "time": "11/25 18:00"
+  },
+  {
    "t": "Gold Trades Near 15-Month Low as Federal Reserve Rate Hike Expectations Weigh on Prices",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObHdZdzk1ek1WVXB1SDBtU0NhS3JsT3prcVdiTTRaWnh5NmRNSXQydHZfQkpXT0dVWDFXSmV5RGRNQ0VoZGhIaEozeHFacDlYNDBtem5pLWY1R29tMDNhV3JibE9VSlFLUUI2UUp5VExkYm1UM0FDM1BIbjRuNUdOZ1hHbWxoSFR6aVRGbEFIQXZWMXVSQktyUnlqNA?oc=5",
    "ms": 1795600695000,
    "time": "11/25 17:58"
+  },
+  {
+   "t": "US core PCE inflation set to heat up in October, prompting Federal Reserve rate hikes in 2027",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQUZzWXlBNFZYYlJKZzB0Sk50eDNkVDl4cGowSFlianpHVzc5d1RTc25hQzAxNFNwX3VablB3c0tmZEhkNkxvSC1pS2JsaDRvMkJMUlY4N3ZvSEF6UkcwSnZsZTM2VUxNQ2IxdGRNSGNydTJ4LVpSTFluTFZVcEZ0MVlpRnltaE94MmsxLUtxZk9RRDNpVTkwSnZtQWZ3bzI3WVYzQks2T2FkbHctbjBGcm5JR3FQendHTDNYQ2tIUC1SQTBfWUxkWGZOZFVzT2Ex?oc=5",
+   "ms": 1795599000000,
+   "time": "11/25 17:30"
   },
   {
    "t": "Gold stays weak below $3,550 as traders await US PCE data for Fed cues amid firmer USD",
@@ -70,18 +84,18 @@
    "time": "11/25 14:13"
   },
   {
-   "t": "Gold holds steady ahead of U.S. inflation data",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBpcXRzdlI2OHBPUHRVRTFuTzVzYzc3N092aERUaG5YcW9BWTAzQUgxUEtaeVRJVlRBM1hVYUoxVEJ4bnVxbjFialMwSFZReUZZSnVlMm9nR0Q5ZjUteXVtMlIwVXpxTjhUSEtFUFYyekgybkhpWXdyZXRUTzRfem_SAYQBQVVfeXFMTjVXb2YzM0szVk81WmZKaTdDZUJhZ2lrUktxbjhFX2lZZGlCODNJLWdicEM3RU5YNDVrWUxNTHFPZlhubVdnUU14N3lZNjh1eEgybTVvSENYaVNveTJfZ2NMUVRjMjdJNXczMzlJWEdpV3pMRlI5OUVXaEg1bnBVZnM3NVdM?oc=5",
-   "ms": 1795583285000,
-   "time": "11/25 13:08"
-  },
-  {
    "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
    "ms": 1795579909000,
    "time": "11/25 12:11"
+  },
+  {
+   "t": "Silver Price Forecast: XAG/USD slides to fresh 14-month low near $40.50, US PCE data eyed",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPR3ZiU0FaZ2FpTWNEM096WUVMQ3dvaWRtTFdGRktFa2d6NTA2Y01mSVNZNDJqR0ZKRjVVSjlod2FLSmtkd1I1LVc5cVB1SnNZZnBtdUVoUk5vaGo1MWNjbHNDU294Y1dsaGpaSVhKZHlKdUlwTzZGMGxCek5XLTNmLWgwVHloYmZHdm13VGJBTjlBUEJrdUNLdnRiS3lzNFM5d2huUnRBVF9wRU5IRHdzYy1vZGVhRVlXOUEySTFnYndOZnVsMjcw?oc=5",
+   "ms": 1795576075000,
+   "time": "11/25 11:07"
   },
   {
    "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdGI4TERUNUZaNnJ2dFF2eUFpRkJwT3hCbDFJRnhCdHE4Qmk2X3EzRlZoTEN0RXdqdU1ReWk2NzhGX1lnYWFjZE9FeXJfVGZRUURqdjRESloyNjdDZUM1WlFDbkZmcXYtdTREbGxTaXVVdGVzOE9JQnVDQ0ZmamN1XzdFOVRIN041anpGaHpSa1AxSFZ0TEZEanhfWUs?oc=5",
    "ms": 1795568349000,
    "time": "11/25 08:59"
-  },
-  {
-   "t": "Gold falters ahead of key US inflation print",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV1p3ZkduX2FrdGJhMEMtbmNXNTgxN05HeDFsX2xxNDBkWXZQVkFWS3NzNFpITzZ2RnRyYXVZQ1k5bmthekYzdG9aSDVxcGZGS1RxMnNTTHNRRkQyQWFoWm1zNXVfd2hVQW96VHQ1ZFd4eU04cXNTRWk0cFJ4LS1PLUd1eUFmN3Y4ZjJQbXZpVkd3UQ?oc=5",
-   "ms": 1795567740000,
-   "time": "11/25 08:49"
-  },
-  {
-   "t": "Gold falls to near $3,550 ahead of US PCE inflation data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPalplWkVyUEQ0VTVRQVpXa0tkRENWakJ3NUFFcW9nQ1VHeWZsYkNjRnNuYUxiY05ReGpibkZiUUpia1gtdmI5bTNzdUdITE9iaWtrZ3hYTFRFdllrWDYyelJlSmJKUWUxVUxxWUtYRzdTSTRSc1RuYi12NElIaGJocC1wV1hPVWtEbDBobm1RSllaRm1tNFA3dWlrdWE4eHM?oc=5",
-   "ms": 1795562516000,
-   "time": "11/25 07:21"
   }
  ]
 }
