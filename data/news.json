@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 23:55 SGT",
+ "updated": "2026-11-26 02:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,53 @@
  ],
  "items": [
   {
+   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
+   "ms": 1795629492000,
+   "time": "11/26 01:58"
+  },
+  {
+   "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
+   "ms": 1795629306000,
+   "time": "11/26 01:55"
+  },
+  {
+   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
+   "ms": 1795623948000,
+   "time": "11/26 00:25"
+  },
+  {
+   "t": "Gold Prices Slide Sharply as Fed Rate Hike Fears Trigger a Technical Breakdown",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-prices-slide-sharply-as-fed-rate-hike-fears-trigger-a-technical-breakdown-200692318",
+   "ms": 1795620600000,
+   "time": "11/25 23:30"
+  },
+  {
+   "t": "Gold sinks to more than one-year low after data shows US inflation rose further",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWXU0aldnamQxQUhjOGlpSlNKb1BuaUJBWnRVUGJlemdVN2RmQnRHOTdTQWJ0My1SRmp4dXhXVUJQNkVUenkxTlYyVmN3bDVZb0xqVjh2QnpSdTZlVWFQdktZYVVpUFZFYnlRb0lpd1hsZEljUE1KRjVfNVUtLXEwWUNnaTBuLVFvXzRReHJTLWdJWUp1YjFnT3hDVnpremlkd2lWQWVHVnY3djdnaTZRMFZmQVA?oc=5",
+   "ms": 1795620227000,
+   "time": "11/25 23:23"
+  },
+  {
    "t": "Gold price falls to session lows as U.S. New Home Sales rise 14.2% in October",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWHVyMnBTTVAzbTlGMVRVU091bHF2V25VMUtLWkxRR3gxSmtkV3lhLWJmclN1ekVUTklscnp5RTlvNnFyUGc3d2pnTTh1Q3pTMDVsZFRsanpFVHA3ekxZR2hKSWNsTThZVjZ5WnF5QjZuU0poaHB0Y0ktbkVHSkJ0QXdYN1NzakVuS2xCMlR6eHRLT3FLS3dTbGtDVl8wM1FIVHF0UnAydjNwY25YOWpB?oc=5",
    "ms": 1795620062000,
    "time": "11/25 23:21"
+  },
+  {
+   "t": "Gold sinks below $3,500 as hawkish Fed bets and equity rout fuel selling",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQSW9TOGtrdmlBQjhmamwwckxsS255UEhsOE5qUzV5VC1wNzBrZmJwalFpMWFmTmozcmw2eFNqZVJ5T2JXSmVJLUJXZnNiTUZHOXg2Z3pSREFidEhNb21wX2VWOTBXdEtuQXhaME9GOG1BZFpTRzAzZTFpV1ZhbHlBY1FrSEpDc3AxWE1jSExuMXRBVGl1WlRESUdmdjh4WTJaRGJhUjF3NGRuWThJYmlBM1RTUlhTdw?oc=5",
+   "ms": 1795619406000,
+   "time": "11/25 23:10"
   },
   {
    "t": "Gold Sinks Below $3500 as Silver Crashes Thru' $40",
@@ -28,13 +70,6 @@
    "time": "11/25 23:04"
   },
   {
-   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
-   "ms": 1795617350000,
-   "time": "11/25 22:35"
-  },
-  {
    "t": "Gold, silver remain under pressure as strong GDP, sticky inflation reinforce Fed hike bets - Kitco AM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPMHlZajVKekE3OWVDWV9BSndmOXNXRGVSdjFnQmwxNnhtaFktelk2OTJpcGx1TXJUM3VjZmVFSXZjcGZMbmVnNUJ3STlsNE1TWmZzTHBYb0QyalB1eFRsbHBNMDRDSkltT09fazNnanNCbGlfOEhoMXNSMnR0TndWMXVWX1ptYm1KS2JOYVBrOENvWDhfVko2Wk5DbXhSb0szZGN6LVFmbXRxbkZyNDItVzYzSWpkWXQ1d0hwMmRn?oc=5",
@@ -42,16 +77,16 @@
    "time": "11/25 22:01"
   },
   {
-   "t": "Gold slips below $3,500 as US core PCE inflation tops forecasts",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQSW9TOGtrdmlBQjhmamwwckxsS255UEhsOE5qUzV5VC1wNzBrZmJwalFpMWFmTmozcmw2eFNqZVJ5T2JXSmVJLUJXZnNiTUZHOXg2Z3pSREFidEhNb21wX2VWOTBXdEtuQXhaME9GOG1BZFpTRzAzZTFpV1ZhbHlBY1FrSEpDc3AxWE1jSExuMXRBVGl1WlRESUdmdjh4WTJaRGJhUjF3NGRuWThJYmlBM1RTUlhTdw?oc=5",
-   "ms": 1795615285000,
-   "time": "11/25 22:01"
-  },
-  {
    "t": "Gold prices drop another 1% as US Q3 GDP revised to 4.3% with contained PCE inflation",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWmZFZ1UwZHIyQTFQTTdpSUYzWjFQUElSajVhaXRrZkFzckFGY1N1SURYTjZERzM2d3VBZmpSY0FBN3Vzekl1MEhiNVFxVVIxZG8tXzNSbzdaT0h6dUVTUF9ZQ0V2aEpCcDFaaEdOb3F0T1dSVG9Nd1BSclNETTNndEEyTzBDODZDLVdhMGJBczRrY1BBSkFieGdka0tVTVZMRzcwRVZKNGFQXzdtQUt6Y1MzSlBjM2k3?oc=5",
+   "ms": 1795614676000,
+   "time": "11/25 21:51"
+  },
+  {
+   "t": "Gold prices drop 1% as US Q3 GDP revised to 4.3% with contained PCE inflation",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSVp5clFMb2NHSUd4OXNuZXJCaGl2cUhES2t1SktVQTA0ZHpGaEtkSGF5Q1AwZnlOb0xxMzYwd3M2Y2tkZVo2dVhUWU9YOUVfMktNRTljVDJyTFhWbmZwMFNjLUNwUGZkaXRPSnd5Ukw2QUpTREx1aVV6YXNNa1liS3QxeEtlOVB2LUxaQUxKWndvV2VWaE00bFhJemNVM2xJNWVLWFNSRld4MHA3aFE?oc=5",
    "ms": 1795614676000,
    "time": "11/25 21:51"
   },
@@ -75,41 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQWmtTc2VWTGRZcEpmNW1iNGxBaVVoRE43X3JldG5BaUNLSGZ1UWhnYzQxcDhhdFZXTFRaWUJWNk91bjRSYXhiSWNQeFAxRmFta2duN3Y1elNoVTEyUm9kdG1Ha3N2SEpPLVB6X2JtWnhaNjR1MTVOUnFVLUJ1UDNKNVFMTDRjM2VvajU1UGhFZDZ5R0pwZU9YWXdWM0FmdVBVT2JpNG9GeUszdVA2?oc=5",
    "ms": 1795612599000,
    "time": "11/25 21:16"
-  },
-  {
-   "t": "Gold price approaches $3,500/oz after U.S. weekly jobless claims fall to 189k",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPT3k0Y2VxSndjQ0owaEtJdmc1MlBTTVlvaDlKOFQxYzNxVVc5X1REbHNDRW5TTTJPTmR6MHdMWnZGOTlGOWJVUUc5UGpPRGFld3BzMU43MDBWemRNNEpqdk83bFBVMVdPUXFlV1pxa2JsbjZraDNfQ1ZnX2dLaVJJdmV4U3NiOXcwbk5TMEp0dmw1RWU3LVVUMVk0d3JnbVAzSWhLNk10d3luRE9udENzX2dTNDRCZw?oc=5",
-   "ms": 1795612596000,
-   "time": "11/25 21:16"
-  },
-  {
-   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
-   "ms": 1795610721000,
-   "time": "11/25 20:45"
-  },
-  {
-   "t": "Gold price today, Wednesday, November 25, 2026: Gold prices fall as inflation data and potential new tariffs loom",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPb3dFeUN5SkJCNHNoN2FGTDYzdHNOcXJtS0NVRlBDWUJtOFNiMndWMXBHNHJ0SHFRbm1ORkdDTUtBVEQ4ZUJlRC1QeU5xZ2VPVHVNTVNMa3E2SHpheU5XSGY0YVJEcS1OSmpKM21nTGx4QS1zVUxKWHVNeFd4Wko5NUltTHNTQTU2am1tRjZkX3dGTUttQ09DcUJaYmloUXExakZRUnFCVURWUy1sbENFdXFubllDSXVvZVgtVk5WejVKQzVZY1Nvbkx5N2hxNzhhelVheFlVTUFzNkJhMV9ISm9sR3cxanB0RXhlRGVyNmswd09EOXZuVU5kR3hJVXV4Vk9Wal9ReWY4M29mTGR1bHdhbw?oc=5",
-   "ms": 1795608948000,
-   "time": "11/25 20:15"
-  },
-  {
-   "t": "Gold today: Will US PCE data rescue the metal from its slide?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQczY2eGZaeHZGUHYyNlkxbGljV0M0eEg1SHZxWG0tWmFmYlQydVdqX21Hd0NXVnBaV1ZTX1FaQTV3anowVzQ2aHZNdHpBbVlIaC13aUhWX01ZWWhJLU5UYk82YkoyNnFJaVJJdDBKZzg5b2xLS01vT0I2YTNiOEZqemxyTW9Wc2VhTWtDLXZJRGF2cFJESmRENEQtOVhocUhxM0plWk5IZUN4Zw?oc=5",
-   "ms": 1795608850000,
-   "time": "11/25 20:14"
-  },
-  {
-   "t": "Oil Near $91: Why Supply Fears Still Outweigh Geopolitical Risk",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/oil-near-91-why-supply-fears-still-outweigh-geopolitical-risk-200692300",
-   "ms": 1795605000000,
-   "time": "11/25 19:10"
   }
  ]
 }
