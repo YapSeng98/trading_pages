@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-25 17:50 SGT",
+ "updated": "2026-11-25 18:04 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Cyanide Maker Sees Batteries Squeezing Supply for Gold Producers",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPTVV5TGNPc2ZGRG1DZWVFczMzWFpHQ2lNcTlKanVPc2hKVzk2QVk5ZXVxMUJ0OFFWVUZ0d182Z3RXZ2R0TnVxSDN4ZEMzT0p2Z19Wc0w0Vk9RdEYwMjlTREd4MEJ0RmVSSTVGeVVZY1FZbWhzSmNBVDM0RmY2NFNfR1d2Nllnd3VMUjY1NEFQaE1VVjhOMmprc0x0YkUwZ3JpZjR5VlV1eV9UbGFlQW0yV0RYSU8xdw?oc=5",
+   "ms": 1795595098000,
+   "time": "11/25 16:24"
+  },
   {
    "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
    "src": "Investing.com",
@@ -63,6 +70,27 @@
    "time": "11/25 14:13"
   },
   {
+   "t": "Gold, Silver, Platinum News, Opinion & Analysis",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE9WMTNDQnp5YzRzREV0OVpGN3dTcGh3Wi1CVXNlYW5LUzlVMU1vOWV3Tm1vNE8tRXR6UEFvNW5fQVBFRjA?oc=5",
+   "ms": 1795586476000,
+   "time": "11/25 14:01"
+  },
+  {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795584223000,
+   "time": "11/25 13:23"
+  },
+  {
+   "t": "Gold holds steady ahead of U.S. inflation data",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBpcXRzdlI2OHBPUHRVRTFuTzVzYzc3N092aERUaG5YcW9BWTAzQUgxUEtaeVRJVlRBM1hVYUoxVEJ4bnVxbjFialMwSFZReUZZSnVlMm9nR0Q5ZjUteXVtMlIwVXpxTjhUSEtFUFYyekgybkhpWXdyZXRUTzRfem_SAYQBQVVfeXFMTjVXb2YzM0szVk81WmZKaTdDZUJhZ2lrUktxbjhFX2lZZGlCODNJLWdicEM3RU5YNDVrWUxNTHFPZlhubVdnUU14N3lZNjh1eEgybTVvSENYaVNveTJfZ2NMUVRjMjdJNXczMzlJWEdpV3pMRlI5OUVXaEg1bnBVZnM3NVdM?oc=5",
+   "ms": 1795583285000,
+   "time": "11/25 13:08"
+  },
+  {
    "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
@@ -82,34 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdGI4TERUNUZaNnJ2dFF2eUFpRkJwT3hCbDFJRnhCdHE4Qmk2X3EzRlZoTEN0RXdqdU1ReWk2NzhGX1lnYWFjZE9FeXJfVGZRUURqdjRESloyNjdDZUM1WlFDbkZmcXYtdTREbGxTaXVVdGVzOE9JQnVDQ0ZmamN1XzdFOVRIN041anpGaHpSa1AxSFZ0TEZEanhfWUs?oc=5",
    "ms": 1795568349000,
    "time": "11/25 08:59"
-  },
-  {
-   "t": "Gold slips on stronger dollar, US inflation data in focus",
-   "src": "Reuters",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV1p3ZkduX2FrdGJhMEMtbmNXNTgxN05HeDFsX2xxNDBkWXZQVkFWS3NzNFpITzZ2RnRyYXVZQ1k5bmthekYzdG9aSDVxcGZGS1RxMnNTTHNRRkQyQWFoWm1zNXVfd2hVQW96VHQ1ZFd4eU04cXNTRWk0cFJ4LS1PLUd1eUFmN3Y4ZjJQbXZpVkd3UQ?oc=5",
-   "ms": 1795567740000,
-   "time": "11/25 08:49"
-  },
-  {
-   "t": "Gold falls to near $3,550 ahead of US PCE inflation data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPalplWkVyUEQ0VTVRQVpXa0tkRENWakJ3NUFFcW9nQ1VHeWZsYkNjRnNuYUxiY05ReGpibkZiUUpia1gtdmI5bTNzdUdITE9iaWtrZ3hYTFRFdllrWDYyelJlSmJKUWUxVUxxWUtYRzdTSTRSc1RuYi12NElIaGJocC1wV1hPVWtEbDBobm1RSllaRm1tNFA3dWlrdWE4eHM?oc=5",
-   "ms": 1795562516000,
-   "time": "11/25 07:21"
-  },
-  {
-   "t": "Gold, silver extend losses as tech stocks slide, Fed inflation test looms - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOU2lqcG5YQlM4N3pRZHUyQkIyM2ZCZ1FLTE9ZTzNLQWNCRkxzdnFZS2VFcHVUY2Nfcjc2TzFPaV83WXNKUzd0SE5YZVZUYXYyMF9nbzBzamo2MjB0M2hUQkRQRzBUTk5wVzBPbU01ZFU0TFhyZktReS1KZ0E1MjNySU1JcHhsaTB3QlFUeGVyRzcyT01xMmxXejJzYW5BcmtJcG13SGFMZ3VKZjM1SmZYV1JFSGttM3l3NWpucw?oc=5",
-   "ms": 1795558588000,
-   "time": "11/25 06:16"
-  },
-  {
-   "t": "Gold Holds Gain After Nvidia’s Rehiring of Huang Sparks Rally",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdmx6UDZKMVladVJKQ1lxa3lSaU1BR3h2VGcwUVpJNW8yVmpyaTIxTTctWUZ2VV9ZX1ppbDNhTEIyYVBrckJ1Sm1YMUZBLWVXLXZFMkNnRXJoMWZndzhwcHVmYWRWSjlHRUJVWUhIZnl3QnZrYWJWU1dIWTF1Mm1pYzV0YlFxWE9RU1NyazhrbU56a1hGTDJ4RTY3ZkVZVFRWaTdsa2Jrdm02d3NyRWNYbEZR?oc=5",
-   "ms": 1795557572000,
-   "time": "11/25 05:59"
   }
  ]
 }
