@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 06:57 SGT",
+ "updated": "2026-11-26 07:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -70,13 +70,6 @@
    "time": "11/26 00:38"
   },
   {
-   "t": "Gold slides below $3,500 amid Fed rate hike expectations, AI stock rout By Investing.com",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcm1OdkFBNy1JQy0wYkFRdE93MUxHaVVUMGhIU0xWQTl0b19LejRqbWZEbm1JT2tsVVI4ZVdiR2dwMmFxUUtfdFhKZDJ2d2kzN1JLMFVja25JY0lsbm5PRkRMRmFGM2lOT20weFI2a1AzNFdRd0hWMExyT1R4TExZQ1R3LV9xYURnVExnelVwWGxVNVo1UFUxVDJTcUJSQlpKRVRjMS1ndklPYzBQLXQ5eFF5ZnBXWl9SSDJnWA?oc=5",
-   "ms": 1795620649000,
-   "time": "11/25 23:30"
-  },
-  {
    "t": "Gold Prices Slide Sharply as Fed Rate Hike Fears Trigger a Technical Breakdown",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-prices-slide-sharply-as-fed-rate-hike-fears-trigger-a-technical-breakdown-200692318",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVGNVc1VUaDFFVGF1WFd4X2xGOVZaQzZvcVhiQW96X1VFNGp1eGo1cGVXaTBHemY2eEZKMTl5MDRaWFROck1GQldTRmtQUjBJNEhiU250TlVDVE1MT2d5VnVlc2dQWjVDVVdkUDZKdGVBSDFFeURhT21wMW5FcWlWLVNQVWE1UHd0UDNhckhlN2tLOWViTlE?oc=5",
    "ms": 1795619202000,
    "time": "11/25 23:06"
+  },
+  {
+   "t": "Current price of gold as of November 25, 2026",
+   "src": "Fortune",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9CNjFBRTRDNWxlTmlLR2h1WFRqYUpDYWNxWjZDX2tibUN4QVQ4TnQ3QlktUFFJWHgwckF2cTdjSG1VWGJhV09sY29ZNVZhYnpWdFozQTBpNndYT0YxQWVGSm0ycUlzNXNBbC1CNFdB?oc=5",
+   "ms": 1795619040000,
+   "time": "11/25 23:04"
   }
  ]
 }
