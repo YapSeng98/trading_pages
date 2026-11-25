@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-25 19:52 SGT",
+ "updated": "2026-11-25 20:45 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 58600,
- "priceTime": "2026-11-25 19:45 SGT",
+ "price": 58700.4,
+ "priceTime": "2026-11-25 20:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 59832,
   "high": 59835.4,
   "low": 58456.3,
-  "changeFromPrevClose": -1232,
-  "changePct": -2.06,
+  "changeFromPrevClose": -1131.7,
+  "changePct": -1.89,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -75,11 +75,11 @@
  },
  "plan": {
   "side": "做空",
-  "entry": 58600,
-  "stop": 60235.2,
-  "target": 53694.6,
-  "stopDistance": 1635.1,
-  "trailDistance": 3270.3
+  "entry": 58700.4,
+  "stop": 60317.2,
+  "target": 53849.9,
+  "stopDistance": 1616.8,
+  "trailDistance": 3233.6
  },
  "watch": [
   {
@@ -114,8 +114,8 @@
    "name": "4 小时",
    "trend": "向下",
    "since": "2026-11-06 16:00 SGT",
-   "rsi": 36.3,
-   "atr": 1245.22,
+   "rsi": 35.8,
+   "atr": 1230.09,
    "turnsUpAbove": 64603.1,
    "turnsDownBelow": 55130
   },
@@ -124,8 +124,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-24 11:00 SGT",
-   "rsi": 39.3,
-   "atr": 545.05,
+   "rsi": 36.6,
+   "atr": 538.94,
    "turnsUpAbove": 60687.5,
    "turnsDownBelow": null
   },
@@ -134,18 +134,13 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-25 19:45 SGT",
-   "rsi": 36.4,
-   "atr": 247.97,
+   "rsi": 41.7,
+   "atr": 237.7,
    "turnsUpAbove": 59489.6,
    "turnsDownBelow": null
   }
  ],
  "resistance": [
-  {
-   "price": 58633.1,
-   "what": "1小时区间底、1小时近期小低点",
-   "strength": 2
-  },
   {
    "price": 59260,
    "what": "昨日低点、1小时向下突破位",
@@ -165,9 +160,24 @@
    "price": 60294.7,
    "what": "1小时区间顶",
    "strength": 1
+  },
+  {
+   "price": 60687.5,
+   "what": "1小时前高",
+   "strength": 1
   }
  ],
  "support": [
+  {
+   "price": 58633.1,
+   "what": "1小时近期小低点",
+   "strength": 1
+  },
+  {
+   "price": 58456.3,
+   "what": "1小时区间底",
+   "strength": 1
+  },
   {
    "price": 55130,
    "what": "上周低点、周线区间底、日线区间底、4小时前低、4小时区间底",
