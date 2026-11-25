@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 10:11 SGT",
+ "updated": "2026-11-25 10:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,11 @@
  ],
  "items": [
   {
-   "t": "Gold and Silver Slide to Key Support as Rate Hike Fears Build",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdGI4TERUNUZaNnJ2dFF2eUFpRkJwT3hCbDFJRnhCdHE4Qmk2X3EzRlZoTEN0RXdqdU1ReWk2NzhGX1lnYWFjZE9FeXJfVGZRUURqdjRESloyNjdDZUM1WlFDbkZmcXYtdTREbGxTaXVVdGVzOE9JQnVDQ0ZmamN1XzdFOVRIN041anpGaHpSa1AxSFZ0TEZEanhfWUs?oc=5",
-   "ms": 1795568349000,
-   "time": "11/25 08:59"
+   "t": "Australia’s CPI inflation jumps to 4.9% YoY in October, beats 4.8% expected",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
+   "ms": 1795568408000,
+   "time": "11/25 09:00"
   },
   {
    "t": "Gold ticks lower ahead of US inflation data",
@@ -63,13 +63,6 @@
    "time": "11/25 05:00"
   },
   {
-   "t": "Australia CPI set to hit 4.8% in October, adding pressure on the RBA to hike rates further",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONEs5QXdlSXF6aVVMRmlMYzNSTVRJak81RzA5XzB3UFJKUTYteXItVElOLWRIaVdickhDMnJkT2xZck5FWWZfdnZJYnpRZUNYeWRxXzNkTVE0UnR0SzA4MnBnLWlTUzdjQlBSbjZ4SXhJd0xPX3h4LW5uLWZiYlJGVXYycjNhbDhLZzNQdDF4Q05mN3NtZFJKdXJpVlBWVWZtQmc?oc=5",
-   "ms": 1795552200000,
-   "time": "11/25 04:30"
-  },
-  {
    "t": "Gold Near $3,500: Can Key Support Hold as Copper’s Downtrend Deepens?",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-near-3500-can-key-support-hold-as-coppers-downtrend-deepens-200692245",
@@ -77,18 +70,11 @@
    "time": "11/25 03:27"
   },
   {
-   "t": "Gold is doing something strange. Here's one way to play it",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPM0d3a1BWNzY3enNfZkhlTG16YW90c3BRZllsX1YyVEhNZWkwcG5BT3lYSTBkWWh2S0pmd0k4V1RUb3QwYlNoNEhIVWEyQVJIQW5ZTk55aFE0Zkt5TUN2OXBqN2dQOFBuMnY1bmE3OXRxaWZLZnZzdVNRUno0V1VwbWFPM19iSW9SUGQ1TUtFRk9vVzFiVDNJalVn0gGfAUFVX3lxTE5ILXREaWZnSWpjMThIRXpiQWxsaDA2OU9vbUJUOTU0NDZkU1ZwZVp0N0lyWkZLdnF0M1Zlb0hiMWhpYWk1SjJmaWV2QXlTYVZGM2s3SnRaaWdOVEJZMTRMQXR4dUdZTHJmT0U1Rkk1Uk1abFNGNzVEY2FNMDdNeUJ4MVUzbjlITWZLSktmdDUwY1ZqeHk0VGc3TzRnUTlQRQ?oc=5",
-   "ms": 1795548248000,
-   "time": "11/25 03:24"
-  },
-  {
-   "t": "Gold hasn't been trading like a safe haven. Here's one way to play it",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPb0tRMmprX1pzbzV6RlJsQ3lNeVRDTHJWN1RacnV6Wl9QdzNsZTVnUlE5WlEtSExqaG44N1VuT29OUURlMjEzQmZHQ2p5UDBiZVRKb1A3VW55WHlrRlhiVm5sWGtvUDNMNGFGejc4b09KSExOZGRpamlDeHZZUDZUYkhFbUg0U3R2V05Qc1BKRGdwcXVBZ045ZXhoVkNlbFBNRkxZSlVEQ3ZvSU9HNlE?oc=5",
-   "ms": 1795548234000,
-   "time": "11/25 03:23"
+   "t": "Royal Gold at Renmark virtual non-deal roadshow: growth and discipline By Investing.com",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZnY5QVYzcU82RlBCajVRc05CUEV0RXlGNnl0UllUME1NX2UwWEpQVU9KMUVvbUJyRE4yVEhtSFBuQzNWLXp2WlVoNUx3MnJZMk1wYlZGQW9mQXdOVTJ0aVJTRWNIdlFpckRwaEN1eHZqNUlXYld5TEVRbTVCNkxTdEg3OVczYmZHM3Q1bWhDNnIxUFA2VG9iWlgwb01GTG9rV01OWmQ4VmtCaUU1LVFXNHE5Q2ctaVpuWFpKVWV2TXNEWFJaMkpXRQ?oc=5",
+   "ms": 1795546290000,
+   "time": "11/25 02:51"
   },
   {
    "t": "HSBC, J.P. Morgan and StoneX complete first live trades using Pooled Gold Interests (PGI)",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRTJBZ2IxMXZjaVpPUXZjS2lSVDh6Rk16OS03VUh5czRBU0FxSml6VC1LVVVCalFyOXVMV2Q3clhLWjdmT3FtQzdiSWR2WkpmVS1qZ1ppU0tyWFBEQVk2UHowcG11eU1TblE2Z1hodjFxUVFaV1NidS02N3pxQkJ5cFRjYmtJdzVVdFJReHJ1UmtJdE1wS2pyeGNaVHdiSGZVaHM3RGhUQlE?oc=5",
    "ms": 1795542498000,
    "time": "11/25 01:48"
+  },
+  {
+   "t": "Gold Sinks with AI, Silver Extends Worst Drop Since Lehmans as 'Fed Mistake' Looms",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWEdaYVQzMm9FLTRoc1NrWVlNazhZekM0bkFhTGlydG90aFhub3MzYjRpUGRLSXQ3VDY1eno4bnF2U2JPZ3lmQVAzd0dNX1RQMVRRdkR5Z3p4WXNFMFdRd0M3X3RfRlU1NTh6N3VhdjBSM09aTk1vWFhNV0hJRVp2eDRNQmtfcndrUk5YVDBxVm1DQQ?oc=5",
+   "ms": 1795537933000,
+   "time": "11/25 00:32"
+  },
+  {
+   "t": "Jamie Dimon floated $10,000 gold — now JPMorgan's strategists slash their 2026 target to $4,500 as Fed hikes loom",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWY0VjNHMUp1aFRZY0poRUUxdXMtMFQxZUJIY01aNXhpZWFwdWlrVkYtN3RLcGVaaWIzQlBiNjVaT0RLM2tMeGt2U0RURXdXYXMzRlFvaFJlYlZzWW5YOXRwQmNtTjJueG1rMUFFc05LYzdwcnFqUHdNMVI0NFdDcmNzNldfU3BwTVRFNFNYeTZ5VXIwT2FUNnpNZnU?oc=5",
+   "ms": 1795536900000,
+   "time": "11/25 00:15"
   }
  ]
 }
