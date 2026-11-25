@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25 20:05 SGT",
+ "updated": "2026-11-25 20:19 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -56,7 +56,7 @@
    "time": "11/25 17:58"
   },
   {
-   "t": "US core PCE inflation set to heat up in October, prompting Federal Reserve rate hikes in 2027",
+   "t": "US core PCE inflation set to rise in October as markets weigh further Fed rate hikes",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPQUZzWXlBNFZYYlJKZzB0Sk50eDNkVDl4cGowSFlianpHVzc5d1RTc25hQzAxNFNwX3VablB3c0tmZEhkNkxvSC1pS2JsaDRvMkJMUlY4N3ZvSEF6UkcwSnZsZTM2VUxNQ2IxdGRNSGNydTJ4LVpSTFluTFZVcEZ0MVlpRnltaE94MmsxLUtxZk9RRDNpVTkwSnZtQWZ3bzI3WVYzQks2T2FkbHctbjBGcm5JR3FQendHTDNYQ2tIUC1SQTBfWUxkWGZOZFVzT2Ex?oc=5",
    "ms": 1795599000000,
@@ -91,6 +91,13 @@
    "time": "11/25 14:57"
   },
   {
+   "t": "Gold rebounds from 14-month lows, but Fed rate fears and Trump’s tariff threats cloud recovery",
+   "src": "Fortune India",
+   "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQcUl1V0hYVmhGdUtnVlM0dmNjTVNDTmlCYUVzLXozd2dWNG52UkVTREVGTHI2THdmdGlpOW9QQzVXWXF2amNhcVdFQmpQOGQ1QmpZeXRRaVkyNVBlZTFWbEd6VEhINkRYdi1CSXk2Z2phb0wyR2dYYnF3OU1vLWQ5YkxRNWowMVpvOGlqR3Q0SW50MXhSaEpQNGJJMFZIRkljLVpGTTU1clRxOGdDVUpzOFVmM2I2X2pCR2ZDZXN4T2RQY1FHN01pSmVudzZBeXFVQWhvTm1yQWpkT1RKUnfSAesBQVVfeXFMUFhJaXk5RTZpNXFibTFKQ2xLMXFXZFp6eTNjRVk4VUhFWElNdkdMbm84ckVsZmsxanRFay0tdDNiTnRVWW55Z2J3bTR6SXkyMGI5dDhZazV2OHhHbDlza0lybXRQdWFEbERsVElMYk5WTkxuM3FaTS1kZUd1S041WXNXLW81dlUtcVZ2YkIxOVF3SW5JdEZFYXQ4SUsxVFlBV1ZTaXNIN2hYRW1QTUFUa0JTdXNEWGR1M0tkY0VLcDVqS0tlNUZIdUFxQ0htNzYwRWF6X3NRbFZyLWlMaGZMVG9DUjhMMjRTUHpzcw?oc=5",
+   "ms": 1795589505000,
+   "time": "11/25 14:51"
+  },
+  {
    "t": "Gold Tests $3,515 Support as Iran Conflict Continues to Rattle Oil Markets",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-tests-3515-support-as-iran-conflict-continues-to-rattle-oil-markets-200692273",
@@ -98,18 +105,11 @@
    "time": "11/25 14:35"
   },
   {
-   "t": "Gold Price Forecast: Will US PCE inflation data rescue XAU/USD buyers?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc2ZWdWZJQ3ZmNUdBVi1sWDBkSmc1OHhaaTc2MVdUVlFKX2R3Z3o4V19DSWV2Uk5ickhremxMMmxTNk41c3k1S2M0LVhSMWotQnV1ZTZsMi14QXl4V1ozWk81QS1RM0Jjb2NQQ0VybHVTQ2trTjcycWlwMklWclVuSFVWRlF2WFlaU1VLZXBZOXlKcHJ1RWZXUnJ2TmZpWnZFYVM4X0FscTVWdGg3MGg0Ym9IckhsQQ?oc=5",
-   "ms": 1795579909000,
-   "time": "11/25 12:11"
-  },
-  {
-   "t": "Silver Price Forecast: XAG/USD slides to fresh 14-month low near $40.50, US PCE data eyed",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPR3ZiU0FaZ2FpTWNEM096WUVMQ3dvaWRtTFdGRktFa2d6NTA2Y01mSVNZNDJqR0ZKRjVVSjlod2FLSmtkd1I1LVc5cVB1SnNZZnBtdUVoUk5vaGo1MWNjbHNDU294Y1dsaGpaSVhKZHlKdUlwTzZGMGxCek5XLTNmLWgwVHloYmZHdm13VGJBTjlBUEJrdUNLdnRiS3lzNFM5d2huUnRBVF9wRU5IRHdzYy1vZGVhRVlXOUEySTFnYndOZnVsMjcw?oc=5",
-   "ms": 1795576075000,
-   "time": "11/25 11:07"
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1795587821000,
+   "time": "11/25 14:23"
   }
  ]
 }
