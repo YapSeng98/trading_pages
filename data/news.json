@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-26 19:35 SGT",
+ "updated": "2026-11-26 19:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold: Stronger Dollar and elevated US yields weigh on prices – ING",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQmZ4U0g3WWJ5eS1LYktKQVh4X2xJelNYSGUteC1FUWN6QXRwaWFjUE1TRnhWTXBYYnBnVlR0ZnFhU1NQOVRBaTJ0aUs3VlNOamZycjJBZl83WnFqY01iT01DQkw1UEw5UzR5QUEwa2NUNVRwT3oxaGVfY1FHMjgtdmZxbktPWUpJZ3U5UHRxNHBRMnR0S1pUTVA5OXdoSkl4TVE4S3Zzcnhkdw?oc=5",
+   "ms": 1795692988000,
+   "time": "11/26 19:36"
+  },
+  {
+   "t": "Gold Confidence Needs Rebuilding",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-confidence-needs-rebuilding-200692386",
+   "ms": 1795691700000,
+   "time": "11/26 19:15"
+  },
   {
    "t": "Gold struggles for traction as Fed rate hike bets dominate sentiment",
    "src": "FXStreet",
@@ -96,20 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-weakens-as-tariff-fears-and-inflation-revive-rate-concerns-200692350",
    "ms": 1795668780000,
    "time": "11/26 12:53"
-  },
-  {
-   "t": "Gold steadies after hitting over one-year low; Fed outlook in focus",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNS2RGZHQ2cnNGQUVwT25tM2lrZFZkUDMwdXpSWWpkSmljWFpFZGh1dWl3WUwwZ2Ricy1hd2lsSVRRazdmeW1OdXFycllzcmJ2NWxQdEQtMmZRN2pBUjJaTFMtZXlJOHVXNHBDWmdzc09jQmk5YnhQQU0wUmx4cEtVOFl3SVTSAYoBQVVfeXFMTjVWQXJNNzhKbnh3SkxiV1VhbGtUQ1BrYTJfMnJ3Qnl4WVkxMjMwQVAxSHhtSkRWZ2E5TEpIZV96Vm9jRjhKQUV2ZVd2WHd4dmlMTzlxVW9UQWJQSWl4dlNUbFR5VGl5V0EwMURrSndKS3MyOVpwNGdGVzd3eno4TVpBb2tZY0xmNDBR?oc=5",
-   "ms": 1795668300000,
-   "time": "11/26 12:45"
-  },
-  {
-   "t": "Gold Price Forecast: XAU/USD struggles below $3,600 amid Thanksgiving light trading",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYXhUOTE4OUlfNVJEaGpJMmM5ZVh6My1vUFBMMnhWRWU5WWY5Qi1wZkY5djVJSHdmNVFPUnptV3VsbEVUMDk0VEs1UkdiUktjYmJWWWRrNmw4WGxOSmZHdWViQ3FSYklMS3hsbWpEa1gxTS0tSVU4RmJvbGtDZ3dfNEZqQ1pENGZiM1h6QVYyaWFiVW9wd1hjVlN2V24yYmlVSC1nVHRrbEUwQmFuSjVGZXR0OUVpTnpCbmkyZEJWLTJUckI0S2Uw?oc=5",
-   "ms": 1795667177000,
-   "time": "11/26 12:26"
   }
  ]
 }
