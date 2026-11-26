@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 10:33 SGT",
+ "updated": "2026-11-26 10:47 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -21,6 +21,13 @@
    "time": "11/26 07:26"
   },
   {
+   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
+   "ms": 1795642224000,
+   "time": "11/26 05:30"
+  },
+  {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
    "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOc3lNSXJsTVNvNVpGT08tV2pLNV9RQ2MwSnZvbU5Nd2l6OWY2Y1lNQTZSRTExTkZCdnFCLU1ScHY2RXRlQU5OQnF2eEJWRnVOd1dWejI1eng5RHdJMi15YlhMb3A0V2loMjExN1FkLTd4X2hxTHI1MFpQSDVGQ1lYbWhWV29tekhwVW51NlNLeGt5Z1MwRjZNSEplTUdnWndy?oc=5",
    "ms": 1795635219000,
    "time": "11/26 03:33"
+  },
+  {
+   "t": "Mayfair Gold prices $35M public offering to advance gold project By Investing.com",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTzNiaXZhLWFhLUs1X1oyUjlGS2VicVk4b1JpRGdRdUNmeExsTnJVLXFJeXFFWGdieEhOUEVsQWdSV0xxUEtyQ1Jsc0JfTExFbzlGRW9NcFJYRm84OExxVTJDRWczRHJyV09SanhBVzlVVzNTVXVEcnBDeUtxNmRCakcyUDFoTVFHVmlvX0FwUDZiV01obmctd0tUV2EzWU1jNG1MZHRwUjZ2a2haOEV4a1BNZzRfMGlmSGhpZmRBaGhTZw?oc=5",
+   "ms": 1795634280000,
+   "time": "11/26 03:18"
   },
   {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
@@ -70,6 +84,13 @@
    "time": "11/26 01:55"
   },
   {
+   "t": "British Pound slips as hot US PCE outshines hawkish BoE signals",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYmVoS1NrTU1xMEEwMXAxSWdXRVBIbk1ZY0NxUUV2ZnFKNVRxWmFNRFRGY0hLbkx6c2E0aWQyWG1aZU04ZzNqVVNxWFNoT0ZXN0Z4RjZsQzBkQkh1SS04RFZoajlKZDFGWmRJSHlSdk1tVTFfMU0weWFSdUFSWFNwWWkzNW83WDFiWExKNmxYNzJzei1BVm9US0lMT3MyN2N5aXkydEhXS0xydw?oc=5",
+   "ms": 1795626675000,
+   "time": "11/26 01:11"
+  },
+  {
    "t": "Gold Hits Near 15-Month Lows, Silver Crashes Below $40 Amid Fed Hike Fears – All Eyes On The Fed Rate Decision",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVW43SFhnN0VQZkdTa1l2a3BOVWRmZUdsVzVRN29JNWM5TDdLZElJMF9weE5ub1ZuVW5RTEJ3Sl9CNVZ2UUd4dXNJMURwamF1dTBhOWNjR2NTYTduMEVGanRmc2EyWXAwdXd0cVBKZF9hR0EwQzNTMzA4Z3VmWnh4VmR0T0JxN1c3aXp0TDA0X1NXMFZWeWpaMg?oc=5",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWXU0aldnamQxQUhjOGlpSlNKb1BuaUJBWnRVUGJlemdVN2RmQnRHOTdTQWJ0My1SRmp4dXhXVUJQNkVUenkxTlYyVmN3bDVZb0xqVjh2QnpSdTZlVWFQdktZYVVpUFZFYnlRb0lpd1hsZEljUE1KRjVfNVUtLXEwWUNnaTBuLVFvXzRReHJTLWdJWUp1YjFnT3hDVnpremlkd2lWQWVHVnY3djdnaTZRMFZmQVA?oc=5",
    "ms": 1795620227000,
    "time": "11/25 23:23"
-  },
-  {
-   "t": "Gold price falls to session lows as U.S. New Home Sales rise 14.2% in October",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWHVyMnBTTVAzbTlGMVRVU091bHF2V25VMUtLWkxRR3gxSmtkV3lhLWJmclN1ekVUTklscnp5RTlvNnFyUGc3d2pnTTh1Q3pTMDVsZFRsanpFVHA3ekxZR2hKSWNsTThZVjZ5WnF5QjZuU0poaHB0Y0ktbkVHSkJ0QXdYN1NzakVuS2xCMlR6eHRLT3FLS3dTbGtDVl8wM1FIVHF0UnAydjNwY25YOWpB?oc=5",
-   "ms": 1795620062000,
-   "time": "11/25 23:21"
-  },
-  {
-   "t": "Gold sinks below $3,500 as hawkish Fed bets and equity rout fuel selling",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQSW9TOGtrdmlBQjhmamwwckxsS255UEhsOE5qUzV5VC1wNzBrZmJwalFpMWFmTmozcmw2eFNqZVJ5T2JXSmVJLUJXZnNiTUZHOXg2Z3pSREFidEhNb21wX2VWOTBXdEtuQXhaME9GOG1BZFpTRzAzZTFpV1ZhbHlBY1FrSEpDc3AxWE1jSExuMXRBVGl1WlRESUdmdjh4WTJaRGJhUjF3NGRuWThJYmlBM1RTUlhTdw?oc=5",
-   "ms": 1795619406000,
-   "time": "11/25 23:10"
-  },
-  {
-   "t": "Current price of gold as of November 25, 2026",
-   "src": "Fortune",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9CNjFBRTRDNWxlTmlLR2h1WFRqYUpDYWNxWjZDX2tibUN4QVQ4TnQ3QlktUFFJWHgwckF2cTdjSG1VWGJhV09sY29ZNVZhYnpWdFozQTBpNndYT0YxQWVGSm0ycUlzNXNBbC1CNFdB?oc=5",
-   "ms": 1795619040000,
-   "time": "11/25 23:04"
   }
  ]
 }
