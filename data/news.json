@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 03:13 SGT",
+ "updated": "2026-11-27 03:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -28,11 +28,18 @@
    "time": "11/27 00:21"
   },
   {
+   "t": "Gold’s Thanksgiving support offers a glimmer of hope for battered bulls - Analysts",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVJYSG5veEdiWWVzRVkySnY2UmNUMDRkdzJzVXFrZjdvR0RCTDBDRVNtV1VOUDF1NDNqVGRRYm8xOUI1bzVkS0g0NEFad3d2d051NFo0X0JZSWRGaEhhSTluUHFaY0ZTcG5FaW1JMzVuMnlpV3IwUm11NzZ2YzJVYXpBNjhzMzJpYmpLd2xJcXh3VHY5NE8yQW1CNXI3UEdBQzQtb2FOa0IyelFCbGR1OXlYeFhqNzQ?oc=5",
+   "ms": 1795709356000,
+   "time": "11/27 00:09"
+  },
+  {
    "t": "Gold Makes 17% Loss from Last Thanksgiving, Worst Since 2013",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbGpvMG1zdkR2NFo3WnJXalZ0Z05EbUZxTEhZaHpyNWpGZlJHLXlBSzV6MVJVT1RfcWRlaWxuUDlaREx1d1NmdkdNd2wyazNhc01ObW9sUTJpNXJObmtDRWYwaU9HOVVsSks2UmdTQUVNNEtZQko5a3FCVjBRQlB0ZHpKVHdmZW1LUHM1S1RoQldidw?oc=5",
-   "ms": 1795708733000,
-   "time": "11/26 23:58"
+   "ms": 1795708866000,
+   "time": "11/27 00:01"
   },
   {
    "t": "Gold struggles for traction as Fed rate hike bets dominate sentiment",
@@ -70,6 +77,13 @@
    "time": "11/26 21:54"
   },
   {
+   "t": "Gold Outlook: US Dollar Fatigue Opens the Door to a Squeeze",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWRqOENWTDdTRlhRMjZkU3p2ZklwalpRS3g0bEZaMUNTMnBLdHJoZXRYMGVkbkJkZG9VMVVQZVZzR2h4MXptclBGVWtRNWNqbFRaVTZyMHlwbVEzN1R3T3FHYm5UV0RtSDQzLXYxa09EOGFhSzg3MTQwX3luelg4REFfOHhELWJmUGZaMXhNQ1c0SkpqdmpQcUFVd2V4VGFIZlVyUFBn?oc=5",
+   "ms": 1795700136000,
+   "time": "11/26 21:35"
+  },
+  {
    "t": "Gold drifts lower as Fed rate-hike fears loom",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaS01cTRpU3QtN3AzeHN4UHdHdFQ3UTVFUzNqenpXcWdiMUdOU2lpQVh1bk1uWklCRTZSUHpJMExkY2ZPaUh1VVFXMnJFWnB6TVhmNjV4Mm1jbU02X0hBcERnMm8xb204NE5QNTYtbkwwZVM2YUNpNl82NzlUTzRfUVZYelBVRXlRX0FtOUh6U3JYaEpIR2ZMNA?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQmZ4U0g3WWJ5eS1LYktKQVh4X2xJelNYSGUteC1FUWN6QXRwaWFjUE1TRnhWTXBYYnBnVlR0ZnFhU1NQOVRBaTJ0aUs3VlNOamZycjJBZl83WnFqY01iT01DQkw1UEw5UzR5QUEwa2NUNVRwT3oxaGVfY1FHMjgtdmZxbktPWUpJZ3U5UHRxNHBRMnR0S1pUTVA5OXdoSkl4TVE4S3Zzcnhkdw?oc=5",
    "ms": 1795692988000,
    "time": "11/26 19:36"
-  },
-  {
-   "t": "Gold Confidence Needs Rebuilding",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-confidence-needs-rebuilding-200692386",
-   "ms": 1795691700000,
-   "time": "11/26 19:15"
-  },
-  {
-   "t": "Gold Prices Mixed as Stronger US Dollar Pressures Spot Bullion While Futures Advance",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRnlfVEJMcWJYVzVPSUx1MFk3TDI0Nk5wS3lqODd1ZmoxY1kxMGpxUDM1SWY5bnRMMGx3N2pvSHVTQ1llb0U0ay1VZXZVYnY2UGlHVGJsaVFsazdxcFVOSnBfM0JvcENIQkM2VXkxOHpScWdTNl9TYWdrUm5vTllLRTNWanJ2X2Y3X05hQVdPUDNXRWVGOEZSeXBYbVBfdlY0?oc=5",
-   "ms": 1795687120000,
-   "time": "11/26 17:58"
   }
  ]
 }
