@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 07:16 SGT",
+ "updated": "2026-11-27 07:43 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold declines to near $3,550 amid hawkish Fed expectations",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUWl6WDgzM0tfbzV6bDlPc0dfd3hpbUtHa3pQSDRHeGFIa0JySjNXaEF0V2NTanlDYktkaTV0dHdEdmhqOWtYSk5vMHZSNU8zRTVLN2w3RnY3OXVmRXFHMkpqTnExblo2ekNGMzNLSU9nM3R3M1g2SHFJVGM1aWFSaUdRS2xCUVVncjlTczVmeVk2bE9jRm1faFBseG11ejBhZmc?oc=5",
+   "ms": 1795736236000,
+   "time": "11/27 07:37"
+  },
   {
    "t": "Gold slips, silver gains as Fed rate hike expectations persist in holiday trading - Kitco PM Report",
    "src": "Kitco",
@@ -98,18 +105,11 @@
    "time": "11/26 21:35"
   },
   {
-   "t": "Gold: Bulls Enter Another Wrong Password",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-bulls-enter-another-wrong-password-200692389",
-   "ms": 1795696740000,
-   "time": "11/26 20:39"
-  },
-  {
-   "t": "US Dollar: Further gains look less attractive despite Fed support – OCBC",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdzZVSG93aGxacWlMQ2dpMmFjcU5GSlhpallQMTMybWJJUDBRWERVRi1lOThfNHppeEJNME0xR0JSMUdlUWJQQlQyTVBnRlpoOUxVcDYyc3JlVHlOZkZCdGdFMWpzb2g2aE1NS3k1eU90bERCdWpVQWpPSUx0ZHBfcUNoSFNpb0IxVl9wZ1FYRWZDMVl3UkczOHpEQ1RZR2NpM0k0ck9UejVVR2VUcjZwRDNB?oc=5",
-   "ms": 1795695475000,
-   "time": "11/26 20:17"
+   "t": "Gold drifts lower as Fed rate-hike fears loom",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaS01cTRpU3QtN3AzeHN4UHdHdFQ3UTVFUzNqenpXcWdiMUdOU2lpQVh1bk1uWklCRTZSUHpJMExkY2ZPaUh1VVFXMnJFWnB6TVhmNjV4Mm1jbU02X0hBcERnMm8xb204NE5QNTYtbkwwZVM2YUNpNl82NzlUTzRfUVZYelBVRXlRX0FtOUh6U3JYaEpIR2ZMNA?oc=5",
+   "ms": 1795698199000,
+   "time": "11/26 21:03"
   }
  ]
 }
