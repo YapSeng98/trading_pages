@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 03:27 SGT",
+ "updated": "2026-11-27 03:40 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "India’s central bank repatriates another 60 tonnes of gold in 2026 as share of FX reserves drops to 14.38%",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNOGE0WUZ0UVRyeHV2dHBJRzFzTUdnQlVnT0NBQnVwSHpybk5hRV9PVHhWa1E4ak9TaGVFbFlLSVNGRERqbFQ0UVh4WldETUJkLWhnczlOSDBCcDdwMGx0dmJ0QTBvY2d6X3F6SXIxRUxDX0hRWi12ZGxmRms4VzRETlprVHVmaHFjZi1fQjVGRjltZXhCOUo5R3ZPTVNVbWN2NHdWdzc5SERVUndJdU45cXZ6QnU?oc=5",
+   "ms": 1795720840000,
+   "time": "11/27 03:20"
+  },
   {
    "t": "Gold price stalls near $3,570 as Fed hike bets keep bulls at bay",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdzZVSG93aGxacWlMQ2dpMmFjcU5GSlhpallQMTMybWJJUDBRWERVRi1lOThfNHppeEJNME0xR0JSMUdlUWJQQlQyTVBnRlpoOUxVcDYyc3JlVHlOZkZCdGdFMWpzb2g2aE1NS3k1eU90bERCdWpVQWpPSUx0ZHBfcUNoSFNpb0IxVl9wZ1FYRWZDMVl3UkczOHpEQ1RZR2NpM0k0ck9UejVVR2VUcjZwRDNB?oc=5",
    "ms": 1795695475000,
    "time": "11/26 20:17"
-  },
-  {
-   "t": "Gold: Stronger Dollar and elevated US yields weigh on prices – ING",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQmZ4U0g3WWJ5eS1LYktKQVh4X2xJelNYSGUteC1FUWN6QXRwaWFjUE1TRnhWTXBYYnBnVlR0ZnFhU1NQOVRBaTJ0aUs3VlNOamZycjJBZl83WnFqY01iT01DQkw1UEw5UzR5QUEwa2NUNVRwT3oxaGVfY1FHMjgtdmZxbktPWUpJZ3U5UHRxNHBRMnR0S1pUTVA5OXdoSkl4TVE4S3Zzcnhkdw?oc=5",
-   "ms": 1795692988000,
-   "time": "11/26 19:36"
   }
  ]
 }
