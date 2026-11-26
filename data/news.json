@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 21:09 SGT",
+ "updated": "2026-11-26 21:23 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -12,13 +12,6 @@
    "url": "https://www.investing.com/analysis/gold-bulls-enter-another-wrong-password-200692389",
    "ms": 1795696740000,
    "time": "11/26 20:39"
-  },
-  {
-   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMkQwRkdhYk5oamJkQ0Rmdi1CMEVCbERfVjlLLTRORjNxUmk2Z3VBLVhVcENHZUR0a0c2N1NCWUlMTWozWXRZRld3a1YxNTBraVhXMmRnNDFxTkUxMFQ2X1puWHJBWURld3ktbUZva2lHT3gtenpTNEV3ZWxuaGN3X1V4N0RLYkpFTXhiZ1lJelJmY3c1bFhNcmNsblJ3S2wxNUZRMXZoYjg5UjJxNlhTUEJPXzBWdw?oc=5",
-   "ms": 1795693162000,
-   "time": "11/26 19:39"
   },
   {
    "t": "Gold: Stronger Dollar and elevated US yields weigh on prices – ING",
@@ -105,11 +98,18 @@
    "time": "11/26 15:36"
   },
   {
-   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain",
+   "t": "Gold struggles to recover as inflation keeps rate hike risks alive",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR3N0eFdXOVZRWXA0elVteDZkWFFJejdpUjBHdkIxMlMzaXNNRi11aXY2QzJzeHpuU0dseUtoZW5LN29MRDRsOXRMa3VVUUljNXcxU1hIMW9SUjM5UGxOeEFHYmFqT1dSTWowcjhNWHJHNWJUZW5HYXRoWTFfWTY0eVk2cWM3SGcxWExfSnh2anI1d0tDUzlCUnNaZDVfQzM5Zk5FNThuTDFjZ0dWd3BFRUtNNA?oc=5",
+   "ms": 1795672420000,
+   "time": "11/26 13:53"
+  },
+  {
+   "t": "Gold’s Next Resistance Near $3,660 Where VC PMI Meets the Square of 9",
    "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZzh4NXFEZi1yYzF2OVBuUHZSU1p1T01nZjNPaVlMZnVneXlRM0RKalUwR2Jra01XQVpEYkNnWG9GQWlIbndkQ0xVR1RHak4tUVFhbWJTU3VwUGxsMm1jVnNibmVTTHVwZHh1Q2xtYVZmRWlLWWk3RkJrVlZidTJjWU9BTFVwUGFVWnNrYS1CdjlZd2lSTXk2dkNvV1ZJOFJnd0wwRHRta1ZUVk9uSEwwSFNtbWhPeEU?oc=5",
-   "ms": 1795674917000,
-   "time": "11/26 14:35"
+   "url": "https://www.investing.com/analysis/golds-next-resistance-near-3660-where-vc-pmi-meets-the-square-of-9-200692357",
+   "ms": 1795670640000,
+   "time": "11/26 13:24"
   }
  ]
 }
