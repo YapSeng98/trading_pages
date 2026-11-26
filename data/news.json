@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 22:03 SGT",
+ "updated": "2026-11-26 22:17 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold slips, silver steadies as Fed rate hike expectations persist in holiday trading - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNXFfM3AxNjAxLVVEMXMzVEhVc3FvUXFNaDFuRlV6dmlTVEpsNGdDZU5VOGZZWTh5eUJ5dWQzZlByZ2ZIcE9nX01Tak5KRDN6Q1Z2Z3Jqbk9WYzVYZVVtVjNobWxndnFSZk02TXo3Vlk2Z0pDZUFGbDZKSE00SXpVYWlSVmZjdWZmQ2xxUTF2RzZnYllpUUhaYm1SV1dGa0o3SUZndmd4dlFQSXNWN0gzUnhUbDZlQQ?oc=5",
+   "ms": 1795701241000,
+   "time": "11/26 21:54"
+  },
   {
    "t": "Gold: Bulls Enter Another Wrong Password",
    "src": "Investing.com",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdzZVSG93aGxacWlMQ2dpMmFjcU5GSlhpallQMTMybWJJUDBRWERVRi1lOThfNHppeEJNME0xR0JSMUdlUWJQQlQyTVBnRlpoOUxVcDYyc3JlVHlOZkZCdGdFMWpzb2g2aE1NS3k1eU90bERCdWpVQWpPSUx0ZHBfcUNoSFNpb0IxVl9wZ1FYRWZDMVl3UkczOHpEQ1RZR2NpM0k0ck9UejVVR2VUcjZwRDNB?oc=5",
    "ms": 1795695475000,
    "time": "11/26 20:17"
+  },
+  {
+   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMkQwRkdhYk5oamJkQ0Rmdi1CMEVCbERfVjlLLTRORjNxUmk2Z3VBLVhVcENHZUR0a0c2N1NCWUlMTWozWXRZRld3a1YxNTBraVhXMmRnNDFxTkUxMFQ2X1puWHJBWURld3ktbUZva2lHT3gtenpTNEV3ZWxuaGN3X1V4N0RLYkpFTXhiZ1lJelJmY3c1bFhNcmNsblJ3S2wxNUZRMXZoYjg5UjJxNlhTUEJPXzBWdw?oc=5",
+   "ms": 1795693162000,
+   "time": "11/26 19:39"
   },
   {
    "t": "Gold: Stronger Dollar and elevated US yields weigh on prices – ING",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMklBMjBhbzhpckZGcl92UmZqcDh0ZUtySTVsSHBxekVPUmVUUEI4aTVET0ZfZWNwRTROaE1ORE5IYXZmZDIteExwdEhNclBWYnZ4SllwaHlJTHBhU0xNTVg4RnB1ZXYxbW5MMDlabWVXQ2w4SGVodnF5WnBINVVqRFlNR0NISldtU2pFUVMxbGNGdWxWVzRUZVhscC1lRzB1OXZCazZ2LWNFelBqVjhMQw?oc=5",
    "ms": 1795678887000,
    "time": "11/26 15:41"
-  },
-  {
-   "t": "Gold Futures Face Critical Test as $3,445 Support and $3,619 Resistance Loom",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-face-critical-test-as-3445-support-and-3619-resistance-loom-200692374",
-   "ms": 1795678560000,
-   "time": "11/26 15:36"
-  },
-  {
-   "t": "Gold struggles to recover as inflation keeps rate hike risks alive",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR3N0eFdXOVZRWXA0elVteDZkWFFJejdpUjBHdkIxMlMzaXNNRi11aXY2QzJzeHpuU0dseUtoZW5LN29MRDRsOXRMa3VVUUljNXcxU1hIMW9SUjM5UGxOeEFHYmFqT1dSTWowcjhNWHJHNWJUZW5HYXRoWTFfWTY0eVk2cWM3SGcxWExfSnh2anI1d0tDUzlCUnNaZDVfQzM5Zk5FNThuTDFjZ0dWd3BFRUtNNA?oc=5",
-   "ms": 1795672420000,
-   "time": "11/26 13:53"
   }
  ]
 }
