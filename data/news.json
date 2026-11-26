@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 23:38 SGT",
+ "updated": "2026-11-26 23:51 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -98,18 +98,18 @@
    "time": "11/26 16:23"
   },
   {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795679768000,
-   "time": "11/26 15:56"
-  },
-  {
    "t": "Gold Price Forecast: Rally Toward $3,600 or Another Fed-Driven Sell-Off?",
    "src": "Investing.com",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMklBMjBhbzhpckZGcl92UmZqcDh0ZUtySTVsSHBxekVPUmVUUEI4aTVET0ZfZWNwRTROaE1ORE5IYXZmZDIteExwdEhNclBWYnZ4SllwaHlJTHBhU0xNTVg4RnB1ZXYxbW5MMDlabWVXQ2w4SGVodnF5WnBINVVqRFlNR0NISldtU2pFUVMxbGNGdWxWVzRUZVhscC1lRzB1OXZCazZ2LWNFelBqVjhMQw?oc=5",
    "ms": 1795678887000,
    "time": "11/26 15:41"
+  },
+  {
+   "t": "Gold Futures Face Critical Test as $3,445 Support and $3,619 Resistance Loom",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-futures-face-critical-test-as-3445-support-and-3619-resistance-loom-200692374",
+   "ms": 1795678560000,
+   "time": "11/26 15:36"
   }
  ]
 }
