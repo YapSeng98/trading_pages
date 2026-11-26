@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 03:41 SGT",
+ "updated": "2026-11-27 04:35 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
@@ -189,24 +189,24 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-11-26 06:00 SGT",
-   "rsi": 51.5,
-   "atr": 18.44,
+   "rsi": 50.7,
+   "atr": 17.31,
    "ema20": 3566.3,
    "ema50": 3566.7,
-   "ema200": 3670.8,
-   "emaOrder": "交错",
+   "ema200": 3669.7,
+   "emaOrder": "空头排列",
    "range": {
     "top": 3607.1,
     "bottom": 3426.4,
-    "positionPct": 78
+    "positionPct": 77
    },
    "lastBreak": {
     "kind": "转折",
     "direction": "向上",
     "level": 3575.1,
-    "barsAgo": 20
+    "barsAgo": 21
    },
-   "turnsUpAbove": 3607.1,
+   "turnsUpAbove": 3586.3,
    "turnsDownBelow": 3552
   },
   {
@@ -243,8 +243,8 @@
   },
   {
    "price": 3586.3,
-   "what": "1小时近期小高点",
-   "strength": 1
+   "what": "1小时前高、1小时近期小高点",
+   "strength": 2
   },
   {
    "price": 3589.9,
@@ -253,16 +253,21 @@
   },
   {
    "price": 3607.1,
-   "what": "1小时牛旗关键位、1小时头肩顶关键位、1小时前高、1小时区间顶、4小时近期小高点",
-   "strength": 7
+   "what": "1小时牛旗关键位、1小时区间顶、4小时近期小高点",
+   "strength": 4
   },
   {
-   "price": 3629.3,
-   "what": "1小时头肩底关键位",
+   "price": 3614.7,
+   "what": "1小时头肩顶关键位",
    "strength": 2
   }
  ],
  "support": [
+  {
+   "price": 3565,
+   "what": "1小时近期小低点",
+   "strength": 1
+  },
   {
    "price": 3558,
    "what": "4小时区间中点",
@@ -270,18 +275,13 @@
   },
   {
    "price": 3552,
-   "what": "1小时前低、1小时近期小低点",
-   "strength": 2
+   "what": "1小时前低",
+   "strength": 1
   },
   {
    "price": 3502.7,
-   "what": "上周低点、周线区间底、4小时向下突破位",
-   "strength": 8
-  },
-  {
-   "price": 3496.9,
-   "what": "1小时头肩顶目标",
-   "strength": 1
+   "what": "上周低点、周线区间底、4小时向下突破位、1小时头肩顶目标",
+   "strength": 9
   },
   {
    "price": 3426.4,
