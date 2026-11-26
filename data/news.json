@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 03:40 SGT",
+ "updated": "2026-11-27 03:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Confidence Needs Rebuilding",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-confidence-needs-rebuilding-200692386",
+   "ms": 1795722060000,
+   "time": "11/27 03:41"
+  },
   {
    "t": "India’s central bank repatriates another 60 tonnes of gold in 2026 as share of FX reserves drops to 14.38%",
    "src": "Kitco",
@@ -89,13 +96,6 @@
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWRqOENWTDdTRlhRMjZkU3p2ZklwalpRS3g0bEZaMUNTMnBLdHJoZXRYMGVkbkJkZG9VMVVQZVZzR2h4MXptclBGVWtRNWNqbFRaVTZyMHlwbVEzN1R3T3FHYm5UV0RtSDQzLXYxa09EOGFhSzg3MTQwX3luelg4REFfOHhELWJmUGZaMXhNQ1c0SkpqdmpQcUFVd2V4VGFIZlVyUFBn?oc=5",
    "ms": 1795700136000,
    "time": "11/26 21:35"
-  },
-  {
-   "t": "Gold drifts lower as Fed rate-hike fears loom",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaS01cTRpU3QtN3AzeHN4UHdHdFQ3UTVFUzNqenpXcWdiMUdOU2lpQVh1bk1uWklCRTZSUHpJMExkY2ZPaUh1VVFXMnJFWnB6TVhmNjV4Mm1jbU02X0hBcERnMm8xb204NE5QNTYtbkwwZVM2YUNpNl82NzlUTzRfUVZYelBVRXlRX0FtOUh6U3JYaEpIR2ZMNA?oc=5",
-   "ms": 1795698199000,
-   "time": "11/26 21:03"
   },
   {
    "t": "Gold: Bulls Enter Another Wrong Password",
