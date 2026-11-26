@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 15:31 SGT",
+ "updated": "2026-11-26 15:45 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Price Forecast: Rally Toward $3,600 or Another Fed-Driven Sell-Off?",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMklBMjBhbzhpckZGcl92UmZqcDh0ZUtySTVsSHBxekVPUmVUUEI4aTVET0ZfZWNwRTROaE1ORE5IYXZmZDIteExwdEhNclBWYnZ4SllwaHlJTHBhU0xNTVg4RnB1ZXYxbW5MMDlabWVXQ2w4SGVodnF5WnBINVVqRFlNR0NISldtU2pFUVMxbGNGdWxWVzRUZVhscC1lRzB1OXZCazZ2LWNFelBqVjhMQw?oc=5",
+   "ms": 1795678887000,
+   "time": "11/26 15:41"
+  },
   {
    "t": "Gold Outlook: US Dollar Fatigue Opens the Door to a Squeeze",
    "src": "Investing.com",
@@ -21,6 +28,13 @@
    "time": "11/26 14:56"
   },
   {
+   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZzh4NXFEZi1yYzF2OVBuUHZSU1p1T01nZjNPaVlMZnVneXlRM0RKalUwR2Jra01XQVpEYkNnWG9GQWlIbndkQ0xVR1RHak4tUVFhbWJTU3VwUGxsMm1jVnNibmVTTHVwZHh1Q2xtYVZmRWlLWWk3RkJrVlZidTJjWU9BTFVwUGFVWnNrYS1CdjlZd2lSTXk2dkNvV1ZJOFJnd0wwRHRta1ZUVk9uSEwwSFNtbWhPeEU?oc=5",
+   "ms": 1795674917000,
+   "time": "11/26 14:35"
+  },
+  {
    "t": "Gold eases as U.S. inflation data reinforces Fed rate-hike bets",
    "src": "Investing.com UK",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNc0ItcXotNHJHMWNxUFdka0ZjaFpaaVNVTFdsOXNXY3dtbUxYUXFaemtnS1NlQ0lfODB0WDl6dTZEajEzYzVvcFJJbEtOc0ozbGdyWS1KcklZcHRFMVhpbF9heXJXTU9Jc0RQR1dzcm90Y3hTcFRvdUN6LUgtWUctdDZ0c2ZFaEhNOUN5OVRxc0loMXFYdUgtRzBfU2E0REpRNXRobVRCRkhOWkFhSExLNy1oQjZHdw?oc=5",
@@ -33,6 +47,13 @@
    "url": "https://www.investing.com/analysis/golds-next-resistance-near-3660-where-vc-pmi-meets-the-square-of-9-200692357",
    "ms": 1795670640000,
    "time": "11/26 13:24"
+  },
+  {
+   "t": "Gold Falls as Dollar Strengthens Amid Investors’ Retreat From Technology Stocks By Kedia Advisory",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPb0ZMVWQ3d3NfMUpaWTJBemo5elMzcHI1MTNOTDBKdjRKZ0otdmxpWDVzV1huaHpQZ2JnTzR3WExIVmtFblJVYjhodmtBUDNXOEFudGsxRXZRMFM0cjZtcEdodHhMYkFGMml4aEhjd21ELTV1Z1lPMHh3TzhkU3oxbW9BaElMNHM2bmpSemlQd01EdGM5NlE2ajB2czYxYTZnbTBFT0ZKdTlvUGlzNkE5OUc1OW5NZUh2UWlXSFRPZU90MHNpUzZvSWxLeFVZdw?oc=5",
+   "ms": 1795670022000,
+   "time": "11/26 13:13"
   },
   {
    "t": "Gold Weakens as Tariff Fears and Inflation Revive Rate Concerns",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbGtReWc2Z1pvTnk0NlczM3RfX1pnRE9pdUY2S0drWHI1dVhsSWszbFFtTzJGa0g5c2tNR1RIZ2lkaW8zRDlUNTJlalJSOVhhRWFwZTd1U2NnbnVtUWlLOHk3V3UycWZNZGY4dTh4OC16cjlnazFkYkt0UVZleHU4NFEwVk5jSmppY2VaaDYtMDI0cFZwX2pBM3RpZFRfcERfQTE0RV9OVVl6T2pCN3dvUXQyRmVwZVk5dHc?oc=5",
    "ms": 1795643751000,
    "time": "11/26 05:55"
-  },
-  {
-   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
-   "ms": 1795641911000,
-   "time": "11/26 05:25"
-  },
-  {
-   "t": "Gold sinks despite falling US yields as core PCE hits 3.3%",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOc3lNSXJsTVNvNVpGT08tV2pLNV9RQ2MwSnZvbU5Nd2l6OWY2Y1lNQTZSRTExTkZCdnFCLU1ScHY2RXRlQU5OQnF2eEJWRnVOd1dWejI1eng5RHdJMi15YlhMb3A0V2loMjExN1FkLTd4X2hxTHI1MFpQSDVGQ1lYbWhWV29tekhwVW51NlNLeGt5Z1MwRjZNSEplTUdnWndy?oc=5",
-   "ms": 1795635219000,
-   "time": "11/26 03:33"
-  },
-  {
-   "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-38-collapse-exposes-the-cost-of-higher-interest-rates-200692330",
-   "ms": 1795633740000,
-   "time": "11/26 03:09"
   }
  ]
 }
