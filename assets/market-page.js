@@ -1556,7 +1556,29 @@
   // a turning price, the turn confirmed at the close, the answer changing); chart patterns (reference); the small
   // timeframes. The owner asked on 2026-10-23 for trend changes too, and on 2026-11-18 for faster word of a possible
   // bullish or bearish turn on the daily and 4-hour, and for the chart pattern with every alert.
-  S.nopt = Object.assign({ signal: true, soon: true, pre: true, verdict: true, big: true, pattern: true, pat1h: false, h1: true, small: false }, LS.get("notifyOpts", {}));
+  S.nopt = Object.assign({ strong: true, signal: true, soon: true, pre: true, verdict: true, big: true, pattern: true, pat1h: false, h1: true, small: false }, LS.get("notifyOpts", {}));
+  // Strong signals only (owner, 2026-11-26: "dun keep alert with not strong signal, the rate should be more than 70%"): on
+  // by default, and switched on once for everyone who had changed the ticks before. Strong means the rule's own signal on
+  // gold, the one way in the replay with an edge; Bitcoin's was not proven, so there it leaves only the visitor's own
+  // price levels. research/xau-replay/winrate_check.js (`winrate` in data/xau-backtest.json) found no way to a 70% win
+  // rate that keeps the edge: the box below quotes it.
+  var STRONG = M.id === "xau";
+  if (LS.get("notifyVer", 1) < 3) { LS.set("notifyVer", 3); S.nopt.strong = true; LS.set("notifyOpts", S.nopt); }
+  S.bt = null;
+  fetch("data/" + M.id + "-backtest.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (!d) return; S.bt = d; if ($("v-alert") && $("v-alert").firstChild) renderAlert(); }).catch(function () {});
+  function strongBox() {
+    var cb = h("input", { type: "checkbox", id: "nopt-strong" }); cb.checked = !!S.nopt.strong;
+    cb.addEventListener("change", function () { S.nopt.strong = cb.checked; LS.set("notifyOpts", S.nopt); renderAlert(); paintAlBtn(); });
+    var m = S.bt && S.bt.rules && S.bt.rules.go3r, w = S.bt && S.bt.winrate, x = w ? w.exits.filter(function (e) { return e.key === "fix0.33"; })[0] : null, box = h("div", { class: "al-strong" });
+    box.appendChild(h("label", { class: "al-o", for: "nopt-strong" }, [cb, h("span", { text: tx("⭐ 只提醒强信号（推荐）", "⭐ Strong signals only (recommended)") })]));
+    box.appendChild(h("p", { text: !STRONG ? tx("比特币的信号在回放里没有被证实（仅观察），不算强信号：开着这一项时，比特币页只提醒你自己设的价位。", "Bitcoin's signals were not proven in its replay (watch only), so they do not count as strong: with this on, the Bitcoin page alerts only your own price levels.")
+      : m ? (EN ? "Only when the rule's buy or sell signal appears (all five timeframes agree), and at your own price levels. In the replay " + m.n + " such trades won " + Math.round(m.win) + "% and made " + sgn(m.avgR, 2) + "R each: winners " + sgn(m.avgWin, 1) + "R on average, losers " + sgn(m.avgLoss, 1) + "R. That is how it makes money with fewer than half winning."
+        : "只在规则真正的买入 / 卖出信号出现时提醒（五个周期同向），加上你自己设的价位。回放里这种信号 " + m.n + " 笔，" + Math.round(m.win) + "% 赚，平均每笔 " + sgn(m.avgR, 2) + "R：赢的单平均 " + sgn(m.avgWin, 1) + "R，输的单平均 " + sgn(m.avgLoss, 1) + "R，所以赢不到一半也赚钱。")
+      : tx("只在规则真正的买入 / 卖出信号出现时提醒（五个周期同向），加上你自己设的价位。", "Only when the rule's buy or sell signal appears (all five timeframes agree), and at your own price levels.") }));
+    if (w && x) box.appendChild(h("p", { class: "al-why", text: EN ? "Why not 70% winners: with a 0.33R target the same signals win " + Math.round(x.win) + "% but average " + sgn(x.avgR, 2) + "R a trade, a loss. In " + w.from.slice(0, 4) + "–" + w.to.slice(0, 4) + " no reading at the signal raised the share that went +1R before −1R above " + Math.round(w.range1R.hi) + "% (all signals: " + Math.round(w.base1R.hit) + "%), so no filter makes them 70% right."
+      : "为什么不做 70% 胜率：同样的信号把目标放近到 0.33R，胜率能到 " + Math.round(x.win) + "%，但平均每笔 " + sgn(x.avgR, 2) + "R，是亏的。" + w.from.slice(0, 4) + "–" + w.to.slice(0, 4) + " 年里，没有哪个入场时能看到的条件能让「先赚 1R 再亏 1R」的比例超过 " + Math.round(w.range1R.hi) + "%（全部信号是 " + Math.round(w.base1R.hit) + "%），所以没有过滤条件能把它变成七成准。" }));
+    return box;
+  }
   var NGROUPS = EN ? [
     ["Signals", "the rule's own entries", [["signal", "A new buy / sell signal", "the moment all five timeframes agree, with stop and target"], ["soon", "Early word before a signal", "price already on the signal's side, that candle not closed yet"]]],
     ["Daily and 4-hour: the earliest word", "a possible bullish or bearish turn", [["pre", "May turn: as soon as price crosses the daily or 4-hour turning price", "before the candle closes; after the close you are told whether it turned. Not a signal"], ["big", "Turn confirmed at the close (weekly, daily, 4-hour)", "HH→LL or LL→HH, with what the daily and 4-hour say together"], ["verdict", "The answer changing", "e.g. a signal ending, the big trends splitting"]]],
@@ -1576,11 +1598,13 @@
     var t = h("div", { class: "t" });
     if (on) {
       t.appendChild(h("b", { text: tx("🔔 提醒已开，刷新或重开浏览器后也一直开着。", "🔔 Alerts are on, and stay on after a reload or a browser restart. ") })); t.appendChild(document.createTextNode(tx("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。", "With this page open (in the background is fine) it checks every 15 minutes and notifies you of what is ticked below. Phone browsers pause background pages; a computer is the most reliable.")));
-      var grp = h("div", { class: "al-grp" });
+      t.appendChild(strongBox());
+      if (S.nopt.strong) t.appendChild(h("p", { class: "al-offnote", text: tx("下面这些不是强信号：关掉「只提醒强信号」才能勾选。", "The kinds below are not strong signals: switch off «Strong signals only» to tick them.") }));
+      var grp = h("div", { class: "al-grp" + (S.nopt.strong ? " off" : "") });
       NGROUPS.forEach(function (g) {
         var box = h("div", { class: "al-g" }, [h("div", { class: "al-gh" }, [h("b", { text: g[0] }), h("span", { text: g[1] })])]);
         g[2].forEach(function (o) {
-          var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]];
+          var cb = h("input", { type: "checkbox", id: "nopt-" + o[0] }); cb.checked = !!S.nopt[o[0]]; cb.disabled = !!S.nopt.strong;
           cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; LS.set("notifyOpts", S.nopt); });
           box.appendChild(h("label", { class: "al-o", for: "nopt-" + o[0] }, [cb, h("span", null, [o[1], o[2] ? h("small", { text: o[2] }) : null])]));
         });
@@ -1610,7 +1634,7 @@
     } else acts.appendChild(h("button", { type: "button", class: "btn sm pri", text: S.notify && Notification.permission === "default" ? tx("允许通知", "Allow notifications") : tx("开启提醒", "Turn on alerts"), onclick: function () {
       S.notify = true; LS.set("notify", true); ensureAudio(); askPermission(); renderAlert();
     } }));
-    var first = t.querySelector(".al-grp"); if (first) t.insertBefore(acts, first); else t.appendChild(acts);
+    var first = t.querySelector(".al-strong") || t.querySelector(".al-grp"); if (first) t.insertBefore(acts, first); else t.appendChild(acts);
     el.appendChild(t);
   }
   // The chime. Browsers let a page make sound only after the visitor has clicked or typed on it since it was
@@ -1687,6 +1711,7 @@
   function sendAlert(a) {
     var own = !!a.own, granted = NOTE_OK && Notification.permission === "granted";
     if (!own && !alertsOn()) return null;
+    if (!own && a.kind !== "test" && S.nopt.strong && !(a.kind === "signal" && STRONG)) return null;   // strong signals only: the rule's gold signal and the visitor's own levels
     var rec = null;
     if (AK) { rec = AK.send(Object.assign({ market: M.id, name: M.name }, a)); if (!rec) return null; }      // null: already sent from another tab
     else if (granted) { try { var n = new Notification(a.title, { body: (a.lines || []).filter(Boolean).join("\n"), tag: a.tag, renotify: true, requireInteraction: true }); n.onclick = function () { try { window.focus(); } catch (e) {} n.close(); }; } catch (e) {} }
@@ -2019,10 +2044,16 @@
       lines: [EN ? "All five timeframes are " + (buy ? "up" : "down") + " (weekly, daily, 4-hour, 1-hour, 15-min): the rule's " + (buy ? "buy" : "sell") + " signal." : "五个周期都" + (buy ? "向上" : "向下") + "（周线、日线、4 小时、1 小时、15 分钟）：规则的" + (buy ? "买入" : "卖出") + "信号。",
         k ? (EN ? (buy ? "Buy" : "Sell") + " about " + f1(S.live) + ", stop " + f1(k.stop) + ", target " + f1(k.tp1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price." : (buy ? "买入" : "卖出") + "约 " + f1(S.live) + "，止损 " + f1(k.stop) + "，目标 " + f1(k.tp1) + "（3R）；或不设目标，每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。") : "",
         (wd.exitNote ? wd.exitNote + (EN ? " " : "") : "") + (nw && nw.ok === false ? tx("注意：", "Note: ") + nw.detail + tx("。", ". ") : "") + tx("点开看计划和手数。", "Open the page for the plan and the lot size."),
-        patSentence(patFor("1H"))],
+        strongLine(), patSentence(patFor("1H"))],
       chart: alertChart("1H", k ? [{ v: k.stop, kind: "stop", label: tx("止损", "stop") }, { v: k.tp1, kind: "tgt", label: tx("目标 3R", "target 3R") }] : [], { what: EN ? (buy ? "buy" : "sell") + " signal" : (buy ? "买入" : "卖出") + "信号" }) });
   }
 
+  // what a strong signal has done before: the replay's win rate and its winners against its losers
+  function strongLine() {
+    var m = STRONG && S.bt && S.bt.rules && S.bt.rules.go3r; if (!m) return "";
+    return EN ? "Strong signal: in the replay such signals won " + Math.round(m.win) + "%, " + sgn(m.avgR, 2) + "R a trade on average (winners " + sgn(m.avgWin, 1) + "R, losers " + sgn(m.avgLoss, 1) + "R)."
+      : "强信号：回放里这种信号 " + Math.round(m.win) + "% 赚，平均每笔 " + sgn(m.avgR, 2) + "R（赢的单 " + sgn(m.avgWin, 1) + "R，输的单 " + sgn(m.avgLoss, 1) + "R）。";
+  }
   // The answer moving from one state to another (a new "go" has its own alert above): e.g. the signal fading to
   // "wait for the small timeframes", or the big three falling out of line.
   function levelCheck(V, unconfirmed) {
@@ -2520,7 +2551,7 @@
       { id: "log", label: tx("提醒记录", "Record"), el: log }] });
     if (home && home.parentNode) home.parentNode.removeChild(home);
     AK.view(log, { markets: [M.id] });
-    window.AlertPopup = { open: function (tab) { ensureAudio(); askPermission(); POP.open(tab || (AK.unread([M.id]) ? "log" : null)); }, state: function () { return { on: alertsOn(), n: AK.unread([M.id]) }; } };
+    window.AlertPopup = { open: function (tab) { ensureAudio(); askPermission(); POP.open(tab || (AK.unread([M.id]) ? "log" : null)); }, state: function () { return { on: alertsOn() && (STRONG || !S.nopt.strong), n: AK.unread([M.id]) }; } };
     AK.onOpen(function () { POP.open("log"); });
     AK.onChange(paintAlBtn); paintAlBtn(); setInterval(paintAlBtn, 60000);
   }
@@ -2530,7 +2561,7 @@
     if (POP) POP.badge("log", AK.unread([M.id]));
     try { document.dispatchEvent(new CustomEvent("alerts:change")); } catch (e) {}
   }
-  function beat() { if (AK) AK.watching(M.id, { on: alertsOn(), perm: NOTE_OK ? Notification.permission : "none", own: palList().filter(function (a) { return !a.at; }).length }); }
+  function beat() { if (AK) AK.watching(M.id, { on: alertsOn() && (STRONG || !S.nopt.strong), perm: NOTE_OK ? Notification.permission : "none", own: palList().filter(function (a) { return !a.at; }).length }); }
   syncInputs(); renderArm(); renderPlan(); renderSaved(); renderSessions(); renderProof(); renderPos(); showTab(S.tab); renderAlert(); setupPopup(); beat(); setInterval(beat, 60000);
   refresh(); loadContext(); loadSnapshot(); loadProof(); loadNews(); loadOdds();
   connectStream(); setTimeout(loop, 30000);

@@ -300,7 +300,10 @@
   // scan finds more than three, the two that matter most are sent and one summary names the rest, all kept in the record.
   // Each says the forex replay lost money: reference only.
   var AK = window.AlertKit || null, AW = AK ? AK.words : null;
-  S.nopt = Object.assign({ signal: true, soon: true, pre: true, turn: true, pattern: true }, ls.get("nopt", {}));
+  S.nopt = Object.assign({ strong: true, signal: true, soon: true, pre: true, turn: true, pattern: true }, ls.get("nopt", {}));
+  // Strong signals only (owner, 2026-11-26: "dun keep alert with not strong signal"): on by default, switched on once for
+  // everyone. The rule lost money on forex in its replay, so forex has no strong signal: with this on the page alerts nothing.
+  if (ls.get("notifyVer", 1) < 3) { ls.set("notifyVer", 3); S.nopt.strong = true; ls.set("nopt", S.nopt); }
   S.npairs = ls.get("npairs", null);                                             // null: every pair
   S.prevDirs = {}; S.patPrev = {};
   var REF = tr("外汇回放里这个规则不赚钱，只作参考。", "The rule lost money in the forex replay: reference only.");
@@ -468,7 +471,7 @@
   }
   // up to three as they are; more: the two that matter most, then one summary of the rest (each kept in the record)
   function sendAll(list) {
-    if (!AK || !list.length) return;
+    if (!AK || !list.length || S.nopt.strong) return;                             // strong signals only: forex has none
     list.sort(function (a, b) { return a.prio - b.prio; });
     var loud = list.length > 3 ? list.slice(0, 2) : list, quiet = [];
     loud.forEach(function (e) { var rec = AK.send(Object.assign({ market: "fx", page: "forex.html" }, e)); if (rec && e.after) e.after(rec); });
@@ -511,7 +514,7 @@
       var log = h("div", { class: "al-log", id: "fx-allog" });
       POP = AK.popup({ id: "fx-dlg", title: tr("🔔 外汇提醒", "🔔 Forex alerts"), markets: ["fx"], tabs: [{ id: "set", label: tr("提醒设置", "Settings"), el: h("div", { id: "fx-alset" }) }, { id: "log", label: tr("提醒记录", "Record"), el: log }] });
       AK.view(log, { markets: ["fx"] }); AK.onOpen(function () { POP.open("log"); }); AK.onChange(paintFxBtn);
-      window.AlertPopup = { open: function (tab) { POP.open(tab || (AK.unread(["fx"]) ? "log" : null)); }, state: function () { return { on: !!S.notify && granted(), n: AK.unread(["fx"]) }; } };
+      window.AlertPopup = { open: function (tab) { POP.open(tab || (AK.unread(["fx"]) ? "log" : null)); }, state: function () { return { on: !!S.notify && granted() && !S.nopt.strong, n: AK.unread(["fx"]) }; } };
       paintFxBtn();
     }
     var opt = $("fx-alset"), ok = granted(), perm = "Notification" in window ? Notification.permission : "none";
@@ -528,11 +531,19 @@
     sw.appendChild(acts);
     opt.appendChild(sw);
     if (!S.notify) return;
-    var grp = h("div", { class: "al-grp" });
+    var sb = h("div", { class: "al-strong" }), scb = h("input", { type: "checkbox", id: "fxn-strong" }); scb.checked = !!S.nopt.strong;
+    scb.addEventListener("change", function () { S.nopt.strong = scb.checked; ls.set("nopt", S.nopt); renderAlert(); paintFxBtn(); });
+    sb.appendChild(h("label", { class: "al-o", for: "fxn-strong" }, [scb, h("span", { text: tr("⭐ 只提醒强信号（推荐）", "⭐ Strong signals only (recommended)") })]));
+    var fr = S.fxRes;
+    sb.appendChild(h("p", { text: fr && fr.n ? (EN ? "Forex has no strong signal: in its replay this rule made " + (fr.avgR >= 0 ? "+" : "−") + Math.abs(fr.avgR).toFixed(2) + "R a trade over " + fr.n + " trades. With this on, the forex page sends no alerts; switch it off to get the kinds below as reference."
+      : "外汇没有强信号：这个规则在外汇回放里 " + fr.n + " 笔平均每笔 " + (fr.avgR >= 0 ? "+" : "−") + Math.abs(fr.avgR).toFixed(2) + "R。开着这一项时外汇页不发任何提醒；想要下面这些参考提醒，就把它关掉。")
+      : tr("外汇没有强信号（这个规则在外汇回放里不赚钱）。开着这一项时外汇页不发任何提醒；想要下面这些参考提醒，就把它关掉。", "Forex has no strong signal (the rule lost money in the forex replay). With this on, the forex page sends no alerts; switch it off to get the kinds below as reference.") }));
+    opt.appendChild(sb);
+    var grp = h("div", { class: "al-grp" + (S.nopt.strong ? " off" : "") });
     NG.forEach(function (g) {
       var gb = h("div", { class: "al-g" }, [h("div", { class: "al-gh" }, [h("b", { text: g[0] }), h("span", { text: g[1] })])]);
       g[2].forEach(function (o) {
-        var cb = h("input", { type: "checkbox", id: "fxn-" + o[0] }); cb.checked = !!S.nopt[o[0]];
+        var cb = h("input", { type: "checkbox", id: "fxn-" + o[0] }); cb.checked = !!S.nopt[o[0]]; cb.disabled = !!S.nopt.strong;
         cb.addEventListener("change", function () { S.nopt[o[0]] = cb.checked; ls.set("nopt", S.nopt); });
         gb.appendChild(h("label", { class: "al-o", for: "fxn-" + o[0] }, [cb, h("span", null, [o[1], h("small", { text: o[2] })])]));
       });
@@ -562,7 +573,7 @@
       lines: [tr("这是一条测试通知：真的提醒会像这样弹出，带一张那一刻的图。", "This is a test notification: a real alert pops up like this, with a picture of the chart at that moment."), r ? (fxPatLine(r, q) || tr("这个货币对现在日线、4 小时、1 小时都没有清楚的形态。", "This pair has no clear pattern on the daily, 4-hour or 1-hour right now.")) : "", REF],
       chart: r ? fxChart(r, q ? q.tf : "4H", [], { what: tr("测试", "test") }) : null });
   }
-  function beat() { if (AK) AK.watching("fx", { on: S.notify && granted(), perm: "Notification" in window ? Notification.permission : "none", pairs: Array.isArray(S.npairs) ? S.npairs.length : PAIRS.length }); }
+  function beat() { if (AK) AK.watching("fx", { on: S.notify && granted() && !S.nopt.strong, perm: "Notification" in window ? Notification.permission : "none", pairs: Array.isArray(S.npairs) ? S.npairs.length : PAIRS.length }); }
   beat(); setInterval(beat, 60000);
   $("fx-refresh").addEventListener("click", function () { scan(); });
   [["fx-bal", "balance"], ["fx-risk", "riskPct"], ["fx-lev", "lev"]].forEach(function (m) {
@@ -578,6 +589,7 @@
   var getJ = function (u) { return fetch(u, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); };
   Promise.all([getJ("research/forex/result.json"), getJ("research/forex/edges/result.json"), getJ("research/forex/speed-result.json")]).then(function (res) {
     var d = res[0], e = res[1], sp = res[2] && res[2].versions;
+    if (d && d.n) { S.fxRes = d; if (POP) renderAlert(); }
     if (!d || !d.n || !d.gold) return;
     var el = $("fx-proof"), R = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(2) + "R"; }, ym = function (s) { var p = String(s).split("-"); return EN ? ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][+p[1] - 1] + " " + p[0] : p[0] + " 年 " + +p[1] + " 月"; };
     var bp = function (v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + " bp"; };

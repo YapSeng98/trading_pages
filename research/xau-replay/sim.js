@@ -92,6 +92,7 @@ function trade(sg, X, o) {
   let A, Bt;                                                             // first and second target
   if (o.mgmt === "trail") { A = dir > 0 ? Infinity : -Infinity; Bt = NaN; }
   else if (o.mgmt === "fix") { A = entry + dir * o.fixR * risk; Bt = NaN; }
+  else if (o.mgmt === "scale") { A = entry + dir * o.halfR * risk; Bt = o.restR ? entry + dir * o.restR * risk : (dir > 0 ? Infinity : -Infinity); }   // half off at halfR, stop to entry, the rest at restR (or trailing / the regime exit)
   else if (o.mgmt === "tp1") { A = near; Bt = NaN; }
   else if (o.mgmt === "tp2") { A = far; Bt = NaN; }
   else { A = near; Bt = far === near ? NaN : far; }
@@ -138,7 +139,7 @@ function trade(sg, X, o) {
     if (o.beAt && ((dir > 0 ? bh - entry : entry - al) >= o.beAt * risk)) { if (dir > 0) stop = Math.max(stop, entry); else stop = Math.min(stop, entry); }
   }
   if (left > 0) { const kk = Math.min(k, X.n - 1); pnl += left * (dir > 0 ? X.c[kk] - aB - entry : entry - (X.c[kk] + aA)); exitT = X.t[kk] + bs; }
-  if (why === "stop" && left === 0 && pnl > -1e-9 && o.mgmt === "half") why = "breakeven";
+  if (why === "stop" && left === 0 && pnl > -1e-9 && (o.mgmt === "half" || o.mgmt === "scale")) why = "breakeven";
   // overnight financing: charged at each 17:00 New York roll, Monday to Friday, three nights' worth on Wednesday
   let nights = 0;
   if (o.swapLong || o.swapShort || o.swapRate || o.swapRateShort) {

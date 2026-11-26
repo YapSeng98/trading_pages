@@ -91,6 +91,10 @@
     }
     if (Q.old) row(tr("区间 / 缺口回调 + 15 分钟转折（网站以前的信号）", "Range / gap pullback + 15-minute turn (the site's old signal)"), Q.old.avgR, Q.old.n, EN ? pct(Q.old.win) + " won, and still lost" : "胜率 " + pct(Q.old.win) + "，照样亏");
     if (own) row(tr("图表形态，按形态自己的入场、止损和目标", "Chart patterns, with their own entry, stop and target"), own.avgR, own.n, EN ? pct(own.win) + " won; made little, lost more" : "胜率 " + pct(own.win) + "，赚得少、亏得多");
+    // a 70% win rate (research/xau-replay/winrate_check.js, owner 2026-11-26): only by taking profit early, which loses the edge
+    var wr = bt.winrate, w33 = wr && wr.exits.filter(function (e) { return e.key === "fix0.33"; })[0];
+    if (w33) row(tr("为了 70% 胜率把目标放近（0.33R）", "Taking profit early for a 70% win rate (0.33R target)"), w33.avgR, w33.n, EN ? pct(w33.win) + " won, and still lost; no reading at the signal raised the share going +1R before −1R above " + Math.round(wr.range1R.hi) + "% (all signals " + Math.round(wr.base1R.hit) + "%)"
+      : "胜率 " + pct(w33.win) + "，照样亏；入场时能看到的条件，没有一个能让「先赚 1R 再亏 1R」超过 " + Math.round(wr.range1R.hi) + "%（全部信号 " + Math.round(wr.base1R.hit) + "%）");
     if (st.ST1) row(tr("短线：15 分钟顺势", "Short-term: 15-minute with the trend"), st.ST1.avgR, st.ST1.n);
     if (st.ST2) row(tr("短线：亚洲盘区间突破", "Short-term: Asian-range breakout"), st.ST2.avgR, st.ST2.n);
     if (st.ST3) row(tr("短线：昨日高低点突破", "Short-term: yesterday's high/low break"), st.ST3.avgR, st.ST3.n);

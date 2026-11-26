@@ -1702,5 +1702,470 @@
   "variantsPositive": 34,
   "variants": 34,
   "note": "research/xau-replay/proof_check.js：随机进场按一次一笔算；deflated Sharpe 按约 50 个看过的变体算；pbo 用 CSCV、整年为块。"
+ },
+ "winrate": {
+  "asked": 70,
+  "from": "2011-02-20",
+  "to": "2026-10-23",
+  "signals": 1395,
+  "exits": [
+   {
+    "name": "target 0.33R",
+    "key": "fix0.33",
+    "n": 1115,
+    "win": 73,
+    "avgR": -0.035,
+    "rPerYear": -2.5,
+    "maxDD": 44.7,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 535,
+      "win": 72.9,
+      "avgR": -0.035
+     },
+     {
+      "label": "2019-2023",
+      "n": 359,
+      "win": 72.7,
+      "avgR": -0.039
+     },
+     {
+      "label": "2024-",
+      "n": 221,
+      "win": 73.8,
+      "avgR": -0.028
+     }
+    ]
+   },
+   {
+    "name": "target 0.5R",
+    "key": "fix0.5",
+    "n": 1023,
+    "win": 65.4,
+    "avgR": -0.028,
+    "rPerYear": -1.8,
+    "maxDD": 46.3,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 494,
+      "win": 65.8,
+      "avgR": -0.019
+     },
+     {
+      "label": "2019-2023",
+      "n": 327,
+      "win": 64.2,
+      "avgR": -0.047
+     },
+     {
+      "label": "2024-",
+      "n": 202,
+      "win": 66.3,
+      "avgR": -0.017
+     }
+    ]
+   },
+   {
+    "name": "target 1R",
+    "key": "fix1",
+    "n": 818,
+    "win": 51.3,
+    "avgR": 0.009,
+    "rPerYear": 0.5,
+    "maxDD": 32.7,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 385,
+      "win": 50.1,
+      "avgR": -0.011
+     },
+     {
+      "label": "2019-2023",
+      "n": 265,
+      "win": 52.5,
+      "avgR": 0.027
+     },
+     {
+      "label": "2024-",
+      "n": 168,
+      "win": 52.4,
+      "avgR": 0.028
+     }
+    ]
+   },
+   {
+    "name": "target 3R (the rule)",
+    "key": "fix3",
+    "n": 495,
+    "win": 30.9,
+    "avgR": 0.182,
+    "rPerYear": 5.7,
+    "maxDD": 38,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 224,
+      "win": 27.7,
+      "avgR": 0.067
+     },
+     {
+      "label": "2019-2023",
+      "n": 169,
+      "win": 30.2,
+      "avgR": 0.151
+     },
+     {
+      "label": "2024-",
+      "n": 102,
+      "win": 39.2,
+      "avgR": 0.484
+     }
+    ]
+   },
+   {
+    "name": "half at 0.33R, rest trailing",
+    "key": "scale0.33",
+    "n": 765,
+    "win": 73.3,
+    "avgR": 0.026,
+    "rPerYear": 1.3,
+    "maxDD": 24.7,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 356,
+      "win": 73.9,
+      "avgR": 0.043
+     },
+     {
+      "label": "2019-2023",
+      "n": 261,
+      "win": 71.6,
+      "avgR": -0.029
+     },
+     {
+      "label": "2024-",
+      "n": 148,
+      "win": 75,
+      "avgR": 0.084
+     }
+    ]
+   },
+   {
+    "name": "half at 0.75R, rest trailing",
+    "key": "scale0.75",
+    "n": 533,
+    "win": 58,
+    "avgR": 0.1,
+    "rPerYear": 3.4,
+    "maxDD": 19.2,
+    "segments": [
+     {
+      "label": "2011-2018",
+      "n": 259,
+      "win": 58.3,
+      "avgR": 0.058
+     },
+     {
+      "label": "2019-2023",
+      "n": 180,
+      "win": 55.6,
+      "avgR": 0.07
+     },
+     {
+      "label": "2024-",
+      "n": 94,
+      "win": 61.7,
+      "avgR": 0.272
+     }
+    ]
+   }
+  ],
+  "features": [
+   {
+    "name": "side",
+    "buckets": [
+     {
+      "bucket": "long",
+      "n": 503,
+      "hit": 51.3,
+      "worstPeriod": 48.3
+     },
+     {
+      "bucket": "short",
+      "n": 315,
+      "hit": 51.4,
+      "worstPeriod": 33.3
+     }
+    ]
+   },
+   {
+    "name": "daily EMA stack",
+    "buckets": [
+     {
+      "bucket": "with",
+      "n": 587,
+      "hit": 50.9,
+      "worstPeriod": 48.4
+     },
+     {
+      "bucket": "mixed",
+      "n": 220,
+      "hit": 52.7,
+      "worstPeriod": 42.1
+     }
+    ]
+   },
+   {
+    "name": "4-hour EMA stack",
+    "buckets": [
+     {
+      "bucket": "with",
+      "n": 572,
+      "hit": 51,
+      "worstPeriod": 49.6
+     },
+     {
+      "bucket": "mixed",
+      "n": 234,
+      "hit": 53,
+      "worstPeriod": 50
+     }
+    ]
+   },
+   {
+    "name": "internal structures",
+    "buckets": [
+     {
+      "bucket": "4 of 4",
+      "n": 396,
+      "hit": 51.3,
+      "worstPeriod": 50.8
+     },
+     {
+      "bucket": "3 of 4",
+      "n": 368,
+      "hit": 51.4,
+      "worstPeriod": 48.9
+     },
+     {
+      "bucket": "2 of 4",
+      "n": 52,
+      "hit": 53.8,
+      "worstPeriod": 50
+     }
+    ]
+   },
+   {
+    "name": "1-hour RSI",
+    "buckets": [
+     {
+      "bucket": ">70",
+      "n": 153,
+      "hit": 54.9,
+      "worstPeriod": 50
+     },
+     {
+      "bucket": "<50",
+      "n": 99,
+      "hit": 42.4,
+      "worstPeriod": 37.7
+     },
+     {
+      "bucket": "50-60",
+      "n": 247,
+      "hit": 49.8,
+      "worstPeriod": 44.3
+     },
+     {
+      "bucket": "60-70",
+      "n": 319,
+      "hit": 53.6,
+      "worstPeriod": 48.5
+     }
+    ]
+   },
+   {
+    "name": "4-hour RSI",
+    "buckets": [
+     {
+      "bucket": ">70",
+      "n": 128,
+      "hit": 53.9,
+      "worstPeriod": 50
+     },
+     {
+      "bucket": "50-60",
+      "n": 272,
+      "hit": 51.1,
+      "worstPeriod": 48.9
+     },
+     {
+      "bucket": "60-70",
+      "n": 327,
+      "hit": 51.7,
+      "worstPeriod": 48.6
+     },
+     {
+      "bucket": "<50",
+      "n": 91,
+      "hit": 47.3,
+      "worstPeriod": 47.1
+     }
+    ]
+   },
+   {
+    "name": "daily range position",
+    "buckets": [
+     {
+      "bucket": "dear",
+      "n": 675,
+      "hit": 51.4,
+      "worstPeriod": 50.3
+     },
+     {
+      "bucket": "middle",
+      "n": 52,
+      "hit": 51.9,
+      "worstPeriod": 51.9
+     },
+     {
+      "bucket": "cheap",
+      "n": 91,
+      "hit": 50.5,
+      "worstPeriod": 48.1
+     }
+    ]
+   },
+   {
+    "name": "big three agreeing for",
+    "buckets": [
+     {
+      "bucket": "<1 day",
+      "n": 218,
+      "hit": 55.5,
+      "worstPeriod": 52.6
+     },
+     {
+      "bucket": "1-5 days",
+      "n": 185,
+      "hit": 44.3,
+      "worstPeriod": 36.7
+     },
+     {
+      "bucket": "5-20 days",
+      "n": 334,
+      "hit": 52.1,
+      "worstPeriod": 51.2
+     },
+     {
+      "bucket": ">20 days",
+      "n": 81,
+      "hit": 53.1,
+      "worstPeriod": 42.1
+     }
+    ]
+   },
+   {
+    "name": "daily volatility",
+    "buckets": [
+     {
+      "bucket": "<1.2%",
+      "n": 278,
+      "hit": 55.4,
+      "worstPeriod": 51.2
+     },
+     {
+      "bucket": "1.2-1.8%",
+      "n": 419,
+      "hit": 49.2,
+      "worstPeriod": 47.6
+     },
+     {
+      "bucket": ">1.8%",
+      "n": 121,
+      "hit": 49.6,
+      "worstPeriod": 44
+     }
+    ]
+   },
+   {
+    "name": "session",
+    "buckets": [
+     {
+      "bucket": "Asia",
+      "n": 250,
+      "hit": 51.2,
+      "worstPeriod": 44
+     },
+     {
+      "bucket": "New York",
+      "n": 321,
+      "hit": 49.5,
+      "worstPeriod": 48.3
+     },
+     {
+      "bucket": "London",
+      "n": 177,
+      "hit": 53.7,
+      "worstPeriod": 48.5
+     },
+     {
+      "bucket": "late",
+      "n": 70,
+      "hit": 54.3,
+      "worstPeriod": 53.1
+     }
+    ]
+   },
+   {
+    "name": "strength score 0-4",
+    "buckets": [
+     {
+      "bucket": "1",
+      "n": 136,
+      "hit": 51.5,
+      "worstPeriod": 46.7
+     },
+     {
+      "bucket": "2",
+      "n": 169,
+      "hit": 54.4,
+      "worstPeriod": 48.8
+     },
+     {
+      "bucket": "3",
+      "n": 253,
+      "hit": 51.4,
+      "worstPeriod": 50.5
+     },
+     {
+      "bucket": "4",
+      "n": 222,
+      "hit": 50,
+      "worstPeriod": 48.2
+     }
+    ]
+   }
+  ],
+  "base1R": {
+   "n": 818,
+   "hit": 51.3
+  },
+  "range1R": {
+   "lo": 42.4,
+   "hi": 55.5
+  },
+  "best": {
+   "feature": "session",
+   "bucket": "late",
+   "n": 70,
+   "hit": 54.3,
+   "worstPeriod": 53.1
+  },
+  "updated": "2026-11-26"
  }
 }
