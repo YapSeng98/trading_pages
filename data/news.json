@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-26 11:42 SGT",
+ "updated": "2026-11-26 11:55 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold steadies after hitting over 1-year low; Fed outlook in focus",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNczNWcXJNQVFwUEZ5UjlTc1o0ZFE5NVFYZzA2eTJURHRsMmRMRmc1LTZ1TWszbFYyN05QRHRiQ1VIb1ZxUE9pTUs5WDVya1M0WFJEQ3lCN3J0T3h4bndfa1NyZFB4VFFaby1NWVdRRlFZeGlKdDNnYkRZN0c0eFZQY3VSWS11NW9SbUdndElMZk9oNk1kd0haVWh0Rl9VcTA1MDg1REE1cHZXWk14Umc?oc=5",
+   "ms": 1795664340000,
+   "time": "11/26 11:39"
+  },
+  {
+   "t": "Gold eases as U.S. inflation data reinforces Fed rate-hike bets",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZzh4NXFEZi1yYzF2OVBuUHZSU1p1T01nZjNPaVlMZnVneXlRM0RKalUwR2Jra01XQVpEYkNnWG9GQWlIbndkQ0xVR1RHak4tUVFhbWJTU3VwUGxsMm1jVnNibmVTTHVwZHh1Q2xtYVZmRWlLWWk3RkJrVlZidTJjWU9BTFVwUGFVWnNrYS1CdjlZd2lSTXk2dkNvV1ZJOFJnd0wwRHRta1ZUVk9uSEwwSFNtbWhPeEU?oc=5",
+   "ms": 1795663356000,
+   "time": "11/26 11:22"
+  },
   {
    "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
    "src": "Bloomberg",
@@ -28,13 +42,6 @@
    "time": "11/26 05:55"
   },
   {
-   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
-   "ms": 1795642224000,
-   "time": "11/26 05:30"
-  },
-  {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
    "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
@@ -54,6 +61,13 @@
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOc3lNSXJsTVNvNVpGT08tV2pLNV9RQ2MwSnZvbU5Nd2l6OWY2Y1lNQTZSRTExTkZCdnFCLU1ScHY2RXRlQU5OQnF2eEJWRnVOd1dWejI1eng5RHdJMi15YlhMb3A0V2loMjExN1FkLTd4X2hxTHI1MFpQSDVGQ1lYbWhWV29tekhwVW51NlNLeGt5Z1MwRjZNSEplTUdnWndy?oc=5",
    "ms": 1795635219000,
    "time": "11/26 03:33"
+  },
+  {
+   "t": "Mayfair Gold prices $35M public offering to advance gold project By Investing.com",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTzNiaXZhLWFhLUs1X1oyUjlGS2VicVk4b1JpRGdRdUNmeExsTnJVLXFJeXFFWGdieEhOUEVsQWdSV0xxUEtyQ1Jsc0JfTExFbzlGRW9NcFJYRm84OExxVTJDRWczRHJyV09SanhBVzlVVzNTVXVEcnBDeUtxNmRCakcyUDFoTVFHVmlvX0FwUDZiV01obmctd0tUV2EzWU1jNG1MZHRwUjZ2a2haOEV4a1BNZzRfMGlmSGhpZmRBaGhTZw?oc=5",
+   "ms": 1795634280000,
+   "time": "11/26 03:18"
   },
   {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVW43SFhnN0VQZkdTa1l2a3BOVWRmZUdsVzVRN29JNWM5TDdLZElJMF9weE5ub1ZuVW5RTEJ3Sl9CNVZ2UUd4dXNJMURwamF1dTBhOWNjR2NTYTduMEVGanRmc2EyWXAwdXd0cVBKZF9hR0EwQzNTMzA4Z3VmWnh4VmR0T0JxN1c3aXp0TDA0X1NXMFZWeWpaMg?oc=5",
    "ms": 1795624726000,
    "time": "11/26 00:38"
-  },
-  {
-   "t": "Gold Prices Slide Sharply as Fed Rate Hike Fears Trigger a Technical Breakdown",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-prices-slide-sharply-as-fed-rate-hike-fears-trigger-a-technical-breakdown-200692318",
-   "ms": 1795620600000,
-   "time": "11/25 23:30"
-  },
-  {
-   "t": "Gold sinks to more than one-year low after data shows US inflation rose further",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWXU0aldnamQxQUhjOGlpSlNKb1BuaUJBWnRVUGJlemdVN2RmQnRHOTdTQWJ0My1SRmp4dXhXVUJQNkVUenkxTlYyVmN3bDVZb0xqVjh2QnpSdTZlVWFQdktZYVVpUFZFYnlRb0lpd1hsZEljUE1KRjVfNVUtLXEwWUNnaTBuLVFvXzRReHJTLWdJWUp1YjFnT3hDVnpremlkd2lWQWVHVnY3djdnaTZRMFZmQVA?oc=5",
-   "ms": 1795620227000,
-   "time": "11/25 23:23"
   }
  ]
 }
