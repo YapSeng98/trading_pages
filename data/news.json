@@ -1,60 +1,11 @@
 {
- "updated": "2026-11-26 11:00 SGT",
+ "updated": "2026-11-26 11:14 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
-   "ms": 1795652280000,
-   "time": "11/26 08:18"
-  },
-  {
-   "t": "Gold rebounds above $3,550 as easing yields and weaker US Dollar counter hot US inflation data",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNV2dlTUJEaktWRnlZVGtZanQ5aF9lbjZFWm1ITDIyeVdvNndTVXlhRHc3b3ZWVExVQVdMY1ZNOWt1OUtack82YVo5N2tKR2dKWU9tbFJTazlyOVpNWE1PX3JHWm9HNFdfb2ttVWw4SlZZcjNBYk1sWXoxWXUybzloSFh5UldpOGRPeldlQTdNYVVKelAwbXRSRmxUcVl5WUZTSWVyQlZpOXdkNzVhZE1JR0NSbjJxTHN6LV9tbXV2ZXQtSFdKWWtqV1JsRFlLQko2OXc?oc=5",
-   "ms": 1795649161000,
-   "time": "11/26 07:26"
-  },
-  {
-   "t": "Gold, silver reverse early losses as Wall Street rebounds ahead of Thanksgiving - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbGtReWc2Z1pvTnk0NlczM3RfX1pnRE9pdUY2S0drWHI1dVhsSWszbFFtTzJGa0g5c2tNR1RIZ2lkaW8zRDlUNTJlalJSOVhhRWFwZTd1U2NnbnVtUWlLOHk3V3UycWZNZGY4dTh4OC16cjlnazFkYkt0UVZleHU4NFEwVk5jSmppY2VaaDYtMDI0cFZwX2pBM3RpZFRfcERfQTE0RV9OVVl6T2pCN3dvUXQyRmVwZVk5dHc?oc=5",
-   "ms": 1795643751000,
-   "time": "11/26 05:55"
-  },
-  {
-   "t": "Stocks Swoon as AI Fears Spur Rush to Treasuries: Markets Wrap",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWjE4Zm9DOUxVdmFFaTlaQVJMWHFaVEVGVy1JcTNEcEc3bnhET2xfaGNCdFlpbXkwS210Tkx0d3JVUWVzbzA4amhwWU1FWGxLd2E0YUJBY1lOOUNlVmlwNF83b3Bqc2dqaWVMTzUwSGFfYWNJVDZwXzh5TGp5YUZaTzZoa0dZenZfalhyelF0UUZwbllhOEZIbWNGc1V3OHQxWlhfV3ZoeGdKRURCS3dTVEFSRnk?oc=5",
-   "ms": 1795642224000,
-   "time": "11/26 05:30"
-  },
-  {
-   "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
-   "ms": 1795641911000,
-   "time": "11/26 05:25"
-  },
-  {
-   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
-   "ms": 1795635604000,
-   "time": "11/26 03:40"
-  },
-  {
-   "t": "Gold sinks despite falling US yields as core PCE hits 3.3%",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOc3lNSXJsTVNvNVpGT08tV2pLNV9RQ2MwSnZvbU5Nd2l6OWY2Y1lNQTZSRTExTkZCdnFCLU1ScHY2RXRlQU5OQnF2eEJWRnVOd1dWejI1eng5RHdJMi15YlhMb3A0V2loMjExN1FkLTd4X2hxTHI1MFpQSDVGQ1lYbWhWV29tekhwVW51NlNLeGt5Z1MwRjZNSEplTUdnWndy?oc=5",
-   "ms": 1795635219000,
-   "time": "11/26 03:33"
-  },
   {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
    "src": "Investing.com",
@@ -70,34 +21,6 @@
    "time": "11/26 02:55"
   },
   {
-   "t": "Gold Has Plunged 36%. What’s the Point of Owning It?",
-   "src": "Barron's",
-   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1hZ2VBQVBkNEwxYVR0WW1jalFHUTFOMFVSRks3YTR6OThWbzluQ2E2bVZMODFYMU51ZFFyUzhDUUlaNzRlQjRsWWdNbGhKZ2xldkoyMi1XMkhJaXB6M3J3aUd3?oc=5",
-   "ms": 1795630860000,
-   "time": "11/26 02:21"
-  },
-  {
-   "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
-   "ms": 1795629306000,
-   "time": "11/26 01:55"
-  },
-  {
-   "t": "British Pound slips as hot US PCE outshines hawkish BoE signals",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYmVoS1NrTU1xMEEwMXAxSWdXRVBIbk1ZY0NxUUV2ZnFKNVRxWmFNRFRGY0hLbkx6c2E0aWQyWG1aZU04ZzNqVVNxWFNoT0ZXN0Z4RjZsQzBkQkh1SS04RFZoajlKZDFGWmRJSHlSdk1tVTFfMU0weWFSdUFSWFNwWWkzNW83WDFiWExKNmxYNzJzei1BVm9US0lMT3MyN2N5aXkydEhXS0xydw?oc=5",
-   "ms": 1795626675000,
-   "time": "11/26 01:11"
-  },
-  {
-   "t": "Gold Hits Near 15-Month Lows, Silver Crashes Below $40 Amid Fed Hike Fears – All Eyes On The Fed Rate Decision",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNVW43SFhnN0VQZkdTa1l2a3BOVWRmZUdsVzVRN29JNWM5TDdLZElJMF9weE5ub1ZuVW5RTEJ3Sl9CNVZ2UUd4dXNJMURwamF1dTBhOWNjR2NTYTduMEVGanRmc2EyWXAwdXd0cVBKZF9hR0EwQzNTMzA4Z3VmWnh4VmR0T0JxN1c3aXp0TDA0X1NXMFZWeWpaMg?oc=5",
-   "ms": 1795624726000,
-   "time": "11/26 00:38"
-  },
-  {
    "t": "Gold Prices Slide Sharply as Fed Rate Hike Fears Trigger a Technical Breakdown",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-prices-slide-sharply-as-fed-rate-hike-fears-trigger-a-technical-breakdown-200692318",
@@ -105,11 +28,39 @@
    "time": "11/25 23:30"
   },
   {
-   "t": "Gold sinks to more than one-year low after data shows US inflation rose further",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPWXU0aldnamQxQUhjOGlpSlNKb1BuaUJBWnRVUGJlemdVN2RmQnRHOTdTQWJ0My1SRmp4dXhXVUJQNkVUenkxTlYyVmN3bDVZb0xqVjh2QnpSdTZlVWFQdktZYVVpUFZFYnlRb0lpd1hsZEljUE1KRjVfNVUtLXEwWUNnaTBuLVFvXzRReHJTLWdJWUp1YjFnT3hDVnpremlkd2lWQWVHVnY3djdnaTZRMFZmQVA?oc=5",
-   "ms": 1795620227000,
-   "time": "11/25 23:23"
+   "t": "Gold Tests $3,550 as Tech Stocks Fall and Investors Turn Their Attention to US PCE",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-tests-3550-as-tech-stocks-fall-and-investors-turn-their-attention-to-us-pce-200692307",
+   "ms": 1795608540000,
+   "time": "11/25 20:09"
+  },
+  {
+   "t": "Oil Near $91: Why Supply Fears Still Outweigh Geopolitical Risk",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/oil-near-91-why-supply-fears-still-outweigh-geopolitical-risk-200692300",
+   "ms": 1795605000000,
+   "time": "11/25 19:10"
+  },
+  {
+   "t": "Gold Near 15-Month Lows: Why a Fed Rate Hike May Already Be Priced In",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-a-fed-rate-hike-may-already-be-priced-in-200692296",
+   "ms": 1795603740000,
+   "time": "11/25 18:49"
+  },
+  {
+   "t": "Gold Near 15-Month Lows: Why the Next Fed Hike May Not Be the Biggest Risk",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-near-15month-lows-why-the-next-fed-hike-may-not-be-the-biggest-risk-200692282",
+   "ms": 1795592160000,
+   "time": "11/25 15:36"
+  },
+  {
+   "t": "Gold price falls 2% on hawkish Fed bets, US inflation data in focus",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-price-falls-2-on-hawkish-fed-bets-us-inflation-data-in-focus/",
+   "ms": 1795554018000,
+   "time": "11/25 05:00"
   }
  ]
 }
