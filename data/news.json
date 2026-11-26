@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 23:51 SGT",
+ "updated": "2026-11-27 00:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Makes 17% Loss from Last Thanksgiving, Worst Since 2013",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbGpvMG1zdkR2NFo3WnJXalZ0Z05EbUZxTEhZaHpyNWpGZlJHLXlBSzV6MVJVT1RfcWRlaWxuUDlaREx1d1NmdkdNd2wyazNhc01ObW9sUTJpNXJObmtDRWYwaU9HOVVsSks2UmdTQUVNNEtZQko5a3FCVjBRQlB0ZHpKVHdmZW1LUHM1S1RoQldidw?oc=5",
+   "ms": 1795708690000,
+   "time": "11/26 23:58"
+  },
   {
    "t": "Gold struggles for traction as Fed rate hike bets dominate sentiment",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQMklBMjBhbzhpckZGcl92UmZqcDh0ZUtySTVsSHBxekVPUmVUUEI4aTVET0ZfZWNwRTROaE1ORE5IYXZmZDIteExwdEhNclBWYnZ4SllwaHlJTHBhU0xNTVg4RnB1ZXYxbW5MMDlabWVXQ2w4SGVodnF5WnBINVVqRFlNR0NISldtU2pFUVMxbGNGdWxWVzRUZVhscC1lRzB1OXZCazZ2LWNFelBqVjhMQw?oc=5",
    "ms": 1795678887000,
    "time": "11/26 15:41"
-  },
-  {
-   "t": "Gold Futures Face Critical Test as $3,445 Support and $3,619 Resistance Loom",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-futures-face-critical-test-as-3445-support-and-3619-resistance-loom-200692374",
-   "ms": 1795678560000,
-   "time": "11/26 15:36"
   }
  ]
 }
