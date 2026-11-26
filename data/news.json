@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 08:32 SGT",
+ "updated": "2026-11-26 08:59 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -42,13 +42,6 @@
    "time": "11/26 03:33"
   },
   {
-   "t": "Mayfair Gold prices $35M public offering to advance gold project By Investing.com",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTzNiaXZhLWFhLUs1X1oyUjlGS2VicVk4b1JpRGdRdUNmeExsTnJVLXFJeXFFWGdieEhOUEVsQWdSV0xxUEtyQ1Jsc0JfTExFbzlGRW9NcFJYRm84OExxVTJDRWczRHJyV09SanhBVzlVVzNTVXVEcnBDeUtxNmRCakcyUDFoTVFHVmlvX0FwUDZiV01obmctd0tUV2EzWU1jNG1MZHRwUjZ2a2haOEV4a1BNZzRfMGlmSGhpZmRBaGhTZw?oc=5",
-   "ms": 1795634280000,
-   "time": "11/26 03:18"
-  },
-  {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-38-collapse-exposes-the-cost-of-higher-interest-rates-200692330",
@@ -82,6 +75,13 @@
    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
    "ms": 1795629306000,
    "time": "11/26 01:55"
+  },
+  {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795625487000,
+   "time": "11/26 00:51"
   },
   {
    "t": "Gold Hits Near 15-Month Lows, Silver Crashes Below $40 Amid Fed Hike Fears – All Eyes On The Fed Rate Decision",
