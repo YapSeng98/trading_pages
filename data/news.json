@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 08:05 SGT",
+ "updated": "2026-11-26 08:32 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
+   "ms": 1795652280000,
+   "time": "11/26 08:18"
+  },
   {
    "t": "Gold rebounds above $3,550 as easing yields and weaker US Dollar counter hot US inflation data",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQWHVyMnBTTVAzbTlGMVRVU091bHF2V25VMUtLWkxRR3gxSmtkV3lhLWJmclN1ekVUTklscnp5RTlvNnFyUGc3d2pnTTh1Q3pTMDVsZFRsanpFVHA3ekxZR2hKSWNsTThZVjZ5WnF5QjZuU0poaHB0Y0ktbkVHSkJ0QXdYN1NzakVuS2xCMlR6eHRLT3FLS3dTbGtDVl8wM1FIVHF0UnAydjNwY25YOWpB?oc=5",
    "ms": 1795620062000,
    "time": "11/25 23:21"
-  },
-  {
-   "t": "Gold sinks below $3,500 as hawkish Fed bets and equity rout fuel selling",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQSW9TOGtrdmlBQjhmamwwckxsS255UEhsOE5qUzV5VC1wNzBrZmJwalFpMWFmTmozcmw2eFNqZVJ5T2JXSmVJLUJXZnNiTUZHOXg2Z3pSREFidEhNb21wX2VWOTBXdEtuQXhaME9GOG1BZFpTRzAzZTFpV1ZhbHlBY1FrSEpDc3AxWE1jSExuMXRBVGl1WlRESUdmdjh4WTJaRGJhUjF3NGRuWThJYmlBM1RTUlhTdw?oc=5",
-   "ms": 1795619406000,
-   "time": "11/25 23:10"
   }
  ]
 }
