@@ -2,7 +2,7 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔",
  "since": "2026-10-12 17:30 SGT",
  "sinceMs": 1791797400000,
- "lastChecked": 1795650300000,
+ "lastChecked": 1795653900000,
  "a3": -1,
  "a5": 0,
  "open": null,
@@ -1394,7 +1394,7 @@
   "books": {
    "trail": {
     "name": "同一信号，跟踪止损出场",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 10,
     "prev": 0,
@@ -1425,23 +1425,28 @@
       "ms": 1795510800000,
       "side": "做空",
       "entry": 3619.19,
-      "stop": 3672.99,
+      "stop": 3552.83,
       "initStop": 3682.13,
       "target": null,
       "risk": 62.94,
       "spread": 0.54,
       "best": 3426.945,
-      "day": 20782,
-      "status": "open"
+      "day": 20783,
+      "status": "stop",
+      "exitTime": "2026-11-26 08:15 SGT",
+      "exitMs": 1795652100000,
+      "exitPrice": 3576.58,
+      "nights": 4,
+      "R": 0.68
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 7.5,
-     "avgR": 7.5,
-     "open": 1
+     "closed": 2,
+     "wins": 2,
+     "totalR": 8.18,
+     "avgR": 4.09,
+     "open": 0
     }
    },
    "noW": {
@@ -1563,7 +1568,7 @@
    },
    "noWtrail": {
     "name": "不看周线，跟踪止损出场",
-    "open": 2,
+    "open": null,
     "nextId": 3,
     "skipped": 10,
     "prev": 0,
@@ -1594,23 +1599,28 @@
       "ms": 1795510800000,
       "side": "做空",
       "entry": 3619.19,
-      "stop": 3672.99,
+      "stop": 3552.83,
       "initStop": 3682.13,
       "target": null,
       "risk": 62.94,
       "spread": 0.54,
       "best": 3426.945,
-      "day": 20782,
-      "status": "open"
+      "day": 20783,
+      "status": "stop",
+      "exitTime": "2026-11-26 08:15 SGT",
+      "exitMs": 1795652100000,
+      "exitPrice": 3576.58,
+      "nights": 4,
+      "R": 0.68
      }
     ],
     "summary": {
      "taken": 2,
-     "closed": 1,
-     "wins": 1,
-     "totalR": 7.5,
-     "avgR": 7.5,
-     "open": 1
+     "closed": 2,
+     "wins": 2,
+     "totalR": 8.18,
+     "avgR": 4.09,
+     "open": 0
     }
    }
   }
