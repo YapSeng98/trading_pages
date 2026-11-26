@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 13:03 SGT",
+ "updated": "2026-11-26 13:16 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -36,7 +36,7 @@
   },
   {
    "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
    "ms": 1795652280000,
    "time": "11/26 08:18"
@@ -64,17 +64,10 @@
   },
   {
    "t": "Gold Holds Decline as US Tariff Plans Reinforce Rate-Hike Bets",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxORkQxbTNiWEs3QmZBV1ZoVV9Nb1kyM1dUSmRYT2RWYkQ0eTV6cktjakV3OXRjalVYSkJ2Q2FBdFhUbHl6V3VBTHFzbGJFU1RacTRrUGxFWHU2Y0R3OXZKXzlaQUVPc3Z3TjJ1MkRnVGNwMlpHYzhwbVkwRTFLbVc0ZTkxa3ExQU1iYTcxU3Q4czZTVVhDRE9iYTFCak1aZ3BnQ1ZGbldMSGdaQ2szYXNQX1FJTQ?oc=5",
    "ms": 1795641911000,
    "time": "11/26 05:25"
-  },
-  {
-   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
-   "ms": 1795635604000,
-   "time": "11/26 03:40"
   },
   {
    "t": "Gold sinks despite falling US yields as core PCE hits 3.3%",
@@ -82,13 +75,6 @@
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOc3lNSXJsTVNvNVpGT08tV2pLNV9RQ2MwSnZvbU5Nd2l6OWY2Y1lNQTZSRTExTkZCdnFCLU1ScHY2RXRlQU5OQnF2eEJWRnVOd1dWejI1eng5RHdJMi15YlhMb3A0V2loMjExN1FkLTd4X2hxTHI1MFpQSDVGQ1lYbWhWV29tekhwVW51NlNLeGt5Z1MwRjZNSEplTUdnWndy?oc=5",
    "ms": 1795635219000,
    "time": "11/26 03:33"
-  },
-  {
-   "t": "Mayfair Gold prices $35M public offering to advance gold project By Investing.com",
-   "src": "Investing.com UK",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTzNiaXZhLWFhLUs1X1oyUjlGS2VicVk4b1JpRGdRdUNmeExsTnJVLXFJeXFFWGdieEhOUEVsQWdSV0xxUEtyQ1Jsc0JfTExFbzlGRW9NcFJYRm84OExxVTJDRWczRHJyV09SanhBVzlVVzNTVXVEcnBDeUtxNmRCakcyUDFoTVFHVmlvX0FwUDZiV01obmctd0tUV2EzWU1jNG1MZHRwUjZ2a2haOEV4a1BNZzRfMGlmSGhpZmRBaGhTZw?oc=5",
-   "ms": 1795634280000,
-   "time": "11/26 03:18"
   },
   {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1hZ2VBQVBkNEwxYVR0WW1jalFHUTFOMFVSRks3YTR6OThWbzluQ2E2bVZMODFYMU51ZFFyUzhDUUlaNzRlQjRsWWdNbGhKZ2xldkoyMi1XMkhJaXB6M3J3aUd3?oc=5",
    "ms": 1795630860000,
    "time": "11/26 02:21"
+  },
+  {
+   "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
+   "ms": 1795629306000,
+   "time": "11/26 01:55"
+  },
+  {
+   "t": "British Pound slips as hot US PCE outshines hawkish BoE signals",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYmVoS1NrTU1xMEEwMXAxSWdXRVBIbk1ZY0NxUUV2ZnFKNVRxWmFNRFRGY0hLbkx6c2E0aWQyWG1aZU04ZzNqVVNxWFNoT0ZXN0Z4RjZsQzBkQkh1SS04RFZoajlKZDFGWmRJSHlSdk1tVTFfMU0weWFSdUFSWFNwWWkzNW83WDFiWExKNmxYNzJzei1BVm9US0lMT3MyN2N5aXkydEhXS0xydw?oc=5",
+   "ms": 1795626675000,
+   "time": "11/26 01:11"
   }
  ]
 }
