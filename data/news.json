@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26 19:08 SGT",
+ "updated": "2026-11-26 19:21 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -19,13 +19,6 @@
    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPSDZGRlJPd3FENDIyc2tkWjZqMzNXbVV4eTN0WEVrY0Y5cGhVSkJhUzF6Um1FZ01pTC1yN0kxRUFnUklELXpOQ0xpVXNSRmZRbzhlOUg1VENNa2pBc0dRU21rU3dMdmtSZUttNmgwSzFsUXUySVhTLTlVSllDY3piaTZ0YnBFXzFVR1k2OEVhYTdVWUx4VWpKZUExVWtTRHZPWlZubXlFM3F1dnZ2OFV1NkpMQWRva25rZzNTNkM0V1R6X1M4YWl4WTFB?oc=5",
    "ms": 1795682740000,
    "time": "11/26 16:45"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795679768000,
-   "time": "11/26 15:56"
   },
   {
    "t": "Gold Price Forecast: Rally Toward $3,600 or Another Fed-Driven Sell-Off?",
@@ -56,11 +49,11 @@
    "time": "11/26 14:56"
   },
   {
-   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZzh4NXFEZi1yYzF2OVBuUHZSU1p1T01nZjNPaVlMZnVneXlRM0RKalUwR2Jra01XQVpEYkNnWG9GQWlIbndkQ0xVR1RHak4tUVFhbWJTU3VwUGxsMm1jVnNibmVTTHVwZHh1Q2xtYVZmRWlLWWk3RkJrVlZidTJjWU9BTFVwUGFVWnNrYS1CdjlZd2lSTXk2dkNvV1ZJOFJnd0wwRHRta1ZUVk9uSEwwSFNtbWhPeEU?oc=5",
-   "ms": 1795674917000,
-   "time": "11/26 14:35"
+   "t": "Gold struggles to recover as inflation keeps rate hike risks alive",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR3N0eFdXOVZRWXA0elVteDZkWFFJejdpUjBHdkIxMlMzaXNNRi11aXY2QzJzeHpuU0dseUtoZW5LN29MRDRsOXRMa3VVUUljNXcxU1hIMW9SUjM5UGxOeEFHYmFqT1dSTWowcjhNWHJHNWJUZW5HYXRoWTFfWTY0eVk2cWM3SGcxWExfSnh2anI1d0tDUzlCUnNaZDVfQzM5Zk5FNThuTDFjZ0dWd3BFRUtNNA?oc=5",
+   "ms": 1795672420000,
+   "time": "11/26 13:53"
   },
   {
    "t": "Gold’s Next Resistance Near $3,660 Where VC PMI Meets the Square of 9",
@@ -68,13 +61,6 @@
    "url": "https://www.investing.com/analysis/golds-next-resistance-near-3660-where-vc-pmi-meets-the-square-of-9-200692357",
    "ms": 1795670640000,
    "time": "11/26 13:24"
-  },
-  {
-   "t": "Gold Falls as Dollar Strengthens Amid Investors’ Retreat From Technology Stocks By Kedia Advisory",
-   "src": "Investing.com India",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPb0ZMVWQ3d3NfMUpaWTJBemo5elMzcHI1MTNOTDBKdjRKZ0otdmxpWDVzV1huaHpQZ2JnTzR3WExIVmtFblJVYjhodmtBUDNXOEFudGsxRXZRMFM0cjZtcEdodHhMYkFGMml4aEhjd21ELTV1Z1lPMHh3TzhkU3oxbW9BaElMNHM2bmpSemlQd01EdGM5NlE2ajB2czYxYTZnbTBFT0ZKdTlvUGlzNkE5OUc1OW5NZUh2UWlXSFRPZU90MHNpUzZvSWxLeFVZdw?oc=5",
-   "ms": 1795670022000,
-   "time": "11/26 13:13"
   },
   {
    "t": "Gold Weakens as Tariff Fears and Inflation Revive Rate Concerns",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNczNWcXJNQVFwUEZ5UjlTc1o0ZFE5NVFYZzA2eTJURHRsMmRMRmc1LTZ1TWszbFYyN05QRHRiQ1VIb1ZxUE9pTUs5WDVya1M0WFJEQ3lCN3J0T3h4bndfa1NyZFB4VFFaby1NWVdRRlFZeGlKdDNnYkRZN0c0eFZQY3VSWS11NW9SbUdndElMZk9oNk1kd0haVWh0Rl9VcTA1MDg1REE1cHZXWk14Umc?oc=5",
    "ms": 1795664340000,
    "time": "11/26 11:39"
+  },
+  {
+   "t": "Gold rebounds above $3,550 as easing yields and weaker US Dollar counter hot US inflation data",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNV2dlTUJEaktWRnlZVGtZanQ5aF9lbjZFWm1ITDIyeVdvNndTVXlhRHc3b3ZWVExVQVdMY1ZNOWt1OUtack82YVo5N2tKR2dKWU9tbFJTazlyOVpNWE1PX3JHWm9HNFdfb2ttVWw4SlZZcjNBYk1sWXoxWXUybzloSFh5UldpOGRPeldlQTdNYVVKelAwbXRSRmxUcVl5WUZTSWVyQlZpOXdkNzVhZE1JR0NSbjJxTHN6LV9tbXV2ZXQtSFdKWWtqV1JsRFlLQko2OXc?oc=5",
+   "ms": 1795649161000,
+   "time": "11/26 07:26"
+  },
+  {
+   "t": "Gold, silver reverse early losses as Wall Street rebounds ahead of Thanksgiving - Kitco PM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbGtReWc2Z1pvTnk0NlczM3RfX1pnRE9pdUY2S0drWHI1dVhsSWszbFFtTzJGa0g5c2tNR1RIZ2lkaW8zRDlUNTJlalJSOVhhRWFwZTd1U2NnbnVtUWlLOHk3V3UycWZNZGY4dTh4OC16cjlnazFkYkt0UVZleHU4NFEwVk5jSmppY2VaaDYtMDI0cFZwX2pBM3RpZFRfcERfQTE0RV9OVVl6T2pCN3dvUXQyRmVwZVk5dHc?oc=5",
+   "ms": 1795643751000,
+   "time": "11/26 05:55"
   }
  ]
 }
