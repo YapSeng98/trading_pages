@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-26 13:16 SGT",
+ "updated": "2026-11-26 13:29 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Falls as Dollar Strengthens Amid Investors’ Retreat From Technology Stocks By Kedia Advisory",
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPb0ZMVWQ3d3NfMUpaWTJBemo5elMzcHI1MTNOTDBKdjRKZ0otdmxpWDVzV1huaHpQZ2JnTzR3WExIVmtFblJVYjhodmtBUDNXOEFudGsxRXZRMFM0cjZtcEdodHhMYkFGMml4aEhjd21ELTV1Z1lPMHh3TzhkU3oxbW9BaElMNHM2bmpSemlQd01EdGM5NlE2ajB2czYxYTZnbTBFT0ZKdTlvUGlzNkE5OUc1OW5NZUh2UWlXSFRPZU90MHNpUzZvSWxLeFVZdw?oc=5",
+   "ms": 1795669699000,
+   "time": "11/26 13:08"
+  },
   {
    "t": "Gold struggles to extend bounce from 15-month low as Fed hike bets, USD uptick cap gains",
    "src": "FXStreet",
@@ -77,6 +84,13 @@
    "time": "11/26 03:33"
   },
   {
+   "t": "Mayfair Gold prices $35M public offering to advance gold project By Investing.com",
+   "src": "Investing.com UK",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTzNiaXZhLWFhLUs1X1oyUjlGS2VicVk4b1JpRGdRdUNmeExsTnJVLXFJeXFFWGdieEhOUEVsQWdSV0xxUEtyQ1Jsc0JfTExFbzlGRW9NcFJYRm84OExxVTJDRWczRHJyV09SanhBVzlVVzNTVXVEcnBDeUtxNmRCakcyUDFoTVFHVmlvX0FwUDZiV01obmctd0tUV2EzWU1jNG1MZHRwUjZ2a2haOEV4a1BNZzRfMGlmSGhpZmRBaGhTZw?oc=5",
+   "ms": 1795634280000,
+   "time": "11/26 03:18"
+  },
+  {
    "t": "Gold’s 38% Collapse Exposes the Cost of Higher Interest Rates",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-38-collapse-exposes-the-cost-of-higher-interest-rates-200692330",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1hZ2VBQVBkNEwxYVR0WW1jalFHUTFOMFVSRks3YTR6OThWbzluQ2E2bVZMODFYMU51ZFFyUzhDUUlaNzRlQjRsWWdNbGhKZ2xldkoyMi1XMkhJaXB6M3J3aUd3?oc=5",
    "ms": 1795630860000,
    "time": "11/26 02:21"
-  },
-  {
-   "t": "There’s still no substitute for 10-15% gold allocation in investor portfolios – Ray Dalio",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPYm9jd2lydWxxNWRVYVR6bGd1aDZsVkR5X1hfSEthQWo5NDcyZ3MyRXlMTkJmNWo0OFF5eW4xYkFVUkYzaXZVVHhUenI1c0UyNnFMTW5nZmkyb0ZDRlhFOTVDVk10YzVQXzZ3b25Wc0QwRl9XWXo5N1NuaEhHcUVXVXhCWXNESVJzUGlpTVBHVHRpaTk1Qy0zakhjQ2VtdlJQdHI4SDR3cVdzTlBHdmtRMEh5VTJjUVZDVHc?oc=5",
-   "ms": 1795629306000,
-   "time": "11/26 01:55"
-  },
-  {
-   "t": "British Pound slips as hot US PCE outshines hawkish BoE signals",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYmVoS1NrTU1xMEEwMXAxSWdXRVBIbk1ZY0NxUUV2ZnFKNVRxWmFNRFRGY0hLbkx6c2E0aWQyWG1aZU04ZzNqVVNxWFNoT0ZXN0Z4RjZsQzBkQkh1SS04RFZoajlKZDFGWmRJSHlSdk1tVTFfMU0weWFSdUFSWFNwWWkzNW83WDFiWExKNmxYNzJzei1BVm9US0lMT3MyN2N5aXkydEhXS0xydw?oc=5",
-   "ms": 1795626675000,
-   "time": "11/26 01:11"
   }
  ]
 }
