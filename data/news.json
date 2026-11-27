@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 08:10 SGT",
+ "updated": "2026-11-27 08:37 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -8,7 +8,7 @@
  "items": [
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
    "ms": 1795737215000,
    "time": "11/27 07:53"
@@ -26,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQeG5mODVrQkQyYUR6RjI2N25WejFPYUNfbVJNVFRTeVhXWndLWVdmNUNlcmRlM0JWZUdXWU0ydmdFNXZPU2JQNVJWZ2hCbFRTcUlpNjdXN2FpU0lybGlPVC1uR2pmYXI5THlqd3BRR0o1Vzh1Um8tOWNBRGE3NndHc09iNnl1RFFLZjNNRDhlOVNmSDhBanFzLTZUWTdkNklsT1RNV0NFWVl4TGhpVTVJTlpWSzZZemxWY2dDQQ?oc=5",
    "ms": 1795730849000,
    "time": "11/27 06:07"
+  },
+  {
+   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
+   "ms": 1795728576000,
+   "time": "11/27 05:29"
   },
   {
    "t": "Gold Confidence Needs Rebuilding",
@@ -49,8 +56,15 @@
    "time": "11/27 02:01"
   },
   {
+   "t": "META_TITLE_QUOTE",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAyUjl3TDFqeXJOOE9qNm8tYXNFcUJJREpDdXFNaE9fU0d0d29zN0pkaExFZUZiZENwMVJIOW5UTGVGVmZJRlB0dUJhSEZLUQ?oc=5",
+   "ms": 1795712795000,
+   "time": "11/27 01:06"
+  },
+  {
    "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
    "ms": 1795712561000,
    "time": "11/27 01:02"
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOLUpCLVR5YVZ1cFBPeHRtT0pkYUdFZE8yd0loYTFweXZ6ZVhMTlhNczJyRU1Ed0ZTS2JlODFQUVpoTHM4azhmNUtTM0huMTNBWUpTbWgwRFhoZHViZ1Npb2tQbEVGWFZVOUh2Z3ZyN0dYRzI3aU5wOS1mZldycWM4WHJzR2pHQV9QNFF6azNUM1lybEN6Q1N4MHk4ZVpKdkxiaWZ3MUpLZ29uSko5a1ZYdnA3dGVJc2EtXzMxZFhSV04wc2VNS1E?oc=5",
    "ms": 1795701470000,
    "time": "11/26 21:57"
-  },
-  {
-   "t": "Gold slips, silver steadies as Fed rate hike expectations persist in holiday trading - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNXFfM3AxNjAxLVVEMXMzVEhVc3FvUXFNaDFuRlV6dmlTVEpsNGdDZU5VOGZZWTh5eUJ5dWQzZlByZ2ZIcE9nX01Tak5KRDN6Q1Z2Z3Jqbk9WYzVYZVVtVjNobWxndnFSZk02TXo3Vlk2Z0pDZUFGbDZKSE00SXpVYWlSVmZjdWZmQ2xxUTF2RzZnYllpUUhaYm1SV1dGa0o3SUZndmd4dlFQSXNWN0gzUnhUbDZlQQ?oc=5",
-   "ms": 1795701241000,
-   "time": "11/26 21:54"
-  },
-  {
-   "t": "Gold Outlook: US Dollar Fatigue Opens the Door to a Squeeze",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWRqOENWTDdTRlhRMjZkU3p2ZklwalpRS3g0bEZaMUNTMnBLdHJoZXRYMGVkbkJkZG9VMVVQZVZzR2h4MXptclBGVWtRNWNqbFRaVTZyMHlwbVEzN1R3T3FHYm5UV0RtSDQzLXYxa09EOGFhSzg3MTQwX3luelg4REFfOHhELWJmUGZaMXhNQ1c0SkpqdmpQcUFVd2V4VGFIZlVyUFBn?oc=5",
-   "ms": 1795700136000,
-   "time": "11/26 21:35"
   }
  ]
 }
