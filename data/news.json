@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 01:42 SGT",
+ "updated": "2026-11-28 01:55 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -28,13 +28,6 @@
    "time": "11/28 00:32"
   },
   {
-   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
-   "ms": 1795796890000,
-   "time": "11/28 00:28"
-  },
-  {
    "t": "Gold and Silver Jump as Beijing Vows to Support China's Stock Market",
    "src": "BullionVault",
    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU3QtQ1Q0VTFYTUJFQW81NW5aY3gyYkNPLXNaVVBjWkdZb3MydlIyZzUwT2Z6MFZzem95WDdpcmRIeV9id0p6OThfWUVYc3NSRXMtU3BwT1dkd2FEeHF6YlBoRlhLMEdPeEU4aG8wRzRvTUhjcFBJb19HUlZHRzFjQnQwZkdRVVVZQ3NpY21BUnVWVnYt?oc=5",
@@ -50,10 +43,10 @@
   },
   {
    "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZlR3S3lPU1VYTUpHM2x6Q252cU85bFN6am5Dc2wzVUMxbmktb0FUYXdhOHlxZXloNW9RWWVLRUxfWk9OakU1djg5ekRjWEZma3FTUnZKUjg1NlY3SWdQX0I5YzU3azREZUNMcmdHTERTWWRjdGlfUUlYcExCRUp1cEF6YkMxVkl1Zll0TG8zamw5UnZaWTZPY2ZoQUtWODNkeU04SEk5b1JMUEJ6SWlILTZwTEpXb3gw?oc=5",
-   "ms": 1795792191000,
-   "time": "11/27 23:09"
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU1d2TjkwSHEyY3FYVzZVV1FuMVJMWUNhY0ZjRzROX2xiVFNLdVNKaTBvWUFCMjgyUlNPRjhSUDV1QkFnQWY3TENnVW9WcDdlZ2pqT2xsMkhCT1RIcTYySUJuTHpzREdSbUJCYzVWLVJNX0gxcFdZZ0MyOVc0NmRKYUJVZ181bEV4Ym5qbEY0Z3M4aHBYLUFHdGowTGlHQ2JMVVpHUW12OUZraEVKZi1HMGdPVkQzcXc?oc=5",
+   "ms": 1795792810000,
+   "time": "11/27 23:20"
   },
   {
    "t": "Gold demand revives in India, China as price slide sparks bargain buying",
@@ -110,6 +103,13 @@
    "url": "https://www.investing.com/analysis/gold-is-rebounding-despite-high-real-yields-can-the-bulls-sustain-the-recovery-200692433",
    "ms": 1795780620000,
    "time": "11/27 19:57"
+  },
+  {
+   "t": "Equities Bounce Back, Gold Jumps but Dollar Steady Amid Thin Liquidity",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQ3F3aTlETnIwdm5TUTVidk9lM0RkNG9zcUZlTEJyRVEyQ21yMmJmZWowWW9WNDNGNG5MSUVJYUN2cnNVaWNrQzhXc0JFUUwwVjlVNEhhMlU3YUlqemkzMVJEelRZVTBObDN3MUNnVE9YTmMtdlBIVV9xNndDTFZ4V2p4SVFMZ21TejVHOW8tX1V1N2xYZjlzWjF3UzlOT2c2bmhnS3l6WEE2Y2hwaXlJU191bHc?oc=5",
+   "ms": 1795778934000,
+   "time": "11/27 19:28"
   }
  ]
 }
