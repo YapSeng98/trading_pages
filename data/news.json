@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 21:12 SGT",
+ "updated": "2026-11-27 21:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold's $3,750 ceiling: Analyst says a hawkish Fed \"would cap Gold rallies\"",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxORTVtVk51bjVHdEdqZXVFSnp5Smxoci1PY1h4aTl5OUxJaG80Sl9RdXEzbV9Pc056SjF3ejktU1M4VTZobGQ2YWxIem1KcGxmLXNRcFhtM2FIWl9yNVpSeTcyWC1lcl9MZkRoYmZlVUVYaDVpNDQ5TzZwVUVYTThRNFQ2YVlZNllIOFlUcmdVRkJ5RENUSUNrdjV2d0FRcWFHSmdLS1YzemRGOGE1dXNVOUNKTDFJUzQ?oc=5",
+   "ms": 1795783321000,
+   "time": "11/27 20:42"
+  },
   {
    "t": "Gold Under Pressure: Why Fed Hike Bets Are Testing the $3,500 Floor",
    "src": "Investing.com",
@@ -82,13 +89,6 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
    "ms": 1795765052000,
    "time": "11/27 15:37"
-  },
-  {
-   "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORHNtWTZfdnRfcDZMUlk1UHB1SVE3QUNoWnFZVXdacWhHY1B6dVBqS1NUcXhzRm9GdmF3RXdrRGF4VE52RmJGRjZqb0cwTnNnMnd4cTBtVFgzc2hHUzlHX0FxanZfeEFVWVF2Zks0dzBtNnJWSUJtQld4ZVVQVU03ZndYTVBIcFFjalNNT3BIZV8yY1A4RzZjREg3UjkzdVJ3X2FPRXFVZTUwNW92ajcxYWRWTS1ORkl6RXJNenloY0Y?oc=5",
-   "ms": 1795764600000,
-   "time": "11/27 15:30"
   },
   {
    "t": "Gold Faces Weekend Risk as Fed Rate Bets and Iran Tensions Rattle Markets",
