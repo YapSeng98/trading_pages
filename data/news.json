@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 09:31 SGT",
+ "updated": "2026-11-27 09:44 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold steadies near 15-month low as Fed hike bets offset tech-led rally By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORHNtWTZfdnRfcDZMUlk1UHB1SVE3QUNoWnFZVXdacWhHY1B6dVBqS1NUcXhzRm9GdmF3RXdrRGF4VE52RmJGRjZqb0cwTnNnMnd4cTBtVFgzc2hHUzlHX0FxanZfeEFVWVF2Zks0dzBtNnJWSUJtQld4ZVVQVU03ZndYTVBIcFFjalNNT3BIZV8yY1A4RzZjREg3UjkzdVJ3X2FPRXFVZTUwNW92ajcxYWRWTS1ORkl6RXJNenloY0Y?oc=5",
+   "ms": 1795743125000,
+   "time": "11/27 09:32"
+  },
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
    "src": "Bloomberg.com",
@@ -19,6 +26,13 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUWl6WDgzM0tfbzV6bDlPc0dfd3hpbUtHa3pQSDRHeGFIa0JySjNXaEF0V2NTanlDYktkaTV0dHdEdmhqOWtYSk5vMHZSNU8zRTVLN2w3RnY3OXVmRXFHMkpqTnExblo2ekNGMzNLSU9nM3R3M1g2SHFJVGM1aWFSaUdRS2xCUVVncjlTczVmeVk2bE9jRm1faFBseG11ejBhZmc?oc=5",
    "ms": 1795736236000,
    "time": "11/27 07:37"
+  },
+  {
+   "t": "Breaking: Japan’s Tokyo CPI inflation climbs 2.8% in November",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOQXVNYXFYazVYTU9MNFotbnZRQUwtQ1VBT1RNbGo2WThBZVBYVGVlWnZKMk9kemw1T2draE1qREd6VzNvRXlrdy1WM2I4UDdVa3BxRDhyelY2MGNZVjRYaDM2eG9tRHFKN2ppY3RsaXZiT0NadTVaMU1IUnFaQkxScnlTazBhcDZ5VGVCczFkblhPdlFXNXVqR0tZMTBGalRGZWc?oc=5",
+   "ms": 1795735913000,
+   "time": "11/27 07:31"
   },
   {
    "t": "Gold slips, silver gains as Fed rate hike expectations persist in holiday trading - Kitco PM Report",
@@ -70,6 +84,13 @@
    "time": "11/27 00:09"
   },
   {
+   "t": "Gold Makes 17% Loss from Last Thanksgiving, Worst Since 2013",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbGpvMG1zdkR2NFo3WnJXalZ0Z05EbUZxTEhZaHpyNWpGZlJHLXlBSzV6MVJVT1RfcWRlaWxuUDlaREx1d1NmdkdNd2wyazNhc01ObW9sUTJpNXJObmtDRWYwaU9HOVVsSks2UmdTQUVNNEtZQko5a3FCVjBRQlB0ZHpKVHdmZW1LUHM1S1RoQldidw?oc=5",
+   "ms": 1795708866000,
+   "time": "11/27 00:01"
+  },
+  {
    "t": "Gold struggles for traction as Fed rate hike bets dominate sentiment",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOQ2FiNFFLN0VoZDRZcnFxTGM0RkVNakRBVDNBenhtXzZKeFNkR3NvdXhmYktXYWk3VV96a3cyM0FSUmItaXZSMFMxNHIzQ3VzYWNpUGhUZWZaMkNONGdFUUFuMXBULTBCUmpiUk5JNXA1RG81V05UZ0ktVmZfM1lqallHX3kwVWtpRWJpZncwNVBOMlR2eFVIU0VjR21CZGF6cl95NTdxb041Tk5xUmJTZQ?oc=5",
@@ -89,27 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOLUpCLVR5YVZ1cFBPeHRtT0pkYUdFZE8yd0loYTFweXZ6ZVhMTlhNczJyRU1Ed0ZTS2JlODFQUVpoTHM4azhmNUtTM0huMTNBWUpTbWgwRFhoZHViZ1Npb2tQbEVGWFZVOUh2Z3ZyN0dYRzI3aU5wOS1mZldycWM4WHJzR2pHQV9QNFF6azNUM1lybEN6Q1N4MHk4ZVpKdkxiaWZ3MUpLZ29uSko5a1ZYdnA3dGVJc2EtXzMxZFhSV04wc2VNS1E?oc=5",
    "ms": 1795701470000,
    "time": "11/26 21:57"
-  },
-  {
-   "t": "Gold slips, silver steadies as Fed rate hike expectations persist in holiday trading - Kitco AM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNXFfM3AxNjAxLVVEMXMzVEhVc3FvUXFNaDFuRlV6dmlTVEpsNGdDZU5VOGZZWTh5eUJ5dWQzZlByZ2ZIcE9nX01Tak5KRDN6Q1Z2Z3Jqbk9WYzVYZVVtVjNobWxndnFSZk02TXo3Vlk2Z0pDZUFGbDZKSE00SXpVYWlSVmZjdWZmQ2xxUTF2RzZnYllpUUhaYm1SV1dGa0o3SUZndmd4dlFQSXNWN0gzUnhUbDZlQQ?oc=5",
-   "ms": 1795701241000,
-   "time": "11/26 21:54"
-  },
-  {
-   "t": "Gold Outlook: US Dollar Fatigue Opens the Door to a Squeeze",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWRqOENWTDdTRlhRMjZkU3p2ZklwalpRS3g0bEZaMUNTMnBLdHJoZXRYMGVkbkJkZG9VMVVQZVZzR2h4MXptclBGVWtRNWNqbFRaVTZyMHlwbVEzN1R3T3FHYm5UV0RtSDQzLXYxa09EOGFhSzg3MTQwX3luelg4REFfOHhELWJmUGZaMXhNQ1c0SkpqdmpQcUFVd2V4VGFIZlVyUFBn?oc=5",
-   "ms": 1795700136000,
-   "time": "11/26 21:35"
-  },
-  {
-   "t": "Gold rebounds toward $3,600 after a 15-month low near $3,427",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaGNHZ19ISHZEVFZVOVh5Z0xiN2R5aDdCeHpJeG80UEI1WmpraVdKOUg4T3BYcVdOLUdIcGxXTkVZdkp3TnFEWldSTTN1MVNUVGpYekVMX2pFOVRXck5qZmYxRVBhU1BVT3ZPaThadFByN211dFg0dkJZUDZMOGprZ3BkemUwbHhWT2dBbnBaNzdYNmdiQ3lad3pJeFQ4MkRLQzZRckJvYXg?oc=5",
-   "ms": 1795698324000,
-   "time": "11/26 21:05"
   }
  ]
 }
