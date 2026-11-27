@@ -2,10 +2,10 @@
  "rule": "五个周期同向时进场，止损 3 倍小时波幅，目标 3R；一次只持有一笔（比特币，成本：点差万分之 3、多空隔夜利息年化 15%）",
  "since": "2026-10-23 19:30 SGT",
  "sinceMs": 1792755000000,
- "lastChecked": 1795766400000,
+ "lastChecked": 1795768200000,
  "a3": 0,
  "a5": 0,
- "open": 15,
+ "open": null,
  "nextId": 17,
  "signals": [
   {
@@ -231,7 +231,12 @@
    "risk": 2083.44,
    "atr": 694.48,
    "spread": 18.02,
-   "status": "open"
+   "status": "stop",
+   "exitTime": "2026-11-27 16:30 SGT",
+   "exitMs": 1795768200000,
+   "exitPrice": 62158.34,
+   "nights": 3,
+   "R": -1.04
   },
   {
    "id": 16,
@@ -380,16 +385,22 @@
    "time": "2026-11-27 16:00 SGT",
    "type": "ended",
    "text": "三个大周期不再同向"
+  },
+  {
+   "ms": 1795768200000,
+   "time": "2026-11-27 16:30 SGT",
+   "type": "closed",
+   "text": "做空 #15 止损，−1.04R"
   }
  ],
  "summary": {
   "signals": 16,
   "taken": 5,
-  "closed": 4,
+  "closed": 5,
   "wins": 3,
-  "totalR": 7.83,
-  "avgR": 1.96,
-  "open": 1
+  "totalR": 6.79,
+  "avgR": 1.36,
+  "open": 0
  },
  "changes": [
   {
@@ -1757,7 +1768,7 @@
    },
    "noW": {
     "name": "不看周线，目标 3R",
-    "open": 6,
+    "open": null,
     "nextId": 7,
     "skipped": 11,
     "prev": 0,
@@ -1875,16 +1886,21 @@
       "spread": 18.02,
       "best": 60074.9,
       "day": 20781,
-      "status": "open"
+      "status": "stop",
+      "exitTime": "2026-11-27 16:30 SGT",
+      "exitMs": 1795768200000,
+      "exitPrice": 62158.34,
+      "nights": 3,
+      "R": -1.04
      }
     ],
     "summary": {
      "taken": 6,
-     "closed": 5,
+     "closed": 6,
      "wins": 4,
-     "totalR": 10.77,
-     "avgR": 2.15,
-     "open": 1
+     "totalR": 9.73,
+     "avgR": 1.62,
+     "open": 0
     }
    },
    "noWtrail": {
