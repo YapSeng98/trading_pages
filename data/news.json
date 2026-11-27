@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 05:45 SGT",
+ "updated": "2026-11-28 05:59 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -14,6 +14,13 @@
    "time": "11/28 04:47"
   },
   {
+   "t": "Gold Remains Under Pressure as the Weekly Close Fails to Reclaim $3,618",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-remains-under-pressure-as-the-weekly-close-fails-to-reclaim-3618-200692467",
+   "ms": 1795809120000,
+   "time": "11/28 03:52"
+  },
+  {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
    "src": "Bloomberg",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
@@ -26,13 +33,6 @@
    "url": "https://www.investing.com/analysis/golds-215-billion-etf-exodus-highlights-the-cost-of-higher-rates-200692463",
    "ms": 1795805760000,
    "time": "11/28 02:56"
-  },
-  {
-   "t": "Kazakh banks raise $1.5 billion to fund private takeover of gold miner Altynalmas",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQnEycGdycVJGZklUSmlQTTRfUEtkWE10d21kTnlkbnB2blJXclZuWU5scTAzQkIwaTloMld2Mzh6QjlCajVxMXdBRGh6TlNTSDJBS1VDSnkyN0dIZDVyd1o1NEZpemVxRUtKZ3Z2azNicmw4dXMtY2U5SFRHWFNkR3NobVM2QkxueU1CNGt6d2VJdEhGQnRKS3pGc0lmOVVZSk55V1c0RWo1M0ltOXhFVTMyTQ?oc=5",
-   "ms": 1795804387000,
-   "time": "11/28 02:33"
   },
   {
    "t": "Gold defies surging US Dollar and Treasury yields as bulls target $3,700",
@@ -56,18 +56,18 @@
    "time": "11/28 01:59"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com Australia",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOR3BmeXd1S2NTUzlpRy1jX2R6T2txQTdPaVlZTnZLRHRxTFhLTzNNNDZqemlaWHFSa0wyYUJ4ZWZ1Ym9rUW1vX0JELURHQnlJZDNOem4tUWRtZkYwMzR1RGM1UFRLM19IQURfbUpuR1JfYndSZFhVVzFzblZQVGFfZnlLbVFlanQwMThNek05eGgxeml2RGx3aVJQV3VfSlFVZTZmMFFNb2xMZEVsSS1mWEw5VmxQaHM?oc=5",
+   "ms": 1795801767000,
+   "time": "11/28 01:49"
+  },
+  {
    "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
    "ms": 1795801200000,
    "time": "11/28 01:40"
-  },
-  {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
-   "ms": 1795800652000,
-   "time": "11/28 01:30"
   },
   {
    "t": "Gold and Silver rally even as a December Fed hike is all but certain",
@@ -98,17 +98,17 @@
    "time": "11/28 00:28"
   },
   {
-   "t": "Gold and Silver Jump as Beijing Vows to Support China's Stock Market",
-   "src": "BullionVault",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU3QtQ1Q0VTFYTUJFQW81NW5aY3gyYkNPLXNaVVBjWkdZb3MydlIyZzUwT2Z6MFZzem95WDdpcmRIeV9id0p6OThfWUVYc3NSRXMtU3BwT1dkd2FEeHF6YlBoRlhLMEdPeEU4aG8wRzRvTUhjcFBJb19HUlZHRzFjQnQwZkdRVVVZQ3NpY21BUnVWVnYt?oc=5",
-   "ms": 1795794913000,
-   "time": "11/27 23:55"
-  },
-  {
    "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
    "ms": 1795793439000,
+   "time": "11/27 23:30"
+  },
+  {
+   "t": "Kinross Gold (KGC) Down 14.7% Since Last Earnings Report: Can It Rebound?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
+   "ms": 1795793416000,
    "time": "11/27 23:30"
   }
  ]
