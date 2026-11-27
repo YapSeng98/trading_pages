@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 01:01 SGT",
+ "updated": "2026-11-28 01:15 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
+   "ms": 1795798200000,
+   "time": "11/28 00:50"
+  },
   {
    "t": "The Energy Report: Hormuz Risks and Saudi Attacks Revive Oil Bulls",
    "src": "Investing.com",
@@ -29,10 +36,10 @@
   },
   {
    "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Canada",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU1d2TjkwSHEyY3FYVzZVV1FuMVJMWUNhY0ZjRzROX2xiVFNLdVNKaTBvWUFCMjgyUlNPRjhSUDV1QkFnQWY3TENnVW9WcDdlZ2pqT2xsMkhCT1RIcTYySUJuTHpzREdSbUJCYzVWLVJNX0gxcFdZZ0MyOVc0NmRKYUJVZ181bEV4Ym5qbEY0Z3M4aHBYLUFHdGowTGlHQ2JMVVpHUW12OUZraEVKZi1HMGdPVkQzcXc?oc=5",
-   "ms": 1795792810000,
-   "time": "11/27 23:20"
+   "src": "Investing.com India",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOWjlHeF9OSExxalJNQ09fckYzMHBhel9Yb1pYdjBuU3pHbHB6bE1hR2ZPUnl5WEZsM2xlMi1RM0lnMm5NeDRQbk1FMDVJRXIxNVZfeGFtNnNDZ2I0Z0M3QlBTVkt3b0VlU3lFRHBwbWU0NkFxTTNMWldUOHVKbFhPdERpWUtQRDJULVZ5VExZUE9oWVNsdER1YThfWWRBNzZDaElRSTYtb0QtbExWUTlKTmhXT01YWVU?oc=5",
+   "ms": 1795792693000,
+   "time": "11/27 23:18"
   },
   {
    "t": "Gold demand revives in India, China as price slide sparks bargain buying",
@@ -54,13 +61,6 @@
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUE5yS2YzWTBYY3k5YThMNlhVcnVUSzZzR0hURFZWOU02aG85YUVJLVJkSUk0OEhQU0ZqRDBGWUU3RHIwUG5FYXVYekFrbXNaM1c3SjJKWEE3M2kwcDFwOUtxc196c2NKUnBTZS1FNkU4Um03U1g2LVlxd01FUWJ0bkdIcDNQNVdWOENMOFBNSkJRSTZVVmRPSWZPYmdianoyUXZ3ZGNsQWI2UEp2cWtKUUg4cWFoS1hMdUE3WkNPYmtLd2dOTVE?oc=5",
    "ms": 1795787374000,
    "time": "11/27 21:49"
-  },
-  {
-   "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
-   "ms": 1795787160000,
-   "time": "11/27 21:46"
   },
   {
    "t": "Gold rallies above $3,600, silver surges as dollar weakness supports metals - Kitco AM Report",
