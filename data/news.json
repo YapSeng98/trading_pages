@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-27 22:06 SGT",
+ "updated": "2026-11-27 22:19 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold price forecast: Can the rebound gain traction?",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUE5yS2YzWTBYY3k5YThMNlhVcnVUSzZzR0hURFZWOU02aG85YUVJLVJkSUk0OEhQU0ZqRDBGWUU3RHIwUG5FYXVYekFrbXNaM1c3SjJKWEE3M2kwcDFwOUtxc196c2NKUnBTZS1FNkU4Um03U1g2LVlxd01FUWJ0bkdIcDNQNVdWOENMOFBNSkJRSTZVVmRPSWZPYmdianoyUXZ3ZGNsQWI2UEp2cWtKUUg4cWFoS1hMdUE3WkNPYmtLd2dOTVE?oc=5",
+   "ms": 1795787374000,
+   "time": "11/27 21:49"
+  },
+  {
+   "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
+   "ms": 1795787160000,
+   "time": "11/27 21:46"
+  },
   {
    "t": "Gold rallies above $3,600, silver surges as dollar weakness supports metals - Kitco AM Report",
    "src": "Kitco",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPamtYbENVdE5uTmk1WVkwWWFWMVNBb21aVjJJUVNfclgwOXJ6OVZyeGczSG9HUVFHVEJsMDVlTXlxUE00a05rck4yakMzS0lVWV9uLVpjeE42el9jbDJzcS1qUFdnX2FOd0pNX19hdTNrb0ZVVkhuNFBPSWptbU5uVzl2WFlrVV9SX1NETXRSbnN6OGYwLVFYa1hFUXBGaVhIeDVvNTdMbEVFNHJpQjVQVm56c05BYzVhSkk1eG1lWEtEakk?oc=5",
    "ms": 1795769192000,
    "time": "11/27 16:46"
-  },
-  {
-   "t": "Forex Today: US Dollar struggles to find demand after Thanksgiving, Gold extends rebound",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
-   "ms": 1795765052000,
-   "time": "11/27 15:37"
-  },
-  {
-   "t": "Gold Faces Weekend Risk as Fed Rate Bets and Iran Tensions Rattle Markets",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-faces-weekend-risk-as-fed-rate-bets-and-iran-tensions-rattle-markets-200692396",
-   "ms": 1795759560000,
-   "time": "11/27 14:06"
   }
  ]
 }
