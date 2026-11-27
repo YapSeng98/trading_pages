@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-27 13:33 SGT",
+ "updated": "2026-11-27 13:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd2ZFa0FGcTRjb19HbGxhWGxZc05LTXQ2WUJDTTQzc2hYNGVrbE5GQWtlcERpWGdVZmptNEFUM0ltY0ZobVhoaVo1Qzl4ZTFuNlBDSXFNaG9ETXFDOGdYSGppVVh1cW10TFJ5RG9sVVNYZmUzMHk2VlROMG9yVDM3UzRtM1VSbXlaYWlSN01McUlncVljREZvOGY5UzZaSjc3R3MzdWJUOF9oS3ZLU2c3bmV0MA?oc=5",
-   "ms": 1795755780000,
-   "time": "11/27 13:03"
-  },
   {
    "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return",
    "src": "Investing.com",
@@ -68,6 +61,13 @@
    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTVlQQ1llcjNjZ25VVHFVZnlLREJBZ1JndWhGNmlkZVgycEVhWEpjZWhTS1lFTk52cHJZTEhNblQ2eFM5NGRJRVdhR0ltQWI1dkZrcGdfbnppQ0dyQmlZVnJfM0Ruenc2c2ozQkIxMzRJUUplM2N3Q2lWYTNYVG9OQzRBXzFKNHZNdkdXSmR2azFRUkM1b3BZY2Z0R2JYTlFoRGN4d2N1MHJ5X2VCNEUxLXoxcEZZbXVOalRPQ0xVbGg?oc=5",
    "ms": 1795743587000,
    "time": "11/27 09:39"
+  },
+  {
+   "t": "Euro weakens to near 1.0950 on Fed hike outlook, de Cos poised to lead ECB",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPX2pkekRWczdoUzdPRTlkeGM3MTBPVXUxTmM3WGdaWWZieDg3MVZkMDBUQkd2eXluX3ByRWx6aEFvWV9wb0J6d09tSWJSaEtDYW0zUE5mNE5RUWVta1lySzQyN1ExVmhUb3d3NnFoUHpDQlJ1eTVLVjRCZEVZcmI0M3A4VmV2MldqSHNFVFZSRkhidUVJSUd3bExORlc4dG9nZDVvelBwWjRUSGl6czJfUjUzVnVUZw?oc=5",
+   "ms": 1795742374000,
+   "time": "11/27 09:19"
   },
   {
    "t": "Gold declines to near $3,550 amid hawkish Fed expectations",
