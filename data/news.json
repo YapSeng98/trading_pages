@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 12:12 SGT",
+ "updated": "2026-11-27 12:25 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,18 @@
  ],
  "items": [
   {
-   "t": "Gold rebounds from one-year low as AI jitters ease",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQa09uY3NZWGJVa0FOd00ya182THRYVmFWS2ppaTliYmpTNmdaMWFUN3hXcldXUF9xVU5JTXRRV2lXejRvTk9yOW1lMURsekM2TVdzS3FjRzFwaEVmWnRfMjlRNF9CS3FzYm96RFB4NVM2bk5WOWJsaHlEbWthTmlsZzJlYlB1QdIBiwFBVV95cUxOZUdkWjFqVjd4S1R0MmExS19oYzljeGFPRk5QS2gzaUNiWndHRl9tNEdqemxNNGphajZXdVB0RGltb0dUN2tibjNObUwwMTgwT000Mk1LbWpETFhjRkw1TVp0ZTdLMmk2VDJNd3lMcUpwaWcwd2hyeVJmRVVPTW1qekdKVEhFVkdyZ1Rj?oc=5",
-   "ms": 1795751400000,
-   "time": "11/27 11:50"
-  },
-  {
    "t": "Gold Price Forecast: XAU/USD eyes weekly gain after hitting 15-month lows",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMGNmNnU5UXhtOGNEMUxoOW9MbnV3dlBTMVZqUGRsTUdJMElMTWxNOENLSW94TTlUVGJIRUhHT2pYOUJKOENtcXNzMXNzNEFfV1FUbjQ4ckJnLW5iUkRvUVgyMkg3VVVWVFYzR0dyYnhQWTM2Ym9mTVRhNEc5NVlScV81b2xVVmoycjd2MHoyV3JpcF9wb3N0ak9vQXh1cWlLQy1yal9rSy12Rmd6cmMzclpfRXJCbVZuZXhn?oc=5",
    "ms": 1795751284000,
    "time": "11/27 11:48"
+  },
+  {
+   "t": "Gold rebounds from one-year low as AI jitters ease",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYW55b1BZTkM4emFaZmljMEIzZlBhd2duLWJnRlpMaVA1UnBMaXpEQTdYU0JQUF93QWRkMEV0ZHlaUFhJM3JwTkVLSFNQcDhJSW43VEJ3ME9uQmVvaXpaVkV6eG1CWnBISXFncTVTQjI0NElBcUZDTXlNZEw0S0RCSGxFa25EX29sYzJVZHJmREFnckNW?oc=5",
+   "ms": 1795750080000,
+   "time": "11/27 11:28"
   },
   {
    "t": "Gold steadies near 15-month low as Fed hike bets offset tech-led rally",
