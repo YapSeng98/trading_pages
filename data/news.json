@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 13:06 SGT",
+ "updated": "2026-11-27 13:19 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,25 @@
  ],
  "items": [
   {
+   "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORmVtZENqLVFDeVI0M0ZZSmtKR1dWWDhuTVZ1QzFXaWd3dlA0WUpad2doYzhYMmxhY2ttRWQ0bkFONFNxal9IR1JSbHREU1c1X0VIbWxBaTlaZFdHcDFWSGJMR0h6SFNTMEM5MWd3VVQzTmpGUk0wNTF6MElHUVNNczFXTVV2WGVMVFpvTnc4T0k5bGs3YVhxSXNrbjB4Tjc1VVpDUG9ZTl9pQnhEclphZlNjaVYxU3FOaHdUdkRuMnJxUQ?oc=5",
+   "ms": 1795754900000,
+   "time": "11/27 12:48"
+  },
+  {
    "t": "Gold extends recovery above $3,600 on weaker USD; Fed bets warrant caution for bulls",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPamtYbENVdE5uTmk1WVkwWWFWMVNBb21aVjJJUVNfclgwOXJ6OVZyeGczSG9HUVFHVEJsMDVlTXlxUE00a05rck4yakMzS0lVWV9uLVpjeE42el9jbDJzcS1qUFdnX2FOd0pNX19hdTNrb0ZVVkhuNFBPSWptbU5uVzl2WFlrVV9SX1NETXRSbnN6OGYwLVFYa1hFUXBGaVhIeDVvNTdMbEVFNHJpQjVQVm56c05BYzVhSkk1eG1lWEtEakk?oc=5",
    "ms": 1795753927000,
    "time": "11/27 12:32"
+  },
+  {
+   "t": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd2ZFa0FGcTRjb19HbGxhWGxZc05LTXQ2WUJDTTQzc2hYNGVrbE5GQWtlcERpWGdVZmptNEFUM0ltY0ZobVhoaVo1Qzl4ZTFuNlBDSXFNaG9ETXFDOGdYSGppVVh1cW10TFJ5RG9sVVNYZmUzMHk2VlROMG9yVDM3UzRtM1VSbXlaYWlSN01McUlncVljREZvOGY5UzZaSjc3R3MzdWJUOF9oS3ZLU2c3bmV0MA?oc=5",
+   "ms": 1795751940000,
+   "time": "11/27 11:59"
   },
   {
    "t": "Gold Price Forecast: XAU/USD eyes weekly gain after hitting 15-month lows",
@@ -50,10 +64,10 @@
   },
   {
    "t": "Gold steadies near 15-month low as Fed hike bets offset tech-led rally",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORmVtZENqLVFDeVI0M0ZZSmtKR1dWWDhuTVZ1QzFXaWd3dlA0WUpad2doYzhYMmxhY2ttRWQ0bkFONFNxal9IR1JSbHREU1c1X0VIbWxBaTlaZFdHcDFWSGJMR0h6SFNTMEM5MWd3VVQzTmpGUk0wNTF6MElHUVNNczFXTVV2WGVMVFpvTnc4T0k5bGs3YVhxSXNrbjB4Tjc1VVpDUG9ZTl9pQnhEclphZlNjaVYxU3FOaHdUdkRuMnJxUQ?oc=5",
-   "ms": 1795743166000,
-   "time": "11/27 09:32"
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNTVlQQ1llcjNjZ25VVHFVZnlLREJBZ1JndWhGNmlkZVgycEVhWEpjZWhTS1lFTk52cHJZTEhNblQ2eFM5NGRJRVdhR0ltQWI1dkZrcGdfbnppQ0dyQmlZVnJfM0Ruenc2c2ozQkIxMzRJUUplM2N3Q2lWYTNYVG9OQzRBXzFKNHZNdkdXSmR2azFRUkM1b3BZY2Z0R2JYTlFoRGN4d2N1MHJ5X2VCNEUxLXoxcEZZbXVOalRPQ0xVbGg?oc=5",
+   "ms": 1795743587000,
+   "time": "11/27 09:39"
   },
   {
    "t": "Gold declines to near $3,550 amid hawkish Fed expectations",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOb29vaFQ2a1Z3UmxfQzZKcnpMcGMtMmZwcGNZZkkxOGhDSWVqczlWbTV2eThPY3FvczlnQVI4aXg4UEx4UVIzcnlSNmNQT0dzT1JRRG1mVmcxUHVxNEY3bVZjc3RmUEZFY3lKcmV0cVpoWXdkSXJrWl9COXlUbTFKVEZLMjNtZEMycGdvZUhwRVFwU2cyak5wZlhIcmZ0X0QwZU02ZS1vZjh3Zw?oc=5",
    "ms": 1795716086000,
    "time": "11/27 02:01"
-  },
-  {
-   "t": "Gold spot prices slip as dollar firms, while U.S. futures gain By Investing.com",
-   "src": "Investing.com South Africa",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMkQwRkdhYk5oamJkQ0Rmdi1CMEVCbERfVjlLLTRORjNxUmk2Z3VBLVhVcENHZUR0a0c2N1NCWUlMTWozWXRZRld3a1YxNTBraVhXMmRnNDFxTkUxMFQ2X1puWHJBWURld3ktbUZva2lHT3gtenpTNEV3ZWxuaGN3X1V4N0RLYkpFTXhiZ1lJelJmY3c1bFhNcmNsblJ3S2wxNUZRMXZoYjg5UjJxNlhTUEJPXzBWdw?oc=5",
-   "ms": 1795715077000,
-   "time": "11/27 01:44"
-  },
-  {
-   "t": "Kazakhstan Encouraged Local Banks to Finance Deal for Gold Miner",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNWDZnZGRla1RLcTBoV1hydUlJZFVQSkZIZ2JpLUFCcnlsdUJhVmZsdW9XLTU5NWNRTE82dUdsWHRmVnlzMjdEX25nalE4eTBGZ0JrUE44Vk53UXhBNEctN3JPYkhnRXhjM0lpeW9UdmtqYkkwSXpBQmw0bHhaNnRNOFN3TkM1X2NkRFZQVnE3bm13d2hSWktmZm96T2JRN0lteWFjYzl4RzFNLThsNTVTRkw3ZlpXdw?oc=5",
-   "ms": 1795714540000,
-   "time": "11/27 01:35"
   }
  ]
 }
