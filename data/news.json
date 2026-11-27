@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 18:43 SGT",
+ "updated": "2026-11-27 19:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Approaches $3,685: Breakout or Triple-Top Reversal?",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-approaches-3685-breakout-or-tripletop-reversal-200692422",
+   "ms": 1795775940000,
+   "time": "11/27 18:39"
+  },
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
    "src": "Bloomberg.com",
@@ -40,6 +47,13 @@
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
    "ms": 1795765052000,
    "time": "11/27 15:37"
+  },
+  {
+   "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORHNtWTZfdnRfcDZMUlk1UHB1SVE3QUNoWnFZVXdacWhHY1B6dVBqS1NUcXhzRm9GdmF3RXdrRGF4VE52RmJGRjZqb0cwTnNnMnd4cTBtVFgzc2hHUzlHX0FxanZfeEFVWVF2Zks0dzBtNnJWSUJtQld4ZVVQVU03ZndYTVBIcFFjalNNT3BIZV8yY1A4RzZjREg3UjkzdVJ3X2FPRXFVZTUwNW92ajcxYWRWTS1ORkl6RXJNenloY0Y?oc=5",
+   "ms": 1795764600000,
+   "time": "11/27 15:30"
   },
   {
    "t": "Gold Faces Weekend Risk as Fed Rate Bets and Iran Tensions Rattle Markets",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUWl6WDgzM0tfbzV6bDlPc0dfd3hpbUtHa3pQSDRHeGFIa0JySjNXaEF0V2NTanlDYktkaTV0dHdEdmhqOWtYSk5vMHZSNU8zRTVLN2w3RnY3OXVmRXFHMkpqTnExblo2ekNGMzNLSU9nM3R3M1g2SHFJVGM1aWFSaUdRS2xCUVVncjlTczVmeVk2bE9jRm1faFBseG11ejBhZmc?oc=5",
    "ms": 1795736236000,
    "time": "11/27 07:37"
-  },
-  {
-   "t": "Breaking: Japan’s Tokyo CPI inflation climbs 2.8% in November",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOQXVNYXFYazVYTU9MNFotbnZRQUwtQ1VBT1RNbGo2WThBZVBYVGVlWnZKMk9kemw1T2draE1qREd6VzNvRXlrdy1WM2I4UDdVa3BxRDhyelY2MGNZVjRYaDM2eG9tRHFKN2ppY3RsaXZiT0NadTVaMU1IUnFaQkxScnlTazBhcDZ5VGVCczFkblhPdlFXNXVqR0tZMTBGalRGZWc?oc=5",
-   "ms": 1795735913000,
-   "time": "11/27 07:31"
-  },
-  {
-   "t": "Gold slips, silver gains as Fed rate hike expectations persist in holiday trading - Kitco PM Report",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQeG5mODVrQkQyYUR6RjI2N25WejFPYUNfbVJNVFRTeVhXWndLWVdmNUNlcmRlM0JWZUdXWU0ydmdFNXZPU2JQNVJWZ2hCbFRTcUlpNjdXN2FpU0lybGlPVC1uR2pmYXI5THlqd3BRR0o1Vzh1Um8tOWNBRGE3NndHc09iNnl1RFFLZjNNRDhlOVNmSDhBanFzLTZUWTdkNklsT1RNV0NFWVl4TGhpVTVJTlpWSzZZemxWY2dDQQ?oc=5",
-   "ms": 1795730849000,
-   "time": "11/27 06:07"
   }
  ]
 }
