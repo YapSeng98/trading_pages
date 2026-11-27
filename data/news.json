@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 17:08 SGT",
+ "updated": "2026-11-27 17:22 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd2ZFa0FGcTRjb19HbGxhWGxZc05LTXQ2WUJDTTQzc2hYNGVrbE5GQWtlcERpWGdVZmptNEFUM0ltY0ZobVhoaVo1Qzl4ZTFuNlBDSXFNaG9ETXFDOGdYSGppVVh1cW10TFJ5RG9sVVNYZmUzMHk2VlROMG9yVDM3UzRtM1VSbXlaYWlSN01McUlncVljREZvOGY5UzZaSjc3R3MzdWJUOF9oS3ZLU2c3bmV0MA?oc=5",
+   "ms": 1795768648000,
+   "time": "11/27 16:37"
+  },
   {
    "t": "Forex Today: US Dollar struggles to find demand after Thanksgiving, Gold extends rebound",
    "src": "FXStreet",
@@ -14,7 +21,7 @@
    "time": "11/27 15:37"
   },
   {
-   "t": "Gold clings to gains above $3,650; eyes weekly top as risk-on mood weighs on USD",
+   "t": "Gold holds above $3,650, targets weekly high as USD softens",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPamtYbENVdE5uTmk1WVkwWWFWMVNBb21aVjJJUVNfclgwOXJ6OVZyeGczSG9HUVFHVEJsMDVlTXlxUE00a05rck4yakMzS0lVWV9uLVpjeE42el9jbDJzcS1qUFdnX2FOd0pNX19hdTNrb0ZVVkhuNFBPSWptbU5uVzl2WFlrVV9SX1NETXRSbnN6OGYwLVFYa1hFUXBGaVhIeDVvNTdMbEVFNHJpQjVQVm56c05BYzVhSkk1eG1lWEtEakk?oc=5",
    "ms": 1795764081000,
@@ -47,13 +54,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMGNmNnU5UXhtOGNEMUxoOW9MbnV3dlBTMVZqUGRsTUdJMElMTWxNOENLSW94TTlUVGJIRUhHT2pYOUJKOENtcXNzMXNzNEFfV1FUbjQ4ckJnLW5iUkRvUVgyMkg3VVVWVFYzR0dyYnhQWTM2Ym9mTVRhNEc5NVlScV81b2xVVmoycjd2MHoyV3JpcF9wb3N0ak9vQXh1cWlLQy1yal9rSy12Rmd6cmMzclpfRXJCbVZuZXhn?oc=5",
    "ms": 1795751284000,
    "time": "11/27 11:48"
-  },
-  {
-   "t": "Gold steadies as investors return to precious metals despite mounting US rate hike fears",
-   "src": "Yahoo Finance Australia",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaFFEdlVId2pvaGJVdXJHUGxJei1Mc0RrVFNIUFZadlBIWFpDeFZteHB6RXdyVkR6a29nbHBLN0pNQXhneVNhTzFQbmw1eHpnUjJKUDB5WWtaMHpLZGhsUFdWN3loQlhoS2ttQUYwdU90Z0VFTTdXNHdqOVJrcFhTaGJ2TjNyWEtRN0RMUVV0Uk5vUQ?oc=5",
-   "ms": 1795750680000,
-   "time": "11/27 11:38"
   },
   {
    "t": "Gold faces near-term pressure but medium-term outlook remains bright: Strategist",
