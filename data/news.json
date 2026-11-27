@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 06:39 SGT",
+ "updated": "2026-11-28 06:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold and silver bounce from 15-month lows, but Fed risks loom large",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUHRKOGNNMzNLb2dYbFhxMi12UEpPOGRqSHI0XzRmVVZBZThlVjdOWGh0WHo1Sjh6U1NYdmI4eU9GVkNZeHZNQ3luTmkwRWxIQUJQbGZNa1hsTXpiSHJoVGtvNGFiNmNxZ0hNNmVOT1NBTUVrSXQ5clI4YUFkQjJpclhfWFg0eS1GSVFNMC12ZWtpQVUzM1NwelhzWDJqVnh4clJvcllB?oc=5",
+   "ms": 1795817146000,
+   "time": "11/28 06:05"
+  },
   {
    "t": "Gold may get a relief rally following the Fed, but Warsh’s tone could still hammer prices lower – BubbleBubble Report’s Colombo",
    "src": "Kitco",
@@ -29,7 +36,7 @@
   },
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
-   "src": "Bloomberg",
+   "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
    "ms": 1795807300000,
    "time": "11/28 03:21"
@@ -63,18 +70,18 @@
    "time": "11/28 01:59"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com Australia",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOR3BmeXd1S2NTUzlpRy1jX2R6T2txQTdPaVlZTnZLRHRxTFhLTzNNNDZqemlaWHFSa0wyYUJ4ZWZ1Ym9rUW1vX0JELURHQnlJZDNOem4tUWRtZkYwMzR1RGM1UFRLM19IQURfbUpuR1JfYndSZFhVVzFzblZQVGFfZnlLbVFlanQwMThNek05eGgxeml2RGx3aVJQV3VfSlFVZTZmMFFNb2xMZEVsSS1mWEw5VmxQaHM?oc=5",
+   "ms": 1795801767000,
+   "time": "11/28 01:49"
+  },
+  {
    "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
    "ms": 1795801200000,
    "time": "11/28 01:40"
-  },
-  {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
-   "ms": 1795800652000,
-   "time": "11/28 01:30"
   },
   {
    "t": "Gold and Silver rally even as a December Fed hike is all but certain",
@@ -102,13 +109,6 @@
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
    "ms": 1795793439000,
-   "time": "11/27 23:30"
-  },
-  {
-   "t": "Kinross Gold (KGC) Down 14.7% Since Last Earnings Report: Can It Rebound?",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
-   "ms": 1795793416000,
    "time": "11/27 23:30"
   }
  ]
