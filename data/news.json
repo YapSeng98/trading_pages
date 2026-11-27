@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 06:26 SGT",
+ "updated": "2026-11-28 06:39 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold may get a relief rally following the Fed, but Warsh’s tone could still hammer prices lower – BubbleBubble Report’s Colombo",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQVJNeDA1dXJNNGlXVlNfbEg5aXBWZVlhNTRDVnFBSjllblA3c1NWY1JIMUxfY202RC1nMDhEdjRXa25xNGttVVVKWElVYXpKWXc1ZXVNaTVGYWFqZnBQZEpTR2V1T3VHRW1rN2NSTVZES3J3YndCbTFTYlY5N0g0MWc2MVZ2LURRbTM2Um5aOFpDak9taHVFWDJMNUJPb3g3TmJxWEJMalpwSjRpQ1hMUFJSNnBFMUE?oc=5",
+   "ms": 1795817028000,
+   "time": "11/28 06:03"
+  },
   {
    "t": "Gold could ride the double tailwind of equities and seasonals higher into the new year – investingLive’s Button",
    "src": "Kitco",
@@ -63,6 +70,13 @@
    "time": "11/28 01:40"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
+   "ms": 1795800652000,
+   "time": "11/28 01:30"
+  },
+  {
    "t": "Gold and Silver rally even as a December Fed hike is all but certain",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
    "ms": 1795793416000,
    "time": "11/27 23:30"
-  },
-  {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZlR3S3lPU1VYTUpHM2x6Q252cU85bFN6am5Dc2wzVUMxbmktb0FUYXdhOHlxZXloNW9RWWVLRUxfWk9OakU1djg5ekRjWEZma3FTUnZKUjg1NlY3SWdQX0I5YzU3azREZUNMcmdHTERTWWRjdGlfUUlYcExCRUp1cEF6YkMxVkl1Zll0TG8zamw5UnZaWTZPY2ZoQUtWODNkeU04SEk5b1JMUEJ6SWlILTZwTEpXb3gw?oc=5",
-   "ms": 1795792191000,
-   "time": "11/27 23:09"
-  },
-  {
-   "t": "Gold demand revives in India, China as price slide sparks bargain buying",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
-   "ms": 1795792017000,
-   "time": "11/27 23:06"
   }
  ]
 }
