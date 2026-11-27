@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-27 18:29 SGT",
+ "updated": "2026-11-27 19:24 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3670.3,
- "priceTime": "2026-11-27 18:15 SGT",
+ "price": 3675.4,
+ "priceTime": "2026-11-27 19:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3565.7,
   "high": 3685.2,
   "low": 3557.4,
-  "changeFromPrevClose": 104.2,
-  "changePct": 2.92,
+  "changeFromPrevClose": 109.3,
+  "changePct": 3.07,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -175,22 +175,22 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-11-26 06:00 SGT",
-   "rsi": 75.5,
-   "atr": 19.21,
-   "ema20": 3615.1,
-   "ema50": 3590.3,
-   "ema200": 3665.6,
+   "rsi": 76.5,
+   "atr": 18.68,
+   "ema20": 3621.2,
+   "ema50": 3593.8,
+   "ema200": 3665.7,
    "emaOrder": "交错",
    "range": {
     "top": 3685.2,
     "bottom": 3557.4,
-    "positionPct": 91
+    "positionPct": 95
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3586.3,
-    "barsAgo": 8
+    "barsAgo": 9
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 3557.4
@@ -200,32 +200,37 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-11-27 10:00 SGT",
-   "rsi": 65,
-   "atr": 8.84,
-   "ema20": 3661.4,
-   "ema50": 3633.3,
-   "ema200": 3591.1,
+   "rsi": 65.5,
+   "atr": 7.86,
+   "ema20": 3666.1,
+   "ema50": 3639.5,
+   "ema200": 3594.4,
    "emaOrder": "多头排列",
    "range": {
     "top": 3685.2,
     "bottom": 3638.9,
-    "positionPct": 68
+    "positionPct": 79
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3666.5,
-    "barsAgo": 8
+    "barsAgo": 12
    },
-   "turnsUpAbove": null,
+   "turnsUpAbove": 3685.2,
    "turnsDownBelow": 3557.4
   }
  ],
  "resistance": [
   {
    "price": 3685.2,
-   "what": "4小时区间顶、1小时区间顶",
-   "strength": 3
+   "what": "4小时区间顶、1小时牛旗关键位、1小时区间顶",
+   "strength": 5
+  },
+  {
+   "price": 3766.1,
+   "what": "1小时牛旗目标",
+   "strength": 1
   },
   {
    "price": 3787.5,
@@ -241,11 +246,6 @@
    "price": 3901.1,
    "what": "上周高点、4小时 200 均线",
    "strength": 6
-  },
-  {
-   "price": 3941.5,
-   "what": "周线向下突破位",
-   "strength": 1
   }
  ],
  "support": [
