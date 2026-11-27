@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 05:32 SGT",
+ "updated": "2026-11-28 05:45 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold could ride the double tailwind of equities and seasonals higher into the new year – investingLive’s Button",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQUS1NNmNtb2RVVC1qSUh6RTNDOE1ES1lrVC1ibnZuUTJSRnMtLW1JblBfZkVNOGh2bUM3UHl1YTd6SnIwOVNCc0tPTDhFZmFOQU80U3AzWEU1U25DV1dyQVYzWHdYRERQRnF5S2kwTGRmcmg1Q2dGeHJ2dHVHdHFDaHZWcFBWRVM5bkdQQl8wdHduTGlTMk1JNFRuNUtPVkhMTDRCZ013djJnR3laR1F2VkdJbUp3WkE?oc=5",
+   "ms": 1795812437000,
+   "time": "11/28 04:47"
+  },
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
    "src": "Bloomberg",
@@ -19,6 +26,13 @@
    "url": "https://www.investing.com/analysis/golds-215-billion-etf-exodus-highlights-the-cost-of-higher-rates-200692463",
    "ms": 1795805760000,
    "time": "11/28 02:56"
+  },
+  {
+   "t": "Kazakh banks raise $1.5 billion to fund private takeover of gold miner Altynalmas",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQnEycGdycVJGZklUSmlQTTRfUEtkWE10d21kTnlkbnB2blJXclZuWU5scTAzQkIwaTloMld2Mzh6QjlCajVxMXdBRGh6TlNTSDJBS1VDSnkyN0dIZDVyd1o1NEZpemVxRUtKZ3Z2azNicmw4dXMtY2U5SFRHWFNkR3NobVM2QkxueU1CNGt6d2VJdEhGQnRKS3pGc0lmOVVZSk55V1c0RWo1M0ltOXhFVTMyTQ?oc=5",
+   "ms": 1795804387000,
+   "time": "11/28 02:33"
   },
   {
    "t": "Gold defies surging US Dollar and Treasury yields as bulls target $3,700",
@@ -77,39 +91,25 @@
    "time": "11/28 00:32"
   },
   {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795796890000,
+   "time": "11/28 00:28"
+  },
+  {
+   "t": "Gold and Silver Jump as Beijing Vows to Support China's Stock Market",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU3QtQ1Q0VTFYTUJFQW81NW5aY3gyYkNPLXNaVVBjWkdZb3MydlIyZzUwT2Z6MFZzem95WDdpcmRIeV9id0p6OThfWUVYc3NSRXMtU3BwT1dkd2FEeHF6YlBoRlhLMEdPeEU4aG8wRzRvTUhjcFBJb19HUlZHRzFjQnQwZkdRVVVZQ3NpY21BUnVWVnYt?oc=5",
+   "ms": 1795794913000,
+   "time": "11/27 23:55"
+  },
+  {
    "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
    "ms": 1795793439000,
    "time": "11/27 23:30"
-  },
-  {
-   "t": "Gold demand revives in India, China as price slide sparks bargain buying",
-   "src": "mining.com",
-   "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
-   "ms": 1795792017000,
-   "time": "11/27 23:06"
-  },
-  {
-   "t": "The price of gold today, Nov. 27, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE15c3did0NMTDZLMEFsN3lldlA5LU1saUtsVDJ6ZXd3NFdjOHpkOU5VZkpET1Z6UHRFdHB5bEh5LU4yR0F2dENxZHo2aWZvLW9HSlNBU3dhZElVbmltVjNJQkV1R3c1MW41ZEI3dVNtNTVHd9IBd0FVX3lxTE5IWU9PY1VLUlA2dERWdTVFN0RXeGtxUXYxdDlSVm9FSlFacmplOFo0bXc4akVYOXc5WFowNWVwVk4yV3Y1YmRJaWdjbUVodlR3UEd4TlUzVUw2OEhDSE9FWDRjTWZHbW5fTFh2VkZJTkN4ZG1nVXVF?oc=5",
-   "ms": 1795791734000,
-   "time": "11/27 23:02"
-  },
-  {
-   "t": "Has Gold found a bottom, or is this a short-term bounce?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPNXlpSmc4c3NfcGFGbGxGVHFYMVpjMXZuMHhGOThtR2I2d0JMMW5mSkJqY0VIaWlIOVpsRXJDVElpOFlPcVRZWjJobThjVE1GRDdQam85MWJzQUhVWlhhNlZuVWRHUy1LOXBvZUFOQmZ4QUxoaU5vR0VvMFEtalN0MnFQNTlZTlRUb19RMGk0YzNPLV8wSGZJdm1xYw?oc=5",
-   "ms": 1795790749000,
-   "time": "11/27 22:45"
-  },
-  {
-   "t": "Gold price forecast: Can the rebound gain traction?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUE5yS2YzWTBYY3k5YThMNlhVcnVUSzZzR0hURFZWOU02aG85YUVJLVJkSUk0OEhQU0ZqRDBGWUU3RHIwUG5FYXVYekFrbXNaM1c3SjJKWEE3M2kwcDFwOUtxc196c2NKUnBTZS1FNkU4Um03U1g2LVlxd01FUWJ0bkdIcDNQNVdWOENMOFBNSkJRSTZVVmRPSWZPYmdianoyUXZ3ZGNsQWI2UEp2cWtKUUg4cWFoS1hMdUE3WkNPYmtLd2dOTVE?oc=5",
-   "ms": 1795787374000,
-   "time": "11/27 21:49"
   }
  ]
 }
