@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 02:22 SGT",
+ "updated": "2026-11-28 02:36 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold defies surging US Dollar and Treasury yields as bulls target $3,700",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTTA5LTNDRTlvTmJpZHZHb3FIMjlGUlpyM0xoWjlZNWREb3lCZ2ZpOVRHUjRVeThzcFRYRVpHalFIV3NUTG91ekFweXVkblA2MUJKUThadVgxSkczRWo2OW5tSWd0Mld1YVFOdHBZUTZ2Z3k3Y0V1d1B2Z3Y3VFduQnhmN0p3OGdhQUotWUFtdjFjeXNDMEtxc3AzZVYxeTMweHM0SUdiT1B4cDE5cG5YYVBLUVk?oc=5",
+   "ms": 1795803567000,
+   "time": "11/28 02:19"
+  },
   {
    "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
    "src": "Investing.com",
@@ -57,10 +64,10 @@
   },
   {
    "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZlR3S3lPU1VYTUpHM2x6Q252cU85bFN6am5Dc2wzVUMxbmktb0FUYXdhOHlxZXloNW9RWWVLRUxfWk9OakU1djg5ekRjWEZma3FTUnZKUjg1NlY3SWdQX0I5YzU3azREZUNMcmdHTERTWWRjdGlfUUlYcExCRUp1cEF6YkMxVkl1Zll0TG8zamw5UnZaWTZPY2ZoQUtWODNkeU04SEk5b1JMUEJ6SWlILTZwTEpXb3gw?oc=5",
-   "ms": 1795792191000,
-   "time": "11/27 23:09"
+   "src": "Investing.com Canada",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQU1d2TjkwSHEyY3FYVzZVV1FuMVJMWUNhY0ZjRzROX2xiVFNLdVNKaTBvWUFCMjgyUlNPRjhSUDV1QkFnQWY3TENnVW9WcDdlZ2pqT2xsMkhCT1RIcTYySUJuTHpzREdSbUJCYzVWLVJNX0gxcFdZZ0MyOVc0NmRKYUJVZ181bEV4Ym5qbEY0Z3M4aHBYLUFHdGowTGlHQ2JMVVpHUW12OUZraEVKZi1HMGdPVkQzcXc?oc=5",
+   "ms": 1795792810000,
+   "time": "11/27 23:20"
   },
   {
    "t": "Gold demand revives in India, China as price slide sparks bargain buying",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxORTVtVk51bjVHdEdqZXVFSnp5Smxoci1PY1h4aTl5OUxJaG80Sl9RdXEzbV9Pc056SjF3ejktU1M4VTZobGQ2YWxIem1KcGxmLXNRcFhtM2FIWl9yNVpSeTcyWC1lcl9MZkRoYmZlVUVYaDVpNDQ5TzZwVUVYTThRNFQ2YVlZNllIOFlUcmdVRkJ5RENUSUNrdjV2d0FRcWFHSmdLS1YzemRGOGE1dXNVOUNKTDFJUzQ?oc=5",
    "ms": 1795783321000,
    "time": "11/27 20:42"
-  },
-  {
-   "t": "Gold Under Pressure: Why Fed Hike Bets Are Testing the $3,500 Floor",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-under-pressure-why-fed-hike-bets-are-testing-the-3500-floor-200692434",
-   "ms": 1795780620000,
-   "time": "11/27 19:57"
   }
  ]
 }
