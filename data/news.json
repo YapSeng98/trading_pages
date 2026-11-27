@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 12:39 SGT",
+ "updated": "2026-11-27 12:52 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold extends recovery above $3,600 on weaker USD; Fed bets warrant caution for bulls",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPamtYbENVdE5uTmk1WVkwWWFWMVNBb21aVjJJUVNfclgwOXJ6OVZyeGczSG9HUVFHVEJsMDVlTXlxUE00a05rck4yakMzS0lVWV9uLVpjeE42el9jbDJzcS1qUFdnX2FOd0pNX19hdTNrb0ZVVkhuNFBPSWptbU5uVzl2WFlrVV9SX1NETXRSbnN6OGYwLVFYa1hFUXBGaVhIeDVvNTdMbEVFNHJpQjVQVm56c05BYzVhSkk1eG1lWEtEakk?oc=5",
+   "ms": 1795753927000,
+   "time": "11/27 12:32"
+  },
   {
    "t": "Gold Price Forecast: XAU/USD eyes weekly gain after hitting 15-month lows",
    "src": "FXStreet",
@@ -28,6 +35,13 @@
    "time": "11/27 11:28"
   },
   {
+   "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
+   "ms": 1795746720000,
+   "time": "11/27 10:32"
+  },
+  {
    "t": "Gold faces near-term pressure but medium-term outlook remains bright: Strategist",
    "src": "CNBC",
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNc1ltbG1Pdmo1cFotYW1yNTRVQ1J2ODdHU3NVdkl2ZlhEaTd4OWZEbk9KVmxtMnI1RXM1RTZxbnBGMTlnRkdsOXd3TEw1eTdVME9LamdWRW1yZUlvUGlKOUVQWXpmTnR1bzZESmd5ZDFFdm9kdVd0RWMxbTYzWE96cWpwVUFUTXBhdzdBNzByWGJkVjJvWWo4QzNWcl9ESF9uMDVTS2EzUDhzV2pTRy1zYg?oc=5",
@@ -40,13 +54,6 @@
    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxORmVtZENqLVFDeVI0M0ZZSmtKR1dWWDhuTVZ1QzFXaWd3dlA0WUpad2doYzhYMmxhY2ttRWQ0bkFONFNxal9IR1JSbHREU1c1X0VIbWxBaTlaZFdHcDFWSGJMR0h6SFNTMEM5MWd3VVQzTmpGUk0wNTF6MElHUVNNczFXTVV2WGVMVFpvTnc4T0k5bGs3YVhxSXNrbjB4Tjc1VVpDUG9ZTl9pQnhEclphZlNjaVYxU3FOaHdUdkRuMnJxUQ?oc=5",
    "ms": 1795743166000,
    "time": "11/27 09:32"
-  },
-  {
-   "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
-   "ms": 1795737215000,
-   "time": "11/27 07:53"
   },
   {
    "t": "Gold declines to near $3,550 amid hawkish Fed expectations",
@@ -91,25 +98,18 @@
    "time": "11/27 02:01"
   },
   {
+   "t": "Kazakhstan Encouraged Local Banks to Finance Deal for Gold Miner",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNWDZnZGRla1RLcTBoV1hydUlJZFVQSkZIZ2JpLUFCcnlsdUJhVmZsdW9XLTU5NWNRTE82dUdsWHRmVnlzMjdEX25nalE4eTBGZ0JrUE44Vk53UXhBNEctN3JPYkhnRXhjM0lpeW9UdmtqYkkwSXpBQmw0bHhaNnRNOFN3TkM1X2NkRFZQVnE3bm13d2hSWktmZm96T2JRN0lteWFjYzl4RzFNLThsNTVTRkw3ZlpXdw?oc=5",
+   "ms": 1795714540000,
+   "time": "11/27 01:35"
+  },
+  {
    "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
    "ms": 1795712561000,
    "time": "11/27 01:02"
-  },
-  {
-   "t": "Gold’s rebound shows markets fear recession and doubt Fed rate follow-through – StoneX’s Stanley",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMm9rMGNtNFVvUm5FVFpkWXFoVHlYaHlhSEkyb3dwa19IUXZiVk9rYkRXUVpBeWtXQTVfcUhYSTY5RUI0NVdNeWNZU1V2T0xzN211cWtwNWJBMzV1OWZCUVpoclloM2VxNWg2bkZUaUdFY0pZZ3NOQ3R6aWVYUmRMckFtNGJMbzdmRzBhbjdMeEowR1l4cFg3M1ppRGlDeDZ2Q3lTbFd6Tk91V1ZmMVE5LV9yT3U?oc=5",
-   "ms": 1795710063000,
-   "time": "11/27 00:21"
-  },
-  {
-   "t": "Gold’s Thanksgiving support offers a glimmer of hope for battered bulls - Analysts",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPVVJYSG5veEdiWWVzRVkySnY2UmNUMDRkdzJzVXFrZjdvR0RCTDBDRVNtV1VOUDF1NDNqVGRRYm8xOUI1bzVkS0g0NEFad3d2d051NFo0X0JZSWRGaEhhSTluUHFaY0ZTcG5FaW1JMzVuMnlpV3IwUm11NzZ2YzJVYXpBNjhzMzJpYmpLd2xJcXh3VHY5NE8yQW1CNXI3UEdBQzQtb2FOa0IyelFCbGR1OXlYeFhqNzQ?oc=5",
-   "ms": 1795709356000,
-   "time": "11/27 00:09"
   }
  ]
 }
