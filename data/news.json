@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 15:34 SGT",
+ "updated": "2026-11-27 15:48 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,11 @@
  ],
  "items": [
   {
-   "t": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd2ZFa0FGcTRjb19HbGxhWGxZc05LTXQ2WUJDTTQzc2hYNGVrbE5GQWtlcERpWGdVZmptNEFUM0ltY0ZobVhoaVo1Qzl4ZTFuNlBDSXFNaG9ETXFDOGdYSGppVVh1cW10TFJ5RG9sVVNYZmUzMHk2VlROMG9yVDM3UzRtM1VSbXlaYWlSN01McUlncVljREZvOGY5UzZaSjc3R3MzdWJUOF9oS3ZLU2c3bmV0MA?oc=5",
-   "ms": 1795762740000,
-   "time": "11/27 14:59"
+   "t": "Forex Today: US Dollar struggles to find demand after Thanksgiving, Gold extends rebound",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
+   "ms": 1795765052000,
+   "time": "11/27 15:37"
   },
   {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
@@ -19,6 +19,13 @@
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
    "ms": 1795761540000,
    "time": "11/27 14:39"
+  },
+  {
+   "t": "Gold Faces Weekend Risk as Fed Rate Bets and Iran Tensions Rattle Markets",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-faces-weekend-risk-as-fed-rate-bets-and-iran-tensions-rattle-markets-200692396",
+   "ms": 1795759560000,
+   "time": "11/27 14:06"
   },
   {
    "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNOGE0WUZ0UVRyeHV2dHBJRzFzTUdnQlVnT0NBQnVwSHpybk5hRV9PVHhWa1E4ak9TaGVFbFlLSVNGRERqbFQ0UVh4WldETUJkLWhnczlOSDBCcDdwMGx0dmJ0QTBvY2d6X3F6SXIxRUxDX0hRWi12ZGxmRms4VzRETlprVHVmaHFjZi1fQjVGRjltZXhCOUo5R3ZPTVNVbWN2NHdWdzc5SERVUndJdU45cXZ6QnU?oc=5",
    "ms": 1795720840000,
    "time": "11/27 03:20"
-  },
-  {
-   "t": "Gold price stalls near $3,570 as Fed hike bets keep bulls at bay",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOb29vaFQ2a1Z3UmxfQzZKcnpMcGMtMmZwcGNZZkkxOGhDSWVqczlWbTV2eThPY3FvczlnQVI4aXg4UEx4UVIzcnlSNmNQT0dzT1JRRG1mVmcxUHVxNEY3bVZjc3RmUEZFY3lKcmV0cVpoWXdkSXJrWl9COXlUbTFKVEZLMjNtZEMycGdvZUhwRVFwU2cyak5wZlhIcmZ0X0QwZU02ZS1vZjh3Zw?oc=5",
-   "ms": 1795716086000,
-   "time": "11/27 02:01"
   }
  ]
 }
