@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 09:57 SGT",
+ "updated": "2026-11-27 10:11 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -63,13 +63,6 @@
    "time": "11/27 02:01"
   },
   {
-   "t": "META_TITLE_QUOTE",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFAyUjl3TDFqeXJOOE9qNm8tYXNFcUJJREpDdXFNaE9fU0d0d29zN0pkaExFZUZiZENwMVJIOW5UTGVGVmZJRlB0dUJhSEZLUQ?oc=5",
-   "ms": 1795712795000,
-   "time": "11/27 01:06"
-  },
-  {
    "t": "Gold Edges Lower as US Inflation Data Fuels Bets for Rate Hikes",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNWk5iY21FejJMUDVfS2h4ekdoUnQ1RndSalFWS2pkZzJZY1AwSXRnY1otVEdsMUdRVWZJV0NKSUxEM3Boc2VlQXNMMWkweGxJSWVGaFJHcC1qWTk0WTdIbXR0Z3VNQ2N2R054YXZMa1I2eVk4RjU5T09FelF5ZC1KdGJRYnV5bFdvMjJoRzBpMjNoUDkzMDJiTmdvejdOMF85Vy1JZU16eEI1M3VzVlBNa0RyMjk?oc=5",
@@ -110,6 +103,13 @@
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPb0pVckZUM0g1ckMyZWo0dC12aUhNRTE0bnVuNDdGUnk3WkhsR1hpY2ZpTm9iNDVjcW51UG9GOVJOQUlKd3RiZkVQY1BsUXBOTkprdDFZRGpUc21neWhwX1lQVzJjQnV5QjcyVk45VTFwOEtFbG9YUGxRc1o3N0ZjNWtDZWhmS1Jr?oc=5",
    "ms": 1795704433000,
    "time": "11/26 22:47"
+  },
+  {
+   "t": "China Railway Resources Group plans $600 million investment in Zimbabwe gold mines",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOLUpCLVR5YVZ1cFBPeHRtT0pkYUdFZE8yd0loYTFweXZ6ZVhMTlhNczJyRU1Ed0ZTS2JlODFQUVpoTHM4azhmNUtTM0huMTNBWUpTbWgwRFhoZHViZ1Npb2tQbEVGWFZVOUh2Z3ZyN0dYRzI3aU5wOS1mZldycWM4WHJzR2pHQV9QNFF6azNUM1lybEN6Q1N4MHk4ZVpKdkxiaWZ3MUpLZ29uSko5a1ZYdnA3dGVJc2EtXzMxZFhSV04wc2VNS1E?oc=5",
+   "ms": 1795701470000,
+   "time": "11/26 21:57"
   }
  ]
 }
