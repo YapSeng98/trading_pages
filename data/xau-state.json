@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-27 19:24 SGT",
+ "updated": "2026-11-27 20:18 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3675.4,
- "priceTime": "2026-11-27 19:15 SGT",
+ "price": 3670.4,
+ "priceTime": "2026-11-27 20:15 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3565.7,
   "high": 3685.2,
   "low": 3557.4,
-  "changeFromPrevClose": 109.3,
-  "changePct": 3.07,
+  "changeFromPrevClose": 104.3,
+  "changePct": 2.92,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -175,22 +175,22 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-11-26 06:00 SGT",
-   "rsi": 76.5,
-   "atr": 18.68,
-   "ema20": 3621.2,
-   "ema50": 3593.8,
-   "ema200": 3665.7,
+   "rsi": 73.2,
+   "atr": 18.27,
+   "ema20": 3626.2,
+   "ema50": 3596.9,
+   "ema200": 3665.8,
    "emaOrder": "交错",
    "range": {
     "top": 3685.2,
     "bottom": 3557.4,
-    "positionPct": 95
+    "positionPct": 91
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3586.3,
-    "barsAgo": 9
+    "barsAgo": 10
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 3557.4
@@ -200,35 +200,35 @@
    "name": "15 分钟",
    "trend": "向上",
    "since": "2026-11-27 10:00 SGT",
-   "rsi": 65.5,
-   "atr": 7.86,
-   "ema20": 3666.1,
-   "ema50": 3639.5,
-   "ema200": 3594.4,
+   "rsi": 57.7,
+   "atr": 7.71,
+   "ema20": 3668.5,
+   "ema50": 3644.6,
+   "ema200": 3597.5,
    "emaOrder": "多头排列",
    "range": {
     "top": 3685.2,
     "bottom": 3638.9,
-    "positionPct": 79
+    "positionPct": 68
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3666.5,
-    "barsAgo": 12
+    "barsAgo": 16
    },
    "turnsUpAbove": 3685.2,
-   "turnsDownBelow": 3557.4
+   "turnsDownBelow": 3668.6
   }
  ],
  "resistance": [
   {
    "price": 3685.2,
-   "what": "4小时区间顶、1小时牛旗关键位、1小时区间顶",
-   "strength": 5
+   "what": "4小时区间顶、1小时牛旗关键位、1小时区间顶、1小时近期小高点",
+   "strength": 6
   },
   {
-   "price": 3766.1,
+   "price": 3778.8,
    "what": "1小时牛旗目标",
    "strength": 1
   },
