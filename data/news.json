@@ -1,25 +1,11 @@
 {
- "updated": "2026-11-27 22:33 SGT",
+ "updated": "2026-11-27 22:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "The price of gold today, Nov. 27, 2026 — and the best places to buy",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE15c3did0NMTDZLMEFsN3lldlA5LU1saUtsVDJ6ZXd3NFdjOHpkOU5VZkpET1Z6UHRFdHB5bEh5LU4yR0F2dENxZHo2aWZvLW9HSlNBU3dhZElVbmltVjNJQkV1R3c1MW41ZEI3dVNtNTVHd9IBd0FVX3lxTE5IWU9PY1VLUlA2dERWdTVFN0RXeGtxUXYxdDlSVm9FSlFacmplOFo0bXc4akVYOXc5WFowNWVwVk4yV3Y1YmRJaWdjbUVodlR3UEd4TlUzVUw2OEhDSE9FWDRjTWZHbW5fTFh2VkZJTkN4ZG1nVXVF?oc=5",
-   "ms": 1795789288000,
-   "time": "11/27 22:21"
-  },
-  {
-   "t": "Gold price forecast: Can the rebound gain traction?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUE5yS2YzWTBYY3k5YThMNlhVcnVUSzZzR0hURFZWOU02aG85YUVJLVJkSUk0OEhQU0ZqRDBGWUU3RHIwUG5FYXVYekFrbXNaM1c3SjJKWEE3M2kwcDFwOUtxc196c2NKUnBTZS1FNkU4Um03U1g2LVlxd01FUWJ0bkdIcDNQNVdWOENMOFBNSkJRSTZVVmRPSWZPYmdianoyUXZ3ZGNsQWI2UEp2cWtKUUg4cWFoS1hMdUE3WkNPYmtLd2dOTVE?oc=5",
-   "ms": 1795787374000,
-   "time": "11/27 21:49"
-  },
   {
    "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
    "src": "Investing.com",
@@ -84,13 +70,6 @@
    "time": "11/27 18:22"
   },
   {
-   "t": "Gold Climbs Above $3,670 as Precious Metals Rally Following Recent Sell-Off",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBLbnZVeUV4bkFvVkRJRHNxY0tQVDNZSXNhYmFSemFCZUJDVmN2OFJnWmtaYWNUQTNaRzhfR2x1ZU1uR2NKV2NzNUFacU1qRDAyc3dndEZva2I5UVpVZG50NXdtNlJiUF9IM09QbkQycDhHMTRTUVI0NG1XN3Y?oc=5",
-   "ms": 1795774669000,
-   "time": "11/27 18:17"
-  },
-  {
    "t": "Copper and Gold Rebound While Oil Extends Gains",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/copper-and-gold-rebound-while-oil-extends-gains-200692418",
@@ -110,6 +89,27 @@
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPamtYbENVdE5uTmk1WVkwWWFWMVNBb21aVjJJUVNfclgwOXJ6OVZyeGczSG9HUVFHVEJsMDVlTXlxUE00a05rck4yakMzS0lVWV9uLVpjeE42el9jbDJzcS1qUFdnX2FOd0pNX19hdTNrb0ZVVkhuNFBPSWptbU5uVzl2WFlrVV9SX1NETXRSbnN6OGYwLVFYa1hFUXBGaVhIeDVvNTdMbEVFNHJpQjVQVm56c05BYzVhSkk1eG1lWEtEakk?oc=5",
    "ms": 1795769192000,
    "time": "11/27 16:46"
+  },
+  {
+   "t": "Forex Today: US Dollar struggles to find demand after Thanksgiving, Gold extends rebound",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
+   "ms": 1795765052000,
+   "time": "11/27 15:37"
+  },
+  {
+   "t": "Gold Faces Weekend Risk as Fed Rate Bets and Iran Tensions Rattle Markets",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/gold-faces-weekend-risk-as-fed-rate-bets-and-iran-tensions-rattle-markets-200692396",
+   "ms": 1795759560000,
+   "time": "11/27 14:06"
+  },
+  {
+   "t": "Gold rebounds from one-year low as AI jitters ease",
+   "src": "CNBC",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQa09uY3NZWGJVa0FOd00ya182THRYVmFWS2ppaTliYmpTNmdaMWFUN3hXcldXUF9xVU5JTXRRV2lXejRvTk9yOW1lMURsekM2TVdzS3FjRzFwaEVmWnRfMjlRNF9CS3FzYm96RFB4NVM2bk5WOWJsaHlEbWthTmlsZzJlYlB1QdIBiwFBVV95cUxOZUdkWjFqVjd4S1R0MmExS19oYzljeGFPRk5QS2gzaUNiWndHRl9tNEdqemxNNGphajZXdVB0RGltb0dUN2tibjNObUwwMTgwT000Mk1LbWpETFhjRkw1TVp0ZTdLMmk2VDJNd3lMcUpwaWcwd2hyeVJmRVVPTW1qekdKVEhFVkdyZ1Rj?oc=5",
+   "ms": 1795751400000,
+   "time": "11/27 11:50"
   }
  ]
 }
