@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 05:04 SGT",
+ "updated": "2026-11-28 05:18 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,32 @@
  ],
  "items": [
   {
+   "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
+   "src": "Bloomberg",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
+   "ms": 1795807300000,
+   "time": "11/28 03:21"
+  },
+  {
    "t": "Gold’s $2.15 Billion ETF Exodus Highlights the Cost of Higher Rates",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-215-billion-etf-exodus-highlights-the-cost-of-higher-rates-200692463",
    "ms": 1795805760000,
    "time": "11/28 02:56"
+  },
+  {
+   "t": "Gold defies surging US Dollar and Treasury yields as bulls target $3,700",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTTA5LTNDRTlvTmJpZHZHb3FIMjlGUlpyM0xoWjlZNWREb3lCZ2ZpOVRHUjRVeThzcFRYRVpHalFIV3NUTG91ekFweXVkblA2MUJKUThadVgxSkczRWo2OW5tSWd0Mld1YVFOdHBZUTZ2Z3k3Y0V1d1B2Z3Y3VFduQnhmN0p3OGdhQUotWUFtdjFjeXNDMEtxc3AzZVYxeTMweHM0SUdiT1B4cDE5cG5YYVBLUVk?oc=5",
+   "ms": 1795803567000,
+   "time": "11/28 02:19"
+  },
+  {
+   "t": "Selling fatigue and seasonal tailwinds fueling gold’s recovery – Saxo Bank",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnphdzlwNWhjdXZMM1JJZ1ctMFN6ZFdiM2lOSW4tRnFBdEcwendvWTB5ODBCN3B1NXF4aWpmSGJJSEJ1MXlzZFV0bGd0YjJpdE5wRlJyQVZPN0Y2cVJlQ2lseVplU0xHVzhaRnNNX0dnMGRwSHNwaFhIUmlEUzhSQW9jNUZoOEVSdHpzR2p3Q2hFaXMxcHBNQWJpNTBZSjZ3eDVTckRrQlBtVktpcnVVQ1UtTEJuNWNR?oc=5",
+   "ms": 1795802457000,
+   "time": "11/28 02:00"
   },
   {
    "t": "Gold and Palladium: The Comeback Meets Its First Test",
@@ -28,6 +49,20 @@
    "time": "11/28 01:40"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com Nigeria",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
+   "ms": 1795800652000,
+   "time": "11/28 01:30"
+  },
+  {
+   "t": "Gold and Silver rally even as a December Fed hike is all but certain",
+   "src": "FXStreet",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
+   "ms": 1795799437000,
+   "time": "11/28 01:10"
+  },
+  {
    "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
@@ -42,25 +77,39 @@
    "time": "11/28 00:32"
   },
   {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795796890000,
+   "time": "11/28 00:28"
+  },
+  {
+   "t": "Gold and Silver Jump as Beijing Vows to Support China's Stock Market",
+   "src": "BullionVault",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNU3QtQ1Q0VTFYTUJFQW81NW5aY3gyYkNPLXNaVVBjWkdZb3MydlIyZzUwT2Z6MFZzem95WDdpcmRIeV9id0p6OThfWUVYc3NSRXMtU3BwT1dkd2FEeHF6YlBoRlhLMEdPeEU4aG8wRzRvTUhjcFBJb19HUlZHRzFjQnQwZkdRVVVZQ3NpY21BUnVWVnYt?oc=5",
+   "ms": 1795794913000,
+   "time": "11/27 23:55"
+  },
+  {
+   "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
+   "ms": 1795793439000,
+   "time": "11/27 23:30"
+  },
+  {
+   "t": "Kinross Gold (KGC) Down 14.7% Since Last Earnings Report: Can It Rebound?",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
+   "ms": 1795793416000,
+   "time": "11/27 23:30"
+  },
+  {
    "t": "Gold demand revives in India, China as price slide sparks bargain buying",
    "src": "mining.com",
    "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
    "ms": 1795792017000,
    "time": "11/27 23:06"
-  },
-  {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-rebounds-for-the-week-but-fed-rate-hike-fears-keep-bears-in-control-200692447",
-   "ms": 1795791360000,
-   "time": "11/27 22:56"
-  },
-  {
-   "t": "Gold Under Pressure: Why Fed Hike Bets Are Testing the $3,500 Floor",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-under-pressure-why-fed-hike-bets-are-testing-the-3500-floor-200692434",
-   "ms": 1795780620000,
-   "time": "11/27 19:57"
   }
  ]
 }
