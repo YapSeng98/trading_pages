@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27 23:00 SGT",
+ "updated": "2026-11-27 23:13 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,11 +7,18 @@
  ],
  "items": [
   {
-   "t": "Gold price forecast: Can the rebound gain traction?",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUE5yS2YzWTBYY3k5YThMNlhVcnVUSzZzR0hURFZWOU02aG85YUVJLVJkSUk0OEhQU0ZqRDBGWUU3RHIwUG5FYXVYekFrbXNaM1c3SjJKWEE3M2kwcDFwOUtxc196c2NKUnBTZS1FNkU4Um03U1g2LVlxd01FUWJ0bkdIcDNQNVdWOENMOFBNSkJRSTZVVmRPSWZPYmdianoyUXZ3ZGNsQWI2UEp2cWtKUUg4cWFoS1hMdUE3WkNPYmtLd2dOTVE?oc=5",
-   "ms": 1795787374000,
-   "time": "11/27 21:49"
+   "t": "Gold demand revives in India, China as price slide sparks bargain buying",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
+   "ms": 1795792017000,
+   "time": "11/27 23:06"
+  },
+  {
+   "t": "Gold pares gains as Fed-hike risks linger, eyes first weekly rise in three weeks",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbUdSZkUzLXB4Ynp3bUdwYW1neTZ0RDQ4Y281R0MyX3p0N0hQYWd6R2dwd2l0c1NZaDJXRm5vTHlYX3RsTE53eW9fckpIQVN3YWxMQjQwNEpoTXRqcmpZb2RXNDR5OUcyTndZMzhwVF9yT0FMbHlfbEdlRGJRSGx0T1pvV2JOYVhSZzltTWxlQU9iZFZpdUEtNHJpWTlSd0JUMHJhMzBfVGkxX3JfQTFqc1F3VnlBU1U2aUE?oc=5",
+   "ms": 1795791829000,
+   "time": "11/27 23:03"
   },
   {
    "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
@@ -75,13 +82,6 @@
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
    "ms": 1795774923000,
    "time": "11/27 18:22"
-  },
-  {
-   "t": "Gold Climbs Above $3,670 as Precious Metals Rally Following Recent Sell-Off",
-   "src": "Yahoo Finance UK",
-   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBLbnZVeUV4bkFvVkRJRHNxY0tQVDNZSXNhYmFSemFCZUJDVmN2OFJnWmtaYWNUQTNaRzhfR2x1ZU1uR2NKV2NzNUFacU1qRDAyc3dndEZva2I5UVpVZG50NXdtNlJiUF9IM09QbkQycDhHMTRTUVI0NG1XN3Y?oc=5",
-   "ms": 1795774669000,
-   "time": "11/27 18:17"
   },
   {
    "t": "Copper and Gold Rebound While Oil Extends Gains",
