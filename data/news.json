@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 17:49 SGT",
+ "updated": "2026-11-27 18:05 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Copper and Gold Rebound While Oil Extends Gains",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/copper-and-gold-rebound-while-oil-extends-gains-200692418",
+   "ms": 1795771920000,
+   "time": "11/27 17:32"
+  },
   {
    "t": "Gold Rally Gains Momentum During Thanksgiving Holiday",
    "src": "Investing.com",
@@ -14,18 +21,18 @@
    "time": "11/27 16:47"
   },
   {
-   "t": "Asian Stocks Rise for Second Day, Treasuries Slip: Markets Wrap",
-   "src": "Bloomberg.com",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPd2ZFa0FGcTRjb19HbGxhWGxZc05LTXQ2WUJDTTQzc2hYNGVrbE5GQWtlcERpWGdVZmptNEFUM0ltY0ZobVhoaVo1Qzl4ZTFuNlBDSXFNaG9ETXFDOGdYSGppVVh1cW10TFJ5RG9sVVNYZmUzMHk2VlROMG9yVDM3UzRtM1VSbXlaYWlSN01McUlncVljREZvOGY5UzZaSjc3R3MzdWJUOF9oS3ZLU2c3bmV0MA?oc=5",
-   "ms": 1795768648000,
-   "time": "11/27 16:37"
-  },
-  {
    "t": "Forex Today: US Dollar struggles to find demand after Thanksgiving, Gold extends rebound",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTVBtOXFyazFCM0x0Y3RJV09LRWNTLUNEOTg2ZDkzeHd1eUhMaFFUZUdYMmg3M05CbWNkSE81RmNHaW9GRk55ZzhlVmVtdy12ODhsRkhveTlGM0NZSWd2cTY4Y2JsV3AyVVdjN3lrM2VhNjFpN0ItNE1kcXRjQWRvdFJtRkJPQmg1b0ZYRy0tZHpJRkp0d2JPM2dFV2ZpLVFNMzlkRGx4Q0VOTHRFQlZsNFVSdHJJRzUxWDlxX1htejlWVlVGbFUzaw?oc=5",
    "ms": 1795765052000,
    "time": "11/27 15:37"
+  },
+  {
+   "t": "Gold rebounds 1.8% after more than one-year low as bargain hunters return By Investing.com",
+   "src": "Investing.com South Africa",
+   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxORHNtWTZfdnRfcDZMUlk1UHB1SVE3QUNoWnFZVXdacWhHY1B6dVBqS1NUcXhzRm9GdmF3RXdrRGF4VE52RmJGRjZqb0cwTnNnMnd4cTBtVFgzc2hHUzlHX0FxanZfeEFVWVF2Zks0dzBtNnJWSUJtQld4ZVVQVU03ZndYTVBIcFFjalNNT3BIZV8yY1A4RzZjREg3UjkzdVJ3X2FPRXFVZTUwNW92ajcxYWRWTS1ORkl6RXJNenloY0Y?oc=5",
+   "ms": 1795764600000,
+   "time": "11/27 15:30"
   },
   {
    "t": "Gold holds above $3,650, targets weekly high as USD softens",
@@ -75,13 +82,6 @@
    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNc1ltbG1Pdmo1cFotYW1yNTRVQ1J2ODdHU3NVdkl2ZlhEaTd4OWZEbk9KVmxtMnI1RXM1RTZxbnBGMTlnRkdsOXd3TEw1eTdVME9LamdWRW1yZUlvUGlKOUVQWXpmTnR1bzZESmd5ZDFFdm9kdVd0RWMxbTYzWE96cWpwVUFUTXBhdzdBNzByWGJkVjJvWWo4QzNWcl9ESF9uMDVTS2EzUDhzV2pTRy1zYg?oc=5",
    "ms": 1795747232000,
    "time": "11/27 10:40"
-  },
-  {
-   "t": "Euro weakens to near 1.0950 on Fed hike outlook, de Cos poised to lead ECB",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPX2pkekRWczdoUzdPRTlkeGM3MTBPVXUxTmM3WGdaWWZieDg3MVZkMDBUQkd2eXluX3ByRWx6aEFvWV9wb0J6d09tSWJSaEtDYW0zUE5mNE5RUWVta1lySzQyN1ExVmhUb3d3NnFoUHpDQlJ1eTVLVjRCZEVZcmI0M3A4VmV2MldqSHNFVFZSRkhidUVJSUd3bExORlc4dG9nZDVvelBwWjRUSGl6czJfUjUzVnVUZw?oc=5",
-   "ms": 1795742374000,
-   "time": "11/27 09:19"
   },
   {
    "t": "Gold declines to near $3,550 amid hawkish Fed expectations",
