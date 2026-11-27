@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-27 21:25 SGT",
+ "updated": "2026-11-27 21:39 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold's $3,750 ceiling: Analyst says a hawkish Fed \"would cap Gold rallies\"",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxORTVtVk51bjVHdEdqZXVFSnp5Smxoci1PY1h4aTl5OUxJaG80Sl9RdXEzbV9Pc056SjF3ejktU1M4VTZobGQ2YWxIem1KcGxmLXNRcFhtM2FIWl9yNVpSeTcyWC1lcl9MZkRoYmZlVUVYaDVpNDQ5TzZwVUVYTThRNFQ2YVlZNllIOFlUcmdVRkJ5RENUSUNrdjV2d0FRcWFHSmdLS1YzemRGOGE1dXNVOUNKTDFJUzQ?oc=5",
-   "ms": 1795783321000,
-   "time": "11/27 20:42"
-  },
   {
    "t": "Gold Under Pressure: Why Fed Hike Bets Are Testing the $3,500 Floor",
    "src": "Investing.com",
@@ -33,13 +26,6 @@
    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPNXlpSmc4c3NfcGFGbGxGVHFYMVpjMXZuMHhGOThtR2I2d0JMMW5mSkJqY0VIaWlIOVpsRXJDVElpOFlPcVRZWjJobThjVE1GRDdQam85MWJzQUhVWlhhNlZuVWRHUy1LOXBvZUFOQmZ4QUxoaU5vR0VvMFEtalN0MnFQNTlZTlRUb19RMGk0YzNPLV8wSGZJdm1xYw?oc=5",
    "ms": 1795780078000,
    "time": "11/27 19:47"
-  },
-  {
-   "t": "Equities Bounce Back, Gold Jumps but Dollar Steady Amid Thin Liquidity",
-   "src": "Investing.com",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQ3F3aTlETnIwdm5TUTVidk9lM0RkNG9zcUZlTEJyRVEyQ21yMmJmZWowWW9WNDNGNG5MSUVJYUN2cnNVaWNrQzhXc0JFUUwwVjlVNEhhMlU3YUlqemkzMVJEelRZVTBObDN3MUNnVE9YTmMtdlBIVV9xNndDTFZ4V2p4SVFMZ21TejVHOW8tX1V1N2xYZjlzWjF3UzlOT2c2bmhnS3l6WEE2Y2hwaXlJU191bHc?oc=5",
-   "ms": 1795778934000,
-   "time": "11/27 19:28"
   },
   {
    "t": "Gold Approaches $3,685: Breakout or Triple-Top Reversal?",
@@ -110,6 +96,20 @@
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMGNmNnU5UXhtOGNEMUxoOW9MbnV3dlBTMVZqUGRsTUdJMElMTWxNOENLSW94TTlUVGJIRUhHT2pYOUJKOENtcXNzMXNzNEFfV1FUbjQ4ckJnLW5iUkRvUVgyMkg3VVVWVFYzR0dyYnhQWTM2Ym9mTVRhNEc5NVlScV81b2xVVmoycjd2MHoyV3JpcF9wb3N0ak9vQXh1cWlLQy1yal9rSy12Rmd6cmMzclpfRXJCbVZuZXhn?oc=5",
    "ms": 1795751284000,
    "time": "11/27 11:48"
+  },
+  {
+   "t": "Gold steadies as investors return to precious metals despite mounting US rate hike fears",
+   "src": "Yahoo Finance Australia",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaFFEdlVId2pvaGJVdXJHUGxJei1Mc0RrVFNIUFZadlBIWFpDeFZteHB6RXdyVkR6a29nbHBLN0pNQXhneVNhTzFQbmw1eHpnUjJKUDB5WWtaMHpLZGhsUFdWN3loQlhoS2ttQUYwdU90Z0VFTTdXNHdqOVJrcFhTaGJ2TjNyWEtRN0RMUVV0Uk5vUQ?oc=5",
+   "ms": 1795750680000,
+   "time": "11/27 11:38"
+  },
+  {
+   "t": "Gold gains more than 3% as dollar rally stalls, equities stabilise",
+   "src": "Reuters",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOYW55b1BZTkM4emFaZmljMEIzZlBhd2duLWJnRlpMaVA1UnBMaXpEQTdYU0JQUF93QWRkMEV0ZHlaUFhJM3JwTkVLSFNQcDhJSW43VEJ3ME9uQmVvaXpaVkV6eG1CWnBISXFncTVTQjI0NElBcUZDTXlNZEw0S0RCSGxFa25EX29sYzJVZHJmREFnckNW?oc=5",
+   "ms": 1795750080000,
+   "time": "11/27 11:28"
   }
  ]
 }
