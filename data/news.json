@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-27 21:52 SGT",
+ "updated": "2026-11-27 22:06 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold rallies above $3,600, silver surges as dollar weakness supports metals - Kitco AM Report",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNTm5LT3RrXzNSa0JkTlNiRXNyT2h6c2M4SURSR05SUEo4cm03X2NUU0RTRnlQRTVWODM3MU1zV29qRENuYjhIMDZyc1VaR3Myb1ZxXzBHNUw3dHZfWWM4dkxWaXlld21FVVZsd0lLNkNpNkFORnhTM3R3SmxMclRBdWN2OW9NT09qU1VLeDBJVUl4Rm1lWEpveTBlaTNmT1hBUVljWFBIbndXdGJ3YlptOW0zaDVDN01vZzlqRlpB?oc=5",
+   "ms": 1795786980000,
+   "time": "11/27 21:43"
+  },
   {
    "t": "Gold's $3,750 ceiling: Analyst says a hawkish Fed \"would cap Gold rallies\"",
    "src": "FXStreet",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/gold-faces-weekend-risk-as-fed-rate-bets-and-iran-tensions-rattle-markets-200692396",
    "ms": 1795759560000,
    "time": "11/27 14:06"
-  },
-  {
-   "t": "Gold rebounds from one-year low as AI jitters ease",
-   "src": "CNBC",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQa09uY3NZWGJVa0FOd00ya182THRYVmFWS2ppaTliYmpTNmdaMWFUN3hXcldXUF9xVU5JTXRRV2lXejRvTk9yOW1lMURsekM2TVdzS3FjRzFwaEVmWnRfMjlRNF9CS3FzYm96RFB4NVM2bk5WOWJsaHlEbWthTmlsZzJlYlB1QdIBiwFBVV95cUxOZUdkWjFqVjd4S1R0MmExS19oYzljeGFPRk5QS2gzaUNiWndHRl9tNEdqemxNNGphajZXdVB0RGltb0dUN2tibjNObUwwMTgwT000Mk1LbWpETFhjRkw1TVp0ZTdLMmk2VDJNd3lMcUpwaWcwd2hyeVJmRVVPTW1qekdKVEhFVkdyZ1Rj?oc=5",
-   "ms": 1795751400000,
-   "time": "11/27 11:50"
   }
  ]
 }
