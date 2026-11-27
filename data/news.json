@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 07:19 SGT",
+ "updated": "2026-11-28 07:33 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -7,18 +7,18 @@
  ],
  "items": [
   {
+   "t": "Wall Street’s bullish bets tick higher after gold bounces back above $3,600, Main Street maintains bearish bias with payrolls on deck",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdTNXWTMtUVlSdHdDazZkWVVEVmYzR0gwM1FnOGJiRE1KOEF5NS10YmptUUkyMTNJT1RVLVYzaVR5dVR5NHdOb1BvMW1DNmw0TzVoMk5SRDVMLWdRRmoyMzg0VENPX2FiRW4yR1J3ZFBUM0d1MDNaR2ozRnU0RDc4clhUd19UbHp5OVpMdy1BY21jMlk3ZV9lbGlxTk4yLURSMTZuNV94Z0tMb19aMzI1REpvVUJZSTlaNkE?oc=5",
+   "ms": 1795820473000,
+   "time": "11/28 07:01"
+  },
+  {
    "t": "Gold and silver bounce from 15-month lows, but Fed risks loom large",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUHRKOGNNMzNLb2dYbFhxMi12UEpPOGRqSHI0XzRmVVZBZThlVjdOWGh0WHo1Sjh6U1NYdmI4eU9GVkNZeHZNQ3luTmkwRWxIQUJQbGZNa1hsTXpiSHJoVGtvNGFiNmNxZ0hNNmVOT1NBTUVrSXQ5clI4YUFkQjJpclhfWFg0eS1GSVFNMC12ZWtpQVUzM1NwelhzWDJqVnh4clJvcllB?oc=5",
    "ms": 1795817146000,
    "time": "11/28 06:05"
-  },
-  {
-   "t": "Gold may get a relief rally following the Fed, but Warsh’s tone could still hammer prices lower – BubbleBubble Report’s Colombo",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQVJNeDA1dXJNNGlXVlNfbEg5aXBWZVlhNTRDVnFBSjllblA3c1NWY1JIMUxfY202RC1nMDhEdjRXa25xNGttVVVKWElVYXpKWXc1ZXVNaTVGYWFqZnBQZEpTR2V1T3VHRW1rN2NSTVZES3J3YndCbTFTYlY5N0g0MWc2MVZ2LURRbTM2Um5aOFpDak9taHVFWDJMNUJPb3g3TmJxWEJMalpwSjRpQ1hMUFJSNnBFMUE?oc=5",
-   "ms": 1795817028000,
-   "time": "11/28 06:03"
   },
   {
    "t": "Gold could ride the double tailwind of equities and seasonals higher into the new year – investingLive’s Button",
@@ -70,6 +70,13 @@
    "time": "11/28 01:59"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com Australia",
+   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOR3BmeXd1S2NTUzlpRy1jX2R6T2txQTdPaVlZTnZLRHRxTFhLTzNNNDZqemlaWHFSa0wyYUJ4ZWZ1Ym9rUW1vX0JELURHQnlJZDNOem4tUWRtZkYwMzR1RGM1UFRLM19IQURfbUpuR1JfYndSZFhVVzFzblZQVGFfZnlLbVFlanQwMThNek05eGgxeml2RGx3aVJQV3VfSlFVZTZmMFFNb2xMZEVsSS1mWEw5VmxQaHM?oc=5",
+   "ms": 1795801767000,
+   "time": "11/28 01:49"
+  },
+  {
    "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
@@ -102,13 +109,6 @@
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
    "ms": 1795793439000,
-   "time": "11/27 23:30"
-  },
-  {
-   "t": "Kinross Gold (KGC) Down 14.7% Since Last Earnings Report: Can It Rebound?",
-   "src": "Yahoo Finance",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
-   "ms": 1795793416000,
    "time": "11/27 23:30"
   }
  ]
