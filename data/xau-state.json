@@ -1,17 +1,17 @@
 {
- "updated": "2026-11-27 16:41 SGT",
+ "updated": "2026-11-27 17:35 SGT",
  "source": "现货金 XAU/USD（Dukascopy 买价）",
  "note": null,
  "marketOpen": true,
- "price": 3674.4,
- "priceTime": "2026-11-27 16:30 SGT",
+ "price": 3679.6,
+ "priceTime": "2026-11-27 17:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 3565.7,
-  "high": 3679.8,
+  "high": 3685.2,
   "low": 3557.4,
-  "changeFromPrevClose": 108.2,
-  "changePct": 3.04,
+  "changeFromPrevClose": 113.4,
+  "changePct": 3.18,
   "note": "交易日按纽约 17:00 换日（新加坡时间早上 5 点或 6 点）"
  },
  "previousDay": {
@@ -175,22 +175,22 @@
    "name": "1 小时",
    "trend": "向上",
    "since": "2026-11-26 06:00 SGT",
-   "rsi": 74.2,
-   "atr": 19.39,
-   "ema20": 3601.7,
-   "ema50": 3583.2,
-   "ema200": 3665.4,
+   "rsi": 77.5,
+   "atr": 19.63,
+   "ema20": 3608.9,
+   "ema50": 3586.9,
+   "ema200": 3665.5,
    "emaOrder": "交错",
    "range": {
-    "top": 3666.5,
+    "top": 3680.8,
     "bottom": 3557.4,
-    "positionPct": 92
+    "positionPct": 97
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3586.3,
-    "barsAgo": 6
+    "barsAgo": 7
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 3557.4
@@ -201,27 +201,32 @@
    "trend": "向上",
    "since": "2026-11-27 10:00 SGT",
    "rsi": 77.2,
-   "atr": 10.23,
-   "ema20": 3646.4,
-   "ema50": 3619.4,
-   "ema200": 3584.9,
+   "atr": 9.34,
+   "ema20": 3657,
+   "ema50": 3628.1,
+   "ema200": 3588.5,
    "emaOrder": "多头排列",
    "range": {
-    "top": 3679.8,
+    "top": 3685.2,
     "bottom": 3638.9,
-    "positionPct": 87
+    "positionPct": 88
    },
    "lastBreak": {
     "kind": "延续",
     "direction": "向上",
     "level": 3666.5,
-    "barsAgo": 1
+    "barsAgo": 5
    },
    "turnsUpAbove": null,
    "turnsDownBelow": 3557.4
   }
  ],
  "resistance": [
+  {
+   "price": 3680.8,
+   "what": "1小时区间顶",
+   "strength": 1
+  },
   {
    "price": 3787.5,
    "what": "日线区间中点",
@@ -246,8 +251,8 @@
  "support": [
   {
    "price": 3666.5,
-   "what": "4小时区间顶、1小时区间顶、1小时近期小高点",
-   "strength": 4
+   "what": "4小时区间顶",
+   "strength": 2
   },
   {
    "price": 3607.1,
