@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 03:57 SGT",
+ "updated": "2026-11-28 04:10 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -42,13 +42,6 @@
    "time": "11/28 01:40"
   },
   {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
-   "ms": 1795800652000,
-   "time": "11/28 01:30"
-  },
-  {
    "t": "Gold and Silver rally even as a December Fed hike is all but certain",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
@@ -77,6 +70,13 @@
    "time": "11/27 23:55"
   },
   {
+   "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
+   "ms": 1795793439000,
+   "time": "11/27 23:30"
+  },
+  {
    "t": "Kinross Gold (KGC) Down 14.7% Since Last Earnings Report: Can It Rebound?",
    "src": "Yahoo Finance",
    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdDlRSVhrOW9qZW43Wk5zbGFfMXBDUnIxbWU4Ujh2dUxYby10NFREV01LT2hJc25jTUJycWxsZ3ZIOG1SQXRmeUlWcXg0NWtlS2hyODVzSjBYd3NxaTA4WXJZamFXYi0tRGhTWE8ycmV4MXhhb290dkZPcWluMWgzSXR2SlV6bkNWbHV4aTFYY2FKV28?oc=5",
@@ -84,18 +84,18 @@
    "time": "11/27 23:30"
   },
   {
+   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
+   "src": "Investing.com",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZlR3S3lPU1VYTUpHM2x6Q252cU85bFN6am5Dc2wzVUMxbmktb0FUYXdhOHlxZXloNW9RWWVLRUxfWk9OakU1djg5ekRjWEZma3FTUnZKUjg1NlY3SWdQX0I5YzU3azREZUNMcmdHTERTWWRjdGlfUUlYcExCRUp1cEF6YkMxVkl1Zll0TG8zamw5UnZaWTZPY2ZoQUtWODNkeU04SEk5b1JMUEJ6SWlILTZwTEpXb3gw?oc=5",
+   "ms": 1795792191000,
+   "time": "11/27 23:09"
+  },
+  {
    "t": "Gold demand revives in India, China as price slide sparks bargain buying",
    "src": "mining.com",
    "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
    "ms": 1795792017000,
    "time": "11/27 23:06"
-  },
-  {
-   "t": "Gold pares gains as Fed-hike risks linger, eyes first weekly rise in three weeks",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNbUdSZkUzLXB4Ynp3bUdwYW1neTZ0RDQ4Y281R0MyX3p0N0hQYWd6R2dwd2l0c1NZaDJXRm5vTHlYX3RsTE53eW9fckpIQVN3YWxMQjQwNEpoTXRqcmpZb2RXNDR5OUcyTndZMzhwVF9yT0FMbHlfbEdlRGJRSGx0T1pvV2JOYVhSZzltTWxlQU9iZFZpdUEtNHJpWTlSd0JUMHJhMzBfVGkxX3JfQTFqc1F3VnlBU1U2aUE?oc=5",
-   "ms": 1795791829000,
-   "time": "11/27 23:03"
   },
   {
    "t": "The price of gold today, Nov. 27, 2026 — and the best places to buy",
