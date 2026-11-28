@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-28 23:41 SGT",
+ "updated": "2026-11-29 00:35 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
-   "ms": 1795875805000,
-   "time": "11/28 22:23"
-  },
   {
    "t": "BCA Research Identifies US Dollar Reversal as Key Condition for Renewed Gold Investment",
    "src": "Yahoo Finance UK",
@@ -26,6 +19,13 @@
    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZDF6OTVQaUk2NUpDZWJlZjlpNEtiRmZNSG1ibFAwanVZcHJqZ1owSzkxOGJPdURHTlVnWFNnSEJES0pOM0MtX2lPaUlyQ1E3X0t2Z2JaUzBWM3pWRUhHeEtFYllXNDJZamFGUWZ4RTNFU0xuaWdLaFdvN1JFcVpnT3h1STRaUlprNUN3dVZrN2c3NmF6V0lNWUduSVc1YmVIM0Z6ag?oc=5",
    "ms": 1795865940000,
    "time": "11/28 19:39"
+  },
+  {
+   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
+   "ms": 1795852453000,
+   "time": "11/28 15:54"
   },
   {
    "t": "RBI Steps Up Gold Loan Scrutiny as Bullion Rout Signals Strain",
