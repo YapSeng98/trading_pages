@@ -31,6 +31,7 @@
     answer: [tr("结论", "Answer"), tr("结论变了", "the answer changed")],
     pattern: [tr("形态", "Pattern"), tr("参考 · 不是信号", "reference · not a signal")],
     price: [tr("你的价位", "Your level"), tr("你设的价位 · 不是信号", "your own level · not a signal")],
+    pos: [tr("持仓", "Position"), tr("你的持仓 · 规则的离场", "your position · the rule's exit")],
     more: [tr("汇总", "Summary"), tr("另外几条", "more alerts")],
     test: [tr("测试", "Test"), tr("测试", "test")]
   };
@@ -294,6 +295,7 @@
     var dlg = h("dialog", { class: "al-dlg", id: cfg.id || "al-dlg", "aria-label": cfg.title }), box = h("div", { class: "al-box" }), x = h("button", { type: "button", class: "al-x", "aria-label": tr("关闭", "Close"), text: "×" });
     var tabs = h("div", { class: "al-tabs", role: "tablist" }), panes = {}, btns = {}, nums = {}, KEY = "alerts.tab." + (cfg.id || "al-dlg"), cur = null, one = cfg.tabs.length === 1;
     box.appendChild(h("div", { class: "al-dh" }, [h("b", { text: cfg.title }), cfg.sub ? h("span", { class: "al-sub", text: cfg.sub }) : null, x]));
+    if (cfg.head) box.appendChild(cfg.head);                                      // cfg.head: shown above the tabs whichever tab is open (the market pages' radar)
     cfg.tabs.forEach(function (t) {
       nums[t.id] = h("span", { class: "al-tn", hidden: true });
       btns[t.id] = h("button", { type: "button", role: "tab", "aria-selected": "false", onclick: function () { show(t.id); } }, [t.label, nums[t.id]]); tabs.appendChild(btns[t.id]);
@@ -392,9 +394,14 @@
     ".al-m b{color:var(--ink);font-size:13.5px}.al-m span{font-size:12px;color:var(--dim)}.al-st .al-note{grid-column:1/-1;margin:2px 0 0;font-size:12px;color:var(--dim);line-height:1.6}" +
     ".al-strong{margin-top:12px;padding:11px 13px;border:1px solid rgba(212,167,44,.55);border-radius:12px;background:rgba(212,167,44,.07)}.al-strong .al-o{font-weight:600;color:var(--ink)}.al-strong p{margin:6px 0 0 24px;font-size:12px;color:var(--text);line-height:1.65}.al-strong .al-why{color:var(--dim)}" +
     ".al-offnote{margin:10px 0 0;font-size:12px;color:var(--dim)}.al-grp.off .al-g{opacity:.45}" +
+    ".al-strong .al-sub{margin:9px 0 0 24px;font-weight:400;color:var(--text)}.al-strong .al-sub input:disabled+span{opacity:.5}.al-posb{border-color:rgba(124,140,255,.5);background:rgba(124,140,255,.07)}" +
+    ".al-rd{flex:none;margin:0 18px 12px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.03)}.al-rd-h{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:13px;color:var(--ink)}.al-rd-px{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);white-space:nowrap}" +
+    ".al-rd-cs{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 6px}.al-rd-c{font:600 11.5px 'IBM Plex Mono',monospace;padding:3px 8px;border-radius:999px;border:1px solid var(--border);color:var(--dim)}.al-rd-c.up{color:#3fb97f;border-color:rgba(63,185,127,.55);background:rgba(63,185,127,.1)}.al-rd-c.dn{color:#e5604f;border-color:rgba(229,96,79,.55);background:rgba(229,96,79,.1)}" +
+    ".al-rd-s{margin:4px 0;font-size:12.5px;line-height:1.55;color:var(--text)}.al-rd-l{margin:4px 0;padding:0;list-style:none;font-size:12.5px;line-height:1.5}.al-rd-l li{display:flex;flex-wrap:wrap;gap:4px 10px;padding:4px 0;border-top:1px dashed var(--border)}.al-rd-l b{color:var(--ink);font-weight:600}" +
+    ".al-rd-g{font-family:'IBM Plex Mono',monospace;color:#D4A72C}.al-rd-g.ok{color:#3fb97f}.al-rd-t{color:var(--dim)}.al-rd-hot{margin:6px 0 2px;padding:6px 9px;border-radius:8px;background:rgba(212,167,44,.12);font-size:12.5px;line-height:1.55;color:var(--ink)}.al-rd-n{margin:4px 0 0;font-size:11.5px;color:var(--dim);line-height:1.5}" +
     ".pa-more{border:0;background:none;color:var(--gold-lt,#F0D27A);font:500 12px/1.2 inherit;padding:6px 4px;cursor:pointer}" +
     "@media(prefers-reduced-motion:no-preference){.al-dlg[open] .al-box{animation:alIn .16s ease-out}}@keyframes alIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}" +
-    "@media(max-width:640px){.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}.al-dlg{width:100vw;margin:auto 0 0;max-height:90vh}.al-box{border-radius:20px 20px 0 0;max-height:90vh}.al-dh{padding:14px 16px 8px}.al-tabs{padding:0 16px 10px}.al-tabs button{min-height:36px}.al-pane{padding:12px 16px 22px}.al-btn{min-height:36px}.al-st{grid-template-columns:minmax(0,1fr)}}";
+    "@media(max-width:640px){.al-rd{margin:0 16px 10px;padding:9px 10px}.al-rd-l li{gap:2px 8px}.al-it>summary{flex-wrap:wrap;row-gap:2px}.al-ti{flex-basis:100%}.al-o small,.al-none,.al-h span,.al-gh span{font-size:11.5px}.al-dlg{width:100vw;margin:auto 0 0;max-height:90vh}.al-box{border-radius:20px 20px 0 0;max-height:90vh}.al-dh{padding:14px 16px 8px}.al-tabs{padding:0 16px 10px}.al-tabs button{min-height:36px}.al-pane{padding:12px 16px 22px}.al-btn{min-height:36px}.al-st{grid-template-columns:minmax(0,1fr)}}";
   document.head.appendChild(st);
 
   window.AlertKit = { send: send, draw: draw, once: once, recent: recent, mark: mark, can: can, sw: sw, view: view, open: open, list: list, watching: watching,

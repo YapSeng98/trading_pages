@@ -2167,5 +2167,51 @@
    "worstPeriod": 53.1
   },
   "updated": "2026-11-26"
+ },
+ "headsUp": {
+  "updated": "2026-11-28",
+  "from": "2011-02-20",
+  "to": "2026-10-23",
+  "window": "last 15 minutes of the deciding candle",
+  "headsUps": 2055,
+  "perYear": 131.1,
+  "becameSignal": 1358,
+  "hitPct": 66.1,
+  "signals": 1395,
+  "signalsWarned": 1358,
+  "warnedPct": 97.3,
+  "leadMinMedian": 11,
+  "big": {
+   "note": "deciding candle 1-hour or bigger (split chosen after seeing byTf)",
+   "n": 626,
+   "perYear": 39.9,
+   "hitPct": 78.4,
+   "leadMinMedian": 15,
+   "signalsWarned": 491,
+   "warnedPct": 35.2
+  },
+  "signalsPerYear": 89,
+  "byTf": [
+   {
+    "tf": "D",
+    "n": 20,
+    "hitPct": 95
+   },
+   {
+    "tf": "15M",
+    "n": 1429,
+    "hitPct": 60.7
+   },
+   {
+    "tf": "1H",
+    "n": 417,
+    "hitPct": 74.1
+   },
+   {
+    "tf": "4H",
+    "n": 189,
+    "hitPct": 86.2
+   }
+  ]
  }
 }

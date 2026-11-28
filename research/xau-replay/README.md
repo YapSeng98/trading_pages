@@ -232,6 +232,17 @@ Same delivery fixes on all three: `forex.html` looks again a minute after a cand
 has no live forex price; candle requests for Bitcoin and for gold's backup have a 20-second limit, so a stall ends in the
 retry banner; the home page's Bitcoin tile states its verdict's age.
 
+## How often does the heads-up turn into the signal? (2026-11-28)
+
+The gold page's heads-up (`XauPlan.soonNeed`): the live price already beyond every close the signal still needs.
+`headsup_check.js [--write]` (speed study's states plus Dukascopy 1-minute closes; `headsUp` in `data/xau-backtest.json`)
+counts heads-ups sent in the last 15 minutes of the deciding candle, once per candle and direction, and whether the
+five agreed at that close. 2,055 heads-ups, 66% became the signal; by the candle that decided it: 15-minute 61%
+(1,429), 1-hour 74% (417), 4-hour 86% (189), daily 95% (20). The page sends it in strong mode only for a 1-hour or
+bigger close: 78%, about 40 a year, a median 15 minutes ahead, before 35% of all signals. The 15-minute window was set
+before the run; the 1-hour-and-up split after seeing the per-timeframe figures. These are the odds of the signal
+appearing, not of the trade winning, and nothing in the rule changed.
+
 ## What the replay cannot tell you
 
 - It enters within a minute of every signal for fifteen years and never closes early. A person will not.

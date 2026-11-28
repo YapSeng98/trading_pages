@@ -75,7 +75,7 @@
   }
   function openAlerts() {
     if (window.AlertPopup) { AlertPopup.open(); return; }
-    (window.AlertKit ? Promise.resolve() : kit || (kit = new Promise(function (ok, no) { var sc = document.createElement("script"); sc.src = "assets/alert-kit.js?v=4"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); }))).then(function () {
+    (window.AlertKit ? Promise.resolve() : kit || (kit = new Promise(function (ok, no) { var sc = document.createElement("script"); sc.src = "assets/alert-kit.js?v=5"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); }))).then(function () {
       if (!gpop) {
         var log = h("div", { class: "al-log" }), st = h("div", { class: "al-st" });
         gpop = AlertKit.popup({ id: "site-al-dlg", title: T.all, sub: T.sub, markets: ["xau", "btc", "fx"], tabs: [{ id: "log", label: T.rec, el: log }, { id: "pages", label: T.pages, el: st }] });

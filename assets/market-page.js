@@ -1105,7 +1105,7 @@
     return out;
   }
   function posState() { var p = S.pos; return p && S.E ? P.manage(p, posBars(p.at), S.live, Date.now(), P.regime(S.E).dir) : null; }
-  function savePos() { LS.set("pos", S.pos); }
+  function savePos() { LS.set("pos", S.pos); if ($("v-alert") && $("v-alert").firstChild) renderAlert(); }   // the alerts panel names the position followed
   function enterPos() {
     var sz = currentSize(); if (!hasPlan() || !sz.valid) { toast(tx("先把计划里的价位填对", "Fix the plan's prices first")); return; }
     if (S.pos && !window.confirm(tx("已经有一笔持仓在跟踪。换成这一笔吗？（旧的不会记账）", "A position is already being tracked. Switch to this one? (The old one is not logged.)"))) return;
@@ -1203,6 +1203,55 @@
       });
       box.appendChild(cf);
     }
+  }
+
+  // ---------- alerts for the visitor's own position (owner, 2026-11-28: "more ez to see and more 精准") ----------
+  // After 我已入场 the page knows the trade, so it alerts the rule's own exits for it: the stop touched, the target
+  // reached, the trailing exit's daily stop move (from 08:00 SGT) and its exit when the weekly, daily and 4-hour no
+  // longer agree. Sent like the visitor's own price levels (whenever the browser allows notifications, also in
+  // strong-signals-only mode); each once per position; while gold is shut nothing; on the backup feed only the stop and
+  // the target, saying so. A stop or target already hit more than 30 minutes before the page was opened is kept in the
+  // record without a notification (the position card says it).
+  var posAt = 0, posT = 0, PAGE_AT = Date.now();
+  function posCheck() {
+    var p = S.pos; if (!p || !S.nopt.pos || !S.E || !S.feed) return;
+    var wait = posAt + 3000 - Date.now(); if (wait > 0) { if (!posT) posT = setTimeout(function () { posT = 0; posCheck(); }, wait); return; }
+    posAt = Date.now();
+    if (!marketOpen()) return;
+    var m = posState(); if (!m) return;
+    var told = LS.get("posTold", {}); if (!told || told.id !== p.at) told = { id: p.at };
+    if (!m.split && told.split) { delete told.split; LS.set("posTold", told); }        // agreeing again: a later split is told again
+    var backup = S.feed.source === "paxg", ev = m.first === "stop" ? "stop:" + p.stop : m.first === "target" ? "tgt:" + p.tp1
+      : backup ? null : p.mode === "trail" && m.split ? "split" : m.moveStop ? "move:" + m.trailStop : null;
+    if (!ev || told[ev]) return;
+    told[ev] = Date.now(); LS.set("posTold", told);
+    var sell = p.side === "short", dir = sell ? -1 : 1, lots = num(p.lots), contract = num(S.acct.contract) || M.contract, px = num(S.live), kind = ev.split(":")[0];
+    var res = function (price) { var pts = (price - p.entry) * dir, r = sgn(pts / m.R, 1) + "R"; return lots ? r + (EN ? ", about " : "，约 ") + (pts >= 0 ? "+" : "−") + P.usd(Math.abs(pts * lots * contract)) : r; };
+    var who = EN ? "Your " + (sell ? "short" : "long") + (lots ? " " + lots + " lots" : "") + " (entry " + f1(p.entry) + ")" : "你的" + (sell ? "做空" : "做多") + (lots ? " " + lots + " 手" : "") + "（入场 " + f1(p.entry) + "）";
+    var hitAt = kind === "stop" ? m.stopHitAt : kind === "tgt" ? m.targetHitAt : null, at = hitAt && hitAt < Date.now() - 60000 ? (EN ? " at " : "在 ") + sgt(hitAt) + (EN ? "" : " ") : "";
+    var bk = backup ? tx("（备用数据：在 MT5 核对）", " (backup data: check in MT5)") : "", far = num(p.tp1) !== null ? p.tp1 : p.entry + dir * 3 * m.R, title, lines;
+    if (kind === "stop") {
+      title = "🛑 " + M.name + tx(" · 持仓碰到止损 ", " · your position hit its stop ") + f1(p.stop);
+      lines = [EN ? who + ": price touched the stop " + f1(p.stop) + at + bk + ", " + res(p.stop) + "." : who + "：价格" + at + "碰到止损 " + f1(p.stop) + bk + "，这笔 " + res(p.stop) + "。",
+        tx("在 MT5 确认已经平仓，然后在页面点「平仓记账」。", "Check in MT5 that it closed, then press «Close and log» on the page.")];
+    } else if (kind === "tgt") {
+      title = "🎯 " + M.name + tx(" · 持仓到了目标 ", " · your position reached its target ") + f1(p.tp1);
+      lines = [EN ? who + ": price reached the target " + f1(p.tp1) + at + bk + ", " + res(p.tp1) + "." : who + "：价格" + at + "到了目标 " + f1(p.tp1) + bk + "，这笔 " + res(p.tp1) + "。",
+        tx("在 MT5 确认已经止盈，然后在页面点「平仓记账」。", "Check in MT5 that it took profit, then press «Close and log» on the page.")];
+    } else if (kind === "split") {
+      title = "🚪 " + M.name + tx(" · 规则说离场（跟踪止损做法）", " · the rule says leave (trailing exit)");
+      lines = [EN ? "The weekly, daily and 4-hour no longer agree (" + arrowsNow() + "): with the trailing exit the trade ends here." : "周线、日线、4 小时不再同向（" + arrowsNow() + "）：跟踪止损做法在这时离场。",
+        EN ? who + ": price " + f1(px) + ", " + res(px) + ". Close it in MT5, then press «Close and log»." : who + "：现价 " + f1(px) + "，这笔 " + res(px) + "。在 MT5 平仓，然后点「平仓记账」。"];
+    } else {
+      title = "↗️ " + M.name + tx(" · 今天把止损挪到 ", " · move your stop to ") + f1(m.trailStop) + tx("", " today");
+      lines = [EN ? "Trailing exit: the best price since entry is " + f1(m.best) + "; 2R behind it ($" + fmt(2 * m.R, 0) + ") the stop goes from " + f1(p.stop) + " to " + f1(m.trailStop) + ", only ever towards profit." : "跟踪止损做法：入场以来最好的价格 " + f1(m.best) + "，往回 2R（" + fmt(2 * m.R, 0) + " 美元），止损从 " + f1(p.stop) + " 挪到 " + f1(m.trailStop) + "，只往有利的方向挪。",
+        EN ? who + ": price " + f1(px) + ", " + res(px) + ". Change it in MT5, then press «Moved to " + f1(m.trailStop) + "» on the page." : who + "：现价 " + f1(px) + "，这笔 " + res(px) + "。在 MT5 改好后，在页面点「已改到 " + f1(m.trailStop) + "」。"];
+    }
+    var lv = [{ v: p.entry, kind: "entry", label: tx("入场", "entry") }, { v: p.stop, kind: "stop", label: tx("止损", "stop") }, { v: far, kind: "tgt", label: num(p.tp1) !== null ? tx("目标", "target") : "3R" }];
+    if (kind === "move") lv.push({ v: m.trailStop, kind: "need", label: tx("新止损", "new stop") });
+    sendAlert({ kind: "pos", own: true, key: M.id + ":pos:" + p.at + ":" + ev, tag: M.id + "-pos", title: title, lines: lines,
+      chip: kind === "move" ? tx("你的持仓 · 规则的止损调整", "your position · the rule's stop move") : null,
+      quiet: !!(hitAt && hitAt < PAGE_AT - 30 * 60000), chart: alertChart("1H", lv, { what: tx("我的持仓", "my position"), pat: null }) });
   }
 
   // ---------- hub context: risk calendar + daily plan ----------
@@ -1404,24 +1453,38 @@
   // candles only, so this says which close to watch and what the trade would look like. Once per deciding candle,
   // across tabs; never on the backup feed or with the market shut.
   var soonAt = 0, soonT = 0, TF_SEC = { W: 604800, D: 86400, "4H": 14400, "1H": 3600, "15M": 900 };
+  // In strong-signals-only mode (gold) it is sent only in the last 15 minutes before a 1-hour or bigger close: in the
+  // replay 78% of those became the signal at that close, against 61% when only a 15-minute close was missing
+  // (research/xau-replay/headsup_check.js, `headsUp` in data/xau-backtest.json; owner, 2026-11-28: "more 精准").
   function soonCheck() {
-    if (!S.E || !S.nopt.soon || !alertsOn()) return;
+    var strong = !!S.nopt.strong;
+    if (!S.E || !alertsOn() || (strong ? !(STRONG && S.nopt.soonStrong) : !S.nopt.soon)) return;
     var wait = soonAt + 5000 - Date.now();                                       // at most every 5 s; a price inside that gap is checked when it ends
     if (wait > 0) { if (!soonT) soonT = setTimeout(function () { soonT = 0; soonCheck(); }, wait); return; }
     soonAt = Date.now();
     if (!marketOpen() || (S.feed && S.feed.source === "paxg")) return;
     var px = num(S.live), sn = P.soonNeed(S.E, px); if (!sn) return;
     var dir = sn.dir, tf = sn.tf, start = Feed.bucket(Date.now() / 1000, tf), end = (start + TF_SEC[tf]) * 1000;
+    if (strong && (tf === "15M" || end - Date.now() > 15 * 60000)) return;
     var key = "soon:" + dir + ":" + tf + ":" + start; if (LS.get("notifiedSoon", "") === key) return; LS.set("notifiedSoon", key);
     var k = P.systemPlan(S.E, dir), buy = dir > 0, wd = P.words(), when = tf === "W" ? tx("本周收盘", "the weekly close") : EN ? "the " + sgt(end, tf === "D" ? "" : "t") + " close" : sgt(end, tf === "D" ? "" : "t") + " 收盘";
     sendAlert({ kind: "soon", key: M.id + ":" + key, tag: M.id + "-soon",
-      title: "⏳ " + M.name + " · " + (EN ? "a " + (buy ? "buy" : "sell") + " signal may come" + (wd.observe ? " (watch only)" : "") : "可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : "")),
+      title: "⏳ " + M.name + " · " + (EN ? "a " + (buy ? "buy" : "sell") + " signal may come at " + when + (wd.observe ? " (watch only)" : "") : when + "可能出" + (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : "")),
       lines: [EN ? sn.need.map(function (g) { return "a " + P.TF_ZH[g.tf] + " close " + (buy ? "above " : "below ") + f1(g.p); }).join(" and ") + " is a " + (buy ? "buy" : "sell") + " signal. The price " + f1(px) + " is already on that side."
           : sn.need.map(function (g) { return P.TF_ZH[g.tf] + "收盘" + (buy ? "站上 " : "跌破 ") + f1(g.p); }).join("、") + " 就是" + (buy ? "买入" : "卖出") + "信号。现价 " + f1(px) + " 已经在这边。",
-        EN ? "It counts only if still there at " + when + ": not a signal yet, and entering before the close did worse in the replay." : when + "时还在才算：现在还不是信号，回放里收盘前抢进做得更差。",
+        EN ? "It counts only if still there at " + when + " (in " + left(end - Date.now()) + "): not a signal yet, and entering before the close did worse in the replay." : when + "时还在才算（还有 " + left(end - Date.now()) + "）：现在还不是信号，回放里收盘前抢进做得更差。",
+        hsLine(tf),
         k ? (EN ? "If it comes, about: " + (buy ? "buy " : "sell ") + f1(px) + ", stop " + f1(px - dir * k.dist) + ", target " + f1(px + dir * 3 * k.dist) + "." : "到时约：" + (buy ? "买入 " : "卖出 ") + f1(px) + "，止损 " + f1(px - dir * k.dist) + "，目标 " + f1(px + dir * 3 * k.dist) + "。") : "",
         patSentence(patFor(tf))],
       chart: alertChart(tf, sn.need.map(function (g) { return { v: g.p, kind: "need", label: P.TF_S[g.tf] + tx(" 收盘线", " close") }; }), { what: EN ? "may give a " + (buy ? "buy" : "sell") + " signal" : "可能出" + (buy ? "买入" : "卖出") + "信号" }) });
+  }
+
+  // how often such a heads-up became the signal in the replay (`headsUp` in data/xau-backtest.json), for that close
+  function hsLine(tf) {
+    var u = STRONG && S.bt && S.bt.headsUp; if (!u) return "";
+    var g = (u.byTf || []).filter(function (x) { return x.tf === tf; })[0], pct = g && g.n >= 15 ? g.hitPct : tf !== "15M" && u.big ? u.big.hitPct : g ? g.hitPct : null; if (!pct) return "";
+    return EN ? "In the replay " + Math.round(pct) + "% of these heads-ups before a " + P.TF_ZH[tf] + " close became the signal at that close; the rest did not."
+      : "回放里" + zt(tf) + "收盘前的这种预告，" + Math.round(pct) + "% 在收盘时真的出了信号，其余没有出。";
   }
 
   // ---------- records: only what really happened ----------
@@ -1556,7 +1619,7 @@
   // a turning price, the turn confirmed at the close, the answer changing); chart patterns (reference); the small
   // timeframes. The owner asked on 2026-10-23 for trend changes too, and on 2026-11-18 for faster word of a possible
   // bullish or bearish turn on the daily and 4-hour, and for the chart pattern with every alert.
-  S.nopt = Object.assign({ strong: true, signal: true, soon: true, pre: true, verdict: true, big: true, pattern: true, pat1h: false, h1: true, small: false }, LS.get("notifyOpts", {}));
+  S.nopt = Object.assign({ strong: true, soonStrong: true, pos: true, signal: true, soon: true, pre: true, verdict: true, big: true, pattern: true, pat1h: false, h1: true, small: false }, LS.get("notifyOpts", {}));
   // Strong signals only (owner, 2026-11-26: "dun keep alert with not strong signal, the rate should be more than 70%"): on
   // by default, and switched on once for everyone who had changed the ticks before. Strong means the rule's own signal on
   // gold, the one way in the replay with an edge; Bitcoin's was not proven, so there it leaves only the visitor's own
@@ -1575,9 +1638,27 @@
       : m ? (EN ? "Only when the rule's buy or sell signal appears (all five timeframes agree), and at your own price levels. In the replay " + m.n + " such trades won " + Math.round(m.win) + "% and made " + sgn(m.avgR, 2) + "R each: winners " + sgn(m.avgWin, 1) + "R on average, losers " + sgn(m.avgLoss, 1) + "R. That is how it makes money with fewer than half winning."
         : "只在规则真正的买入 / 卖出信号出现时提醒（五个周期同向），加上你自己设的价位。回放里这种信号 " + m.n + " 笔，" + Math.round(m.win) + "% 赚，平均每笔 " + sgn(m.avgR, 2) + "R：赢的单平均 " + sgn(m.avgWin, 1) + "R，输的单平均 " + sgn(m.avgLoss, 1) + "R，所以赢不到一半也赚钱。")
       : tx("只在规则真正的买入 / 卖出信号出现时提醒（五个周期同向），加上你自己设的价位。", "Only when the rule's buy or sell signal appears (all five timeframes agree), and at your own price levels.") }));
+    if (STRONG) {                                                                // the signal's own heads-up, kept to the closes where it was right most often
+      var u = S.bt && S.bt.headsUp && S.bt.headsUp.big, sc = h("input", { type: "checkbox", id: "nopt-soonStrong" }); sc.checked = !!S.nopt.soonStrong; sc.disabled = !S.nopt.strong;
+      sc.addEventListener("change", function () { S.nopt.soonStrong = sc.checked; LS.set("notifyOpts", S.nopt); });
+      box.appendChild(h("label", { class: "al-o al-sub", for: "nopt-soonStrong" }, [sc, h("span", null, [tx("⏳ 信号前 15 分钟先说一声", "⏳ A heads-up 15 minutes before a signal"),
+        h("small", { text: EN ? "When price already stands where the signal needs it and a 1-hour or bigger close is under 15 minutes away. Not a signal yet: wait for the close." + (u ? " In the replay " + Math.round(u.hitPct) + "% of these became the signal at that close, about " + Math.round(u.perYear / 12) + " a month." : "")
+          : "价格已经在信号要的那一边、离 1 小时或更大周期的收盘不到 15 分钟时。还不是信号，要等收盘。" + (u ? "回放里这种预告 " + Math.round(u.hitPct) + "% 在收盘时真的出了信号，大约每月 " + Math.round(u.perYear / 12) + " 次。" : "") })])]));
+    }
     if (w && x) box.appendChild(h("p", { class: "al-why", text: EN ? "Why not 70% winners: with a 0.33R target the same signals win " + Math.round(x.win) + "% but average " + sgn(x.avgR, 2) + "R a trade, a loss. In " + w.from.slice(0, 4) + "–" + w.to.slice(0, 4) + " no reading at the signal raised the share that went +1R before −1R above " + Math.round(w.range1R.hi) + "% (all signals: " + Math.round(w.base1R.hit) + "%), so no filter makes them 70% right."
       : "为什么不做 70% 胜率：同样的信号把目标放近到 0.33R，胜率能到 " + Math.round(x.win) + "%，但平均每笔 " + sgn(x.avgR, 2) + "R，是亏的。" + w.from.slice(0, 4) + "–" + w.to.slice(0, 4) + " 年里，没有哪个入场时能看到的条件能让「先赚 1R 再亏 1R」的比例超过 " + Math.round(w.range1R.hi) + "%（全部信号是 " + Math.round(w.base1R.hit) + "%），所以没有过滤条件能把它变成七成准。" }));
     return box;
+  }
+  // the visitor's own position: the rule's exits for it, whatever the strong switch says (see posCheck)
+  function posBox() {
+    var cb = h("input", { type: "checkbox", id: "nopt-pos" }), p = S.pos; cb.checked = !!S.nopt.pos;
+    cb.addEventListener("change", function () { S.nopt.pos = cb.checked; LS.set("notifyOpts", S.nopt); if (cb.checked) posCheck(); });
+    var now = p ? (EN ? "Following now: " + (p.side === "short" ? "short" : "long") + (num(p.lots) ? " " + p.lots + " lots" : "") + ", entry " + f1(p.entry) + ", stop " + f1(p.stop) + (num(p.tp1) !== null ? ", target " + f1(p.tp1) : ", trailing stop") + "."
+      : "正在跟踪：" + (p.side === "short" ? "做空" : "做多") + (num(p.lots) ? " " + p.lots + " 手" : "") + "，入场 " + f1(p.entry) + "，止损 " + f1(p.stop) + (num(p.tp1) !== null ? "，目标 " + f1(p.tp1) : "，跟踪止损") + "。")
+      : tx("现在没有在跟踪的持仓：下单后在页面的计划下面点「我已入场」。", "No position is being followed: after placing the order, press «I'm in» under the plan on the page.");
+    return h("div", { class: "al-strong al-posb" }, [h("label", { class: "al-o", for: "nopt-pos" }, [cb, h("span", { text: tx("🧾 持仓提醒（点了「我已入场」以后）", "🧾 Position alerts (after «I'm in»)") })]),
+      h("p", { text: tx("碰到止损、到了目标；跟踪止损做法下每天 08:00 SGT 该挪止损时，和周线、日线、4 小时不再同向（规则的离场）时。都是规则对你这一笔的离场，所以「只提醒强信号」开着也照样提醒。", "The stop touched, the target reached; with the trailing exit, the daily stop move from 08:00 SGT, and the weekly, daily and 4-hour no longer agreeing (the rule's exit). These are the rule's exits for your own trade, so they come even with «Strong signals only» on.") }),
+      h("p", { class: "al-why", text: now })]);
   }
   var NGROUPS = EN ? [
     ["Signals", "the rule's own entries", [["signal", "A new buy / sell signal", "the moment all five timeframes agree, with stop and target"], ["soon", "Early word before a signal", "price already on the signal's side, that candle not closed yet"]]],
@@ -1598,7 +1679,7 @@
     var t = h("div", { class: "t" });
     if (on) {
       t.appendChild(h("b", { text: tx("🔔 提醒已开，刷新或重开浏览器后也一直开着。", "🔔 Alerts are on, and stay on after a reload or a browser restart. ") })); t.appendChild(document.createTextNode(tx("这一页开着（可以放在后台）就会每 15 分钟检查一次，按下面勾选的弹出通知。手机浏览器会暂停后台页面，电脑上最可靠。", "With this page open (in the background is fine) it checks every 15 minutes and notifies you of what is ticked below. Phone browsers pause background pages; a computer is the most reliable.")));
-      t.appendChild(strongBox());
+      t.appendChild(strongBox()); t.appendChild(posBox());
       if (S.nopt.strong) t.appendChild(h("p", { class: "al-offnote", text: tx("下面这些不是强信号：关掉「只提醒强信号」才能勾选。", "The kinds below are not strong signals: switch off «Strong signals only» to tick them.") }));
       var grp = h("div", { class: "al-grp" + (S.nopt.strong ? " off" : "") });
       NGROUPS.forEach(function (g) {
@@ -1711,10 +1792,12 @@
   function sendAlert(a) {
     var own = !!a.own, granted = NOTE_OK && Notification.permission === "granted";
     if (!own && !alertsOn()) return null;
-    if (!own && a.kind !== "test" && S.nopt.strong && !(a.kind === "signal" && STRONG)) return null;   // strong signals only: the rule's gold signal and the visitor's own levels
+    var strongOk = STRONG && (a.kind === "signal" || (a.kind === "soon" && S.nopt.soonStrong));   // strong signals only: the rule's gold signal, its last-15-minutes heads-up,
+    if (!own && a.kind !== "test" && S.nopt.strong && !strongOk) return null;                    // and the visitor's own levels and position
     var rec = null;
     if (AK) { rec = AK.send(Object.assign({ market: M.id, name: M.name }, a)); if (!rec) return null; }      // null: already sent from another tab
-    else if (granted) { try { var n = new Notification(a.title, { body: (a.lines || []).filter(Boolean).join("\n"), tag: a.tag, renotify: true, requireInteraction: true }); n.onclick = function () { try { window.focus(); } catch (e) {} n.close(); }; } catch (e) {} }
+    else if (granted && !a.quiet) { try { var n = new Notification(a.title, { body: (a.lines || []).filter(Boolean).join("\n"), tag: a.tag, renotify: true, requireInteraction: true }); n.onclick = function () { try { window.focus(); } catch (e) {} n.close(); }; } catch (e) {} }
+    if (a.quiet) return rec || {};                                              // kept in the record only
     if (!granted) toast(a.title);
     chime();
     if (document.visibilityState !== "visible") { var t0 = S.title0 || (S.title0 = document.title); document.title = "🔔 " + a.title; var back = function () { if (document.visibilityState === "visible") { document.title = t0; document.removeEventListener("visibilitychange", back); } }; document.addEventListener("visibilitychange", back); }
@@ -2039,10 +2122,15 @@
     LS.set("notified", key);
     if (!S.nopt.signal) return;
     var k = sysPlanNow(false), nw = newsCheck(), buy = R.dir > 0, wd = P.words();
-    sendAlert({ kind: "signal", key: M.id + ":" + key, tag: M.id + "-signal", chip: wd.observe ? tx("规则的信号 · 仅观察，不用真钱", "the rule's signal · watch only, no real money") : null,
+    // A position already on this way (我的持仓): the replay takes one trade at a time, so this is not a new trade. In
+    // strong-signals-only mode it is kept in the record without a notification.
+    var held = !!(S.pos && (S.pos.side === "short" ? -1 : 1) === R.dir);
+    sendAlert({ kind: "signal", key: M.id + ":" + key, tag: M.id + "-signal", quiet: held && S.nopt.strong,
+      chip: wd.observe ? tx("规则的信号 · 仅观察，不用真钱", "the rule's signal · watch only, no real money") : held ? tx("规则的信号 · 你已经有这一边的持仓", "the rule's signal · you already hold this side") : null,
       title: (buy ? "🟢 " : "🔴 ") + M.name + " · " + (EN ? (buy ? "buy" : "sell") + " signal" + (wd.observe ? " (watch only)" : "") : (buy ? "买入" : "卖出") + "信号" + (wd.observe ? "（仅观察）" : "")),
       lines: [EN ? "All five timeframes are " + (buy ? "up" : "down") + " (weekly, daily, 4-hour, 1-hour, 15-min): the rule's " + (buy ? "buy" : "sell") + " signal." : "五个周期都" + (buy ? "向上" : "向下") + "（周线、日线、4 小时、1 小时、15 分钟）：规则的" + (buy ? "买入" : "卖出") + "信号。",
-        k ? (EN ? (buy ? "Buy" : "Sell") + " about " + f1(S.live) + ", stop " + f1(k.stop) + ", target " + f1(k.tp1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price." : (buy ? "买入" : "卖出") + "约 " + f1(S.live) + "，止损 " + f1(k.stop) + "，目标 " + f1(k.tp1) + "（3R）；或不设目标，每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。") : "",
+        held ? tx("你已经有一笔同方向的持仓（我的持仓）：回放一次只做一笔，这次不加仓，照持仓卡继续拿着。", "You already hold a position this way (My position): the replay takes one trade at a time, so there is nothing to add; keep following the position card.")
+        : k ? (EN ? (buy ? "Buy" : "Sell") + " about " + f1(S.live) + ", stop " + f1(k.stop) + ", target " + f1(k.tp1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price." : (buy ? "买入" : "卖出") + "约 " + f1(S.live) + "，止损 " + f1(k.stop) + "，目标 " + f1(k.tp1) + "（3R）；或不设目标，每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。") : "",
         (wd.exitNote ? wd.exitNote + (EN ? " " : "") : "") + (nw && nw.ok === false ? tx("注意：", "Note: ") + nw.detail + tx("。", ". ") : "") + tx("点开看计划和手数。", "Open the page for the plan and the lot size."),
         strongLine(), patSentence(patFor("1H"))],
       chart: alertChart("1H", k ? [{ v: k.stop, kind: "stop", label: tx("止损", "stop") }, { v: k.tp1, kind: "tgt", label: tx("目标 3R", "target 3R") }] : [], { what: EN ? (buy ? "buy" : "sell") + " signal" : (buy ? "买入" : "卖出") + "信号" }) });
@@ -2345,7 +2433,7 @@
   var WS = null, wsBack = 0, wsAt = 0, paintT = null, slowN = 0;
   function streamOn() { return !!WS && WS.readyState === 1 && Date.now() - wsAt < 90000; }
   function onPrice() {
-    checkVerdict(); soonCheck(); preCheck(); palCheck();
+    checkVerdict(); soonCheck(); preCheck(); palCheck(); posCheck(); paintRadar();
     if (document.visibilityState !== "visible" || paintT) return;
     paintT = setTimeout(function () {                                           // repaint at most once a second
       paintT = null; if (document.visibilityState !== "visible") return;
@@ -2473,7 +2561,7 @@
       }).catch(function () {});
       if (!S.hadPlan) { S.hadPlan = true; var k0 = sysPlanNow(false); if (k0 && P.regime(E).full) { S.plan.side = k0.side; S.plan.entry = k0.entry; S.plan.stop = k0.stop; S.plan.tp1 = k0.tp1; S.plan.tp2 = null; touched(); syncInputs(); } }
       $("err").hidden = true; $("feed-warn").hidden = !feed.warn; $("feed-warn-t").textContent = feed.warn || "";
-      renderAll(); setStamp(); palCheck(true);
+      renderAll(); setStamp(); palCheck(true); posCheck(); paintRadar(true);
       renderProof(); trendCheck(E, feed.source); preResolve(E, feed.source); patCheck(E, feed.source); renderChanges();
       if (location.hash === "#ask" && !S.askJumped) { S.askJumped = true; setTimeout(function () { $("ask").scrollIntoView({ block: "start" }); $("ask-q").focus({ preventScroll: true }); }, 300); }   // arrived from another page's "问 Claude" link
     }).catch(function (e) {
@@ -2483,9 +2571,9 @@
   function tick() {
     if (!S.E || S.busy) return;
     var vis = document.visibilityState === "visible";
-    if (!vis) { if (!streamOn() && (palArmed("touch") || alertsOn())) fetchTick().then(function () { palCheck(true); soonCheck(); preCheck(); }); return; }   // no stream: the alerts still follow the price
+    if (!vis) { if (!streamOn() && (palArmed("touch") || alertsOn() || (S.pos && S.nopt.pos))) fetchTick().then(function () { palCheck(true); soonCheck(); preCheck(); posCheck(); }); return; }   // no stream: the alerts still follow the price
     Promise.all([streamOn() ? null : fetchTick(), marketOpen() ? fetchSpot() : null]).then(function () {
-      calibrate(); checkVerdict(); setStamp(); palCheck(true); soonCheck(); preCheck();
+      calibrate(); checkVerdict(); setStamp(); palCheck(true); soonCheck(); preCheck(); posCheck(); paintRadar();
       if (vis) { renderVerdict(); if (!busyUi()) { renderLevels(); drawChart(); } }
     });
   }
@@ -2541,18 +2629,63 @@
   // this page's alerts are on and a red number of alerts not yet seen; a click on a notification opens the record at that
   // alert. The page also says every minute that it is open and checking, which the home page's alerts card shows.
   var POP = null;
+  // ---------- what the next signal still needs: the top of the alerts popup (owner, 2026-11-28: "more ez to see") ----------
+  // The five trends as chips, which way the next signal would be, and each close still missing: the price it has to
+  // close beyond, how far the price is from it, and when that candle closes. Prices are the engine's turning closes on
+  // the last closed candles (the small timeframes' move with every new candle). Reference: the rule decides on closes.
+  var RADAR = h("div", { class: "al-rd", id: "al-radar", "aria-live": "polite" }), rdAt = 0;
+  function radarDir(R, E) {
+    if (R.dir) return R.dir;
+    var score = function (d) { var miss = P.TF_ORDER.filter(function (tf) { return R.dirs[tf] !== d; }); return miss.filter(function (tf) { return tf === "W" || tf === "D" || tf === "4H"; }).length * 10 + miss.length; };
+    var up = score(1), dn = score(-1); return up < dn ? 1 : dn < up ? -1 : R.lean || -1;
+  }
+  function paintRadar(force) {
+    if (!POP || (!force && !POP.dlg.open)) return;
+    if (!force && Date.now() - rdAt < 1000) return; rdAt = Date.now();
+    clear(RADAR);
+    var obs = P.words().observe, head = h("div", { class: "al-rd-h" }, [h("b", { text: tx("📡 下一个信号还差什么", "📡 What the next signal needs") + (obs ? tx("（仅观察）", " (watch only)") : "") })]);
+    RADAR.appendChild(head);
+    if (!S.E) { RADAR.appendChild(h("p", { class: "al-rd-s", text: tx("正在读 K 线…", "Reading the candles…") })); return; }
+    var E = S.E, R = P.regime(E), open = marketOpen(), px = open && num(S.live) !== null ? S.live : E.price, dir = radarDir(R, E), buy = dir > 0, sideW = buy ? tx("买入", "buy") : tx("卖出", "sell");
+    head.appendChild(h("span", { class: "al-rd-px", text: (open ? tx("现价 ", "Price ") : tx("收盘价 ", "Last close ")) + f1(px) }));
+    RADAR.appendChild(h("div", { class: "al-rd-cs" }, P.TF_ORDER.map(function (tf) {
+      var d = R.dirs[tf]; return h("span", { class: "al-rd-c " + (d === dir ? (buy ? "up" : "dn") : "no"), title: P.TF_ZH[tf], text: tf + " " + (d > 0 ? "↑" : d < 0 ? "↓" : "–") });
+    })));
+    var miss = P.TF_ORDER.filter(function (tf) { return R.dirs[tf] !== dir; });
+    var lead = R.full ? (EN ? "All five point " + (buy ? "up" : "down") + ": the rule's " + sideW + " signal is on. The plan is on the page under «What to do now»." : "五个周期都" + (buy ? "向上" : "向下") + "：规则的" + sideW + "信号正在生效。计划在页面「现在该做什么」。")
+      : R.dir ? (EN ? "The big three point " + (buy ? "up" : "down") + ", so the next signal would be a " + sideW + ". Still missing " + miss.length + (miss.length > 1 ? " closes:" : " close:") : "大方向" + (buy ? "向上" : "向下") + "，下一个信号会是" + sideW + "。还差 " + miss.length + " 个收盘：")
+      : (EN ? "The weekly, daily and 4-hour do not agree yet. The nearer signal is a " + sideW + "; it still needs " + miss.length + " closes:" : "周线、日线、4 小时还不同向。离得近的信号是" + sideW + "，还差 " + miss.length + " 个收盘：");
+    RADAR.appendChild(h("p", { class: "al-rd-s", text: lead }));
+    if (miss.length) {
+      var ul = h("ul", { class: "al-rd-l" });
+      miss.forEach(function (tf) {
+        var lv = P.flipLevel(E, tf, dir), ca = closeAt(tf), gap = lv === null ? null : (px - lv) * dir;
+        ul.appendChild(h("li", null, [h("b", { text: EN ? P.TF_ZH[tf] + " close " + (buy ? "above " : "below ") + (lv === null ? "—" : f1(lv)) : P.TF_ZH[tf] + "收盘" + (buy ? "站上 " : "跌破 ") + (lv === null ? "—" : f1(lv)) }),
+          gap === null ? null : h("span", { class: "al-rd-g" + (gap > 0 ? " ok" : ""), text: gap > 0 ? tx("✓ 现价已在这边", "✓ price already there") : tx("差 ", "") + "$" + fmt(-gap, 1) + tx("", " to go") }),
+          h("span", { class: "al-rd-t", text: (EN ? "closes " + ca.t + (open ? ", " + (ca.end - Date.now() < 60000 ? "under a minute" : "in " + left(ca.end - Date.now())) : "") : ca.t + " 收盘" + (open ? "，" + (ca.end - Date.now() < 60000 ? "不到 1 分钟" : "还有 " + left(ca.end - Date.now())) : "")) })]));
+      });
+      RADAR.appendChild(ul);
+    }
+    var sn = open ? P.soonNeed(E, px) : null;
+    if (sn && sn.dir === dir) {
+      var end = (Feed.bucket(Date.now() / 1000, sn.tf) + TF_SEC[sn.tf]) * 1000;
+      RADAR.appendChild(h("p", { class: "al-rd-hot", text: (EN ? "⏳ Price is already past every close still needed: if it is still there at the " + closeAt(sn.tf).t + " " + P.TF_ZH[sn.tf] + " close, that is the signal. Not a signal before the close." : "⏳ 现价已经过了所有还差的价位：" + closeAt(sn.tf).t + " " + P.TF_ZH[sn.tf] + "收盘时还在，就是信号。收盘前还不是信号。") + (sn.tf !== "15M" && end - Date.now() <= 15 * 60000 ? (EN ? " " : "") + hsLine(sn.tf) : "") }));
+    }
+    RADAR.appendChild(h("p", { class: "al-rd-n", text: (open ? "" : tx("休市中，", "Market closed; opens ") + (EN ? openWords() + ". " : openWords() + "开盘。")) + tx("价位按最近收好的 K 线算，小周期的价位每根新 K 线后会变。参考，不是信号：规则只按收盘算。", "Prices come from the last closed candles; the small timeframes' prices change with each new candle. Reference, not a signal: the rule goes by closes.") }));
+  }
+  setInterval(function () { paintRadar(); }, 15000);
   function setupPopup() {
     var home = $("al-home");
     if (!AK || !AK.popup) { if (home) home.hidden = false; return; }               // without the alert file the panels stay on the page
     var log = h("div", { class: "al-log", id: "al-log" });
-    POP = AK.popup({ id: "al-dlg", title: tx("🔔 提醒", "🔔 Alerts") + " · " + M.name, markets: [M.id], tabs: [
+    POP = AK.popup({ id: "al-dlg", title: tx("🔔 提醒", "🔔 Alerts") + " · " + M.name, markets: [M.id], head: RADAR, tabs: [
       { id: "set", label: tx("提醒设置", "Settings"), el: $("v-alert") },
       { id: "price", label: tx("价格提醒", "Price alerts"), el: $("v-palert") },
       { id: "log", label: tx("提醒记录", "Record"), el: log }] });
     if (home && home.parentNode) home.parentNode.removeChild(home);
     AK.view(log, { markets: [M.id] });
-    window.AlertPopup = { open: function (tab) { ensureAudio(); askPermission(); POP.open(tab || (AK.unread([M.id]) ? "log" : null)); }, state: function () { return { on: alertsOn() && (STRONG || !S.nopt.strong), n: AK.unread([M.id]) }; } };
-    AK.onOpen(function () { POP.open("log"); });
+    window.AlertPopup = { open: function (tab) { ensureAudio(); askPermission(); paintRadar(true); POP.open(tab || (AK.unread([M.id]) ? "log" : null)); }, state: function () { return { on: alertsOn() && (STRONG || !S.nopt.strong), n: AK.unread([M.id]) }; } };
+    AK.onOpen(function () { paintRadar(true); POP.open("log"); });
     AK.onChange(paintAlBtn); paintAlBtn(); setInterval(paintAlBtn, 60000);
   }
   // the navbar's bell (assets/site.js) and the record tab's count follow the switch, the price alerts and the record
@@ -2570,7 +2703,7 @@
   // most. Nothing is fetched in between, so an open tab asks the price feed for candles about 16 times an hour.
   var qSeen = null, qTries = 0;
   setInterval(function () {
-    if (document.visibilityState !== "visible" && !alertsOn() && !palArmed("close")) return;   // a hidden tab keeps checking only for the reminders
+    if (document.visibilityState !== "visible" && !alertsOn() && !palArmed("close") && !(S.pos && S.nopt.pos)) return;   // a hidden tab keeps checking only for the reminders
     var now = Date.now(), q = Math.floor((now - 25000) / 900000);
     if (now - S.lastTry < 55000) return;
     if (q !== qSeen) { qSeen = q; qTries = 0; if (q !== S.lastQ) { refresh(); return; } }
