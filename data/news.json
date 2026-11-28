@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 16:44 SGT",
+ "updated": "2026-11-28 16:58 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "RBI Steps Up Gold Loan Scrutiny as Bullion Rout Signals Strain",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYjhmSUs2VlExTUlfWUZQWW9iaW1RZGxBbWgzOTE0NjhYc0k2ZUZjdm1US2d0Z1BZNmR6cDVpUnZqQU5kTVFPbk1LdzQ2SEhxZE5PMWhJUGZxS1Q1TVVZMS1ybndvOExyTlZNdVJ0aHhnOGFSb1NmX1luaG93dy1SVXdEUl9CZmRHQnVPR3FRZlRCSjM1dFptNER4dTVtb1ZTLWtQd0VlY2ZoX2xWaFFGUmIzTQ?oc=5",
+   "ms": 1795847940000,
+   "time": "11/28 14:39"
+  },
   {
    "t": "The Fed is fighting the wrong inflation battle",
    "src": "Kitco",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
    "ms": 1795801200000,
    "time": "11/28 01:40"
-  },
-  {
-   "t": "Gold and Silver rally even as a December Fed hike is all but certain",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
-   "ms": 1795799437000,
-   "time": "11/28 01:10"
   }
  ]
 }
