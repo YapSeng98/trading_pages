@@ -526,6 +526,30 @@
       sv("rect", { x: cx - bw / 2, y: y(Math.max(b[1], b[4])), width: bw, height: Math.max(1, Math.abs(y(b[1]) - y(b[4]))), rx: bw > 4 ? 1 : 0, fill: open ? "var(--bg2)" : col, stroke: col, "stroke-width": open ? 1.25 : 0 }, svg);
     });
 
+    // The rule's past signals from the paper record (data/xau-signals.json or btc-signals.json, since it started): a
+    // triangle on the candle it fired in (▲ buy below the low, ▼ sell above the high), coloured by how it ended with its
+    // R beside it, and a dotted line from the entry to the exit (or to the price now while it is on). Signals the record
+    // skipped because a paper trade was already on are hollow. Owner, 2026-11-28 ("yes" to past signals on the chart).
+    var DURS = Feed.DUR[S.tf], sigAt = {}, inPx = function (p) { p = num(p); return p !== null && p >= lo && p <= hi; };
+    var barOf = function (ms) { var tt = ms / 1000; if (!bars.length || tt < bars[0][0]) return -1; for (var k = bars.length - 1; k >= 0; k--) if (bars[k][0] <= tt) return tt < bars[k][0] + DURS ? k : -1; return -1; };
+    ((S.rec && S.rec.signals) || []).forEach(function (sg) {
+      var i = barOf(sg.ms); if (i < 0) return;
+      var d = sg.side === "做空" || sg.side === "short" ? -1 : 1, skip = sg.status === "skipped", r = num(sg.R), col = skip ? "var(--dim)" : r === null ? "var(--m-gold)" : r > 0 ? "var(--m-bull)" : "var(--m-bear)";
+      var list = sigAt[i] || (sigAt[i] = []); list.push(sg);
+      var k = list.length - 1, cx = x(i), b = bars[i], m = Math.max(3.5, Math.min(5.5, cw * 0.42)), my = d < 0 ? y(b[2]) - m - 4 - k * (2 * m + 3) : y(b[3]) + m + 4 + k * (2 * m + 3);
+      my = Math.max(T + m, Math.min(H - B - m, my));
+      if (!skip) {
+        var j = sg.exitMs ? barOf(sg.exitMs) : bars.length - 1, ex = sg.exitMs ? num(sg.exitPrice) : price;
+        if (j >= i && inPx(sg.entry) && inPx(ex)) { sv("line", { x1: cx, y1: y(sg.entry), x2: x(j), y2: y(ex), stroke: col, "stroke-width": 1.25, "stroke-dasharray": "3 3", "stroke-opacity": 0.9 }, svg); sv("circle", { cx: x(j), cy: y(ex), r: 2.5, fill: col }, svg); }
+      }
+      sv("path", { d: d > 0 ? "M" + (cx - m) + " " + (my + m) + "L" + (cx + m) + " " + (my + m) + "L" + cx + " " + (my - m) + "Z" : "M" + (cx - m) + " " + (my - m) + "L" + (cx + m) + " " + (my - m) + "L" + cx + " " + (my + m) + "Z", fill: skip ? "var(--bg2)" : col, stroke: col, "stroke-width": 1.25 }, svg);
+      if (!skip) {
+        var lt = r === null ? tx("持有中", "on") : (r > 0 ? "+" : "−") + (Math.abs(r) % 1 ? Math.abs(r).toFixed(1) : Math.abs(r)) + "R", lw = lt.length * (r === null && !EN ? 10.5 : 6.6);
+        sv("rect", { x: cx + m + 1, y: my - 7.5, width: lw + 5, height: 14, rx: 3, fill: "var(--bg2)", "fill-opacity": 0.88 }, svg);
+        sv("text", { x: cx + m + 3.5, y: my + 3.5, style: "fill:" + col + ";font-weight:700;font-size:10.5px" }, svg).textContent = lt;
+      }
+    });
+
     // plan: risk / reward wash, then lines
     var pl = S.plan, e = num(pl.entry), s = num(pl.stop), t1 = num(pl.tp1), t2 = num(pl.tp2), tags = [];
     var inR = function (p) { return p !== null && p >= lo && p <= hi; };
@@ -590,7 +614,7 @@
     sv("rect", { x: L, y: T, width: plotW, height: H - T - B, fill: "transparent" }, svg);
     box.appendChild(svg);
     tip = h("div", { class: "tip", hidden: true }); box.appendChild(tip);
-    CH = { bars: bars, n: n, i: n - 1, live: live };
+    CH = { bars: bars, n: n, i: n - 1, live: live, sig: sigAt };
 
     function show(i, py) {
       i = Math.max(0, Math.min(n - 1, i)); CH.i = i;
@@ -604,6 +628,11 @@
       tip.appendChild(h("div", { class: "t", text: P.TF_ZH[S.tf] + " · " + sgt(b[0] * 1000, S.tf === "D" ? "d" : "dt") + " SGT" + (live && i === n - 1 ? tx(" · 还没收盘", " · not closed yet") : "") }));
       [[tx("开盘", "Open"), fmt(b[1], 2)], [tx("最高", "High"), fmt(b[2], 2)], [tx("最低", "Low"), fmt(b[3], 2)], [tx("收盘", "Close"), fmt(b[4], 2)], [tx("涨跌", "Change"), (chg >= 0 ? "▲ +" : "▼ −") + Math.abs(chg).toFixed(2) + "%"]].forEach(function (r) {
         tip.appendChild(h("div", { class: "r" }, [h("span", { text: r[0] }), h("b", { text: r[1] })]));
+      });
+      (CH.sig[i] || []).forEach(function (sg) {                                 // the paper record's signals on this candle
+        var d = sg.side === "做空" || sg.side === "short" ? -1 : 1, r = num(sg.R), st = sg.status;
+        tip.appendChild(h("div", { class: "r" }, [h("span", { text: (d > 0 ? "▲ " : "▼ ") + tx("信号 #", "Signal #") + sg.id + " " + (d > 0 ? tx("买 ", "buy ") : tx("卖 ", "sell ")) + fmt(sg.entry, 1) }),
+          h("b", { text: st === "skipped" ? tx("跳过（已有模拟单）", "skipped (a paper trade was on)") : r === null ? tx("持有中", "still on") : (st === "target" ? tx("到目标 ", "target ") : st === "stop" ? tx("止损 ", "stop ") : "") + sgn(r, r % 1 ? 1 : 0) + "R" })]));
       });
       var scale = box.clientWidth / W, tw = tip.offsetWidth, lf = cx * scale + 14;
       if (lf + tw > box.clientWidth - R * scale) lf = cx * scale - tw - 14;
@@ -1475,6 +1504,7 @@
         EN ? "It counts only if still there at " + when + " (in " + left(end - Date.now()) + "): not a signal yet, and entering before the close did worse in the replay." : when + "时还在才算（还有 " + left(end - Date.now()) + "）：现在还不是信号，回放里收盘前抢进做得更差。",
         hsLine(tf),
         k ? (EN ? "If it comes, about: " + (buy ? "buy " : "sell ") + f1(px) + ", stop " + f1(px - dir * k.dist) + ", target " + f1(px + dir * 3 * k.dist) + "." : "到时约：" + (buy ? "买入 " : "卖出 ") + f1(px) + "，止损 " + f1(px - dir * k.dist) + "，目标 " + f1(px + dir * 3 * k.dist) + "。") : "",
+        k && !wd.observe ? lotLine(buy ? "long" : "short", px, px - dir * k.dist, px + dir * 3 * k.dist) : "",
         patSentence(patFor(tf))],
       chart: alertChart(tf, sn.need.map(function (g) { return { v: g.p, kind: "need", label: P.TF_S[g.tf] + tx(" 收盘线", " close") }; }), { what: EN ? "may give a " + (buy ? "buy" : "sell") + " signal" : "可能出" + (buy ? "买入" : "卖出") + "信号" }) });
   }
@@ -1494,7 +1524,7 @@
   function sgn(v, d) { d = d === undefined ? 2 : d; var t = Math.abs(v).toFixed(d); return (+t === 0 ? "" : v > 0 ? "+" : "−") + t; }
   function loadProof() {
     fetch(M.signals, { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
-      if (d && d.summary) { S.rec = d; renderProof(); renderChanges(); if (S.E) renderVerdict(); }
+      if (d && d.summary) { S.rec = d; renderProof(); renderChanges(); if (S.E) { renderVerdict(); if (!busyUi()) drawChart(); } }
     }).catch(function () {});
   }
   // The visitor's own trades: the P&L calendar (journal.html keeps them in localStorage "pnl.v1", and in Supabase once
@@ -2131,11 +2161,22 @@
       lines: [EN ? "All five timeframes are " + (buy ? "up" : "down") + " (weekly, daily, 4-hour, 1-hour, 15-min): the rule's " + (buy ? "buy" : "sell") + " signal." : "五个周期都" + (buy ? "向上" : "向下") + "（周线、日线、4 小时、1 小时、15 分钟）：规则的" + (buy ? "买入" : "卖出") + "信号。",
         held ? tx("你已经有一笔同方向的持仓（我的持仓）：回放一次只做一笔，这次不加仓，照持仓卡继续拿着。", "You already hold a position this way (My position): the replay takes one trade at a time, so there is nothing to add; keep following the position card.")
         : k ? (EN ? (buy ? "Buy" : "Sell") + " about " + f1(S.live) + ", stop " + f1(k.stop) + ", target " + f1(k.tp1) + " (3R); or no target, moving the stop each day to " + fmt(k.trailDist, 0) + " behind the best price." : (buy ? "买入" : "卖出") + "约 " + f1(S.live) + "，止损 " + f1(k.stop) + "，目标 " + f1(k.tp1) + "（3R）；或不设目标，每天把止损挪到最好价格后面 " + fmt(k.trailDist, 0) + "。") : "",
+        !held && k && !wd.observe ? lotLine(buy ? "long" : "short", num(S.live), k.stop, k.tp1) : "",
         (wd.exitNote ? wd.exitNote + (EN ? " " : "") : "") + (nw && nw.ok === false ? tx("注意：", "Note: ") + nw.detail + tx("。", ". ") : "") + tx("点开看计划和手数。", "Open the page for the plan and the lot size."),
         strongLine(), patSentence(patFor("1H"))],
       chart: alertChart("1H", k ? [{ v: k.stop, kind: "stop", label: tx("止损", "stop") }, { v: k.tp1, kind: "tgt", label: tx("目标 3R", "target 3R") }] : [], { what: EN ? (buy ? "buy" : "sell") + " signal" : (buy ? "买入" : "卖出") + "信号" }) });
   }
 
+  // The lots for the visitor's own balance and risk (the planner's step 3, kept in this browser), written into the signal
+  // alert and its heads-up so it can be acted on from the notification (owner, 2026-11-28). Sizing, not advice.
+  function lotLine(side, entry, stop, tp) {
+    var a = S.acct, bal = num(a.balance), sz = P.size({ side: side, entry: entry, stop: stop, tp1: tp, balance: a.balance, riskPct: a.riskPct, contract: a.contract, lotStep: a.lotStep, spread: a.spread });
+    if (!sz.valid) return "";
+    if (!(bal > 0) || !(num(a.riskPct) > 0)) return tx("在页面第 3 步填上账户余额和每笔最多亏多少，提醒里就会直接写手数。", "Fill in your balance and risk in step 3 on the page and alerts will give the lot size.");
+    if (!(sz.lots > 0)) return EN ? "Lots: even " + a.lotStep + " lot loses " + P.usd(sz.minLotRisk) + " at the stop (" + pctTxt(sz.minLotPct) + " of " + P.usd(bal) + "), more than the " + a.riskPct + "% you set." : "手数：" + a.lotStep + " 手到止损就亏 " + P.usd(sz.minLotRisk) + "（余额 " + P.usd(bal) + " 的 " + pctTxt(sz.minLotPct) + "），超过你设的 " + a.riskPct + "%。";
+    return EN ? "Lots: " + sz.lots + " (" + P.usd(bal) + " at " + a.riskPct + "% risk): about " + P.usd(sz.actualRisk) + " lost at the stop" + (sz.pnl1 ? ", " + P.usd(sz.pnl1) + " made at the target" : "") + "."
+      : "手数：" + sz.lots + " 手（余额 " + P.usd(bal) + "，每笔最多亏 " + a.riskPct + "%）：到止损亏约 " + P.usd(sz.actualRisk) + (sz.pnl1 ? "，到目标赚约 " + P.usd(sz.pnl1) : "") + "。";
+  }
   // what a strong signal has done before: the replay's win rate and its winners against its losers
   function strongLine() {
     var m = STRONG && S.bt && S.bt.rules && S.bt.rules.go3r; if (!m) return "";
