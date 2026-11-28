@@ -1,18 +1,11 @@
 {
- "updated": "2026-11-28 10:48 SGT",
+ "updated": "2026-11-28 11:08 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795826937000,
-   "time": "11/28 08:48"
-  },
   {
    "t": "The Fed is fighting the wrong inflation battle",
    "src": "Kitco",
@@ -21,25 +14,11 @@
    "time": "11/28 07:31"
   },
   {
-   "t": "Wall Street’s bullish bets tick higher after gold bounces back above $3,600, Main Street maintains bearish bias with payrolls on deck",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdTNXWTMtUVlSdHdDazZkWVVEVmYzR0gwM1FnOGJiRE1KOEF5NS10YmptUUkyMTNJT1RVLVYzaVR5dVR5NHdOb1BvMW1DNmw0TzVoMk5SRDVMLWdRRmoyMzg0VENPX2FiRW4yR1J3ZFBUM0d1MDNaR2ozRnU0RDc4clhUd19UbHp5OVpMdy1BY21jMlk3ZV9lbGlxTk4yLURSMTZuNV94Z0tMb19aMzI1REpvVUJZSTlaNkE?oc=5",
-   "ms": 1795820473000,
-   "time": "11/28 07:01"
-  },
-  {
    "t": "Gold climbs above $3,650, silver surges as Wall Street rebounds sharply - Kitco PM Report",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZzJJdW9tdmZOTkw3ejdzVXFQOWNvZTc2XzU0ZlFFWFJNTnVXcHVlZjRsQXdUenlibkxBTFhwNXY3d1lLVkxBOF9zWDNCSHdRTXg0VDlxWTJTOUpBbVB5dmFPV3kyMWtZODk0ZDdVQlJfZDY3alh0ZjRNbUNPcGhHYkZPWVNORkg5QWplSDFqLWQ5Zm1Qb19uQVJmV3ZDMUMyV09fN2U2U3B1SjYzTFdpUGI2YzVvSEVlVzEtMw?oc=5",
    "ms": 1795818759000,
    "time": "11/28 06:32"
-  },
-  {
-   "t": "Gold and silver bounce from 15-month lows, but Fed risks loom large",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUHRKOGNNMzNLb2dYbFhxMi12UEpPOGRqSHI0XzRmVVZBZThlVjdOWGh0WHo1Sjh6U1NYdmI4eU9GVkNZeHZNQ3luTmkwRWxIQUJQbGZNa1hsTXpiSHJoVGtvNGFiNmNxZ0hNNmVOT1NBTUVrSXQ5clI4YUFkQjJpclhfWFg0eS1GSVFNMC12ZWtpQVUzM1NwelhzWDJqVnh4clJvcllB?oc=5",
-   "ms": 1795817146000,
-   "time": "11/28 06:05"
   },
   {
    "t": "Gold could ride the double tailwind of equities and seasonals higher into the new year – investingLive’s Button",
@@ -84,6 +63,13 @@
    "time": "11/28 02:19"
   },
   {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1795803477000,
+   "time": "11/28 02:17"
+  },
+  {
    "t": "Gold and Palladium: The Comeback Meets Its First Test",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-and-palladium-the-comeback-meets-its-first-test-200692460",
@@ -98,18 +84,32 @@
    "time": "11/28 01:40"
   },
   {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
-   "ms": 1795800652000,
-   "time": "11/28 01:30"
+   "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
+   "ms": 1795798200000,
+   "time": "11/28 00:50"
   },
   {
-   "t": "Gold and Silver rally even as a December Fed hike is all but certain",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
-   "ms": 1795799437000,
-   "time": "11/28 01:10"
+   "t": "The Energy Report: Hormuz Risks and Saudi Attacks Revive Oil Bulls",
+   "src": "Investing.com",
+   "url": "https://www.investing.com/analysis/the-energy-report-hormuz-risks-and-saudi-attacks-revive-oil-bulls-200692454",
+   "ms": 1795797120000,
+   "time": "11/28 00:32"
+  },
+  {
+   "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
+   "ms": 1795793439000,
+   "time": "11/27 23:30"
+  },
+  {
+   "t": "Gold demand revives in India, China as price slide sparks bargain buying",
+   "src": "mining.com",
+   "url": "https://www.mining.com/web/gold-demand-revives-in-india-china-as-price-slide-sparks-bargain-buying/",
+   "ms": 1795792017000,
+   "time": "11/27 23:06"
   }
  ]
 }
