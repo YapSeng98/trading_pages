@@ -1,15 +1,15 @@
 {
- "updated": "2026-11-28 20:46 SGT",
+ "updated": "2026-11-28 21:40 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 59227.4,
- "priceTime": "2026-11-28 20:45 SGT",
+ "price": 59226,
+ "priceTime": "2026-11-28 21:30 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 59923.1,
   "high": 60266,
   "low": 59048,
-  "changeFromPrevClose": -695.7,
+  "changeFromPrevClose": -697.1,
   "changePct": -1.16,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
@@ -117,8 +117,8 @@
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-27 23:00 SGT",
-   "rsi": 32,
-   "atr": 381.44,
+   "rsi": 31.5,
+   "atr": 369.52,
    "turnsUpAbove": 60266,
    "turnsDownBelow": 58792.4
   },
@@ -127,9 +127,9 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-28 13:15 SGT",
-   "rsi": 32.8,
-   "atr": 148.56,
-   "turnsUpAbove": 59919.8,
+   "rsi": 34.2,
+   "atr": 137.72,
+   "turnsUpAbove": 59408.2,
    "turnsDownBelow": 59048
   }
  ],
@@ -162,7 +162,7 @@
  ],
  "support": [
   {
-   "price": 59188.3,
+   "price": 59048,
    "what": "1小时近期小低点",
    "strength": 1
   },
@@ -172,7 +172,7 @@
    "strength": 10
   },
   {
-   "price": 56794.5,
+   "price": 56694.6,
    "what": "1小时头肩顶关键位",
    "strength": 2
   },
@@ -182,7 +182,7 @@
    "strength": 13
   },
   {
-   "price": 54037.2,
+   "price": 53937.3,
    "what": "1小时头肩顶目标",
    "strength": 1
   }
