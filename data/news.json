@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 23:28 SGT",
+ "updated": "2026-11-28 23:41 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Silver Price Today | Price of Silver Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yMEZVZlBMcVNiamZhXy0zc09ncWhlZDByYTFoUnhVWTBZUExUVXdKYzFGNkUzdGg5cG9EUXZUVXJuaVRITHE1bnhtbw?oc=5",
+   "ms": 1795875805000,
+   "time": "11/28 22:23"
+  },
   {
    "t": "BCA Research Identifies US Dollar Reversal as Key Condition for Renewed Gold Investment",
    "src": "Yahoo Finance UK",
@@ -103,13 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTTA5LTNDRTlvTmJpZHZHb3FIMjlGUlpyM0xoWjlZNWREb3lCZ2ZpOVRHUjRVeThzcFRYRVpHalFIV3NUTG91ekFweXVkblA2MUJKUThadVgxSkczRWo2OW5tSWd0Mld1YVFOdHBZUTZ2Z3k3Y0V1d1B2Z3Y3VFduQnhmN0p3OGdhQUotWUFtdjFjeXNDMEtxc3AzZVYxeTMweHM0SUdiT1B4cDE5cG5YYVBLUVk?oc=5",
    "ms": 1795803567000,
    "time": "11/28 02:19"
-  },
-  {
-   "t": "Selling fatigue and seasonal tailwinds fueling gold’s recovery – Saxo Bank",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnphdzlwNWhjdXZMM1JJZ1ctMFN6ZFdiM2lOSW4tRnFBdEcwendvWTB5ODBCN3B1NXF4aWpmSGJJSEJ1MXlzZFV0bGd0YjJpdE5wRlJyQVZPN0Y2cVJlQ2lseVplU0xHVzhaRnNNX0dnMGRwSHNwaFhIUmlEUzhSQW9jNUZoOEVSdHpzR2p3Q2hFaXMxcHBNQWJpNTBZSjZ3eDVTckRrQlBtVktpcnVVQ1UtTEJuNWNR?oc=5",
-   "ms": 1795802457000,
-   "time": "11/28 02:00"
   }
  ]
 }
