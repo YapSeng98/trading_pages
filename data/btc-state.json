@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-28 19:53 SGT",
+ "updated": "2026-11-28 20:46 SGT",
  "source": "币安 BTC/USDT",
  "marketOpen": true,
- "price": 59167.3,
- "priceTime": "2026-11-28 19:45 SGT",
+ "price": 59227.4,
+ "priceTime": "2026-11-28 20:45 SGT",
  "priceNote": "最近一根已收盘 15 分钟 K 线的收盘价",
  "today": {
   "open": 59923.1,
   "high": 60266,
   "low": 59048,
-  "changeFromPrevClose": -755.8,
-  "changePct": -1.26,
+  "changeFromPrevClose": -695.7,
+  "changePct": -1.16,
   "note": "按 UTC 换日（新加坡时间早上 8 点）"
  },
  "previousDay": {
@@ -76,7 +76,7 @@
  "plan": null,
  "watch": [
   {
-   "price": 57300.4,
+   "price": 58792.4,
    "text": "4 小时收盘跌破这里，就三周期同向向下"
   }
  ],
@@ -107,18 +107,18 @@
    "name": "4 小时",
    "trend": "向上",
    "since": "2026-11-27 16:00 SGT",
-   "rsi": 44.1,
-   "atr": 1073.97,
+   "rsi": 39.5,
+   "atr": 1055.39,
    "turnsUpAbove": 62248.9,
-   "turnsDownBelow": 57300.4
+   "turnsDownBelow": 58792.4
   },
   {
    "tf": "1H",
    "name": "1 小时",
    "trend": "向下",
    "since": "2026-11-27 23:00 SGT",
-   "rsi": 32.2,
-   "atr": 394.39,
+   "rsi": 32,
+   "atr": 381.44,
    "turnsUpAbove": 60266,
    "turnsDownBelow": 58792.4
   },
@@ -127,18 +127,13 @@
    "name": "15 分钟",
    "trend": "向下",
    "since": "2026-11-28 13:15 SGT",
-   "rsi": 24.6,
-   "atr": 155.77,
+   "rsi": 32.8,
+   "atr": 148.56,
    "turnsUpAbove": 59919.8,
-   "turnsDownBelow": null
+   "turnsDownBelow": 59048
   }
  ],
  "resistance": [
-  {
-   "price": 59188.3,
-   "what": "1小时近期小低点",
-   "strength": 1
-  },
   {
    "price": 60266,
    "what": "1小时前高、1小时近期小高点",
@@ -158,21 +153,26 @@
    "price": 61622.4,
    "what": "4小时向上转折位",
    "strength": 1
+  },
+  {
+   "price": 62248.9,
+   "what": "昨日高点、4小时前高、4小时区间顶、1小时区间顶、4小时近期小高点",
+   "strength": 9
   }
  ],
  "support": [
   {
+   "price": 59188.3,
+   "what": "1小时近期小低点",
+   "strength": 1
+  },
+  {
    "price": 58792.4,
-   "what": "昨日低点、4小时区间底、1小时前低、1小时区间底、4小时近期小低点",
-   "strength": 8
+   "what": "昨日低点、4小时前低、4小时区间底、1小时前低、1小时区间底、4小时近期小低点",
+   "strength": 10
   },
   {
-   "price": 57300.4,
-   "what": "4小时前低",
-   "strength": 2
-  },
-  {
-   "price": 56894.4,
+   "price": 56794.5,
    "what": "1小时头肩顶关键位",
    "strength": 2
   },
@@ -182,7 +182,7 @@
    "strength": 13
   },
   {
-   "price": 54137.1,
+   "price": 54037.2,
    "what": "1小时头肩顶目标",
    "strength": 1
   }

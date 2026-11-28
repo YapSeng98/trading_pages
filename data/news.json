@@ -1,11 +1,25 @@
 {
- "updated": "2026-11-28 20:19 SGT",
+ "updated": "2026-11-28 20:46 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "BCA Research Identifies US Dollar Reversal as Key Condition for Renewed Gold Investment",
+   "src": "Yahoo Finance UK",
+   "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNNXJoaFBTZEx6TEJVVWgyNjgwQTd5S3VyS0gzX2s0RzlSU2lCSEVibllGNjFpSHpsd1Y2N0QydGdtM29paHJ5Y0N1YXVDZG9rVFc0QTNyaTlyVmtBeEk4cTYtMl9FbjBjdE5LMTJYQzhfNnZqSnpqZmRnaTM4UEtZV1ZkZjZXZjdJSnc?oc=5",
+   "ms": 1795866000000,
+   "time": "11/28 19:40"
+  },
+  {
+   "t": "BCA Research Awaits Sustained US Dollar Peak Before Returning to Gold",
+   "src": "Yahoo Finance",
+   "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZDF6OTVQaUk2NUpDZWJlZjlpNEtiRmZNSG1ibFAwanVZcHJqZ1owSzkxOGJPdURHTlVnWFNnSEJES0pOM0MtX2lPaUlyQ1E3X0t2Z2JaUzBWM3pWRUhHeEtFYllXNDJZamFGUWZ4RTNFU0xuaWdLaFdvN1JFcVpnT3h1STRaUlprNUN3dVZrN2c3NmF6V0lNWUduSVc1YmVIM0Z6ag?oc=5",
+   "ms": 1795865940000,
+   "time": "11/28 19:39"
+  },
   {
    "t": "RBI Steps Up Gold Loan Scrutiny as Bullion Rout Signals Strain",
    "src": "Bloomberg.com",
@@ -96,20 +110,6 @@
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWnphdzlwNWhjdXZMM1JJZ1ctMFN6ZFdiM2lOSW4tRnFBdEcwendvWTB5ODBCN3B1NXF4aWpmSGJJSEJ1MXlzZFV0bGd0YjJpdE5wRlJyQVZPN0Y2cVJlQ2lseVplU0xHVzhaRnNNX0dnMGRwSHNwaFhIUmlEUzhSQW9jNUZoOEVSdHpzR2p3Q2hFaXMxcHBNQWJpNTBZSjZ3eDVTckRrQlBtVktpcnVVQ1UtTEJuNWNR?oc=5",
    "ms": 1795802457000,
    "time": "11/28 02:00"
-  },
-  {
-   "t": "Gold and Palladium: The Comeback Meets Its First Test",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-palladium-the-comeback-meets-its-first-test-200692460",
-   "ms": 1795802340000,
-   "time": "11/28 01:59"
-  },
-  {
-   "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
-   "ms": 1795801200000,
-   "time": "11/28 01:40"
   }
  ]
 }
