@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 15:23 SGT",
+ "updated": "2026-11-28 15:50 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "RBI Steps Up Gold Loan Scrutiny as Bullion Rout Signals Strain",
+   "src": "Bloomberg.com",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYjhmSUs2VlExTUlfWUZQWW9iaW1RZGxBbWgzOTE0NjhYc0k2ZUZjdm1US2d0Z1BZNmR6cDVpUnZqQU5kTVFPbk1LdzQ2SEhxZE5PMWhJUGZxS1Q1TVVZMS1ybndvOExyTlZNdVJ0aHhnOGFSb1NmX1luaG93dy1SVXdEUl9CZmRHQnVPR3FRZlRCSjM1dFptNER4dTVtb1ZTLWtQd0VlY2ZoX2xWaFFGUmIzTQ?oc=5",
+   "ms": 1795847940000,
+   "time": "11/28 14:39"
+  },
   {
    "t": "The Fed is fighting the wrong inflation battle",
    "src": "Kitco",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
    "ms": 1795801200000,
    "time": "11/28 01:40"
-  },
-  {
-   "t": "Gold Rebounds for the Week, but Fed Rate Hike Fears Keep Bears in Control",
-   "src": "Investing.com Nigeria",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa3hhTl9sWmV4WVJObXZTSkhHcnh6Y1JxeGkwTjlXSHNwZWJZV0R1LWJnOHk4WGNVQWFGR09VRFptLVNEUV93d3NYakVfZk9NQW5QR3N4OU5idlVCLTR1WWJsa2c1SlJmVWVsaGktZWVOUUthZUxOZzRVdWVxMG5HVldpVDlmTThSUUpQb1V4WG1JRmdOaUl2WFh4NWk5YW0zUnVvSFJMM25CTlBkdXVSNGRicw?oc=5",
-   "ms": 1795800652000,
-   "time": "11/28 01:30"
   }
  ]
 }
