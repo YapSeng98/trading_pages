@@ -1,11 +1,18 @@
 {
- "updated": "2026-11-28 10:14 SGT",
+ "updated": "2026-11-28 10:27 SGT",
  "sources": [
   "Google News",
   "Investing.com",
   "mining.com"
  ],
  "items": [
+  {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1795826937000,
+   "time": "11/28 08:48"
+  },
   {
    "t": "The Fed is fighting the wrong inflation battle",
    "src": "Kitco",
@@ -35,11 +42,25 @@
    "time": "11/28 06:05"
   },
   {
+   "t": "Precious Metals Prices Canada | Gold, Silver, Platinum, Palladium, Rhodium in CAD",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBqalFQMEJZcTRGQUUtck45dzl5MEtzYmFhZURNVVU1NnFwcXZuNG9MQnhoenNBc28yV2RHU18wM3BuT3RpRnJPQ0FKbkNzMmlLbWxUUmduQjdPUFpGSkt3?oc=5",
+   "ms": 1795812545000,
+   "time": "11/28 04:49"
+  },
+  {
    "t": "Gold could ride the double tailwind of equities and seasonals higher into the new year – investingLive’s Button",
    "src": "Kitco",
    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQUS1NNmNtb2RVVC1qSUh6RTNDOE1ES1lrVC1ibnZuUTJSRnMtLW1JblBfZkVNOGh2bUM3UHl1YTd6SnIwOVNCc0tPTDhFZmFOQU80U3AzWEU1U25DV1dyQVYzWHdYRERQRnF5S2kwTGRmcmg1Q2dGeHJ2dHVHdHFDaHZWcFBWRVM5bkdQQl8wdHduTGlTMk1JNFRuNUtPVkhMTDRCZ013djJnR3laR1F2VkdJbUp3WkE?oc=5",
    "ms": 1795812437000,
    "time": "11/28 04:47"
+  },
+  {
+   "t": "Gold and palladium: The comeback meets its first test",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNEZ5dkZUUV96TE53TVB5SlktM3V3OWlqUEJ5QlIxbDUtX3RiNFZzTWpEZ0V3ZkluVGVvODRFTHU0UGF2NFVrUGZzdUdZRlJzU3lhY1FIN0d5X0pLVjlrMkVkMWNhaTRzakl5U1NWbmlWVzRLU09zaHF0bnlxOGhOY2pNcVhwY1Fwc2xTdTZUZUtlVkU?oc=5",
+   "ms": 1795812274000,
+   "time": "11/28 04:44"
   },
   {
    "t": "Gold Remains Under Pressure as the Weekly Close Fails to Reclaim $3,618",
@@ -56,6 +77,13 @@
    "time": "11/28 03:38"
   },
   {
+   "t": "Gold Spot Prices | Silver Prices | Platinum & Palladium",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1UZW9OY3B0aUpxd0RPZEJjSHhJXzZzd1lZSTZyOHgtMU96OU1fVlpCcENYQ0R4Ylp3OTc5YzdtMzZsdVVJOWNHOEYzVEdZbkdrTHp5VGRR?oc=5",
+   "ms": 1795807670000,
+   "time": "11/28 03:27"
+  },
+  {
    "t": "Gold Steadies as Fed Rate Path and AI Stocks Frame Volatile Week",
    "src": "Bloomberg.com",
    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdjBId0RKMFpkWFQ3R3VMeVV3T0VOMEI5dzRuWWZaMGNLVFBtRXZoWjJlWHhsdXVqdGNYT2NNc3ctSU9zdXpCR3ZaSXFENDhwQ1BQa1RqV01palJ3LWcxOWFnRXZFRm40NGRTaU9XYU9yOGF2WXAtV0lxOEdDcWZmSUxfYlZfZENjV3JUX0k5YmstSkk3V1ZWVWpkR1VjdDNzdkF6ZGxSNXpOZ1AxZmlGNThJTE0zUQ?oc=5",
@@ -70,46 +98,18 @@
    "time": "11/28 02:56"
   },
   {
+   "t": "Kazakh banks raise $1.5 billion to fund private takeover of gold miner Altynalmas",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQnEycGdycVJGZklUSmlQTTRfUEtkWE10d21kTnlkbnB2blJXclZuWU5scTAzQkIwaTloMld2Mzh6QjlCajVxMXdBRGh6TlNTSDJBS1VDSnkyN0dIZDVyd1o1NEZpemVxRUtKZ3Z2azNicmw4dXMtY2U5SFRHWFNkR3NobVM2QkxueU1CNGt6d2VJdEhGQnRKS3pGc0lmOVVZSk55V1c0RWo1M0ltOXhFVTMyTQ?oc=5",
+   "ms": 1795804387000,
+   "time": "11/28 02:33"
+  },
+  {
    "t": "Gold defies surging US Dollar and Treasury yields as bulls target $3,700",
    "src": "FXStreet",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNTTA5LTNDRTlvTmJpZHZHb3FIMjlGUlpyM0xoWjlZNWREb3lCZ2ZpOVRHUjRVeThzcFRYRVpHalFIV3NUTG91ekFweXVkblA2MUJKUThadVgxSkczRWo2OW5tSWd0Mld1YVFOdHBZUTZ2Z3k3Y0V1d1B2Z3Y3VFduQnhmN0p3OGdhQUotWUFtdjFjeXNDMEtxc3AzZVYxeTMweHM0SUdiT1B4cDE5cG5YYVBLUVk?oc=5",
    "ms": 1795803567000,
    "time": "11/28 02:19"
-  },
-  {
-   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
-   "ms": 1795803477000,
-   "time": "11/28 02:17"
-  },
-  {
-   "t": "Gold and Palladium: The Comeback Meets Its First Test",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/gold-and-palladium-the-comeback-meets-its-first-test-200692460",
-   "ms": 1795802340000,
-   "time": "11/28 01:59"
-  },
-  {
-   "t": "Gold’s 15% Slide Raises Rebound Hopes After Waller’s Rate Hike Warnings",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/golds-15-slide-raises-rebound-hopes-after-wallers-rate-hike-warnings-200692459",
-   "ms": 1795801200000,
-   "time": "11/28 01:40"
-  },
-  {
-   "t": "Gold and Silver rally even as a December Fed hike is all but certain",
-   "src": "FXStreet",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUVcydWlkbWhuTkJ6Yzc4ODZtY3F2dlBEUEVsRDhpb1NpanRzaUJYdFk5ZmpnMS1TZXVPR3otWnJYbnVnQ2FiN01CdDNZYUUtS3pKZTJHV1dvaVJia3k0MFktZG5HYjkybjB1aTZMcEctWHd0TzZUeVlFeXRVVjlFUDhFTk9IMDNyOWhfTmZqT1hpdjl4SVdJNVUzeDFUVGJlcmZhRXVnNWhTSkdEbkJHT0lqRDJaUQ?oc=5",
-   "ms": 1795799437000,
-   "time": "11/28 01:10"
-  },
-  {
-   "t": "Silver Rebound Gains Momentum as Gold Correlation and Risk Appetite Rise",
-   "src": "Investing.com",
-   "url": "https://www.investing.com/analysis/silver-rebound-gains-momentum-as-gold-correlation-and-risk-appetite-rise-200692444",
-   "ms": 1795798200000,
-   "time": "11/28 00:50"
   }
  ]
 }
