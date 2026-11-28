@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28 09:07 SGT",
+ "updated": "2026-11-28 09:20 SGT",
  "sources": [
   "Google News",
   "Investing.com",
@@ -70,6 +70,13 @@
    "time": "11/28 02:19"
   },
   {
+   "t": "Gold Price Today | Price of Gold Per Ounce | 24 Hour Spot Chart",
+   "src": "Kitco",
+   "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBnU2dTNUduLWh4WmxVQy1ndS1jN01abVlCeTNTMnFMbFdmS1d6TnFCekxTZVlXNGtKdnNRN3plT00yZm5LQmh6Rg?oc=5",
+   "ms": 1795803477000,
+   "time": "11/28 02:17"
+  },
+  {
    "t": "Gold and Palladium: The Comeback Meets Its First Test",
    "src": "Investing.com",
    "url": "https://www.investing.com/analysis/gold-and-palladium-the-comeback-meets-its-first-test-200692460",
@@ -103,13 +110,6 @@
    "url": "https://www.investing.com/analysis/the-energy-report-hormuz-risks-and-saudi-attacks-revive-oil-bulls-200692454",
    "ms": 1795797120000,
    "time": "11/28 00:32"
-  },
-  {
-   "t": "Gold will reach $4,600/oz by Q4 2027 as rates fall, USD gives back 10% overvaluation – J.P. Morgan’s Tang",
-   "src": "Kitco",
-   "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOVEtiN2lYeXFnN29IbVhUQU9ZV0hBWk9ZcWFxTmxucEllczlFYWp3RGlQZ0VwbXFtWklNWGZfc3BFX0djdGFCc2xVWkxOQ21CdGphc09idHpMX0szZ2tjWGoxTzBZTThFMzdyOXFrUFVxTzhfSUZsVkZsX3Y0U0szQk1aZm1qMXVaaU8xc01ZVGJKVW5GNC1FeldJYVplR3Z3RFlwLWdyenplYU1VdjZUT3NycHNIUm9wOWpz?oc=5",
-   "ms": 1795793439000,
-   "time": "11/27 23:30"
   }
  ]
 }
